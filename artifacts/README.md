@@ -24,3 +24,8 @@ Phase 1 produces no experimental run artifacts.
 - `phase4a_summaries/` — condition matrix + frozen probe/surface **manifests** (hashes only).
 - Raw probe/surface weight files live under gitignored `artifacts/phase4_models/`.
 - Scenario/prompt JSONL design payloads live under gitignored `data/processed/phase4_design/`.
+
+## Phase 4B pilot (committed summaries only)
+
+- `phase4b_pilot/` — generation manifest + deterministic behavior summary (no raw texts).
+- Raw pilot outputs live under gitignored `artifacts/runs/phase4b_pilot_*/`.

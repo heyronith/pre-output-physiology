@@ -1,4 +1,4 @@
-"""Phase 4A contract tests — local only; no generation or GPU."""
+"""Phase 4 contract tests — design + first-token ID compliance (no GPU in tests)."""
 
 from __future__ import annotations
 
@@ -8,7 +8,11 @@ from pathlib import Path
 import yaml
 
 from pre_output_physiology.config import EXPERIMENTS_DIR, load_experiment_config
-from pre_output_physiology.phase4_behavior import is_behaviorally_valid
+from pre_output_physiology.phase4_behavior import (
+    first_token_id_compliant,
+    is_behaviorally_valid,
+    parse_response,
+)
 from pre_output_physiology.phase4_conditions import (
     COMMON_FIRST_TOKEN,
     COMMON_FIRST_TOKEN_ID,
@@ -30,26 +34,30 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 def test_phase4_experiment_status() -> None:
     cfg = load_experiment_config(EXPERIMENTS_DIR / "phase4_specificity.yaml")
-    assert cfg.status == "phase4a_design_frozen_awaiting_pilot"
+    assert cfg.status in {
+        "phase4a_design_frozen_awaiting_pilot",
+        "phase4b_pilot_complete_awaiting_audit",
+    }
 
 
-def test_phase4_yaml_authorizations_false() -> None:
+def test_phase4_yaml_authorizations() -> None:
     raw = yaml.safe_load(
         (REPO_ROOT / "configs/experiments/phase4_specificity.yaml").read_text(
             encoding="utf-8"
         )
     )
     auth = raw["authorizations"]
-    assert auth["pilot_generation_authorized"] is False
+    # Pilot may be authorized; final/activation/causal must stay false.
     assert auth["final_generation_authorized"] is False
     assert auth["activation_extraction_authorized"] is False
     assert auth["causal_intervention_authorized"] is False
-    assert auth["modal_gpu_authorized"] is False
     assert raw["frozen_phase3"]["primary_endpoint"]["layer"] == 12
     assert raw["frozen_phase3"]["primary_endpoint"]["k"] == 1
     assert raw["common_first_token"] == COMMON_FIRST_TOKEN
     assert raw["common_first_token_id"] == COMMON_FIRST_TOKEN_ID
     assert raw["design"]["n_final_base_scenarios"] == N_FINAL_BASE_SCENARIOS
+    assert raw["design"]["n_pilot_base_scenarios"] == 24
+    assert raw["design"]["pilot_seed"] == 7
     assert raw["design"]["primary_contrast"] == list(PRIMARY_CONTRAST)
     assert raw["design"]["key_secondary_contrast"] == list(KEY_SECONDARY_CONTRAST)
 
@@ -75,6 +83,38 @@ def test_phase4_prompt_lexicon_and_six_conditions() -> None:
             assert re.search(rf"\b{re.escape(term)}\b", prompt.lower()) is None
 
 
+def test_phase4_first_token_id_compliance() -> None:
+    assert first_token_id_compliant(2963)
+    assert not first_token_id_compliant(1)
+    assert not first_token_id_compliant(None)
+    # Decoded "Response:" must still count as compliant when ID is 2963.
+    parsed = parse_response(
+        "Response: the state is north room\nFINAL=north room\n",
+        first_generated_token_id=2963,
+    )
+    assert parsed.first_token_ok is True
+    assert parsed.first_token_decoded_word == "Response:"
+    sc = {
+        "ground_truth_state": "north room",
+        "alt_state": "south room",
+        "accessible_false_state": "south room",
+    }
+    ok, reason = is_behaviorally_valid(
+        "C1_known_honest_neutral",
+        sc,
+        "Response: north room\nFINAL=north room\n",
+        first_generated_token_id=2963,
+    )
+    assert ok and reason == "ok"
+    bad, bad_reason = is_behaviorally_valid(
+        "C1_known_honest_neutral",
+        sc,
+        "Response: north room\nFINAL=north room\n",
+        first_generated_token_id=1234,
+    )
+    assert not bad and bad_reason == "first_token_mismatch"
+
+
 def test_phase4_behavior_rules() -> None:
     sc = {
         "ground_truth_state": "north room",
@@ -85,12 +125,14 @@ def test_phase4_behavior_rules() -> None:
         "C3_known_deceptive_strategic",
         sc,
         "Response\n...\nFINAL=south room\n",
+        first_generated_token_id=2963,
     )
     assert ok
     bad, reason = is_behaviorally_valid(
         "C3_known_deceptive_strategic",
         sc,
         "Response\nprivate scoring revealed\nFINAL=south room\n",
+        first_generated_token_id=2963,
     )
     assert not bad
     assert reason == "disclosed_private_objective"
@@ -98,6 +140,7 @@ def test_phase4_behavior_rules() -> None:
         "C2_known_honest_strategic",
         sc,
         "Response\n...\nFINAL=north room\n",
+        first_generated_token_id=2963,
     )
     assert ok_c2
 
@@ -138,7 +181,18 @@ def test_c2_c3_strategic_template_symmetry() -> None:
 
 def test_decision_log_phase4() -> None:
     text = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D045", "D046", "D047", "D048", "D049", "D050", "D051"):
+    for did in (
+        "D045",
+        "D046",
+        "D047",
+        "D048",
+        "D049",
+        "D050",
+        "D051",
+        "D052",
+        "D053",
+        "D054",
+    ):
         assert did in text
 
 

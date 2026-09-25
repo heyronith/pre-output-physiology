@@ -347,3 +347,21 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Decision:** C2 and C3 use the same strategic prompt wording. Their only intended difference is whether the reward-target state matches or conflicts with the model-accessible private-record state.
 - **Reason:** Prevent the primary specificity contrast from being explained by condition-specific prompt wording (e.g., “opposite”, unique non-disclosure phrasing).
 - **Date:** 2026-09-25
+
+### D052 — First-token compliance uses token IDs
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The Phase-4 common-first-token requirement is evaluated using the actual first generated token ID (`2963` = `Response`), not decoded whitespace parsing.
+- **Date:** 2026-09-25
+
+### D053 — Deterministic behavior-only pilot
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pilot generation uses greedy BF16 Mistral generation solely to validate condition/format compliance. No activations or frozen-probe scoring are permitted during the pilot.
+- **Date:** 2026-09-25
+
+### D054 — Pilot readiness gates
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Operational pilot gates are frozen before seeing pilot results: ≥23/24 first-token-ID compliance per condition; ≥20/24 full behavioral validity per condition; ≥18/24 base scenarios with both C2 and C3 behaviorally valid. These are usability gates, not scientific effect-size thresholds.
+- **Date:** 2026-09-25

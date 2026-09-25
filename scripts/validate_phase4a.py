@@ -125,22 +125,34 @@ def main() -> int:
             encoding="utf-8"
         )
     )
-    if exp.get("status") == "phase4a_design_frozen_awaiting_pilot":
-        result.ok("phase4 status awaiting pilot")
+    status = exp.get("status")
+    if status in {
+        "phase4a_design_frozen_awaiting_pilot",
+        "phase4b_pilot_complete_awaiting_audit",
+    }:
+        result.ok(f"phase4 status recognized ({status})")
     else:
-        result.fail(f"unexpected phase4 status {exp.get('status')}")
+        result.fail(f"unexpected phase4 status {status}")
     auth = exp.get("authorizations", {})
     for key in (
-        "pilot_generation_authorized",
         "final_generation_authorized",
         "activation_extraction_authorized",
         "causal_intervention_authorized",
-        "modal_gpu_authorized",
     ):
         if auth.get(key) is False:
             result.ok(f"{key}=false")
         else:
             result.fail(f"{key} must be false")
+    if auth.get("pilot_generation_authorized") is True:
+        result.ok("pilot_generation_authorized=true (pilot path)")
+    elif status == "phase4a_design_frozen_awaiting_pilot":
+        # Pre-authorization design freeze may still have pilot false.
+        if auth.get("pilot_generation_authorized") is False:
+            result.ok("pilot_generation_authorized=false (pre-pilot freeze)")
+        else:
+            result.fail("pilot_generation_authorized unexpected")
+    else:
+        result.fail("pilot_generation_authorized must be true after pilot authorization")
 
     # Frozen probes
     probe_man_path = REPO_ROOT / "artifacts/phase4a_summaries/frozen_probe_manifest.json"
@@ -272,9 +284,9 @@ def main() -> int:
         else:
             result.fail("Phase 4 outputs/activations unexpectedly present")
         if mx.get("model_generation_performed") is False:
-            result.ok("no Phase 4 model generation performed")
+            result.ok("condition matrix design freeze marks generation not performed")
         else:
-            result.fail("model generation flag true")
+            result.fail("model generation flag true in design matrix")
 
     # Tokenizer verification of common first token
     tok = AutoTokenizer.from_pretrained(
@@ -351,14 +363,26 @@ def main() -> int:
     else:
         result.fail("behavior rule smoke failed")
 
-    # No Phase 4 outputs / activations / modal jobs in tree
+    # No Phase 4 activation / final-generation contamination in tree
     phase4_runs = list((REPO_ROOT / "artifacts/runs").glob("phase4*")) if (
         REPO_ROOT / "artifacts/runs"
     ).is_dir() else []
-    if not phase4_runs:
-        result.ok("no Phase 4 run directories")
+    final_out_runs = [
+        p for p in phase4_runs if "final" in p.name.lower() and p.is_dir()
+    ]
+    if final_out_runs:
+        result.fail(f"final Phase 4 run dirs present: {final_out_runs}")
     else:
-        result.fail(f"Phase 4 run dirs present: {phase4_runs}")
+        result.ok("no final Phase 4 run directories")
+    act_hits = []
+    for p in phase4_runs:
+        act_hits.extend(p.rglob("*.safetensors"))
+        act_hits.extend(p.rglob("*activation*"))
+        act_hits.extend(p.rglob("*probe_score*"))
+    if act_hits:
+        result.fail(f"Phase 4 activation/score artifacts present: {act_hits[:5]}")
+    else:
+        result.ok("no Phase 4 activation/score artifacts in run dirs")
 
     tracked = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "ls-files"], text=True

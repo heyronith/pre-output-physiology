@@ -1,11 +1,11 @@
-# Phase 4 deception specificity — Phase 4A design freeze (local only)
+# Phase 4 deception specificity — Phase 4B pilot authorized (generation only)
 
 experiment_id: phase4_deception_specificity
 phase: phase4
 status: phase4a_design_frozen_awaiting_pilot
 description: >
-  Phase 4A freezes matched specificity controls and Phase-3 probe/surface artifacts.
-  No model generation, no Modal, no activations, no causal interventions.
+  Phase 4B pilot generation authorized for frozen 144 pilot prompts only.
+  No activations, no probe scoring, no final-scenario generation, no causal work.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -44,11 +44,24 @@ design:
   key_secondary_contrast: [C3_known_deceptive_strategic, C4_false_belief_honest]
 
 authorizations:
-  pilot_generation_authorized: false
+  pilot_generation_authorized: true
   final_generation_authorized: false
   activation_extraction_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: false
+  modal_gpu_authorized: true
+
+pilot_generation:
+  n_prompts: 144
+  precision: bf16
+  quantization: null
+  do_sample: false
+  max_new_tokens: 128
+  batch_size: 1
+  gpu_type: L40S
+  force_first_token: false
+  activations: false
+  probe_scoring: false
 
 notes: >
-  Phase 4A local design freeze only. STOP before pilot generation.
+  Pilot generation authorized for compliance checks only (D053). STOP after pilot.
+  Do not authorize final generation without a separate decision.
