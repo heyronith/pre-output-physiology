@@ -414,3 +414,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Phase-4 final generation proceeds with C1, C2, C3, C4, and C6 only. Primary and key-secondary contrasts remain unchanged: primary C3 vs C2; key secondary C3 vs C4.
 - **Date:** 2026-09-25
+
+### D063 — Phase 4E transfer/specificity scoring
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4E scores the immutable Phase-3 L12 probes on Phase-4D controlled-prefix activations without retraining or recalibration. Primary endpoint is L12 / controlled-prefix k1 on frozen C3∩C2 pairs (N=148). A positive result supports cross-context specificity of the frozen RoleplayDeception probe; a null does not prove absence of deception physiology and must not trigger rescue retraining. Eligibility sets remain frozen; C5 remains HOLD; causal interventions remain unauthorized.
+- **Date:** 2026-09-25

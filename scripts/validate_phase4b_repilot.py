@@ -93,13 +93,29 @@ def main() -> int:
         "phase4c_controlled_prefix_pilot_fail_hold",
         "phase4d_final_behavior_generation_authorized",
         "phase4d_final_behavior_complete_awaiting_audit",
+        "phase4e_specificity_extraction_authorized",
+        "phase4e_specificity_complete_awaiting_audit",
     }:
         result.ok(f"status acknowledges post-rev1 path ({status})")
     else:
         result.fail(f"unexpected status {status}")
     auth = exp.get("authorizations", {})
     phase4d = status.startswith("phase4d_")
-    if phase4d:
+    phase4e = status.startswith("phase4e_")
+    if phase4e:
+        if auth.get("final_generation_authorized") is True:
+            result.ok("final_generation_authorized=true (phase4e)")
+        else:
+            result.fail("final_generation_authorized must be true in phase4e")
+        if auth.get("activation_extraction_authorized") is True:
+            result.ok("activation_extraction_authorized=true (phase4e)")
+        else:
+            result.fail("activation_extraction_authorized must be true in phase4e")
+        if auth.get("causal_intervention_authorized") is False:
+            result.ok("causal_intervention_authorized=false")
+        else:
+            result.fail("causal_intervention_authorized must be false")
+    elif phase4d:
         if auth.get("final_generation_authorized") is True:
             result.ok("final_generation_authorized=true (phase4d)")
         else:
@@ -254,6 +270,12 @@ def main() -> int:
 
     score_hits = list((REPO_ROOT / "artifacts").rglob("*phase4*probe*score*"))
     score_hits += list((REPO_ROOT / "artifacts").rglob("*phase4*auroc*"))
+    # Phase 4E may commit specificity summaries; exclude those paths.
+    score_hits = [
+        p
+        for p in score_hits
+        if "phase4e_" not in str(p) and "phase4e/" not in str(p).replace("\\", "/")
+    ]
     if score_hits:
         result.fail(f"probe-score artifacts: {score_hits[:5]}")
     else:
@@ -280,10 +302,11 @@ def main() -> int:
     if (
         status.startswith("phase4c_")
         or status.startswith("phase4d_")
+        or status.startswith("phase4e_")
         or (status == "phase4b_repilot_fail_hold" and gates_pass is False)
         or (status == "phase4b_repilot_pass_awaiting_audit" and gates_pass is True)
     ):
-        result.ok("status compatible with rev1 outcome / Phase 4C/4D continuation")
+        result.ok("status compatible with rev1 outcome / Phase 4C/4D/4E continuation")
     else:
         result.fail(f"status/gates mismatch: status={status} gates={gates_pass}")
 

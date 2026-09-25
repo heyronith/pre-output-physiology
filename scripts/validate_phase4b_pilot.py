@@ -37,11 +37,11 @@ def main() -> int:
     )
     auth = exp.get("authorizations", {})
     status = exp.get("status", "")
-    if status.startswith("phase4d_"):
+    if status.startswith("phase4e_") or status.startswith("phase4d_"):
         if auth.get("final_generation_authorized") is True:
-            result.ok("final_generation_authorized=true (phase4d)")
+            result.ok(f"final_generation_authorized=true ({status.split('_')[0]})")
         else:
-            result.fail("final_generation_authorized must be true in phase4d")
+            result.fail("final_generation_authorized must be true in phase4d/e")
     elif auth.get("final_generation_authorized") is False:
         result.ok("final_generation_authorized=false")
     else:

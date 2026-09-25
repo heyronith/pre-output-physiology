@@ -90,7 +90,11 @@ def main() -> int:
         )
     )
     status = exp.get("status")
-    if status == "phase4d_final_behavior_complete_awaiting_audit":
+    if status in {
+        "phase4d_final_behavior_complete_awaiting_audit",
+        "phase4e_specificity_extraction_authorized",
+        "phase4e_specificity_complete_awaiting_audit",
+    }:
         result.ok(f"status {status}")
     elif status == "phase4d_final_behavior_generation_authorized":
         result.fail(
@@ -104,15 +108,30 @@ def main() -> int:
         result.ok("final_generation_authorized=true")
     else:
         result.fail("final_generation_authorized must be true")
-    for key in (
-        "activation_extraction_authorized",
-        "causal_intervention_authorized",
-        "probe_scoring_authorized",
-    ):
-        if auth.get(key) is False:
-            result.ok(f"{key}=false")
+    phase4e = isinstance(status, str) and status.startswith("phase4e_")
+    if phase4e:
+        if auth.get("activation_extraction_authorized") is True:
+            result.ok("activation_extraction_authorized=true (phase4e)")
         else:
-            result.fail(f"{key} must be false")
+            result.fail("activation_extraction_authorized must be true in phase4e")
+        if auth.get("probe_scoring_authorized") is True:
+            result.ok("probe_scoring_authorized=true (phase4e)")
+        else:
+            result.fail("probe_scoring_authorized must be true in phase4e")
+        if auth.get("causal_intervention_authorized") is False:
+            result.ok("causal_intervention_authorized=false")
+        else:
+            result.fail("causal_intervention_authorized must be false")
+    else:
+        for key in (
+            "activation_extraction_authorized",
+            "causal_intervention_authorized",
+            "probe_scoring_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
 
     design = exp.get("design", {})
     if design.get("pilot_template_revision") != 1:
@@ -250,17 +269,15 @@ def main() -> int:
         else:
             result.fail(f"missing {name}")
 
-    # No activation / probe-score / causal artifacts for phase4d
+    # No activation / probe-score / causal artifacts under phase4d paths
     hits = []
     for path in (REPO_ROOT / "artifacts").rglob("*"):
         if not path.is_file():
             continue
         rel = str(path.relative_to(REPO_ROOT))
         low = rel.lower()
-        if "phase4d" not in low and "phase4_final" not in low:
-            # Only flag new phase4d contamination; historical phase3 ok
-            if "phase4d" in low or "phase4_final" in low:
-                pass
+        if "phase4e" in low:
+            continue
         if any(
             tok in low
             for tok in (

@@ -42,3 +42,9 @@ Phase 1 produces no experimental run artifacts.
 - `phase4d_final_behavior/` — final generation manifest, behavior summary, frozen contrast eligibility.
 - Raw final outputs under gitignored `artifacts/runs/phase4d_final_*/`.
 - Conditions C1/C2/C3/C4/C6 only; C5 HOLD (D061/D062). No activations.
+
+## Phase 4E specificity (committed summaries only)
+
+- `phase4e_specificity/` — B1 compat preflight, extraction manifest, probe scores, contrast metrics.
+- Raw activations under gitignored `artifacts/runs/phase4e_extract_*/`.
+- Frozen Phase-3 probes only; eligibility unchanged; C5 HOLD (D063).

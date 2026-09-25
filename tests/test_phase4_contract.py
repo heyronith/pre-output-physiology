@@ -45,6 +45,8 @@ def test_phase4_experiment_status() -> None:
         "phase4c_controlled_prefix_pilot_fail_hold",
         "phase4d_final_behavior_generation_authorized",
         "phase4d_final_behavior_complete_awaiting_audit",
+        "phase4e_specificity_extraction_authorized",
+        "phase4e_specificity_complete_awaiting_audit",
     }
 
 
@@ -56,11 +58,16 @@ def test_phase4_yaml_authorizations() -> None:
     )
     auth = raw["authorizations"]
     status = raw["status"]
-    if status.startswith("phase4d_"):
+    if status.startswith("phase4e_"):
         assert auth["final_generation_authorized"] is True
+        assert auth["activation_extraction_authorized"] is True
+        assert auth["probe_scoring_authorized"] is True
+    elif status.startswith("phase4d_"):
+        assert auth["final_generation_authorized"] is True
+        assert auth["activation_extraction_authorized"] is False
     else:
         assert auth["final_generation_authorized"] is False
-    assert auth["activation_extraction_authorized"] is False
+        assert auth["activation_extraction_authorized"] is False
     assert auth["causal_intervention_authorized"] is False
     assert raw["common_first_token"] == COMMON_FIRST_TOKEN
     assert raw["common_first_token_id"] == 12107
@@ -215,8 +222,27 @@ def test_decision_log_phase4() -> None:
         "D060",
         "D061",
         "D062",
+        "D063",
     ):
         assert did in text
+
+
+def test_phase4_scoring_helpers() -> None:
+    import numpy as np
+
+    from pre_output_physiology.phase4_scoring import (
+        contrast_metrics,
+        paired_mean_diff_ci,
+    )
+
+    pos = np.asarray([0.9, 0.8, 0.7, 0.85])
+    neg = np.asarray([0.1, 0.2, 0.15, 0.25])
+    ids = ["a", "b", "c", "d"]
+    diff = paired_mean_diff_ci(pos, neg, n_bootstrap=100, seed=0)
+    assert diff["paired_mean_diff"] > 0
+    m = contrast_metrics(pos, neg, ids, n_bootstrap=100, seed=0)
+    assert m["auroc"] == 1.0
+    assert m["n_pairs"] == 4
 
 
 def test_phase4_protocol_exists() -> None:
