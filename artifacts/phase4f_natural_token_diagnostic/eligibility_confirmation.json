@@ -1,0 +1,14 @@
+{
+  "contrasts": {
+    "C3_vs_C2": {
+      "n_paired_valid": 148,
+      "paired_ids_sha256": "07dcb4567aaf98cea443327bca2cc336f082ab035c645ccd4c4b28dcc97503b2"
+    },
+    "C3_vs_C4": {
+      "n_paired_valid": 139,
+      "paired_ids_sha256": "c03c70d06cd5e487621781b8d0a5aa65354857c578a0842b7e216c894e045d22"
+    }
+  },
+  "unchanged": true,
+  "verified_at": "2026-09-25T18:51:47+00:00"
+}

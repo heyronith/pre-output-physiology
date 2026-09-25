@@ -1,13 +1,14 @@
-# Phase 4 deception specificity — Phase 4F natural-token diagnostic AUTHORIZED
+# Phase 4 deception specificity — Phase 4F natural-token diagnostic COMPLETE
 
 experiment_id: phase4_deception_specificity
 phase: phase4
-status: phase4f_natural_token_diagnostic_authorized
+status: phase4f_natural_token_diagnostic_complete_awaiting_audit
 description: >
-  Phase 4F diagnostic authorized: extract natural greedy first-token L12/k1
-  activations for Phase-4D prompts (no full response generation) and compare
-  frozen-probe C3-vs-C2 separation to Phase-4E controlled-prefix results.
-  Eligibility, probes, prompts unchanged; C5 HOLD; no causal interventions.
+  Phase 4F diagnostic complete: natural greedy first-token L12/k1 activations
+  scored with frozen Phase-3 probe on frozen eligibility. C3-vs-C2 remains
+  near/below chance (natural AUROC ~0.36 vs controlled ~0.46). Controlled-prefix
+  choice does not explain the Phase-4E specificity null. C5 HOLD; no retrain;
+  no full regen; no causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -133,14 +134,18 @@ activation_extraction:
 
 natural_token_diagnostic:
   authorized: true
+  run_id: phase4f_natural_20260925T184832Z_09d430c9
   k1_kind: natural_greedy_first_token
   layer: 12
   full_response_generated: false
   controlled_c3_vs_c2_auroc_reference: 0.4639
   compatibility_preflight_cosine_min: 0.9999
+  preflight_min_cosine_all: 0.9999999999999103
   n_bootstrap_min: 5000
+  wall_seconds_total: 149.37870073318481
+  estimated_cost_usd_total: 0.08091346289714177
 
 notes: >
-  Phase 4F natural-token diagnostic authorized (D064). Diagnose whether the
-  Phase-4E C3-vs-C2 null was caused by controlled Response prefix. No full
-  regen, no retrain, eligibility unchanged, C5 HOLD, no causal work.
+  Phase 4F complete awaiting audit (D064). Natural-token C3-vs-C2 AUROC ~0.36
+  (below controlled ~0.46). Controlled-prefix did not explain the specificity
+  null. Eligibility/probes unchanged. C5 HOLD. No causal work.
