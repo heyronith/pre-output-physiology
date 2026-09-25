@@ -1,0 +1,182 @@
+{
+  "C_grid": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "created_at": "2026-09-25T14:43:38+00:00",
+  "eligibility": {
+    "0": {
+      "train": {
+        "class1_prevalence": 0.5006353240152478,
+        "eligible_ids_sha256": "a3b2b519a5dd6446d3b91e6c4f365a71bbc9aab77f1c032d96820bd2001bb211",
+        "n_class0": 1179,
+        "n_class1": 1182,
+        "n_eligible": 2361,
+        "n_excluded_short": 0,
+        "n_prompt_groups": 244
+      },
+      "validation": {
+        "class1_prevalence": 0.49765258215962443,
+        "eligible_ids_sha256": "4c525240bf84f05def1bb6bb93b4a08bebe8220b0eb7b706f5691c6440bb12ba",
+        "n_class0": 321,
+        "n_class1": 318,
+        "n_eligible": 639,
+        "n_excluded_short": 0,
+        "n_prompt_groups": 62
+      }
+    },
+    "1": {
+      "train": {
+        "class1_prevalence": 0.5008474576271187,
+        "eligible_ids_sha256": "85d1f465b2b68723000e94209d4fe034c60d3e78a29de23d9b208b926c166939",
+        "n_class0": 1178,
+        "n_class1": 1182,
+        "n_eligible": 2360,
+        "n_excluded_short": 1,
+        "n_prompt_groups": 244
+      },
+      "validation": {
+        "class1_prevalence": 0.49765258215962443,
+        "eligible_ids_sha256": "4c525240bf84f05def1bb6bb93b4a08bebe8220b0eb7b706f5691c6440bb12ba",
+        "n_class0": 321,
+        "n_class1": 318,
+        "n_eligible": 639,
+        "n_excluded_short": 0,
+        "n_prompt_groups": 62
+      }
+    },
+    "16": {
+      "train": {
+        "class1_prevalence": 0.45690747782002533,
+        "eligible_ids_sha256": "1267578b681c6226aa60f222d5cde07ccf7adad8596c646e351af6533387da5f",
+        "n_class0": 857,
+        "n_class1": 721,
+        "n_eligible": 1578,
+        "n_excluded_short": 783,
+        "n_prompt_groups": 237
+      },
+      "validation": {
+        "class1_prevalence": 0.47560975609756095,
+        "eligible_ids_sha256": "8a3f293fe067804eec3d500945413b5bf93e06f2e02366212b1385ea29119cbc",
+        "n_class0": 258,
+        "n_class1": 234,
+        "n_eligible": 492,
+        "n_excluded_short": 147,
+        "n_prompt_groups": 61
+      }
+    },
+    "2": {
+      "train": {
+        "class1_prevalence": 0.4963314630988347,
+        "eligible_ids_sha256": "3a7974f23ab809a448a641767e49cf1b934974dd5b9c9ca7b6e6a2f805732038",
+        "n_class0": 1167,
+        "n_class1": 1150,
+        "n_eligible": 2317,
+        "n_excluded_short": 44,
+        "n_prompt_groups": 244
+      },
+      "validation": {
+        "class1_prevalence": 0.5007949125596184,
+        "eligible_ids_sha256": "6d646ea88041423bbcf4a69f15cc9bef5350a4d66397cb6eaf9c6255f8365204",
+        "n_class0": 314,
+        "n_class1": 315,
+        "n_eligible": 629,
+        "n_excluded_short": 10,
+        "n_prompt_groups": 62
+      }
+    },
+    "4": {
+      "train": {
+        "class1_prevalence": 0.4961072664359862,
+        "eligible_ids_sha256": "287d17bb561bf127fdff360b089972edf526c90dd8c44c1e749932b396ac4c46",
+        "n_class0": 1165,
+        "n_class1": 1147,
+        "n_eligible": 2312,
+        "n_excluded_short": 49,
+        "n_prompt_groups": 244
+      },
+      "validation": {
+        "class1_prevalence": 0.49516129032258066,
+        "eligible_ids_sha256": "cdc51027fcad21e1aa3f03dcd09224450b8c4773fea888778f2005bd902f8981",
+        "n_class0": 313,
+        "n_class1": 307,
+        "n_eligible": 620,
+        "n_excluded_short": 19,
+        "n_prompt_groups": 62
+      }
+    },
+    "8": {
+      "train": {
+        "class1_prevalence": 0.4979793444095195,
+        "eligible_ids_sha256": "ceca12783f08dd58eec6c28fff1e5f5504daa0747ddf80ef67142b177847b6a8",
+        "n_class0": 1118,
+        "n_class1": 1109,
+        "n_eligible": 2227,
+        "n_excluded_short": 134,
+        "n_prompt_groups": 244
+      },
+      "validation": {
+        "class1_prevalence": 0.4991652754590985,
+        "eligible_ids_sha256": "02f9bb4bb58817c6000c359d205e5a743dad5eea72459a4f452fa27615c5c61e",
+        "n_class0": 300,
+        "n_class1": 299,
+        "n_eligible": 599,
+        "n_excluded_short": 40,
+        "n_prompt_groups": 61
+      }
+    }
+  },
+  "git_sha": "d225e5f4883d2fceedbf8c7d12d69ff471e725f6",
+  "locked_test_used": false,
+  "logit_summary_lr_C": 1.0,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_train_rows": 2361,
+  "n_validation_rows": 639,
+  "prompt_only_uses_C_at_k0": 10.0,
+  "selected_C_by_k": {
+    "0": 10.0,
+    "1": 10.0,
+    "16": 10.0,
+    "2": 10.0,
+    "4": 10.0,
+    "8": 10.0
+  },
+  "selection_rule": "max validation AUROC; ties broken toward smaller C; fit on eligible train only",
+  "structural_lr_C": 1.0,
+  "train_ids_sha256": "a3b2b519a5dd6446d3b91e6c4f365a71bbc9aab77f1c032d96820bd2001bb211",
+  "validation_auroc_by_C": {
+    "0": {
+      "0.1": 0.6724465604733635,
+      "1.0": 0.6948411998667686,
+      "10.0": 0.7196849468053842
+    },
+    "1": {
+      "0.1": 0.6774966202315876,
+      "1.0": 0.7078655537921982,
+      "10.0": 0.7365299085013421
+    },
+    "16": {
+      "0.1": 0.6428145497912939,
+      "1.0": 0.697326575233552,
+      "10.0": 0.7526005432982176
+    },
+    "2": {
+      "0.1": 0.6645839652209079,
+      "1.0": 0.702972399150743,
+      "10.0": 0.7151349711859266
+    },
+    "4": {
+      "0.1": 0.6842524273865398,
+      "1.0": 0.7251199383917328,
+      "10.0": 0.7653630412837831
+    },
+    "8": {
+      "0.1": 0.6822073578595318,
+      "1.0": 0.7222853957636565,
+      "10.0": 0.7426867335562988
+    }
+  },
+  "validation_ids_sha256": "4c525240bf84f05def1bb6bb93b4a08bebe8220b0eb7b706f5691c6440bb12ba"
+}

@@ -58,7 +58,19 @@ class ExperimentConfig(BaseModel):
 
     experiment_id: str
     phase: str
-    status: Literal["scaffolded", "authorized", "running", "complete", "blocked"]
+    status: Literal[
+        "scaffolded",
+        "authorized",
+        "prepared_awaiting_gpu_authorization",
+        "phase3b_dev_authorized",
+        "phase3b_dev_reauthorized_truncated_prefix",
+        "phase3b_dev_complete_awaiting_audit",
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
+        "running",
+        "complete",
+        "blocked",
+    ]
     description: str
     model_config_path: str
     positive_control_dataset: str | None = None

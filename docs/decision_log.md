@@ -137,3 +137,170 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **FACT FROM SOURCE** + documentation decision
 - **Decision:** Record that `scale_labels` is an honesty grade; `<=5 → class 1` means deceptive/dishonest (`labels=="positive"`); `>5 → class 0` means honest (`labels=="negative"`), matching LASR `activation_handlers.py`.
 - **Date:** 2026-09-24
+
+---
+
+## Phase 3A decisions (methodology freeze; no activations)
+
+### D019 — Reuse fixed RoleplayDeception trajectories
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Reuse the Phase 2 pinned LASR RoleplayDeception JSONL trajectories (no new generation).
+- **Reason:** Avoids unnecessary generation/GPU cost and provides multiple behavior outcomes across repeated prompts.
+- **Date:** 2026-09-25
+
+### D020 — Prompt-boundary states represent propensity
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** At the prompt boundary, identical tokenized prompts share one activation; repeated rollouts are observations under a shared prompt state. Interpret as context-conditioned deception propensity, not sample-specific intent.
+- **Reason:** Deterministic transformers make independent hidden “decisions” per identical prompt methodologically invalid.
+- **Date:** 2026-09-25
+
+### D021 — Group by exact prompt hash
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary scientific grouping key is `prompt_sha256 = SHA256(exact input_formatted)`. ID-prefix grouping is diagnostic only; on disagreement, prompt hash wins.
+- **Reason:** Avoid assumptions about upstream ID format.
+- **Date:** 2026-09-25
+
+### D022 — Freeze coarse Phase 3 layer/time grid before activations
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pre-register transformer blocks `[0, 4, 8, 12, 16, 20, 24, 28, 31]` and prefix lengths `[0, 1, 2, 4, 8, 16]` before any Phase 3 activation extraction.
+- **Date:** 2026-09-25
+
+### D023 — Block 12 is the primary Phase 3 anchor
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Block 12 is the pre-registered primary anchor layer for Phase 3, chosen before Phase 3 based on the independent Phase 2 literature-aligned positive control. Do not re-select after inspecting Phase 3 results.
+- **Date:** 2026-09-25
+
+### D024 — Strong H3 claims require matched surface baselines
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Report `ΔAUROC = AUROC_activation − AUROC_surface` with paired group-aware bootstrap. Activation AUROC > 0.5 alone is insufficient for incremental white-box claims.
+- **Date:** 2026-09-25
+
+### D025 — Separate early-trajectory prediction from true pre-deceptive analysis
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Fixed small `k` results are early-trajectory prediction, not automatically “pre-deceptive.” Reserve “pre-deceptive-output physiology” for onset-aligned analyses that pass the annotation audit gate.
+- **Date:** 2026-09-25
+
+### D026 — Conservative onset annotations must be text/judge-grounded and activation-independent
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Candidate onsets use only response text + upstream deception label + existing judge explanation fields with exact substring evidence. No probe-driven or auto-LLM span labels. Unresolved when no defensible exact span exists.
+- **Date:** 2026-09-25
+
+### D027 — Canonical Phase 3 prompt/response token boundary
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Define Phase 3 response-token indices from the suffix of `tokenizer(input_formatted + model_outputs, add_special_tokens=False)` only after verifying (1) exact prompt-id prefix equality and (2) no token straddles the prompt/response character boundary. Matched surface baselines and onset token indices must use these canonical offsets. Standalone `tokenizer(model_outputs)` mismatches are diagnostic only and do not redefine the canonical suffix.
+- **Reason:** Prevents scientifically incorrect `k` indexing if the tokenizer re-segments across the character join under teacher-forced full-sequence extraction.
+- **Date:** 2026-09-25
+
+### D028 — Require unseen future response token
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** For `k>0`, eligibility requires `canonical_response_token_length > k` (strict). Rows with response length exactly `k` are excluded because the full response may already be visible.
+- **Date:** 2026-09-25
+
+### D029 — Primary Phase 3B endpoints
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Freeze primary endpoints before activation extraction: Regime A = block 12 / `k=0`; Regime B = block 12 / `k=1`. Other k at block 12 are secondary temporal endpoints; other layers are the pre-registered H2 coarse scan.
+- **Date:** 2026-09-25
+
+### D030 — H3 interpretation (predictive utility, not new information)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** `ΔAUROC` vs matched surface baseline measures incremental predictive utility / accessibility of structure in the representation, not proof of information-theoretically unavailable information.
+- **Date:** 2026-09-25
+
+### D031 — k0 extracted once per prompt group
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Prompt-boundary physiology is deterministic; compute once per unique `prompt_sha256` from prompt-only input and broadcast to rows sharing that group.
+- **Date:** 2026-09-25
+
+### D032 — Right padding for trajectory extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Use right padding for Phase 3 teacher-forced trajectory batches so scientific token positions match unpadded coordinates; verify batch vs single-example cosine ≥ 0.9999 before full extraction.
+- **Date:** 2026-09-25
+
+### D033 — Locked test withheld during Phase 3B1
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B1 extracts and analyzes train+validation only. Locked-test GPU extraction and predictive evaluation require a separate Phase 3B2 authorization after independent audit.
+- **Date:** 2026-09-25
+
+### D034 — Phase 3B1 full extraction blocked by preflight cosine gate
+
+- **Type:** **OUR RESEARCH DECISION** / operational hold
+- **Decision:** After Modal preflight on the pinned stack, full-vs-truncated causal min cosine was ≈0.99984 and batch-vs-single min cosine ≈0.99978 (gate 0.9999), with failures concentrated at late layer 31. Full Phase 3B1 extraction was not started. No attention-implementation switch and no threshold relaxation without a separate explicit decision.
+- **Date:** 2026-09-25
+
+### D035 — Canonical truncated-prefix extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B Regime A/B scientific activations are extracted from inputs truncated exactly at the measurement point (`prompt_ids` for k=0; `prompt_ids + response_suffix_ids[:k]` for k>0). Future response tokens are never supplied.
+- **Reason:** Eliminates future-token exposure by construction instead of relying on numerical equivalence between differently shaped forward passes.
+- **Date:** 2026-09-25
+
+### D036 — Single-example primary forwards
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary scientific Phase 3B activations use batch size 1 (no scientific multi-example padding/batching).
+- **Reason:** The prior BF16 preflight showed batch-vs-single numerical sensitivity, concentrated at late layers. We avoid relaxing the original batch-equivalence gate.
+- **Date:** 2026-09-25
+
+### D037 — Original numerical gate not relaxed
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The failed `0.9999` full-sequence and batch-equivalence gates remain historical results (D034). The extraction method changed; the threshold was not loosened.
+- **Date:** 2026-09-25
+
+### D038 — Cost benchmark before full extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Benchmark single-example truncated-prefix throughput; stop if projected Phase 3B1 spend exceeds the soft budget ($20) before full extraction.
+- **Date:** 2026-09-25
+
+### D039 — Canonical activation storage is float32
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Scientific activations are computed in BF16 and stored as float32 (BF16 values are exactly representable in float32). Do not store activations as float16. Model compute remains `torch.bfloat16`. Manifests record `compute_dtype: bfloat16` and `activation_storage_dtype: float32` separately.
+- **Reason:** Avoid an unnecessary second precision conversion that was present in the original development extract.
+- **Date:** 2026-09-25
+
+### D040 — Clean-tree provenance freeze before Modal
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Before any canonical Phase 3B1 GPU launch, commit extraction/provenance code with a clean working tree. Local entrypoint refuses Modal if `git status --porcelain` is non-empty. Remote manifests must include `git_commit`, clean-tree marker, extractor/analysis SHA256s, freeze hash, model/dataset revisions, and dtype fields.
+- **Date:** 2026-09-25
+
+### D041 — One-shot locked test
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B2 evaluates the untouched 500-row locked test once with frozen endpoints/hyperparameters. No scientific tuning after locked-test outcome evaluation.
+- **Date:** 2026-09-25
+
+### D042 — Final models refit on combined development data
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** For locked-test evaluation, refit frozen probes/baselines on combined Phase 3 train+validation (3000 rows) after all model/hyperparameter choices are frozen. Do not fit vocabulary/IDF or probes using locked-test text/activations.
+- **Date:** 2026-09-25
+
+### D043 — Confirmatory locked endpoint remains L12/k1
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary H3 replication requires paired activation-vs-surface evaluation at the pre-registered Regime B endpoint (block 12 / k=1). Regime A (block 12 / k=0) is also reported; failure to reject zero ΔAUROC is not an equivalence claim.
+- **Date:** 2026-09-25
+
+### D044 — Secondary grid cannot replace failed primary endpoint
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** All other layer×k cells remain descriptive/exploratory regardless of locked-test performance. Do not promote the best test cell into a new primary result.
+- **Date:** 2026-09-25

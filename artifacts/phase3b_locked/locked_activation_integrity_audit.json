@@ -1,0 +1,11 @@
+{
+  "activation_max": 14.5,
+  "activation_max_abs": 25.125,
+  "activation_min": -25.125,
+  "activation_storage_dtype": "float32",
+  "all_finite": true,
+  "compute_dtype": "bfloat16",
+  "n_prompt_groups_k0": 53,
+  "n_rows": 500,
+  "n_shards_checked": 2
+}

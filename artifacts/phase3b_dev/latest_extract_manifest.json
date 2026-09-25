@@ -1,0 +1,75 @@
+{
+  "activation_storage_dtype": "float32",
+  "analysis_script_sha256": "66eaa02679691bf790e64f194d2a6a6158b77d9a6826df701664fe2799e0c47c",
+  "batch_size": 1,
+  "canonical_run_code_sha": "8b374fb2cf099ac1b44427917c2af6443e567e4a",
+  "compute_dtype": "bfloat16",
+  "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
+  "estimated_cost_usd": 0.2544283758501212,
+  "extraction_mode": "truncated_prefix_single_example",
+  "extractor_sha256": "18461c8886409d1778c775a55b63f82a5e8ddd93d6e300face95c018d3b52d47",
+  "future_response_tokens_present": false,
+  "git_commit": "8b374fb2cf099ac1b44427917c2af6443e567e4a",
+  "k0_sha256": "1f3616848cc979ec834bf46697d8eb087d737fdb11612ddac2116d54280c3915",
+  "local_dir": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/runs/phase3b1_extract_20260925T154005Z_39505f42",
+  "locked_test_present": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_scientific_forwards": 14079,
+  "original_preflight_gate_relaxed": false,
+  "preserves_original_dev_run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
+  "run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+  "shards": [
+    {
+      "sha256": "2912766343ce8fd6f96605d0782c385c4d10a522767ef3b8b105616eef81e049",
+      "shard": "trajectory_shard_00000_00249.safetensors"
+    },
+    {
+      "sha256": "b4c858669ce28998db5fb437cf531b55af04d84721d132b63c24666f568537c3",
+      "shard": "trajectory_shard_00250_00499.safetensors"
+    },
+    {
+      "sha256": "c6a804b26e57e688d6ae6d3de0e75e8a41f065e8ea8fa2b888c75b6f9cb0ecb1",
+      "shard": "trajectory_shard_00500_00749.safetensors"
+    },
+    {
+      "sha256": "bd9cb4f985b7d3c9de52f13435854fc21f99cea1f2bde85a293c96f3acc21696",
+      "shard": "trajectory_shard_00750_00999.safetensors"
+    },
+    {
+      "sha256": "cd028f62d094e8d7f8cd73e64dc3cfe47f8d592603cc438356cf7e8f33bbe110",
+      "shard": "trajectory_shard_01000_01249.safetensors"
+    },
+    {
+      "sha256": "c6f4f2376515a60058b04f83a2240d8bf6c0eaf12fe50cf64701a9ec916ba23e",
+      "shard": "trajectory_shard_01250_01499.safetensors"
+    },
+    {
+      "sha256": "7352dfa6b02d902fa37000cee7bef5e62349b87e716a83dc940d4548b90f56dc",
+      "shard": "trajectory_shard_01500_01749.safetensors"
+    },
+    {
+      "sha256": "961b48db26f639693ce50f868851c1a5bfead81885f22aec71dfd12403c31254",
+      "shard": "trajectory_shard_01750_01999.safetensors"
+    },
+    {
+      "sha256": "e8e8e6ce6fcb532e525c5b0da0ed145519817ebb2cdd230784d245f92a657fd8",
+      "shard": "trajectory_shard_02000_02249.safetensors"
+    },
+    {
+      "sha256": "fdd1b3430a7aeb4898eaf267a8c20e658a266ece0077c1ea39763532a0cd2def",
+      "shard": "trajectory_shard_02250_02499.safetensors"
+    },
+    {
+      "sha256": "d5a0da1359a470b9acf12803289524eed37ef53bb3aaa74fba204e4b5762b00d",
+      "shard": "trajectory_shard_02500_02749.safetensors"
+    },
+    {
+      "sha256": "e49e38c345175c706c7f70ba357e8eee5120058cb67c92aba6f8e5accdf84c10",
+      "shard": "trajectory_shard_02750_02999.safetensors"
+    }
+  ],
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00",
+  "total_artifact_bytes": 2699620280,
+  "wall_seconds": 469.71392464637756,
+  "working_tree_clean": true
+}
