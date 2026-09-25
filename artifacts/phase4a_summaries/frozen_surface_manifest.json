@@ -1,0 +1,53 @@
+{
+  "all_fit_example_ids_sha256": "836d8f072e6092bb370aa22a0276dbaa856e63c7bc745424f0a5add534fe6995",
+  "canonical_b1_run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+  "created_at": "2026-09-25T16:35:19+00:00",
+  "fit_on": "phase3_train_plus_validation_combined",
+  "locked_test_used": false,
+  "models": {
+    "surface_k0_prompt_only": {
+      "C": 10.0,
+      "artifact_joblib": "artifacts/phase4_models/surface_k0_prompt_only.joblib",
+      "artifact_joblib_sha256": "4992d91c576efe34c4fbc47a4beb4df195960eef65218795b2c36fffb7f04c05",
+      "char_tfidf_ngram_range": [
+        3,
+        5
+      ],
+      "fit_example_ids_sha256": "836d8f072e6092bb370aa22a0276dbaa856e63c7bc745424f0a5add534fe6995",
+      "k": 0,
+      "locked_test_used": false,
+      "n_fit_examples": 3000,
+      "name": "surface_k0_prompt_only",
+      "phase4_labels_used": false,
+      "random_state": 42,
+      "word_tfidf_ngram_range": [
+        1,
+        2
+      ]
+    },
+    "surface_k1_prompt_plus_1": {
+      "C": 10.0,
+      "artifact_joblib": "artifacts/phase4_models/surface_k1_prompt_plus_1.joblib",
+      "artifact_joblib_sha256": "17c7fed1eec5feb1b038cc188a44d8ac07b9728283e35088ac016a73be61a626",
+      "char_tfidf_ngram_range": [
+        3,
+        5
+      ],
+      "fit_example_ids_sha256": "1cc931d0f2729701fa6ebe36c5a3da039fab1adc33f253203e09bd582100bdef",
+      "k": 1,
+      "locked_test_used": false,
+      "n_fit_examples": 2999,
+      "name": "surface_k1_prompt_plus_1",
+      "phase4_labels_used": false,
+      "random_state": 42,
+      "word_tfidf_ngram_range": [
+        1,
+        2
+      ]
+    }
+  },
+  "n_development_rows": 3000,
+  "phase4_labels_used": false,
+  "purpose": "Phase 4 frozen Phase-3 surface comparators",
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00"
+}

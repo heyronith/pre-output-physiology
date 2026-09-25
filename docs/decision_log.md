@@ -304,3 +304,125 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** All other layer×k cells remain descriptive/exploratory regardless of locked-test performance. Do not promote the best test cell into a new primary result.
 - **Date:** 2026-09-25
+
+### D045 — Phase 4 tests deception specificity
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4 studies whether the Phase 3 L12/k1 signal is distinguishable from strategic reasoning, false belief, uncertainty, and nondeceptive truth–target conflict.
+- **Date:** 2026-09-25
+
+### D046 — Frozen Phase 3 L12/k1 probe
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4 scores use the immutable Phase 3 logistic probe (C=0.01) fitted on the 3000-row development set only. No Phase 4 labels may retrain or select the primary deception probe. L12/k0 is secondary only.
+- **Date:** 2026-09-25
+
+### D047 — Matched strategic-honest primary control
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The primary specificity contrast is C3 (`known_deceptive_strategic`) versus C2 (`known_honest_strategic`) under matched strategic/payoff structure.
+- **Date:** 2026-09-25
+
+### D048 — Common first-token control
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** All final Phase 4 responses must share one tokenizer-verified first token (`Response`, id 2963) so k=1 classification cannot be explained by first-token identity.
+- **Date:** 2026-09-25
+
+### D049 — Behavioral labels precede activation analysis
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Behavioral validity uses deterministic response parsing rules independent of activations and independent of LLM judges.
+- **Date:** 2026-09-25
+
+### D050 — Separate pilot from final scenarios
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Prompt/format compliance may be tested on pilot scenarios only (seed 7). The final 240 base scenarios (seed 42) remain untouched until prompt templates are frozen. Pilot examples never enter scientific results.
+- **Date:** 2026-09-25
+
+### D051 — Symmetric strategic-control template
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** C2 and C3 use the same strategic prompt wording. Their only intended difference is whether the reward-target state matches or conflicts with the model-accessible private-record state.
+- **Reason:** Prevent the primary specificity contrast from being explained by condition-specific prompt wording (e.g., “opposite”, unique non-disclosure phrasing).
+- **Date:** 2026-09-25
+
+### D052 — First-token compliance uses token IDs
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The Phase-4 common-first-token requirement is evaluated using the actual first generated token ID (`2963` = `Response`), not decoded whitespace parsing.
+- **Date:** 2026-09-25
+
+### D053 — Deterministic behavior-only pilot
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pilot generation uses greedy BF16 Mistral generation solely to validate condition/format compliance. No activations or frozen-probe scoring are permitted during the pilot.
+- **Date:** 2026-09-25
+
+### D054 — Pilot readiness gates
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Operational pilot gates are frozen before seeing pilot results: ≥23/24 first-token-ID compliance per condition; ≥20/24 full behavioral validity per condition; ≥18/24 base scenarios with both C2 and C3 behaviorally valid. These are usability gates, not scientific effect-size thresholds.
+- **Date:** 2026-09-25
+
+### D055 — Correct common first-token ID
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The true first generated token for the frozen `Response` prefix under the actual Mistral chat-generation context (`apply_chat_template(..., add_generation_prompt=True)`) is token ID **12107**. The earlier **2963** value came from an incorrect design-time tokenization context that concatenated `Response` directly onto `[/INST]` without the leading-space BPE form used in real generation.
+- **Supersedes for ID value:** D052’s numeric ID `2963` (token-*ID* method of D052 remains in force).
+- **Date:** 2026-09-25
+
+### D056 — Single allowed post-pilot template revision
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision 1 replaces free-form responses with an exact three-line machine-readable output format (`Response` / `MODE=...` / `FINAL=...`) and strengthens reward-target compliance while preserving C2/C3 textual symmetry (D051).
+- **Date:** 2026-09-25
+
+### D057 — No second template-tuning round
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision 1 is the sole post-pilot prompt revision permitted under D050. If the revised pilot fails the pre-registered usability gates (D054), Phase 4 holds for methodological redesign rather than further prompt tuning.
+- **Date:** 2026-09-25
+
+### D058 — Controlled-prefix methodology redesign
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After the single permitted prompt revision failed because free generation did not reliably emit the common prefix, Phase 4 switches to a **controlled common prefix** while keeping revision-1 prompts unchanged. This is a generation/measurement design change, not another prompt-template revision.
+- **Date:** 2026-09-25
+
+### D059 — Controlled-prefix k1 interpretation
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Future Phase-4 L12/k1 analysis will measure the state after a supplied common neutral token (`12107` / `Response`). It tests specificity of the frozen Phase-3 probe under controlled-prefix distribution shift, not natural first-token selection. Terminology: **controlled-prefix k1** (not “natural first-token k1”).
+- **Date:** 2026-09-25
+
+### D060 — Behavioral gates unchanged
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The semantic behavior-validity thresholds remain those frozen before the previous pilots (≥20/24 per condition; ≥18/24 C2∩C3 paired). Prefix integrity (144/144 supplied ID 12107) replaces the sampled first-token gate as an engineering check only.
+- **Date:** 2026-09-25
+
+### D061 — Uncertainty control held
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** C5 failed the frozen pilot usability gate under both free-generation and controlled-prefix testing. We do not weaken its behavioral criterion after observing pilot outputs. C5 is excluded from the confirmatory Phase-4 final run and remains an unresolved uncertainty-specificity limitation requiring a separately designed future control.
+- **Date:** 2026-09-25
+
+### D062 — Five-condition final run
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase-4 final generation proceeds with C1, C2, C3, C4, and C6 only. Primary and key-secondary contrasts remain unchanged: primary C3 vs C2; key secondary C3 vs C4.
+- **Date:** 2026-09-25
+
+### D063 — Phase 4E transfer/specificity scoring
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4E scores the immutable Phase-3 L12 probes on Phase-4D controlled-prefix activations without retraining or recalibration. Primary endpoint is L12 / controlled-prefix k1 on frozen C3∩C2 pairs (N=148). A positive result supports cross-context specificity of the frozen RoleplayDeception probe; a null does not prove absence of deception physiology and must not trigger rescue retraining. Eligibility sets remain frozen; C5 remains HOLD; causal interventions remain unauthorized.
+- **Date:** 2026-09-25
+
+### D064 — Natural-token k1 diagnostic after controlled-prefix null
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After Phase 4E found ~chance C3-vs-C2 separation under controlled `Response` (12107), Phase 4F diagnoses whether that null was caused by replacing the model's natural greedy first token. Natural-token k1 uses truncated `prompt + [argmax next-token]` only—no full response regeneration, no prompt/eligibility/probe changes, no retraining. If C3-vs-C2 remains ~0.5, controlled-prefix choice did not explain the specificity failure. If natural-token AUROC clearly exceeds 0.5, interpret as distribution shift and check first-token identity confounding before claiming deception specificity.
+- **Date:** 2026-09-25

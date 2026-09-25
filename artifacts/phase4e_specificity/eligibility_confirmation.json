@@ -1,0 +1,31 @@
+{
+  "contrasts": {
+    "C2_vs_C1": {
+      "n_paired_valid": 203,
+      "paired_ids_sha256": "175856bbf70e5e058bb1362484f5e73f6eaeba181b24ec5d8cd818ffdc881bdc"
+    },
+    "C3_vs_C1": {
+      "n_paired_valid": 164,
+      "paired_ids_sha256": "b93e45e723699a8b0dd58547a98c08ce77f04823a8ed24ea1dd4382666ad179a"
+    },
+    "C3_vs_C2": {
+      "n_paired_valid": 148,
+      "paired_ids_sha256": "07dcb4567aaf98cea443327bca2cc336f082ab035c645ccd4c4b28dcc97503b2"
+    },
+    "C3_vs_C4": {
+      "n_paired_valid": 139,
+      "paired_ids_sha256": "c03c70d06cd5e487621781b8d0a5aa65354857c578a0842b7e216c894e045d22"
+    },
+    "C3_vs_C6": {
+      "n_paired_valid": 162,
+      "paired_ids_sha256": "aeeff82dbfdb8204ae62247a474f6d93da556a855d1aeaae54a35fbf963ecbda"
+    },
+    "C4_vs_C1": {
+      "n_paired_valid": 180,
+      "paired_ids_sha256": "65f1695f7e122a0185d9be40d11a9291d0e2637579caa8c1ac0fb75f69377ebc"
+    }
+  },
+  "source": "artifacts/phase4d_final_behavior/frozen_contrast_eligibility.json",
+  "unchanged": true,
+  "verified_at": "2026-09-25T18:12:35+00:00"
+}

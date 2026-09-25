@@ -1,0 +1,77 @@
+{
+  "canonical_b1_run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+  "cosine_min_required": 0.9999,
+  "estimated_cost_usd": 0.007425138096014658,
+  "min_cosine_all": 0.9999999999999103,
+  "min_cosine_l12_k0": 0.9999999999999252,
+  "min_cosine_l12_k1": 0.9999999999999103,
+  "model_load_seconds": 11.759520769119263,
+  "n_samples": 8,
+  "passed": true,
+  "per_example": [
+    {
+      "cosine_l12_k0": 0.9999999999999313,
+      "cosine_l12_k1": 0.9999999999999274,
+      "example_id": "92_8"
+    },
+    {
+      "cosine_l12_k0": 0.999999999999934,
+      "cosine_l12_k1": 0.9999999999999103,
+      "example_id": "86_1"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999385,
+      "cosine_l12_k1": 0.9999999999999222,
+      "example_id": "51_4"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999264,
+      "cosine_l12_k1": 0.9999999999999175,
+      "example_id": "223_1"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999297,
+      "cosine_l12_k1": 0.9999999999999243,
+      "example_id": "364_2"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999252,
+      "cosine_l12_k1": 0.9999999999999282,
+      "example_id": "243_0"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999314,
+      "cosine_l12_k1": 0.9999999999999153,
+      "example_id": "185_6"
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999356,
+      "cosine_l12_k1": 0.9999999999999242,
+      "example_id": "2_18"
+    }
+  ],
+  "provenance": {
+    "activation_storage_dtype": "float32",
+    "batch_size": 1,
+    "canonical_b1_run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+    "causal_intervention_authorized": false,
+    "compute_dtype": "bfloat16",
+    "condition_labels_in_extractor": false,
+    "extraction_mode": "truncated_prefix_single_example",
+    "extractor_path": "modal/phase4_natural_token_diagnostic.py",
+    "extractor_sha256": "90adadfe392c9550084861f4cb2e592f2b4db043cb30568124ab2346698711dd",
+    "frozen_probe_l12_k1_sha256": "3bbf0c78e97d8ff14b028592e6e6ab3215651e973e0be1f004ce66e2b9b7aa65",
+    "full_response_generated": false,
+    "future_response_tokens_present": false,
+    "git_commit": "09d430c940d2fc001350497123897f33ce052b6b",
+    "k1_kind": "natural_greedy_first_token",
+    "layer": 12,
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+    "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "phase4d_run_id": "phase4d_final_20260925T174548Z_4d93730c",
+    "phase4e_run_id": "phase4e_extract_20260925T180943Z_ddb36132",
+    "working_tree_clean": true
+  },
+  "run_id": "phase4f_natural_20260925T184832Z_09d430c9_preflight",
+  "wall_seconds": 13.707947254180908
+}
