@@ -1,12 +1,12 @@
-# Phase 3 pre-output physiology scan — Phase 3B1 development authorization
+# Phase 3 pre-output physiology scan — Phase 3B1 truncated-prefix reauthorization
 
 experiment_id: phase3_preoutput_physiology_scan
 phase: phase3
-status: phase3b_dev_authorized
+status: phase3b_dev_complete_awaiting_audit
 description: >
-  Phase 3B1 development GPU scan (train+validation only). Regime A/B coarse
-  grid. Locked test withheld. Regime C unauthorized.
-
+  Phase 3B1 development scan complete (train+validation only) using truncated-prefix
+  batch-size-1 forwards. Awaiting research-lead audit before Phase 3B2 locked test.
+  Regime C unauthorized. Original 0.9999 full-sequence/batch gates not relaxed.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 positive_control_dataset: RoleplayDeception
@@ -49,6 +49,12 @@ eligibility:
   k0: all_rows
   k_gt_0: canonical_response_token_length_strictly_greater_than_k
 
+canonical_extraction_mode: truncated_prefix
+scientific_batch_size: 1
+full_sequence_primary_authorized: false
+original_preflight_gate_relaxed: false
+surface_baseline_freeze_sha256: b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00
+
 activation_probe:
   type: sklearn_logistic_regression
   C: 0.01
@@ -61,7 +67,7 @@ activation_probe:
 surface_baselines:
   majority: true
   prompt_text_only: true
-  prompt_plus_prefix: true  # primary surface baseline
+  prompt_plus_prefix: true
   prefix_structural: true
   logit_summaries: phase3b1
   text_classifier:
@@ -72,6 +78,7 @@ surface_baselines:
     C_grid: [0.1, 1.0, 10.0]
     select_C_on: phase3_validation_only
     freeze_before_activations: true
+    freeze_artifact: artifacts/phase3b_dev/surface_baseline_freeze.json
   structural_lr:
     C: 1.0
     random_state: 42
@@ -104,15 +111,16 @@ phase3b_gpu:
   hard_budget_usd: 40
   causal_mask_cosine_min: 0.9999
   batch_equivalence_cosine_min: 0.9999
-  padding_side: right
+  repeatability_cosine_min: 0.9999
+  scientific_batch_size: 1
   authorized: true
   dev_gpu_authorized: true
   locked_test_gpu_authorized: false
   regime_c_authorized: false
   regime_c_status: hold_insufficient_onset_resolution
+  full_sequence_primary_authorized: false
 
 notes: >
-  Phase 3B1 development authorization. Surface baselines frozen.
-  Modal causal/batch preflight HOLD (cosine < 0.9999 at late layers).
-  Full train/val activation extraction not started. Locked test withheld.
-  Regime C unauthorized. No causal interventions.
+  Phase 3B1 complete awaiting audit. Extraction: truncated_prefix_single_example,
+  batch_size=1, 14079 scientific forwards. Original D034 HOLD preserved; gates
+  not relaxed. Locked test not extracted. Regime C not run. No interventions.

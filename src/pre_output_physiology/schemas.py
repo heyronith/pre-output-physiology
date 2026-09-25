@@ -63,6 +63,7 @@ class ExperimentConfig(BaseModel):
         "authorized",
         "prepared_awaiting_gpu_authorization",
         "phase3b_dev_authorized",
+        "phase3b_dev_reauthorized_truncated_prefix",
         "phase3b_dev_complete_awaiting_audit",
         "running",
         "complete",

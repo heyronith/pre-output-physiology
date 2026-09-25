@@ -241,3 +241,29 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION** / operational hold
 - **Decision:** After Modal preflight on the pinned stack, full-vs-truncated causal min cosine was ≈0.99984 and batch-vs-single min cosine ≈0.99978 (gate 0.9999), with failures concentrated at late layer 31. Full Phase 3B1 extraction was not started. No attention-implementation switch and no threshold relaxation without a separate explicit decision.
 - **Date:** 2026-09-25
+
+### D035 — Canonical truncated-prefix extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B Regime A/B scientific activations are extracted from inputs truncated exactly at the measurement point (`prompt_ids` for k=0; `prompt_ids + response_suffix_ids[:k]` for k>0). Future response tokens are never supplied.
+- **Reason:** Eliminates future-token exposure by construction instead of relying on numerical equivalence between differently shaped forward passes.
+- **Date:** 2026-09-25
+
+### D036 — Single-example primary forwards
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary scientific Phase 3B activations use batch size 1 (no scientific multi-example padding/batching).
+- **Reason:** The prior BF16 preflight showed batch-vs-single numerical sensitivity, concentrated at late layers. We avoid relaxing the original batch-equivalence gate.
+- **Date:** 2026-09-25
+
+### D037 — Original numerical gate not relaxed
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The failed `0.9999` full-sequence and batch-equivalence gates remain historical results (D034). The extraction method changed; the threshold was not loosened.
+- **Date:** 2026-09-25
+
+### D038 — Cost benchmark before full extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Benchmark single-example truncated-prefix throughput; stop if projected Phase 3B1 spend exceeds the soft budget ($20) before full extraction.
+- **Date:** 2026-09-25

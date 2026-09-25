@@ -28,6 +28,7 @@ EXPECTED_K = [0, 1, 2, 4, 8, 16]
 PHASE3_STATUS_OK = {
     "prepared_awaiting_gpu_authorization",
     "phase3b_dev_authorized",
+    "phase3b_dev_reauthorized_truncated_prefix",
     "phase3b_dev_complete_awaiting_audit",
 }
 

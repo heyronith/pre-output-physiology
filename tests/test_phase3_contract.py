@@ -35,6 +35,7 @@ def test_phase3_experiment_status_awaits_gpu() -> None:
     assert cfg.status in {
         "prepared_awaiting_gpu_authorization",
         "phase3b_dev_authorized",
+        "phase3b_dev_reauthorized_truncated_prefix",
         "phase3b_dev_complete_awaiting_audit",
     }
 
@@ -130,6 +131,11 @@ def test_decision_log_contains_phase3a_decisions() -> None:
         "D031",
         "D032",
         "D033",
+        "D034",
+        "D035",
+        "D036",
+        "D037",
+        "D038",
     ):
         assert did in text, did
 

@@ -1,110 +1,231 @@
-# Phase 3B1 development scan — PREFLIGHT HOLD
+# Phase 3B1 development scan
 
-**Status:** `CAUSAL/BATCH PREFLIGHT HOLD` — full train/validation extraction was **not** run.
-
-**Date:** 2026-09-25  
+**Status:** `phase3b_dev_complete_awaiting_audit`  
+**Extraction mode:** `truncated_prefix_single_example` (`batch_size=1`)  
 **Branch:** `phase3/preoutput-trajectory`  
-**Starting HEAD:** `d225e5f4883d2fceedbf8c7d12d69ff471e725f6`
+**Extract run:** `phase3b1_extract_20260925T151054Z_f19e058f`
+
+This is **development evidence** (train/validation only). Not held-out proof. Not a pre-deceptive biomarker claim.
 
 ---
 
-## 1. Objective
+## 1. Original preflight HOLD (preserved)
 
-Execute Phase 3B1 Regime A/B coarse scan on train+validation only, after mandatory causal and batching equivalence preflights.
+Historical artifact: `artifacts/phase3b_dev/preflight_hold_summary.json` (D034).
 
-## 2. Exact revisions
+| Gate | Min cosine | Required | Result |
+| --- | ---: | ---: | --- |
+| Full-vs-truncated causal | ≈0.9998398 | 0.9999 | **FAIL** |
+| Batch-vs-single | ≈0.9997808 | 0.9999 | **FAIL** |
 
-| Item | Pin |
+Full-sequence teacher-forced extraction was **not** used as the scientific path. Thresholds were **not** relaxed.
+
+---
+
+## 2. Research-lead recovery decision
+
+Canonical Path (D035–D037):
+
+- Inputs truncated exactly at the measurement point (no future response tokens supplied).
+- Scientific forwards use **batch size 1**.
+- Original 0.9999 full-sequence/batch gates remain historical; method changed instead.
+
+---
+
+## 3. Truncated-prefix repeatability preflight
+
+Run: `phase3b1_preflight_truncated_20260925T150853Z_5677efe3`  
+Summary: `artifacts/phase3b_dev/preflight_truncated_summary.json`
+
+| Check | Result |
 | --- | --- |
-| Model | `mistralai/Mistral-7B-Instruct-v0.2` |
-| Model revision | `63a8b081895390a26e140280378bc85ec8bce07a` |
-| Dataset revision | `bf93584916fbd23121eca6f2017017df0ef3184f` |
-| GPU | 1× Modal L40S |
-| Cosine gate | `>= 0.9999` |
+| Same-input / same-shape / bs=1 repeatability min cosine | **0.999999999974304** |
+| Gate | ≥ 0.9999 |
+| Verdict | **PASS** |
+| Future tokens present | false |
+| Cost | ≈$0.007 |
 
-## 3. Frozen grid / endpoints (unchanged)
+---
 
-Layers `[0,4,8,12,16,20,24,28,31]`; k `[0,1,2,4,8,16]`.  
-Primary: Regime A = 12/k0; Regime B = 12/k1.
+## 4. Cost benchmark (D038)
 
-## 4. Surface baseline freeze (completed locally before GPU)
-
-Artifact: `artifacts/phase3b_dev/surface_baseline_freeze.json`
-
-Selected C by k (all **10.0**):
-
-| k | selected C | eligible train | eligible val |
-| --- | --- | --- | --- |
-| 0 | 10.0 | 2361 | 639 |
-| 1 | 10.0 | 2360 | 639 |
-| 2 | 10.0 | 2317 | 629 |
-| 4 | 10.0 | 2312 | 620 |
-| 8 | 10.0 | 2227 | 599 |
-| 16 | 10.0 | 1578 | 492 |
-
-`locked_test_used: false`
-
-## 5. Causal full-vs-truncated preflight
-
-Run: `phase3b1_preflight_20260925T144544Z_1b427baa`  
-Sample: 8 train examples with response length >16; layers `[0,12,31]`; k `[0,1,4,16]`.
+Summary: `artifacts/phase3b_dev/benchmark_summary.json`
 
 | Metric | Value |
-| --- | --- |
-| Comparisons | 96 |
-| Failures (`cosine < 0.9999`) | **19** |
-| Minimum cosine | **0.999839765386112** |
-| Gate | 0.9999 |
-| Result | **FAIL** |
+| --- | ---: |
+| Benchmark forwards | 100 |
+| Forwards/sec | ≈21.69 |
+| Projected scientific forwards | 14079 |
+| Projected cost | ≈**$0.37** |
+| Soft budget | $20 |
+| Continue? | **yes** |
 
-Failures concentrate at **layer 31** (18/19); one failure at layer 12. All tested k values appear among failures. Worst max-abs diffs ~0.05–0.22.
+---
 
-## 6. Batching-equivalence preflight
-
-Same sample; right-padded batch vs unpadded single.
-
-| Metric | Value |
-| --- | --- |
-| Comparisons | 96 |
-| Failures | **24** |
-| Minimum cosine | **0.9997808368214288** |
-| Result | **FAIL** |
-
-All 24 batch failures are at **layer 31**.
-
-## 7. Modal usage / cost (preflight only)
+## 5. Full train/validation extraction
 
 | Item | Value |
 | --- | --- |
-| Wall | ~14.5 s (plus image/model load in prior attempt) |
-| Estimated cost | ~$0.008 |
-| Full extraction | **not started** |
+| Mode | truncated_prefix_single_example |
+| Batch size | 1 |
+| Scientific forwards | **14079** |
+| Examples | 3000 (train 2361 + val 639) |
+| Prompt groups (k=0) | 306 |
+| Wall / estimated cost | ≈$0.252 |
+| Artifact bytes | ≈1.35 GB |
+| Locked test present | **false** |
+| Regime C | **not run** |
+| Causal interventions | **none** |
 
-## 8–17. Activation analysis
+Surface baseline freeze hash unchanged:  
+`b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00`  
+Selected C = **10.0** for all k.
 
-**Not executed** (preflight gate blocked full extraction).
+Eligibility counts match freeze (unchanged).
 
-## 18. Limitations
+---
 
-Default Hugging Face / torch attention numerics for this pin yield cosines in ~0.99978–0.99987 at late layers — below the pre-registered 0.9999 gate. Per Phase 3B1 protocol: do **not** silently switch attention implementations or invent a workaround.
+## 6. Artifacts
 
-Next decision for the research lead (not executed here):
+- Raw (gitignored): `artifacts/runs/phase3b1_extract_20260925T151054Z_f19e058f/`
+- Commit-safe pointer: `artifacts/phase3b_dev/latest_extract_manifest.json`
+- Metrics: `artifacts/phase3b_dev/phase3b_dev_metrics.json`
+- Cell table: `artifacts/phase3b_dev/phase3b_dev_cells.json`
 
-1. require truncated-prefix forward passes for Phase 3B extraction; and/or  
-2. revisit the numerical gate / attention backend with an explicit decision log entry.
+k=0 within-group activation max abs diff (layer 12): **0.0**
 
-## 19. Regime C
+---
 
-`regime_c_status: hold_insufficient_onset_resolution` — not run.
+## 7. Validation activation AUROC (all 54 cells)
 
-## 20. Engineering verdict
+Primary probe: standardized LR, C=0.01, train-only norm, group-bootstrap ≥2000.
 
-**PREFLIGHT HOLD — PHASE 3B1 FULL EXTRACTION NOT AUTHORIZED BY GATE**
+Full numeric table in `phase3b_dev_metrics.json` / `phase3b_dev_cells.json`.
 
-- LOCKED TEST ACTIVATIONS WERE NOT COLLECTED OR EVALUATED.
-- REGIME C WAS NOT RUN.
-- NO CAUSAL INTERVENTIONS WERE PERFORMED.
-- NO PHASE 3 TRAIN/VAL ACTIVATION GRID WAS EXTRACTED AFTER THE FAILED PREFLIGHT.
+Descriptive extremes (validation AUROC):
 
-Commit-safe summary: `artifacts/phase3b_dev/preflight_hold_summary.json`  
-Raw preflight: `artifacts/runs/phase3b1_preflight_20260925T144544Z_1b427baa/preflight.json` (gitignored runs/).
+| | layer | k | AUROC |
+| --- | ---: | ---: | ---: |
+| Strongest | 16 | 4 | 0.967 |
+| Weakest | 4 | 0 | 0.526 |
+
+Descriptive ΔAUROC extremes (activation − prompt+prefix surface):
+
+| | layer | k | ΔAUROC |
+| --- | ---: | ---: | ---: |
+| Largest positive | 20 | 2 | +0.242 |
+| Most negative | 0 | 16 | −0.215 |
+
+---
+
+## 8. Surface baselines (frozen; not retuned)
+
+Prompt+prefix TF-IDF+LR, C=10.0 for all k (validation AUROC):
+
+| k | surface AUROC | eligible val N |
+| ---: | ---: | ---: |
+| 0 | 0.720 | 639 |
+| 1 | 0.737 | 639 |
+| 2 | 0.715 | 629 |
+| 4 | 0.765 | 620 |
+| 8 | 0.743 | 599 |
+| 16 | 0.753 | 492 |
+
+---
+
+## 9. Primary development endpoints
+
+### Regime A — block 12 / k=0 (prompt-boundary propensity)
+
+| Metric | Value |
+| --- | ---: |
+| Activation AUROC | **0.713** |
+| Group-bootstrap 95% CI | [0.596, 0.813] |
+| Prompt-only / prompt+prefix surface AUROC | **0.720** |
+| ΔAUROC (act − surface) | **−0.007** |
+| Paired Δ 95% CI | [−0.119, 0.106] |
+
+Interpretation: context-conditioned deception **propensity** only. No claim of sample-specific intent. Activation does not beat the matched prompt text baseline on validation (CI includes 0).
+
+### Regime B — block 12 / k=1 (early-trajectory prediction)
+
+| Metric | Value |
+| --- | ---: |
+| Activation AUROC | **0.933** |
+| Group-bootstrap 95% CI | [0.869, 0.977] |
+| Prompt+1-token surface AUROC | **0.737** |
+| ΔAUROC (act − surface) | **+0.196** |
+| Paired Δ 95% CI | [0.097, 0.310] |
+
+Interpretation: **early-trajectory prediction** of eventual deception given prompt + first visible response token. Incremental predictive utility vs matched surface baseline on development validation. Not “pre-deceptive-output physiology.”
+
+---
+
+## 10. Negative controls
+
+Across all 54 cells (mean):
+
+| Control | Mean val AUROC |
+| --- | ---: |
+| Shuffled-label probe (seed 42) | ≈0.539 |
+| Random-direction control | ≈0.532 |
+
+Primary cells (12/k0, 12/k1): shuffled ≈0.516 / 0.508; random-direction ≈0.508 / 0.643.
+
+---
+
+## 11. Output-logit summary baseline (C=1.0, frozen)
+
+| k | logit-summary AUROC |
+| ---: | ---: |
+| 0 | 0.402 |
+| 1 | 0.665 |
+| 2 | 0.556 |
+| 4 | 0.597 |
+| 8 | 0.459 |
+| 16 | 0.530 |
+
+---
+
+## 12. H2 layer/time pattern (descriptive)
+
+- Late-mid blocks with small k>0 show the strongest development AUROCs.
+- Prompt-boundary (k=0) is weaker and closer to surface text.
+- Layer 31 remains in the frozen exploratory scan despite prior numerical sensitivity under *different* (full-sequence/batched) forwards; here it is measured with truncated bs=1 inputs.
+
+---
+
+## 13. Methodological limitations (must remain visible)
+
+1. Initial full-sequence/batch preflight failed the pre-registered 0.9999 gate (D034).
+2. **No threshold relaxation** occurred (D037).
+3. Primary method was changed **prospectively** to truncated-prefix bs=1 before Phase 3 activation collection (D035–D036).
+4. Final scientific extraction used truncated inputs; future tokens absent by construction.
+5. Results are development/validation only; locked test not touched.
+6. ΔAUROC is incremental predictive utility vs the specified baseline, **not** proof of information-theoretically unavailable information (D030).
+
+---
+
+## 14. Regime C
+
+`regime_c_status: hold_insufficient_onset_resolution` — **not run**.
+
+---
+
+## 15. Engineering / development verdict
+
+**PHASE 3B1 DEVELOPMENT COMPLETE — AWAITING AUDIT**
+
+- Truncated-prefix repeatability preflight passed.
+- Cost within soft budget.
+- 54/54 cells analyzed on train/validation.
+- Locked test untouched.
+- Regime C not run.
+- No causal interventions.
+- Original 0.9999 full-sequence/batch gates were not relaxed.
+
+`LOCKED TEST ACTIVATIONS WERE NOT COLLECTED OR EVALUATED.`  
+`REGIME C WAS NOT RUN.`  
+`NO CAUSAL INTERVENTIONS WERE PERFORMED.`  
+`ORIGINAL 0.9999 FULL-SEQUENCE/BATCH GATES WERE NOT RELAXED.`  
+`PRIMARY SCIENTIFIC EXTRACTION USED TRUNCATED-PREFIX BATCH-SIZE-1 FORWARDS.`
