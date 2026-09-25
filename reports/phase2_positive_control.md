@@ -74,11 +74,15 @@ Source files used (text/labels only; published activation pickles **not** downlo
 | Item | Preflight | Full |
 | --- | --- | --- |
 | Examples | 100 | 3500 |
-| Extract seconds | ~3.9 | ~65.0 |
-| Assumed L40S USD/hr | 1.10 | 1.10 |
-| Estimated cost (USD) | ~0.004 | ~0.023 |
+| Model-load + extract seconds | ~13.7 | ~73.7 |
+| Assumed L40S USD/hr | 1.95 | 1.95 |
+| Estimated cost (USD) | ~0.0074 | ~0.0399 |
 
-Cumulative Phase 2 GPU estimate including failed debug attempts and image build time remains **well under the $20 soft / $40 hard budgets**.
+Costs recalculated locally from recorded durations at **`$1.95/hr`** (≈ `$0.000542/s`). No GPU jobs were re-run for this accounting correction.
+
+Optional generation smoke (16 prompts): ~$0.0155 at the same rate.
+
+Cumulative Phase 2 GPU estimate remains **well under the $20 soft / $40 hard budgets**.
 
 Activation artifact shape (full): **`[3500, 4096]`**.
 
@@ -93,7 +97,7 @@ Activation artifact shape (full): **`[3500, 4096]`**.
 | Precision | 0.9355 |
 | Recall / sensitivity | 0.928 |
 | Specificity | 0.936 |
-| TPR @ 1% FPR | 0.828 |
+| TPR at or below 1% FPR | 0.828 (actual FPR = 0.008) |
 | Majority baseline accuracy | 0.50 |
 | Confusion | TN=234, FP=16, FN=18, TP=232 |
 | Probe converged | yes (`n_iter=53`) |
@@ -115,7 +119,8 @@ in the ACL 2026 Findings paper or the pinned LASR code alone. The paper emphasiz
 - Implementation uses `input_formatted + model_outputs` rather than LASR’s `load_jsonl_data_prompts_included` + `apply_chat_template` path, because the HF JSONL `inputs` schema (system/user/assistant/assistant list) does not match that loader’s `inputs[0]/inputs[1]` assumption, and chat-template rebuild differs from stored `input_formatted`.
 - Tokenization uses `add_special_tokens=False` to avoid double-BOS.
 - One Modal preflight failed on a post-hook reproducibility bug and one on safetensors API misuse; both fixed before the canonical full run.
-- Assumed Modal L40S price `$1.10/hr` for cost accounting; actual invoice may differ slightly.
+- Assumed Modal L40S price **`$1.95/hr`** for cost accounting (corrected from an earlier `$1.10/hr` documentation constant; costs recomputed from recorded durations without re-running GPU jobs).
+- Low-FPR operating-point metric reports **maximum TPR among ROC points with FPR ≤ 1%**, plus the actual FPR at that point (`tpr_at_or_below_1pct_fpr`, `actual_fpr_at_tpr_metric`). It does not select points with FPR > 1%.
 
 ## 11. Leakage / limitations
 
@@ -141,6 +146,6 @@ in the ACL 2026 Findings paper or the pinned LASR code alone. The paper emphasiz
 
 Ran after primary PASS: 16 Roleplay prompts, temperature 0, `max_new_tokens=32`.
 
-- Estimated cost: ~$0.0088
+- Estimated cost: ~$0.0155 (at `$1.95/hr`, from recorded wall time; no re-run)
 - Purpose: validate later generation code path only
 - **Not** labelled; **not** Phase 2 scientific evidence

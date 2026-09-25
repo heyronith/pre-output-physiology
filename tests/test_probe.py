@@ -39,6 +39,43 @@ def test_perfect_separation_metrics() -> None:
     assert metrics["auroc"] == 1.0
     assert metrics["auprc"] == 1.0
     assert "auroc_ci_low" in metrics
+    assert "tpr_at_or_below_1pct_fpr" in metrics
+    assert "actual_fpr_at_tpr_metric" in metrics
+    assert metrics["actual_fpr_at_tpr_metric"] <= 0.01
+
+
+def test_low_fpr_metric_never_uses_operating_point_above_target() -> None:
+    """Construct scores where the first FPR>=1% point differs from best FPR<=1%."""
+    from pre_output_physiology.metrics import tpr_at_or_below_fpr
+
+    # 100 negatives, 100 positives. Create a score distribution where:
+    # - a high-TPR point exists only after FPR exceeds 1%
+    # - eligible FPR<=1% points have lower TPR
+    y = np.array([0] * 100 + [1] * 100)
+    scores = np.zeros(200, dtype=float)
+    # Rank: top scores are mostly positives, but inject negatives early to force
+    # ROC steps above/below 1% FPR.
+    scores[100:] = np.linspace(1.0, 0.5, 100)  # positives
+    scores[:100] = np.linspace(0.49, 0.0, 100)  # negatives
+    # Move 5 negatives into the top of the ranking so FPR grows in coarse steps.
+    scores[0:5] = np.linspace(0.99, 0.95, 5)
+
+    result = tpr_at_or_below_fpr(y, scores, target_fpr=0.01)
+    assert result["actual_fpr_at_tpr_metric"] <= 0.01 + 1e-12
+    metrics = evaluate_binary_classifier(y, scores, n_bootstrap=20, bootstrap_seed=0)
+    assert metrics["actual_fpr_at_tpr_metric"] <= 0.01 + 1e-12
+    assert metrics["tpr_at_or_below_1pct_fpr"] == result["tpr_at_or_below_target_fpr"]
+
+    # Explicitly verify no eligible-above-threshold selection:
+    from sklearn.metrics import roc_curve
+
+    fpr, tpr, _ = roc_curve(y, scores)
+    above = fpr > 0.01
+    if above.any():
+        # Reported TPR must equal max TPR on fpr<=0.01, not on fpr>0.01-only points.
+        eligible = fpr <= 0.01
+        assert metrics["tpr_at_or_below_1pct_fpr"] == float(np.max(tpr[eligible]))
+        assert metrics["tpr_at_or_below_1pct_fpr"] <= float(np.max(tpr[above])) + 1e-12
 
 
 def test_revision_cannot_be_main() -> None:

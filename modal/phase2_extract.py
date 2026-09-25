@@ -25,9 +25,10 @@ TRANSFORMER_BLOCK_INDEX = 12
 HOOK_MODULE_PATH = "model.model.layers[12]"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-# Approximate Modal L40S on-demand rate used for cost tracking (USD / hour).
-# Update if Modal pricing changes; recorded transparently in the run manifest.
-L40S_USD_PER_HOUR = 1.10
+# Modal L40S on-demand rate used for cost tracking (USD / hour).
+# Accounting pin: $1.95/hr ≈ $0.000542/s. Update if Modal pricing changes.
+L40S_USD_PER_HOUR = 1.95
+L40S_USD_PER_SECOND = L40S_USD_PER_HOUR / 3600.0
 
 image = (
     modal.Image.debian_slim(python_version="3.11")

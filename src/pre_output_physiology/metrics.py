@@ -15,13 +15,37 @@ from sklearn.metrics import (
 )
 
 
-def tpr_at_fpr(y_true: np.ndarray, y_score: np.ndarray, target_fpr: float = 0.01) -> float:
+def tpr_at_or_below_fpr(
+    y_true: np.ndarray,
+    y_score: np.ndarray,
+    target_fpr: float = 0.01,
+) -> dict[str, float]:
+    """Max TPR among ROC points with FPR <= target_fpr (no above-threshold points).
+
+    Does not interpolate. If only the trivial (0,0)-style boundary is available at
+    FPR <= target, that boundary is returned rather than jumping to FPR > target.
+    """
     fpr, tpr, _ = roc_curve(y_true, y_score)
-    # First threshold where FPR >= target; if never, use last TPR.
-    idxs = np.where(fpr >= target_fpr)[0]
-    if len(idxs) == 0:
-        return float(tpr[-1])
-    return float(tpr[idxs[0]])
+    eligible = np.where(fpr <= target_fpr)[0]
+    if len(eligible) == 0:
+        # Should not happen for sklearn roc_curve (always includes FPR=0), but be safe.
+        return {
+            "tpr_at_or_below_target_fpr": 0.0,
+            "actual_fpr_at_tpr_metric": 0.0,
+            "target_fpr": float(target_fpr),
+        }
+    # Among eligible points, take the maximum TPR; if ties, the lowest FPR among ties.
+    eligible_tpr = tpr[eligible]
+    best_local = int(np.argmax(eligible_tpr))
+    # argmax returns first max; refine to lowest FPR among equal TPR
+    max_tpr = eligible_tpr[best_local]
+    tied = eligible[eligible_tpr == max_tpr]
+    best_idx = int(tied[np.argmin(fpr[tied])])
+    return {
+        "tpr_at_or_below_target_fpr": float(tpr[best_idx]),
+        "actual_fpr_at_tpr_metric": float(fpr[best_idx]),
+        "target_fpr": float(target_fpr),
+    }
 
 
 def bootstrap_auroc_ci(
@@ -79,6 +103,8 @@ def evaluate_binary_classifier(
     prevalence = float(y_true.mean()) if len(y_true) else float("nan")
     majority_acc = float(max(prevalence, 1 - prevalence))
 
+    low_fpr = tpr_at_or_below_fpr(y_true, y_score, target_fpr=0.01)
+
     metrics: dict[str, Any] = {
         "n": int(len(y_true)),
         "n_positive": int(y_true.sum()),
@@ -93,7 +119,8 @@ def evaluate_binary_classifier(
         "sensitivity": float(tp / (tp + fn)) if (tp + fn) else 0.0,
         "specificity": float(tn / (tn + fp)) if (tn + fp) else 0.0,
         "f1": float(f1),
-        "tpr_at_1pct_fpr": tpr_at_fpr(y_true, y_score, 0.01),
+        "tpr_at_or_below_1pct_fpr": low_fpr["tpr_at_or_below_target_fpr"],
+        "actual_fpr_at_tpr_metric": low_fpr["actual_fpr_at_tpr_metric"],
         "confusion_matrix": {
             "tn": int(tn),
             "fp": int(fp),
