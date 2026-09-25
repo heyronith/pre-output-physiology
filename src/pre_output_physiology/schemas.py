@@ -65,6 +65,8 @@ class ExperimentConfig(BaseModel):
         "phase3b_dev_authorized",
         "phase3b_dev_reauthorized_truncated_prefix",
         "phase3b_dev_complete_awaiting_audit",
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",

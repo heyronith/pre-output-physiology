@@ -46,6 +46,8 @@ def test_experiment_configs_status_and_model_path() -> None:
         "phase3b_dev_authorized",
         "phase3b_dev_reauthorized_truncated_prefix",
         "phase3b_dev_complete_awaiting_audit",
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
     }
     assert phase3.model_config_path.endswith("mistral_7b_instruct_v02.yaml")
 

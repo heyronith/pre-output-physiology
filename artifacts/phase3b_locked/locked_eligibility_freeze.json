@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-09-25T16:03:30+00:00",
+  "eligibility": {
+    "0": {
+      "eligible_ids_sha256": "f994e9002a41f6d9f18c99e284b1c67f340df20006b51db0d3738ea6de57a0f6",
+      "n_eligible": 500,
+      "n_excluded_short": 0,
+      "n_prompt_groups": 53
+    },
+    "1": {
+      "eligible_ids_sha256": "f994e9002a41f6d9f18c99e284b1c67f340df20006b51db0d3738ea6de57a0f6",
+      "n_eligible": 500,
+      "n_excluded_short": 0,
+      "n_prompt_groups": 53
+    },
+    "16": {
+      "eligible_ids_sha256": "2de227ecee8085409d24c17e1e3de3db9d2d16ab9235033ee9b69f26764838fe",
+      "n_eligible": 374,
+      "n_excluded_short": 126,
+      "n_prompt_groups": 49
+    },
+    "2": {
+      "eligible_ids_sha256": "07924a29ecd518e7aeddf295d9c2fc10dbf6510d42559b7da58b763c827d8e62",
+      "n_eligible": 497,
+      "n_excluded_short": 3,
+      "n_prompt_groups": 53
+    },
+    "4": {
+      "eligible_ids_sha256": "07924a29ecd518e7aeddf295d9c2fc10dbf6510d42559b7da58b763c827d8e62",
+      "n_eligible": 497,
+      "n_excluded_short": 3,
+      "n_prompt_groups": 53
+    },
+    "8": {
+      "eligible_ids_sha256": "bbbfaa0595d8b831d2e78b9d07f1c9e2445bb4979bab2ad6274bf3819fef74ae",
+      "n_eligible": 486,
+      "n_excluded_short": 14,
+      "n_prompt_groups": 53
+    }
+  },
+  "labels_used": false,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_prompt_groups": 53,
+  "n_rows": 500,
+  "predictive_metrics_computed": false,
+  "projected_k0_forwards": 53,
+  "projected_kgt0_forwards": 2354,
+  "projected_n_scientific_forwards": 2407,
+  "split": "locked_test",
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00",
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+}

@@ -37,6 +37,8 @@ def test_phase3_experiment_status_awaits_gpu() -> None:
         "phase3b_dev_authorized",
         "phase3b_dev_reauthorized_truncated_prefix",
         "phase3b_dev_complete_awaiting_audit",
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
     }
 
 
@@ -57,8 +59,16 @@ def test_phase3_yaml_frozen_scan_and_pins() -> None:
     assert int(raw["statistics"]["bootstrap_resamples"]) >= 2000
     assert raw["onset_annotation"]["activation_dependent"] is False
     assert raw["onset_annotation"]["llm_api_allowed"] is False
-    assert raw["phase3b_gpu"]["locked_test_gpu_authorized"] is False
     assert raw["phase3b_gpu"]["regime_c_authorized"] is False
+    # Locked-test GPU may be authorized only after Phase 3B1 audit (Phase 3B2).
+    assert isinstance(raw["phase3b_gpu"]["locked_test_gpu_authorized"], bool)
+    if raw["status"] in {
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
+    }:
+        assert raw["phase3b_gpu"]["locked_test_gpu_authorized"] is True
+    else:
+        assert raw["phase3b_gpu"]["locked_test_gpu_authorized"] is False
     assert raw["phase3b_gpu"]["gpu_type"] == "L40S"
     assert float(raw["phase3b_gpu"]["hard_budget_usd"]) == 40.0
     assert raw["primary_endpoints"]["regime_a"]["layer"] == 12
@@ -138,6 +148,10 @@ def test_decision_log_contains_phase3a_decisions() -> None:
         "D038",
         "D039",
         "D040",
+        "D041",
+        "D042",
+        "D043",
+        "D044",
     ):
         assert did in text, did
 

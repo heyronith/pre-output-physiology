@@ -1,12 +1,12 @@
-# Phase 3 pre-output physiology scan — Phase 3B1 truncated-prefix reauthorization
+# Phase 3 pre-output physiology scan — Phase 3B2 locked-test authorization
 
 experiment_id: phase3_preoutput_physiology_scan
 phase: phase3
-status: phase3b_dev_complete_awaiting_audit
+status: phase3b2_locked_authorized
 description: >
-  Phase 3B1 development scan complete (train+validation only) using truncated-prefix
-  batch-size-1 forwards. Awaiting research-lead audit before Phase 3B2 locked test.
-  Regime C unauthorized. Original 0.9999 full-sequence/batch gates not relaxed.
+  Phase 3B1 canonical audit passed. Phase 3B2 one-shot locked-test evaluation
+  authorized (train+val fit; untouched 500-row locked test). Regime C unauthorized.
+  No causal interventions. Original 0.9999 gates not relaxed.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 positive_control_dataset: RoleplayDeception
@@ -117,14 +117,12 @@ phase3b_gpu:
   scientific_batch_size: 1
   authorized: true
   dev_gpu_authorized: true
-  locked_test_gpu_authorized: false
+  locked_test_gpu_authorized: true
   regime_c_authorized: false
   regime_c_status: hold_insufficient_onset_resolution
   full_sequence_primary_authorized: false
 
 notes: >
-  Phase 3B1 development complete awaiting audit. Original float16-storage extract
-  preserved as phase3b1_extract_20260925T151054Z_f19e058f. Canonical reproducibility
-  rerun uses truncated_prefix_single_example, batch_size=1, BF16 compute, float32
-  storage, clean-tree provenance. Locked test not extracted. Regime C not run.
-  No interventions. Original 0.9999 gates not relaxed.
+  Phase 3B2 authorized after Phase 3B1 canonical audit. One-shot locked-test
+  evaluation only; no tuning on locked test. Combined train+validation refit with
+  frozen hyperparameters. Regime C HOLD. No causal interventions.

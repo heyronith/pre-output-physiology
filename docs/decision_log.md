@@ -280,3 +280,27 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Before any canonical Phase 3B1 GPU launch, commit extraction/provenance code with a clean working tree. Local entrypoint refuses Modal if `git status --porcelain` is non-empty. Remote manifests must include `git_commit`, clean-tree marker, extractor/analysis SHA256s, freeze hash, model/dataset revisions, and dtype fields.
 - **Date:** 2026-09-25
+
+### D041 — One-shot locked test
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B2 evaluates the untouched 500-row locked test once with frozen endpoints/hyperparameters. No scientific tuning after locked-test outcome evaluation.
+- **Date:** 2026-09-25
+
+### D042 — Final models refit on combined development data
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** For locked-test evaluation, refit frozen probes/baselines on combined Phase 3 train+validation (3000 rows) after all model/hyperparameter choices are frozen. Do not fit vocabulary/IDF or probes using locked-test text/activations.
+- **Date:** 2026-09-25
+
+### D043 — Confirmatory locked endpoint remains L12/k1
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary H3 replication requires paired activation-vs-surface evaluation at the pre-registered Regime B endpoint (block 12 / k=1). Regime A (block 12 / k=0) is also reported; failure to reject zero ΔAUROC is not an equivalence claim.
+- **Date:** 2026-09-25
+
+### D044 — Secondary grid cannot replace failed primary endpoint
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** All other layer×k cells remain descriptive/exploratory regardless of locked-test performance. Do not promote the best test cell into a new primary result.
+- **Date:** 2026-09-25

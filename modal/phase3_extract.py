@@ -44,6 +44,9 @@ EXPECTED_ELIGIBLE = {
     16: (1578, 492),
 }
 FREEZE_SHA256 = "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00"
+LOCKED_ELIGIBILITY_SHA256 = (
+    "30371dcaba266ebb2acec06563df9916f27d9e5afd4555e9fa1b8c206ae9ea2a"
+)
 COMPUTE_DTYPE = "bfloat16"
 ACTIVATION_STORAGE_DTYPE = "float32"
 DATASET_REVISION = "bf93584916fbd23121eca6f2017017df0ef3184f"
@@ -131,7 +134,9 @@ def _eligible(resp_len: int, k: int) -> bool:
     return True if k == 0 else resp_len > k
 
 
-def _require_provenance(provenance: dict[str, Any] | None) -> dict[str, Any]:
+def _require_provenance(
+    provenance: dict[str, Any] | None, *, locked_test: bool = False
+) -> dict[str, Any]:
     if not provenance:
         raise RuntimeError("provenance dict required; refuse GPU job")
     missing = [k for k in REQUIRED_PROVENANCE_KEYS if k not in provenance]
@@ -149,8 +154,14 @@ def _require_provenance(provenance: dict[str, Any] | None) -> dict[str, Any]:
         raise RuntimeError("batch_size must be 1")
     if provenance.get("future_response_tokens_present") is not False:
         raise RuntimeError("future_response_tokens_present must be false")
-    if provenance.get("locked_test_present") is not False:
-        raise RuntimeError("locked_test_present must be false")
+    if locked_test:
+        if provenance.get("locked_test_present") is not True:
+            raise RuntimeError("locked extract requires locked_test_present=true")
+        if provenance.get("locked_eligibility_freeze_sha256") != LOCKED_ELIGIBILITY_SHA256:
+            raise RuntimeError("locked eligibility freeze hash mismatch")
+    else:
+        if provenance.get("locked_test_present") is not False:
+            raise RuntimeError("locked_test_present must be false")
     if provenance.get("model_revision") != MODEL_REVISION:
         raise RuntimeError("model_revision mismatch")
     if provenance.get("dataset_revision") != DATASET_REVISION:
@@ -160,7 +171,7 @@ def _require_provenance(provenance: dict[str, Any] | None) -> dict[str, Any]:
     return provenance
 
 
-def _collect_local_provenance() -> dict[str, Any]:
+def _collect_local_provenance(*, locked_test: bool = False) -> dict[str, Any]:
     """Local-only: require clean tree and hash extractor/analysis scripts."""
     import hashlib
     import subprocess
@@ -177,17 +188,24 @@ def _collect_local_provenance() -> dict[str, Any]:
         ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
     ).strip()
     extractor = REPO_ROOT / "modal/phase3_extract.py"
-    analysis = REPO_ROOT / "scripts/analyze_phase3b_dev.py"
+    analysis_dev = REPO_ROOT / "scripts/analyze_phase3b_dev.py"
+    analysis_locked = REPO_ROOT / "scripts/analyze_phase3b_locked.py"
     freeze = REPO_ROOT / "artifacts/phase3b_dev/surface_baseline_freeze.json"
     freeze_sha = hashlib.sha256(freeze.read_bytes()).hexdigest()
     if freeze_sha != FREEZE_SHA256:
         raise SystemExit(f"surface freeze hash drift: {freeze_sha}")
-    return {
+    analysis_path = analysis_locked if locked_test else analysis_dev
+    if not analysis_path.is_file():
+        raise SystemExit(f"missing analysis script: {analysis_path}")
+    prov: dict[str, Any] = {
         "git_commit": git_commit,
         "canonical_run_code_sha": git_commit,
         "working_tree_clean": True,
         "extractor_sha256": hashlib.sha256(extractor.read_bytes()).hexdigest(),
-        "analysis_script_sha256": hashlib.sha256(analysis.read_bytes()).hexdigest(),
+        "analysis_script_sha256": hashlib.sha256(analysis_path.read_bytes()).hexdigest(),
+        "dev_analysis_script_sha256": hashlib.sha256(
+            analysis_dev.read_bytes()
+        ).hexdigest(),
         "surface_baseline_freeze_sha256": freeze_sha,
         "model_revision": MODEL_REVISION,
         "dataset_revision": DATASET_REVISION,
@@ -196,10 +214,18 @@ def _collect_local_provenance() -> dict[str, Any]:
         "extraction_mode": "truncated_prefix_single_example",
         "batch_size": 1,
         "future_response_tokens_present": False,
-        "locked_test_present": False,
+        "locked_test_present": locked_test,
         "full_sequence_teacher_forced_primary": False,
         "original_preflight_gate_relaxed": False,
     }
+    if locked_test:
+        elig = REPO_ROOT / "artifacts/phase3b_locked/locked_eligibility_freeze.json"
+        elig_sha = hashlib.sha256(elig.read_bytes()).hexdigest()
+        if elig_sha != LOCKED_ELIGIBILITY_SHA256:
+            raise SystemExit(f"locked eligibility freeze hash drift: {elig_sha}")
+        prov["locked_eligibility_freeze_sha256"] = elig_sha
+        prov["locked_analysis_script_sha256"] = prov["analysis_script_sha256"]
+    return prov
 
 
 def _load_model(cache_dir: str):
@@ -292,7 +318,8 @@ def run_preflight_truncated(
     import numpy as np
     import torch
 
-    prov = _require_provenance(provenance)
+    locked = bool(provenance.get("locked_test_present"))
+    prov = _require_provenance(provenance, locked_test=locked)
     t0 = time.time()
     examples = [json.loads(x) for x in examples_jsonl.splitlines() if x.strip()]
     tokenizer, model, commit = _load_model(MODEL_CACHE_DIR)
@@ -408,11 +435,15 @@ def run_preflight_truncated(
         "estimated_cost_usd": (wall / 3600.0) * L40S_USD_PER_HOUR,
         "l40s_usd_per_hour_assumed": L40S_USD_PER_HOUR,
         "gpu_type": "L40S",
-        "locked_test_used": False,
-        "locked_test_present": False,
+        "locked_test_used": locked,
+        "locked_test_present": locked,
         "surface_baseline_freeze_sha256": FREEZE_SHA256,
         "dataset_revision": DATASET_REVISION,
     }
+    if locked:
+        result["locked_eligibility_freeze_sha256"] = prov.get(
+            "locked_eligibility_freeze_sha256"
+        )
     out = Path(ART_DIR) / run_id
     out.mkdir(parents=True, exist_ok=True)
     text = json.dumps(result, indent=2, sort_keys=True) + "\n"
@@ -540,20 +571,28 @@ def extract_truncated_dev(
     *,
     run_id: str,
     provenance: dict[str, Any],
+    locked_test: bool = False,
 ) -> dict[str, Any]:
-    """Full train/val truncated-prefix batch-size-1 extraction."""
+    """Truncated-prefix batch-size-1 extraction (dev train+val OR locked test)."""
     import hashlib
 
     import numpy as np
     import torch
     from safetensors.numpy import save_file
 
-    prov = _require_provenance(provenance)
+    prov = _require_provenance(provenance, locked_test=locked_test)
     t0 = time.time()
     examples = [json.loads(x) for x in examples_jsonl.splitlines() if x.strip()]
     for row in examples:
-        if row.get("split") == "locked_test":
-            raise RuntimeError("locked_test leaked")
+        split = row.get("split")
+        if locked_test:
+            if split != "locked_test":
+                raise RuntimeError(f"locked extract got non-locked split {split}")
+            if "eventual_deception" in row:
+                raise RuntimeError("locked GPU payload must not include labels")
+        else:
+            if split == "locked_test":
+                raise RuntimeError("locked_test leaked")
 
     tokenizer, model, commit = _load_model(MODEL_CACHE_DIR)
     model_load_s = time.time() - t0
@@ -569,19 +608,42 @@ def extract_truncated_dev(
         prepared.append({"row": row, "b": b})
 
     # Eligibility counts must match freeze
-    for split_name in ("phase3_train", "phase3_validation"):
-        rows_s = [p for p in prepared if p["row"]["split"] == split_name]
+    if locked_test:
+        if len(prepared) != 500:
+            raise RuntimeError(f"expected 500 locked rows, got {len(prepared)}")
+        # Load expected counts from pinned constants matching locked_eligibility_freeze
+        locked_expected = {
+            0: 500,
+            1: 500,
+            2: 497,
+            4: 497,
+            8: 486,
+            16: 374,
+        }
         for k in K_VALUES:
             n = sum(
                 1
-                for p in rows_s
+                for p in prepared
                 if _eligible(len(p["b"]["response_suffix_ids"]), k)
             )
-            expect = EXPECTED_ELIGIBLE[k][0 if split_name == "phase3_train" else 1]
-            if n != expect:
+            if n != locked_expected[k]:
                 raise RuntimeError(
-                    f"eligibility mismatch {split_name} k={k}: got {n} expected {expect}"
+                    f"locked eligibility mismatch k={k}: got {n} expected {locked_expected[k]}"
                 )
+    else:
+        for split_name in ("phase3_train", "phase3_validation"):
+            rows_s = [p for p in prepared if p["row"]["split"] == split_name]
+            for k in K_VALUES:
+                n = sum(
+                    1
+                    for p in rows_s
+                    if _eligible(len(p["b"]["response_suffix_ids"]), k)
+                )
+                expect = EXPECTED_ELIGIBLE[k][0 if split_name == "phase3_train" else 1]
+                if n != expect:
+                    raise RuntimeError(
+                        f"eligibility mismatch {split_name} k={k}: got {n} expected {expect}"
+                    )
 
     captured, handles = _register_hooks(model, LAYERS)
     n_forwards = 0
@@ -605,8 +667,11 @@ def extract_truncated_dev(
                 groups[ph]["splits"].add(item["row"]["split"])
             group_list = list(groups.values())
             n_groups = len(group_list)
-            if n_groups != 306:
-                raise RuntimeError(f"expected 306 prompt groups, got {n_groups}")
+            expected_groups = 53 if locked_test else 306
+            if n_groups != expected_groups:
+                raise RuntimeError(
+                    f"expected {expected_groups} prompt groups, got {n_groups}"
+                )
             k0_acts = np.zeros((n_groups, len(LAYERS), hidden), dtype=np.float32)
             k0_logits = np.zeros((n_groups, 3), dtype=np.float32)
             for gi, g in enumerate(group_list):
@@ -660,7 +725,11 @@ def extract_truncated_dev(
                     row = item["row"]
                     b = item["b"]
                     example_ids.append(row["example_id"])
-                    labels.append(int(row["eventual_deception"]))
+                    # Locked GPU path: no outcome labels in payload; store sentinel.
+                    if locked_test:
+                        labels.append(-1)
+                    else:
+                        labels.append(int(row["eventual_deception"]))
                     splits.append(row["split"])
                     prompt_hashes.append(row["prompt_sha256"])
                     resp_len = len(b["response_suffix_ids"])
@@ -762,10 +831,18 @@ def extract_truncated_dev(
         "n_prompt_groups": n_groups,
         "n_scientific_forwards": n_forwards,
         "splits_present": sorted({p["row"]["split"] for p in prepared}),
-        "locked_test_present": False,
+        "locked_test_present": locked_test,
+        "labels_present_in_gpu_payload": False if locked_test else True,
         "regime_c_run": False,
         "causal_interventions": False,
         "surface_baseline_freeze_sha256": FREEZE_SHA256,
+        "locked_eligibility_freeze_sha256": (
+            prov.get("locked_eligibility_freeze_sha256") if locked_test else None
+        ),
+        "locked_analysis_script_sha256": (
+            prov.get("locked_analysis_script_sha256") if locked_test else None
+        ),
+        "dev_analysis_script_sha256": prov.get("dev_analysis_script_sha256"),
         "model_load_seconds": model_load_s,
         "k0_extract_seconds": k0_s,
         "trajectory_extract_seconds": traj_s,
@@ -811,8 +888,10 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
     import uuid
     from datetime import datetime
 
+    locked_modes = {"preflight_truncated_locked", "extract_locked"}
+    locked_test = mode in locked_modes
     # Mandatory: clean tree + provenance hashes BEFORE any Modal launch.
-    provenance = _collect_local_provenance()
+    provenance = _collect_local_provenance(locked_test=locked_test)
     print(
         json.dumps(
             {
@@ -820,6 +899,7 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
                 "working_tree_clean": True,
                 "extractor_sha256": provenance["extractor_sha256"],
                 "analysis_script_sha256": provenance["analysis_script_sha256"],
+                "locked_test_present": provenance["locked_test_present"],
             },
             indent=2,
         )
@@ -827,44 +907,107 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
 
     data_dir = REPO_ROOT / "data" / "processed" / "phase3_roleplay"
 
-    def slim_lines(path: Path, split: str) -> list[str]:
+    def slim_lines(
+        path: Path, split: str, *, include_labels: bool
+    ) -> list[str]:
         out = []
         with path.open(encoding="utf-8") as handle:
             for line in handle:
                 row = json.loads(line)
-                if row.get("split") == "locked_test":
-                    raise SystemExit("locked_test leaked")
-                out.append(
-                    json.dumps(
-                        {
-                            "example_id": row["example_id"],
-                            "split": split,
-                            "prompt_sha256": row["prompt_sha256"],
-                            "input_formatted": row["input_formatted"],
-                            "model_outputs": row["model_outputs"],
-                            "eventual_deception": int(row["eventual_deception"]),
-                        },
-                        sort_keys=True,
-                    )
-                )
+                if include_labels and row.get("split") == "locked_test":
+                    raise SystemExit("locked_test leaked into labeled payload")
+                payload = {
+                    "example_id": row["example_id"],
+                    "split": split,
+                    "prompt_sha256": row["prompt_sha256"],
+                    "input_formatted": row["input_formatted"],
+                    "model_outputs": row["model_outputs"],
+                }
+                if include_labels:
+                    payload["eventual_deception"] = int(row["eventual_deception"])
+                out.append(json.dumps(payload, sort_keys=True))
         return out
 
-    train_lines = slim_lines(data_dir / "phase3_train_metadata.jsonl", "phase3_train")
-    val_lines = slim_lines(
-        data_dir / "phase3_validation_metadata.jsonl", "phase3_validation"
-    )
+    def download_run(run_id: str, local_out: Path, result: dict) -> None:
+        (local_out / "run_manifest.json").write_text(
+            json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        print(f"Downloading volume artifacts {run_id} ...")
+        subprocess.run(
+            [
+                "modal",
+                "volume",
+                "get",
+                "preoutput-phase3-artifacts",
+                run_id,
+                str(local_out),
+                "--force",
+            ],
+            check=True,
+            cwd=str(REPO_ROOT),
+        )
+        nested = local_out / run_id
+        if nested.is_dir():
+            for p in nested.iterdir():
+                dest = local_out / p.name
+                if dest.exists():
+                    if dest.is_dir():
+                        shutil.rmtree(dest)
+                    else:
+                        dest.unlink()
+                shutil.move(str(p), str(dest))
+            nested.rmdir()
+
+    prefix = "phase3b2" if locked_test else "phase3b1"
     run_id = (
-        f"phase3b1_{mode}_"
+        f"{prefix}_{mode}_"
         f"{datetime.now(UTC).strftime('%Y%m%dT%H%M%SZ')}_"
         f"{uuid.uuid4().hex[:8]}"
     )
+    # Normalize run_id naming for extract_locked
+    if mode == "extract_locked":
+        run_id = (
+            f"phase3b2_extract_"
+            f"{datetime.now(UTC).strftime('%Y%m%dT%H%M%SZ')}_"
+            f"{uuid.uuid4().hex[:8]}"
+        )
+    elif mode == "preflight_truncated_locked":
+        run_id = (
+            f"phase3b2_preflight_truncated_"
+            f"{datetime.now(UTC).strftime('%Y%m%dT%H%M%SZ')}_"
+            f"{uuid.uuid4().hex[:8]}"
+        )
+
     local_out = (
         Path(out_dir) if out_dir else (REPO_ROOT / "artifacts" / "runs" / run_id)
     )
     local_out.mkdir(parents=True, exist_ok=True)
 
-    if mode == "preflight_truncated":
-        payload = "\n".join(train_lines) + "\n"
+    if mode in {"preflight_truncated", "preflight_truncated_locked"}:
+        if locked_test:
+            payload = (
+                "\n".join(
+                    slim_lines(
+                        data_dir / "locked_test_metadata.jsonl",
+                        "locked_test",
+                        include_labels=False,
+                    )
+                )
+                + "\n"
+            )
+            summary_path = (
+                REPO_ROOT / "artifacts/phase3b_locked/preflight_truncated_summary.json"
+            )
+        else:
+            train_lines = slim_lines(
+                data_dir / "phase3_train_metadata.jsonl",
+                "phase3_train",
+                include_labels=True,
+            )
+            payload = "\n".join(train_lines) + "\n"
+            summary_path = (
+                REPO_ROOT / "artifacts/phase3b_dev/preflight_truncated_summary.json"
+            )
         print(f"Launching truncated preflight run_id={run_id}")
         result = run_preflight_truncated.remote(
             payload, run_id=run_id, provenance=provenance
@@ -872,27 +1015,34 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
         (local_out / "preflight_truncated.json").write_text(
             json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
-        # Also copy commit-safe summary
-        slim = {
-            k: result[k]
-            for k in result
-            if k != "comparisons"
-        }
-        (REPO_ROOT / "artifacts/phase3b_dev/preflight_truncated_summary.json").write_text(
+        slim = {k: result[k] for k in result if k != "comparisons"}
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
+        summary_path.write_text(
             json.dumps(slim, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
-        print(json.dumps({
-            "run_id": run_id,
-            "repeatability_pass": result["repeatability_pass"],
-            "repeatability_min_cosine": result["repeatability_min_cosine"],
-            "estimated_cost_usd": result["estimated_cost_usd"],
-            "out_dir": str(local_out),
-        }, indent=2))
+        print(
+            json.dumps(
+                {
+                    "run_id": run_id,
+                    "repeatability_pass": result["repeatability_pass"],
+                    "repeatability_min_cosine": result["repeatability_min_cosine"],
+                    "estimated_cost_usd": result["estimated_cost_usd"],
+                    "out_dir": str(local_out),
+                    "locked_test": locked_test,
+                },
+                indent=2,
+            )
+        )
         if not result["repeatability_pass"]:
             raise SystemExit("TRUNCATED PREFLIGHT FAILED")
         return
 
     if mode == "benchmark":
+        train_lines = slim_lines(
+            data_dir / "phase3_train_metadata.jsonl",
+            "phase3_train",
+            include_labels=True,
+        )
         payload = "\n".join(train_lines) + "\n"
         print(f"Launching benchmark run_id={run_id}")
         result = run_benchmark.remote(
@@ -904,13 +1054,20 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
         (REPO_ROOT / "artifacts/phase3b_dev/benchmark_summary.json").write_text(
             json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
-        print(json.dumps({
-            "run_id": run_id,
-            "forwards_per_sec": result["forwards_per_sec"],
-            "projected_cost_usd": result["projected_cost_usd"],
-            "within_soft_budget": result["within_soft_budget"],
-            "projected_n_scientific_forwards": result["projected_n_scientific_forwards"],
-        }, indent=2))
+        print(
+            json.dumps(
+                {
+                    "run_id": run_id,
+                    "forwards_per_sec": result["forwards_per_sec"],
+                    "projected_cost_usd": result["projected_cost_usd"],
+                    "within_soft_budget": result["within_soft_budget"],
+                    "projected_n_scientific_forwards": result[
+                        "projected_n_scientific_forwards"
+                    ],
+                },
+                indent=2,
+            )
+        )
         if not result["within_soft_budget"]:
             raise SystemExit(
                 f"PROJECTED COST {result['projected_cost_usd']} > soft budget "
@@ -918,10 +1075,94 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
             )
         return
 
+    if mode == "extract_locked":
+        locked_lines = slim_lines(
+            data_dir / "locked_test_metadata.jsonl",
+            "locked_test",
+            include_labels=False,
+        )
+        payload = "\n".join(locked_lines) + "\n"
+        print(f"Launching LOCKED extract run_id={run_id} n={len(locked_lines)}")
+        result = extract_truncated_dev.remote(
+            payload, run_id=run_id, provenance=provenance, locked_test=True
+        )
+        download_run(run_id, local_out, result)
+        (REPO_ROOT / "artifacts/phase3b_locked/latest_extract_manifest.json").write_text(
+            json.dumps(
+                {
+                    "run_id": result["run_id"],
+                    "local_dir": str(local_out),
+                    "extraction_mode": result["extraction_mode"],
+                    "batch_size": result["batch_size"],
+                    "n_scientific_forwards": result["n_scientific_forwards"],
+                    "estimated_cost_usd": result["estimated_cost_usd"],
+                    "wall_seconds": result["wall_seconds"],
+                    "total_artifact_bytes": result["total_artifact_bytes"],
+                    "k0_sha256": result["k0_artifact"]["sha256"],
+                    "shards": [
+                        {"shard": s["shard"], "sha256": s["sha256"]}
+                        for s in result["trajectory_shards"]
+                    ],
+                    "locked_test_present": True,
+                    "labels_present_in_gpu_payload": False,
+                    "original_preflight_gate_relaxed": False,
+                    "surface_baseline_freeze_sha256": FREEZE_SHA256,
+                    "locked_eligibility_freeze_sha256": LOCKED_ELIGIBILITY_SHA256,
+                    "git_commit": result["git_commit"],
+                    "canonical_run_code_sha": result["canonical_run_code_sha"],
+                    "working_tree_clean": True,
+                    "extractor_sha256": result["extractor_sha256"],
+                    "analysis_script_sha256": result["analysis_script_sha256"],
+                    "locked_analysis_script_sha256": result.get(
+                        "locked_analysis_script_sha256"
+                    ),
+                    "dev_analysis_script_sha256": result.get(
+                        "dev_analysis_script_sha256"
+                    ),
+                    "compute_dtype": COMPUTE_DTYPE,
+                    "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+                    "future_response_tokens_present": False,
+                    "model_revision": MODEL_REVISION,
+                    "dataset_revision": DATASET_REVISION,
+                    "splits_present": ["locked_test"],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        print(
+            json.dumps(
+                {
+                    "run_id": run_id,
+                    "out_dir": str(local_out),
+                    "n_examples": result["n_examples"],
+                    "n_scientific_forwards": result["n_scientific_forwards"],
+                    "estimated_cost_usd": result["estimated_cost_usd"],
+                    "total_artifact_bytes": result["total_artifact_bytes"],
+                    "git_commit": result["git_commit"],
+                    "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+                    "locked_test_present": True,
+                },
+                indent=2,
+            )
+        )
+        return
+
     if mode != "extract":
         raise SystemExit(f"Unknown mode {mode}")
 
-    # Require prior benchmark within budget if present
+    train_lines = slim_lines(
+        data_dir / "phase3_train_metadata.jsonl",
+        "phase3_train",
+        include_labels=True,
+    )
+    val_lines = slim_lines(
+        data_dir / "phase3_validation_metadata.jsonl",
+        "phase3_validation",
+        include_labels=True,
+    )
     bench = REPO_ROOT / "artifacts/phase3b_dev/benchmark_summary.json"
     if bench.is_file():
         b = json.loads(bench.read_text(encoding="utf-8"))
@@ -931,38 +1172,9 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
     payload = "\n".join(train_lines + val_lines) + "\n"
     print(f"Launching extract run_id={run_id} n={len(train_lines)+len(val_lines)}")
     result = extract_truncated_dev.remote(
-        payload, run_id=run_id, provenance=provenance
+        payload, run_id=run_id, provenance=provenance, locked_test=False
     )
-    (local_out / "run_manifest.json").write_text(
-        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
-    print(f"Downloading volume artifacts {run_id} ...")
-    subprocess.run(
-        [
-            "modal",
-            "volume",
-            "get",
-            "preoutput-phase3-artifacts",
-            run_id,
-            str(local_out),
-            "--force",
-        ],
-        check=True,
-        cwd=str(REPO_ROOT),
-    )
-    nested = local_out / run_id
-    if nested.is_dir():
-        for p in nested.iterdir():
-            dest = local_out / p.name
-            if dest.exists():
-                if dest.is_dir():
-                    shutil.rmtree(dest)
-                else:
-                    dest.unlink()
-            shutil.move(str(p), str(dest))
-        nested.rmdir()
-
-    # Commit-safe manifest pointer (canonical rerun; original preserved separately)
+    download_run(run_id, local_out, result)
     (REPO_ROOT / "artifacts/phase3b_dev/latest_extract_manifest.json").write_text(
         json.dumps(
             {
@@ -1002,13 +1214,18 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
         + "\n",
         encoding="utf-8",
     )
-    print(json.dumps({
-        "run_id": run_id,
-        "out_dir": str(local_out),
-        "n_examples": result["n_examples"],
-        "n_scientific_forwards": result["n_scientific_forwards"],
-        "estimated_cost_usd": result["estimated_cost_usd"],
-        "total_artifact_bytes": result["total_artifact_bytes"],
-        "git_commit": result["git_commit"],
-        "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
-    }, indent=2))
+    print(
+        json.dumps(
+            {
+                "run_id": run_id,
+                "out_dir": str(local_out),
+                "n_examples": result["n_examples"],
+                "n_scientific_forwards": result["n_scientific_forwards"],
+                "estimated_cost_usd": result["estimated_cost_usd"],
+                "total_artifact_bytes": result["total_artifact_bytes"],
+                "git_commit": result["git_commit"],
+                "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+            },
+            indent=2,
+        )
+    )

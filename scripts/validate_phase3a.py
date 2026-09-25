@@ -30,6 +30,8 @@ PHASE3_STATUS_OK = {
     "phase3b_dev_authorized",
     "phase3b_dev_reauthorized_truncated_prefix",
     "phase3b_dev_complete_awaiting_audit",
+    "phase3b2_locked_authorized",
+    "phase3b2_locked_complete_awaiting_audit",
 }
 
 
@@ -93,10 +95,19 @@ def main() -> int:
         result.fail(f"phase3 status={exp.get('status')!r} unexpected")
 
     gpu = exp.get("phase3b_gpu", {})
-    if gpu.get("locked_test_gpu_authorized") is False:
+    status = exp.get("status")
+    if status in {
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
+    }:
+        if gpu.get("locked_test_gpu_authorized") is True:
+            result.ok("locked_test_gpu_authorized is true (Phase 3B2)")
+        else:
+            result.fail("Phase 3B2 requires locked_test_gpu_authorized=true")
+    elif gpu.get("locked_test_gpu_authorized") is False:
         result.ok("locked_test_gpu_authorized is false")
     else:
-        result.fail("locked_test GPU must not be authorized")
+        result.fail("locked_test GPU must not be authorized before Phase 3B2")
     if gpu.get("regime_c_authorized") is False:
         result.ok("regime_c_authorized is false")
     else:

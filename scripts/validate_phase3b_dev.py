@@ -143,10 +143,19 @@ def main() -> int:
         result.fail("missing surface_baseline_freeze.json")
 
     gpu = exp.get("phase3b_gpu", {})
-    if gpu.get("locked_test_gpu_authorized") is False:
+    status = exp.get("status")
+    if status in {
+        "phase3b2_locked_authorized",
+        "phase3b2_locked_complete_awaiting_audit",
+    }:
+        if gpu.get("locked_test_gpu_authorized") is True:
+            result.ok("locked test GPU authorized (Phase 3B2)")
+        else:
+            result.fail("Phase 3B2 requires locked test GPU authorization")
+    elif gpu.get("locked_test_gpu_authorized") is False:
         result.ok("locked test GPU unauthorized")
     else:
-        result.fail("locked test GPU authorized")
+        result.fail("locked test GPU authorized before Phase 3B2")
     if gpu.get("regime_c_authorized") is False:
         result.ok("regime C unauthorized")
     else:
