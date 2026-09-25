@@ -13,16 +13,17 @@ from pre_output_physiology.config import (
     load_experiment_config,
     load_model_config,
 )
-from pre_output_physiology.schemas import UNPINNED_REVISION_SENTINEL, ModelConfig
+from pre_output_physiology.schemas import ModelConfig
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+PINNED_MODEL_REV = "63a8b081895390a26e140280378bc85ec8bce07a"
 
 
 def test_primary_model_yaml_parses_and_matches_frozen_id() -> None:
     raw = yaml.safe_load(PRIMARY_MODEL_CONFIG.read_text(encoding="utf-8"))
     assert raw["model_id"] == PRIMARY_MODEL_ID
     assert raw["quantization"] is None
-    assert raw["revision"] == UNPINNED_REVISION_SENTINEL
+    assert raw["revision"] == PINNED_MODEL_REV
     assert raw["revision"].lower() != "main"
 
 
@@ -35,18 +36,19 @@ def test_load_model_config_via_package() -> None:
     assert cfg.seed == 0
 
 
-def test_experiment_configs_are_scaffolded_not_authorized() -> None:
-    for name in ("phase2_positive_control.yaml", "phase3_preoutput_scan.yaml"):
-        path = EXPERIMENTS_DIR / name
-        cfg = load_experiment_config(path)
-        assert cfg.status == "scaffolded"
-        assert cfg.model_config_path.endswith("mistral_7b_instruct_v02.yaml")
+def test_experiment_configs_status_and_model_path() -> None:
+    phase2 = load_experiment_config(EXPERIMENTS_DIR / "phase2_positive_control.yaml")
+    assert phase2.status == "authorized"
+    assert phase2.model_config_path.endswith("mistral_7b_instruct_v02.yaml")
+    phase3 = load_experiment_config(EXPERIMENTS_DIR / "phase3_preoutput_scan.yaml")
+    assert phase3.status == "scaffolded"
+    assert phase3.model_config_path.endswith("mistral_7b_instruct_v02.yaml")
 
 
 def test_model_schema_rejects_quantization_and_wrong_model(tmp_path: Path) -> None:
     good = {
         "model_id": PRIMARY_MODEL_ID,
-        "revision": UNPINNED_REVISION_SENTINEL,
+        "revision": PINNED_MODEL_REV,
         "dtype": "bfloat16",
         "quantization": None,
         "trust_remote_code": False,

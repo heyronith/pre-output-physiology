@@ -955,6 +955,9 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+hub = [
+    { name = "huggingface-hub" },
+]
 modal = [
     { name = "modal" },
 ]
@@ -968,6 +971,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "accelerate", specifier = ">=0.33" },
+    { name = "huggingface-hub", marker = "extra == 'hub'", specifier = ">=0.24" },
     { name = "modal", marker = "extra == 'modal'", specifier = ">=0.64" },
     { name = "numpy", specifier = ">=1.26" },
     { name = "pandas", specifier = ">=2.2" },
@@ -981,7 +985,7 @@ requires-dist = [
     { name = "torch", specifier = ">=2.3" },
     { name = "transformers", specifier = ">=4.44" },
 ]
-provides-extras = ["dev", "modal"]
+provides-extras = ["dev", "modal", "hub"]
 
 [package.metadata.requires-dev]
 dev = [

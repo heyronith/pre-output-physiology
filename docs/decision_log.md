@@ -71,6 +71,7 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Set `revision: TO_BE_PINNED_BEFORE_PHASE2` in the primary model config. Do not invent a revision hash or treat `main` as the final scientific revision.
 - **Date:** 2026-09-24
+- **Superseded by:** D011 (Phase 2 exact pin).
 
 ### D010 — Minor structural additions beyond the requested skeleton
 
@@ -81,4 +82,58 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
   - Added optional `[project.optional-dependencies] modal` without executing Modal.
   - Added `dependency-groups.dev` for uv + pytest/ruff.
   - Experiment YAMLs use `status: scaffolded` to make non-authorization explicit.
+- **Date:** 2026-09-24
+
+---
+
+## Phase 2 decisions
+
+### D011 — Pin exact Mistral revision
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Replace `TO_BE_PINNED_BEFORE_PHASE2` with Hugging Face commit `63a8b081895390a26e140280378bc85ec8bce07a` for `mistralai/Mistral-7B-Instruct-v0.2`.
+- **Date:** 2026-09-24
+
+### D012 — Pin Apollo RoleplayDeception source revision
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pin `ApolloResearch/deception-detection` at `f8ec4010e74927394709dffa22b97bdf8cd5a62f`; canonical file `data/roleplaying/dataset.yaml` with SHA256 `7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564`.
+- **Date:** 2026-09-24
+
+### D013 — Pin exact LASR HF dataset revision
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pin `lasrprobegen/deception-activations` at `bf93584916fbd23121eca6f2017017df0ef3184f`. Download only RoleplayDeception/Mistral JSONL text+label files; never snapshot-download the TB-scale activation repository.
+- **Date:** 2026-09-24
+
+### D014 — Teacher-forced forward passes over existing labelled outputs
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** For the Phase 2 positive control, use fixed RoleplayDeception outputs from LASR JSONL (`input_formatted + model_outputs`) and run teacher-forced canonical forward passes rather than generating a new dataset.
+- **Reason:** Validates activation extraction while minimizing stochasticity and GPU cost.
+- **Date:** 2026-09-24
+
+### D015 — Collect only block-12 mean activations in Phase 2
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Register a forward hook only on `model.model.layers[12]`; immediately mean-pool non-padding tokens; store `[N, hidden]` float32 safetensors. No all-layer / trajectory / causal data.
+- **Reason:** No scientific need to pay for all-layer physiology before instrumentation is validated.
+- **Date:** 2026-09-24
+
+### D016 — Train/evaluate probe locally after GPU extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Modal performs extraction only. Logistic regression + metrics + bootstrap CIs run on the local Mac.
+- **Date:** 2026-09-24
+
+### D017 — Tokenize with `add_special_tokens=False`
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Because upstream `input_formatted` already includes the Mistral BOS token `<s>`, Phase 2 tokenization uses `add_special_tokens=False` to avoid double-BOS.
+- **Date:** 2026-09-24
+
+### D018 — Class-1 semantics for scale_labels
+
+- **Type:** **FACT FROM SOURCE** + documentation decision
+- **Decision:** Record that `scale_labels` is an honesty grade; `<=5 → class 1` means deceptive/dishonest (`labels=="positive"`); `>5 → class 0` means honest (`labels=="negative"`), matching LASR `activation_handlers.py`.
 - **Date:** 2026-09-24

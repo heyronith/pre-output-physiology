@@ -1,0 +1,54 @@
+# Phase 2 RoleplayDeception positive-control dataset pins.
+# Do not use "main" as a scientific revision for any of these sources.
+
+dataset_id: roleplay_deception_phase2
+behaviour: deception
+datasource: roleplaying
+response_model: mistral_7b
+activations_model: mistral_7b
+generation_regime: incentivised
+
+# LASR Hugging Face dataset (text/labels only; do NOT snapshot-download activations).
+lasr_hf_repo: lasrprobegen/deception-activations
+lasr_hf_revision: bf93584916fbd23121eca6f2017017df0ef3184f
+
+# Exact literature-aligned files (from pinned LASR activation_handlers path convention
+# and Hub listing at the pinned revision):
+#   labels_filepath = f"{datasource}/{response_model}_{generation_method}_{mode}.jsonl"
+train_jsonl: roleplaying/mistral_7b_incentivised_train.jsonl
+test_jsonl: roleplaying/mistral_7b_incentivised_test.jsonl
+
+# Associated published activation pickles (NOT downloaded for primary Phase 2):
+# roleplaying/mistral_7b/mistral_7b_incentivised_train_layer_12.pkl
+# roleplaying/mistral_7b/mistral_7b_incentivised_test_layer_12.pkl
+
+# Apollo RoleplayDeception source prompts (provenance only in Phase 2).
+apollo_repo: ApolloResearch/deception-detection
+apollo_revision: f8ec4010e74927394709dffa22b97bdf8cd5a62f
+apollo_source_file: data/roleplaying/dataset.yaml
+apollo_dataset_yaml_sha256: 7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564
+
+# LASR code reference (not vendored).
+lasr_code_repo: SamDower/LASR-probe-gen
+lasr_code_revision: f4c6ad69b10a5436a2e819c69009431802a0f5f7
+
+# Label mapping (FACT FROM SOURCE: probe_gen/probes/activation_handlers.py)
+# scale_labels is an honesty grade from the LLM judge.
+# scale_labels <= 5 -> binary 1 (deceptive / dishonest; labels field "positive")
+# scale_labels > 5  -> binary 0 (honest; labels field "negative")
+label_mapping:
+  field: scale_labels
+  positive_class_max_inclusive: 5
+  class_1_semantics: >
+    Deceptive / dishonest response under the RoleplayDeception honesty grade
+    (low honesty scores). Matches upstream labels field value "positive".
+  class_0_semantics: >
+    Honest response under the RoleplayDeception honesty grade (high honesty scores).
+    Matches upstream labels field value "negative".
+
+teacher_forced_text:
+  method: input_formatted_plus_model_outputs
+  notes: >
+    Use the exact upstream input_formatted string concatenated with model_outputs.
+    Do not rebuild via apply_chat_template (differs from stored input_formatted).
+    Tokenize with add_special_tokens=False because input_formatted already includes <s>.
