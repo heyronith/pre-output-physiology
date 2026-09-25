@@ -1,13 +1,13 @@
-# Phase 4 deception specificity — Phase 4E extraction AUTHORIZED
+# Phase 4 deception specificity — Phase 4E specificity COMPLETE (awaiting audit)
 
 experiment_id: phase4_deception_specificity
 phase: phase4
-status: phase4e_specificity_extraction_authorized
+status: phase4e_specificity_complete_awaiting_audit
 description: >
-  Phase 4E activation extraction and frozen-probe scoring authorized. Extract
-  L12/k0 and controlled-prefix L12/k1 for 1200 Phase-4D rows after B1
-  compatibility preflight (cosine >= 0.9999). Score with immutable Phase-3 probes
-  only. Eligibility frozen; C5 HOLD; no causal interventions; no retrain.
+  Phase 4E complete: L12/k0 and controlled-prefix L12/k1 activations extracted
+  for 1200 Phase-4D rows after B1 compatibility preflight (cosine >= 0.9999).
+  Scored with immutable Phase-3 probes only. Eligibility frozen; C5 HOLD; no
+  causal interventions; no retrain/recalibrate. Awaiting audit.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -115,6 +115,7 @@ final_generation:
   estimated_cost_usd: 0.3201753625671069
 
 activation_extraction:
+  run_id: phase4e_extract_20260925T180943Z_ddb36132
   layer: 12
   k_values: [0, 1]
   controlled_prefix_token_id: 12107
@@ -125,8 +126,12 @@ activation_extraction:
   future_response_tokens_present: false
   condition_labels_in_extractor: false
   compatibility_preflight_cosine_min: 0.9999
+  preflight_min_cosine_all: 0.9999999999999103
   n_bootstrap_min: 5000
+  wall_seconds_total: 108.57512950897217
+  estimated_cost_usd_total: 0.05881152848402659
 
 notes: >
-  Phase 4E extraction authorized (D063). B1 compatibility preflight required.
-  Frozen probes only. Eligibility unchanged. C5 HOLD. No causal work.
+  Phase 4E complete awaiting audit (D063). Primary C3 vs C2 L12/k1 transfer null;
+  key secondary C3 vs C4 separates. Frozen probes only. Eligibility unchanged.
+  C5 HOLD. No causal work.
