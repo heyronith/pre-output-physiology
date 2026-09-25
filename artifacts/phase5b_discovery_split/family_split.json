@@ -3,14 +3,16 @@
   "created_at": "2026-09-25T19:26:38+00:00",
   "discovery_base_scenario_ids_sha256": "42a1d85d4c42045ec4f633c7ca7462f5aa80b58318daee300b0ed1edec8e7407",
   "discovery_prompt_text_sha256": "2eb22deeeb520d712fee000644fa958f35137e029a08ba0aa4b58b89327fe464",
+  "discovery_run_id": "phase5b_discovery_20260925T192726Z_86f6107d",
   "final_prompt_text_sha256": "cdf2003ac0d568eee28a0feffa7b07e0ef208e637de40665aa9a5b1e8bc2920e",
+  "generation_completed_at": "2026-09-25T19:33:46+00:00",
   "locked_families_excluded": [
     "harbor_dock_slip",
     "trail_marker_post"
   ],
   "locked_families_run": false,
   "method": "SHA256(phase5_family_split_v1|<family>); sort ascending by digest; first 4 = train; last 2 = validation",
-  "model_generation_performed": false,
+  "model_generation_performed": true,
   "n_train_base_scenarios_expected": 640,
   "n_train_families": 4,
   "n_train_prompts_expected": 1280,

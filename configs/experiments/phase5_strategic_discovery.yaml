@@ -1,13 +1,13 @@
-# Phase 5 strategic deception discovery — Phase 5B discovery behavior AUTHORIZED
+# Phase 5 strategic deception discovery — Phase 5B discovery behavior COMPLETE awaiting audit
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
-status: phase5b_discovery_behavior_authorized
+status: phase5b_discovery_behavior_complete_awaiting_audit
 description: >
-  Phase 5B authorized: generate behavior for six discovery families only (1920
-  outputs). Train/validation family split and primary all-pair populations frozen
-  pre-generation. No activations, probe fitting/scoring, layer selection,
-  locked-family generation, prompt revision, or causal interventions.
+  Phase 5B complete: 1920 discovery-family behavior outputs generated and evaluated.
+  Primary all-pair populations unchanged; behavior-valid pairs frozen as sensitivity.
+  No activations, probe fitting/scoring, layer selection, locked-family generation,
+  prompt revision, or causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -16,6 +16,8 @@ phase4_merge_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
 phase5_starting_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
 phase5a_pilot_run_id: phase5a_pilot_20260925T191728Z_d3a61de0
 phase5a_audited_head: 448bceb1b23ffceebd72a3835992309e7b3d92b2
+phase5b_pre_generation_sha: 86f6107d83086d4be4831e943f7e3109790f5bbe
+phase5b_discovery_run_id: phase5b_discovery_20260925T192726Z_86f6107d
 
 neutral_prefix_token: Response
 neutral_prefix_token_id: 12107
@@ -69,6 +71,11 @@ discovery_split:
   discovery_prompt_text_sha256: 2eb22deeeb520d712fee000644fa958f35137e029a08ba0aa4b58b89327fe464
   primary_populations: artifacts/phase5b_discovery_split/primary_all_pair_populations.json
   future_probe_procedure: artifacts/phase5b_discovery_split/future_probe_procedure.json
+  sensitivity_valid_populations: artifacts/phase5b_discovery_behavior/sensitivity_behavior_valid_populations.json
+  train_behavior_valid_pair_n: 562
+  train_behavior_valid_pair_sha256: 646da4a8d44bbe585332a60a8384d23c0d11f47733c594260cc0c78db4dbce36
+  validation_behavior_valid_pair_n: 275
+  validation_behavior_valid_pair_sha256: 2aa87c9c52a9798b5ed3af58e4d883a3fe184b2a765c9a50877bd3322146eec8
 
 future_physiology:
   layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
@@ -85,14 +92,15 @@ preregistered_baselines:
 
 authorizations:
   pilot_generation_authorized: false
-  discovery_generation_authorized: true
+  discovery_generation_authorized: false
   locked_final_generation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   probe_scoring_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
-  Phase 5B discovery behavior authorized (D072–D073). Split + primary all-pair
-  populations frozen pre-generation. Locked finals not run. No activations/probes/causal.
+  Phase 5B discovery behavior complete awaiting audit (D072–D073). Primary all-pair
+  populations frozen; sensitivity valid-pairs secondary only. Locked finals not run.
+  No activations/probes/layer selection/causal. STOP after 5B.
