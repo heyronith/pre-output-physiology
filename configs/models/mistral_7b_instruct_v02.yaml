@@ -1,0 +1,29 @@
+# FACT FROM SOURCE intent: primary scientific model contract for Phase 1+.
+# OUR RESEARCH DECISION: freeze mistralai/Mistral-7B-Instruct-v0.2; do not substitute
+# without explicit approval. See docs/decision_log.md D001.
+
+model_id: mistralai/Mistral-7B-Instruct-v0.2
+
+# Exact Hugging Face commit could not be resolved as a scientific pin during Phase 1
+# without silently treating "main" as final. Must be replaced before Phase 2 data collection.
+revision: TO_BE_PINNED_BEFORE_PHASE2
+
+# Canonical GPU inference precision. Prefer bfloat16 on Ampere+ GPUs; float16 acceptable
+# where bfloat16 is unavailable. Do not use quantized weights for primary results.
+dtype: bfloat16
+
+# null = full-precision (non-quantized) scientific configuration.
+quantization: null
+
+trust_remote_code: false
+
+# Canonical primary results require Modal (or equivalent) full-precision GPU inference.
+# Local quantized / CPU paths are debugging-only and must be labelled separately.
+device_policy: modal_full_precision_gpu_primary
+
+seed: 0
+
+notes: >
+  Published deception-probe precedent for RoleplayDeception used layer 12 on this
+  checkpoint family (ACL 2026 Findings). Do not claim the same paper validated
+  Mistral-7B on InsiderTrading; that Mistral-family trading experiment used Mixtral-8x7B.

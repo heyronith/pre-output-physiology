@@ -40,7 +40,9 @@ htmlcov/
 *.pt
 *.pth
 *.onnx
-models/
+/models/
+/checkpoints/
+/weights/
 checkpoints/
 weights/
 
