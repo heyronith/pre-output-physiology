@@ -1,13 +1,13 @@
-# Phase 4 deception specificity — Phase 4C controlled-prefix pilot authorized
+# Phase 4 deception specificity — Phase 4C controlled-prefix pilot FAILED (hold)
 
 experiment_id: phase4_deception_specificity
 phase: phase4
-status: phase4c_controlled_prefix_pilot_authorized
+status: phase4c_controlled_prefix_pilot_fail_hold
 description: >
-  Controlled-prefix methodology pilot (D058/D059) using frozen revision-1 prompts
-  unchanged. Supplies token 12107 as a common assistant prefix; no prompt-template
-  revision. Final generation, activations, probe scoring, and causal work remain
-  unauthorized.
+  Controlled-prefix methodology pilot completed. Prefix integrity 144/144 passed,
+  but behavioral gates failed (C5 exact-three-line compliance). Revision-1 prompts
+  remain unchanged; no further prompt-template revision under D057/D058. Final
+  generation, activations, probe scoring, and causal work remain unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -73,9 +73,11 @@ pilot_generation:
   activations: false
   probe_scoring: false
   prompt_template_revision: 1
+  controlled_prefix_run_id: phase4c_prefix_20260925T173319Z_1050fa38
   prior_pilot_run_ids:
     - phase4b_pilot_20260925T165130Z_ee4d615c
     - phase4b_pilot_rev1_20260925T172314Z_33fb5209
 
 notes: >
-  D058 controlled-prefix pilot. Revision-1 prompts frozen. No second template revision.
+  Phase 4C controlled-prefix pilot fail-hold. C5 failed exact-three-line schema.
+  No additional prompt-template revision. Held for research-lead redesign.
