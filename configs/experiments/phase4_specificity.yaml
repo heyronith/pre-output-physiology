@@ -1,12 +1,12 @@
-# Phase 4 deception specificity — revision-1 re-pilot authorized
+# Phase 4 deception specificity — revision-1 re-pilot FAILED (hold)
 
 experiment_id: phase4_deception_specificity
 phase: phase4
-status: phase4b_pilot_complete_awaiting_audit
+status: phase4b_repilot_fail_hold
 description: >
-  Single D050 template revision (D055/D056) applied. Re-pilot of the same 144
-  pilot prompts is authorized. Final generation, activations, probe scoring,
-  and causal work remain unauthorized.
+  Single D050 template revision (D055/D056) re-pilot completed and failed the
+  pre-registered usability gates (D054/D057). Final generation remains
+  unauthorized. No further prompt-tuning rounds are permitted.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -66,6 +66,8 @@ pilot_generation:
   probe_scoring: false
   pilot_revision: 1
   prior_pilot_run_id: phase4b_pilot_20260925T165130Z_ee4d615c
+  revision1_run_id: phase4b_pilot_rev1_20260925T172314Z_33fb5209
 
 notes: >
-  Revision 1 is the sole post-pilot template revision (D057). STOP after re-pilot.
+  Revision-1 re-pilot failed operational gates. HOLD for research-lead redesign
+  under D057. Do not revise templates again. Do not authorize final generation.
