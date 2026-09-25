@@ -1,12 +1,13 @@
 # Phase 3B1 development scan
 
-**Status:** `phase3b_dev_complete_awaiting_audit`  
+**Status:** `phase3b2_locked_complete_awaiting_audit`  
 **Extraction mode:** `truncated_prefix_single_example` (`batch_size=1`)  
 **Branch:** `phase3/preoutput-trajectory`  
-**Canonical extract run:** `phase3b1_extract_20260925T154005Z_39505f42`  
-**Original development extract (preserved):** `phase3b1_extract_20260925T151054Z_f19e058f`
+**Canonical B1 extract:** `phase3b1_extract_20260925T154005Z_39505f42`  
+**Original development extract (preserved):** `phase3b1_extract_20260925T151054Z_f19e058f`  
+**Locked-test extract (B2):** `phase3b2_extract_20260925T161009Z_ae18a95e` — see `reports/phase3b_locked_test.md`
 
-This is **development evidence** (train/validation only). Not held-out proof. Not a pre-deceptive biomarker claim.
+This document covers **development validation** and **canonical reproducibility**. The confirmatory locked-test evaluation is reported separately.
 
 ---
 

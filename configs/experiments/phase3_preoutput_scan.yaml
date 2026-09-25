@@ -1,12 +1,11 @@
-# Phase 3 pre-output physiology scan — Phase 3B2 locked-test authorization
+# Phase 3 pre-output physiology scan — Phase 3B2 locked-test complete
 
 experiment_id: phase3_preoutput_physiology_scan
 phase: phase3
-status: phase3b2_locked_authorized
+status: phase3b2_locked_complete_awaiting_audit
 description: >
-  Phase 3B1 canonical audit passed. Phase 3B2 one-shot locked-test evaluation
-  authorized (train+val fit; untouched 500-row locked test). Regime C unauthorized.
-  No causal interventions. Original 0.9999 gates not relaxed.
+  Phase 3B2 one-shot locked-test evaluation complete. Awaiting research-lead audit.
+  Regime C unauthorized. No causal interventions. No Phase 4.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 positive_control_dataset: RoleplayDeception
@@ -123,6 +122,6 @@ phase3b_gpu:
   full_sequence_primary_authorized: false
 
 notes: >
-  Phase 3B2 authorized after Phase 3B1 canonical audit. One-shot locked-test
-  evaluation only; no tuning on locked test. Combined train+validation refit with
-  frozen hyperparameters. Regime C HOLD. No causal interventions.
+  Phase 3B2 one-shot locked-test complete (run phase3b2_extract_20260925T161009Z_ae18a95e).
+  Regime B L12/k1 ΔAUROC replicates with paired CI excluding zero. Regime C HOLD.
+  No causal interventions. Awaiting audit before any further phase.
