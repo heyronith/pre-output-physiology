@@ -75,7 +75,6 @@ def extract_block12_means(
 ) -> dict[str, Any]:
     """Teacher-forced forward passes; return mean-pooled float32 activations + metadata."""
     import hashlib
-    import io
 
     import numpy as np
     import torch
@@ -113,7 +112,8 @@ def extract_block12_means(
     commit_hash = getattr(model.config, "_commit_hash", None)
     if commit_hash is None:
         # Fall back: ensure revision directory exists in the HF cache for this pin.
-        rev_dir = Path(cache_dir) / f"models--{model_id.replace('/', '--')}" / "snapshots" / model_revision
+        repo_cache = f"models--{model_id.replace('/', '--')}"
+        rev_dir = Path(cache_dir) / repo_cache / "snapshots" / model_revision
         if not rev_dir.exists():
             raise RuntimeError(
                 f"Pinned revision snapshot missing in cache: {rev_dir}"
@@ -198,48 +198,50 @@ def extract_block12_means(
                             "token_count": n_tok,
                         }
                     )
+        extract_s = time.time() - t_extract0
+
+        # Determinism check while the hook is still registered.
+        repro = []
+        with torch.inference_mode():
+            for row in examples[:reproducibility_check_n]:
+                enc = tokenizer(
+                    row["teacher_forced_text"],
+                    return_tensors="pt",
+                    add_special_tokens=False,
+                )
+                input_ids = enc["input_ids"].to("cuda:0")
+                attention_mask = enc["attention_mask"].to("cuda:0")
+                outs = []
+                for _ in range(2):
+                    captured.clear()
+                    _ = model(input_ids=input_ids, attention_mask=attention_mask)
+                    acts = captured["act"]
+                    mask = attention_mask.to(dtype=acts.dtype)
+                    pooled = (
+                        (acts * mask.unsqueeze(-1)).sum(dim=1)
+                        / mask.sum(dim=1).clamp(min=1).unsqueeze(1)
+                    ).float().cpu().numpy()[0]
+                    outs.append(pooled)
+                max_abs = float(np.max(np.abs(outs[0] - outs[1])))
+                repro.append({"example_id": row["example_id"], "max_abs_diff": max_abs})
+                if max_abs > 1e-5:
+                    raise RuntimeError(
+                        f"Non-reproducible activations for {row['example_id']}: "
+                        f"max_abs_diff={max_abs}"
+                    )
     finally:
         handle.remove()
-
-    extract_s = time.time() - t_extract0
-
-    # Determinism check on first N examples
-    repro = []
-    with torch.inference_mode():
-        for row in examples[:reproducibility_check_n]:
-            enc = tokenizer(
-                row["teacher_forced_text"],
-                return_tensors="pt",
-                add_special_tokens=False,
-            )
-            input_ids = enc["input_ids"].to("cuda:0")
-            attention_mask = enc["attention_mask"].to("cuda:0")
-            outs = []
-            for _ in range(2):
-                captured.clear()
-                _ = model(input_ids=input_ids, attention_mask=attention_mask)
-                acts = captured["act"]
-                mask = attention_mask.to(dtype=acts.dtype)
-                pooled = (
-                    (acts * mask.unsqueeze(-1)).sum(dim=1)
-                    / mask.sum(dim=1).clamp(min=1).unsqueeze(1)
-                ).float().cpu().numpy()[0]
-                outs.append(pooled)
-            max_abs = float(np.max(np.abs(outs[0] - outs[1])))
-            repro.append({"example_id": row["example_id"], "max_abs_diff": max_abs})
 
     activation_matrix = np.stack(means, axis=0).astype(np.float32)
     labels = np.asarray([r["binary_label"] for r in meta_rows], dtype=np.int64)
 
-    buf = io.BytesIO()
-    safetensors_save(
+    buf_bytes = safetensors_save(
         {
             "activations": activation_matrix,
             "labels": labels,
-        },
-        buf,
+        }
     )
-    blob = buf.getvalue()
+    blob = buf_bytes if isinstance(buf_bytes, (bytes, bytearray)) else bytes(buf_bytes)
     act_sha = hashlib.sha256(blob).hexdigest()
 
     wall_s = time.time() - t0
@@ -282,6 +284,80 @@ def extract_block12_means(
     }
 
 
+@app.function(
+    image=image,
+    gpu="L40S",
+    timeout=60 * 20,
+    volumes={MODEL_CACHE_DIR: model_volume},
+    memory=65536,
+)
+def generation_smoke(
+    prompts_jsonl: str,
+    *,
+    max_new_tokens: int = 32,
+    model_id: str = MODEL_ID,
+    model_revision: str = MODEL_REVISION,
+) -> dict[str, Any]:
+    """Optional tiny generation path check. Not scientific evidence."""
+    import json
+    import time
+
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    prompts = [json.loads(line) for line in prompts_jsonl.splitlines() if line.strip()]
+    if len(prompts) > 16:
+        raise ValueError("Smoke test limited to 16 prompts")
+    t0 = time.time()
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_id, revision=model_revision, cache_dir=MODEL_CACHE_DIR, use_fast=True
+    )
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.unk_token
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        revision=model_revision,
+        torch_dtype=torch.bfloat16,
+        cache_dir=MODEL_CACHE_DIR,
+        low_cpu_mem_usage=True,
+    )
+    model.to("cuda:0")
+    model.eval()
+    outputs = []
+    with torch.inference_mode():
+        for row in prompts:
+            enc = tokenizer(row["prompt"], return_tensors="pt", add_special_tokens=False)
+            enc = {k: v.to("cuda:0") for k, v in enc.items()}
+            gen = model.generate(
+                **enc,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                temperature=None,
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id,
+            )
+            new_tokens = gen[0, enc["input_ids"].shape[1] :]
+            text = tokenizer.decode(new_tokens, skip_special_tokens=True)
+            outputs.append(
+                {
+                    "example_id": row["example_id"],
+                    "n_new_tokens": int(new_tokens.numel()),
+                    "output_preview": text[:200],
+                }
+            )
+    wall = time.time() - t0
+    model_volume.commit()
+    return {
+        "n_prompts": len(prompts),
+        "max_new_tokens": max_new_tokens,
+        "temperature": 0,
+        "wall_seconds": wall,
+        "estimated_cost_usd": (wall / 3600.0) * L40S_USD_PER_HOUR,
+        "outputs": outputs,
+        "scientific_evidence": False,
+    }
+
+
 @app.local_entrypoint()
 def main(
     mode: str = "preflight",
@@ -293,10 +369,37 @@ def main(
     import uuid
     from datetime import datetime
 
-    if mode not in {"preflight", "full", "train", "test"}:
+    if mode not in {"preflight", "full", "train", "test", "smoke"}:
         raise SystemExit(f"Unknown mode {mode}")
 
     data_dir = REPO_ROOT / "data" / "processed" / "phase2_roleplay"
+
+    if mode == "smoke":
+        prompts_path = data_dir / "smoke_prompts.jsonl"
+        result = generation_smoke.remote(prompts_path.read_text(encoding="utf-8"))
+        out_root = (
+            Path(out_dir)
+            if out_dir
+            else (
+                REPO_ROOT
+                / "artifacts"
+                / "runs"
+                / f"phase2_smoke_{datetime.now(UTC).strftime('%Y%m%dT%H%M%SZ')}"
+            )
+        )
+        out_root.mkdir(parents=True, exist_ok=True)
+        (out_root / "smoke_result.json").write_text(
+            json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        print(json.dumps({
+            "mode": "smoke",
+            "out_dir": str(out_root),
+            "n_prompts": result["n_prompts"],
+            "estimated_cost_usd": result["estimated_cost_usd"],
+            "scientific_evidence": False,
+        }, indent=2))
+        return
+
     if not examples_path:
         if mode == "preflight":
             examples_path = str(data_dir / "preflight_examples.jsonl")
