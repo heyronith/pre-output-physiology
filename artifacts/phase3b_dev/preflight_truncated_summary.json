@@ -1,19 +1,27 @@
 {
-  "artifact_sha256": "e7f3d275b4fb0a23076c506fd05f2616d8dd1ef55dae0b561f2a54cb9e148410",
+  "activation_storage_dtype": "float32",
+  "analysis_script_sha256": "66eaa02679691bf790e64f194d2a6a6158b77d9a6826df701664fe2799e0c47c",
+  "artifact_sha256": "09f4b524b802269b11888c5d59eb70e9dbd95f71f5601a58e6fb07b4ae278c4d",
   "batch_size": 1,
+  "canonical_run_code_sha": "7eb8a61e498d9c1fa3a72555cda60eed4a7bbfab",
+  "compute_dtype": "bfloat16",
   "cosine_min_required": 0.9999,
+  "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
   "dtype": "bfloat16",
-  "estimated_cost_usd": 0.0070446484585603075,
+  "estimated_cost_usd": 0.006276180028915406,
   "extraction_mode": "truncated_prefix_single_example",
+  "extractor_sha256": "18461c8886409d1778c775a55b63f82a5e8ddd93d6e300face95c018d3b52d47",
   "full_sequence_teacher_forced_primary": false,
   "future_response_tokens_present": false,
+  "git_commit": "7eb8a61e498d9c1fa3a72555cda60eed4a7bbfab",
   "gpu_type": "L40S",
   "hidden_size": 4096,
   "l40s_usd_per_hour_assumed": 1.95,
+  "locked_test_present": false,
   "locked_test_used": false,
   "mode": "preflight_truncated",
   "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
-  "model_load_seconds": 9.06156325340271,
+  "model_load_seconds": 7.9705305099487305,
   "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
   "n_comparisons": 48,
   "original_preflight_gate_relaxed": false,
@@ -21,7 +29,7 @@
   "repeatability_min_cosine": 0.999999999974304,
   "repeatability_pass": true,
   "resolved_commit_hash": "63a8b081895390a26e140280378bc85ec8bce07a",
-  "run_id": "phase3b1_preflight_truncated_20260925T150853Z_5677efe3",
+  "run_id": "phase3b1_preflight_truncated_20260925T153935Z_2ff68b57",
   "sample_example_ids": [
     "5_6",
     "95_1",
@@ -40,5 +48,6 @@
     12,
     31
   ],
-  "wall_seconds": 13.005504846572876
+  "wall_seconds": 11.586793899536133,
+  "working_tree_clean": true
 }
