@@ -12,6 +12,34 @@ COARSE_TRANSFORMER_BLOCKS: list[int] = [0, 4, 8, 12, 16, 20, 24, 28, 31]
 PREFIX_LENGTHS_K: list[int] = [0, 1, 2, 4, 8, 16]
 PRIMARY_ANCHOR_LAYER: int = 12
 
+# Pre-registered Phase 3B1 primary endpoints (frozen before activations).
+PRIMARY_REGIME_A: dict[str, int] = {"layer": 12, "k": 0}
+PRIMARY_REGIME_B: dict[str, int] = {"layer": 12, "k": 1}
+
+
+def eligible_for_k(canonical_response_token_length: int, k: int) -> bool:
+    """Eligibility for fixed-k trajectory analysis.
+
+    k=0: all rows eligible.
+    k>0: require response length *strictly greater than* k so at least one
+    future response token remains unseen.
+    """
+    if k < 0:
+        raise ValueError(f"k must be >= 0, got {k}")
+    if k == 0:
+        return True
+    return int(canonical_response_token_length) > int(k)
+
+
+def eligibility_mask(
+    response_lengths: list[int] | np.ndarray,
+    k: int,
+) -> np.ndarray:
+    lengths = np.asarray(response_lengths, dtype=int)
+    if k == 0:
+        return np.ones(len(lengths), dtype=bool)
+    return lengths > k
+
 
 @dataclass(frozen=True)
 class TemporalPoint:

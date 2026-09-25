@@ -32,7 +32,11 @@ PINNED_LASR_HF = "bf93584916fbd23121eca6f2017017df0ef3184f"
 
 def test_phase3_experiment_status_awaits_gpu() -> None:
     cfg = load_experiment_config(EXPERIMENTS_DIR / "phase3_preoutput_scan.yaml")
-    assert cfg.status == "prepared_awaiting_gpu_authorization"
+    assert cfg.status in {
+        "prepared_awaiting_gpu_authorization",
+        "phase3b_dev_authorized",
+        "phase3b_dev_complete_awaiting_audit",
+    }
 
 
 def test_phase3_yaml_frozen_scan_and_pins() -> None:
@@ -52,9 +56,16 @@ def test_phase3_yaml_frozen_scan_and_pins() -> None:
     assert int(raw["statistics"]["bootstrap_resamples"]) >= 2000
     assert raw["onset_annotation"]["activation_dependent"] is False
     assert raw["onset_annotation"]["llm_api_allowed"] is False
-    assert raw["phase3b_gpu"]["authorized"] is False
+    assert raw["phase3b_gpu"]["locked_test_gpu_authorized"] is False
+    assert raw["phase3b_gpu"]["regime_c_authorized"] is False
     assert raw["phase3b_gpu"]["gpu_type"] == "L40S"
     assert float(raw["phase3b_gpu"]["hard_budget_usd"]) == 40.0
+    assert raw["primary_endpoints"]["regime_a"]["layer"] == 12
+    assert raw["primary_endpoints"]["regime_a"]["k"] == 0
+    assert raw["primary_endpoints"]["regime_b"]["k"] == 1
+    assert raw["eligibility"]["k_gt_0"] == (
+        "canonical_response_token_length_strictly_greater_than_k"
+    )
 
 
 def test_surface_baseline_contract() -> None:
@@ -113,6 +124,12 @@ def test_decision_log_contains_phase3a_decisions() -> None:
         "D025",
         "D026",
         "D027",
+        "D028",
+        "D029",
+        "D030",
+        "D031",
+        "D032",
+        "D033",
     ):
         assert did in text, did
 

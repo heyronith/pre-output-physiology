@@ -1,12 +1,11 @@
-# Phase 3 pre-output physiology scan — methodology freeze (Phase 3A)
+# Phase 3 pre-output physiology scan — Phase 3B1 development authorization
 
 experiment_id: phase3_preoutput_physiology_scan
 phase: phase3
-status: prepared_awaiting_gpu_authorization
+status: phase3b_dev_authorized
 description: >
-  Study whether internal states predict later deception before the visible
-  output provides equivalent evidence. Phase 3A freezes grouping, temporal
-  alignment, baselines, and onset rules. No Phase 3 activations collected yet.
+  Phase 3B1 development GPU scan (train+validation only). Regime A/B coarse
+  grid. Locked test withheld. Regime C unauthorized.
 
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
@@ -29,12 +28,26 @@ grouping:
 measurement_regimes:
   - prompt_boundary_propensity  # k=0
   - early_trajectory_prediction  # fixed k>0
-  - onset_aligned_pre_deceptive_output  # Regime C; annotation-gated; not executed in 3A
+  - onset_aligned_pre_deceptive_output  # Regime C HOLD
 
 coarse_scan:
   transformer_block_indices: [0, 4, 8, 12, 16, 20, 24, 28, 31]
   prefix_lengths_k: [0, 1, 2, 4, 8, 16]
   primary_anchor_layer: 12
+
+primary_endpoints:
+  regime_a:
+    layer: 12
+    k: 0
+    interpretation: prompt_boundary_propensity
+  regime_b:
+    layer: 12
+    k: 1
+    interpretation: earliest_fixed_prefix_early_trajectory
+
+eligibility:
+  k0: all_rows
+  k_gt_0: canonical_response_token_length_strictly_greater_than_k
 
 activation_probe:
   type: sklearn_logistic_regression
@@ -50,7 +63,7 @@ surface_baselines:
   prompt_text_only: true
   prompt_plus_prefix: true  # primary surface baseline
   prefix_structural: true
-  logit_summaries: phase3b_optional
+  logit_summaries: phase3b1
   text_classifier:
     features:
       - word_tfidf_ngram_range: [1, 2]
@@ -58,6 +71,13 @@ surface_baselines:
     model: logistic_regression
     C_grid: [0.1, 1.0, 10.0]
     select_C_on: phase3_validation_only
+    freeze_before_activations: true
+  structural_lr:
+    C: 1.0
+    random_state: 42
+  logit_summary_lr:
+    C: 1.0
+    random_state: 42
   negative_controls:
     - shuffled_label_probe
     - random_activation_direction
@@ -83,8 +103,15 @@ phase3b_gpu:
   soft_budget_usd: 20
   hard_budget_usd: 40
   causal_mask_cosine_min: 0.9999
-  authorized: false
+  batch_equivalence_cosine_min: 0.9999
+  padding_side: right
+  authorized: true
+  dev_gpu_authorized: true
+  locked_test_gpu_authorized: false
+  regime_c_authorized: false
+  regime_c_status: hold_insufficient_onset_resolution
 
 notes: >
-  Phase 3A only. Do not collect activations, train Phase 3 probes, evaluate
-  locked-test predictive performance, or begin Phase 4/causal work.
+  Phase 3B1 development scan only. Do not extract or evaluate locked test.
+  Do not run Regime C. Do not perform causal interventions. Do not retune
+  the frozen layer/k grid or surface-baseline C after seeing activations.

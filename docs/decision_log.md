@@ -199,3 +199,39 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Decision:** Define Phase 3 response-token indices from the suffix of `tokenizer(input_formatted + model_outputs, add_special_tokens=False)` only after verifying (1) exact prompt-id prefix equality and (2) no token straddles the prompt/response character boundary. Matched surface baselines and onset token indices must use these canonical offsets. Standalone `tokenizer(model_outputs)` mismatches are diagnostic only and do not redefine the canonical suffix.
 - **Reason:** Prevents scientifically incorrect `k` indexing if the tokenizer re-segments across the character join under teacher-forced full-sequence extraction.
 - **Date:** 2026-09-25
+
+### D028 — Require unseen future response token
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** For `k>0`, eligibility requires `canonical_response_token_length > k` (strict). Rows with response length exactly `k` are excluded because the full response may already be visible.
+- **Date:** 2026-09-25
+
+### D029 — Primary Phase 3B endpoints
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Freeze primary endpoints before activation extraction: Regime A = block 12 / `k=0`; Regime B = block 12 / `k=1`. Other k at block 12 are secondary temporal endpoints; other layers are the pre-registered H2 coarse scan.
+- **Date:** 2026-09-25
+
+### D030 — H3 interpretation (predictive utility, not new information)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** `ΔAUROC` vs matched surface baseline measures incremental predictive utility / accessibility of structure in the representation, not proof of information-theoretically unavailable information.
+- **Date:** 2026-09-25
+
+### D031 — k0 extracted once per prompt group
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Prompt-boundary physiology is deterministic; compute once per unique `prompt_sha256` from prompt-only input and broadcast to rows sharing that group.
+- **Date:** 2026-09-25
+
+### D032 — Right padding for trajectory extraction
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Use right padding for Phase 3 teacher-forced trajectory batches so scientific token positions match unpadded coordinates; verify batch vs single-example cosine ≥ 0.9999 before full extraction.
+- **Date:** 2026-09-25
+
+### D033 — Locked test withheld during Phase 3B1
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 3B1 extracts and analyzes train+validation only. Locked-test GPU extraction and predictive evaluation require a separate Phase 3B2 authorization after independent audit.
+- **Date:** 2026-09-25

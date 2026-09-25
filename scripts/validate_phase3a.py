@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Phase 3A integrity checks (local only; no Modal / activations)."""
+"""Phase 3A integrity checks (local contracts retained through Phase 3B1)."""
 
 from __future__ import annotations
 
@@ -25,7 +25,11 @@ PINNED_MODEL_REV = "63a8b081895390a26e140280378bc85ec8bce07a"
 PINNED_LASR_HF = "bf93584916fbd23121eca6f2017017df0ef3184f"
 EXPECTED_LAYERS = [0, 4, 8, 12, 16, 20, 24, 28, 31]
 EXPECTED_K = [0, 1, 2, 4, 8, 16]
-PHASE3_STATUS = "prepared_awaiting_gpu_authorization"
+PHASE3_STATUS_OK = {
+    "prepared_awaiting_gpu_authorization",
+    "phase3b_dev_authorized",
+    "phase3b_dev_complete_awaiting_audit",
+}
 
 
 class Result:
@@ -82,15 +86,27 @@ def main() -> int:
     else:
         result.fail(f"dataset revision mismatch: {ds.get('lasr_hf_revision')}")
 
-    if exp.get("status") == PHASE3_STATUS:
-        result.ok(f"phase3 status={PHASE3_STATUS}")
+    if exp.get("status") in PHASE3_STATUS_OK:
+        result.ok(f"phase3 status={exp.get('status')}")
     else:
-        result.fail(f"phase3 status={exp.get('status')!r} (GPU not yet authorized)")
+        result.fail(f"phase3 status={exp.get('status')!r} unexpected")
 
-    if exp.get("phase3b_gpu", {}).get("authorized") is False:
-        result.ok("phase3b_gpu.authorized is false")
+    gpu = exp.get("phase3b_gpu", {})
+    if gpu.get("locked_test_gpu_authorized") is False:
+        result.ok("locked_test_gpu_authorized is false")
     else:
-        result.fail("phase3b_gpu must not be authorized in Phase 3A")
+        result.fail("locked_test GPU must not be authorized")
+    if gpu.get("regime_c_authorized") is False:
+        result.ok("regime_c_authorized is false")
+    else:
+        result.fail("regime C must not be authorized")
+    if exp.get("status") == "prepared_awaiting_gpu_authorization":
+        if gpu.get("authorized") is False:
+            result.ok("phase3b_gpu.authorized is false (Phase 3A)")
+        else:
+            result.fail("phase3b_gpu must not be authorized in Phase 3A")
+    else:
+        result.ok("phase3 status advanced beyond 3A freeze (3A contracts retained)")
 
     layers = list(exp.get("coarse_scan", {}).get("transformer_block_indices", []))
     ks = list(exp.get("coarse_scan", {}).get("prefix_lengths_k", []))
@@ -144,7 +160,6 @@ def main() -> int:
     else:
         result.ok("phase4 control plan present")
 
-    # Split / grouping checks if prepare artifacts exist
     summary_path = REPO_ROOT / "artifacts/phase3a_summaries/phase3a_prepare_summary.json"
     manifest_path = (
         REPO_ROOT / "data/processed/phase3_roleplay/manifests/phase3a_prepare_manifest.json"
@@ -179,14 +194,13 @@ def main() -> int:
             result.ok("manifest records zero prompt-group overlap")
         else:
             result.fail(f"group overlap: {ov}")
-        if man.get("gpu_authorized") is False and man.get("activations_collected") is False:
-            result.ok("manifest: GPU unauthorized / no activations")
+        if man.get("activations_collected") is False:
+            result.ok("manifest: no Phase 3A activations")
         else:
-            result.fail("manifest incorrectly authorizes GPU or activations")
+            result.fail("manifest incorrectly claims Phase 3A activations")
     else:
         result.fail("missing phase3a prepare manifest under data/processed/")
 
-    # No Phase 3 activation / primary result artifacts tracked or present in expected dirs
     tracked = tracked_files()
     secret_pat = re.compile(
         r"(^|/)\.env($|\.)|credentials|secrets/|\.pem$|\.key$", re.I
@@ -196,35 +210,10 @@ def main() -> int:
             continue
         if secret_pat.search(path):
             result.fail(f"secret-like tracked file: {path}")
-    result.ok("no secret-like files tracked")
+        if path.endswith(".safetensors"):
+            result.fail(f"activation tensor tracked: {path}")
+    result.ok("no secret-like / activation files tracked")
 
-    # Explicit path checks (no accidental Phase 3B outputs)
-    bad_paths = [
-        REPO_ROOT / "artifacts/runs/phase3",
-        REPO_ROOT / "artifacts/derived/phase3_activations",
-        REPO_ROOT / "reports/phase3_results.md",
-        REPO_ROOT / "reports/phase3_preoutput_scan.md",
-    ]
-    bad_found = False
-    for p in bad_paths:
-        if p.exists():
-            bad_found = True
-            result.fail(f"Phase 3 results/activation artifact exists: {p}")
-    if not bad_found:
-        result.ok("no primary Phase 3 results / activation artifacts present")
-
-    # Code must not claim Phase 3 GPU authorized
-    phase3_py = (REPO_ROOT / "scripts/prepare_phase3.py").read_text(encoding="utf-8")
-    if "activations_collected\": False" in phase3_py or "activations_collected=False" in phase3_py:
-        result.ok("prepare_phase3 records no activations")
-    else:
-        # softer check
-        if "activations_collected" in phase3_py and "False" in phase3_py:
-            result.ok("prepare_phase3 mentions activations_collected False")
-        else:
-            result.fail("prepare_phase3 missing activations_collected=False")
-
-    # Token-boundary audit (required before Phase 3B A/B)
     audit_path = REPO_ROOT / "artifacts/phase3a_summaries/token_boundary_audit.json"
     if not audit_path.is_file():
         result.fail(
@@ -255,13 +244,19 @@ def main() -> int:
         else:
             result.fail("token boundary audit claims activations collected")
 
+    phase3_py = (REPO_ROOT / "scripts/prepare_phase3.py").read_text(encoding="utf-8")
+    if "activations_collected" in phase3_py and "False" in phase3_py:
+        result.ok("prepare_phase3 records no activations")
+    else:
+        result.fail("prepare_phase3 missing activations_collected=False")
+
     print()
     print(f"{len(result.passes)} passed, {len(result.failures)} failed")
     if result.failures:
         for f in result.failures:
             print(f"  - {f}")
         return 1
-    print("Phase 3A validation OK — GPU still unauthorized.")
+    print("Phase 3A validation OK — 3A contracts retained.")
     return 0
 
 

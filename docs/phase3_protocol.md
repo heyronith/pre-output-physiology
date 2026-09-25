@@ -103,17 +103,37 @@ Primary gate (required before Phase 3B Regimes A/B): exact prompt-id prefix + ze
 **Prefix lengths k:** `[0, 1, 2, 4, 8, 16]`  
 **Primary anchor layer:** block `12` (Phase 2 literature-aligned positive control; chosen before Phase 3).
 
+**Phase 3B1 primary endpoints (frozen before activations):**
+- Regime A: block 12, `k=0` — prompt-boundary propensity
+- Regime B: block 12, `k=1` — earliest fixed-prefix early-trajectory endpoint
+
+**Eligibility:** For `k=0` all rows. For `k>0`, require `canonical_response_token_length > k` (strict), so at least one future response token remains unseen.
+
 ---
 
-## 7. Future Phase 3B extraction contract (not executed)
+## 7. Phase 3B extraction contract
 
-- Canonical pinned Mistral; BF16; quantization null; eval mode.
+- Canonical pinned Mistral; BF16; quantization null; eval mode; right padding for trajectories.
 - Teacher-forced fixed trajectories; no new primary generation.
 - Store `[layer, prefix_position, hidden_dim]` on the coarse grid only.
 - Native BF16 → float32 locally for analysis; no 4/8-bit storage.
-- **Causal-mask validation required:** full-sequence state at `p` vs truncated-prefix forward at `p` must satisfy `cosine_similarity >= 0.9999` or switch to truncated-prefix passes.
+- **Causal-mask validation required:** full-sequence state at `p` vs truncated-prefix forward at `p` must satisfy `cosine_similarity >= 0.9999`.
+- **Batching equivalence required:** right-padded batch vs unpadded single example, same cosine gate.
+- k=0 extracted once per unique `prompt_sha256` from prompt-only input.
 
 GPU: 1× L40S. Soft budget $20; hard stop $40.
+
+---
+
+## 7b. H3 interpretation (predictive utility, not new information)
+
+An activation at a fixed prompt/prefix is a deterministic computation of that prompt/prefix under fixed model weights.
+
+Therefore `ΔAUROC > 0` against a text baseline does **not** establish that the activation contains information-theoretically new information absent from the visible text.
+
+**Allowed claim:** The internal representation provides greater predictive utility / more accessible predictive structure than the specified matched surface baseline.
+
+**Forbidden claim:** The model internals possess information mathematically unavailable from the visible prefix.
 
 ---
 

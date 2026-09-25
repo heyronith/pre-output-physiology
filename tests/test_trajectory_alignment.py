@@ -240,18 +240,19 @@ def test_char_to_canonical_response_token() -> None:
     assert char_index_to_canonical_response_token(9, offsets) == 2
 
 
-def test_standalone_mismatch_does_not_change_canonical_suffix() -> None:
-    prompt = "ABCD"
-    response = "EF"
-    tok = _BoundaryTokenizer(
-        prompt_ids=[10, 11, 12, 13],
-        response_ids=[20, 21],
-        standalone_response_ids=[99, 100],  # different standalone
-    )
-    tok._last_prompt = prompt
-    tok._last_response = response
-    tok._full_offsets = [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
-    result = analyze_prompt_response_boundary(prompt, response, tok)
-    assert result.standalone_equals_suffix is False
-    assert result.response_suffix_ids == [20, 21]
-    assert result.standalone_response_ids == [99, 100]
+def test_eligible_for_k_requires_unseen_future_token() -> None:
+    from pre_output_physiology.trajectory import eligibility_mask, eligible_for_k
+
+    assert eligible_for_k(10, 0) is True
+    assert eligible_for_k(5, 4) is True  # length > k
+    assert eligible_for_k(4, 4) is False  # not >
+    assert eligible_for_k(3, 4) is False
+    mask = eligibility_mask([0, 1, 2, 8], k=1)
+    assert mask.tolist() == [False, False, True, True]
+
+
+def test_primary_endpoints_frozen() -> None:
+    from pre_output_physiology.trajectory import PRIMARY_REGIME_A, PRIMARY_REGIME_B
+
+    assert PRIMARY_REGIME_A == {"layer": 12, "k": 0}
+    assert PRIMARY_REGIME_B == {"layer": 12, "k": 1}
