@@ -340,3 +340,10 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Prompt/format compliance may be tested on pilot scenarios only (seed 7). The final 240 base scenarios (seed 42) remain untouched until prompt templates are frozen. Pilot examples never enter scientific results.
 - **Date:** 2026-09-25
+
+### D051 — Symmetric strategic-control template
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** C2 and C3 use the same strategic prompt wording. Their only intended difference is whether the reward-target state matches or conflicts with the model-accessible private-record state.
+- **Reason:** Prevent the primary specificity contrast from being explained by condition-specific prompt wording (e.g., “opposite”, unique non-disclosure phrasing).
+- **Date:** 2026-09-25

@@ -29,6 +29,8 @@ from pre_output_physiology.phase4_conditions import (  # noqa: E402
     N_PILOT_BASE_SCENARIOS,
     PRIMARY_CONTRAST,
     SCENARIO_FAMILIES,
+    STRATEGIC_NONDISCLOSURE_INSTRUCTION,
+    assert_c2_c3_template_symmetry,
     assert_no_forbidden_prompt_terms,
     build_condition_prompt,
 )
@@ -36,6 +38,26 @@ from pre_output_physiology.phase4_conditions import (  # noqa: E402
 PINNED_MODEL_REV = "63a8b081895390a26e140280378bc85ec8bce07a"
 CANONICAL_B1 = "phase3b1_extract_20260925T154005Z_39505f42"
 MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
+
+# Immutable Phase-3 freeze hashes (must not change during Phase 4A design edits).
+FROZEN_PROBE_L12_K1_NPZ_SHA256 = (
+    "3bbf0c78e97d8ff14b028592e6e6ab3215651e973e0be1f004ce66e2b9b7aa65"
+)
+FROZEN_PROBE_L12_K0_NPZ_SHA256 = (
+    "dc14569a4e229cadc55fd3f6e6fef4e33f4eac4f58d00e83916238d5274f4f29"
+)
+FROZEN_SURFACE_K0_JOBLIB_SHA256 = (
+    "4992d91c576efe34c4fbc47a4beb4df195960eef65218795b2c36fffb7f04c05"
+)
+FROZEN_SURFACE_K1_JOBLIB_SHA256 = (
+    "17c7fed1eec5feb1b038cc188a44d8ac07b9728283e35088ac016a73be61a626"
+)
+EXPECTED_FINAL_BASE_SCENARIO_IDS_SHA256 = (
+    "f43d16d942331aa45f3a86e8af5f330f0370fe84356599fa7964a3949a2bf880"
+)
+EXPECTED_PILOT_BASE_SCENARIO_IDS_SHA256 = (
+    "9d12e5597644bdb3689f31bcd0ad9902060cb870dd02ba40139ebcf7d9e13990"
+)
 
 
 class Result:
@@ -75,7 +97,7 @@ def main() -> int:
             result.fail(f"{script} failed")
 
     decisions = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D045", "D046", "D047", "D048", "D049", "D050"):
+    for did in ("D045", "D046", "D047", "D048", "D049", "D050", "D051"):
         if did in decisions:
             result.ok(f"{did} present")
         else:
@@ -149,6 +171,15 @@ def main() -> int:
                 result.ok(f"{name} artifact hash exists")
             else:
                 result.fail(f"{name} artifact missing or hash mismatch")
+            expected = (
+                FROZEN_PROBE_L12_K1_NPZ_SHA256
+                if name == "probe_l12_k1"
+                else FROZEN_PROBE_L12_K0_NPZ_SHA256
+            )
+            if entry.get("artifact_npz_sha256") == expected:
+                result.ok(f"{name} frozen hash unchanged")
+            else:
+                result.fail(f"{name} frozen hash drifted from Phase 4A lock")
             if entry.get("layer") == 12 and entry.get("C") == 0.01:
                 result.ok(f"{name} layer/C frozen")
             else:
@@ -166,15 +197,17 @@ def main() -> int:
             result.ok("surface models not fit on locked test")
         else:
             result.fail("surface models used locked test")
-        for name in ("surface_k0_prompt_only", "surface_k1_prompt_plus_1"):
+        for name, expected in (
+            ("surface_k0_prompt_only", FROZEN_SURFACE_K0_JOBLIB_SHA256),
+            ("surface_k1_prompt_plus_1", FROZEN_SURFACE_K1_JOBLIB_SHA256),
+        ):
             entry = sm.get("models", {}).get(name)
             if entry and (REPO_ROOT / entry["artifact_joblib"]).is_file():
-                if _sha_file(REPO_ROOT / entry["artifact_joblib"]) == entry[
-                    "artifact_joblib_sha256"
-                ]:
+                digest = _sha_file(REPO_ROOT / entry["artifact_joblib"])
+                if digest == entry["artifact_joblib_sha256"] == expected:
                     result.ok(f"{name} hash ok")
                 else:
-                    result.fail(f"{name} hash mismatch")
+                    result.fail(f"{name} hash mismatch or drift")
             else:
                 result.fail(f"missing {name}")
 
@@ -220,6 +253,18 @@ def main() -> int:
             result.ok("pilot/final disjointness recorded")
         else:
             result.fail("pilot/final not disjoint")
+        if mx.get("final_base_scenario_ids_sha256") == (
+            EXPECTED_FINAL_BASE_SCENARIO_IDS_SHA256
+        ):
+            result.ok("final base scenario IDs unchanged")
+        else:
+            result.fail("final base scenario ID hash drifted")
+        if mx.get("pilot_base_scenario_ids_sha256") == (
+            EXPECTED_PILOT_BASE_SCENARIO_IDS_SHA256
+        ):
+            result.ok("pilot base scenario IDs unchanged")
+        else:
+            result.fail("pilot base scenario ID hash drifted")
         if mx.get("phase4_outputs_exist") is False and mx.get(
             "phase4_activations_exist"
         ) is False:
@@ -268,6 +313,32 @@ def main() -> int:
             result.fail(f"forbidden term in {cid} prompt")
         if cid not in BEHAVIOR_RULES_SUMMARY:
             result.fail(f"missing behavior rule for {cid}")
+
+    # D051: C2/C3 structural-template symmetry
+    try:
+        assert_c2_c3_template_symmetry(sample_scenario)
+        result.ok("C2/C3 structural-template symmetry")
+    except AssertionError as exc:
+        result.fail(f"C2/C3 template asymmetry: {exc}")
+    c2 = build_condition_prompt(
+        condition_id="C2_known_honest_strategic", scenario=sample_scenario
+    )
+    c3 = build_condition_prompt(
+        condition_id="C3_known_deceptive_strategic", scenario=sample_scenario
+    )
+    if "opposite" in c2.lower() or "opposite" in c3.lower():
+        result.fail("word 'opposite' present in C2 or C3 prompt")
+    else:
+        result.ok("no word 'opposite' in C2 or C3 prompts")
+    if (
+        STRATEGIC_NONDISCLOSURE_INSTRUCTION in c2
+        and STRATEGIC_NONDISCLOSURE_INSTRUCTION in c3
+        and c2.count(STRATEGIC_NONDISCLOSURE_INSTRUCTION)
+        == c3.count(STRATEGIC_NONDISCLOSURE_INSTRUCTION)
+    ):
+        result.ok("identical non-disclosure instruction in C2/C3")
+    else:
+        result.fail("C2/C3 non-disclosure instruction mismatch")
 
     # Behavior gate smoke
     ok, _ = is_behaviorally_valid(
