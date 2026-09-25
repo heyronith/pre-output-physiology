@@ -1875,6 +1875,9 @@
     }
   ],
   "git_commit_generation": "ee4d615ca90bf987174c40530051b45cf271d524",
+  "original_run_id": "phase4b_pilot_20260925T165130Z_ee4d615c",
+  "pilot_revision": 0,
+  "preserved_as": "phase4b_pilot_revision0",
   "run_id": "phase4b_pilot_20260925T165130Z_ee4d615c",
   "summary": {
     "activations_collected": false,

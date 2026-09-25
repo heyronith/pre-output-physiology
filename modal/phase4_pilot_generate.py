@@ -25,7 +25,7 @@ import modal
 APP_NAME = "pre-output-physiology-phase4-pilot"
 MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
 MODEL_REVISION = "63a8b081895390a26e140280378bc85ec8bce07a"
-COMMON_FIRST_TOKEN_ID = 2963
+COMMON_FIRST_TOKEN_ID = 12107
 MAX_NEW_TOKENS = 128
 BATCH_SIZE = 1
 L40S_USD_PER_HOUR = 1.95
@@ -105,6 +105,8 @@ def _collect_local_provenance() -> dict[str, Any]:
         "temperature": None,
         "common_first_token_id_expected": COMMON_FIRST_TOKEN_ID,
         "force_first_token": False,
+        "pilot_revision": 1,
+        "prior_pilot_run_id": "phase4b_pilot_20260925T165130Z_ee4d615c",
         "activations_authorized": False,
         "probe_scoring_authorized": False,
         "final_generation_authorized": False,
@@ -264,7 +266,7 @@ def main() -> None:
     prov = _collect_local_provenance()
     rows = _load_pilot_rows()
     ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    run_id = f"phase4b_pilot_{ts}_{prov['git_commit'][:8]}"
+    run_id = f"phase4b_pilot_rev1_{ts}_{prov['git_commit'][:8]}"
     prompts_jsonl = "\n".join(json.dumps(r, sort_keys=True) for r in rows)
 
     print(f"Launching pilot generation run_id={run_id} n={len(rows)}")
@@ -315,6 +317,8 @@ def main() -> None:
         "final_scenarios_generated": False,
         "force_first_token": False,
         "common_first_token_id_expected": COMMON_FIRST_TOKEN_ID,
+        "pilot_revision": 1,
+        "prior_pilot_run_id": "phase4b_pilot_20260925T165130Z_ee4d615c",
         "first_generated_token_id_counts": {},
     }
     # Token-ID histogram for quick inspection

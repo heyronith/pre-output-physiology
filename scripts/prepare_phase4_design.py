@@ -21,15 +21,17 @@ from pre_output_physiology.phase4_conditions import (  # noqa: E402
     COMMON_FIRST_TOKEN_ID,
     CONDITION_ORDER,
     FINAL_SEED,
-    FIRST_TOKEN_CANDIDATES,
     N_FINAL_BASE_SCENARIOS,
     N_PER_FAMILY,
     N_PILOT_BASE_SCENARIOS,
     PILOT_SEED,
+    PILOT_TEMPLATE_REVISION,
     SCENARIO_FAMILIES,
+    assert_c2_c3_template_symmetry,
     assert_no_forbidden_prompt_terms,
     build_condition_prompt,
     condition_matrix_dict,
+    verify_common_first_token_with_tokenizer,
 )
 from pre_output_physiology.provenance import utc_now_iso, write_json  # noqa: E402
 
@@ -119,20 +121,9 @@ def _sha_prompt_texts(rows: list[dict]) -> str:
 
 
 def _verify_common_first_token(tokenizer) -> tuple[str, int]:
-    """Pick first candidate that is exactly one token after [/INST]."""
-    prefix = "[INST] say something [/INST]"
-    prefix_ids = tokenizer.encode(prefix, add_special_tokens=False)
-    for cand in FIRST_TOKEN_CANDIDATES:
-        full_ids = tokenizer.encode(prefix + cand, add_special_tokens=False)
-        delta = full_ids[len(prefix_ids) :]
-        if len(delta) == 1:
-            if cand != COMMON_FIRST_TOKEN or int(delta[0]) != COMMON_FIRST_TOKEN_ID:
-                raise SystemExit(
-                    f"common first token drift: got {cand!r}/{delta[0]} "
-                    f"expected {COMMON_FIRST_TOKEN!r}/{COMMON_FIRST_TOKEN_ID}"
-                )
-            return cand, int(delta[0])
-    raise SystemExit("no single-token first-token candidate")
+    """Verify frozen Response / 12107 under real chat-generation context (D055)."""
+    info = verify_common_first_token_with_tokenizer(tokenizer)
+    return info["common_first_token"], int(info["common_first_token_id"])
 
 
 def _make_base(
@@ -354,6 +345,10 @@ def main() -> int:
     if len(final_prompts) != N_FINAL_BASE_SCENARIOS * len(CONDITION_ORDER):
         raise SystemExit("final prompt count mismatch")
 
+    # D051 / D056: C2/C3 symmetry must hold on regenerated prompts.
+    for sc in final_scenarios[:3] + pilot_scenarios[:3]:
+        assert_c2_c3_template_symmetry(sc)
+
     # Write gitignored design payloads (data/processed is gitignored)
     (data_dir / "final_base_scenarios.jsonl").write_text(
         "".join(json.dumps(s, sort_keys=True) + "\n" for s in final_scenarios),
@@ -402,6 +397,8 @@ def main() -> int:
             "phase4_outputs_exist": False,
             "phase4_activations_exist": False,
             "model_generation_performed": False,
+            "pilot_template_revision": PILOT_TEMPLATE_REVISION,
+            "first_token_correction": "D055_12107_chat_generation_context",
         }
     )
     write_json(out_dir / "condition_matrix.json", matrix)
@@ -411,9 +408,12 @@ def main() -> int:
             {
                 "common_first_token": token,
                 "common_first_token_id": token_id,
+                "pilot_template_revision": PILOT_TEMPLATE_REVISION,
                 "n_final_base": len(final_scenarios),
                 "n_pilot_base": len(pilot_scenarios),
                 "n_final_prompts": len(final_prompts),
+                "final_prompt_text_sha256": matrix["final_prompt_text_sha256"],
+                "pilot_prompt_text_sha256": matrix["pilot_prompt_text_sha256"],
                 "family_counts": family_counts,
                 "pilot_final_disjoint": True,
                 "out": str(out_dir / "condition_matrix.json"),

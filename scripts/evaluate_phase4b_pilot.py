@@ -37,11 +37,13 @@ def _load_jsonl(path: Path) -> list[dict]:
 
 def _write_report(summary: dict, manifest: dict, path: Path) -> None:
     gates = summary["gates"]
+    revision = manifest.get("pilot_revision", 0)
     lines = [
-        "# Phase 4B pilot report",
+        f"# Phase 4B pilot report (revision {revision})",
         "",
         f"**Run ID:** `{manifest.get('run_id')}`  ",
         f"**Git SHA (generation):** `{manifest.get('git_commit')}`  ",
+        f"**Pilot revision:** `{revision}`  ",
         "**Status:** operational compliance pilot only (D053)  ",
         "",
         "## Scope",
@@ -54,33 +56,35 @@ def _write_report(summary: dict, manifest: dict, path: Path) -> None:
         "## Generation",
         "",
         f"- Model revision: `{manifest.get('model_revision')}`",
+        f"- Expected first-token ID: `{manifest.get('common_first_token_id')}`",
         f"- do_sample: `{manifest.get('do_sample')}`",
         f"- max_new_tokens: `{manifest.get('max_new_tokens')}`",
         f"- GPU wall seconds: `{manifest.get('wall_seconds')}`",
         f"- Estimated cost USD: `{manifest.get('estimated_cost_usd')}`",
         "",
-        "## Operational gates (D054)",
+        "## Operational gates (D054; unchanged)",
         "",
-        f"- First-token ID 2963 ≥ {PILOT_FIRST_TOKEN_MIN_PER_CONDITION}/24 per condition",
+        f"- First-token ID {COMMON_FIRST_TOKEN_ID} ≥ "
+        f"{PILOT_FIRST_TOKEN_MIN_PER_CONDITION}/24 per condition",
         f"- Behavioral validity ≥ {PILOT_BEHAVIOR_MIN_PER_CONDITION}/24 per condition",
         f"- C2∩C3 paired valid ≥ {PILOT_C2_C3_PAIRED_MIN}/24 base scenarios",
         "",
         f"**All gates passed:** `{gates['all_operational_gates_pass']}`  ",
-        f"**Recommend freeze templates unchanged:** "
-        f"`{summary['recommend_freeze_templates_unchanged']}`  ",
-        f"**Template revision recommended:** `{summary['template_revision_recommended']}`  ",
+        "**Recommend freeze revision-1 templates:** "
+        f"`{summary.get('recommend_freeze_revision1_templates')}`  ",
         "",
         "## Per-condition results",
         "",
-        "| Condition | N | FT-ID ok | FINAL | Valid | FT gate | Beh gate |",
-        "| --- | ---: | ---: | ---: | ---: | --- | --- |",
+        "| Condition | N | FT-ID | 3-line | MODE | FINAL | Valid |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for cid in CONDITION_ORDER:
         c = summary["per_condition"][cid]
         lines.append(
             f"| {cid} | {c['n_total']} | {c['first_token_id_compliant']} | "
-            f"{c['valid_FINAL_marker']} | {c['behaviorally_valid']} | "
-            f"{c['first_token_gate_pass']} | {c['behavior_gate_pass']} |"
+            f"{c.get('exact_three_line_format', 'n/a')} | "
+            f"{c.get('mode_compliant', 'n/a')} | "
+            f"{c['valid_FINAL_marker']} | {c['behaviorally_valid']} |"
         )
     lines.extend(
         [
@@ -100,41 +104,13 @@ def _write_report(summary: dict, manifest: dict, path: Path) -> None:
             for reason, count in sorted(reasons.items(), key=lambda x: (-x[1], x[0])):
                 lines.append(f"- `{reason}`: {count}")
         lines.append("")
-    diag = summary.get("diagnostic_leading_space_response_token")
-    if diag:
-        lines.extend(
-            [
-                "## Diagnostic (not a gate): leading-space Response token",
-                "",
-                diag["note"],
-                "",
-                f"- Observed first-token ID on all "
-                f"`{diag['n_matching_12107']}` rows: `{diag['observed_first_token_id']}`",
-                f"- Frozen expected ID: `{diag['frozen_expected_first_token_id']}`",
-                f"- If expected ID were 12107: first-token OK = "
-                f"`{diag['n_first_token_ok_if_expected_12107']}/144`; "
-                f"behaviorally valid = "
-                f"`{diag['n_behaviorally_valid_if_expected_12107']}/144`",
-                "",
-                "### Proposed single template revision (D050)",
-                "",
-                "1. Re-verify `common_first_token` in true post-`[/INST]` generation "
-                "context, where the model emits the leading-space BPE form "
-                "(`12107` = `Response`), and freeze that ID if it is the one-token "
-                "form actually produced.",
-                "2. In the same revision, tighten machine-readable format instructions "
-                "(require exactly one `FINAL=` line; forbid alternate MODE spellings; "
-                "strengthen C3 reward-target compliance without adding forbidden "
-                "deception lexicon).",
-                "",
-                "Do not generate final scenarios until that revision is audited.",
-                "",
-            ]
-        )
     lines.extend(
         [
             "## Contamination / analysis guarantees",
             "",
+            "THIS WAS THE SINGLE ALLOWED POST-PILOT TEMPLATE REVISION.  "
+            if revision == 1
+            else "",
             "NO PHASE 4 ACTIVATIONS WERE COLLECTED.  ",
             "NO PHASE 4 PROBE SCORES WERE COMPUTED.  ",
             "FINAL PHASE 4 SCENARIOS WERE NOT GENERATED.  ",
@@ -142,7 +118,9 @@ def _write_report(summary: dict, manifest: dict, path: Path) -> None:
             "",
         ]
     )
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # Drop empty string lines from conditional
+    cleaned = [ln for ln in lines if ln is not None]
+    path.write_text("\n".join(cleaned) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -153,14 +131,34 @@ def main() -> int:
         help="artifacts/runs/<phase4b_pilot_...>/ containing pilot_outputs.jsonl",
     )
     parser.add_argument(
+        "--pilot-revision",
+        type=int,
+        default=1,
+        help="0 = historical pilot; 1 = single template revision re-pilot",
+    )
+    parser.add_argument(
         "--summary-dir",
-        default=str(REPO_ROOT / "artifacts/phase4b_pilot"),
+        default="",
     )
     parser.add_argument(
         "--report-path",
-        default=str(REPO_ROOT / "reports/phase4b_pilot.md"),
+        default="",
     )
     args = parser.parse_args()
+    revision = int(args.pilot_revision)
+    if args.summary_dir:
+        summary_dir = Path(args.summary_dir)
+    elif revision == 0:
+        summary_dir = REPO_ROOT / "artifacts/phase4b_pilot"
+    else:
+        summary_dir = REPO_ROOT / "artifacts/phase4b_pilot_revision1"
+    if args.report_path:
+        report_path = Path(args.report_path)
+    elif revision == 0:
+        report_path = REPO_ROOT / "reports/phase4b_pilot.md"
+    else:
+        report_path = REPO_ROOT / "reports/phase4b_pilot_revision1.md"
+
     run_dir = Path(args.run_dir)
     raw = run_dir / "pilot_outputs.jsonl"
     run_manifest_path = run_dir / "pilot_generation_manifest.json"
@@ -181,58 +179,9 @@ def main() -> int:
 
     eval_rows = [evaluate_pilot_row(r) for r in rows]
     summary = summarize_pilot_behavior(eval_rows)
-
-    # Diagnostic only (not an operational gate): leading-space Response token 12107.
-    alt_id = 12107
-    alt_valid = 0
-    alt_ft = 0
-    alt_reasons: dict[str, dict[str, int]] = {cid: {} for cid in CONDITION_ORDER}
-    for r in rows:
-        from pre_output_physiology.phase4_behavior import is_behaviorally_valid as _ibv
-        from pre_output_physiology.phase4_behavior import parse_response as _pr
-
-        parsed = _pr(
-            r["output_text"],
-            first_generated_token_id=r.get("first_generated_token_id"),
-            expected_first_token_id=alt_id,
-        )
-        ok, reason = _ibv(
-            r["condition_id"],
-            {
-                "ground_truth_state": r["ground_truth_state"],
-                "alt_state": r["alt_state"],
-                "accessible_false_state": r["accessible_false_state"],
-            },
-            r["output_text"],
-            first_generated_token_id=r.get("first_generated_token_id"),
-            expected_first_token_id=alt_id,
-        )
-        alt_ft += int(parsed.first_token_ok)
-        alt_valid += int(ok)
-        if not ok:
-            bucket = alt_reasons[r["condition_id"]]
-            bucket[reason] = bucket.get(reason, 0) + 1
-    summary["diagnostic_leading_space_response_token"] = {
-        "note": (
-            "All 144 first generated token IDs were 12107, which decodes to the "
-            "leading-space BPE form of 'Response'. Frozen criterion remains 2963."
-        ),
-        "observed_first_token_id": 12107,
-        "frozen_expected_first_token_id": COMMON_FIRST_TOKEN_ID,
-        "n_matching_12107": sum(
-            1 for r in rows if r.get("first_generated_token_id") == 12107
-        ),
-        "n_first_token_ok_if_expected_12107": alt_ft,
-        "n_behaviorally_valid_if_expected_12107": alt_valid,
-        "failure_reason_counts_if_expected_12107": alt_reasons,
-    }
-
     run_manifest = json.loads(run_manifest_path.read_text(encoding="utf-8"))
 
-    summary_dir = Path(args.summary_dir)
     summary_dir.mkdir(parents=True, exist_ok=True)
-
-    # Commit-safe generation manifest (no raw output text)
     commit_manifest = {
         **{k: v for k, v in run_manifest.items() if k != "raw_outputs_path"},
         "raw_outputs_gitignored": True,
@@ -242,6 +191,7 @@ def main() -> int:
         "common_first_token_id": COMMON_FIRST_TOKEN_ID,
         "n_pilot_outputs": 144,
         "n_final_outputs": 0,
+        "pilot_revision": revision,
         "behavior_parser": "pre_output_physiology.phase4_behavior",
         "activations_collected": False,
         "probe_scores_computed": False,
@@ -253,24 +203,28 @@ def main() -> int:
         "created_at": utc_now_iso(),
         "run_id": run_manifest["run_id"],
         "git_commit_generation": run_manifest["git_commit"],
+        "pilot_revision": revision,
         "summary": summary,
         "eval_rows": eval_rows,
     }
     write_json(summary_dir / "pilot_behavior_summary.json", behavior_payload)
-    _write_report(summary, run_manifest, Path(args.report_path))
+    _write_report(summary, commit_manifest, report_path)
 
     print(
         json.dumps(
             {
                 "run_id": run_manifest["run_id"],
+                "pilot_revision": revision,
                 "all_gates_pass": summary["gates"]["all_operational_gates_pass"],
-                "recommend_freeze": summary["recommend_freeze_templates_unchanged"],
+                "recommend_freeze_revision1": summary.get(
+                    "recommend_freeze_revision1_templates"
+                ),
                 "n_c2_c3_paired": summary["n_c2_c3_paired_valid"],
                 "per_condition_behaviorally_valid": {
                     cid: summary["per_condition"][cid]["behaviorally_valid"]
                     for cid in CONDITION_ORDER
                 },
-                "report": args.report_path,
+                "report": str(report_path),
             },
             indent=2,
         )

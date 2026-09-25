@@ -69,6 +69,8 @@ class ExperimentConfig(BaseModel):
         "phase3b2_locked_complete_awaiting_audit",
         "phase4a_design_frozen_awaiting_pilot",
         "phase4b_pilot_complete_awaiting_audit",
+        "phase4b_repilot_pass_awaiting_audit",
+        "phase4b_repilot_fail_hold",
         "running",
         "complete",
         "blocked",

@@ -365,3 +365,22 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Operational pilot gates are frozen before seeing pilot results: ≥23/24 first-token-ID compliance per condition; ≥20/24 full behavioral validity per condition; ≥18/24 base scenarios with both C2 and C3 behaviorally valid. These are usability gates, not scientific effect-size thresholds.
 - **Date:** 2026-09-25
+
+### D055 — Correct common first-token ID
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The true first generated token for the frozen `Response` prefix under the actual Mistral chat-generation context (`apply_chat_template(..., add_generation_prompt=True)`) is token ID **12107**. The earlier **2963** value came from an incorrect design-time tokenization context that concatenated `Response` directly onto `[/INST]` without the leading-space BPE form used in real generation.
+- **Supersedes for ID value:** D052’s numeric ID `2963` (token-*ID* method of D052 remains in force).
+- **Date:** 2026-09-25
+
+### D056 — Single allowed post-pilot template revision
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision 1 replaces free-form responses with an exact three-line machine-readable output format (`Response` / `MODE=...` / `FINAL=...`) and strengthens reward-target compliance while preserving C2/C3 textual symmetry (D051).
+- **Date:** 2026-09-25
+
+### D057 — No second template-tuning round
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision 1 is the sole post-pilot prompt revision permitted under D050. If the revised pilot fails the pre-registered usability gates (D054), Phase 4 holds for methodological redesign rather than further prompt tuning.
+- **Date:** 2026-09-25

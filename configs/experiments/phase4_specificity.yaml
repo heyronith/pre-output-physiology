@@ -1,12 +1,12 @@
-# Phase 4 deception specificity — Phase 4B pilot complete (awaiting audit)
+# Phase 4 deception specificity — revision-1 re-pilot authorized
 
 experiment_id: phase4_deception_specificity
 phase: phase4
 status: phase4b_pilot_complete_awaiting_audit
 description: >
-  Phase 4B pilot generation complete for frozen 144 pilot prompts only.
-  Operational gates did not all pass; final generation remains unauthorized.
-  No activations, no probe scoring, no causal work.
+  Single D050 template revision (D055/D056) applied. Re-pilot of the same 144
+  pilot prompts is authorized. Final generation, activations, probe scoring,
+  and causal work remain unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -31,7 +31,8 @@ frozen_phase3:
   surface_manifest: artifacts/phase4a_summaries/frozen_surface_manifest.json
 
 common_first_token: Response
-common_first_token_id: 2963
+common_first_token_id: 12107
+legacy_incorrect_first_token_id: 2963
 
 design:
   n_final_base_scenarios: 240
@@ -43,6 +44,7 @@ design:
   condition_matrix: artifacts/phase4a_summaries/condition_matrix.json
   primary_contrast: [C3_known_deceptive_strategic, C2_known_honest_strategic]
   key_secondary_contrast: [C3_known_deceptive_strategic, C4_false_belief_honest]
+  pilot_template_revision: 1
 
 authorizations:
   pilot_generation_authorized: true
@@ -62,8 +64,8 @@ pilot_generation:
   force_first_token: false
   activations: false
   probe_scoring: false
-  run_id: phase4b_pilot_20260925T165130Z_ee4d615c
+  pilot_revision: 1
+  prior_pilot_run_id: phase4b_pilot_20260925T165130Z_ee4d615c
 
 notes: >
-  Pilot complete. Operational gates failed (first generated token ID was 12107,
-  not frozen 2963). Template revision recommended. Final generation unauthorized.
+  Revision 1 is the sole post-pilot template revision (D057). STOP after re-pilot.

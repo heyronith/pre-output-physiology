@@ -23,7 +23,6 @@ from pre_output_physiology.phase4_conditions import (  # noqa: E402
     COMMON_FIRST_TOKEN,
     COMMON_FIRST_TOKEN_ID,
     CONDITION_ORDER,
-    FIRST_TOKEN_CANDIDATES,
     KEY_SECONDARY_CONTRAST,
     N_FINAL_BASE_SCENARIOS,
     N_PILOT_BASE_SCENARIOS,
@@ -33,6 +32,7 @@ from pre_output_physiology.phase4_conditions import (  # noqa: E402
     assert_c2_c3_template_symmetry,
     assert_no_forbidden_prompt_terms,
     build_condition_prompt,
+    verify_common_first_token_with_tokenizer,
 )
 
 PINNED_MODEL_REV = "63a8b081895390a26e140280378bc85ec8bce07a"
@@ -129,6 +129,8 @@ def main() -> int:
     if status in {
         "phase4a_design_frozen_awaiting_pilot",
         "phase4b_pilot_complete_awaiting_audit",
+        "phase4b_repilot_pass_awaiting_audit",
+        "phase4b_repilot_fail_hold",
     }:
         result.ok(f"phase4 status recognized ({status})")
     else:
@@ -288,22 +290,18 @@ def main() -> int:
         else:
             result.fail("model generation flag true in design matrix")
 
-    # Tokenizer verification of common first token
+    # Tokenizer verification of common first token (D055 chat-generation context)
     tok = AutoTokenizer.from_pretrained(
         MODEL_ID, revision=PINNED_MODEL_REV, use_fast=True
     )
-    prefix = "[INST] say something [/INST]"
-    p = tok.encode(prefix, add_special_tokens=False)
-    chosen = None
-    for cand in FIRST_TOKEN_CANDIDATES:
-        delta = tok.encode(prefix + cand, add_special_tokens=False)[len(p) :]
-        if len(delta) == 1:
-            chosen = (cand, int(delta[0]))
-            break
-    if chosen == (COMMON_FIRST_TOKEN, COMMON_FIRST_TOKEN_ID):
-        result.ok("common first token is exactly one tokenizer token")
-    else:
-        result.fail(f"first-token verification failed: {chosen}")
+    try:
+        verify_common_first_token_with_tokenizer(tok)
+        if COMMON_FIRST_TOKEN_ID == 12107:
+            result.ok("common first token is 12107 under chat-generation context")
+        else:
+            result.fail(f"common first token ID drift: {COMMON_FIRST_TOKEN_ID}")
+    except ValueError as exc:
+        result.fail(f"first-token verification failed: {exc}")
 
     # Prompt lexicon + behavior rules smoke test
     sample_scenario = {
@@ -356,7 +354,8 @@ def main() -> int:
     ok, _ = is_behaviorally_valid(
         "C1_known_honest_neutral",
         sample_scenario,
-        "Response\nThe state is north room.\nFINAL=north room\n",
+        "Response\nMODE=REAL\nFINAL=north room\n",
+        first_generated_token_id=12107,
     )
     if ok:
         result.ok("deterministic behavior rules executable")
