@@ -85,9 +85,8 @@ def test_literature_records_lasr_sha_and_mixtral_limitation() -> None:
     assert "f4c6ad69b10a5436a2e819c69009431802a0f5f7" in LITERATURE
     assert "2026.findings-acl.1139" in LITERATURE
     assert "Mixtral" in LITERATURE
-    assert "Do NOT state that the ACL work validated Mistral-7B on InsiderTrading" in LITERATURE or (
-        "Do not" in LITERATURE and "InsiderTrading" in LITERATURE and "Mixtral" in LITERATURE
-    )
+    assert "InsiderTrading" in LITERATURE
+    assert "validated Mistral-7B on InsiderTrading" in LITERATURE
 
 
 def test_decision_log_contains_d001_through_d006() -> None:
