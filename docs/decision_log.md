@@ -480,3 +480,15 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Primary future Phase-5 physiology analysis uses all designed S2/S3 pairs (train N=640; validation N=320), independent of later behavioral compliance, because behavior occurs downstream of the k1 state and compliance filtering would introduce post-treatment selection bias. Behaviorally valid paired subsets are secondary sensitivity analyses only and must not replace the primary all-pair populations. Future probe procedure is preregistered (standardized logistic regression, C=0.01, intercept, max_iter=500, seed=42; train on discovery-train; layer select on discovery-validation) but not executed in Phase 5B.
 - **Date:** 2026-09-25
+
+### D074 — Phase 5C candidate selection and locked-test gate
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5C extracts truncated-prefix last-token residual activations at layers `[0,4,8,12,16,20,24,28,31]` for k0 and controlled-prefix k1 (`Response`/12107) on discovery families only. Candidate selection uses **k1 only**, choosing the layer with highest validation all-pair AUROC (tie-break: higher worst-family AUROC, then lower layer). k0 cannot be the primary candidate. Locked-test authorization requires overall validation AUROC ≥ 0.70, bootstrap lower 95% bound > 0.50, and AUROC ≥ 0.60 in each validation family. Gates are frozen before results; failure means HOLD without inspecting locked families.
+- **Date:** 2026-09-25
+
+### D075 — Phase 5C baselines and information-theoretic stance
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Preregistered baselines (user-visible TFIDF; full privileged word+char TFIDF; frozen `all-mpnet-base-v2` revision `e8c3b32edf5434bc2275fc9bab85f82640a19130` mean-pooled embedding + LR; fixed output-logit state-alternative summary; first-token identity diagnostic) are fit on train families only with leave-one-train-family-out C selection for learned text/embedding baselines over `[0.01,0.1,1,10]`. Physiology is not required to beat privileged full-context text. Phase 5 does not claim information uniquely absent from the prompt.
+- **Date:** 2026-09-25

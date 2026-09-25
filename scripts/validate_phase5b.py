@@ -71,6 +71,9 @@ def main() -> int:
     if status in {
         "phase5b_discovery_behavior_authorized",
         "phase5b_discovery_behavior_complete_awaiting_audit",
+        "phase5c_discovery_physiology_authorized",
+        "phase5c_candidate_selection_complete_awaiting_audit",
+        "phase5c_candidate_gate_fail_hold",
     }:
         result.ok(f"status {status}")
     else:
@@ -153,22 +156,30 @@ def main() -> int:
     else:
         result.fail("probe procedure marked executed")
 
-    # No phase5 activation/probe artifacts
-    hits = []
-    for path in (REPO_ROOT / "artifacts").rglob("*"):
-        if not path.is_file():
-            continue
-        rel = str(path.relative_to(REPO_ROOT)).lower()
-        if "phase5" not in rel:
-            continue
-        if any(tok in rel for tok in ("activation", "probe_score", ".safetensors", "causal")):
-            if "procedure" in rel or "manifest" in rel or "condition_matrix" in rel:
-                continue
-            hits.append(rel)
-    if hits:
-        result.fail(f"phase5 activation/probe artifacts: {hits[:5]}")
+    # No phase5 activation/probe artifacts before Phase 5C results exist.
+    if status.startswith("phase5c_candidate"):
+        result.ok("phase5c results path; skip pre-extraction activation absence check")
     else:
-        result.ok("no phase5 activation/probe artifacts")
+        hits = []
+        for path in (REPO_ROOT / "artifacts").rglob("*"):
+            if not path.is_file():
+                continue
+            rel = str(path.relative_to(REPO_ROOT)).lower()
+            if "phase5" not in rel:
+                continue
+            if any(
+                tok in rel
+                for tok in ("activation", "probe_score", ".safetensors", "causal")
+            ):
+                if "procedure" in rel or "manifest" in rel or "condition_matrix" in rel:
+                    continue
+                if "physiology_freeze" in rel or "phase5c_physiology_freeze" in rel:
+                    continue
+                hits.append(rel)
+        if hits:
+            result.fail(f"phase5 activation/probe artifacts: {hits[:5]}")
+        else:
+            result.ok("no phase5 activation/probe artifacts")
 
     if status == "phase5b_discovery_behavior_authorized":
         if auth.get("discovery_generation_authorized") is True:
@@ -179,7 +190,12 @@ def main() -> int:
             result.ok("pre-generation freeze intact")
         else:
             result.fail("split marked generated before completion status")
-    elif status == "phase5b_discovery_behavior_complete_awaiting_audit":
+    elif status in {
+        "phase5b_discovery_behavior_complete_awaiting_audit",
+        "phase5c_discovery_physiology_authorized",
+        "phase5c_candidate_selection_complete_awaiting_audit",
+        "phase5c_candidate_gate_fail_hold",
+    }:
         beh = (
             REPO_ROOT
             / "artifacts/phase5b_discovery_behavior/discovery_behavior_summary.json"
@@ -209,7 +225,9 @@ def main() -> int:
                 result.ok("manifest locked_final_families_run=false")
             else:
                 result.fail("locked families flagged run")
-            if auth.get("discovery_generation_authorized") is False:
+            if status.startswith("phase5c_"):
+                result.ok("phase5c inherits phase5b discovery freeze")
+            elif auth.get("discovery_generation_authorized") is False:
                 result.ok("discovery_generation_authorized=false after complete")
             else:
                 result.fail("discovery auth should be closed after complete")

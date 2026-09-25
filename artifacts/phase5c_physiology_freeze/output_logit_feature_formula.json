@@ -1,0 +1,24 @@
+{
+  "classifier": {
+    "C": 0.01,
+    "C_tuning": false,
+    "fit_intercept": true,
+    "kind": "logistic_regression",
+    "max_iter": 500,
+    "seed": 42
+  },
+  "created_at": "2026-09-25T19:47:05+00:00",
+  "endpoint": "controlled_prefix_k1",
+  "features": [
+    "logit[id_record]",
+    "logit[id_alt]",
+    "logit[id_record] - logit[id_alt]",
+    "softmax(logit)[id_record]",
+    "softmax(logit)[id_alt]",
+    "softmax(logit)[id_record] - softmax(logit)[id_alt]"
+  ],
+  "input": "formatted_prompt_token_ids + [12107]",
+  "next_token_logits": "model logits at final position (predicting token after Response)",
+  "notes": "Uses only the two scenario state strings present in the prompt; does not receive condition_id or objective_target on the GPU.",
+  "state_token_ids": "id_record = first token of encode(' ' + record_state, add_special_tokens=False); id_alt = first token of encode(' ' + alternate_state, add_special_tokens=False)"
+}

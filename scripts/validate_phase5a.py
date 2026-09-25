@@ -89,6 +89,9 @@ def main() -> int:
         "phase5a_behavior_pilot_hold",
         "phase5b_discovery_behavior_authorized",
         "phase5b_discovery_behavior_complete_awaiting_audit",
+        "phase5c_discovery_physiology_authorized",
+        "phase5c_candidate_selection_complete_awaiting_audit",
+        "phase5c_candidate_gate_fail_hold",
     }:
         result.ok(f"status {status}")
     else:
@@ -96,9 +99,6 @@ def main() -> int:
 
     auth = exp.get("authorizations", {})
     for key in (
-        "activation_extraction_authorized",
-        "probe_fitting_authorized",
-        "probe_scoring_authorized",
         "causal_intervention_authorized",
         "locked_final_generation_authorized",
     ):
@@ -106,6 +106,27 @@ def main() -> int:
             result.ok(f"{key}=false")
         else:
             result.fail(f"{key} must be false")
+    # Activation/probe auth may be true only during authorized Phase 5C extraction.
+    if status == "phase5c_discovery_physiology_authorized":
+        for key in (
+            "activation_extraction_authorized",
+            "probe_fitting_authorized",
+            "probe_scoring_authorized",
+        ):
+            if auth.get(key) is True:
+                result.ok(f"{key}=true (phase5c authorized)")
+            else:
+                result.fail(f"{key} must be true when phase5c authorized")
+    else:
+        for key in (
+            "activation_extraction_authorized",
+            "probe_fitting_authorized",
+            "probe_scoring_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
 
     if set(SCENARIO_FAMILIES) & set(PHASE4_FAMILIES):
         result.fail("Phase 5 families overlap Phase 4")
@@ -262,6 +283,9 @@ def main() -> int:
         "phase5a_behavior_pilot_hold",
         "phase5b_discovery_behavior_authorized",
         "phase5b_discovery_behavior_complete_awaiting_audit",
+        "phase5c_discovery_physiology_authorized",
+        "phase5c_candidate_selection_complete_awaiting_audit",
+        "phase5c_candidate_gate_fail_hold",
     }:
         beh = REPO_ROOT / "artifacts/phase5a_pilot/pilot_behavior_summary.json"
         report = REPO_ROOT / "reports/phase5a_pilot.md"

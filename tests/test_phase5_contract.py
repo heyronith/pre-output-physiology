@@ -35,6 +35,9 @@ def test_phase5_status_and_auth() -> None:
         "phase5a_behavior_pilot_hold",
         "phase5b_discovery_behavior_authorized",
         "phase5b_discovery_behavior_complete_awaiting_audit",
+        "phase5c_discovery_physiology_authorized",
+        "phase5c_candidate_selection_complete_awaiting_audit",
+        "phase5c_candidate_gate_fail_hold",
     }
     raw = yaml.safe_load(
         (REPO_ROOT / "configs/experiments/phase5_strategic_discovery.yaml").read_text(
@@ -42,10 +45,15 @@ def test_phase5_status_and_auth() -> None:
         )
     )
     auth = raw["authorizations"]
-    assert auth["activation_extraction_authorized"] is False
-    assert auth["probe_fitting_authorized"] is False
     assert auth["causal_intervention_authorized"] is False
     assert auth["locked_final_generation_authorized"] is False
+    if raw["status"].startswith("phase5c_discovery_physiology_authorized"):
+        assert auth["activation_extraction_authorized"] is True
+    elif raw["status"].startswith("phase5c_candidate"):
+        assert auth["activation_extraction_authorized"] is False
+    else:
+        assert auth["activation_extraction_authorized"] is False
+        assert auth["probe_fitting_authorized"] is False
 
 
 def test_phase5_families_disjoint_from_phase4() -> None:
@@ -100,7 +108,19 @@ def test_phase5_neutral_prefix_token() -> None:
 
 def test_phase5_decisions() -> None:
     text = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D065", "D066", "D067", "D068", "D069", "D070", "D071", "D072", "D073"):
+    for did in (
+        "D065",
+        "D066",
+        "D067",
+        "D068",
+        "D069",
+        "D070",
+        "D071",
+        "D072",
+        "D073",
+        "D074",
+        "D075",
+    ):
         assert did in text
 
 
@@ -125,3 +145,43 @@ def test_phase5b_family_split_deterministic() -> None:
         "gallery_wall_panel",
     ]
     assert not (set(split["train_families"]) & set(LOCKED_FAMILIES))
+
+
+def test_phase5c_selection_and_gates() -> None:
+    from pre_output_physiology.phase5_physiology import (
+        CANDIDATE_SELECTION_RULE,
+        LOCKED_TEST_GATES,
+        SEMANTIC_EMBEDDING_REVISION,
+    )
+    from pre_output_physiology.phase5_probes import (
+        evaluate_locked_test_gate,
+        select_k1_candidate,
+    )
+
+    assert CANDIDATE_SELECTION_RULE["endpoint"] == "k1_only"
+    assert LOCKED_TEST_GATES["overall_auroc_min"] == 0.70
+    assert SEMANTIC_EMBEDDING_REVISION.startswith("e8c3b32")
+    metrics = {
+        12: {"auroc": 0.8, "worst_family_auroc": 0.7},
+        8: {"auroc": 0.8, "worst_family_auroc": 0.75},
+        16: {"auroc": 0.79, "worst_family_auroc": 0.9},
+    }
+    sel = select_k1_candidate(metrics)
+    # tie on 0.8 → higher worst-family → layer 8
+    assert sel["selected_layer"] == 8
+    gate = evaluate_locked_test_gate(
+        {
+            "auroc": 0.71,
+            "auroc_ci_low": 0.55,
+            "per_family_auroc": {"a": 0.61, "b": 0.62},
+        }
+    )
+    assert gate["passed"] is True
+    gate_fail = evaluate_locked_test_gate(
+        {
+            "auroc": 0.69,
+            "auroc_ci_low": 0.55,
+            "per_family_auroc": {"a": 0.61, "b": 0.62},
+        }
+    )
+    assert gate_fail["passed"] is False

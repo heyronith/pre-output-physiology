@@ -1,13 +1,13 @@
-# Phase 5 strategic deception discovery — Phase 5B discovery behavior COMPLETE awaiting audit
+# Phase 5 strategic deception discovery — Phase 5C discovery physiology AUTHORIZED
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
-status: phase5b_discovery_behavior_complete_awaiting_audit
+status: phase5c_discovery_physiology_authorized
 description: >
-  Phase 5B complete: 1920 discovery-family behavior outputs generated and evaluated.
-  Primary all-pair populations unchanged; behavior-valid pairs frozen as sensitivity.
-  No activations, probe fitting/scoring, layer selection, locked-family generation,
-  prompt revision, or causal interventions.
+  Phase 5C authorized: extract discovery-family activations (k0 + controlled k1),
+  fit layer×endpoint probes on train families, evaluate validation, select k1
+  candidate, fit preregistered baselines. Locked families remain untouched.
+  No causal interventions. No post-result hyperparameter tuning.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -18,6 +18,7 @@ phase5a_pilot_run_id: phase5a_pilot_20260925T191728Z_d3a61de0
 phase5a_audited_head: 448bceb1b23ffceebd72a3835992309e7b3d92b2
 phase5b_pre_generation_sha: 86f6107d83086d4be4831e943f7e3109790f5bbe
 phase5b_discovery_run_id: phase5b_discovery_20260925T192726Z_86f6107d
+phase5b_audited_head: 0f093ae1558fa1a623efa4274bdf67f09bda970f
 
 neutral_prefix_token: Response
 neutral_prefix_token_id: 12107
@@ -39,10 +40,6 @@ design:
   n_discovery_base: 960
   n_locked_base: 320
   n_final_prompts: 2560
-  n_pilot_base_scenarios: 32
-  n_pilot_prompts: 64
-  final_seed: 51
-  pilot_seed: 19
   prompt_template_revision: 2
   response_schema: "Response <STATE>"
   primary_contrast: [S3_strategic_deception, S2_strategic_honesty]
@@ -50,8 +47,6 @@ design:
   final_prompt_text_sha256: cdf2003ac0d568eee28a0feffa7b07e0ef208e637de40665aa9a5b1e8bc2920e
   pilot_prompt_text_sha256: ec6f802603b86a99b1acfd02ee1c4411544a192f0ea96ed4bd25485b319b2328
   final_base_scenario_ids_sha256: 10cc3c0a76cc15a31db822feb01fbe93547ed70e664c4411526600e1c6bd7fc9
-  superseded_revision1_pilot_prompt_text_sha256: 20e69a734aba41b4137ca567839a3b127fdacac426dc017847803d2d303460df
-  superseded_revision1_pilot_run_id: phase5a_pilot_20260925T191443Z_17f2a915
 
 discovery_split:
   version: phase5_family_split_v1
@@ -70,12 +65,19 @@ discovery_split:
   validation_all_pair_sha256: 6b9f6385cdcd651d86fa27483deab6842cbbdc96e03bc9104fb628c50eff07ab
   discovery_prompt_text_sha256: 2eb22deeeb520d712fee000644fa958f35137e029a08ba0aa4b58b89327fe464
   primary_populations: artifacts/phase5b_discovery_split/primary_all_pair_populations.json
-  future_probe_procedure: artifacts/phase5b_discovery_split/future_probe_procedure.json
   sensitivity_valid_populations: artifacts/phase5b_discovery_behavior/sensitivity_behavior_valid_populations.json
-  train_behavior_valid_pair_n: 562
-  train_behavior_valid_pair_sha256: 646da4a8d44bbe585332a60a8384d23c0d11f47733c594260cc0c78db4dbce36
-  validation_behavior_valid_pair_n: 275
-  validation_behavior_valid_pair_sha256: 2aa87c9c52a9798b5ed3af58e4d883a3fe184b2a765c9a50877bd3322146eec8
+
+physiology:
+  contract: artifacts/phase5c_physiology_freeze/physiology_contract.json
+  layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
+  primary_endpoint: controlled_prefix_k1_after_token_12107
+  secondary_endpoint: k0_prompt_boundary
+  cosine_min: 0.9999
+  probe_C: 0.01
+  probe_seed: 42
+  n_bootstrap: 5000
+  semantic_embedding_model: sentence-transformers/all-mpnet-base-v2
+  semantic_embedding_revision: e8c3b32edf5434bc2275fc9bab85f82640a19130
 
 future_physiology:
   layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
@@ -94,13 +96,12 @@ authorizations:
   pilot_generation_authorized: false
   discovery_generation_authorized: false
   locked_final_generation_authorized: false
-  activation_extraction_authorized: false
-  probe_fitting_authorized: false
-  probe_scoring_authorized: false
+  activation_extraction_authorized: true
+  probe_fitting_authorized: true
+  probe_scoring_authorized: true
   causal_intervention_authorized: false
-  modal_gpu_authorized: false
+  modal_gpu_authorized: true
 
 notes: >
-  Phase 5B discovery behavior complete awaiting audit (D072–D073). Primary all-pair
-  populations frozen; sensitivity valid-pairs secondary only. Locked finals not run.
-  No activations/probes/layer selection/causal. STOP after 5B.
+  Phase 5C discovery physiology authorized (D074–D075). Contracts frozen
+  pre-extraction. Locked finals not run. No causal interventions.

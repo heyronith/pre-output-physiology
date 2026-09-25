@@ -69,3 +69,10 @@ Phase 1 produces no experimental run artifacts.
 - `phase5b_discovery_behavior/` — discovery generation/behavior summaries + sensitivity valid-pair freeze.
 - Raw discovery outputs under gitignored `artifacts/runs/phase5b_discovery_*/`.
 - Locked families never generated.
+
+## Phase 5C discovery physiology (committed summaries only)
+
+- `phase5c_physiology_freeze/` — pre-extraction contracts (selection rule, logit formula, embedding pin).
+- `phase5c_discovery_physiology/` — extraction manifest, physiology summary, selected probe npz + SHA256.
+- Raw activations under gitignored `artifacts/runs/phase5c_extract_*/`.
+- Locked families never extracted or scored.
