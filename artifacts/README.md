@@ -58,6 +58,7 @@ Phase 1 produces no experimental run artifacts.
 ## Phase 5A design + pilot (committed summaries only)
 
 - `phase5a_design/` — condition matrix + hashes (no raw scenario texts required in git).
-- `phase5a_pilot/` — pilot generation/behavior summaries after the behavior pilot.
+- `phase5a_pilot_revision1/` — failed revision-1 free-generation pilot summaries (D071).
+- `phase5a_pilot/` — revision-2 re-pilot summaries after the behavior pilot.
 - Design JSONL under gitignored `data/processed/phase5_design/`.
 - Raw pilot outputs under gitignored `artifacts/runs/phase5a_pilot_*/`.

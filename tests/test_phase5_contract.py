@@ -97,7 +97,7 @@ def test_phase5_neutral_prefix_token() -> None:
 
 def test_phase5_decisions() -> None:
     text = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D065", "D066", "D067", "D068", "D069", "D070"):
+    for did in ("D065", "D066", "D067", "D068", "D069", "D070", "D071"):
         assert did in text
 
 

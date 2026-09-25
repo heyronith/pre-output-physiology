@@ -40,7 +40,7 @@ Future physiology primary endpoint: controlled-prefix hidden state after supplyi
 - No locked-final model generation
 - No causal interventions
 
-Pilot gates: ≥28/32 valid per condition; ≥26/32 paired valid. Exactly one prompt-format revision permitted if the first pilot fails, preserving S2/S3 symmetry. Do not weaken validity definitions.
+Pilot gates: ≥28/32 valid per condition; ≥26/32 paired valid. Exactly one prompt-format revision permitted if the first pilot fails, preserving S2/S3 symmetry. Do not weaken validity definitions. Revision-1 free-generation pilot failed (D071); revision-2 template + new pilot_seed=19 is the sole re-pilot.
 
 ## Baselines (preregistered; not fit in 5A)
 

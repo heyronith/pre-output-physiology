@@ -462,3 +462,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Because record and objective target are present in privileged full context, S2/S3 is in principle inferable from text. Phase 5 therefore does not claim information-theoretic absence from text; it seeks a physiological representation that is robust across scenarios/families, specific to strategic deception relative to strategic honesty, prospectively available before the semantic answer, and transferable to unseen families.
 - **Date:** 2026-09-25
+
+### D071 — Single Phase 5A prompt-format revision after revision-1 pilot fail
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision-1 free-generation pilot failed operational gates (S2 valid 0/32; S3 valid 3/32; paired 0/32), mainly from `Response:` colon schema mismatches and truncated/shortened states. Exactly one prompt-format revision is authorized: revision 2 strengthens the shared output-schema block (no colon; verbatim full target; one line; correct/incorrect shape examples) while preserving S2/S3 semantic symmetry. A new frozen pilot set (pilot_seed=19) is required. Validity definitions are not weakened. If the revision-2 pilot fails, Phase 5A holds.
+- **Date:** 2026-09-25

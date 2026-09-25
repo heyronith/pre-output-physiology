@@ -96,6 +96,9 @@ def _collect_local_provenance() -> dict[str, Any]:
         "model_revision": MODEL_REVISION,
         "expected_pilot_prompt_text_sha256": expected_pilot_hash,
         "neutral_prefix_token_id": matrix["neutral_prefix_token_id"],
+        "prompt_template_revision": int(
+            cfg.get("design", {}).get("prompt_template_revision", 2)
+        ),
         "activations_authorized": False,
         "probe_fitting_authorized": False,
         "locked_families_run": False,
@@ -193,7 +196,9 @@ def generate_pilot(
                     "first_generated_token_id": new_ids[0] if new_ids else None,
                     "n_generated_tokens": len(new_ids),
                     "output_text": text,
-                    "prompt_template_revision": 1,
+                    "prompt_template_revision": provenance.get(
+                        "prompt_template_revision", 2
+                    ),
                     "activation_extracted": False,
                     "probe_scored": False,
                     "model_revision": MODEL_REVISION,

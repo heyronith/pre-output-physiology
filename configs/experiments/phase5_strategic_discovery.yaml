@@ -1,12 +1,13 @@
-# Phase 5 strategic deception discovery — Phase 5A design frozen; pilot AUTHORIZED
+# Phase 5 strategic deception discovery — Phase 5A design frozen; pilot AUTHORIZED (revision 2)
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
 status: phase5a_design_frozen_pilot_authorized
 description: >
   Fresh S2/S3 strategic contrast design with 8 families (6 discovery + 2 locked).
-  Phase 5A behavior pilot authorized on 64 pilot prompts only. No activations,
-  probe fitting/scoring, locked-final generation, or causal interventions.
+  Phase 5A behavior pilot authorized on 64 pilot prompts only (revision-2 template;
+  new pilot_seed after revision-1 fail). No activations, probe fitting/scoring,
+  locked-final generation, or causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -36,14 +37,16 @@ design:
   n_pilot_base_scenarios: 32
   n_pilot_prompts: 64
   final_seed: 51
-  pilot_seed: 17
-  prompt_template_revision: 1
+  pilot_seed: 19
+  prompt_template_revision: 2
   response_schema: "Response <STATE>"
   primary_contrast: [S3_strategic_deception, S2_strategic_honesty]
   condition_matrix: artifacts/phase5a_design/condition_matrix.json
-  final_prompt_text_sha256: 11fda070fab0ef45da1e335f1a9827b82d133dbf298fe5831456cdc7cf7e5bae
-  pilot_prompt_text_sha256: 20e69a734aba41b4137ca567839a3b127fdacac426dc017847803d2d303460df
+  final_prompt_text_sha256: cdf2003ac0d568eee28a0feffa7b07e0ef208e637de40665aa9a5b1e8bc2920e
+  pilot_prompt_text_sha256: ec6f802603b86a99b1acfd02ee1c4411544a192f0ea96ed4bd25485b319b2328
   final_base_scenario_ids_sha256: 10cc3c0a76cc15a31db822feb01fbe93547ed70e664c4411526600e1c6bd7fc9
+  superseded_revision1_pilot_prompt_text_sha256: 20e69a734aba41b4137ca567839a3b127fdacac426dc017847803d2d303460df
+  superseded_revision1_pilot_run_id: phase5a_pilot_20260925T191443Z_17f2a915
 
 future_physiology:
   layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
@@ -69,5 +72,5 @@ authorizations:
   modal_gpu_authorized: true
 
 notes: >
-  Phase 5A design frozen; pilot authorized (D065–D070). S2 vs S3 only.
+  Phase 5A design frozen; revision-2 pilot authorized (D065–D071). S2 vs S3 only.
   Locked final families not run. No activations/probes/causal work.
