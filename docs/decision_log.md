@@ -492,3 +492,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Preregistered baselines (user-visible TFIDF; full privileged word+char TFIDF; frozen `all-mpnet-base-v2` revision `e8c3b32edf5434bc2275fc9bab85f82640a19130` mean-pooled embedding + LR; fixed output-logit state-alternative summary; first-token identity diagnostic) are fit on train families only with leave-one-train-family-out C selection for learned text/embedding baselines over `[0.01,0.1,1,10]`. Physiology is not required to beat privileged full-context text. Phase 5 does not claim information uniquely absent from the prompt.
 - **Date:** 2026-09-25
+
+### D076 — Phase 5D locked one-shot confirmatory test
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5D tests the frozen Phase-5C candidate exactly once on the two untouched locked families (`harbor_dock_slip`, `trail_marker_post`; 320 pairs / 640 prompts). Endpoint is controlled-prefix k1 after Response token 12107 at layer 12 only; probe SHA256 `fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8` is loaded without retraining, recalibration, or reselection. Primary analysis uses all 320 designed pairs (behavior validity does not alter the primary population). Confirmation requires overall AUROC bootstrap CI lower bound > 0.50, paired S3−S2 score-difference CI entirely > 0, and both locked-family AUROCs > 0.50. Thresholds are not changed after seeing results. Behavior sensitivity is secondary and may run only after primary physiology is written. No alternative layers/endpoints for candidate selection; no causal interventions.
+- **Date:** 2026-09-25

@@ -92,21 +92,25 @@ def main() -> int:
         "phase5c_discovery_physiology_authorized",
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     else:
         result.fail(f"unexpected status {status}")
 
     auth = exp.get("authorizations", {})
-    for key in (
-        "causal_intervention_authorized",
-        "locked_final_generation_authorized",
-    ):
-        if auth.get(key) is False:
-            result.ok(f"{key}=false")
-        else:
-            result.fail(f"{key} must be false")
-    # Activation/probe auth may be true only during authorized Phase 5C extraction.
+    if auth.get("causal_intervention_authorized") is False:
+        result.ok("causal_intervention_authorized=false")
+    else:
+        result.fail("causal_intervention_authorized must be false")
+    if status.startswith("phase5d_locked_test"):
+        result.ok("phase5d path; locked_final auth checked by validate_phase5d")
+    elif auth.get("locked_final_generation_authorized") is False:
+        result.ok("locked_final_generation_authorized=false")
+    else:
+        result.fail("locked_final_generation_authorized must be false")
+    # Activation/probe auth may be true only during authorized Phase 5C/5D extraction.
     if status == "phase5c_discovery_physiology_authorized":
         for key in (
             "activation_extraction_authorized",
@@ -117,6 +121,29 @@ def main() -> int:
                 result.ok(f"{key}=true (phase5c authorized)")
             else:
                 result.fail(f"{key} must be true when phase5c authorized")
+    elif status == "phase5d_locked_test_authorized":
+        if auth.get("activation_extraction_authorized") is True:
+            result.ok("activation_extraction_authorized=true (phase5d)")
+        else:
+            result.fail("activation auth must be true when phase5d authorized")
+        if auth.get("probe_scoring_authorized") is True:
+            result.ok("probe_scoring_authorized=true (phase5d)")
+        else:
+            result.fail("probe scoring must be true when phase5d authorized")
+        if auth.get("probe_fitting_authorized") is False:
+            result.ok("probe_fitting_authorized=false (frozen probe)")
+        else:
+            result.fail("probe fitting must remain false in phase5d")
+    elif status == "phase5d_locked_test_complete_awaiting_audit":
+        for key in (
+            "activation_extraction_authorized",
+            "probe_fitting_authorized",
+            "probe_scoring_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false after phase5d complete")
     else:
         for key in (
             "activation_extraction_authorized",
@@ -255,15 +282,17 @@ def main() -> int:
                 if row.get("split") == "final" and row.get("pool") == "locked":
                     locked_output_hits.append(str(path))
                     break
-    if locked_output_hits:
+    if status.startswith("phase5d_locked_test"):
+        result.ok("phase5d path; locked-final outputs allowed under gitignored runs/")
+    elif locked_output_hits:
         result.fail(f"locked final outputs present: {locked_output_hits[:3]}")
     else:
         result.ok("no locked-final model outputs")
 
     # No activation / probe artifacts for phase5 (pre-5C). After 5C, raw
     # activations may exist under gitignored runs/; committed probes are expected.
-    if status.startswith("phase5c_candidate"):
-        result.ok("phase5c candidate path; local gitignored activations allowed")
+    if status.startswith("phase5c_candidate") or status.startswith("phase5d_locked_test"):
+        result.ok("phase5c/5d path; local gitignored activations allowed")
     else:
         hits = []
         for path in (REPO_ROOT / "artifacts").rglob("*"):
@@ -294,6 +323,8 @@ def main() -> int:
         "phase5c_discovery_physiology_authorized",
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
     }:
         beh = REPO_ROOT / "artifacts/phase5a_pilot/pilot_behavior_summary.json"
         report = REPO_ROOT / "reports/phase5a_pilot.md"

@@ -50,7 +50,7 @@ def main() -> int:
         )
     )
     status = exp.get("status")
-    if status.startswith("phase5c"):
+    if status.startswith("phase5c") or status.startswith("phase5d"):
         # Run phase5a only as prior chain
         proc_a = subprocess.run(
             [sys.executable, str(REPO_ROOT / "scripts" / "validate_phase5a.py")],
@@ -62,6 +62,10 @@ def main() -> int:
             result.ok("validate_phase5a.py passed")
         else:
             result.fail("validate_phase5a.py failed")
+            if proc_a.stdout:
+                print(proc_a.stdout)
+            if proc_a.stderr:
+                print(proc_a.stderr)
     else:
         if proc.returncode == 0:
             result.ok("validate_phase5b.py passed")
@@ -79,6 +83,8 @@ def main() -> int:
         "phase5c_discovery_physiology_authorized",
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     else:
@@ -89,7 +95,9 @@ def main() -> int:
         result.ok("causal_intervention_authorized=false")
     else:
         result.fail("causal must be false")
-    if auth.get("locked_final_generation_authorized") is False:
+    if status.startswith("phase5d"):
+        result.ok("phase5d path; locked_final auth deferred to validate_phase5d")
+    elif auth.get("locked_final_generation_authorized") is False:
         result.ok("locked_final_generation_authorized=false")
     else:
         result.fail("locked generation must be false")
@@ -137,6 +145,8 @@ def main() -> int:
     elif status in {
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
     }:
         summary_path = (
             REPO_ROOT / "artifacts/phase5c_discovery_physiology/physiology_summary.json"
@@ -149,7 +159,9 @@ def main() -> int:
         if summary_path.is_file() and sel_path.is_file() and report.is_file():
             result.ok("physiology result artifacts present")
             summary = json.loads(summary_path.read_text(encoding="utf-8"))
-            if summary.get("locked_final_families_run") is False:
+            if status.startswith("phase5d"):
+                result.ok("phase5d: discovery locked_final_families_run historical")
+            elif summary.get("locked_final_families_run") is False:
                 result.ok("locked families not run")
             else:
                 result.fail("locked families flagged")
@@ -165,21 +177,23 @@ def main() -> int:
             else:
                 result.fail("validation population hash changed")
             gate = summary.get("locked_test_gate", {})
-            if status.endswith("complete_awaiting_audit") and gate.get("passed"):
+            if status.startswith("phase5d") and gate.get("passed"):
+                result.ok("phase5d proceeds from gate pass")
+            elif status.endswith("complete_awaiting_audit") and gate.get("passed"):
                 result.ok("status matches gate pass")
             elif status.endswith("hold") and not gate.get("passed"):
                 result.ok("status matches gate hold")
             else:
                 result.fail(f"status/gate mismatch {status} / {gate.get('passed')}")
-            # No locked family strings in selected probe / summary keys of concern
-            blob = json.dumps(summary)
-            if any(fam in blob for fam in LOCKED_FAMILIES):
-                # family names may appear in forbidden list — OK if in locked_families key
-                pass
             result.ok("result artifacts scanned")
         else:
             result.fail("missing physiology result artifacts")
-        if auth.get("activation_extraction_authorized") is False:
+        if status.startswith("phase5d_locked_test_authorized"):
+            if auth.get("activation_extraction_authorized") is True:
+                result.ok("activation auth open for phase5d locked extract")
+            else:
+                result.fail("activation auth must be true for phase5d authorized")
+        elif auth.get("activation_extraction_authorized") is False:
             result.ok("activation auth closed after complete")
         else:
             result.fail("activation auth should be closed after complete")

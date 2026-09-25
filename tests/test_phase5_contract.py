@@ -38,6 +38,8 @@ def test_phase5_status_and_auth() -> None:
         "phase5c_discovery_physiology_authorized",
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
     }
     raw = yaml.safe_load(
         (REPO_ROOT / "configs/experiments/phase5_strategic_discovery.yaml").read_text(
@@ -46,14 +48,24 @@ def test_phase5_status_and_auth() -> None:
     )
     auth = raw["authorizations"]
     assert auth["causal_intervention_authorized"] is False
-    assert auth["locked_final_generation_authorized"] is False
-    if raw["status"].startswith("phase5c_discovery_physiology_authorized"):
+    if raw["status"] == "phase5d_locked_test_authorized":
+        assert auth["locked_final_generation_authorized"] is True
         assert auth["activation_extraction_authorized"] is True
-    elif raw["status"].startswith("phase5c_candidate"):
-        assert auth["activation_extraction_authorized"] is False
-    else:
+        assert auth["probe_scoring_authorized"] is True
+        assert auth["probe_fitting_authorized"] is False
+    elif raw["status"] == "phase5d_locked_test_complete_awaiting_audit":
+        assert auth["locked_final_generation_authorized"] is False
         assert auth["activation_extraction_authorized"] is False
         assert auth["probe_fitting_authorized"] is False
+    else:
+        assert auth["locked_final_generation_authorized"] is False
+        if raw["status"].startswith("phase5c_discovery_physiology_authorized"):
+            assert auth["activation_extraction_authorized"] is True
+        elif raw["status"].startswith("phase5c_candidate"):
+            assert auth["activation_extraction_authorized"] is False
+        else:
+            assert auth["activation_extraction_authorized"] is False
+            assert auth["probe_fitting_authorized"] is False
 
 
 def test_phase5_families_disjoint_from_phase4() -> None:
@@ -120,6 +132,7 @@ def test_phase5_decisions() -> None:
         "D073",
         "D074",
         "D075",
+        "D076",
     ):
         assert did in text
 
@@ -185,3 +198,31 @@ def test_phase5c_selection_and_gates() -> None:
         }
     )
     assert gate_fail["passed"] is False
+
+
+def test_phase5d_frozen_candidate_and_confirmation() -> None:
+    from pre_output_physiology.phase5_locked import (
+        CONFIRMATION_CRITERIA,
+        EXPECTED_LOCKED_PAIR_SHA256,
+        FROZEN_CANDIDATE,
+        LOCKED_FAMILIES,
+        Phase5FrozenProbe,
+    )
+
+    assert FROZEN_CANDIDATE["layer"] == 12
+    assert FROZEN_CANDIDATE["endpoint"] == "controlled_prefix_k1"
+    assert FROZEN_CANDIDATE["controlled_prefix_token_id"] == 12107
+    assert (
+        FROZEN_CANDIDATE["probe_sha256"]
+        == "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8"
+    )
+    assert LOCKED_FAMILIES == ("harbor_dock_slip", "trail_marker_post")
+    assert CONFIRMATION_CRITERIA["overall_auroc_ci_low_gt"] == 0.50
+    assert CONFIRMATION_CRITERIA["paired_delta_ci_entirely_gt"] == 0.0
+    assert CONFIRMATION_CRITERIA["each_family_auroc_gt"] == 0.50
+    assert EXPECTED_LOCKED_PAIR_SHA256.startswith("ee845e48")
+    probe = Phase5FrozenProbe(
+        REPO_ROOT / FROZEN_CANDIDATE["probe_artifact"],
+        expected_sha256=FROZEN_CANDIDATE["probe_sha256"],
+    )
+    assert probe.layer == 12 and probe.endpoint == "k1"

@@ -75,4 +75,9 @@ Phase 1 produces no experimental run artifacts.
 - `phase5c_physiology_freeze/` — pre-extraction contracts (selection rule, logit formula, embedding pin).
 - `phase5c_discovery_physiology/` — extraction manifest, physiology summary, selected probe npz + SHA256.
 - Raw activations under gitignored `artifacts/runs/phase5c_extract_*/`.
-- Locked families never extracted or scored.
+
+## Phase 5D locked confirmatory test (committed summaries only)
+
+- `phase5d_locked_freeze/` — locked pair population + confirmation criteria frozen pre-model-call.
+- `phase5d_locked_test/` — primary locked physiology scores; optional behavior sensitivity (secondary).
+- Raw locked activations/outputs under gitignored `artifacts/runs/phase5d_locked_*/`.

@@ -88,6 +88,8 @@ class ExperimentConfig(BaseModel):
         "phase5c_discovery_physiology_authorized",
         "phase5c_candidate_selection_complete_awaiting_audit",
         "phase5c_candidate_gate_fail_hold",
+        "phase5d_locked_test_authorized",
+        "phase5d_locked_test_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",
