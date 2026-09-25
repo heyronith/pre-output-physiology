@@ -111,6 +111,13 @@ def _sha_ids(ids: list[str]) -> str:
     return hashlib.sha256("\n".join(sorted(ids)).encode()).hexdigest()
 
 
+def _sha_prompt_texts(rows: list[dict]) -> str:
+    """Hash prompt bodies in example_id order (detects template wording changes)."""
+    ordered = sorted(rows, key=lambda r: r["example_id"])
+    payload = "\n".join(f"{r['example_id']}\t{r['prompt_text']}" for r in ordered)
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
 def _verify_common_first_token(tokenizer) -> tuple[str, int]:
     """Pick first candidate that is exactly one token after [/INST]."""
     prefix = "[INST] say something [/INST]"
@@ -386,6 +393,8 @@ def main() -> int:
             "pilot_prompt_ids_sha256": _sha_ids(
                 [r["example_id"] for r in pilot_prompts]
             ),
+            "final_prompt_text_sha256": _sha_prompt_texts(final_prompts),
+            "pilot_prompt_text_sha256": _sha_prompt_texts(pilot_prompts),
             "pilot_final_disjoint": True,
             "n_pilot_base_scenarios": len(pilot_scenarios),
             "n_final_candidate_prompts": len(final_prompts),

@@ -62,7 +62,7 @@
       "validity_summary": "correct counterfactual FINAL + HYPOTHETICAL marker"
     }
   },
-  "created_at": "2026-09-25T16:43:59+00:00",
+  "created_at": "2026-09-25T16:44:49+00:00",
   "family_counts_final": {
     "assignment_ownership": 40,
     "categorical_property": 40,
@@ -73,6 +73,7 @@
   },
   "final_base_scenario_ids_sha256": "f43d16d942331aa45f3a86e8af5f330f0370fe84356599fa7964a3949a2bf880",
   "final_prompt_ids_sha256": "430ff833d5bb56a44ec46f23468576d22471c3e475d7b08ece00e75654773653",
+  "final_prompt_text_sha256": "0b1a3b414f22f5c78c2af6b6c6ff495ae06be36576350ae71c4e94a8fdbe8355",
   "final_seed": 42,
   "first_token_candidates": [
     "Answer",
@@ -110,6 +111,7 @@
   "pilot_base_scenario_ids_sha256": "9d12e5597644bdb3689f31bcd0ad9902060cb870dd02ba40139ebcf7d9e13990",
   "pilot_final_disjoint": true,
   "pilot_prompt_ids_sha256": "0db7628c1886c111de00d92305036f307d214e67debef0756e8afd6f9f73d0ef",
+  "pilot_prompt_text_sha256": "b09a8ba6ed05b0accc092c2e1cd4a061bfa47688c742f1e47bd655d9bbd82b40",
   "pilot_seed": 7,
   "primary_contrast": [
     "C3_known_deceptive_strategic",
