@@ -71,7 +71,7 @@ def main() -> int:
             result.fail(f"{script} failed")
 
     decisions = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D065", "D066", "D067", "D068", "D069", "D070"):
+    for did in ("D065", "D066", "D067", "D068", "D069", "D070", "D071"):
         if did in decisions:
             result.ok(f"{did} present")
         else:

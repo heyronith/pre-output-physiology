@@ -1,18 +1,20 @@
-# Phase 5 strategic deception discovery — Phase 5A design frozen; pilot AUTHORIZED (revision 2)
+# Phase 5 strategic deception discovery — Phase 5A behavior pilot PASS awaiting audit
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
-status: phase5a_design_frozen_pilot_authorized
+status: phase5a_behavior_pilot_pass_awaiting_audit
 description: >
   Fresh S2/S3 strategic contrast design with 8 families (6 discovery + 2 locked).
-  Phase 5A behavior pilot authorized on 64 pilot prompts only (revision-2 template;
-  new pilot_seed after revision-1 fail). No activations, probe fitting/scoring,
-  locked-final generation, or causal interventions.
+  Phase 5A revision-2 behavior pilot passed operational gates (64/64 valid; 32/32
+  paired). No activations, probe fitting/scoring, locked-final generation, or
+  causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
 
 phase4_merge_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
+phase5_starting_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
+phase5a_pilot_run_id: phase5a_pilot_20260925T191728Z_d3a61de0
 
 neutral_prefix_token: Response
 neutral_prefix_token_id: 12107
@@ -62,15 +64,15 @@ preregistered_baselines:
   - first_token_identity_category_diagnostic
 
 authorizations:
-  pilot_generation_authorized: true
+  pilot_generation_authorized: false
   discovery_generation_authorized: false
   locked_final_generation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   probe_scoring_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
-  Phase 5A design frozen; revision-2 pilot authorized (D065–D071). S2 vs S3 only.
-  Locked final families not run. No activations/probes/causal work.
+  Phase 5A revision-2 pilot PASS awaiting audit (D065–D071). S2 vs S3 only.
+  Locked final families not run. No activations/probes/causal work. STOP after 5A.
