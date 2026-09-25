@@ -61,7 +61,8 @@ def _load_jsonl(path: Path) -> list[dict]:
 
 
 def _sha_ids(ids: list[str]) -> str:
-    return hashlib.sha256("\n".join(ids).encode()).hexdigest()
+    # Match freeze_phase3b_surface_baselines._ids_hash (sorted).
+    return hashlib.sha256("\n".join(sorted(ids)).encode()).hexdigest()
 
 
 def main() -> int:

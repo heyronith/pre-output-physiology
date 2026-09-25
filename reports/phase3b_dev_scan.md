@@ -3,7 +3,8 @@
 **Status:** `phase3b_dev_complete_awaiting_audit`  
 **Extraction mode:** `truncated_prefix_single_example` (`batch_size=1`)  
 **Branch:** `phase3/preoutput-trajectory`  
-**Extract run:** `phase3b1_extract_20260925T151054Z_f19e058f`
+**Canonical extract run:** `phase3b1_extract_20260925T154005Z_39505f42`  
+**Original development extract (preserved):** `phase3b1_extract_20260925T151054Z_f19e058f`
 
 This is **development evidence** (train/validation only). Not held-out proof. Not a pre-deceptive biomarker claim.
 
@@ -32,24 +33,20 @@ Canonical Path (D035–D037):
 
 ---
 
-## 3. Truncated-prefix repeatability preflight
+## 3. Original float16-storage development run (preserved)
+
+### 3a. Truncated-prefix repeatability preflight (original)
 
 Run: `phase3b1_preflight_truncated_20260925T150853Z_5677efe3`  
-Summary: `artifacts/phase3b_dev/preflight_truncated_summary.json`
+Preserved summary: `artifacts/phase3b_dev/original_dev_run_f19e058f_preflight_truncated_summary.json`
 
 | Check | Result |
 | --- | --- |
 | Same-input / same-shape / bs=1 repeatability min cosine | **0.999999999974304** |
 | Gate | ≥ 0.9999 |
 | Verdict | **PASS** |
-| Future tokens present | false |
-| Cost | ≈$0.007 |
 
----
-
-## 4. Cost benchmark (D038)
-
-Summary: `artifacts/phase3b_dev/benchmark_summary.json`
+### 3b. Cost benchmark (D038)
 
 | Metric | Value |
 | --- | ---: |
@@ -60,80 +57,100 @@ Summary: `artifacts/phase3b_dev/benchmark_summary.json`
 | Soft budget | $20 |
 | Continue? | **yes** |
 
----
-
-## 5. Full train/validation extraction
+### 3c. Original full train/validation extraction
 
 | Item | Value |
 | --- | --- |
+| Run ID | `phase3b1_extract_20260925T151054Z_f19e058f` |
 | Mode | truncated_prefix_single_example |
 | Batch size | 1 |
+| Compute | BF16 |
+| **Activation storage** | **float16** (historical; not canonical) |
 | Scientific forwards | **14079** |
-| Examples | 3000 (train 2361 + val 639) |
-| Prompt groups (k=0) | 306 |
 | Wall / estimated cost | ≈$0.252 |
 | Artifact bytes | ≈1.35 GB |
 | Locked test present | **false** |
-| Regime C | **not run** |
-| Causal interventions | **none** |
 
-Surface baseline freeze hash unchanged:  
-`b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00`  
-Selected C = **10.0** for all k.
+Preserved metrics: `artifacts/phase3b_dev/original_dev_run_f19e058f_metrics.json`
 
-Eligibility counts match freeze (unchanged).
+### 3d. Original primary development endpoints
 
----
-
-## 6. Artifacts
-
-- Raw (gitignored): `artifacts/runs/phase3b1_extract_20260925T151054Z_f19e058f/`
-- Commit-safe pointer: `artifacts/phase3b_dev/latest_extract_manifest.json`
-- Metrics: `artifacts/phase3b_dev/phase3b_dev_metrics.json`
-- Cell table: `artifacts/phase3b_dev/phase3b_dev_cells.json`
-
-k=0 within-group activation max abs diff (layer 12): **0.0**
-
----
-
-## 7. Validation activation AUROC (all 54 cells)
-
-Primary probe: standardized LR, C=0.01, train-only norm, group-bootstrap ≥2000.
-
-Full numeric table in `phase3b_dev_metrics.json` / `phase3b_dev_cells.json`.
-
-Descriptive extremes (validation AUROC):
-
-| | layer | k | AUROC |
+| Endpoint | Act AUROC | Surface | ΔAUROC |
 | --- | ---: | ---: | ---: |
-| Strongest | 16 | 4 | 0.967 |
-| Weakest | 4 | 0 | 0.526 |
+| Regime A (12/k0) | 0.713 [0.596, 0.813] | 0.720 | −0.007 [−0.119, 0.106] |
+| Regime B (12/k1) | 0.933 [0.869, 0.977] | 0.737 | +0.196 [0.097, 0.310] |
 
-Descriptive ΔAUROC extremes (activation − prompt+prefix surface):
-
-| | layer | k | ΔAUROC |
-| --- | ---: | ---: | ---: |
-| Largest positive | 20 | 2 | +0.242 |
-| Most negative | 0 | 16 | −0.215 |
+These original results remain historical evidence. They are **not erased**.
 
 ---
 
-## 8. Surface baselines (frozen; not retuned)
+## 4. Canonical provenance rerun
 
-Prompt+prefix TF-IDF+LR, C=10.0 for all k (validation AUROC):
+Research-lead correction (D039–D040): one reproducibility rerun with float32 storage and exact Git provenance **before** Phase 3B2.
 
-| k | surface AUROC | eligible val N |
-| ---: | ---: | ---: |
-| 0 | 0.720 | 639 |
-| 1 | 0.737 | 639 |
-| 2 | 0.715 | 629 |
-| 4 | 0.765 | 620 |
-| 8 | 0.743 | 599 |
-| 16 | 0.753 | 492 |
+| Item | Value |
+| --- | --- |
+| Provenance freeze commit | `7eb8a61e498d9c1fa3a72555cda60eed4a7bbfab` |
+| Preflight commit (clean tree at launch) | `8b374fb2cf099ac1b44427917c2af6443e567e4a` |
+| Canonical run code SHA (extract) | `8b374fb2cf099ac1b44427917c2af6443e567e4a` |
+| Working tree clean at launch | **true** |
+| Extractor SHA256 | `18461c8886409d1778c775a55b63f82a5e8ddd93d6e300face95c018d3b52d47` |
+| Analysis script SHA256 (at extract) | `66eaa02679691bf790e64f194d2a6a6158b77d9a6826df701664fe2799e0c47c` |
+| Surface freeze SHA256 | `b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00` |
+
+Canonical truncated-prefix preflight: `phase3b1_preflight_truncated_20260925T153935Z_2ff68b57`  
+Repeatability min cosine: **0.999999999974304** (gate ≥ 0.9999) — **PASS**.
 
 ---
 
-## 9. Primary development endpoints
+## 5. Exact committed run SHA
+
+Canonical scientific extract launched only after a clean tree at:
+
+`git_commit = 8b374fb2cf099ac1b44427917c2af6443e567e4a`
+
+Remote manifest records `working_tree_clean: true` plus extractor/analysis/freeze hashes.
+
+---
+
+## 6. Float32 storage correction
+
+| Field | Value |
+| --- | --- |
+| `compute_dtype` | `bfloat16` (unchanged model precision) |
+| `activation_storage_dtype` | `float32` |
+| Reason | BF16 values are exactly representable in float32; avoids the prior float16 storage conversion |
+
+Logit summaries remain float32. Stored tensors are **not** labeled BF16.
+
+Canonical extract:
+
+| Item | Value |
+| --- | --- |
+| Run ID | `phase3b1_extract_20260925T154005Z_39505f42` |
+| Scientific forwards | **14079** |
+| Wall | ≈469.7 s |
+| Estimated cost | ≈**$0.254** |
+| Artifact bytes | ≈**2.70 GB** |
+| Activation integrity | all finite; min −27.25; max 16.5; max-abs 27.25 |
+| k0 within-group act max abs (L12) | **0.0** |
+| k0 within-group surface-score max abs | **0.0** |
+
+---
+
+## 7. Metric comparison: original vs canonical
+
+Comparison artifact: `artifacts/phase3b_dev/canonical_vs_original_comparison.json`
+
+| Cell | ΔAUROC (canonical − original) |
+| --- | ---: |
+| block12 / k0 (Regime A) | **0.0** |
+| block12 / k1 (Regime B) | **0.0** |
+| Max \|ΔAUROC\| across all 54 cells | **≈0.000235** |
+
+No unexpectedly large metric drift. Primary endpoints are numerically identical at reported precision.
+
+### Canonical primary endpoints (authoritative for audit)
 
 ### Regime A — block 12 / k=0 (prompt-boundary propensity)
 
@@ -141,11 +158,11 @@ Prompt+prefix TF-IDF+LR, C=10.0 for all k (validation AUROC):
 | --- | ---: |
 | Activation AUROC | **0.713** |
 | Group-bootstrap 95% CI | [0.596, 0.813] |
-| Prompt-only / prompt+prefix surface AUROC | **0.720** |
+| Prompt-only surface AUROC | **0.720** |
 | ΔAUROC (act − surface) | **−0.007** |
 | Paired Δ 95% CI | [−0.119, 0.106] |
 
-Interpretation: context-conditioned deception **propensity** only. No claim of sample-specific intent. Activation does not beat the matched prompt text baseline on validation (CI includes 0).
+Interpretation: **prompt-conditioned deception propensity** only.
 
 ### Regime B — block 12 / k=1 (early-trajectory prediction)
 
@@ -157,75 +174,42 @@ Interpretation: context-conditioned deception **propensity** only. No claim of s
 | ΔAUROC (act − surface) | **+0.196** |
 | Paired Δ 95% CI | [0.097, 0.310] |
 
-Interpretation: **early-trajectory prediction** of eventual deception given prompt + first visible response token. Incremental predictive utility vs matched surface baseline on development validation. Not “pre-deceptive-output physiology.”
+Interpretation: **early-trajectory prediction**. Not “pre-deceptive-output physiology.”
+
+### Negative controls (terminology)
+
+| Control | Role |
+| --- | --- |
+| Shuffled-label probe (seed 42) | Chance / null control |
+| Fixed random-projection diagnostic | **Not** a chance/null control; may retain distributed class signal |
+
+Primary cells (12/k0, 12/k1): shuffled ≈0.516 / 0.508; fixed random-projection diagnostic ≈0.508 / 0.643.
 
 ---
 
-## 10. Negative controls
+## 8. Final development interpretation
 
-Across all 54 cells (mean):
-
-| Control | Mean val AUROC |
-| --- | ---: |
-| Shuffled-label probe (seed 42) | ≈0.539 |
-| Random-direction control | ≈0.532 |
-
-Primary cells (12/k0, 12/k1): shuffled ≈0.516 / 0.508; random-direction ≈0.508 / 0.643.
+- Engineering/provenance gate met for canonical float32 storage + clean-tree extract.
+- Scientific conclusions from the original development scan are **unchanged**: Regime A shows no incremental utility vs prompt surface; Regime B shows clear early-trajectory incremental utility on development validation.
+- Original float16-storage run remains documented history.
+- Original 0.9999 full-sequence/batch gates were **not** relaxed.
+- Locked test untouched. Regime C not run. No causal interventions.
+- **STOP before Phase 3B2** pending research-lead audit.
 
 ---
 
-## 11. Output-logit summary baseline (C=1.0, frozen)
-
-| k | logit-summary AUROC |
-| ---: | ---: |
-| 0 | 0.402 |
-| 1 | 0.665 |
-| 2 | 0.556 |
-| 4 | 0.597 |
-| 8 | 0.459 |
-| 16 | 0.530 |
-
----
-
-## 12. H2 layer/time pattern (descriptive)
-
-- Late-mid blocks with small k>0 show the strongest development AUROCs.
-- Prompt-boundary (k=0) is weaker and closer to surface text.
-- Layer 31 remains in the frozen exploratory scan despite prior numerical sensitivity under *different* (full-sequence/batched) forwards; here it is measured with truncated bs=1 inputs.
-
----
-
-## 13. Methodological limitations (must remain visible)
+## Appendix — methodological limitations (must remain visible)
 
 1. Initial full-sequence/batch preflight failed the pre-registered 0.9999 gate (D034).
 2. **No threshold relaxation** occurred (D037).
 3. Primary method was changed **prospectively** to truncated-prefix bs=1 before Phase 3 activation collection (D035–D036).
-4. Final scientific extraction used truncated inputs; future tokens absent by construction.
+4. Canonical scientific extraction uses truncated inputs + batch size 1; future tokens absent by construction; activations stored as float32 after BF16 compute (D039).
 5. Results are development/validation only; locked test not touched.
 6. ΔAUROC is incremental predictive utility vs the specified baseline, **not** proof of information-theoretically unavailable information (D030).
-
----
-
-## 14. Regime C
-
-`regime_c_status: hold_insufficient_onset_resolution` — **not run**.
-
----
-
-## 15. Engineering / development verdict
-
-**PHASE 3B1 DEVELOPMENT COMPLETE — AWAITING AUDIT**
-
-- Truncated-prefix repeatability preflight passed.
-- Cost within soft budget.
-- 54/54 cells analyzed on train/validation.
-- Locked test untouched.
-- Regime C not run.
-- No causal interventions.
-- Original 0.9999 full-sequence/batch gates were not relaxed.
 
 `LOCKED TEST ACTIVATIONS WERE NOT COLLECTED OR EVALUATED.`  
 `REGIME C WAS NOT RUN.`  
 `NO CAUSAL INTERVENTIONS WERE PERFORMED.`  
 `ORIGINAL 0.9999 FULL-SEQUENCE/BATCH GATES WERE NOT RELAXED.`  
-`PRIMARY SCIENTIFIC EXTRACTION USED TRUNCATED-PREFIX BATCH-SIZE-1 FORWARDS.`
+`PRIMARY SCIENTIFIC EXTRACTION USED TRUNCATED-PREFIX BATCH-SIZE-1 FORWARDS.`  
+`CANONICAL ACTIVATION STORAGE IS FLOAT32; MODEL COMPUTE REMAINS BFLOAT16.`
