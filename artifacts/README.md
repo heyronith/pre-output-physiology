@@ -54,3 +54,10 @@ Phase 1 produces no experimental run artifacts.
 - `phase4f_natural_token_diagnostic/` — natural greedy first-token k1 vs controlled-prefix comparison.
 - Raw activations under gitignored `artifacts/runs/phase4f_natural_*/`.
 - Diagnostic only (D064); no full response regeneration.
+
+## Phase 5A design + pilot (committed summaries only)
+
+- `phase5a_design/` — condition matrix + hashes (no raw scenario texts required in git).
+- `phase5a_pilot/` — pilot generation/behavior summaries after the behavior pilot.
+- Design JSONL under gitignored `data/processed/phase5_design/`.
+- Raw pilot outputs under gitignored `artifacts/runs/phase5a_pilot_*/`.

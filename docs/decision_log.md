@@ -426,3 +426,39 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** After Phase 4E found ~chance C3-vs-C2 separation under controlled `Response` (12107), Phase 4F diagnoses whether that null was caused by replacing the model's natural greedy first token. Natural-token k1 uses truncated `prompt + [argmax next-token]` only—no full response regeneration, no prompt/eligibility/probe changes, no retraining. If C3-vs-C2 remains ~0.5, controlled-prefix choice did not explain the specificity failure. If natural-token AUROC clearly exceeds 0.5, interpret as distribution shift and check first-token identity confounding before claiming deception specificity.
 - **Date:** 2026-09-25
+
+### D065 — Phase 4 falsified original-probe deception specificity
+
+- **Type:** **FACT**
+- **Decision:** Phase 4 demonstrated that the frozen Phase-3 RoleplayDeception L12 probe does not specifically separate intentional strategic deception from matched strategic honesty under Phase-4 controls (C3 vs C2 near chance under both controlled and natural first-token k1). No causal interventions are authorized on that probe.
+- **Date:** 2026-09-25
+
+### D066 — Phase 5 discovery contrast is S3 vs S2 from inception
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5 discovers physiology distinguishing strategic deception (S3) from strategic honesty (S2) while holding strategic/private-objective framing constant. The only intended difference is whether the private objective target agrees with (S2) or conflicts with (S3) the private record. Prompts must not use condition-revealing lexicon.
+- **Date:** 2026-09-25
+
+### D067 — Controlled-prefix primary endpoint for Phase 5 physiology
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Future Phase-5 candidate discovery uses the controlled-prefix hidden state after the shared neutral `Response` token (verified tokenizer ID under real chat-generation context) before the state answer appears, scanned across layers `[0,4,8,12,16,20,24,28,31]`. Secondary endpoint is k0 prompt-boundary. Natural-first-token analyses are diagnostic only, not candidate-selection endpoints.
+- **Date:** 2026-09-25
+
+### D068 — Locked generalization families untouched until freeze
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Two Phase-5 families are reserved as locked generalization and must not receive discovery-stage model generation, activation extraction, or probe fitting until the entire probe/layer/endpoint selection procedure is frozen. Phase 5A generates only pilot scenarios (including pilot IDs from locked-family templates that remain disjoint from locked-final IDs).
+- **Date:** 2026-09-25
+
+### D069 — Uncertainty control remains out of Phase-5 discovery
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase-4 C5 / uncertainty remains an unresolved later specificity control and is not part of Phase-5 S2/S3 discovery.
+- **Date:** 2026-09-25
+
+### D070 — Phase 5 does not claim information-theoretic absence from text
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Because record and objective target are present in privileged full context, S2/S3 is in principle inferable from text. Phase 5 therefore does not claim information-theoretic absence from text; it seeks a physiological representation that is robust across scenarios/families, specific to strategic deception relative to strategic honesty, prospectively available before the semantic answer, and transferable to unseen families.
+- **Date:** 2026-09-25

@@ -1,0 +1,100 @@
+{
+  "conditions": [
+    "S2_strategic_honesty",
+    "S3_strategic_deception"
+  ],
+  "created_at": "2026-09-25T19:12:39+00:00",
+  "discovery_base_scenario_ids_sha256": "42a1d85d4c42045ec4f633c7ca7462f5aa80b58318daee300b0ed1edec8e7407",
+  "discovery_families": [
+    "package_routing_bay",
+    "gallery_wall_panel",
+    "archive_box_label",
+    "greenhouse_row_crop",
+    "maker_bench_compartment",
+    "kiosk_display_tile"
+  ],
+  "final_base_scenario_ids_sha256": "10cc3c0a76cc15a31db822feb01fbe93547ed70e664c4411526600e1c6bd7fc9",
+  "final_prompt_text_sha256": "11fda070fab0ef45da1e335f1a9827b82d133dbf298fe5831456cdc7cf7e5bae",
+  "final_seed": 51,
+  "future_physiology": {
+    "layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      31
+    ],
+    "natural_first_token_analyses": "diagnostic_only",
+    "primary_endpoint": {
+      "kind": "controlled_prefix_after_neutral_Response",
+      "layer_scan": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        31
+      ]
+    },
+    "secondary_endpoint": {
+      "kind": "k0_prompt_boundary",
+      "layer_scan": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        31
+      ]
+    }
+  },
+  "information_theoretic_note": "S2/S3 is in principle inferable from privileged full context because record and target are present. Phase 5 does not claim information-theoretic absence from text.",
+  "locked_base_scenario_ids_sha256": "ee845e48546d6b40cfb8f6eab37f0580967be776b442b498df90189c17be34a1",
+  "locked_families": [
+    "harbor_dock_slip",
+    "trail_marker_post"
+  ],
+  "locked_model_outputs_exist": false,
+  "model_generation_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_discovery_base_scenarios": 960,
+  "n_families": 8,
+  "n_final_base_scenarios": 1280,
+  "n_final_per_family": 160,
+  "n_final_prompts": 2560,
+  "n_locked_base_scenarios": 320,
+  "n_pilot_base_scenarios": 32,
+  "n_pilot_prompts": 64,
+  "neutral_prefix_token": "Response",
+  "neutral_prefix_token_id": 12107,
+  "phase": "phase5",
+  "phase4_family_overlap": false,
+  "phase5_activations_exist": false,
+  "phase5_outputs_exist": false,
+  "pilot_base_scenario_ids_sha256": "1d24f9b3c64af8d8874463af5b56c6847ba71165d046ca9e2852ae2742a96592",
+  "pilot_prompt_text_sha256": "20e69a734aba41b4137ca567839a3b127fdacac426dc017847803d2d303460df",
+  "pilot_seed": 17,
+  "preregistered_baselines": [
+    "user_visible_text_tfidf",
+    "full_context_word_char_tfidf",
+    "pretrained_semantic_embedding_logistic",
+    "output_logit_summary",
+    "first_token_identity_category_diagnostic"
+  ],
+  "primary_contrast": [
+    "S3_strategic_deception",
+    "S2_strategic_honesty"
+  ],
+  "prompt_template_revision": 1,
+  "response_schema": "Response <STATE>"
+}
