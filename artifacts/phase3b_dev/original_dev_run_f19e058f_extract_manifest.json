@@ -1,0 +1,64 @@
+{
+  "batch_size": 1,
+  "estimated_cost_usd": 0.2519175602396329,
+  "extraction_mode": "truncated_prefix_single_example",
+  "k0_sha256": "0afb173638c43c05e2dc9236c33a88c3abbe618bf5ab4a712dd666123dad5b3a",
+  "local_dir": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/runs/phase3b1_extract_20260925T151054Z_f19e058f",
+  "locked_test_present": false,
+  "n_scientific_forwards": 14079,
+  "original_preflight_gate_relaxed": false,
+  "run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
+  "shards": [
+    {
+      "sha256": "356542c93fa3a0be03f2c13b21080b85287979faf6a7ae545793c344346bbae7",
+      "shard": "trajectory_shard_00000_00249.safetensors"
+    },
+    {
+      "sha256": "71b8865e50137f76d57e284049d2e28403df68e4e8b456f216986445f20d3a75",
+      "shard": "trajectory_shard_00250_00499.safetensors"
+    },
+    {
+      "sha256": "56e95cf028eacbe1e43285a1661b27e8109da50d05e1d7de920f106ec8280225",
+      "shard": "trajectory_shard_00500_00749.safetensors"
+    },
+    {
+      "sha256": "7970702413d4ce51543d9d332bdfca3780a6a508af6dc5a56a0e56a932e24542",
+      "shard": "trajectory_shard_00750_00999.safetensors"
+    },
+    {
+      "sha256": "8a6188637cb6f6ccbed9beb4aa20496f1e9d3ca8358150303b653acf58176f0a",
+      "shard": "trajectory_shard_01000_01249.safetensors"
+    },
+    {
+      "sha256": "2d629b55e27056abe52ba6435141ccad84b2798abb550a0631daf75fe21c13a2",
+      "shard": "trajectory_shard_01250_01499.safetensors"
+    },
+    {
+      "sha256": "b8fb913bd8c049daf74743f1eb98b151037227ffd5d056c53fefc525ba73891f",
+      "shard": "trajectory_shard_01500_01749.safetensors"
+    },
+    {
+      "sha256": "4fe80a3b7a2109965d042a9a38544163e2c7daa0ed71017de2bd0d4fc5d652dc",
+      "shard": "trajectory_shard_01750_01999.safetensors"
+    },
+    {
+      "sha256": "5a3fbbcce536c0d83959c2e9a7059018ae62dd7c0057b5f9166b1fb91178447f",
+      "shard": "trajectory_shard_02000_02249.safetensors"
+    },
+    {
+      "sha256": "2536ad8bd49f2b9766bdb64f11711d7d5ead5e44356e6120b9cedf74cc345477",
+      "shard": "trajectory_shard_02250_02499.safetensors"
+    },
+    {
+      "sha256": "3b3758480d2dab5336fe33317abb878069cc65b90e8991d7234319057d6def52",
+      "shard": "trajectory_shard_02500_02749.safetensors"
+    },
+    {
+      "sha256": "101562c44adefff9891e2824a2e9ab29fa1d5a469762ecfb8a551dce83ef97f8",
+      "shard": "trajectory_shard_02750_02999.safetensors"
+    }
+  ],
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00",
+  "total_artifact_bytes": 1349955408,
+  "wall_seconds": 465.07857275009155
+}

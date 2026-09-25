@@ -82,6 +82,13 @@ def main() -> int:
         default=str(REPO_ROOT / "artifacts/phase3b_dev"),
     )
     parser.add_argument("--n-bootstrap", type=int, default=2000)
+    parser.add_argument(
+        "--compare-metrics",
+        default=str(
+            REPO_ROOT / "artifacts/phase3b_dev/original_dev_run_f19e058f_metrics.json"
+        ),
+        help="Original development metrics JSON for cell-wise comparison",
+    )
     args = parser.parse_args()
 
     run_dir = Path(args.run_dir)
@@ -97,23 +104,76 @@ def main() -> int:
     manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
     if manifest.get("locked_test_present"):
         raise SystemExit("run includes locked test")
+    if manifest.get("compute_dtype") != "bfloat16":
+        raise SystemExit(f"compute_dtype={manifest.get('compute_dtype')}")
+    if manifest.get("activation_storage_dtype") != "float32":
+        raise SystemExit(
+            f"activation_storage_dtype={manifest.get('activation_storage_dtype')}"
+        )
 
     from safetensors.numpy import load_file
 
     k0 = load_file(str(run_dir / "k0_prompt_groups.safetensors"))
-    k0_acts = k0["activations"].astype(np.float32)
-    k0_logits = k0["logit_summaries"].astype(np.float32)
+    if k0["activations"].dtype != np.float32:
+        raise SystemExit(f"k0 activations dtype {k0['activations'].dtype} != float32")
+    k0_acts = np.asarray(k0["activations"], dtype=np.float32)
+    k0_logits = np.asarray(k0["logit_summaries"], dtype=np.float32)
     group_map = json.loads((run_dir / "k0_group_map.json").read_text(encoding="utf-8"))
     group_index = {g["prompt_sha256"]: g["group_index"] for g in group_map}
 
-    # Load trajectory shards
+    # Load trajectory shards + integrity audit
     shards = []
+    act_min = float("inf")
+    act_max = float("-inf")
+    act_max_abs = 0.0
+    finite_ok = True
     for sm in manifest["trajectory_shards"]:
         meta = json.loads((run_dir / sm["meta"]).read_text(encoding="utf-8"))
         tens = load_file(str(run_dir / sm["shard"]))
         if "locked_test" in meta.get("splits", []):
             raise SystemExit("locked_test in shard")
+        raw_acts = tens["activations"]
+        if raw_acts.dtype != np.float32:
+            raise SystemExit(f"shard {sm['shard']} dtype {raw_acts.dtype} != float32")
+        blob = (run_dir / sm["shard"]).read_bytes()
+        got_sha = hashlib.sha256(blob).hexdigest()
+        if got_sha != sm["sha256"]:
+            raise SystemExit(f"shard sha mismatch {sm['shard']}")
+        if not np.isfinite(raw_acts).all():
+            finite_ok = False
+            raise SystemExit(f"NaN/Inf in shard {sm['shard']}")
+        act_min = min(act_min, float(np.min(raw_acts)))
+        act_max = max(act_max, float(np.max(raw_acts)))
+        act_max_abs = max(act_max_abs, float(np.max(np.abs(raw_acts))))
+        expected_shape_tail = (
+            len(COARSE_TRANSFORMER_BLOCKS),
+            len(PREFIX_LENGTHS_K),
+            int(manifest["hidden_size"]),
+        )
+        if raw_acts.shape[1:] != expected_shape_tail:
+            raise SystemExit(f"shape mismatch {sm['shard']}: {raw_acts.shape}")
         shards.append((meta, tens))
+
+    if not np.isfinite(k0_acts).all():
+        raise SystemExit("NaN/Inf in k0 activations")
+    act_min = min(act_min, float(np.min(k0_acts)))
+    act_max = max(act_max, float(np.max(k0_acts)))
+    act_max_abs = max(act_max_abs, float(np.max(np.abs(k0_acts))))
+    k0_blob = (run_dir / "k0_prompt_groups.safetensors").read_bytes()
+    if hashlib.sha256(k0_blob).hexdigest() != manifest["k0_artifact"]["sha256"]:
+        raise SystemExit("k0 artifact sha mismatch")
+
+    integrity = {
+        "activation_storage_dtype": "float32",
+        "compute_dtype": "bfloat16",
+        "all_finite": finite_ok,
+        "activation_min": act_min,
+        "activation_max": act_max,
+        "activation_max_abs": act_max_abs,
+        "n_shards_checked": len(shards),
+        "k0_dtype": str(k0["activations"].dtype),
+    }
+    write_json(out_dir / "activation_integrity_audit.json", integrity)
 
     example_ids = []
     splits = []
@@ -129,9 +189,9 @@ def main() -> int:
         prompt_hashes.extend(meta["prompt_sha256"])
         labels.append(tens["labels"])
         resp_lens.append(tens["response_n_tokens"])
-        acts_list.append(tens["activations"].astype(np.float32))
+        acts_list.append(np.asarray(tens["activations"], dtype=np.float32))
         valid_list.append(tens["valid_mask"].astype(bool))
-        logit_list.append(tens["logit_summaries"].astype(np.float32))
+        logit_list.append(np.asarray(tens["logit_summaries"], dtype=np.float32))
 
     labels = np.concatenate(labels)
     resp_lens = np.concatenate(resp_lens)
@@ -184,6 +244,31 @@ def main() -> int:
     if len(train_idx) + len(val_idx) != n:
         raise SystemExit("unexpected splits")
 
+    # Eligibility IDs must match freeze (metadata file order, not shard order)
+    for split_name, fname, freeze_key in (
+        ("phase3_train", "phase3_train_metadata.jsonl", "train"),
+        ("phase3_validation", "phase3_validation_metadata.jsonl", "validation"),
+    ):
+        meta_rows = _load_jsonl(data_dir / fname)
+        for k in ks:
+            elig_ids = []
+            for r in meta_rows:
+                tok = by_id[r["example_id"]]["_tok"]
+                if eligible_for_k(len(tok.response_suffix_ids), k):
+                    elig_ids.append(r["example_id"])
+            got = _sha_ids(elig_ids)
+            expect = freeze["eligibility"][str(k)][freeze_key]["eligible_ids_sha256"]
+            if got != expect:
+                raise SystemExit(
+                    f"eligibility hash mismatch {split_name} k={k}: {got} != {expect}"
+                )
+            n_expect = freeze["eligibility"][str(k)][freeze_key]["n_eligible"]
+            if len(elig_ids) != n_expect:
+                raise SystemExit(
+                    f"eligibility count mismatch {split_name} k={k}: "
+                    f"{len(elig_ids)} != {n_expect}"
+                )
+
     # k=0 consistency checks on validation multi-response groups
     groups_val: dict[str, list[int]] = defaultdict(list)
     for i in val_idx.tolist():
@@ -202,6 +287,7 @@ def main() -> int:
     structural_by_k = {}
     majority_by_k = {}
     neg_controls = []
+    k0_surface_scores_by_idx: dict[int, float] = {}
 
     for k in ks:
         ki = k_index[k]
@@ -254,14 +340,21 @@ def main() -> int:
             "auroc": float(roc_auc_score(y_va, surf_scores)),
             **{kk: surf_ci[kk] for kk in ("auroc_ci_low", "auroc_ci_high")},
             "eligible_ids_sha256": {
-                "train": _sha_ids([example_ids[i] for i in tr_elig]),
-                "val": _sha_ids([example_ids[i] for i in va_elig]),
+                "train": freeze["eligibility"][str(k)]["train"]["eligible_ids_sha256"],
+                "val": freeze["eligibility"][str(k)]["validation"][
+                    "eligible_ids_sha256"
+                ],
             },
         }
 
         # Prompt-only uses C at k=0
         if k == 0:
             prompt_only_scores = surf_scores
+            # Store prompt-only scores for all val rows (identity safeguard)
+            x_all_va = [rows[i]["input_formatted"] for i in val_idx.tolist()]
+            all_scores = pipe.predict_proba(x_all_va)[:, 1]
+            for ii, sc in zip(val_idx.tolist(), all_scores, strict=True):
+                k0_surface_scores_by_idx[int(ii)] = float(sc)
         else:
             c0 = selected_c[0]
             x_tr_p = [rows[i]["input_formatted"] for i in tr_elig]
@@ -393,16 +486,81 @@ def main() -> int:
                     "layer": layer,
                     "k": k,
                     "shuffled_label_auroc": float(roc_auc_score(y_va, shuf_scores)),
+                    "fixed_random_projection_diagnostic_auroc": float(
+                        roc_auc_score(y_va, rnd_scores)
+                    ),
+                    # Alias retained for older readers; not a chance/null control.
                     "random_direction_auroc": float(roc_auc_score(y_va, rnd_scores)),
                 }
             )
 
     # k0 within-group surface score identity (prompt-only)
-    k0_cells = [c for c in cell_results if c["k"] == 0 and c["layer"] == 12]
+    k0_surf_diffs = []
+    for _ph, idxs in groups_val.items():
+        if len(idxs) < 2:
+            continue
+        sc = np.asarray([k0_surface_scores_by_idx[i] for i in idxs], dtype=np.float64)
+        k0_surf_diffs.append(float(np.max(np.abs(sc - sc[0]))))
+    k0_surf_max_diff = max(k0_surf_diffs) if k0_surf_diffs else 0.0
+
+    # Compare to original development run (float16-storage)
+    compare_path = Path(args.compare_metrics)
+    comparison: dict = {}
+    if compare_path.is_file():
+        orig = json.loads(compare_path.read_text(encoding="utf-8"))
+        orig_by = {(c["layer"], c["k"]): c for c in orig["cells"]}
+        deltas = []
+        for c in cell_results:
+            o = orig_by[(c["layer"], c["k"])]
+            d = float(c["auroc"] - o["auroc"])
+            deltas.append(
+                {
+                    "layer": c["layer"],
+                    "k": c["k"],
+                    "auroc_canonical": c["auroc"],
+                    "auroc_original": o["auroc"],
+                    "delta_auroc_rerun_minus_original": d,
+                    "delta_delta_auroc": float(c["delta_auroc"] - o["delta_auroc"]),
+                }
+            )
+        max_abs = max(abs(x["delta_auroc_rerun_minus_original"]) for x in deltas)
+        a12 = next(x for x in deltas if x["layer"] == 12 and x["k"] == 0)
+        b12 = next(x for x in deltas if x["layer"] == 12 and x["k"] == 1)
+        comparison = {
+            "original_run_id": orig.get("run_id"),
+            "compare_metrics_path": str(compare_path),
+            "n_cells_compared": len(deltas),
+            "max_abs_auroc_delta_across_54": max_abs,
+            "regime_a_block12_k0": a12,
+            "regime_b_block12_k1": b12,
+            "cells": deltas,
+            "unexpectedly_large": max_abs > 0.05,
+        }
+        write_json(out_dir / "canonical_vs_original_comparison.json", comparison)
+        if comparison["unexpectedly_large"]:
+            print(
+                "WARNING: max |ΔAUROC| vs original > 0.05 — "
+                "report and STOP before Phase 3B2"
+            )
+
     summary = {
         "created_at": utc_now_iso(),
         "run_id": manifest["run_id"],
         "run_dir": str(run_dir),
+        "canonical_run": True,
+        "preserves_original_dev_run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
+        "git_commit": manifest.get("git_commit"),
+        "canonical_run_code_sha": manifest.get("canonical_run_code_sha"),
+        "working_tree_clean": manifest.get("working_tree_clean"),
+        "extractor_sha256": manifest.get("extractor_sha256"),
+        "analysis_script_sha256": manifest.get("analysis_script_sha256"),
+        "compute_dtype": "bfloat16",
+        "activation_storage_dtype": "float32",
+        "extraction_mode": manifest.get("extraction_mode"),
+        "batch_size": manifest.get("batch_size"),
+        "future_response_tokens_present": False,
+        "full_sequence_teacher_forced_primary": False,
+        "original_preflight_gate_relaxed": False,
         "locked_test_used": False,
         "regime_c_run": False,
         "causal_interventions": False,
@@ -411,17 +569,31 @@ def main() -> int:
         "n_validation": int(len(val_idx)),
         "n_prompt_groups_k0": len(group_map),
         "k0_within_group_activation_max_abs_diff_layer12": k0_act_max_diff,
+        "k0_within_group_surface_score_max_abs_diff": k0_surf_max_diff,
+        "activation_integrity": integrity,
         "surface_by_k": surface_by_k,
         "logit_by_k": logit_by_k,
         "structural_by_k": structural_by_k,
         "majority_by_k": majority_by_k,
         "cells": cell_results,
         "negative_controls": neg_controls,
+        "negative_control_notes": {
+            "shuffled_label_probe": "chance/null control (seed 42)",
+            "fixed_random_projection_diagnostic": (
+                "NOT a chance/null control; a fixed random projection of a "
+                "representation with distributed class structure can retain signal"
+            ),
+        },
         "primary_regime_a": next(
             c for c in cell_results if c["is_primary_regime_a"]
         ),
         "primary_regime_b": next(
             c for c in cell_results if c["is_primary_regime_b"]
+        ),
+        "comparison_vs_original": (
+            {k: comparison[k] for k in comparison if k != "cells"}
+            if comparison
+            else None
         ),
         "manifest_hashes": {
             "k0_sha256": manifest["k0_artifact"]["sha256"],
@@ -433,13 +605,18 @@ def main() -> int:
             "estimated_cost_usd": manifest["estimated_cost_usd"],
             "wall_seconds": manifest["wall_seconds"],
         },
+        "surface_baseline_freeze_sha256": hashlib.sha256(
+            Path(args.freeze).read_bytes()
+        ).hexdigest(),
         "engineering_gate": {
             "all_54_cells_present": len(cell_results) == 54,
             "n_cells": len(cell_results),
+            "k0_activation_identity_ok": k0_act_max_diff == 0.0,
+            "k0_surface_score_identity_ok": k0_surf_max_diff == 0.0,
+            "activation_all_finite": integrity["all_finite"],
         },
     }
     write_json(out_dir / "phase3b_dev_metrics.json", summary)
-    # compact table csv-like json
     write_json(
         out_dir / "phase3b_dev_cells.json",
         {"cells": cell_results, "negative_controls": neg_controls},
@@ -454,11 +631,17 @@ def main() -> int:
                 "regime_b_auroc": summary["primary_regime_b"]["auroc"],
                 "regime_b_delta": summary["primary_regime_b"]["delta_auroc"],
                 "k0_act_max_diff": k0_act_max_diff,
+                "k0_surf_max_diff": k0_surf_max_diff,
+                "activation_max_abs": integrity["activation_max_abs"],
+                "max_abs_auroc_delta_vs_original": comparison.get(
+                    "max_abs_auroc_delta_across_54"
+                )
+                if comparison
+                else None,
             },
             indent=2,
         )
     )
-    _ = k0_cells
     return 0
 
 

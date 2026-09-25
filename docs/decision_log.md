@@ -267,3 +267,16 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Benchmark single-example truncated-prefix throughput; stop if projected Phase 3B1 spend exceeds the soft budget ($20) before full extraction.
 - **Date:** 2026-09-25
+
+### D039 — Canonical activation storage is float32
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Scientific activations are computed in BF16 and stored as float32 (BF16 values are exactly representable in float32). Do not store activations as float16. Model compute remains `torch.bfloat16`. Manifests record `compute_dtype: bfloat16` and `activation_storage_dtype: float32` separately.
+- **Reason:** Avoid an unnecessary second precision conversion that was present in the original development extract.
+- **Date:** 2026-09-25
+
+### D040 — Clean-tree provenance freeze before Modal
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Before any canonical Phase 3B1 GPU launch, commit extraction/provenance code with a clean working tree. Local entrypoint refuses Modal if `git status --porcelain` is non-empty. Remote manifests must include `git_commit`, clean-tree marker, extractor/analysis SHA256s, freeze hash, model/dataset revisions, and dtype fields.
+- **Date:** 2026-09-25

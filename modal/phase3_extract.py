@@ -44,6 +44,24 @@ EXPECTED_ELIGIBLE = {
     16: (1578, 492),
 }
 FREEZE_SHA256 = "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00"
+COMPUTE_DTYPE = "bfloat16"
+ACTIVATION_STORAGE_DTYPE = "float32"
+DATASET_REVISION = "bf93584916fbd23121eca6f2017017df0ef3184f"
+REQUIRED_PROVENANCE_KEYS = (
+    "git_commit",
+    "working_tree_clean",
+    "extractor_sha256",
+    "analysis_script_sha256",
+    "surface_baseline_freeze_sha256",
+    "model_revision",
+    "dataset_revision",
+    "compute_dtype",
+    "activation_storage_dtype",
+    "extraction_mode",
+    "batch_size",
+    "future_response_tokens_present",
+    "locked_test_present",
+)
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -111,6 +129,77 @@ def _truncated_ids(prompt_ids: list[int], suffix: list[int], k: int) -> list[int
 
 def _eligible(resp_len: int, k: int) -> bool:
     return True if k == 0 else resp_len > k
+
+
+def _require_provenance(provenance: dict[str, Any] | None) -> dict[str, Any]:
+    if not provenance:
+        raise RuntimeError("provenance dict required; refuse GPU job")
+    missing = [k for k in REQUIRED_PROVENANCE_KEYS if k not in provenance]
+    if missing:
+        raise RuntimeError(f"provenance missing keys: {missing}")
+    if provenance.get("working_tree_clean") is not True:
+        raise RuntimeError("working_tree_clean must be true")
+    if provenance.get("compute_dtype") != COMPUTE_DTYPE:
+        raise RuntimeError("compute_dtype must be bfloat16")
+    if provenance.get("activation_storage_dtype") != ACTIVATION_STORAGE_DTYPE:
+        raise RuntimeError("activation_storage_dtype must be float32")
+    if provenance.get("extraction_mode") != "truncated_prefix_single_example":
+        raise RuntimeError("extraction_mode mismatch")
+    if int(provenance.get("batch_size", -1)) != 1:
+        raise RuntimeError("batch_size must be 1")
+    if provenance.get("future_response_tokens_present") is not False:
+        raise RuntimeError("future_response_tokens_present must be false")
+    if provenance.get("locked_test_present") is not False:
+        raise RuntimeError("locked_test_present must be false")
+    if provenance.get("model_revision") != MODEL_REVISION:
+        raise RuntimeError("model_revision mismatch")
+    if provenance.get("dataset_revision") != DATASET_REVISION:
+        raise RuntimeError("dataset_revision mismatch")
+    if provenance.get("surface_baseline_freeze_sha256") != FREEZE_SHA256:
+        raise RuntimeError("surface baseline freeze hash mismatch")
+    return provenance
+
+
+def _collect_local_provenance() -> dict[str, Any]:
+    """Local-only: require clean tree and hash extractor/analysis scripts."""
+    import hashlib
+    import subprocess
+
+    dirty = subprocess.check_output(
+        ["git", "-C", str(REPO_ROOT), "status", "--porcelain"], text=True
+    ).strip()
+    if dirty:
+        raise SystemExit(
+            "STOP: working tree dirty — commit provenance freeze before Modal launch:\n"
+            f"{dirty}"
+        )
+    git_commit = subprocess.check_output(
+        ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
+    ).strip()
+    extractor = REPO_ROOT / "modal/phase3_extract.py"
+    analysis = REPO_ROOT / "scripts/analyze_phase3b_dev.py"
+    freeze = REPO_ROOT / "artifacts/phase3b_dev/surface_baseline_freeze.json"
+    freeze_sha = hashlib.sha256(freeze.read_bytes()).hexdigest()
+    if freeze_sha != FREEZE_SHA256:
+        raise SystemExit(f"surface freeze hash drift: {freeze_sha}")
+    return {
+        "git_commit": git_commit,
+        "canonical_run_code_sha": git_commit,
+        "working_tree_clean": True,
+        "extractor_sha256": hashlib.sha256(extractor.read_bytes()).hexdigest(),
+        "analysis_script_sha256": hashlib.sha256(analysis.read_bytes()).hexdigest(),
+        "surface_baseline_freeze_sha256": freeze_sha,
+        "model_revision": MODEL_REVISION,
+        "dataset_revision": DATASET_REVISION,
+        "compute_dtype": COMPUTE_DTYPE,
+        "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+        "extraction_mode": "truncated_prefix_single_example",
+        "batch_size": 1,
+        "future_response_tokens_present": False,
+        "locked_test_present": False,
+        "full_sequence_teacher_forced_primary": False,
+        "original_preflight_gate_relaxed": False,
+    }
 
 
 def _load_model(cache_dir: str):
@@ -194,13 +283,16 @@ def _forward_final_token(model, captured, input_ids_list: list[int], layers: lis
     volumes={MODEL_CACHE_DIR: model_volume, ART_DIR: artifact_volume},
     memory=65536,
 )
-def run_preflight_truncated(examples_jsonl: str, *, run_id: str) -> dict[str, Any]:
+def run_preflight_truncated(
+    examples_jsonl: str, *, run_id: str, provenance: dict[str, Any]
+) -> dict[str, Any]:
     """Repeatability + truncated-input integrity checks (batch_size=1)."""
     import hashlib
 
     import numpy as np
     import torch
 
+    prov = _require_provenance(provenance)
     t0 = time.time()
     examples = [json.loads(x) for x in examples_jsonl.splitlines() if x.strip()]
     tokenizer, model, commit = _load_model(MODEL_CACHE_DIR)
@@ -293,8 +385,15 @@ def run_preflight_truncated(examples_jsonl: str, *, run_id: str) -> dict[str, An
         "model_id": MODEL_ID,
         "model_revision": MODEL_REVISION,
         "resolved_commit_hash": commit,
+        "git_commit": prov["git_commit"],
+        "canonical_run_code_sha": prov["canonical_run_code_sha"],
+        "working_tree_clean": True,
+        "extractor_sha256": prov["extractor_sha256"],
+        "analysis_script_sha256": prov["analysis_script_sha256"],
         "hidden_size": hidden,
-        "dtype": "bfloat16",
+        "compute_dtype": COMPUTE_DTYPE,
+        "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+        "dtype": COMPUTE_DTYPE,
         "quantization": None,
         "cosine_min_required": COSINE_MIN,
         "n_comparisons": len(rows),
@@ -310,7 +409,9 @@ def run_preflight_truncated(examples_jsonl: str, *, run_id: str) -> dict[str, An
         "l40s_usd_per_hour_assumed": L40S_USD_PER_HOUR,
         "gpu_type": "L40S",
         "locked_test_used": False,
+        "locked_test_present": False,
         "surface_baseline_freeze_sha256": FREEZE_SHA256,
+        "dataset_revision": DATASET_REVISION,
     }
     out = Path(ART_DIR) / run_id
     out.mkdir(parents=True, exist_ok=True)
@@ -329,11 +430,19 @@ def run_preflight_truncated(examples_jsonl: str, *, run_id: str) -> dict[str, An
     volumes={MODEL_CACHE_DIR: model_volume, ART_DIR: artifact_volume},
     memory=65536,
 )
-def run_benchmark(examples_jsonl: str, *, run_id: str, n_forwards: int = 100) -> dict[str, Any]:
+def run_benchmark(
+    examples_jsonl: str,
+    *,
+    run_id: str,
+    n_forwards: int = 100,
+    provenance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Bounded throughput benchmark (~100 truncated forwards) for cost projection."""
     import numpy as np
     import torch
 
+    if provenance is not None:
+        _require_provenance(provenance)
     t0 = time.time()
     examples = [json.loads(x) for x in examples_jsonl.splitlines() if x.strip()]
     tokenizer, model, commit = _load_model(MODEL_CACHE_DIR)
@@ -430,6 +539,7 @@ def extract_truncated_dev(
     examples_jsonl: str,
     *,
     run_id: str,
+    provenance: dict[str, Any],
 ) -> dict[str, Any]:
     """Full train/val truncated-prefix batch-size-1 extraction."""
     import hashlib
@@ -438,6 +548,7 @@ def extract_truncated_dev(
     import torch
     from safetensors.numpy import save_file
 
+    prov = _require_provenance(provenance)
     t0 = time.time()
     examples = [json.loads(x) for x in examples_jsonl.splitlines() if x.strip()]
     for row in examples:
@@ -496,13 +607,13 @@ def extract_truncated_dev(
             n_groups = len(group_list)
             if n_groups != 306:
                 raise RuntimeError(f"expected 306 prompt groups, got {n_groups}")
-            k0_acts = np.zeros((n_groups, len(LAYERS), hidden), dtype=np.float16)
+            k0_acts = np.zeros((n_groups, len(LAYERS), hidden), dtype=np.float32)
             k0_logits = np.zeros((n_groups, 3), dtype=np.float32)
             for gi, g in enumerate(group_list):
                 acts, lg = _forward_final_token(
                     model, captured, g["prompt_ids"], LAYERS
                 )
-                k0_acts[gi] = acts.astype(np.float16)
+                k0_acts[gi] = acts.astype(np.float32)
                 k0_logits[gi] = np.asarray(lg, dtype=np.float32)
                 n_forwards += 1
                 total_tokens += len(g["prompt_ids"])
@@ -535,7 +646,7 @@ def extract_truncated_dev(
                 shard = prepared[start : start + SHARD_SIZE]
                 sn = len(shard)
                 acts = np.zeros(
-                    (sn, len(LAYERS), len(K_VALUES), hidden), dtype=np.float16
+                    (sn, len(LAYERS), len(K_VALUES), hidden), dtype=np.float32
                 )
                 valid = np.zeros((sn, len(K_VALUES)), dtype=np.uint8)
                 logits = np.zeros((sn, len(K_VALUES), 3), dtype=np.float32)
@@ -562,7 +673,7 @@ def extract_truncated_dev(
                         ids = _truncated_ids(b["prompt_ids"], b["response_suffix_ids"], k)
                         a, lg = _forward_final_token(model, captured, ids, LAYERS)
                         ki = k_index[k]
-                        acts[bi, :, ki, :] = a.astype(np.float16)
+                        acts[bi, :, ki, :] = a.astype(np.float32)
                         logits[bi, ki] = np.asarray(lg, dtype=np.float32)
                         valid[bi, ki] = 1
                         n_forwards += 1
@@ -592,10 +703,13 @@ def extract_truncated_dev(
                     ).hexdigest(),
                     "layers": LAYERS,
                     "k_values": K_VALUES,
-                    "dtype": "float16_storage_of_bf16_compute",
+                    "compute_dtype": COMPUTE_DTYPE,
+                    "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+                    "dtype": ACTIVATION_STORAGE_DTYPE,
                     "model_revision": MODEL_REVISION,
                     "extraction_mode": "truncated_prefix_single_example",
                     "batch_size": 1,
+                    "future_response_tokens_present": False,
                 }
                 meta_name = shard_name.replace(".safetensors", "_meta.json")
                 (out_dir / meta_name).write_text(
@@ -631,8 +745,15 @@ def extract_truncated_dev(
         "model_id": MODEL_ID,
         "model_revision": MODEL_REVISION,
         "resolved_commit_hash": commit,
-        "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
-        "dtype": "bfloat16",
+        "git_commit": prov["git_commit"],
+        "canonical_run_code_sha": prov["canonical_run_code_sha"],
+        "working_tree_clean": True,
+        "extractor_sha256": prov["extractor_sha256"],
+        "analysis_script_sha256": prov["analysis_script_sha256"],
+        "dataset_revision": DATASET_REVISION,
+        "compute_dtype": COMPUTE_DTYPE,
+        "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+        "dtype": COMPUTE_DTYPE,
         "quantization": None,
         "layers": LAYERS,
         "k_values": K_VALUES,
@@ -661,6 +782,7 @@ def extract_truncated_dev(
             "sha256": hashlib.sha256(k0_blob).hexdigest(),
             "bytes": len(k0_blob),
             "shape": list(k0_acts.shape),
+            "dtype": ACTIVATION_STORAGE_DTYPE,
             "group_map": "k0_group_map.json",
         },
         "trajectory_shards": shard_meta,
@@ -672,6 +794,7 @@ def extract_truncated_dev(
             "safetensors": "0.4.4",
             "python": "3.11",
         },
+        "preserves_original_dev_run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
     }
     (out_dir / "run_manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -688,13 +811,21 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
     import uuid
     from datetime import datetime
 
-    data_dir = REPO_ROOT / "data" / "processed" / "phase3_roleplay"
-    freeze = REPO_ROOT / "artifacts/phase3b_dev/surface_baseline_freeze.json"
-    import hashlib
+    # Mandatory: clean tree + provenance hashes BEFORE any Modal launch.
+    provenance = _collect_local_provenance()
+    print(
+        json.dumps(
+            {
+                "canonical_run_code_sha": provenance["canonical_run_code_sha"],
+                "working_tree_clean": True,
+                "extractor_sha256": provenance["extractor_sha256"],
+                "analysis_script_sha256": provenance["analysis_script_sha256"],
+            },
+            indent=2,
+        )
+    )
 
-    freeze_sha = hashlib.sha256(freeze.read_bytes()).hexdigest()
-    if freeze_sha != FREEZE_SHA256:
-        raise SystemExit(f"surface freeze hash drift: {freeze_sha}")
+    data_dir = REPO_ROOT / "data" / "processed" / "phase3_roleplay"
 
     def slim_lines(path: Path, split: str) -> list[str]:
         out = []
@@ -735,7 +866,9 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
     if mode == "preflight_truncated":
         payload = "\n".join(train_lines) + "\n"
         print(f"Launching truncated preflight run_id={run_id}")
-        result = run_preflight_truncated.remote(payload, run_id=run_id)
+        result = run_preflight_truncated.remote(
+            payload, run_id=run_id, provenance=provenance
+        )
         (local_out / "preflight_truncated.json").write_text(
             json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
@@ -762,7 +895,9 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
     if mode == "benchmark":
         payload = "\n".join(train_lines) + "\n"
         print(f"Launching benchmark run_id={run_id}")
-        result = run_benchmark.remote(payload, run_id=run_id, n_forwards=100)
+        result = run_benchmark.remote(
+            payload, run_id=run_id, n_forwards=100, provenance=provenance
+        )
         (local_out / "benchmark.json").write_text(
             json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
@@ -795,7 +930,9 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
 
     payload = "\n".join(train_lines + val_lines) + "\n"
     print(f"Launching extract run_id={run_id} n={len(train_lines)+len(val_lines)}")
-    result = extract_truncated_dev.remote(payload, run_id=run_id)
+    result = extract_truncated_dev.remote(
+        payload, run_id=run_id, provenance=provenance
+    )
     (local_out / "run_manifest.json").write_text(
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
@@ -825,7 +962,7 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
             shutil.move(str(p), str(dest))
         nested.rmdir()
 
-    # Commit-safe manifest pointer
+    # Commit-safe manifest pointer (canonical rerun; original preserved separately)
     (REPO_ROOT / "artifacts/phase3b_dev/latest_extract_manifest.json").write_text(
         json.dumps(
             {
@@ -845,6 +982,19 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
                 "locked_test_present": False,
                 "original_preflight_gate_relaxed": False,
                 "surface_baseline_freeze_sha256": FREEZE_SHA256,
+                "git_commit": result["git_commit"],
+                "canonical_run_code_sha": result["canonical_run_code_sha"],
+                "working_tree_clean": True,
+                "extractor_sha256": result["extractor_sha256"],
+                "analysis_script_sha256": result["analysis_script_sha256"],
+                "compute_dtype": COMPUTE_DTYPE,
+                "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
+                "future_response_tokens_present": False,
+                "model_revision": MODEL_REVISION,
+                "dataset_revision": DATASET_REVISION,
+                "preserves_original_dev_run_id": (
+                    "phase3b1_extract_20260925T151054Z_f19e058f"
+                ),
             },
             indent=2,
             sort_keys=True,
@@ -859,4 +1009,6 @@ def main(mode: str = "preflight_truncated", out_dir: str = "") -> None:
         "n_scientific_forwards": result["n_scientific_forwards"],
         "estimated_cost_usd": result["estimated_cost_usd"],
         "total_artifact_bytes": result["total_artifact_bytes"],
+        "git_commit": result["git_commit"],
+        "activation_storage_dtype": ACTIVATION_STORAGE_DTYPE,
     }, indent=2))

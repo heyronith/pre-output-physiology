@@ -53,6 +53,8 @@ canonical_extraction_mode: truncated_prefix
 scientific_batch_size: 1
 full_sequence_primary_authorized: false
 original_preflight_gate_relaxed: false
+compute_dtype: bfloat16
+activation_storage_dtype: float32
 surface_baseline_freeze_sha256: b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00
 
 activation_probe:
@@ -121,6 +123,8 @@ phase3b_gpu:
   full_sequence_primary_authorized: false
 
 notes: >
-  Phase 3B1 complete awaiting audit. Extraction: truncated_prefix_single_example,
-  batch_size=1, 14079 scientific forwards. Original D034 HOLD preserved; gates
-  not relaxed. Locked test not extracted. Regime C not run. No interventions.
+  Phase 3B1 development complete awaiting audit. Original float16-storage extract
+  preserved as phase3b1_extract_20260925T151054Z_f19e058f. Canonical reproducibility
+  rerun uses truncated_prefix_single_example, batch_size=1, BF16 compute, float32
+  storage, clean-tree provenance. Locked test not extracted. Regime C not run.
+  No interventions. Original 0.9999 gates not relaxed.

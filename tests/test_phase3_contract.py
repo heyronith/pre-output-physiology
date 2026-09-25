@@ -136,6 +136,8 @@ def test_decision_log_contains_phase3a_decisions() -> None:
         "D036",
         "D037",
         "D038",
+        "D039",
+        "D040",
     ):
         assert did in text, did
 

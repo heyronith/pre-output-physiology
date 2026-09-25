@@ -81,7 +81,7 @@ def main() -> int:
     else:
         result.fail("missing preflight_hold_summary.json")
 
-    for did in ("D034", "D035", "D036", "D037", "D038"):
+    for did in ("D034", "D035", "D036", "D037", "D038", "D039", "D040"):
         if did in decisions:
             result.ok(f"{did} present")
         else:
@@ -206,6 +206,43 @@ def main() -> int:
             result.ok(f"actual cost within hard stop (${man.get('estimated_cost_usd')})")
         else:
             result.fail("actual cost exceeds hard stop")
+        # Canonical float32 provenance (required once storage dtype recorded)
+        if man.get("activation_storage_dtype") == "float32":
+            for key in (
+                "git_commit",
+                "working_tree_clean",
+                "extractor_sha256",
+                "analysis_script_sha256",
+                "compute_dtype",
+            ):
+                if key not in man:
+                    result.fail(f"canonical extract missing {key}")
+                else:
+                    result.ok(f"canonical extract has {key}")
+            if man.get("working_tree_clean") is True:
+                result.ok("clean-tree marker true")
+            else:
+                result.fail("working_tree_clean not true")
+            if man.get("compute_dtype") == "bfloat16":
+                result.ok("compute dtype BF16")
+            else:
+                result.fail(f"compute_dtype={man.get('compute_dtype')}")
+            if man.get("future_response_tokens_present") is False:
+                result.ok("future_response_tokens_present=false")
+            else:
+                result.fail("future tokens flagged present")
+        else:
+            result.ok(
+                "latest extract is pre-canonical (float32 storage not yet recorded)"
+            )
+
+    orig_metrics = (
+        REPO_ROOT / "artifacts/phase3b_dev/original_dev_run_f19e058f_metrics.json"
+    )
+    if orig_metrics.is_file():
+        result.ok("original float16-storage development metrics preserved")
+    else:
+        result.fail("missing original_dev_run_f19e058f_metrics.json")
 
     if metrics.is_file():
         m = json.loads(metrics.read_text(encoding="utf-8"))
@@ -230,6 +267,42 @@ def main() -> int:
             result.ok("status complete awaiting audit")
         else:
             result.ok(f"status={exp.get('status')} (metrics present)")
+        if m.get("activation_storage_dtype") == "float32":
+            if m.get("compute_dtype") == "bfloat16":
+                result.ok("metrics compute/storage dtypes correct")
+            else:
+                result.fail("metrics compute_dtype not bfloat16")
+            if m.get("git_commit") and m.get("extractor_sha256"):
+                result.ok("metrics records canonical Git/extractor hashes")
+            else:
+                result.fail("metrics missing canonical provenance hashes")
+            if m.get("working_tree_clean") is True:
+                result.ok("metrics clean-tree marker")
+            else:
+                result.fail("metrics working_tree_clean not true")
+            gate = m.get("engineering_gate", {})
+            if gate.get("k0_activation_identity_ok") is True:
+                result.ok("k0 activation identity")
+            else:
+                result.fail("k0 activation identity failed")
+            if gate.get("k0_surface_score_identity_ok") is True:
+                result.ok("k0 surface-score identity")
+            else:
+                result.fail("k0 surface-score identity failed")
+            integ = m.get("activation_integrity") or {}
+            if integ.get("all_finite") is True:
+                result.ok("finite activation audit")
+            else:
+                result.fail("activation integrity not finite")
+            audit_path = (
+                REPO_ROOT / "artifacts/phase3b_dev/activation_integrity_audit.json"
+            )
+            if audit_path.is_file():
+                result.ok("activation_integrity_audit.json present")
+            else:
+                result.fail("missing activation_integrity_audit.json")
+        else:
+            result.ok("metrics pre-canonical (awaiting float32 rerun)")
     else:
         result.ok("dev metrics not yet present")
 
@@ -241,14 +314,50 @@ def main() -> int:
             result.fail(f"activation tensor tracked: {path}")
     result.ok("no activation tensors tracked")
 
-    if not (REPO_ROOT / "modal/phase3_extract.py").is_file():
+    extract_src = REPO_ROOT / "modal/phase3_extract.py"
+    if not extract_src.is_file():
         result.fail("missing modal/phase3_extract.py")
     else:
-        src = (REPO_ROOT / "modal/phase3_extract.py").read_text(encoding="utf-8")
+        src = extract_src.read_text(encoding="utf-8")
         if "truncated_prefix_single_example" in src and "batch_size = 1" in src:
             result.ok("modal extractor encodes truncated/bs=1 contract")
         else:
             result.fail("modal extractor missing truncated/bs=1 markers")
+        if "ACTIVATION_STORAGE_DTYPE = \"float32\"" in src or (
+            "activation_storage_dtype" in src and "float32" in src
+        ):
+            result.ok("extractor records float32 activation storage")
+        else:
+            result.fail("extractor missing float32 storage contract")
+        if "dtype=np.float16" in src and "activations" in src:
+            # Allow only if not used for scientific activation buffers
+            if "np.zeros((n_groups, len(LAYERS), hidden), dtype=np.float16)" in src:
+                result.fail("extractor still allocates k0 activations as float16")
+            elif (
+                "dtype=np.float16\n                )" in src
+                and "len(K_VALUES), hidden)" in src
+            ):
+                result.fail("extractor still allocates trajectory as float16")
+            else:
+                result.ok("no float16 scientific activation buffers")
+        else:
+            result.ok("no float16 scientific activation buffers")
+        if "_require_provenance" in src and "_collect_local_provenance" in src:
+            result.ok("extractor enforces local provenance / clean-tree gate")
+        else:
+            result.fail("extractor missing provenance gate")
+
+    analysis_src = (REPO_ROOT / "scripts/analyze_phase3b_dev.py").read_text(
+        encoding="utf-8"
+    )
+    if "fixed_random_projection_diagnostic" in analysis_src:
+        result.ok("analysis uses fixed-random-projection diagnostic terminology")
+    else:
+        result.fail("analysis missing fixed_random_projection_diagnostic")
+    if "k0_within_group_surface_score_max_abs_diff" in analysis_src:
+        result.ok("analysis checks k0 surface-score identity")
+    else:
+        result.fail("analysis missing k0 surface-score identity check")
 
     print()
     print(f"{len(result.passes)} passed, {len(result.failures)} failed")
