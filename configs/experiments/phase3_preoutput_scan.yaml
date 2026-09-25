@@ -1,20 +1,90 @@
-# Scaffold only. NOT authorized for execution in Phase 1.
-# Purpose: freeze the novel pre-output physiology scan identity for later phases.
+# Phase 3 pre-output physiology scan — methodology freeze (Phase 3A)
 
 experiment_id: phase3_preoutput_physiology_scan
 phase: phase3
-status: scaffolded
+status: prepared_awaiting_gpu_authorization
 description: >
-  Study the onset of deception along generation trajectories. Compare
-  prompt-boundary propensity measures against pre-deceptive-output physiology,
-  always benchmarking internal-state prediction against surface-information baselines
-  available at the same temporal point.
+  Study whether internal states predict later deception before the visible
+  output provides equivalent evidence. Phase 3A freezes grouping, temporal
+  alignment, baselines, and onset rules. No Phase 3 activations collected yet.
+
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+dataset_config_path: configs/datasets/roleplay_deception.yaml
 positive_control_dataset: RoleplayDeception
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+dataset_revision: bf93584916fbd23121eca6f2017017df0ef3184f
+lasr_code_revision: f4c6ad69b10a5436a2e819c69009431802a0f5f7
+apollo_revision: f8ec4010e74927394709dffa22b97bdf8cd5a62f
+
+grouping:
+  primary_key: prompt_sha256
+  prompt_field: input_formatted
+  diagnostic_key: id_prefix_before_underscore
+  split_method: GroupShuffleSplit
+  validation_fraction: 0.20
+  random_state: 42
+  locked_test: upstream_lasr_test_jsonl
+
 measurement_regimes:
-  - prompt_boundary_physiology
-  - pre_deceptive_output_physiology
+  - prompt_boundary_propensity  # k=0
+  - early_trajectory_prediction  # fixed k>0
+  - onset_aligned_pre_deceptive_output  # Regime C; annotation-gated; not executed in 3A
+
+coarse_scan:
+  transformer_block_indices: [0, 4, 8, 12, 16, 20, 24, 28, 31]
+  prefix_lengths_k: [0, 1, 2, 4, 8, 16]
+  primary_anchor_layer: 12
+
+activation_probe:
+  type: sklearn_logistic_regression
+  C: 0.01
+  fit_intercept: true
+  normalize: true
+  max_iter: 500
+  random_state: 42
+  tune_C_per_cell: false
+
+surface_baselines:
+  majority: true
+  prompt_text_only: true
+  prompt_plus_prefix: true  # primary surface baseline
+  prefix_structural: true
+  logit_summaries: phase3b_optional
+  text_classifier:
+    features:
+      - word_tfidf_ngram_range: [1, 2]
+      - char_tfidf_ngram_range: [3, 5]
+    model: logistic_regression
+    C_grid: [0.1, 1.0, 10.0]
+    select_C_on: phase3_validation_only
+  negative_controls:
+    - shuffled_label_probe
+    - random_activation_direction
+
+statistics:
+  primary_metric: auroc
+  bootstrap_resamples: 2000
+  bootstrap_unit: prompt_group
+  paired_delta_auroc: activation_minus_surface
+
+onset_annotation:
+  activation_dependent: false
+  llm_api_allowed: false
+  high_confidence_rule: exact_substring_in_judge_explanation_and_model_output
+  field_name: conservative_deceptive_sentence_onset
+  unresolved_status: unresolved
+  audit_seed: 42
+
+phase3b_gpu:
+  provider: modal
+  gpu_type: L40S
+  num_gpus: 1
+  soft_budget_usd: 20
+  hard_budget_usd: 40
+  causal_mask_cosine_min: 0.9999
+  authorized: false
+
 notes: >
-  Datasets for known-truth, uncertainty, false-belief, and strategic-nondeceptive
-  controls are finalized before Phase 2/3 data collection—not generated in Phase 1.
-  H5 causal interventions are out of scope until correlational criteria and review gates pass.
+  Phase 3A only. Do not collect activations, train Phase 3 probes, evaluate
+  locked-test predictive performance, or begin Phase 4/causal work.

@@ -137,3 +137,58 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **FACT FROM SOURCE** + documentation decision
 - **Decision:** Record that `scale_labels` is an honesty grade; `<=5 → class 1` means deceptive/dishonest (`labels=="positive"`); `>5 → class 0` means honest (`labels=="negative"`), matching LASR `activation_handlers.py`.
 - **Date:** 2026-09-24
+
+---
+
+## Phase 3A decisions (methodology freeze; no activations)
+
+### D019 — Reuse fixed RoleplayDeception trajectories
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Reuse the Phase 2 pinned LASR RoleplayDeception JSONL trajectories (no new generation).
+- **Reason:** Avoids unnecessary generation/GPU cost and provides multiple behavior outcomes across repeated prompts.
+- **Date:** 2026-09-25
+
+### D020 — Prompt-boundary states represent propensity
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** At the prompt boundary, identical tokenized prompts share one activation; repeated rollouts are observations under a shared prompt state. Interpret as context-conditioned deception propensity, not sample-specific intent.
+- **Reason:** Deterministic transformers make independent hidden “decisions” per identical prompt methodologically invalid.
+- **Date:** 2026-09-25
+
+### D021 — Group by exact prompt hash
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary scientific grouping key is `prompt_sha256 = SHA256(exact input_formatted)`. ID-prefix grouping is diagnostic only; on disagreement, prompt hash wins.
+- **Reason:** Avoid assumptions about upstream ID format.
+- **Date:** 2026-09-25
+
+### D022 — Freeze coarse Phase 3 layer/time grid before activations
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pre-register transformer blocks `[0, 4, 8, 12, 16, 20, 24, 28, 31]` and prefix lengths `[0, 1, 2, 4, 8, 16]` before any Phase 3 activation extraction.
+- **Date:** 2026-09-25
+
+### D023 — Block 12 is the primary Phase 3 anchor
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Block 12 is the pre-registered primary anchor layer for Phase 3, chosen before Phase 3 based on the independent Phase 2 literature-aligned positive control. Do not re-select after inspecting Phase 3 results.
+- **Date:** 2026-09-25
+
+### D024 — Strong H3 claims require matched surface baselines
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Report `ΔAUROC = AUROC_activation − AUROC_surface` with paired group-aware bootstrap. Activation AUROC > 0.5 alone is insufficient for incremental white-box claims.
+- **Date:** 2026-09-25
+
+### D025 — Separate early-trajectory prediction from true pre-deceptive analysis
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Fixed small `k` results are early-trajectory prediction, not automatically “pre-deceptive.” Reserve “pre-deceptive-output physiology” for onset-aligned analyses that pass the annotation audit gate.
+- **Date:** 2026-09-25
+
+### D026 — Conservative onset annotations must be text/judge-grounded and activation-independent
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Candidate onsets use only response text + upstream deception label + existing judge explanation fields with exact substring evidence. No probe-driven or auto-LLM span labels. Unresolved when no defensible exact span exists.
+- **Date:** 2026-09-25
