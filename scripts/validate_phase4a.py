@@ -382,14 +382,19 @@ def main() -> int:
     else:
         result.fail("behavior rule smoke failed")
 
-    # No Phase 4 activation / final-generation contamination in tree
+    # No Phase 4 activation / unauthorized final-generation contamination in tree
     phase4_runs = list((REPO_ROOT / "artifacts/runs").glob("phase4*")) if (
         REPO_ROOT / "artifacts/runs"
     ).is_dir() else []
     final_out_runs = [
         p for p in phase4_runs if "final" in p.name.lower() and p.is_dir()
     ]
-    if final_out_runs:
+    if phase4d:
+        if final_out_runs:
+            result.ok(f"phase4d final run dirs present ({len(final_out_runs)})")
+        else:
+            result.fail("phase4d status but no final run directories")
+    elif final_out_runs:
         result.fail(f"final Phase 4 run dirs present: {final_out_runs}")
     else:
         result.ok("no final Phase 4 run directories")
