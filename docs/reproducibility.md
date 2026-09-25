@@ -60,9 +60,12 @@ Phase 1 validation **must not** download the 7B model.
 - Use `.env` locally; only `.env.example` is committed (names only).
 - Never commit tokens, activation dumps with credentials, or Modal secrets.
 
-## Upstream pins recorded in Phase 1
+## Upstream pins recorded
 
 | Dependency | Pin |
 | --- | --- |
 | LASR-probe-gen (reference only; not vendored) | `f4c6ad69b10a5436a2e819c69009431802a0f5f7` |
-| Primary HF model revision | `TO_BE_PINNED_BEFORE_PHASE2` |
+| Primary HF model revision | `63a8b081895390a26e140280378bc85ec8bce07a` |
+| LASR HF dataset `lasrprobegen/deception-activations` | `bf93584916fbd23121eca6f2017017df0ef3184f` |
+| Apollo `deception-detection` | `f8ec4010e74927394709dffa22b97bdf8cd5a62f` |
+| Apollo `data/roleplaying/dataset.yaml` SHA256 | `7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564` |
