@@ -1,13 +1,13 @@
-# Phase 5 strategic deception discovery — Phase 5A behavior pilot PASS awaiting audit
+# Phase 5 strategic deception discovery — Phase 5B discovery behavior AUTHORIZED
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
-status: phase5a_behavior_pilot_pass_awaiting_audit
+status: phase5b_discovery_behavior_authorized
 description: >
-  Fresh S2/S3 strategic contrast design with 8 families (6 discovery + 2 locked).
-  Phase 5A revision-2 behavior pilot passed operational gates (64/64 valid; 32/32
-  paired). No activations, probe fitting/scoring, locked-final generation, or
-  causal interventions.
+  Phase 5B authorized: generate behavior for six discovery families only (1920
+  outputs). Train/validation family split and primary all-pair populations frozen
+  pre-generation. No activations, probe fitting/scoring, layer selection,
+  locked-family generation, prompt revision, or causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -15,6 +15,7 @@ model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
 phase4_merge_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
 phase5_starting_sha: 8f6d40efcf4cb3b48f433c12937432ca61c80cf2
 phase5a_pilot_run_id: phase5a_pilot_20260925T191728Z_d3a61de0
+phase5a_audited_head: 448bceb1b23ffceebd72a3835992309e7b3d92b2
 
 neutral_prefix_token: Response
 neutral_prefix_token_id: 12107
@@ -50,6 +51,25 @@ design:
   superseded_revision1_pilot_prompt_text_sha256: 20e69a734aba41b4137ca567839a3b127fdacac426dc017847803d2d303460df
   superseded_revision1_pilot_run_id: phase5a_pilot_20260925T191443Z_17f2a915
 
+discovery_split:
+  version: phase5_family_split_v1
+  artifact: artifacts/phase5b_discovery_split/family_split.json
+  train_families:
+    - greenhouse_row_crop
+    - archive_box_label
+    - kiosk_display_tile
+    - package_routing_bay
+  validation_families:
+    - maker_bench_compartment
+    - gallery_wall_panel
+  train_all_pair_n: 640
+  train_all_pair_sha256: e2b5a559399025dacbeacfb4e50ef16d1745aa1a1b3f336775749ae3202b7641
+  validation_all_pair_n: 320
+  validation_all_pair_sha256: 6b9f6385cdcd651d86fa27483deab6842cbbdc96e03bc9104fb628c50eff07ab
+  discovery_prompt_text_sha256: 2eb22deeeb520d712fee000644fa958f35137e029a08ba0aa4b58b89327fe464
+  primary_populations: artifacts/phase5b_discovery_split/primary_all_pair_populations.json
+  future_probe_procedure: artifacts/phase5b_discovery_split/future_probe_procedure.json
+
 future_physiology:
   layers: [0, 4, 8, 12, 16, 20, 24, 28, 31]
   primary_endpoint: controlled_prefix_after_neutral_Response
@@ -65,14 +85,14 @@ preregistered_baselines:
 
 authorizations:
   pilot_generation_authorized: false
-  discovery_generation_authorized: false
+  discovery_generation_authorized: true
   locked_final_generation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   probe_scoring_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: false
+  modal_gpu_authorized: true
 
 notes: >
-  Phase 5A revision-2 pilot PASS awaiting audit (D065–D071). S2 vs S3 only.
-  Locked final families not run. No activations/probes/causal work. STOP after 5A.
+  Phase 5B discovery behavior authorized (D072–D073). Split + primary all-pair
+  populations frozen pre-generation. Locked finals not run. No activations/probes/causal.

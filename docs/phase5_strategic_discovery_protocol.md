@@ -1,4 +1,4 @@
-# Phase 5 — Strategic deception discovery protocol (Phase 5A)
+# Phase 5 — Strategic deception discovery protocol (Phase 5A–5B)
 
 ## Objective
 
@@ -20,7 +20,7 @@ Prompts must not contain condition-revealing lexicon (`honest`, `deceptive`, `li
 | **Total final** | **8** | **1280** | **2560** |
 | Pilot (disjoint IDs) | 8 × 4 | 32 | 64 |
 
-Discovery families may later split into train/validation. Locked families remain untouched until candidate selection is frozen (D068).
+Discovery families split deterministically into train (4) / validation (2) via `SHA256("phase5_family_split_v1|" + family)` sorted ascending (D072). Locked families remain untouched until candidate selection is frozen (D068).
 
 ## Response schema
 
@@ -42,7 +42,15 @@ Future physiology primary endpoint: controlled-prefix hidden state after supplyi
 
 Pilot gates: ≥28/32 valid per condition; ≥26/32 paired valid. Exactly one prompt-format revision permitted if the first pilot fails, preserving S2/S3 symmetry. Do not weaken validity definitions. Revision-1 free-generation pilot failed (D071); revision-2 template + new pilot_seed=19 is the sole re-pilot.
 
-## Baselines (preregistered; not fit in 5A)
+## Phase 5B scope
+
+- Discovery-family behavior generation only (1920 outputs)
+- Freeze primary all-pair train/validation populations before generation (D073)
+- Freeze behavior-valid paired subsets after generation as sensitivity only
+- Record future probe procedure; do **not** extract activations, fit/score probes, or select layers
+- No locked-family model calls; no prompt or validity-rule revision
+
+## Baselines (preregistered; not fit in 5A/5B)
 
 1. User-visible-text TF-IDF
 2. Full-context word+character TF-IDF

@@ -62,3 +62,10 @@ Phase 1 produces no experimental run artifacts.
 - `phase5a_pilot/` — revision-2 re-pilot summaries after the behavior pilot.
 - Design JSONL under gitignored `data/processed/phase5_design/`.
 - Raw pilot outputs under gitignored `artifacts/runs/phase5a_pilot_*/`.
+
+## Phase 5B discovery behavior (committed summaries only)
+
+- `phase5b_discovery_split/` — pre-generation family train/val split + primary all-pair populations + future probe procedure (D072/D073).
+- `phase5b_discovery_behavior/` — discovery generation/behavior summaries + sensitivity valid-pair freeze.
+- Raw discovery outputs under gitignored `artifacts/runs/phase5b_discovery_*/`.
+- Locked families never generated.

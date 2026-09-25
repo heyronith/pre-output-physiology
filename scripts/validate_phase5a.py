@@ -87,6 +87,8 @@ def main() -> int:
         "phase5a_design_frozen_pilot_authorized",
         "phase5a_behavior_pilot_pass_awaiting_audit",
         "phase5a_behavior_pilot_hold",
+        "phase5b_discovery_behavior_authorized",
+        "phase5b_discovery_behavior_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     else:
@@ -254,10 +256,12 @@ def main() -> int:
     else:
         result.ok("no phase5 activation/probe artifacts")
 
-    # Pilot artifacts if status is pass/hold
+    # Pilot artifacts if status is pass/hold or later Phase 5B
     if status in {
         "phase5a_behavior_pilot_pass_awaiting_audit",
         "phase5a_behavior_pilot_hold",
+        "phase5b_discovery_behavior_authorized",
+        "phase5b_discovery_behavior_complete_awaiting_audit",
     }:
         beh = REPO_ROOT / "artifacts/phase5a_pilot/pilot_behavior_summary.json"
         report = REPO_ROOT / "reports/phase5a_pilot.md"
@@ -265,10 +269,13 @@ def main() -> int:
             result.ok("pilot summary/report present")
             summary = json.loads(beh.read_text(encoding="utf-8"))["summary"]
             gates = summary["gates"]["all_operational_gates_pass"]
-            if status.endswith("pass_awaiting_audit") and gates:
+            if status == "phase5a_behavior_pilot_hold":
+                if not gates:
+                    result.ok("status matches gate hold")
+                else:
+                    result.fail(f"status/gates mismatch {status} / {gates}")
+            elif gates:
                 result.ok("status matches gate pass")
-            elif status.endswith("hold") and not gates:
-                result.ok("status matches gate hold")
             else:
                 result.fail(f"status/gates mismatch {status} / {gates}")
         else:

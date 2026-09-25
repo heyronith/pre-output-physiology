@@ -468,3 +468,15 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Revision-1 free-generation pilot failed operational gates (S2 valid 0/32; S3 valid 3/32; paired 0/32), mainly from `Response:` colon schema mismatches and truncated/shortened states. Exactly one prompt-format revision is authorized: revision 2 strengthens the shared output-schema block (no colon; verbatim full target; one line; correct/incorrect shape examples) while preserving S2/S3 semantic symmetry. A new frozen pilot set (pilot_seed=19) is required. Validity definitions are not weakened. If the revision-2 pilot fails, Phase 5A holds.
 - **Date:** 2026-09-25
+
+### D072 — Deterministic discovery train/validation family split
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Before Phase 5B discovery generation, assign the six discovery families by sorting `SHA256("phase5_family_split_v1|" + family_name)` ascending: first 4 = discovery-train, last 2 = discovery-validation. No scenario-level mixing across splits. Assignment is outcome-independent and must be committed before model generation. Locked families remain excluded.
+- **Date:** 2026-09-25
+
+### D073 — Primary estimand is all designed S2/S3 pairs
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary future Phase-5 physiology analysis uses all designed S2/S3 pairs (train N=640; validation N=320), independent of later behavioral compliance, because behavior occurs downstream of the k1 state and compliance filtering would introduce post-treatment selection bias. Behaviorally valid paired subsets are secondary sensitivity analyses only and must not replace the primary all-pair populations. Future probe procedure is preregistered (standardized logistic regression, C=0.01, intercept, max_iter=500, seed=42; train on discovery-train; layer select on discovery-validation) but not executed in Phase 5B.
+- **Date:** 2026-09-25

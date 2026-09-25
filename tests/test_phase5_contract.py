@@ -20,6 +20,7 @@ from pre_output_physiology.phase5_conditions import (
     build_condition_prompt,
     verify_neutral_prefix_token_with_tokenizer,
 )
+from pre_output_physiology.phase5_split import compute_discovery_family_split
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
@@ -32,6 +33,8 @@ def test_phase5_status_and_auth() -> None:
         "phase5a_design_frozen_pilot_authorized",
         "phase5a_behavior_pilot_pass_awaiting_audit",
         "phase5a_behavior_pilot_hold",
+        "phase5b_discovery_behavior_authorized",
+        "phase5b_discovery_behavior_complete_awaiting_audit",
     }
     raw = yaml.safe_load(
         (REPO_ROOT / "configs/experiments/phase5_strategic_discovery.yaml").read_text(
@@ -97,7 +100,7 @@ def test_phase5_neutral_prefix_token() -> None:
 
 def test_phase5_decisions() -> None:
     text = (REPO_ROOT / "docs/decision_log.md").read_text(encoding="utf-8")
-    for did in ("D065", "D066", "D067", "D068", "D069", "D070", "D071"):
+    for did in ("D065", "D066", "D067", "D068", "D069", "D070", "D071", "D072", "D073"):
         assert did in text
 
 
@@ -107,3 +110,18 @@ def test_phase5_protocol_exists() -> None:
     text = path.read_text(encoding="utf-8")
     assert "S3" in text and "S2" in text
     assert "controlled-prefix" in text.lower() or "controlled_prefix" in text
+
+
+def test_phase5b_family_split_deterministic() -> None:
+    split = compute_discovery_family_split(DISCOVERY_FAMILIES)
+    assert split["train_families"] == [
+        "greenhouse_row_crop",
+        "archive_box_label",
+        "kiosk_display_tile",
+        "package_routing_bay",
+    ]
+    assert split["validation_families"] == [
+        "maker_bench_compartment",
+        "gallery_wall_panel",
+    ]
+    assert not (set(split["train_families"]) & set(LOCKED_FAMILIES))

@@ -83,6 +83,8 @@ class ExperimentConfig(BaseModel):
         "phase5a_design_frozen_pilot_authorized",
         "phase5a_behavior_pilot_pass_awaiting_audit",
         "phase5a_behavior_pilot_hold",
+        "phase5b_discovery_behavior_authorized",
+        "phase5b_discovery_behavior_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",

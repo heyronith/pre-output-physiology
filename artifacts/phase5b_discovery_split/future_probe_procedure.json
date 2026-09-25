@@ -1,0 +1,49 @@
+{
+  "baselines_fit": false,
+  "created_at": "2026-09-25T19:26:38+00:00",
+  "executed": false,
+  "information_theoretic_note": "Because record and objective target are present in privileged context, Phase 5 does not claim the condition is absent from text. The scientific target is a cross-scenario internal representation of objective-record conflict / strategic deception.",
+  "phase": "phase5b",
+  "preregistered_baselines": [
+    "user_visible_text_tfidf",
+    "full_context_word_char_tfidf",
+    "pretrained_semantic_embedding_logistic",
+    "output_logit_summary",
+    "first_token_identity_category_diagnostic"
+  ],
+  "procedure": {
+    "layer_selection_population": "discovery_validation_families_only",
+    "layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      31
+    ],
+    "locked_families_unavailable_until_probe_frozen": true,
+    "primary_endpoint": "controlled_prefix_k1_after_token_12107_Response",
+    "probe": {
+      "C": 0.01,
+      "fit_intercept": true,
+      "kind": "standardized_logistic_regression",
+      "max_iter": 500,
+      "per_layer_per_endpoint_hyperparameter_tuning": false,
+      "seed": 42
+    },
+    "secondary_endpoint": "k0_prompt_boundary",
+    "train_population": "discovery_train_families_only"
+  },
+  "prohibitions": [
+    "no_activation_extraction",
+    "no_probe_fitting",
+    "no_probe_scoring",
+    "no_layer_selection",
+    "no_locked_family_model_calls",
+    "no_causal_intervention",
+    "no_prompt_revision"
+  ]
+}
