@@ -1,0 +1,134 @@
+{
+  "C": 0.01,
+  "artifact": "artifacts/phase5c_discovery_physiology/selected_probe_k1.npz",
+  "artifact_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8",
+  "coef_sha256": "c0a4cefd6fd79dfc7bc23abb6138fce30fe937b2e368916491abe9c9edacd1a0",
+  "created_at": "2026-09-25T19:55:42+00:00",
+  "endpoint": "k1",
+  "fit_intercept": true,
+  "intercept": 0.12575831262693837,
+  "layer": 12,
+  "locked_test_gate": {
+    "checks": {
+      "bootstrap_ci_low_gt_0_50": true,
+      "each_family_auroc_ge_0_60": true,
+      "overall_auroc_ge_0_70": true
+    },
+    "gates": {
+      "bootstrap_ci_low_min": 0.5,
+      "overall_auroc_min": 0.7,
+      "per_family_auroc_min": 0.6
+    },
+    "observed": {
+      "auroc_ci_low": 0.9999999999999999,
+      "overall_auroc": 1.0,
+      "per_family_auroc": {
+        "gallery_wall_panel": 1.0,
+        "maker_bench_compartment": 1.0
+      }
+    },
+    "passed": true
+  },
+  "max_iter": 500,
+  "mean_sha256": "349d21f6fe9acd915f65a216b932fbe00e8eb862f85b0a7d54984f1c8f0c6744",
+  "scale_sha256": "76609c405360fb28c1d75ba6f5f7177b8535c6354ba063d91bb5817d33474fe4",
+  "seed": 42,
+  "selection": {
+    "ranking": [
+      {
+        "layer": 12,
+        "validation_auroc": 1.0,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 20,
+        "validation_auroc": 1.0,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 24,
+        "validation_auroc": 1.0,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 28,
+        "validation_auroc": 1.0,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 16,
+        "validation_auroc": 0.9999999999999999,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 31,
+        "validation_auroc": 0.9909667968750001,
+        "worst_family_auroc": 1.0
+      },
+      {
+        "layer": 8,
+        "validation_auroc": 0.9856640625,
+        "worst_family_auroc": 0.9646484375000001
+      },
+      {
+        "layer": 4,
+        "validation_auroc": 0.7296484375,
+        "worst_family_auroc": 0.7592187499999999
+      },
+      {
+        "layer": 0,
+        "validation_auroc": 0.503134765625,
+        "worst_family_auroc": 0.44949218750000003
+      }
+    ],
+    "selected_endpoint": "k1",
+    "selected_layer": 12,
+    "selection_key": {
+      "layer": 12,
+      "validation_auroc": 1.0,
+      "worst_family_auroc": 1.0
+    }
+  },
+  "standardizer": "StandardScaler",
+  "train_all_pair_sha256": "e2b5a559399025dacbeacfb4e50ef16d1745aa1a1b3f336775749ae3202b7641",
+  "validation_all_pair_sha256": "6b9f6385cdcd651d86fa27483deab6842cbbdc96e03bc9104fb628c50eff07ab",
+  "validation_metrics": {
+    "auroc": 1.0,
+    "auroc_ci_high": 1.0,
+    "auroc_ci_low": 0.9999999999999999,
+    "bootstrap_unit": "scenario_pair",
+    "endpoint": "k1",
+    "layer": 12,
+    "n_bootstrap_effective": 5000,
+    "paired_score_delta": {
+      "bootstrap_unit": "scenario",
+      "definition": "mean(score_positive - score_negative)",
+      "n_bootstrap": 5000,
+      "n_pairs": 320,
+      "paired_mean_diff": 0.9462785845607484,
+      "paired_mean_diff_ci_high": 0.9538607324255439,
+      "paired_mean_diff_ci_low": 0.9380558497761432
+    },
+    "per_family_auroc": {
+      "gallery_wall_panel": 1.0,
+      "maker_bench_compartment": 1.0
+    },
+    "per_family_detail": {
+      "gallery_wall_panel": {
+        "auroc": 1.0,
+        "auroc_ci_high": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "bootstrap_unit": "scenario_pair",
+        "n_bootstrap_effective": 5000
+      },
+      "maker_bench_compartment": {
+        "auroc": 1.0,
+        "auroc_ci_high": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "bootstrap_unit": "scenario_pair",
+        "n_bootstrap_effective": 5000
+      }
+    },
+    "worst_family_auroc": 1.0
+  }
+}

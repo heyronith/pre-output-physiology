@@ -260,22 +260,30 @@ def main() -> int:
     else:
         result.ok("no locked-final model outputs")
 
-    # No activation / probe artifacts for phase5
-    hits = []
-    for path in (REPO_ROOT / "artifacts").rglob("*"):
-        if not path.is_file():
-            continue
-        rel = str(path.relative_to(REPO_ROOT)).lower()
-        if "phase5" not in rel:
-            continue
-        if any(tok in rel for tok in ("activation", "probe_score", ".safetensors", "causal")):
-            if "condition_matrix" in rel or "manifest" in rel:
-                continue
-            hits.append(rel)
-    if hits:
-        result.fail(f"phase5 activation/probe artifacts: {hits[:5]}")
+    # No activation / probe artifacts for phase5 (pre-5C). After 5C, raw
+    # activations may exist under gitignored runs/; committed probes are expected.
+    if status.startswith("phase5c_candidate"):
+        result.ok("phase5c candidate path; local gitignored activations allowed")
     else:
-        result.ok("no phase5 activation/probe artifacts")
+        hits = []
+        for path in (REPO_ROOT / "artifacts").rglob("*"):
+            if not path.is_file():
+                continue
+            rel = str(path.relative_to(REPO_ROOT)).lower()
+            if "phase5" not in rel:
+                continue
+            if any(
+                tok in rel for tok in ("activation", "probe_score", ".safetensors", "causal")
+            ):
+                if "condition_matrix" in rel or "manifest" in rel:
+                    continue
+                if "physiology_freeze" in rel:
+                    continue
+                hits.append(rel)
+        if hits:
+            result.fail(f"phase5 activation/probe artifacts: {hits[:5]}")
+        else:
+            result.ok("no phase5 activation/probe artifacts")
 
     # Pilot artifacts if status is pass/hold or later Phase 5B
     if status in {

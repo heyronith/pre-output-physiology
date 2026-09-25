@@ -1,0 +1,221 @@
+{
+  "cosine_min_required": 0.9999,
+  "estimated_cost_usd": 0.00770765283703804,
+  "model_load_seconds": 11.518886804580688,
+  "n_comparisons": 48,
+  "n_samples": 8,
+  "passed": true,
+  "per_example": [
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851484,
+          "k1": 0.9999999999917925,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999349,
+          "k1": 0.9999999999999308,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999989,
+          "k1": 0.9999999999999987,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_000__S2_strategic_honesty"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851417,
+          "k1": 0.9999999999917871,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999349,
+          "k1": 0.9999999999999308,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999989,
+          "k1": 0.9999999999999988,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_000__S3_strategic_deception"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851311,
+          "k1": 0.9999999999917873,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999354,
+          "k1": 0.9999999999999306,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999988,
+          "k1": 0.9999999999999986,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_001__S2_strategic_honesty"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851389,
+          "k1": 0.9999999999917913,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999356,
+          "k1": 0.9999999999999308,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999989,
+          "k1": 0.9999999999999988,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_001__S3_strategic_deception"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851351,
+          "k1": 0.9999999999917891,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999356,
+          "k1": 0.9999999999999308,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999988,
+          "k1": 0.9999999999999986,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_002__S2_strategic_honesty"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851364,
+          "k1": 0.9999999999917892,
+          "layer": 0
+        },
+        {
+          "k0": 0.999999999999936,
+          "k1": 0.999999999999931,
+          "layer": 12
+        },
+        {
+          "k0": 0.999999999999999,
+          "k1": 0.9999999999999988,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_002__S3_strategic_deception"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851328,
+          "k1": 0.9999999999917883,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999356,
+          "k1": 0.999999999999931,
+          "layer": 12
+        },
+        {
+          "k0": 0.9999999999999989,
+          "k1": 0.9999999999999989,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_003__S2_strategic_honesty"
+    },
+    {
+      "cosines": [
+        {
+          "k0": 0.9999999999851387,
+          "k1": 0.9999999999917873,
+          "layer": 0
+        },
+        {
+          "k0": 0.9999999999999358,
+          "k1": 0.9999999999999307,
+          "layer": 12
+        },
+        {
+          "k0": 0.999999999999999,
+          "k1": 0.9999999999999988,
+          "layer": 31
+        }
+      ],
+      "example_id": "final_archive_box_label_003__S3_strategic_deception"
+    }
+  ],
+  "provenance": {
+    "activation_storage_dtype": "float32",
+    "analysis_script_sha256": "3e7b45fe03e1f2fbe050342c8a2d18823f96dd059688b0efc6d0bf164967ea85",
+    "batch_size": 1,
+    "causal_intervention_authorized": false,
+    "compute_dtype": "bfloat16",
+    "condition_labels_in_extractor": false,
+    "contract_sha256": "6cb486ced9385c06419c70de03777bc65e7e99977be44a231c15ef95b834954c",
+    "controlled_prefix_token_id": 12107,
+    "discovery_prompt_text_sha256": "2eb22deeeb520d712fee000644fa958f35137e029a08ba0aa4b58b89327fe464",
+    "extraction_mode": "truncated_prefix_single_example",
+    "extractor_sha256": "e5948ba6e021a62897d2751cd97818fbd8edaf28822ac9b78aee9f10537163bc",
+    "final_prompt_text_sha256": "cdf2003ac0d568eee28a0feffa7b07e0ef208e637de40665aa9a5b1e8bc2920e",
+    "future_response_tokens_present": false,
+    "git_commit": "3947de302f55f2b1325239d55b8fbd87af8210f9",
+    "layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      31
+    ],
+    "locked_families_run": false,
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+    "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "train_all_pair_sha256": "e2b5a559399025dacbeacfb4e50ef16d1745aa1a1b3f336775749ae3202b7641",
+    "train_families": [
+      "greenhouse_row_crop",
+      "archive_box_label",
+      "kiosk_display_tile",
+      "package_routing_bay"
+    ],
+    "validation_all_pair_sha256": "6b9f6385cdcd651d86fa27483deab6842cbbdc96e03bc9104fb628c50eff07ab",
+    "validation_families": [
+      "maker_bench_compartment",
+      "gallery_wall_panel"
+    ],
+    "working_tree_clean": true
+  },
+  "repeatability_min_cosine": 0.9999999999851311,
+  "run_id": "phase5c_extract_20260925T194912Z_3947de30_preflight",
+  "test_layers": [
+    0,
+    12,
+    31
+  ],
+  "wall_seconds": 14.229512929916382
+}
