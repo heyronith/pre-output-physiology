@@ -304,3 +304,39 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** All other layer×k cells remain descriptive/exploratory regardless of locked-test performance. Do not promote the best test cell into a new primary result.
 - **Date:** 2026-09-25
+
+### D045 — Phase 4 tests deception specificity
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4 studies whether the Phase 3 L12/k1 signal is distinguishable from strategic reasoning, false belief, uncertainty, and nondeceptive truth–target conflict.
+- **Date:** 2026-09-25
+
+### D046 — Frozen Phase 3 L12/k1 probe
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 4 scores use the immutable Phase 3 logistic probe (C=0.01) fitted on the 3000-row development set only. No Phase 4 labels may retrain or select the primary deception probe. L12/k0 is secondary only.
+- **Date:** 2026-09-25
+
+### D047 — Matched strategic-honest primary control
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The primary specificity contrast is C3 (`known_deceptive_strategic`) versus C2 (`known_honest_strategic`) under matched strategic/payoff structure.
+- **Date:** 2026-09-25
+
+### D048 — Common first-token control
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** All final Phase 4 responses must share one tokenizer-verified first token (`Response`, id 2963) so k=1 classification cannot be explained by first-token identity.
+- **Date:** 2026-09-25
+
+### D049 — Behavioral labels precede activation analysis
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Behavioral validity uses deterministic response parsing rules independent of activations and independent of LLM judges.
+- **Date:** 2026-09-25
+
+### D050 — Separate pilot from final scenarios
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Prompt/format compliance may be tested on pilot scenarios only (seed 7). The final 240 base scenarios (seed 42) remain untouched until prompt templates are frozen. Pilot examples never enter scientific results.
+- **Date:** 2026-09-25

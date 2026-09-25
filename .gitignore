@@ -67,3 +67,7 @@ data/external/
 # Logs
 *.log
 logs/
+
+# Phase 4 frozen model weights (raw)
+artifacts/phase4_models/
+*.npz

@@ -1,0 +1,54 @@
+# Phase 4 deception specificity — Phase 4A design freeze (local only)
+
+experiment_id: phase4_deception_specificity
+phase: phase4
+status: phase4a_design_frozen_awaiting_pilot
+description: >
+  Phase 4A freezes matched specificity controls and Phase-3 probe/surface artifacts.
+  No model generation, no Modal, no activations, no causal interventions.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+dataset_config_path: configs/datasets/roleplay_deception.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+dataset_revision: bf93584916fbd23121eca6f2017017df0ef3184f
+
+frozen_phase3:
+  canonical_b1_run_id: phase3b1_extract_20260925T154005Z_39505f42
+  primary_endpoint:
+    layer: 12
+    k: 1
+    interpretation: early_trajectory_signal
+  secondary_endpoint:
+    layer: 12
+    k: 0
+    interpretation: prompt_conditioned_propensity
+  probe_C: 0.01
+  surface_C: 10.0
+  fit_on: phase3_train_plus_validation_combined
+  locked_test_used_for_fitting: false
+  probe_manifest: artifacts/phase4a_summaries/frozen_probe_manifest.json
+  surface_manifest: artifacts/phase4a_summaries/frozen_surface_manifest.json
+
+common_first_token: Response
+common_first_token_id: 2963
+
+design:
+  n_final_base_scenarios: 240
+  n_pilot_base_scenarios: 24
+  n_conditions: 6
+  n_final_candidate_prompts: 1440
+  final_seed: 42
+  pilot_seed: 7
+  condition_matrix: artifacts/phase4a_summaries/condition_matrix.json
+  primary_contrast: [C3_known_deceptive_strategic, C2_known_honest_strategic]
+  key_secondary_contrast: [C3_known_deceptive_strategic, C4_false_belief_honest]
+
+authorizations:
+  pilot_generation_authorized: false
+  final_generation_authorized: false
+  activation_extraction_authorized: false
+  causal_intervention_authorized: false
+  modal_gpu_authorized: false
+
+notes: >
+  Phase 4A local design freeze only. STOP before pilot generation.

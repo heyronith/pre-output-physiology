@@ -18,3 +18,9 @@ Phase 1 produces no experimental run artifacts.
 
 - `phase3a_summaries/` — commit-safe split/onset coverage summaries and onset audit **index** (IDs/hashes only).
 - Raw onset audit text excerpts live under gitignored `data/processed/phase3_roleplay/onset_audit_raw/` (dataset license: do not commit full response/explanation text).
+
+## Phase 4A (committed summaries only)
+
+- `phase4a_summaries/` — condition matrix + frozen probe/surface **manifests** (hashes only).
+- Raw probe/surface weight files live under gitignored `artifacts/phase4_models/`.
+- Scenario/prompt JSONL design payloads live under gitignored `data/processed/phase4_design/`.
