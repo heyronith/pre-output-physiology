@@ -235,6 +235,11 @@ def main() -> int:
         for f in result.failures:
             print(f"  - {f}")
         return 1
+    print("Phase 5D validation OK.")
+    print("THE LOCKED PROBE WAS NOT RETRAINED, RECALIBRATED, OR RESELECTED.")
+    print("NO ALTERNATIVE LAYERS OR ENDPOINTS WERE USED FOR CANDIDATE SELECTION.")
+    print("THE PRIMARY LOCKED POPULATION WAS NOT CONDITIONED ON DOWNSTREAM BEHAVIOR.")
+    print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
     return 0
 
 

@@ -359,9 +359,14 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("Phase 5A validation OK.")
-    print("NO PHASE 5 ACTIVATIONS WERE COLLECTED.")
-    print("NO PHASE 5 PROBES WERE FIT OR SCORED.")
-    print("LOCKED GENERALIZATION FAMILIES WERE NOT RUN THROUGH THE MODEL.")
+    if str(status).startswith("phase5d_locked_test_complete"):
+        print("PHASE 5D LOCKED TEST COMPLETE PATH ACKNOWLEDGED BY PHASE5A CHAIN.")
+    elif str(status).startswith("phase5d"):
+        print("PHASE 5D AUTHORIZED PATH ACKNOWLEDGED BY PHASE5A CHAIN.")
+    else:
+        print("NO PHASE 5 ACTIVATIONS WERE COLLECTED.")
+        print("NO PHASE 5 PROBES WERE FIT OR SCORED.")
+        print("LOCKED GENERALIZATION FAMILIES WERE NOT RUN THROUGH THE MODEL.")
     print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
     return 0
 

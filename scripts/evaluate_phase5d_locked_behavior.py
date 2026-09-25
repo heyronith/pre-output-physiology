@@ -116,7 +116,7 @@ def main() -> int:
             if r.get("pool") == "locked"
         }
         sens_idx = []
-        for eid, i in enumerate(meta["example_ids"]):
+        for i, eid in enumerate(meta["example_ids"]):
             p = prompts[eid]
             if p["base_scenario_id"] in set(paired):
                 sens_idx.append(i)

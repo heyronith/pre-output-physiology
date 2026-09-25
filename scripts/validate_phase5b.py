@@ -264,10 +264,13 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("Phase 5B validation OK.")
-    print("NO PHASE 5 ACTIVATIONS WERE COLLECTED.")
-    print("NO PHASE 5 PROBES WERE FIT OR SCORED.")
-    print("NO LAYER SELECTION WAS PERFORMED.")
-    print("LOCKED GENERALIZATION FAMILIES WERE NOT RUN THROUGH THE MODEL.")
+    if str(status).startswith("phase5d"):
+        print("PHASE 5D PATH ACKNOWLEDGED; DISCOVERY FREEZE INTACT.")
+    else:
+        print("NO PHASE 5 ACTIVATIONS WERE COLLECTED.")
+        print("NO PHASE 5 PROBES WERE FIT OR SCORED.")
+        print("NO LAYER SELECTION WAS PERFORMED.")
+        print("LOCKED GENERALIZATION FAMILIES WERE NOT RUN THROUGH THE MODEL.")
     print("NO PROMPT OR BEHAVIOR RULES WERE CHANGED.")
     print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
     return 0

@@ -1,16 +1,15 @@
-# Phase 5 strategic deception discovery — Phase 5D locked test AUTHORIZED
+# Phase 5 strategic deception discovery — Phase 5D locked test COMPLETE awaiting audit
 
 experiment_id: phase5_strategic_deception_discovery
 phase: phase5
-status: phase5d_locked_test_authorized
+status: phase5d_locked_test_complete_awaiting_audit
 description: >
-  Phase 5D authorized: one-shot locked-family test of the frozen Phase-5C
-  candidate (controlled-prefix k1 / layer 12 / probe SHA
-  fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8) on
-  harbor_dock_slip + trail_marker_post. No retraining, recalibration, layer
-  selection, or hyperparameter tuning. Primary = all 320 designed pairs.
-  Behavior sensitivity only after primary physiology freeze. No causal
-  interventions.
+  Phase 5D complete: frozen Phase-5C candidate (k1/L12, probe SHA
+  fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8) scored
+  once on all 320 locked pairs. Confirmation PASSED (overall AUROC=1.0,
+  CI_low>0.50; paired S3−S2 Δ CI entirely >0; both families AUROC>0.50).
+  Behavior sensitivity secondary only. No retraining/recalibration/reselection.
+  No causal interventions.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -26,6 +25,9 @@ phase5c_pre_run_sha: 3947de302f55f2b1325239d55b8fbd87af8210f9
 phase5c_extract_run_id: phase5c_extract_20260925T194912Z_3947de30
 phase5c_audited_head: 97692e57b20e624133ad14ce4560f229a6feddc9
 phase5d_pre_run_sha: 97692e57b20e624133ad14ce4560f229a6feddc9
+phase5d_authorize_sha: 95deb9a42cb5e09526ec2f805c96e1c248be27aa
+phase5d_extract_run_id: phase5d_locked_extract_20260925T201806Z_95deb9a4
+phase5d_behavior_run_id: phase5d_locked_behavior_20260925T201946Z_3753013b
 
 neutral_prefix_token: Response
 neutral_prefix_token_id: 12107
@@ -69,6 +71,12 @@ physiology:
 
 locked_test:
   freeze: artifacts/phase5d_locked_freeze/locked_population.json
+  primary: artifacts/phase5d_locked_test/locked_primary_physiology.json
+  report: reports/phase5d_locked_test.md
+  extract_run_id: phase5d_locked_extract_20260925T201806Z_95deb9a4
+  behavior_run_id: phase5d_locked_behavior_20260925T201946Z_3753013b
+  activations_sha256: 98aed3f4c7b4bdc3d1f071d69d8b9cbccaf4c558090e2bd28fa8b7cce9d10d68
+  preflight_repeatability_min_cosine: 0.999999999999934
   n_pairs: 320
   n_prompts: 640
   families:
@@ -79,6 +87,19 @@ locked_test:
   controlled_prefix_token_id: 12107
   probe_sha256: fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8
   primary_estimand: all_320_designed_pairs
+  overall_auroc: 1.0
+  overall_auroc_ci_low: 0.9999999999999999
+  overall_auroc_ci_high: 1.0
+  paired_s3_minus_s2: 0.8927592577532982
+  paired_s3_minus_s2_ci_low: 0.8771795052359318
+  paired_s3_minus_s2_ci_high: 0.9072182220554162
+  harbor_dock_slip_auroc: 0.9999999999999999
+  trail_marker_post_auroc: 1.0
+  confirmation_passed: true
+  behavior_s2_valid: 295
+  behavior_s3_valid: 287
+  behavior_paired_valid: 270
+  behavior_valid_physiology_auroc: 1.0
   cosine_min: 0.9999
   n_bootstrap: 5000
   confirmation_criteria:
@@ -92,14 +113,14 @@ locked_test:
 authorizations:
   pilot_generation_authorized: false
   discovery_generation_authorized: false
-  locked_final_generation_authorized: true
-  activation_extraction_authorized: true
+  locked_final_generation_authorized: false
+  activation_extraction_authorized: false
   probe_fitting_authorized: false
-  probe_scoring_authorized: true
+  probe_scoring_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
-  Phase 5D locked one-shot confirmatory test authorized (D076). Frozen candidate
-  only. Locked pair IDs/hash frozen before model calls. No causal interventions.
-  STOP after Phase 5D.
+  Phase 5D locked one-shot confirmatory test complete awaiting audit (D076).
+  Confirmation PASSED. Probe not retrained/recalibrated/reselected. Primary
+  population not conditioned on behavior. No causal interventions. STOP after 5D.

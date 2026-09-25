@@ -213,7 +213,10 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("Phase 5C validation OK.")
-    print("NO LOCKED GENERALIZATION FAMILY WAS RUN THROUGH THE MODEL OR SCORED.")
+    if str(status).startswith("phase5d"):
+        print("PHASE 5D PATH ACKNOWLEDGED; DISCOVERY CANDIDATE FREEZE INTACT.")
+    else:
+        print("NO LOCKED GENERALIZATION FAMILY WAS RUN THROUGH THE MODEL OR SCORED.")
     print("NO PHASE 5 PROMPTS OR BEHAVIOR RULES WERE CHANGED.")
     print("NO POST-RESULT HYPERPARAMETER TUNING WAS PERFORMED.")
     print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
