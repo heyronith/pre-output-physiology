@@ -1,0 +1,56 @@
+[project]
+name = "pre-output-physiology"
+version = "0.1.0"
+description = "Phase 1 research specification for pre-output physiological signatures of deception in LMs."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "heyronith" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+    "pyyaml>=6.0",
+    "pydantic>=2.7",
+    "torch>=2.3",
+    "transformers>=4.44",
+    "accelerate>=0.33",
+    "safetensors>=0.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+]
+modal = [
+    "modal>=0.64",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pre_output_physiology"]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

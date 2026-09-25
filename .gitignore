@@ -1,0 +1,67 @@
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.python-version
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# uv / lock may be committed; keep local tool noise out
+.uv/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Model weights and large binaries (never commit)
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+models/
+checkpoints/
+weights/
+
+# Experimental artifacts (raw runs are local / object storage)
+artifacts/runs/
+artifacts/raw/
+artifacts/derived/
+!artifacts/README.md
+
+# Data payloads (metadata READMEs stay tracked)
+data/raw/
+data/processed/
+data/external/
+!data/README.md
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Modal / cloud scratch
+.modal/
+
+# Logs
+*.log
+logs/
