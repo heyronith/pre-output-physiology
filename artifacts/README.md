@@ -36,3 +36,9 @@ Phase 1 produces no experimental run artifacts.
 - `phase4c_controlled_prefix_pilot/` — controlled-prefix generation + behavior summaries.
 - Raw outputs under gitignored `artifacts/runs/phase4c_prefix_*/`.
 - Revision-1 prompts unchanged; prefix token 12107 supplied (D058/D059).
+
+## Phase 4D final behavior (committed summaries only)
+
+- `phase4d_final_behavior/` — final generation manifest, behavior summary, frozen contrast eligibility.
+- Raw final outputs under gitignored `artifacts/runs/phase4d_final_*/`.
+- Conditions C1/C2/C3/C4/C6 only; C5 HOLD (D061/D062). No activations.

@@ -43,6 +43,8 @@ def test_phase4_experiment_status() -> None:
         "phase4c_controlled_prefix_pilot_authorized",
         "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
         "phase4c_controlled_prefix_pilot_fail_hold",
+        "phase4d_final_behavior_generation_authorized",
+        "phase4d_final_behavior_complete_awaiting_audit",
     }
 
 
@@ -53,7 +55,11 @@ def test_phase4_yaml_authorizations() -> None:
         )
     )
     auth = raw["authorizations"]
-    assert auth["final_generation_authorized"] is False
+    status = raw["status"]
+    if status.startswith("phase4d_"):
+        assert auth["final_generation_authorized"] is True
+    else:
+        assert auth["final_generation_authorized"] is False
     assert auth["activation_extraction_authorized"] is False
     assert auth["causal_intervention_authorized"] is False
     assert raw["common_first_token"] == COMMON_FIRST_TOKEN
@@ -207,6 +213,8 @@ def test_decision_log_phase4() -> None:
         "D058",
         "D059",
         "D060",
+        "D061",
+        "D062",
     ):
         assert did in text
 

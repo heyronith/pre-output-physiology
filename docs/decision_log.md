@@ -402,3 +402,15 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** The semantic behavior-validity thresholds remain those frozen before the previous pilots (≥20/24 per condition; ≥18/24 C2∩C3 paired). Prefix integrity (144/144 supplied ID 12107) replaces the sampled first-token gate as an engineering check only.
 - **Date:** 2026-09-25
+
+### D061 — Uncertainty control held
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** C5 failed the frozen pilot usability gate under both free-generation and controlled-prefix testing. We do not weaken its behavioral criterion after observing pilot outputs. C5 is excluded from the confirmatory Phase-4 final run and remains an unresolved uncertainty-specificity limitation requiring a separately designed future control.
+- **Date:** 2026-09-25
+
+### D062 — Five-condition final run
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase-4 final generation proceeds with C1, C2, C3, C4, and C6 only. Primary and key-secondary contrasts remain unchanged: primary C3 vs C2; key secondary C3 vs C4.
+- **Date:** 2026-09-25

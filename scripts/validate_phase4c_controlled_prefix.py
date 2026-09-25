@@ -81,23 +81,40 @@ def main() -> int:
         )
     )
     status = exp.get("status")
+    phase4d = status.startswith("phase4d_") if isinstance(status, str) else False
     if status in {
         "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
         "phase4c_controlled_prefix_pilot_fail_hold",
+        "phase4d_final_behavior_generation_authorized",
+        "phase4d_final_behavior_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     else:
         result.fail(f"unexpected status {status}")
     auth = exp.get("authorizations", {})
-    for key in (
-        "final_generation_authorized",
-        "activation_extraction_authorized",
-        "causal_intervention_authorized",
-    ):
-        if auth.get(key) is False:
-            result.ok(f"{key}=false")
+    if phase4d:
+        if auth.get("final_generation_authorized") is True:
+            result.ok("final_generation_authorized=true (phase4d)")
         else:
-            result.fail(f"{key} must be false")
+            result.fail("final_generation_authorized must be true in phase4d")
+        for key in (
+            "activation_extraction_authorized",
+            "causal_intervention_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
+    else:
+        for key in (
+            "final_generation_authorized",
+            "activation_extraction_authorized",
+            "causal_intervention_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
     if auth.get("probe_scoring_authorized", False) is False:
         result.ok("probe_scoring_authorized=false")
     else:
@@ -256,7 +273,12 @@ def main() -> int:
     gates_pass = summary.get("gates", {}).get("all_operational_gates_pass")
     # For controlled-prefix, require prefix integrity + behavioral gates.
     # all_operational_gates_pass includes first-token which is integrity here.
-    if status == "phase4c_controlled_prefix_pilot_pass_awaiting_audit" and gates_pass:
+    if phase4d:
+        if gates_pass is False:
+            result.ok("historical 4C fail-hold preserved in artifacts")
+        else:
+            result.fail("historical 4C gates unexpectedly pass")
+    elif status == "phase4c_controlled_prefix_pilot_pass_awaiting_audit" and gates_pass:
         result.ok("status matches gate pass")
     elif status == "phase4c_controlled_prefix_pilot_fail_hold" and not gates_pass:
         result.ok("status matches gate fail")
@@ -273,7 +295,10 @@ def main() -> int:
     print("NO ADDITIONAL PROMPT-TEMPLATE REVISION WAS PERFORMED.")
     print("NO PHASE 4 ACTIVATIONS WERE COLLECTED.")
     print("NO PHASE 4 PROBE SCORES WERE COMPUTED.")
-    print("FINAL PHASE 4 SCENARIOS WERE NOT GENERATED.")
+    if phase4d:
+        print("PHASE 4D FINAL BEHAVIOR SUPERSEDES 4C STATUS IN YAML.")
+    else:
+        print("FINAL PHASE 4 SCENARIOS WERE NOT GENERATED.")
     print("NO CAUSAL ACTIVATION INTERVENTIONS WERE PERFORMED.")
     return 0
 

@@ -91,20 +91,37 @@ def main() -> int:
         "phase4c_controlled_prefix_pilot_authorized",
         "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
         "phase4c_controlled_prefix_pilot_fail_hold",
+        "phase4d_final_behavior_generation_authorized",
+        "phase4d_final_behavior_complete_awaiting_audit",
     }:
         result.ok(f"status acknowledges post-rev1 path ({status})")
     else:
         result.fail(f"unexpected status {status}")
     auth = exp.get("authorizations", {})
-    for key in (
-        "final_generation_authorized",
-        "activation_extraction_authorized",
-        "causal_intervention_authorized",
-    ):
-        if auth.get(key) is False:
-            result.ok(f"{key}=false")
+    phase4d = status.startswith("phase4d_")
+    if phase4d:
+        if auth.get("final_generation_authorized") is True:
+            result.ok("final_generation_authorized=true (phase4d)")
         else:
-            result.fail(f"{key} must be false")
+            result.fail("final_generation_authorized must be true in phase4d")
+        for key in (
+            "activation_extraction_authorized",
+            "causal_intervention_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
+    else:
+        for key in (
+            "final_generation_authorized",
+            "activation_extraction_authorized",
+            "causal_intervention_authorized",
+        ):
+            if auth.get(key) is False:
+                result.ok(f"{key}=false")
+            else:
+                result.fail(f"{key} must be false")
 
     if COMMON_FIRST_TOKEN_ID != 12107 or exp.get("common_first_token_id") != 12107:
         result.fail("common token ID must be 12107")
@@ -260,11 +277,13 @@ def main() -> int:
         result.ok("rev1 summary records gate pass (historical)")
     else:
         result.fail("rev1 gate outcome missing")
-    if status.startswith("phase4c_") or (
-        (status == "phase4b_repilot_fail_hold" and gates_pass is False)
+    if (
+        status.startswith("phase4c_")
+        or status.startswith("phase4d_")
+        or (status == "phase4b_repilot_fail_hold" and gates_pass is False)
         or (status == "phase4b_repilot_pass_awaiting_audit" and gates_pass is True)
     ):
-        result.ok("status compatible with rev1 outcome / Phase 4C continuation")
+        result.ok("status compatible with rev1 outcome / Phase 4C/4D continuation")
     else:
         result.fail(f"status/gates mismatch: status={status} gates={gates_pass}")
 

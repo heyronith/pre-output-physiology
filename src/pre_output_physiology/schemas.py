@@ -74,6 +74,8 @@ class ExperimentConfig(BaseModel):
         "phase4c_controlled_prefix_pilot_authorized",
         "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
         "phase4c_controlled_prefix_pilot_fail_hold",
+        "phase4d_final_behavior_generation_authorized",
+        "phase4d_final_behavior_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",
