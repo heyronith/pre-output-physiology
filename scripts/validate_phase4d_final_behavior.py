@@ -94,6 +94,8 @@ def main() -> int:
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     elif status == "phase4d_final_behavior_generation_authorized":
@@ -109,15 +111,17 @@ def main() -> int:
     else:
         result.fail("final_generation_authorized must be true")
     phase4e = isinstance(status, str) and status.startswith("phase4e_")
-    if phase4e:
+    phase4f = isinstance(status, str) and status.startswith("phase4f_")
+    if phase4e or phase4f:
+        tag = "phase4e" if phase4e else "phase4f"
         if auth.get("activation_extraction_authorized") is True:
-            result.ok("activation_extraction_authorized=true (phase4e)")
+            result.ok(f"activation_extraction_authorized=true ({tag})")
         else:
-            result.fail("activation_extraction_authorized must be true in phase4e")
+            result.fail(f"activation_extraction_authorized must be true in {tag}")
         if auth.get("probe_scoring_authorized") is True:
-            result.ok("probe_scoring_authorized=true (phase4e)")
+            result.ok(f"probe_scoring_authorized=true ({tag})")
         else:
-            result.fail("probe_scoring_authorized must be true in phase4e")
+            result.fail(f"probe_scoring_authorized must be true in {tag}")
         if auth.get("causal_intervention_authorized") is False:
             result.ok("causal_intervention_authorized=false")
         else:
@@ -276,7 +280,7 @@ def main() -> int:
             continue
         rel = str(path.relative_to(REPO_ROOT))
         low = rel.lower()
-        if "phase4e" in low:
+        if "phase4e" in low or "phase4f" in low:
             continue
         if any(
             tok in low

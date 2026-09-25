@@ -47,6 +47,8 @@ def test_phase4_experiment_status() -> None:
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
     }
 
 
@@ -58,7 +60,7 @@ def test_phase4_yaml_authorizations() -> None:
     )
     auth = raw["authorizations"]
     status = raw["status"]
-    if status.startswith("phase4e_"):
+    if status.startswith("phase4e_") or status.startswith("phase4f_"):
         assert auth["final_generation_authorized"] is True
         assert auth["activation_extraction_authorized"] is True
         assert auth["probe_scoring_authorized"] is True
@@ -223,6 +225,7 @@ def test_decision_log_phase4() -> None:
         "D061",
         "D062",
         "D063",
+        "D064",
     ):
         assert did in text
 

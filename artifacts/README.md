@@ -48,3 +48,9 @@ Phase 1 produces no experimental run artifacts.
 - `phase4e_specificity/` — B1 compat preflight, extraction manifest, probe scores, contrast metrics.
 - Raw activations under gitignored `artifacts/runs/phase4e_extract_*/`.
 - Frozen Phase-3 probes only; eligibility unchanged; C5 HOLD (D063).
+
+## Phase 4F natural-token diagnostic (committed summaries only)
+
+- `phase4f_natural_token_diagnostic/` — natural greedy first-token k1 vs controlled-prefix comparison.
+- Raw activations under gitignored `artifacts/runs/phase4f_natural_*/`.
+- Diagnostic only (D064); no full response regeneration.

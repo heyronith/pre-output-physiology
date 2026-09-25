@@ -420,3 +420,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Phase 4E scores the immutable Phase-3 L12 probes on Phase-4D controlled-prefix activations without retraining or recalibration. Primary endpoint is L12 / controlled-prefix k1 on frozen C3∩C2 pairs (N=148). A positive result supports cross-context specificity of the frozen RoleplayDeception probe; a null does not prove absence of deception physiology and must not trigger rescue retraining. Eligibility sets remain frozen; C5 remains HOLD; causal interventions remain unauthorized.
 - **Date:** 2026-09-25
+
+### D064 — Natural-token k1 diagnostic after controlled-prefix null
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After Phase 4E found ~chance C3-vs-C2 separation under controlled `Response` (12107), Phase 4F diagnoses whether that null was caused by replacing the model's natural greedy first token. Natural-token k1 uses truncated `prompt + [argmax next-token]` only—no full response regeneration, no prompt/eligibility/probe changes, no retraining. If C3-vs-C2 remains ~0.5, controlled-prefix choice did not explain the specificity failure. If natural-token AUROC clearly exceeds 0.5, interpret as distribution shift and check first-token identity confounding before claiming deception specificity.
+- **Date:** 2026-09-25

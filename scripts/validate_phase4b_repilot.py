@@ -95,6 +95,8 @@ def main() -> int:
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
     }:
         result.ok(f"status acknowledges post-rev1 path ({status})")
     else:
@@ -102,15 +104,16 @@ def main() -> int:
     auth = exp.get("authorizations", {})
     phase4d = status.startswith("phase4d_")
     phase4e = status.startswith("phase4e_")
-    if phase4e:
+    phase4f = status.startswith("phase4f_")
+    if phase4e or phase4f:
         if auth.get("final_generation_authorized") is True:
-            result.ok("final_generation_authorized=true (phase4e)")
+            result.ok(f"final_generation_authorized=true ({status.split('_')[0]})")
         else:
-            result.fail("final_generation_authorized must be true in phase4e")
+            result.fail("final_generation_authorized must be true in phase4e/f")
         if auth.get("activation_extraction_authorized") is True:
-            result.ok("activation_extraction_authorized=true (phase4e)")
+            result.ok(f"activation_extraction_authorized=true ({status.split('_')[0]})")
         else:
-            result.fail("activation_extraction_authorized must be true in phase4e")
+            result.fail("activation_extraction_authorized must be true in phase4e/f")
         if auth.get("causal_intervention_authorized") is False:
             result.ok("causal_intervention_authorized=false")
         else:
@@ -274,7 +277,9 @@ def main() -> int:
     score_hits = [
         p
         for p in score_hits
-        if "phase4e_" not in str(p) and "phase4e/" not in str(p).replace("\\", "/")
+        if "phase4e_" not in str(p)
+        and "phase4e/" not in str(p).replace("\\", "/")
+        and "phase4f_" not in str(p)
     ]
     if score_hits:
         result.fail(f"probe-score artifacts: {score_hits[:5]}")
@@ -303,10 +308,11 @@ def main() -> int:
         status.startswith("phase4c_")
         or status.startswith("phase4d_")
         or status.startswith("phase4e_")
+        or status.startswith("phase4f_")
         or (status == "phase4b_repilot_fail_hold" and gates_pass is False)
         or (status == "phase4b_repilot_pass_awaiting_audit" and gates_pass is True)
     ):
-        result.ok("status compatible with rev1 outcome / Phase 4C/4D/4E continuation")
+        result.ok("status compatible with rev1 outcome / Phase 4C–4F continuation")
     else:
         result.fail(f"status/gates mismatch: status={status} gates={gates_pass}")
 

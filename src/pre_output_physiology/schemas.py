@@ -78,6 +78,8 @@ class ExperimentConfig(BaseModel):
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",

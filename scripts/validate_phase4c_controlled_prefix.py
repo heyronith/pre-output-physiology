@@ -83,6 +83,7 @@ def main() -> int:
     status = exp.get("status")
     phase4d = status.startswith("phase4d_") if isinstance(status, str) else False
     phase4e = status.startswith("phase4e_") if isinstance(status, str) else False
+    phase4f = status.startswith("phase4f_") if isinstance(status, str) else False
     if status in {
         "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
         "phase4c_controlled_prefix_pilot_fail_hold",
@@ -90,28 +91,31 @@ def main() -> int:
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
     }:
         result.ok(f"status {status}")
     else:
         result.fail(f"unexpected status {status}")
     auth = exp.get("authorizations", {})
-    if phase4e:
+    if phase4e or phase4f:
+        tag = "phase4e" if phase4e else "phase4f"
         if auth.get("final_generation_authorized") is True:
-            result.ok("final_generation_authorized=true (phase4e)")
+            result.ok(f"final_generation_authorized=true ({tag})")
         else:
-            result.fail("final_generation_authorized must be true in phase4e")
+            result.fail(f"final_generation_authorized must be true in {tag}")
         if auth.get("activation_extraction_authorized") is True:
-            result.ok("activation_extraction_authorized=true (phase4e)")
+            result.ok(f"activation_extraction_authorized=true ({tag})")
         else:
-            result.fail("activation_extraction_authorized must be true in phase4e")
+            result.fail(f"activation_extraction_authorized must be true in {tag}")
         if auth.get("causal_intervention_authorized") is False:
             result.ok("causal_intervention_authorized=false")
         else:
             result.fail("causal_intervention_authorized must be false")
         if auth.get("probe_scoring_authorized") is True:
-            result.ok("probe_scoring_authorized=true (phase4e)")
+            result.ok(f"probe_scoring_authorized=true ({tag})")
         else:
-            result.fail("probe_scoring_authorized must be true in phase4e")
+            result.fail(f"probe_scoring_authorized must be true in {tag}")
     elif phase4d:
         if auth.get("final_generation_authorized") is True:
             result.ok("final_generation_authorized=true (phase4d)")
@@ -277,7 +281,7 @@ def main() -> int:
 
     score_hits = list((REPO_ROOT / "artifacts").rglob("*phase4*probe*score*"))
     score_hits += list((REPO_ROOT / "artifacts").rglob("*phase4*auroc*"))
-    score_hits = [p for p in score_hits if "phase4e" not in str(p)]
+    score_hits = [p for p in score_hits if "phase4e" not in str(p) and "phase4f" not in str(p)]
     if score_hits:
         result.fail(f"probe-score artifacts present: {score_hits[:3]}")
     else:
@@ -298,7 +302,7 @@ def main() -> int:
     gates_pass = summary.get("gates", {}).get("all_operational_gates_pass")
     # For controlled-prefix, require prefix integrity + behavioral gates.
     # all_operational_gates_pass includes first-token which is integrity here.
-    if phase4d or phase4e:
+    if phase4d or phase4e or phase4f:
         if gates_pass is False:
             result.ok("historical 4C fail-hold preserved in artifacts")
         else:
@@ -320,7 +324,9 @@ def main() -> int:
     print("NO ADDITIONAL PROMPT-TEMPLATE REVISION WAS PERFORMED.")
     print("NO PHASE 4 ACTIVATIONS WERE COLLECTED.")
     print("NO PHASE 4 PROBE SCORES WERE COMPUTED.")
-    if phase4e:
+    if phase4f:
+        print("PHASE 4F NATURAL-TOKEN DIAGNOSTIC SUPERSEDES 4C STATUS IN YAML.")
+    elif phase4e:
         print("PHASE 4E SPECIFICITY SUPERSEDES 4C STATUS IN YAML.")
     elif phase4d:
         print("PHASE 4D FINAL BEHAVIOR SUPERSEDES 4C STATUS IN YAML.")

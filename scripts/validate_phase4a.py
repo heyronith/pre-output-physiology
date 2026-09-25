@@ -138,6 +138,8 @@ def main() -> int:
         "phase4d_final_behavior_complete_awaiting_audit",
         "phase4e_specificity_extraction_authorized",
         "phase4e_specificity_complete_awaiting_audit",
+        "phase4f_natural_token_diagnostic_authorized",
+        "phase4f_natural_token_diagnostic_complete_awaiting_audit",
     }:
         result.ok(f"phase4 status recognized ({status})")
     else:
@@ -145,15 +147,16 @@ def main() -> int:
     auth = exp.get("authorizations", {})
     phase4d = status.startswith("phase4d_")
     phase4e = status.startswith("phase4e_")
-    if phase4e:
+    phase4f = status.startswith("phase4f_")
+    if phase4e or phase4f:
         if auth.get("final_generation_authorized") is True:
-            result.ok("final_generation_authorized=true (phase4e)")
+            result.ok(f"final_generation_authorized=true ({status.split('_')[0]})")
         else:
-            result.fail("final_generation_authorized must be true in phase4e")
+            result.fail("final_generation_authorized must be true in phase4e/f")
         if auth.get("activation_extraction_authorized") is True:
-            result.ok("activation_extraction_authorized=true (phase4e)")
+            result.ok(f"activation_extraction_authorized=true ({status.split('_')[0]})")
         else:
-            result.fail("activation_extraction_authorized must be true in phase4e")
+            result.fail("activation_extraction_authorized must be true in phase4e/f")
         if auth.get("causal_intervention_authorized") is False:
             result.ok("causal_intervention_authorized=false")
         else:
@@ -410,19 +413,19 @@ def main() -> int:
             result.ok(f"phase4d final run dirs present ({len(final_out_runs)})")
         else:
             result.fail("phase4d status but no final run directories")
-    elif phase4e:
+    elif phase4e or phase4f:
         if final_out_runs:
-            result.ok(f"phase4e keeps final run dirs ({len(final_out_runs)})")
+            result.ok(f"phase4e/f keeps final run dirs ({len(final_out_runs)})")
         else:
-            result.fail("phase4e status but no final run directories")
+            result.fail("phase4e/f status but no final run directories")
     elif final_out_runs:
         result.fail(f"final Phase 4 run dirs present: {final_out_runs}")
     else:
         result.ok("no final Phase 4 run directories")
     act_hits = []
     for p in phase4_runs:
-        # Phase 4E may store activations under phase4e_* run dirs (gitignored).
-        if p.name.startswith("phase4e_"):
+        # Phase 4E/4F may store activations under phase4e_*/phase4f_* (gitignored).
+        if p.name.startswith(("phase4e_", "phase4f_")):
             continue
         act_hits.extend(p.rglob("*.safetensors"))
         act_hits.extend(p.rglob("*activation*"))
