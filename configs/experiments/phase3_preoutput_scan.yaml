@@ -1,0 +1,20 @@
+# Scaffold only. NOT authorized for execution in Phase 1.
+# Purpose: freeze the novel pre-output physiology scan identity for later phases.
+
+experiment_id: phase3_preoutput_physiology_scan
+phase: phase3
+status: scaffolded
+description: >
+  Study the onset of deception along generation trajectories. Compare
+  prompt-boundary propensity measures against pre-deceptive-output physiology,
+  always benchmarking internal-state prediction against surface-information baselines
+  available at the same temporal point.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+positive_control_dataset: RoleplayDeception
+measurement_regimes:
+  - prompt_boundary_physiology
+  - pre_deceptive_output_physiology
+notes: >
+  Datasets for known-truth, uncertainty, false-belief, and strategic-nondeceptive
+  controls are finalized before Phase 2/3 data collection—not generated in Phase 1.
+  H5 causal interventions are out of scope until correlational criteria and review gates pass.

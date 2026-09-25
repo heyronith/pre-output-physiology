@@ -1,0 +1,19 @@
+# Scaffold only. NOT authorized for execution in Phase 1.
+# Purpose: freeze positive-control experiment identity for later pipeline validation.
+
+experiment_id: phase2_positive_control_roleplay_deception
+phase: phase2
+status: scaffolded
+description: >
+  Validate instrumentation and measurement pipeline against RoleplayDeception,
+  where Mistral-7B-Instruct-v0.2 has published activation-probe precedent.
+  This does NOT establish spontaneous deceptive intent.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+positive_control_dataset: RoleplayDeception
+measurement_regimes:
+  - prompt_boundary_physiology
+  - pre_deceptive_output_physiology
+notes: >
+  Exact dataset revision, split seeds, and generation parameters must be pinned
+  before Phase 2 authorization. RoleplayDeception contains explicit role/incentive
+  structure and therefore has potential contextual confounds.
