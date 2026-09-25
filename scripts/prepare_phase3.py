@@ -211,6 +211,7 @@ def main() -> int:
                 scale_label_explanation=r.get("scale_label_explanation"),
                 label_explanation=r.get("label_explanation") or None,
                 tokenizer=tokenizer,
+                input_formatted=r.get("input_formatted"),
             )
             anns.append(ann)
             r["onset_status"] = ann.onset_status

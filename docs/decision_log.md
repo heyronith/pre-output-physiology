@@ -192,3 +192,10 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Candidate onsets use only response text + upstream deception label + existing judge explanation fields with exact substring evidence. No probe-driven or auto-LLM span labels. Unresolved when no defensible exact span exists.
 - **Date:** 2026-09-25
+
+### D027 — Canonical Phase 3 prompt/response token boundary
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Define Phase 3 response-token indices from the suffix of `tokenizer(input_formatted + model_outputs, add_special_tokens=False)` only after verifying (1) exact prompt-id prefix equality and (2) no token straddles the prompt/response character boundary. Matched surface baselines and onset token indices must use these canonical offsets. Standalone `tokenizer(model_outputs)` mismatches are diagnostic only and do not redefine the canonical suffix.
+- **Reason:** Prevents scientifically incorrect `k` indexing if the tokenizer re-segments across the character join under teacher-forced full-sequence extraction.
+- **Date:** 2026-09-25

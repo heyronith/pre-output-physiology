@@ -198,12 +198,6 @@ def main() -> int:
             result.fail(f"secret-like tracked file: {path}")
     result.ok("no secret-like files tracked")
 
-    forbidden_globs = [
-        "artifacts/runs/**/*phase3*",
-        "artifacts/derived/**/*phase3*",
-        "**/phase3*activations*",
-        "**/phase3*probe*results*",
-    ]
     # Explicit path checks (no accidental Phase 3B outputs)
     bad_paths = [
         REPO_ROOT / "artifacts/runs/phase3",
@@ -230,7 +224,36 @@ def main() -> int:
         else:
             result.fail("prepare_phase3 missing activations_collected=False")
 
-    _ = forbidden_globs  # documented intent for future expansion
+    # Token-boundary audit (required before Phase 3B A/B)
+    audit_path = REPO_ROOT / "artifacts/phase3a_summaries/token_boundary_audit.json"
+    if not audit_path.is_file():
+        result.fail(
+            "missing artifacts/phase3a_summaries/token_boundary_audit.json "
+            "(run scripts/audit_phase3_token_boundary.py)"
+        )
+    else:
+        audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        g = audit.get("global", {})
+        if int(g.get("prompt_prefix_fail", -1)) == 0:
+            result.ok("token boundary: zero prompt-prefix failures")
+        else:
+            result.fail(
+                f"token boundary prompt-prefix failures: {g.get('prompt_prefix_fail')}"
+            )
+        if int(g.get("boundary_straddle", -1)) == 0:
+            result.ok("token boundary: zero straddling examples")
+        else:
+            result.fail(
+                f"token boundary straddling examples: {g.get('boundary_straddle')}"
+            )
+        if g.get("n_rows") == 3500:
+            result.ok("token boundary audited all 3500 examples")
+        else:
+            result.fail(f"token boundary row count {g.get('n_rows')} != 3500")
+        if audit.get("activations_collected") is False:
+            result.ok("token boundary audit records no activations")
+        else:
+            result.fail("token boundary audit claims activations collected")
 
     print()
     print(f"{len(result.passes)} passed, {len(result.failures)} failed")

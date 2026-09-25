@@ -42,7 +42,11 @@ def build_prompt_plus_prefix_text(
     generated_token_strings: list[str],
     k: int,
 ) -> str:
-    """Exact prompt + first k generated tokens; nothing after k."""
+    """Legacy join of token strings — not the scientific Phase 3 baseline path.
+
+    Prefer :func:`visible_prompt_plus_prefix_text` which slices original text at
+    canonical response-token character offsets.
+    """
     if k < 0:
         raise ValueError("k < 0")
     if k == 0:
@@ -50,6 +54,30 @@ def build_prompt_plus_prefix_text(
     if k > len(generated_token_strings):
         raise ValueError("k exceeds available generated tokens")
     return prompt + "".join(generated_token_strings[:k])
+
+
+def visible_prompt_plus_prefix_text(
+    prompt: str,
+    model_outputs: str,
+    k: int,
+    response_offsets_in_model_outputs: list[tuple[int, int]],
+) -> str:
+    """Matched surface text for prefix length k using canonical token offsets.
+
+    k=0 → prompt only.
+    k>0 → prompt + model_outputs[:end] where end is the exclusive character
+    offset of canonical response token (k-1). Does not join SentencePiece pieces.
+    """
+    if k < 0:
+        raise ValueError("k < 0")
+    if k == 0:
+        return prompt
+    if k > len(response_offsets_in_model_outputs):
+        raise ValueError("k exceeds canonical response tokens")
+    end = response_offsets_in_model_outputs[k - 1][1]
+    if end < 0 or end > len(model_outputs):
+        raise ValueError(f"invalid response char end offset {end}")
+    return prompt + model_outputs[:end]
 
 
 def prefix_structural_features(prefix_text: str, k: int) -> dict[str, float]:
@@ -140,4 +168,7 @@ def contract_as_dict(contract: SurfaceBaselineContract | None = None) -> dict[st
         "select_C_on": c.select_C_on,
         "negative_controls": list(c.negative_controls),
         "primary_surface_baseline": "prompt_plus_prefix",
+        "prompt_plus_prefix_alignment": (
+            "canonical_full_sequence_response_token_offsets"
+        ),
     }

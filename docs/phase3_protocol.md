@@ -82,12 +82,18 @@ No seed shopping. Zero prompt-hash overlap across train/val/locked-test.
 
 `k` = number of assistant/generated tokens already visible.
 
+Phase 3 response-token indices are defined from the suffix of the canonical tokenization of `input_formatted + model_outputs`, after verifying that the standalone prompt tokenization is an exact prefix and that no token crosses the prompt/response character boundary.
+
 | k | Visible content | Activation locus |
 | --- | --- | --- |
 | 0 | none | final prompt token |
-| >0 | generated tokens `0..k-1` | hidden state at generated index `k-1` |
+| >0 | generated tokens `0..k-1` (canonical suffix) | hidden state at generated index `k-1` |
 
 Future tokens after `k` must never inform the representation used at that point.
+
+The matched surface baseline for each `k` uses the **same** canonical response-token positions: for `k>0`, visible text is `prompt + model_outputs[:end]` where `end` is the exclusive character offset of canonical response token `k-1` (not a join of SentencePiece pieces).
+
+Primary gate (required before Phase 3B Regimes A/B): exact prompt-id prefix + zero boundary-straddling tokens across all examples. See `artifacts/phase3a_summaries/token_boundary_audit.json`.
 
 ---
 

@@ -12,6 +12,7 @@ from pre_output_physiology.baselines import (
     build_prompt_plus_prefix_text,
     contract_as_dict,
     make_text_baseline_pipeline,
+    visible_prompt_plus_prefix_text,
 )
 from pre_output_physiology.config import EXPERIMENTS_DIR, load_experiment_config
 from pre_output_physiology.metrics import (
@@ -62,10 +63,17 @@ def test_surface_baseline_contract() -> None:
     assert d["primary_surface_baseline"] == "prompt_plus_prefix"
     assert d["select_C_on"] == "phase3_validation_only"
     assert d["C_grid"] == [0.1, 1.0, 10.0]
+    assert d["prompt_plus_prefix_alignment"] == (
+        "canonical_full_sequence_response_token_offsets"
+    )
     pipe = make_text_baseline_pipeline(C=1.0)
     assert "features" in pipe.named_steps
     assert build_prompt_plus_prefix_text("P", ["a", "b", "c"], 2) == "Pab"
     assert build_prompt_plus_prefix_text("P", ["a", "b"], 0) == "P"
+    offsets = [(0, 1), (1, 2)]
+    assert visible_prompt_plus_prefix_text("P", "xyz", 0, offsets) == "P"
+    assert visible_prompt_plus_prefix_text("P", "xyz", 1, offsets) == "Px"
+    assert visible_prompt_plus_prefix_text("P", "xyz", 2, offsets) == "Pxy"
 
 
 def test_group_bootstrap_helpers_run() -> None:
@@ -104,5 +112,13 @@ def test_decision_log_contains_phase3a_decisions() -> None:
         "D024",
         "D025",
         "D026",
+        "D027",
     ):
         assert did in text, did
+
+
+def test_protocol_states_canonical_token_boundary() -> None:
+    protocol = (REPO_ROOT / "docs/phase3_protocol.md").read_text(encoding="utf-8")
+    assert "canonical tokenization" in protocol.lower() or "canonical" in protocol
+    assert "input_formatted + model_outputs" in protocol
+    assert "character boundary" in protocol.lower() or "prompt/response" in protocol

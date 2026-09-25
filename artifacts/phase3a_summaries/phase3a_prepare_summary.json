@@ -111,5 +111,12 @@
       "n_prompt_groups": 62,
       "n_rows": 639
     }
+  },
+  "token_boundary_audit": {
+    "boundary_straddle": 0,
+    "path": "artifacts/phase3a_summaries/token_boundary_audit.json",
+    "prompt_prefix_fail": 0,
+    "standalone_vs_suffix_mismatch": 1,
+    "verdict": "TOKEN BOUNDARY PASS \u2014 PHASE 3B A/B ELIGIBLE"
   }
 }

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
+from typing import Any
 
 import numpy as np
 
@@ -21,6 +22,10 @@ class TemporalPoint:
     For k > 0: activation at generated-token index (k - 1), i.e. the state
     used immediately before predicting the next token. Tokens at indices
     >= k must not inform this representation.
+
+    Response-token indices are defined from the suffix of the canonical
+    tokenization of ``input_formatted + model_outputs`` (see
+    :func:`analyze_prompt_response_boundary`).
     """
 
     k: int
@@ -45,6 +50,146 @@ class TemporalPoint:
     @property
     def visible_generated_token_count(self) -> int:
         return self.k
+
+    @property
+    def activation_full_sequence_index(self) -> int | None:
+        """Index into full (prompt+response) sequence; None until boundary known."""
+        return None
+
+
+@dataclass(frozen=True)
+class PromptResponseTokenization:
+    """Canonical Phase 3 prompt/response token alignment for one example."""
+
+    prompt_ids: list[int]
+    full_ids: list[int]
+    response_suffix_ids: list[int]
+    response_start_token_index: int
+    full_offsets: list[tuple[int, int]]
+    response_offsets_in_model_outputs: list[tuple[int, int]]
+    prompt_prefix_exact: bool
+    boundary_token_straddle: bool
+    straddling_token_index: int | None
+    standalone_response_ids: list[int]
+    standalone_equals_suffix: bool
+    boundary_char: int
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    def full_sequence_index_for_k(self, k: int) -> int:
+        """Full-sequence token index of the activation at visible prefix length k."""
+        if k < 0:
+            raise ValueError(f"k must be >= 0, got {k}")
+        if k == 0:
+            if not self.prompt_ids:
+                raise ValueError("empty prompt_ids")
+            return len(self.prompt_ids) - 1
+        if k > len(self.response_suffix_ids):
+            raise ValueError(
+                f"k={k} exceeds response length {len(self.response_suffix_ids)}"
+            )
+        return self.response_start_token_index + (k - 1)
+
+    def visible_response_char_end(self, k: int) -> int:
+        """Exclusive end char offset into model_outputs for the first k response tokens."""
+        if k < 0:
+            raise ValueError("k < 0")
+        if k == 0:
+            return 0
+        if k > len(self.response_offsets_in_model_outputs):
+            raise ValueError("k exceeds canonical response tokens")
+        return self.response_offsets_in_model_outputs[k - 1][1]
+
+
+def analyze_prompt_response_boundary(
+    input_formatted: str,
+    model_outputs: str,
+    tokenizer,
+) -> PromptResponseTokenization:
+    """Canonical Phase 3 tokenization of prompt + response.
+
+    Phase 3B must use this helper (or an equivalent calling the same contract)
+    rather than reimplementing token alignment independently.
+
+    Checks:
+      1. ``full_ids[:len(prompt_ids)] == prompt_ids``
+      2. No nonempty token straddles ``len(input_formatted)``
+    Canonical response tokens are the full-sequence suffix, even if standalone
+    response tokenization differs.
+    """
+    prompt = input_formatted
+    response = model_outputs
+    full_text = prompt + response
+    boundary_char = len(prompt)
+
+    prompt_ids = list(
+        tokenizer(prompt, add_special_tokens=False)["input_ids"]
+    )
+    standalone_response_ids = list(
+        tokenizer(response, add_special_tokens=False)["input_ids"]
+    )
+    encoded = tokenizer(
+        full_text,
+        add_special_tokens=False,
+        return_offsets_mapping=True,
+    )
+    full_ids = list(encoded["input_ids"])
+    offsets_raw = encoded.get("offset_mapping")
+    if not offsets_raw:
+        raise ValueError(
+            "Tokenizer must return offset_mapping for Phase 3 boundary audit "
+            "(use a fast tokenizer)."
+        )
+    full_offsets = [(int(s), int(e)) for s, e in offsets_raw]
+
+    n_prompt = len(prompt_ids)
+    prompt_prefix_exact = full_ids[:n_prompt] == prompt_ids
+
+    straddling_token_index: int | None = None
+    for i, (start, end) in enumerate(full_offsets):
+        if start == end:
+            continue  # empty special/padding-like span
+        if start < boundary_char < end:
+            straddling_token_index = i
+            break
+    boundary_token_straddle = straddling_token_index is not None
+
+    response_suffix_ids = full_ids[n_prompt:]
+    response_offsets: list[tuple[int, int]] = []
+    for start, end in full_offsets[n_prompt:]:
+        response_offsets.append((start - boundary_char, end - boundary_char))
+
+    return PromptResponseTokenization(
+        prompt_ids=prompt_ids,
+        full_ids=full_ids,
+        response_suffix_ids=response_suffix_ids,
+        response_start_token_index=n_prompt,
+        full_offsets=full_offsets,
+        response_offsets_in_model_outputs=response_offsets,
+        prompt_prefix_exact=prompt_prefix_exact,
+        boundary_token_straddle=boundary_token_straddle,
+        straddling_token_index=straddling_token_index,
+        standalone_response_ids=standalone_response_ids,
+        standalone_equals_suffix=standalone_response_ids == response_suffix_ids,
+        boundary_char=boundary_char,
+    )
+
+
+def char_index_to_canonical_response_token(
+    char_index: int,
+    response_offsets_in_model_outputs: list[tuple[int, int]],
+) -> int:
+    """Map a character index in model_outputs to a canonical response-token index."""
+    if not response_offsets_in_model_outputs:
+        return 0
+    char_index = max(0, char_index)
+    for i, (start, end) in enumerate(response_offsets_in_model_outputs):
+        if start <= char_index < end:
+            return i
+        if char_index < start:
+            return max(0, i - 1)
+    return len(response_offsets_in_model_outputs) - 1
 
 
 def activation_generated_index(k: int) -> int | None:

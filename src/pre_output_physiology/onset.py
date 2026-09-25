@@ -176,9 +176,29 @@ def char_index_to_generated_token_index(
     model_output: str,
     char_index: int,
     tokenizer,
+    *,
+    input_formatted: str | None = None,
 ) -> int:
-    """Map character index in model_output to assistant token index."""
+    """Map character index in model_output to assistant token index.
+
+    When ``input_formatted`` is provided, uses the canonical Phase 3
+    full-sequence response suffix offsets. Otherwise falls back to standalone
+    tokenization of ``model_output`` (legacy / unit-test path).
+    """
     char_index = max(0, min(char_index, len(model_output)))
+    if input_formatted is not None:
+        from pre_output_physiology.trajectory import (
+            analyze_prompt_response_boundary,
+            char_index_to_canonical_response_token,
+        )
+
+        tok = analyze_prompt_response_boundary(
+            input_formatted, model_output, tokenizer
+        )
+        return char_index_to_canonical_response_token(
+            char_index, tok.response_offsets_in_model_outputs
+        )
+
     encoded = tokenizer(
         model_output,
         add_special_tokens=False,
@@ -211,6 +231,7 @@ def annotate_onset(
     scale_label_explanation: str | None,
     label_explanation: str | None = None,
     tokenizer=None,
+    input_formatted: str | None = None,
 ) -> OnsetAnnotation:
     if binary_label != 1:
         return OnsetAnnotation(
@@ -253,7 +274,10 @@ def annotate_onset(
     onset_tok = None
     if onset_char is not None and tokenizer is not None:
         onset_tok = char_index_to_generated_token_index(
-            model_output, onset_char, tokenizer
+            model_output,
+            onset_char,
+            tokenizer,
+            input_formatted=input_formatted,
         )
 
     return OnsetAnnotation(
