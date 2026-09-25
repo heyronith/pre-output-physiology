@@ -1,11 +1,12 @@
-# Phase 4 deception specificity — Phase 4B pilot authorized (generation only)
+# Phase 4 deception specificity — Phase 4B pilot complete (awaiting audit)
 
 experiment_id: phase4_deception_specificity
 phase: phase4
-status: phase4a_design_frozen_awaiting_pilot
+status: phase4b_pilot_complete_awaiting_audit
 description: >
-  Phase 4B pilot generation authorized for frozen 144 pilot prompts only.
-  No activations, no probe scoring, no final-scenario generation, no causal work.
+  Phase 4B pilot generation complete for frozen 144 pilot prompts only.
+  Operational gates did not all pass; final generation remains unauthorized.
+  No activations, no probe scoring, no causal work.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -61,7 +62,8 @@ pilot_generation:
   force_first_token: false
   activations: false
   probe_scoring: false
+  run_id: phase4b_pilot_20260925T165130Z_ee4d615c
 
 notes: >
-  Pilot generation authorized for compliance checks only (D053). STOP after pilot.
-  Do not authorize final generation without a separate decision.
+  Pilot complete. Operational gates failed (first generated token ID was 12107,
+  not frozen 2963). Template revision recommended. Final generation unauthorized.

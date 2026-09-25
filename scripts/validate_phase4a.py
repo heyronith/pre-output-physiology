@@ -415,9 +415,13 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("Phase 4A validation OK.")
-    print("NO PHASE 4 MODEL RESPONSES WERE GENERATED.")
+    if status == "phase4a_design_frozen_awaiting_pilot" and auth.get(
+        "pilot_generation_authorized"
+    ) is not True:
+        print("NO PHASE 4 MODEL RESPONSES WERE GENERATED.")
     print("NO PHASE 4 ACTIVATIONS WERE COLLECTED.")
-    print("NO PHASE 4 MODAL GPU JOBS WERE RUN.")
+    print("NO PHASE 4 PROBE SCORES WERE COMPUTED.")
+    print("FINAL PHASE 4 SCENARIOS WERE NOT GENERATED.")
     print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
     return 0
 

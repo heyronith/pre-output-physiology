@@ -100,6 +100,37 @@ def _write_report(summary: dict, manifest: dict, path: Path) -> None:
             for reason, count in sorted(reasons.items(), key=lambda x: (-x[1], x[0])):
                 lines.append(f"- `{reason}`: {count}")
         lines.append("")
+    diag = summary.get("diagnostic_leading_space_response_token")
+    if diag:
+        lines.extend(
+            [
+                "## Diagnostic (not a gate): leading-space Response token",
+                "",
+                diag["note"],
+                "",
+                f"- Observed first-token ID on all "
+                f"`{diag['n_matching_12107']}` rows: `{diag['observed_first_token_id']}`",
+                f"- Frozen expected ID: `{diag['frozen_expected_first_token_id']}`",
+                f"- If expected ID were 12107: first-token OK = "
+                f"`{diag['n_first_token_ok_if_expected_12107']}/144`; "
+                f"behaviorally valid = "
+                f"`{diag['n_behaviorally_valid_if_expected_12107']}/144`",
+                "",
+                "### Proposed single template revision (D050)",
+                "",
+                "1. Re-verify `common_first_token` in true post-`[/INST]` generation "
+                "context, where the model emits the leading-space BPE form "
+                "(`12107` = `Response`), and freeze that ID if it is the one-token "
+                "form actually produced.",
+                "2. In the same revision, tighten machine-readable format instructions "
+                "(require exactly one `FINAL=` line; forbid alternate MODE spellings; "
+                "strengthen C3 reward-target compliance without adding forbidden "
+                "deception lexicon).",
+                "",
+                "Do not generate final scenarios until that revision is audited.",
+                "",
+            ]
+        )
     lines.extend(
         [
             "## Contamination / analysis guarantees",
@@ -150,6 +181,52 @@ def main() -> int:
 
     eval_rows = [evaluate_pilot_row(r) for r in rows]
     summary = summarize_pilot_behavior(eval_rows)
+
+    # Diagnostic only (not an operational gate): leading-space Response token 12107.
+    alt_id = 12107
+    alt_valid = 0
+    alt_ft = 0
+    alt_reasons: dict[str, dict[str, int]] = {cid: {} for cid in CONDITION_ORDER}
+    for r in rows:
+        from pre_output_physiology.phase4_behavior import is_behaviorally_valid as _ibv
+        from pre_output_physiology.phase4_behavior import parse_response as _pr
+
+        parsed = _pr(
+            r["output_text"],
+            first_generated_token_id=r.get("first_generated_token_id"),
+            expected_first_token_id=alt_id,
+        )
+        ok, reason = _ibv(
+            r["condition_id"],
+            {
+                "ground_truth_state": r["ground_truth_state"],
+                "alt_state": r["alt_state"],
+                "accessible_false_state": r["accessible_false_state"],
+            },
+            r["output_text"],
+            first_generated_token_id=r.get("first_generated_token_id"),
+            expected_first_token_id=alt_id,
+        )
+        alt_ft += int(parsed.first_token_ok)
+        alt_valid += int(ok)
+        if not ok:
+            bucket = alt_reasons[r["condition_id"]]
+            bucket[reason] = bucket.get(reason, 0) + 1
+    summary["diagnostic_leading_space_response_token"] = {
+        "note": (
+            "All 144 first generated token IDs were 12107, which decodes to the "
+            "leading-space BPE form of 'Response'. Frozen criterion remains 2963."
+        ),
+        "observed_first_token_id": 12107,
+        "frozen_expected_first_token_id": COMMON_FIRST_TOKEN_ID,
+        "n_matching_12107": sum(
+            1 for r in rows if r.get("first_generated_token_id") == 12107
+        ),
+        "n_first_token_ok_if_expected_12107": alt_ft,
+        "n_behaviorally_valid_if_expected_12107": alt_valid,
+        "failure_reason_counts_if_expected_12107": alt_reasons,
+    }
+
     run_manifest = json.loads(run_manifest_path.read_text(encoding="utf-8"))
 
     summary_dir = Path(args.summary_dir)
