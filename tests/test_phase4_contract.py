@@ -40,6 +40,9 @@ def test_phase4_experiment_status() -> None:
         "phase4b_pilot_complete_awaiting_audit",
         "phase4b_repilot_pass_awaiting_audit",
         "phase4b_repilot_fail_hold",
+        "phase4c_controlled_prefix_pilot_authorized",
+        "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
+        "phase4c_controlled_prefix_pilot_fail_hold",
     }
 
 
@@ -201,6 +204,9 @@ def test_decision_log_phase4() -> None:
         "D055",
         "D056",
         "D057",
+        "D058",
+        "D059",
+        "D060",
     ):
         assert did in text
 

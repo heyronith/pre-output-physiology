@@ -131,6 +131,9 @@ def main() -> int:
         "phase4b_pilot_complete_awaiting_audit",
         "phase4b_repilot_pass_awaiting_audit",
         "phase4b_repilot_fail_hold",
+        "phase4c_controlled_prefix_pilot_authorized",
+        "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
+        "phase4c_controlled_prefix_pilot_fail_hold",
     }:
         result.ok(f"phase4 status recognized ({status})")
     else:

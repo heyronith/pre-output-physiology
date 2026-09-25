@@ -27,5 +27,12 @@ Phase 1 produces no experimental run artifacts.
 
 ## Phase 4B pilot (committed summaries only)
 
-- `phase4b_pilot/` — generation manifest + deterministic behavior summary (no raw texts).
+- `phase4b_pilot/` — revision-0 generation manifest + behavior summary (no raw texts).
+- `phase4b_pilot_revision1/` — revision-1 re-pilot summaries.
 - Raw pilot outputs live under gitignored `artifacts/runs/phase4b_pilot_*/`.
+
+## Phase 4C controlled-prefix pilot (committed summaries only)
+
+- `phase4c_controlled_prefix_pilot/` — controlled-prefix generation + behavior summaries.
+- Raw outputs under gitignored `artifacts/runs/phase4c_prefix_*/`.
+- Revision-1 prompts unchanged; prefix token 12107 supplied (D058/D059).

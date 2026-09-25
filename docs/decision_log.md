@@ -384,3 +384,21 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Revision 1 is the sole post-pilot prompt revision permitted under D050. If the revised pilot fails the pre-registered usability gates (D054), Phase 4 holds for methodological redesign rather than further prompt tuning.
 - **Date:** 2026-09-25
+
+### D058 — Controlled-prefix methodology redesign
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After the single permitted prompt revision failed because free generation did not reliably emit the common prefix, Phase 4 switches to a **controlled common prefix** while keeping revision-1 prompts unchanged. This is a generation/measurement design change, not another prompt-template revision.
+- **Date:** 2026-09-25
+
+### D059 — Controlled-prefix k1 interpretation
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Future Phase-4 L12/k1 analysis will measure the state after a supplied common neutral token (`12107` / `Response`). It tests specificity of the frozen Phase-3 probe under controlled-prefix distribution shift, not natural first-token selection. Terminology: **controlled-prefix k1** (not “natural first-token k1”).
+- **Date:** 2026-09-25
+
+### D060 — Behavioral gates unchanged
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** The semantic behavior-validity thresholds remain those frozen before the previous pilots (≥20/24 per condition; ≥18/24 C2∩C3 paired). Prefix integrity (144/144 supplied ID 12107) replaces the sampled first-token gate as an engineering check only.
+- **Date:** 2026-09-25

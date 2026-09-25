@@ -38,13 +38,15 @@ def _load_jsonl(path: Path) -> list[dict]:
 def _write_report(summary: dict, manifest: dict, path: Path) -> None:
     gates = summary["gates"]
     revision = manifest.get("pilot_revision", 0)
+    kind = manifest.get("pilot_kind", "sampled")
     lines = [
-        f"# Phase 4B pilot report (revision {revision})",
+        f"# Phase 4 pilot report (rev {revision}; kind={kind})",
         "",
         f"**Run ID:** `{manifest.get('run_id')}`  ",
         f"**Git SHA (generation):** `{manifest.get('git_commit')}`  ",
         f"**Pilot revision:** `{revision}`  ",
-        "**Status:** operational compliance pilot only (D053)  ",
+        f"**Pilot kind:** `{kind}`  ",
+        "**Status:** operational compliance pilot only (D053/D058)  ",
         "",
         "## Scope",
         "",
@@ -57,27 +59,42 @@ def _write_report(summary: dict, manifest: dict, path: Path) -> None:
         "",
         f"- Model revision: `{manifest.get('model_revision')}`",
         f"- Expected first-token ID: `{manifest.get('common_first_token_id')}`",
+        f"- first_token_sampled: `{manifest.get('first_token_sampled')}`",
+        f"- controlled_prefix_token_id: `{manifest.get('controlled_prefix_token_id')}`",
         f"- do_sample: `{manifest.get('do_sample')}`",
-        f"- max_new_tokens: `{manifest.get('max_new_tokens')}`",
+        "- max_continuation_tokens: "
+        f"`{manifest.get('max_continuation_tokens', manifest.get('max_new_tokens'))}`",
         f"- GPU wall seconds: `{manifest.get('wall_seconds')}`",
         f"- Estimated cost USD: `{manifest.get('estimated_cost_usd')}`",
         "",
-        "## Operational gates (D054; unchanged)",
+        "## Gates",
         "",
-        f"- First-token ID {COMMON_FIRST_TOKEN_ID} ≥ "
-        f"{PILOT_FIRST_TOKEN_MIN_PER_CONDITION}/24 per condition",
-        f"- Behavioral validity ≥ {PILOT_BEHAVIOR_MIN_PER_CONDITION}/24 per condition",
-        f"- C2∩C3 paired valid ≥ {PILOT_C2_C3_PAIRED_MIN}/24 base scenarios",
-        "",
-        f"**All gates passed:** `{gates['all_operational_gates_pass']}`  ",
-        "**Recommend freeze revision-1 templates:** "
-        f"`{summary.get('recommend_freeze_revision1_templates')}`  ",
-        "",
-        "## Per-condition results",
-        "",
-        "| Condition | N | FT-ID | 3-line | MODE | FINAL | Valid |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
+    if kind == "controlled_prefix":
+        lines.append(
+            "- Prefix integrity: 144/144 supplied token ID 12107 (engineering check)"
+        )
+    else:
+        lines.append(
+            f"- First-token ID {COMMON_FIRST_TOKEN_ID} ≥ "
+            f"{PILOT_FIRST_TOKEN_MIN_PER_CONDITION}/24 per condition"
+        )
+    lines.extend(
+        [
+            f"- Behavioral validity ≥ {PILOT_BEHAVIOR_MIN_PER_CONDITION}/24 per condition",
+            f"- C2∩C3 paired valid ≥ {PILOT_C2_C3_PAIRED_MIN}/24 base scenarios",
+            "",
+            f"**Prefix integrity count:** `{summary.get('prefix_integrity_count', 'n/a')}`  ",
+            f"**All behavioral gates passed:** `{gates['all_operational_gates_pass']}`  ",
+            "**Recommend freeze revision-1 prompts + controlled-prefix method:** "
+            f"`{summary.get('recommend_freeze_revision1_templates')}`  ",
+            "",
+            "## Per-condition results",
+            "",
+            "| Condition | N | FT-ID | 3-line | MODE | FINAL | Valid |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        ]
+    )
     for cid in CONDITION_ORDER:
         c = summary["per_condition"][cid]
         lines.append(
@@ -134,7 +151,13 @@ def main() -> int:
         "--pilot-revision",
         type=int,
         default=1,
-        help="0 = historical pilot; 1 = single template revision re-pilot",
+        help="0 = historical; 1 = template revision re-pilot; use with --kind",
+    )
+    parser.add_argument(
+        "--kind",
+        choices=("sampled", "controlled_prefix"),
+        default="sampled",
+        help="sampled = free first-token pilots; controlled_prefix = Phase 4C",
     )
     parser.add_argument(
         "--summary-dir",
@@ -146,14 +169,19 @@ def main() -> int:
     )
     args = parser.parse_args()
     revision = int(args.pilot_revision)
+    kind = args.kind
     if args.summary_dir:
         summary_dir = Path(args.summary_dir)
+    elif kind == "controlled_prefix":
+        summary_dir = REPO_ROOT / "artifacts/phase4c_controlled_prefix_pilot"
     elif revision == 0:
         summary_dir = REPO_ROOT / "artifacts/phase4b_pilot"
     else:
         summary_dir = REPO_ROOT / "artifacts/phase4b_pilot_revision1"
     if args.report_path:
         report_path = Path(args.report_path)
+    elif kind == "controlled_prefix":
+        report_path = REPO_ROOT / "reports/phase4c_controlled_prefix_pilot.md"
     elif revision == 0:
         report_path = REPO_ROOT / "reports/phase4b_pilot.md"
     else:
@@ -177,8 +205,36 @@ def main() -> int:
     if any(r.get("probe_scored") for r in rows):
         raise SystemExit("probe_scored true in pilot outputs")
 
+    if kind == "controlled_prefix":
+        bad = [
+            r["example_id"]
+            for r in rows
+            if not (
+                r.get("controlled_prefix_supplied") is True
+                and r.get("first_token_sampled") is False
+                and r.get("controlled_prefix_token_id") == 12107
+                and r.get("first_generated_token_id") == 12107
+                and isinstance(r.get("generated_token_ids"), list)
+                and r["generated_token_ids"]
+                and r["generated_token_ids"][0] == 12107
+            )
+        ]
+        if bad:
+            raise SystemExit(
+                f"STOP: controlled-prefix integrity failed for {len(bad)} rows "
+                f"(e.g. {bad[:3]})"
+            )
+
     eval_rows = [evaluate_pilot_row(r) for r in rows]
     summary = summarize_pilot_behavior(eval_rows)
+    if kind == "controlled_prefix":
+        summary["prefix_integrity_count"] = 144
+        summary["prefix_integrity_required"] = 144
+        summary["first_token_sampled"] = False
+        summary["controlled_prefix_token_id"] = 12107
+        summary["k1_interpretation"] = "controlled-prefix k1"
+        # First-token gate is integrity (all 12107 by construction), not sampling.
+        summary["gates"]["first_token_gate_is_prefix_integrity"] = True
     run_manifest = json.loads(run_manifest_path.read_text(encoding="utf-8"))
 
     summary_dir.mkdir(parents=True, exist_ok=True)
@@ -192,11 +248,25 @@ def main() -> int:
         "n_pilot_outputs": 144,
         "n_final_outputs": 0,
         "pilot_revision": revision,
+        "pilot_kind": kind,
         "behavior_parser": "pre_output_physiology.phase4_behavior",
         "activations_collected": False,
         "probe_scores_computed": False,
         "final_scenarios_generated": False,
     }
+    if kind == "controlled_prefix":
+        commit_manifest.update(
+            {
+                "first_token_sampled": False,
+                "controlled_prefix_token_id": 12107,
+                "controlled_prefix_text": "Response",
+                "controlled_prefix_supplied": True,
+                "prompt_template_revision": 1,
+                "prompt_template_changed_after_rev1": False,
+                "prefix_integrity_count": 144,
+                "k1_interpretation": "controlled-prefix k1",
+            }
+        )
     write_json(summary_dir / "pilot_generation_manifest.json", commit_manifest)
 
     behavior_payload = {

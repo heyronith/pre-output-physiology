@@ -86,10 +86,13 @@ def main() -> int:
     )
     status = exp.get("status")
     if status in {
-        "phase4b_repilot_pass_awaiting_audit",
         "phase4b_repilot_fail_hold",
+        "phase4b_repilot_pass_awaiting_audit",
+        "phase4c_controlled_prefix_pilot_authorized",
+        "phase4c_controlled_prefix_pilot_pass_awaiting_audit",
+        "phase4c_controlled_prefix_pilot_fail_hold",
     }:
-        result.ok(f"status {status}")
+        result.ok(f"status acknowledges post-rev1 path ({status})")
     else:
         result.fail(f"unexpected status {status}")
     auth = exp.get("authorizations", {})
@@ -249,12 +252,19 @@ def main() -> int:
             result.fail(f"raw pilot outputs tracked: {path}")
     result.ok("raw outputs not git-tracked")
 
-    # Gate outcome must match status
+    # Gate outcome recorded in rev1 summary (historical). Current status may be Phase 4C.
     gates_pass = summary.get("gates", {}).get("all_operational_gates_pass")
-    if status == "phase4b_repilot_pass_awaiting_audit" and gates_pass is True:
-        result.ok("status matches gate pass")
-    elif status == "phase4b_repilot_fail_hold" and gates_pass is False:
-        result.ok("status matches gate fail")
+    if gates_pass is False:
+        result.ok("rev1 summary records gate failure (historical)")
+    elif gates_pass is True:
+        result.ok("rev1 summary records gate pass (historical)")
+    else:
+        result.fail("rev1 gate outcome missing")
+    if status.startswith("phase4c_") or (
+        (status == "phase4b_repilot_fail_hold" and gates_pass is False)
+        or (status == "phase4b_repilot_pass_awaiting_audit" and gates_pass is True)
+    ):
+        result.ok("status compatible with rev1 outcome / Phase 4C continuation")
     else:
         result.fail(f"status/gates mismatch: status={status} gates={gates_pass}")
 
