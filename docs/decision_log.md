@@ -235,3 +235,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Phase 3B1 extracts and analyzes train+validation only. Locked-test GPU extraction and predictive evaluation require a separate Phase 3B2 authorization after independent audit.
 - **Date:** 2026-09-25
+
+### D034 — Phase 3B1 full extraction blocked by preflight cosine gate
+
+- **Type:** **OUR RESEARCH DECISION** / operational hold
+- **Decision:** After Modal preflight on the pinned stack, full-vs-truncated causal min cosine was ≈0.99984 and batch-vs-single min cosine ≈0.99978 (gate 0.9999), with failures concentrated at late layer 31. Full Phase 3B1 extraction was not started. No attention-implementation switch and no threshold relaxation without a separate explicit decision.
+- **Date:** 2026-09-25

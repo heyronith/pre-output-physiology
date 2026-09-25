@@ -112,6 +112,7 @@ phase3b_gpu:
   regime_c_status: hold_insufficient_onset_resolution
 
 notes: >
-  Phase 3B1 development scan only. Do not extract or evaluate locked test.
-  Do not run Regime C. Do not perform causal interventions. Do not retune
-  the frozen layer/k grid or surface-baseline C after seeing activations.
+  Phase 3B1 development authorization. Surface baselines frozen.
+  Modal causal/batch preflight HOLD (cosine < 0.9999 at late layers).
+  Full train/val activation extraction not started. Locked test withheld.
+  Regime C unauthorized. No causal interventions.
