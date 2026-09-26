@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-09-26T20:45:38+00:00",
+  "digests": {
+    "aquarium_tank": "8892831bf1763cbc4b5e839d2b9973a196b27a5281e710c842ee4568f1e0b47e",
+    "community_garden_plot": "db1806e13014b3bb28818dea009aa4de6895feadf479ff232d55d2cb58645d27",
+    "farmers_market_stall": "ad365e565c30bdae2c77d3695e743d19953b7f8141e77cb7817b4c8cf69a03a0",
+    "laundromat_machine": "51eb0d82b224cae77b1b9f5d6087efddfc66d2736fc42fc8ea3ec58c7beefd1b",
+    "library_study_carrel": "b18c9966ba740426e0e7fc6ecce91bed26797e8eee7d63c7662e174c9f67d66f",
+    "museum_audio_stop": "02e092ae8d464e59973da8168106783eafe6856b44622a377176f187684016b5",
+    "parking_garage_level": "bd8957d61f67412ed0e89cb244e41065c39ad056cd8a8ffa9393ea7ee86cb2c7",
+    "train_platform_track": "b177028be2037a1aa52d27be41376cf40af1407bfff8cb9154a5e72f166f9d55"
+  },
+  "discovery_train": [
+    "museum_audio_stop",
+    "laundromat_machine",
+    "aquarium_tank",
+    "farmers_market_stall"
+  ],
+  "discovery_validation": [
+    "train_platform_track",
+    "library_study_carrel"
+  ],
+  "frozen_before_final_generation": true,
+  "locked_generalization": [
+    "parking_garage_level",
+    "community_garden_plot"
+  ],
+  "order": [
+    "museum_audio_stop",
+    "laundromat_machine",
+    "aquarium_tank",
+    "farmers_market_stall",
+    "train_platform_track",
+    "library_study_carrel",
+    "parking_garage_level",
+    "community_garden_plot"
+  ],
+  "salt": "phase7_family_split_v1|"
+}
