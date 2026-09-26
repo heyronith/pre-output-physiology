@@ -2,7 +2,7 @@
 
 experiment_id: phase9_policy_flip_diagnostic
 phase: phase9
-status: phase9a_policy_flip_diagnostic_authorized
+status: phase9a_policy_flip_diagnostic_complete_awaiting_audit
 description: >
   Assay diagnostic only (not a deception experiment). Phase 7 (operational-only
   framing, free generation) mostly chose the alternate state; Phase 8
@@ -52,9 +52,20 @@ analysis:
     decoder: P7_FREE alternate >= 0.75 and P7_CONSTRAINED record >= 0.75 and P7 median margin > 0
     mixed: both recorded; no single winner forced
 
+diagnostic_result:
+  run_id: phase9a_diagnostic_20260926T221413Z_e5016b21
+  design_commit: e5016b21ff2caa8feee98f7fed99c460e631aeb4
+  summary: artifacts/phase9a_diagnostic/diagnostic_summary.json
+  report: reports/phase9a_diagnostic.md
+  cell_record_alternate_other: {P7_FREE: [0, 32, 0], P7_CONSTRAINED: [0, 32, 0], P8_FREE: [32, 0, 0], P8_CONSTRAINED: [32, 0, 0]}
+  margin_mean: {P7: -21.506, P8: 23.113}
+  paired_shift_p8_minus_p7: {mean: 44.619, ci_low: 42.465, ci_high: 46.859}
+  prompt_framing_explanation_supported: true
+  decoder_explanation_supported: false
+
 authorizations:
-  diagnostic_model_calls_authorized: true
-  modal_gpu_authorized: true
+  diagnostic_model_calls_authorized: false
+  modal_gpu_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   phase5_probe_scoring_authorized: false
@@ -66,5 +77,6 @@ authorizations:
 
 notes: >
   Phase 9A (D095-D098): framing x decoder assay diagnostic on calibration-only
-  families. No activations, no probes, no Phase-5 probe scoring, no causal
+  families. Complete (D098): prompt-framing explanation supported; decoder
+  explanation not supported. No activations, no probes, no Phase-5 probe scoring, no causal
   intervention, no final dataset, no post-result tuning. STOP after Phase 9A.
