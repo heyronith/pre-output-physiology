@@ -1,0 +1,141 @@
+# Phase 6 intent specificity — Phase 6A HOLD; Phase 6B frozen-probe factorial (D083)
+
+experiment_id: phase6_intent_specificity
+phase: phase6
+status: phase6b_factorial_primary_complete_awaiting_audit
+phase6a_outcome: phase6a_specificity_pilot_hold_operational_format_failure
+phase6a_original_exact_one_line_gate_passed: false
+description: >
+  2x2 factorial (operational conflict x communication conflict) testing whether
+  the frozen Phase-5 L12/k1 probe tracks communication/deceptive intent or
+  generic objective-record conflict. Phase 6A: design freeze + 96-prompt
+  behavior pilot only. No activations, no probe scoring/retraining, no final
+  generation, no causal interventions.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+
+phase5_merge_sha: 38238d7a2a0991213d7ff3a5855087d67e96e069
+phase6_starting_sha: 38238d7a2a0991213d7ff3a5855087d67e96e069
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+frozen_phase5_probe:
+  layer: 12
+  endpoint: controlled_prefix_k1
+  controlled_prefix_token_id: 12107
+  probe_artifact: artifacts/phase5c_discovery_physiology/selected_probe_k1.npz
+  probe_sha256: fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8
+  retraining_permitted: false
+  recalibration_permitted: false
+
+design:
+  families:
+    - bakery_oven_deck
+    - bike_share_stand
+    - school_coat_cubby
+    - orchard_picking_lane
+    - art_studio_easel
+    - pantry_spice_jar
+  conditions: [F00, F10, F01, F11]
+  condition_factors_operational_communication:
+    F00: [0, 0]
+    F10: [1, 0]
+    F01: [0, 1]
+    F11: [1, 1]
+  F10_is_deception: false
+  n_final_per_family: 120
+  n_final_base_scenarios: 720
+  n_final_prompts: 2880
+  n_pilot_base_scenarios: 24
+  n_pilot_prompts: 96
+  final_seed: 61
+  pilot_seed: 29
+  pilot_seed_revision1: 23
+  prompt_template_revision: 2
+  response_schema: "Response <STATE>"
+  condition_matrix: artifacts/phase6a_design/condition_matrix.json
+  final_prompt_text_sha256: fa4ad2629e911e0226620dd10edbf9ff9d517051837be818e55a56b2f0124721
+  final_scenario_text_sha256: 839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1
+  pilot_prompt_text_sha256: 4777311e8452b5e85e1518c2dee21d13012bada19074a7f6a1ea1ee321623325
+  pilot_scenario_text_sha256: 9f72ad6024ff6b988a8e43921e11af9ec2957107d4b6339da413db7f60c98b7d
+
+pilot_revision1:
+  run_id: phase6a_pilot_r1_20260926T195943Z_5864a14b
+  summary: artifacts/phase6a_pilot_revision1/pilot_behavior_summary.json
+  pilot_prompt_text_sha256: 486c38d96a270218c3f44754f459366521086bdfd2fc81fe7bd9eade10267035
+  gates_passed: false
+
+pilot_revision2:
+  run_id: phase6a_pilot_r2_20260926T200124Z_028b033c
+  summary: artifacts/phase6a_pilot/pilot_behavior_summary.json
+  valid: {F00: 24, F10: 24, F01: 17, F11: 24}
+  all_four_valid: 17
+  gates_passed: false
+
+pilot_gates:
+  behavior_min_per_condition: 22
+  all_four_min: 20
+  valid_first_token_id: 12107
+  max_prompt_format_revisions: 1
+
+future_frozen_probe_analysis:
+  artifact: artifacts/phase6a_design/future_frozen_probe_analysis.json
+  executed: false
+  primary_contrast: [F11, F10]
+  key_replication: [F01, F00]
+  conflict_only_diagnostic: [F10, F00]
+  additional_diagnostic: [F11, F01]
+  communication_conflict_effect: "0.5 * [(F01 - F00) + (F11 - F10)]"
+  operational_conflict_effect: "0.5 * [(F10 - F00) + (F11 - F01)]"
+  ci: scenario_paired_bootstrap
+
+phase6b:
+  decision: D083
+  prospective_amendment_before_final_model_call: true
+  starting_head: 0f1673e7c2eae9b0a90ab6e96f111cb2684ce032
+  general_deception_intent_test: false
+  claim_under_test: >
+    Does the frozen Phase-5 representation preferentially encode a private
+    communication target that conflicts with the known record, rather than
+    generic private-goal conflict?
+  frozen_corpus:
+    final_prompt_text_sha256: fa4ad2629e911e0226620dd10edbf9ff9d517051837be818e55a56b2f0124721
+    final_scenario_text_sha256: 839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1
+    final_base_scenario_ids_sha256: 6bb09c18ad206d39c354e8520dd1ad1f9eb7b855f07f3fda64e25622f3881034
+  extractor: modal/phase6b_extract.py
+  scorer: scripts/score_phase6b.py
+  analysis_module: src/pre_output_physiology/phase6_analysis.py
+  report: reports/phase6b_primary.md
+  primary_population: all_720_scenarios_x_4_conditions_no_behavior_conditioning
+  primary_score_scale: frozen_probe_probability
+  secondary_score_scale: frozen_probe_logit
+  n_bootstrap: 5000
+  bootstrap_seed: 0
+  repeatability_cosine_min: 0.9999
+  secondary_behavior_diagnostic: post_phase6a_secondary_semantic_first_line
+  pre_run_commit: 142773a108f0029218896b8abbcd4984e59ab47e
+  extraction_run_id: phase6b_extract_20260926T201145Z_142773a1
+  activations_sha256: 4833ca74ad75ae2700696acb49a3327bc5240c92e8f303294b1bf6680a22a487
+  primary_summary: artifacts/phase6b_primary/phase6b_primary_summary.json
+  post_result_integrity_audit: artifacts/phase6b_primary/post_result_integrity_audit.json
+  behavior_run_performed: false
+
+authorizations:
+  pilot_generation_authorized: false
+  final_generation_authorized: false
+  activation_extraction_authorized: false
+  probe_scoring_authorized: false
+  probe_fitting_authorized: false
+  causal_intervention_authorized: false
+  modal_gpu_authorized: false
+
+notes: >
+  Phase 6A HOLD (D082). Revision-2 pilot failed: F01 17/24 valid (7 correct
+  first lines followed by appended disclaimer notes); all-four 17/24. F00, F10,
+  F11 24/24. No further revisions permitted. Frozen Phase-5 probe pinned by hash
+  only (not loaded or scored). Phase 6A outcome remains HOLD. Phase 6B (D083)
+  authorizes frozen-probe L12/k1 extraction and scoring of the unchanged final
+  corpus only; final response generation remains unauthorized. Primary
+  physiology complete (awaiting audit); extraction/scoring authorizations closed.

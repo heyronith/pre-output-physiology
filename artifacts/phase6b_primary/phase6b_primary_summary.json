@@ -1,0 +1,797 @@
+{
+  "activation_integrity": {
+    "all_finite": true,
+    "dtype": "float32",
+    "k1_prefix_token_id": 12107,
+    "layer": 12,
+    "n_duplicate_rows": 284,
+    "n_zero_rows": 0,
+    "passed": true,
+    "row_index_contiguous": true,
+    "shape": [
+      2880,
+      4096
+    ]
+  },
+  "analysis_logit_secondary": {
+    "bootstrap_seed": 0,
+    "bootstrap_unit": "base_scenario (paired across all four conditions)",
+    "condition_mean_scores": {
+      "F00": -1.0907673927392516,
+      "F01": 3.3830835366701666,
+      "F10": 6.413394076418743,
+      "F11": 5.943940858942794
+    },
+    "contrasts": {
+      "F01_minus_F00": {
+        "auroc": 0.8635937499999999,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.8794487364969136,
+        "auroc_ci_low": 0.8485313946759259,
+        "fraction_scenarios_positive_delta": 1.0,
+        "n_scenarios": 720,
+        "negative": "F00",
+        "paired_mean_delta": 4.473850929409418,
+        "paired_mean_delta_ci_high": 4.523500829271593,
+        "paired_mean_delta_ci_low": 4.42223580152424,
+        "positive": "F01",
+        "role": "key_replication"
+      },
+      "F10_minus_F00": {
+        "auroc": 0.9551466049382716,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.9636713927469136,
+        "auroc_ci_low": 0.9463364197530865,
+        "fraction_scenarios_positive_delta": 1.0,
+        "n_scenarios": 720,
+        "negative": "F00",
+        "paired_mean_delta": 7.504161469157993,
+        "paired_mean_delta_ci_high": 7.572753075155956,
+        "paired_mean_delta_ci_low": 7.432629560138874,
+        "positive": "F10",
+        "role": "operational_conflict_diagnostic"
+      },
+      "F11_minus_F01": {
+        "auroc": 0.7692013888888889,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.7842486979166666,
+        "auroc_ci_low": 0.7550071373456789,
+        "fraction_scenarios_positive_delta": 0.9972222222222222,
+        "n_scenarios": 720,
+        "negative": "F01",
+        "paired_mean_delta": 2.5608573222726263,
+        "paired_mean_delta_ci_high": 2.6101142636489425,
+        "paired_mean_delta_ci_low": 2.5140349062612497,
+        "positive": "F11",
+        "role": "additional_operational_diagnostic"
+      },
+      "F11_minus_F10": {
+        "auroc": 0.432962962962963,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.4397860725308642,
+        "auroc_ci_low": 0.4249921875,
+        "fraction_scenarios_positive_delta": 0.1736111111111111,
+        "n_scenarios": 720,
+        "negative": "F10",
+        "paired_mean_delta": -0.4694532174759489,
+        "paired_mean_delta_ci_high": -0.43154160561465194,
+        "paired_mean_delta_ci_low": -0.5079751574788196,
+        "positive": "F11",
+        "role": "primary"
+      }
+    },
+    "effect_formulas": {
+      "communication_main_effect": "0.5 * [(s01 - s00) + (s11 - s10)]",
+      "interaction": "(s11 - s10) - (s01 - s00)",
+      "operational_main_effect": "0.5 * [(s10 - s00) + (s11 - s01)]"
+    },
+    "effects": {
+      "communication_main_effect": {
+        "ci_high": 2.036286525845382,
+        "ci_low": 1.9678565328531445,
+        "mean": 2.0021988559667347,
+        "n_scenarios": 720
+      },
+      "interaction": {
+        "ci_high": -4.885254239081004,
+        "ci_low": -5.000437381751009,
+        "mean": -4.943304146885368,
+        "n_scenarios": 720
+      },
+      "operational_main_effect": {
+        "ci_high": 5.08557322613711,
+        "ci_low": 4.978588160335334,
+        "mean": 5.03250939571531,
+        "n_scenarios": 720
+      }
+    },
+    "effects_by_family": {
+      "art_studio_easel": {
+        "F01_minus_F00_delta": {
+          "ci_high": 4.662269820981117,
+          "ci_low": 4.4736705997193456,
+          "mean": 4.568421441238153,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 8.062074671920522,
+          "ci_low": 7.804266873911505,
+          "mean": 7.933241821285992,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 2.9218526887859904,
+          "ci_low": 2.716164803436446,
+          "mean": 2.8203702840219314,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.45943184686623756,
+          "ci_low": -0.6325719217769358,
+          "mean": -0.544450096025907,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 2.082297179299428,
+          "ci_low": 1.9399210630983168,
+          "mean": 2.011985672606123,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -4.998608423177805,
+          "ci_low": -5.223272702133228,
+          "mean": -5.11287153726406,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 5.478527170488691,
+          "ci_low": 5.273013818666886,
+          "mean": 5.376806052653961,
+          "n_scenarios": 120
+        }
+      },
+      "bakery_oven_deck": {
+        "F01_minus_F00_delta": {
+          "ci_high": 4.826101040080732,
+          "ci_low": 4.616483790143293,
+          "mean": 4.7173755923051885,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 7.125732434631127,
+          "ci_low": 6.887809331925412,
+          "mean": 7.003927597195522,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 1.931888123615327,
+          "ci_low": 1.780025018180795,
+          "mean": 1.8578393919014997,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.35706119029994204,
+          "ci_low": -0.5044154855983383,
+          "mean": -0.42871261298883473,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 2.21065251444128,
+          "ci_low": 2.0775725633699222,
+          "mean": 2.1443314896581764,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -5.023044305534893,
+          "ci_low": -5.275696045212462,
+          "mean": -5.1460882052940216,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 4.509680357800472,
+          "ci_low": 4.35201054418002,
+          "mean": 4.43088349454851,
+          "n_scenarios": 120
+        }
+      },
+      "bike_share_stand": {
+        "F01_minus_F00_delta": {
+          "ci_high": 4.278560981181702,
+          "ci_low": 4.017106145522542,
+          "mean": 4.148639181020587,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 6.847288367778982,
+          "ci_low": 6.5086775464078555,
+          "mean": 6.684239452740729,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 2.5701168608621816,
+          "ci_low": 2.292510894524781,
+          "mean": 2.4325430530759573,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.00430994293856966,
+          "ci_low": -0.19959541462162855,
+          "mean": -0.10305721864418561,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 2.121318437116011,
+          "ci_low": 1.9222606835499676,
+          "mean": 2.0227909811882006,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -4.137734194688433,
+          "ci_low": -4.365308697765403,
+          "mean": -4.251696399664772,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 4.695753218292585,
+          "ci_low": 4.412388675643557,
+          "mean": 4.558391252908343,
+          "n_scenarios": 120
+        }
+      },
+      "orchard_picking_lane": {
+        "F01_minus_F00_delta": {
+          "ci_high": 4.260954664487571,
+          "ci_low": 4.057398189085818,
+          "mean": 4.15945253177703,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 7.508707077624382,
+          "ci_low": 7.282617574942977,
+          "mean": 7.399237930516626,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 2.6918143912950843,
+          "ci_low": 2.5264553528824947,
+          "mean": 2.6081016462537288,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.5464923833287842,
+          "ci_low": -0.7145415162011858,
+          "mean": -0.6316837524858678,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 1.836515748771639,
+          "ci_low": 1.6903562493324902,
+          "mean": 1.7638843896455811,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -4.672648393313152,
+          "ci_low": -4.902373136595439,
+          "mean": -4.791136284262897,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 5.082214823842052,
+          "ci_low": 4.919941924993447,
+          "mean": 5.003669788385179,
+          "n_scenarios": 120
+        }
+      },
+      "pantry_spice_jar": {
+        "F01_minus_F00_delta": {
+          "ci_high": 5.129921354286835,
+          "ci_low": 4.860961433010959,
+          "mean": 4.999121500185237,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 8.585452087555225,
+          "ci_low": 8.23444748003544,
+          "mean": 8.413048396818493,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 2.8982535630497193,
+          "ci_low": 2.6521517902044414,
+          "mean": 2.777117034837342,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.553708257852405,
+          "ci_low": -0.7221041072212901,
+          "mean": -0.6368098617959135,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 2.271433590764151,
+          "ci_low": 2.090321455254375,
+          "mean": 2.1811558191946623,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -5.498762925237479,
+          "ci_low": -5.76648800904783,
+          "mean": -5.635931361981151,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 5.727228780728666,
+          "ci_low": 5.457713153308799,
+          "mean": 5.5950827158279175,
+          "n_scenarios": 120
+        }
+      },
+      "school_coat_cubby": {
+        "F01_minus_F00_delta": {
+          "ci_high": 4.356818902039085,
+          "ci_low": 4.142231808265697,
+          "mean": 4.250095329930316,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 7.741741706917922,
+          "ci_low": 7.438354160833363,
+          "mean": 7.5912736163906,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 2.9550296779465186,
+          "ci_low": 2.782615147022878,
+          "mean": 2.8691725235452994,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.3896130546776271,
+          "ci_low": -0.5554873464992037,
+          "mean": -0.47200576291498536,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 1.9601153967000269,
+          "ci_low": 1.8173053989637296,
+          "mean": 1.8890447835076651,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -4.597475047267785,
+          "ci_low": -4.844610017714127,
+          "mean": -4.7221010928453016,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 5.336070441808919,
+          "ci_low": 5.123920681745964,
+          "mean": 5.23022306996795,
+          "n_scenarios": 120
+        }
+      }
+    },
+    "n_bootstrap": 5000,
+    "n_scenarios": 720,
+    "pattern_flags": {
+      "definitions": {
+        "pattern_A_communication_dominant": "F11-F10 CI > 0 AND F01-F00 CI > 0 AND communication main-effect CI > 0 AND |operational main effect| < 0.5*|communication main effect| AND max(|F10-F00|, |F11-F01|) < 0.5*|communication main effect|",
+        "pattern_B_operational_dominant": "(F10-F00 CI > 0 OR operational main-effect CI > 0) AND |operational main effect| >= |communication main effect| AND (F11-F10 CI includes 0 OR F01-F00 CI includes 0 OR the two differ in sign)",
+        "pattern_C_interaction_mixed": "interaction CI excludes 0 AND |interaction| >= 0.5*|communication main effect|, or exactly one of F11-F10 / F01-F00 has CI entirely > 0"
+      },
+      "note": "Descriptive flags under frozen operational definitions; interpret all contrasts and effects jointly. Not a pure deception claim.",
+      "operational_to_communication_ratio": 2.513491295191771,
+      "pattern_A_communication_dominant": false,
+      "pattern_B_operational_dominant": true,
+      "pattern_C_interaction_mixed": true
+    }
+  },
+  "analysis_probability": {
+    "bootstrap_seed": 0,
+    "bootstrap_unit": "base_scenario (paired across all four conditions)",
+    "condition_mean_scores": {
+      "F00": 0.31527991520323334,
+      "F01": 0.858993062934404,
+      "F10": 0.9903325805115972,
+      "F11": 0.9823593317859617
+    },
+    "contrasts": {
+      "F01_minus_F00": {
+        "auroc": 0.8635937499999999,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.8794487364969136,
+        "auroc_ci_low": 0.8485313946759259,
+        "fraction_scenarios_positive_delta": 1.0,
+        "n_scenarios": 720,
+        "negative": "F00",
+        "paired_mean_delta": 0.5437131477311707,
+        "paired_mean_delta_ci_high": 0.5636148932035778,
+        "paired_mean_delta_ci_low": 0.5233872398383566,
+        "positive": "F01",
+        "role": "key_replication"
+      },
+      "F10_minus_F00": {
+        "auroc": 0.9551466049382716,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.9636713927469136,
+        "auroc_ci_low": 0.9463364197530865,
+        "fraction_scenarios_positive_delta": 1.0,
+        "n_scenarios": 720,
+        "negative": "F00",
+        "paired_mean_delta": 0.675052665308364,
+        "paired_mean_delta_ci_high": 0.6993712260434161,
+        "paired_mean_delta_ci_low": 0.6497865593482777,
+        "positive": "F10",
+        "role": "operational_conflict_diagnostic"
+      },
+      "F11_minus_F01": {
+        "auroc": 0.7692013888888889,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.7842486979166666,
+        "auroc_ci_low": 0.7550071373456789,
+        "fraction_scenarios_positive_delta": 0.9972222222222222,
+        "n_scenarios": 720,
+        "negative": "F01",
+        "paired_mean_delta": 0.12336626885155755,
+        "paired_mean_delta_ci_high": 0.13394680295242553,
+        "paired_mean_delta_ci_low": 0.11248311398700792,
+        "positive": "F11",
+        "role": "additional_operational_diagnostic"
+      },
+      "F11_minus_F10": {
+        "auroc": 0.432962962962963,
+        "auroc_bootstrap_unit": "scenario",
+        "auroc_ci_high": 0.4397860725308642,
+        "auroc_ci_low": 0.4249921875,
+        "fraction_scenarios_positive_delta": 0.1736111111111111,
+        "n_scenarios": 720,
+        "negative": "F10",
+        "paired_mean_delta": -0.007973248725635627,
+        "paired_mean_delta_ci_high": -0.0066306181773986604,
+        "paired_mean_delta_ci_low": -0.009369892030296695,
+        "positive": "F11",
+        "role": "primary"
+      }
+    },
+    "effect_formulas": {
+      "communication_main_effect": "0.5 * [(s01 - s00) + (s11 - s10)]",
+      "interaction": "(s11 - s10) - (s01 - s00)",
+      "operational_main_effect": "0.5 * [(s10 - s00) + (s11 - s01)]"
+    },
+    "effects": {
+      "communication_main_effect": {
+        "ci_high": 0.2777478211534258,
+        "ci_low": 0.25762774769368557,
+        "mean": 0.26786994950276755,
+        "n_scenarios": 720
+      },
+      "interaction": {
+        "ci_high": -0.5314226942918923,
+        "ci_low": -0.5714781406322671,
+        "mean": -0.5516863964568065,
+        "n_scenarios": 720
+      },
+      "operational_main_effect": {
+        "ci_high": 0.41527901771642944,
+        "ci_low": 0.3825816585392751,
+        "mean": 0.3992094670799608,
+        "n_scenarios": 720
+      }
+    },
+    "effects_by_family": {
+      "art_studio_easel": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.6994248877184435,
+          "ci_low": 0.6568181090793512,
+          "mean": 0.6786206718945021,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.9487337419223016,
+          "ci_low": 0.9330849595392638,
+          "mean": 0.941493106901263,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.2736961996839276,
+          "ci_low": 0.22933814790063053,
+          "mean": 0.2515425737972119,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.008276058965428844,
+          "ci_low": -0.014765294901316865,
+          "mean": -0.01132986120954871,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.34474624849126306,
+          "ci_low": 0.3219966932549149,
+          "mean": 0.33364540534247683,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.6691509484150054,
+          "ci_low": -0.7096799659901439,
+          "mean": -0.6899505331040511,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.6094324426420344,
+          "ci_low": 0.5828956610291602,
+          "mean": 0.5965178403492376,
+          "n_scenarios": 120
+        }
+      },
+      "bakery_oven_deck": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.7026070566871735,
+          "ci_low": 0.650294453653862,
+          "mean": 0.677461982911211,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.7394652359769824,
+          "ci_low": 0.6812583333470138,
+          "mean": 0.7116173005620517,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.038244258084975495,
+          "ci_low": 0.02655118814353071,
+          "mean": 0.03213208349055151,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.0014352422739832068,
+          "ci_low": -0.002698009317774136,
+          "mean": -0.002023234160289337,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.3501985735983416,
+          "ci_low": 0.32415727287168017,
+          "mean": 0.3377193743754608,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.6521356691208389,
+          "ci_low": -0.7046829745038474,
+          "mean": -0.6794852170715002,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.3878739508638055,
+          "ci_low": 0.35497156464375546,
+          "mean": 0.3718746920263017,
+          "n_scenarios": 120
+        }
+      },
+      "bike_share_stand": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.015790950642829784,
+          "ci_low": 0.01194585869548725,
+          "mean": 0.01382152463979348,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.016066270386473933,
+          "ci_low": 0.012148522166707103,
+          "mean": 0.014058188546909255,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.00027881780206394396,
+          "ci_low": 0.00018912393965808534,
+          "mean": 0.00023169739778113317,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -1.4732633076231663e-06,
+          "ci_low": -9.235554533517769e-06,
+          "mean": -4.9665093346390465e-06,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.007893427236862297,
+          "ci_low": 0.005968914566650028,
+          "mean": 0.0069082790652294215,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.011949853375923756,
+          "ci_low": -0.015795090671214117,
+          "mean": -0.013826491149128121,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.008167263165508793,
+          "ci_low": 0.00617709158755964,
+          "mean": 0.0071449429723451936,
+          "n_scenarios": 120
+        }
+      },
+      "orchard_picking_lane": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.6748591380861683,
+          "ci_low": 0.6171142870958181,
+          "mean": 0.6474417440946537,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.8994592294467053,
+          "ci_low": 0.870932775960653,
+          "mean": 0.8855470625256512,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.2511044486307138,
+          "ci_low": 0.1919516196574751,
+          "mean": 0.22078906284719088,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.013158117886509649,
+          "ci_low": -0.022132039154101467,
+          "mean": -0.01731625558380654,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.3304458092347792,
+          "ci_low": 0.29820079804208377,
+          "mean": 0.31506274425542363,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.6381192542722436,
+          "ci_low": -0.6892065011842009,
+          "mean": -0.6647579996784603,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.5729313267787086,
+          "ci_low": 0.5336183275844996,
+          "mean": 0.553168062686421,
+          "n_scenarios": 120
+        }
+      },
+      "pantry_spice_jar": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.7449047915012746,
+          "ci_low": 0.6909294190482846,
+          "mean": 0.718719159031376,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.9557842217253547,
+          "ci_low": 0.9434473500030052,
+          "mean": 0.9498879480610202,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.23963189926311393,
+          "ci_low": 0.19105086805120447,
+          "mean": 0.2146252859512689,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.01168750440813518,
+          "ci_low": -0.02204326844841641,
+          "mean": -0.01654350307837537,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.3661714858053243,
+          "ci_low": 0.33546083772670976,
+          "mean": 0.35108782797650034,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.7107246219244672,
+          "ci_low": -0.7581842077841727,
+          "mean": -0.7352626621097513,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.5955317665476136,
+          "ci_low": 0.5690075361119563,
+          "mean": 0.5822566170061446,
+          "n_scenarios": 120
+        }
+      },
+      "school_coat_cubby": {
+        "F01_minus_F00_delta": {
+          "ci_high": 0.5521414202760883,
+          "ci_low": 0.5004739130285794,
+          "mean": 0.5262138038154883,
+          "n_scenarios": 120
+        },
+        "F10_minus_F00_delta": {
+          "ci_high": 0.5752908923020733,
+          "ci_low": 0.5203082858535631,
+          "mean": 0.5477123852532885,
+          "n_scenarios": 120
+        },
+        "F11_minus_F01_delta": {
+          "ci_high": 0.023763351411438337,
+          "ci_low": 0.01825844155068534,
+          "mean": 0.020876909625340966,
+          "n_scenarios": 120
+        },
+        "F11_minus_F10_delta": {
+          "ci_high": -0.0004636721018315124,
+          "ci_low": -0.0008032436531194414,
+          "mean": -0.0006216718124591579,
+          "n_scenarios": 120
+        },
+        "communication_main_effect": {
+          "ci_high": 0.2757675312807879,
+          "ci_low": 0.24993434451404736,
+          "mean": 0.26279606600151456,
+          "n_scenarios": 120
+        },
+        "interaction": {
+          "ci_high": -0.5009757212827326,
+          "ci_low": -0.5527450888277438,
+          "mean": -0.5268354756279475,
+          "n_scenarios": 120
+        },
+        "operational_main_effect": {
+          "ci_high": 0.29903384327296634,
+          "ci_low": 0.26970481456160406,
+          "mean": 0.2842946474393147,
+          "n_scenarios": 120
+        }
+      }
+    },
+    "n_bootstrap": 5000,
+    "n_scenarios": 720,
+    "pattern_flags": {
+      "definitions": {
+        "pattern_A_communication_dominant": "F11-F10 CI > 0 AND F01-F00 CI > 0 AND communication main-effect CI > 0 AND |operational main effect| < 0.5*|communication main effect| AND max(|F10-F00|, |F11-F01|) < 0.5*|communication main effect|",
+        "pattern_B_operational_dominant": "(F10-F00 CI > 0 OR operational main-effect CI > 0) AND |operational main effect| >= |communication main effect| AND (F11-F10 CI includes 0 OR F01-F00 CI includes 0 OR the two differ in sign)",
+        "pattern_C_interaction_mixed": "interaction CI excludes 0 AND |interaction| >= 0.5*|communication main effect|, or exactly one of F11-F10 / F01-F00 has CI entirely > 0"
+      },
+      "note": "Descriptive flags under frozen operational definitions; interpret all contrasts and effects jointly. Not a pure deception claim.",
+      "operational_to_communication_ratio": 1.4903107564733995,
+      "pattern_A_communication_dominant": false,
+      "pattern_B_operational_dominant": true,
+      "pattern_C_interaction_mixed": true
+    }
+  },
+  "behavior_conditioned": false,
+  "causal_interventions_performed": false,
+  "exclusions": 0,
+  "extraction": {
+    "activations_sha256": "4833ca74ad75ae2700696acb49a3327bc5240c92e8f303294b1bf6680a22a487",
+    "batch_size": 1,
+    "dtype_compute": "bfloat16",
+    "dtype_storage": "float32",
+    "estimated_cost_usd": 0.06660498690605163,
+    "extraction_seconds": 109.08532238006592,
+    "extractor_sha256": "c4b3d146143dd35d6a512f6a41491728ec552315b20b253a22c72d6d00dcf44e",
+    "final_base_scenario_ids_sha256": "6bb09c18ad206d39c354e8520dd1ad1f9eb7b855f07f3fda64e25622f3881034",
+    "final_prompt_text_sha256": "fa4ad2629e911e0226620dd10edbf9ff9d517051837be818e55a56b2f0124721",
+    "final_scenario_text_sha256": "839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1",
+    "model_load_seconds": 13.877342939376831,
+    "n_rows": 2880,
+    "payload_sha256": "d10cda96fc63120d06b8b50fa78fcc85fa1645f12cc4ccf0721f87dcffc07b36",
+    "preflight_estimated_cost_usd": 0.008935272663831711,
+    "preflight_repeatability_min_cosine": 0.9999999999999282,
+    "preflight_wall_seconds": 16.495887994766235,
+    "quantization": null,
+    "run_id": "phase6b_extract_20260926T201145Z_142773a1",
+    "total_estimated_cost_usd": 0.07554025956988333,
+    "wall_seconds": 122.96305274963379
+  },
+  "generation_performed": false,
+  "layer_reselected": false,
+  "phase6a_outcome": "phase6a_specificity_pilot_hold_operational_format_failure",
+  "pre_run_commit": "142773a108f0029218896b8abbcd4984e59ab47e",
+  "primary_score_scale": "frozen_probe_probability",
+  "probe_recalibrated": false,
+  "probe_retrained": false,
+  "probe_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8",
+  "scoring_commit": "142773a108f0029218896b8abbcd4984e59ab47e",
+  "status": "phase6b_factorial_primary_complete_awaiting_audit"
+}
