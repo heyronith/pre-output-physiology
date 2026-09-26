@@ -101,6 +101,8 @@ class ExperimentConfig(BaseModel):
         "phase8a_policy_frontier_calibration_authorized",
         "phase8a_policy_frontier_frozen_awaiting_audit",
         "phase8a_policy_frontier_hold",
+        "phase9a_policy_flip_diagnostic_authorized",
+        "phase9a_policy_flip_diagnostic_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",
