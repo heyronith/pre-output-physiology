@@ -1,0 +1,87 @@
+# Phase 12 family-bias source diagnostic — Phase 12A (behavior only)
+
+experiment_id: phase12_family_bias_source
+phase: phase12
+status: phase12a_family_bias_source_diagnostic_complete_awaiting_audit
+description: >
+  Phase 11A order-stable labels were almost entirely family-determined (Cramér's V
+  0.905). Phase 12A separates family semantic shell from family state vocabulary
+  with a 2x2 prompt transformation (A FULL_FAMILY, B SEMANTIC_ONLY, C STATE_ONLY,
+  D FULL_NEUTRAL) on 24 deterministic, label-independent Phase-11 bases per
+  discovery family. Behavior-only confound diagnostic; not a deception experiment.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase11_merge_sha: 2ea8b23fa669ddbe7aa59d040785683e299d4c0d
+phase12_starting_sha: 2ea8b23fa669ddbe7aa59d040785683e299d4c0d
+phase11_status: phase11a_order_robust_behavior_hold
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  families: [bus_depot_bay, cafeteria_serving_window, gym_locker_row, library_return_cart, concert_hall_door, summer_camp_cabin]
+  locked_families: [airport_baggage_carousel, parcel_sorting_chute]
+  n_per_family: 24
+  n_bases: 144
+  selection: 'first 24/family by SHA256("phase12_family_source_v1|" + base_scenario_id); labels not read'
+  selected_base_ids_sha256: 95d8f6e6fb4a0674323969de02cec1d9bbccea7bf6a7f01fc71be8d64264c418
+  fixed_k: 10
+  payoff_and_decoder: unchanged (Phase-10 prompt; two_candidate_constrained_greedy_after_12107)
+  cells:
+    A: FULL_FAMILY (original Phase-10/11 prompt; Phase-11 RF/AF results reused, provenance verified)
+    B: SEMANTIC_ONLY (family shell + entity; state noun -> slot)
+    C: STATE_ONLY ("A private assignment record gives a state for item <ID>." / "Which listed state applies to the item?"; family state noun kept)
+    D: FULL_NEUTRAL (generic shell + item ID; slot)
+  item_ids: A..X by within-family selection rank (family-independent)
+  orders: [RF, AF]
+  n_new_evaluations: 864
+  a_prompt_text_sha256: 85e7bd01aa1d06fcd6c00bcd3e4c6f01c5c0664031dc4d3df76e462445a6fac7
+  b_prompt_text_sha256: 6c81c07e77e63b97edc8b3e56a7c30a8d81350b31ec438c98a8fcdd904d4de63
+  c_prompt_text_sha256: 1b36e6f8443404a14dd9a21cb1fa4f061d51165164ff1ab2e8036d1465250ab0
+  d_prompt_text_sha256: 0f1cacbcbab8aa866194d60026522c8addd86542bf2b48a59f65c9c0f4301aac
+  new_prompt_text_sha256: abbea8322750d0e217d66033a8f9df7c9f61d10a8901e2b01d501289e100f863
+  design_matrix: artifacts/phase12a_design/design_matrix.json
+
+analysis:
+  label_rule: Phase-11 order-robust rule (RF and AF agree -> stable label; else order_sensitive_unlabeled)
+  per_cell: stable counts by family, stable fraction, family alternate rate among stable, Cramér's V(family, stable label), family alternate-rate range
+  matched_agreement: [A_vs_B, A_vs_C, B_vs_D, C_vs_D]
+  substantial_family_dependence: Cramér's V >= 0.50 AND family alternate-rate range >= 0.50
+  replication_gate: A Cramér's V >= 0.70, else phase12a_family_bias_source_diagnostic_hold (B/C not interpreted)
+  interpretation:
+    state_vocabulary_contributor: C substantial
+    semantic_shell_contributor: B substantial
+    mixed_contributors: B and C substantial
+    interaction_or_other_family_structure: A substantial, neither B nor C
+
+diagnostic_result:
+  run_id: phase12a_diagnostic_20260926T224325Z_860e81be
+  design_commit: 860e81be19a0ffd0eb3df93bff898bf420b0618b
+  summary: artifacts/phase12a_diagnostic/diagnostic_summary.json
+  report: reports/phase12a_diagnostic.md
+  cramers_v: {A: 0.911, B: 0.843, C: 0.436, D: 0.0}
+  family_alternate_rate_range: {A: 1.0, B: 0.9, C: 0.273, D: 0.0}
+  stable_record_alternate: {A: [47, 67], B: [25, 97], C: [4, 122], D: [0, 144]}
+  replication_passed: true
+  state_vocabulary_contributor: false
+  semantic_shell_contributor: true
+  mixed_contributors: false
+  interaction_or_other_family_structure: false
+  locked_model_calls: 0
+
+authorizations:
+  diagnostic_model_calls_authorized: false
+  modal_gpu_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  causal_intervention_authorized: false
+  k_tuning_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  post_result_prompt_tuning_authorized: false
+
+notes: >
+  Phase 12A (D109-D112; D112 = result). Behavior-only confound diagnostic. STOP after Phase 12A.

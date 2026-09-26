@@ -1,0 +1,5770 @@
+{
+  "A": [
+    {
+      "af_choice": "record",
+      "af_margin": 0.125,
+      "base_scenario_id": "final_bus_depot_bay_001",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -10.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.0625,
+      "base_scenario_id": "final_bus_depot_bay_004",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.875,
+      "base_scenario_id": "final_bus_depot_bay_007",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.875,
+      "base_scenario_id": "final_bus_depot_bay_009",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.875,
+      "base_scenario_id": "final_bus_depot_bay_013",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.75,
+      "base_scenario_id": "final_bus_depot_bay_017",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.875,
+      "base_scenario_id": "final_bus_depot_bay_020",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.0,
+      "base_scenario_id": "final_bus_depot_bay_024",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_bus_depot_bay_032",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.75,
+      "base_scenario_id": "final_bus_depot_bay_038",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_bus_depot_bay_042",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.125,
+      "base_scenario_id": "final_bus_depot_bay_045",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.375,
+      "base_scenario_id": "final_bus_depot_bay_050",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.375,
+      "base_scenario_id": "final_bus_depot_bay_058",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.875,
+      "base_scenario_id": "final_bus_depot_bay_062",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.375,
+      "base_scenario_id": "final_bus_depot_bay_063",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.75,
+      "base_scenario_id": "final_bus_depot_bay_079",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.25,
+      "base_scenario_id": "final_bus_depot_bay_081",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_bus_depot_bay_091",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.3125,
+      "base_scenario_id": "final_bus_depot_bay_100",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.125,
+      "base_scenario_id": "final_bus_depot_bay_101",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.125,
+      "base_scenario_id": "final_bus_depot_bay_103",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.5,
+      "base_scenario_id": "final_bus_depot_bay_104",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.625,
+      "base_scenario_id": "final_bus_depot_bay_105",
+      "cell": "A",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.75,
+      "base_scenario_id": "final_cafeteria_serving_window_000",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.125,
+      "base_scenario_id": "final_cafeteria_serving_window_001",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.625,
+      "base_scenario_id": "final_cafeteria_serving_window_004",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.25,
+      "base_scenario_id": "final_cafeteria_serving_window_006",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.625,
+      "base_scenario_id": "final_cafeteria_serving_window_008",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.875,
+      "base_scenario_id": "final_cafeteria_serving_window_015",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.25,
+      "base_scenario_id": "final_cafeteria_serving_window_021",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.875,
+      "base_scenario_id": "final_cafeteria_serving_window_035",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.8125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.0,
+      "base_scenario_id": "final_cafeteria_serving_window_041",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.75,
+      "base_scenario_id": "final_cafeteria_serving_window_047",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_cafeteria_serving_window_052",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.375,
+      "base_scenario_id": "final_cafeteria_serving_window_057",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.75,
+      "base_scenario_id": "final_cafeteria_serving_window_058",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -7.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.0,
+      "base_scenario_id": "final_cafeteria_serving_window_059",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.0,
+      "base_scenario_id": "final_cafeteria_serving_window_068",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.125,
+      "base_scenario_id": "final_cafeteria_serving_window_072",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5,
+      "base_scenario_id": "final_cafeteria_serving_window_074",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.25,
+      "base_scenario_id": "final_cafeteria_serving_window_075",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.125,
+      "base_scenario_id": "final_cafeteria_serving_window_096",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.375,
+      "base_scenario_id": "final_cafeteria_serving_window_101",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.75,
+      "base_scenario_id": "final_cafeteria_serving_window_102",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.25,
+      "base_scenario_id": "final_cafeteria_serving_window_113",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -4.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.75,
+      "base_scenario_id": "final_cafeteria_serving_window_115",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.875,
+      "base_scenario_id": "final_cafeteria_serving_window_116",
+      "cell": "A",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -0.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.625,
+      "base_scenario_id": "final_concert_hall_door_001",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.25,
+      "base_scenario_id": "final_concert_hall_door_003",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 6.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 17.625,
+      "base_scenario_id": "final_concert_hall_door_005",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 16.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 17.0,
+      "base_scenario_id": "final_concert_hall_door_017",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.5,
+      "base_scenario_id": "final_concert_hall_door_034",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 15.3125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.25,
+      "base_scenario_id": "final_concert_hall_door_046",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.75,
+      "base_scenario_id": "final_concert_hall_door_053",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 10.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.375,
+      "base_scenario_id": "final_concert_hall_door_056",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 13.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 19.0625,
+      "base_scenario_id": "final_concert_hall_door_059",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 12.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.1875,
+      "base_scenario_id": "final_concert_hall_door_060",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 8.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.625,
+      "base_scenario_id": "final_concert_hall_door_061",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 12.5625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.875,
+      "base_scenario_id": "final_concert_hall_door_066",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 17.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.5,
+      "base_scenario_id": "final_concert_hall_door_073",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 5.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.1875,
+      "base_scenario_id": "final_concert_hall_door_077",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 14.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 11.125,
+      "base_scenario_id": "final_concert_hall_door_082",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 8.75,
+      "base_scenario_id": "final_concert_hall_door_090",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 13.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 18.3125,
+      "base_scenario_id": "final_concert_hall_door_092",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 13.8125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.9375,
+      "base_scenario_id": "final_concert_hall_door_093",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 5.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 21.3125,
+      "base_scenario_id": "final_concert_hall_door_094",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.0625,
+      "base_scenario_id": "final_concert_hall_door_097",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 10.8125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.625,
+      "base_scenario_id": "final_concert_hall_door_100",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 8.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.875,
+      "base_scenario_id": "final_concert_hall_door_107",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 3.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.1875,
+      "base_scenario_id": "final_concert_hall_door_113",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 14.0625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.4375,
+      "base_scenario_id": "final_concert_hall_door_118",
+      "cell": "A",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.4375,
+      "base_scenario_id": "final_gym_locker_row_002",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 5.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 9.8125,
+      "base_scenario_id": "final_gym_locker_row_008",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 24.0,
+      "base_scenario_id": "final_gym_locker_row_013",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 23.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 23.125,
+      "base_scenario_id": "final_gym_locker_row_035",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 18.6875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 5.25,
+      "base_scenario_id": "final_gym_locker_row_038",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.3125,
+      "base_scenario_id": "final_gym_locker_row_042",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -4.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.5625,
+      "base_scenario_id": "final_gym_locker_row_044",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -9.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 25.84375,
+      "base_scenario_id": "final_gym_locker_row_045",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 25.46875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.5625,
+      "base_scenario_id": "final_gym_locker_row_052",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 23.25,
+      "base_scenario_id": "final_gym_locker_row_055",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 20.8125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.375,
+      "base_scenario_id": "final_gym_locker_row_056",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -0.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.5625,
+      "base_scenario_id": "final_gym_locker_row_057",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.9375,
+      "base_scenario_id": "final_gym_locker_row_059",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 13.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 21.0625,
+      "base_scenario_id": "final_gym_locker_row_063",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 8.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.375,
+      "base_scenario_id": "final_gym_locker_row_068",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 0.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.6875,
+      "base_scenario_id": "final_gym_locker_row_071",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -4.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.0,
+      "base_scenario_id": "final_gym_locker_row_076",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.875,
+      "base_scenario_id": "final_gym_locker_row_077",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 14.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.375,
+      "base_scenario_id": "final_gym_locker_row_078",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 7.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.5,
+      "base_scenario_id": "final_gym_locker_row_083",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 17.6875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 21.0625,
+      "base_scenario_id": "final_gym_locker_row_087",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 10.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 19.5625,
+      "base_scenario_id": "final_gym_locker_row_088",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 8.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.6875,
+      "base_scenario_id": "final_gym_locker_row_093",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 5.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 18.0625,
+      "base_scenario_id": "final_gym_locker_row_103",
+      "cell": "A",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_library_return_cart_008",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.625,
+      "base_scenario_id": "final_library_return_cart_013",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.0625,
+      "base_scenario_id": "final_library_return_cart_016",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_library_return_cart_018",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.8125,
+      "base_scenario_id": "final_library_return_cart_024",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.4375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.125,
+      "base_scenario_id": "final_library_return_cart_027",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -7.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.875,
+      "base_scenario_id": "final_library_return_cart_029",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.625,
+      "base_scenario_id": "final_library_return_cart_030",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.0,
+      "base_scenario_id": "final_library_return_cart_041",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -11.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_library_return_cart_050",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.0625,
+      "base_scenario_id": "final_library_return_cart_058",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.375,
+      "base_scenario_id": "final_library_return_cart_059",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.875,
+      "base_scenario_id": "final_library_return_cart_067",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.125,
+      "base_scenario_id": "final_library_return_cart_068",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_library_return_cart_070",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.625,
+      "base_scenario_id": "final_library_return_cart_080",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.875,
+      "base_scenario_id": "final_library_return_cart_082",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -21.0,
+      "base_scenario_id": "final_library_return_cart_083",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.0,
+      "base_scenario_id": "final_library_return_cart_103",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.125,
+      "base_scenario_id": "final_library_return_cart_107",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.125,
+      "base_scenario_id": "final_library_return_cart_111",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_library_return_cart_112",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_library_return_cart_115",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.125,
+      "base_scenario_id": "final_library_return_cart_116",
+      "cell": "A",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.625,
+      "base_scenario_id": "final_summer_camp_cabin_002",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.625,
+      "base_scenario_id": "final_summer_camp_cabin_026",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.125,
+      "base_scenario_id": "final_summer_camp_cabin_027",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.625,
+      "base_scenario_id": "final_summer_camp_cabin_030",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.5,
+      "base_scenario_id": "final_summer_camp_cabin_032",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.25,
+      "base_scenario_id": "final_summer_camp_cabin_033",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -3.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.75,
+      "base_scenario_id": "final_summer_camp_cabin_036",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 1.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 11.9375,
+      "base_scenario_id": "final_summer_camp_cabin_045",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 19.625,
+      "base_scenario_id": "final_summer_camp_cabin_047",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 6.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.0,
+      "base_scenario_id": "final_summer_camp_cabin_051",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.875,
+      "base_scenario_id": "final_summer_camp_cabin_052",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 10.375,
+      "base_scenario_id": "final_summer_camp_cabin_053",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -4.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_summer_camp_cabin_062",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.875,
+      "base_scenario_id": "final_summer_camp_cabin_064",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_summer_camp_cabin_070",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 17.9375,
+      "base_scenario_id": "final_summer_camp_cabin_075",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 0.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.375,
+      "base_scenario_id": "final_summer_camp_cabin_078",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.625,
+      "base_scenario_id": "final_summer_camp_cabin_085",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 10.5,
+      "base_scenario_id": "final_summer_camp_cabin_097",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.75,
+      "base_scenario_id": "final_summer_camp_cabin_107",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 7.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.3125,
+      "base_scenario_id": "final_summer_camp_cabin_109",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.75,
+      "base_scenario_id": "final_summer_camp_cabin_110",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.375,
+      "base_scenario_id": "final_summer_camp_cabin_115",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 10.875,
+      "base_scenario_id": "final_summer_camp_cabin_119",
+      "cell": "A",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.75
+    }
+  ],
+  "B": [
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.5,
+      "base_scenario_id": "final_bus_depot_bay_001",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.0625,
+      "base_scenario_id": "final_bus_depot_bay_004",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.375,
+      "base_scenario_id": "final_bus_depot_bay_007",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.875,
+      "base_scenario_id": "final_bus_depot_bay_009",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_bus_depot_bay_013",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.125,
+      "base_scenario_id": "final_bus_depot_bay_017",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.875,
+      "base_scenario_id": "final_bus_depot_bay_020",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.1875,
+      "base_scenario_id": "final_bus_depot_bay_024",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.25,
+      "base_scenario_id": "final_bus_depot_bay_032",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_bus_depot_bay_038",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.3125,
+      "base_scenario_id": "final_bus_depot_bay_042",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.6875,
+      "base_scenario_id": "final_bus_depot_bay_045",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.0625,
+      "base_scenario_id": "final_bus_depot_bay_050",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.8125,
+      "base_scenario_id": "final_bus_depot_bay_058",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.625,
+      "base_scenario_id": "final_bus_depot_bay_062",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.375,
+      "base_scenario_id": "final_bus_depot_bay_063",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_bus_depot_bay_079",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.875,
+      "base_scenario_id": "final_bus_depot_bay_081",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.375,
+      "base_scenario_id": "final_bus_depot_bay_091",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.1875,
+      "base_scenario_id": "final_bus_depot_bay_100",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.875,
+      "base_scenario_id": "final_bus_depot_bay_101",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.0,
+      "base_scenario_id": "final_bus_depot_bay_103",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.25,
+      "base_scenario_id": "final_bus_depot_bay_104",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.0625,
+      "base_scenario_id": "final_bus_depot_bay_105",
+      "cell": "B",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.125,
+      "base_scenario_id": "final_cafeteria_serving_window_000",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 6.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.25,
+      "base_scenario_id": "final_cafeteria_serving_window_001",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.25,
+      "base_scenario_id": "final_cafeteria_serving_window_004",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 12.625,
+      "base_scenario_id": "final_cafeteria_serving_window_006",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.375,
+      "base_scenario_id": "final_cafeteria_serving_window_008",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_cafeteria_serving_window_015",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.0,
+      "base_scenario_id": "final_cafeteria_serving_window_021",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.5,
+      "base_scenario_id": "final_cafeteria_serving_window_035",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.875,
+      "base_scenario_id": "final_cafeteria_serving_window_041",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.375,
+      "base_scenario_id": "final_cafeteria_serving_window_047",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.875,
+      "base_scenario_id": "final_cafeteria_serving_window_052",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.0,
+      "base_scenario_id": "final_cafeteria_serving_window_057",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 17.8125,
+      "base_scenario_id": "final_cafeteria_serving_window_058",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 5.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.875,
+      "base_scenario_id": "final_cafeteria_serving_window_059",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.5,
+      "base_scenario_id": "final_cafeteria_serving_window_068",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 5.875,
+      "base_scenario_id": "final_cafeteria_serving_window_072",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.625,
+      "base_scenario_id": "final_cafeteria_serving_window_074",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.0,
+      "base_scenario_id": "final_cafeteria_serving_window_075",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -1.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 9.0,
+      "base_scenario_id": "final_cafeteria_serving_window_096",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.625,
+      "base_scenario_id": "final_cafeteria_serving_window_101",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -3.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 7.25,
+      "base_scenario_id": "final_cafeteria_serving_window_102",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 3.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.4375,
+      "base_scenario_id": "final_cafeteria_serving_window_113",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 3.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.375,
+      "base_scenario_id": "final_cafeteria_serving_window_115",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.875,
+      "base_scenario_id": "final_cafeteria_serving_window_116",
+      "cell": "B",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.75,
+      "base_scenario_id": "final_concert_hall_door_001",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -10.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.25,
+      "base_scenario_id": "final_concert_hall_door_003",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.375,
+      "base_scenario_id": "final_concert_hall_door_005",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.125,
+      "base_scenario_id": "final_concert_hall_door_017",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5,
+      "base_scenario_id": "final_concert_hall_door_034",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.5,
+      "base_scenario_id": "final_concert_hall_door_046",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.5,
+      "base_scenario_id": "final_concert_hall_door_053",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.5,
+      "base_scenario_id": "final_concert_hall_door_056",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.3125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 8.0,
+      "base_scenario_id": "final_concert_hall_door_059",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_concert_hall_door_060",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.0,
+      "base_scenario_id": "final_concert_hall_door_061",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.625,
+      "base_scenario_id": "final_concert_hall_door_066",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -13.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.125,
+      "base_scenario_id": "final_concert_hall_door_073",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.5,
+      "base_scenario_id": "final_concert_hall_door_077",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -9.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_concert_hall_door_082",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.5,
+      "base_scenario_id": "final_concert_hall_door_090",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.375,
+      "base_scenario_id": "final_concert_hall_door_092",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.125,
+      "base_scenario_id": "final_concert_hall_door_093",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.4375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.875,
+      "base_scenario_id": "final_concert_hall_door_094",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -14.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.75,
+      "base_scenario_id": "final_concert_hall_door_097",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.625,
+      "base_scenario_id": "final_concert_hall_door_100",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.125,
+      "base_scenario_id": "final_concert_hall_door_107",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.875,
+      "base_scenario_id": "final_concert_hall_door_113",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.125,
+      "base_scenario_id": "final_concert_hall_door_118",
+      "cell": "B",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 15.0,
+      "base_scenario_id": "final_gym_locker_row_002",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 4.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.375,
+      "base_scenario_id": "final_gym_locker_row_008",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -1.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 22.46875,
+      "base_scenario_id": "final_gym_locker_row_013",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 22.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 22.4375,
+      "base_scenario_id": "final_gym_locker_row_035",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 20.1875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 9.125,
+      "base_scenario_id": "final_gym_locker_row_038",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 12.125,
+      "base_scenario_id": "final_gym_locker_row_042",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -4.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 11.875,
+      "base_scenario_id": "final_gym_locker_row_044",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 24.40625,
+      "base_scenario_id": "final_gym_locker_row_045",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 23.8125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 11.625,
+      "base_scenario_id": "final_gym_locker_row_052",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 21.5625,
+      "base_scenario_id": "final_gym_locker_row_055",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 13.875,
+      "base_scenario_id": "final_gym_locker_row_056",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 0.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 19.4375,
+      "base_scenario_id": "final_gym_locker_row_057",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.3125,
+      "base_scenario_id": "final_gym_locker_row_059",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 12.6875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 18.9375,
+      "base_scenario_id": "final_gym_locker_row_063",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 6.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.25,
+      "base_scenario_id": "final_gym_locker_row_068",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -3.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 12.9375,
+      "base_scenario_id": "final_gym_locker_row_071",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 0.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.0625,
+      "base_scenario_id": "final_gym_locker_row_076",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 0.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.0625,
+      "base_scenario_id": "final_gym_locker_row_077",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 18.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.25,
+      "base_scenario_id": "final_gym_locker_row_078",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 7.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 19.8125,
+      "base_scenario_id": "final_gym_locker_row_083",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 17.9375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.125,
+      "base_scenario_id": "final_gym_locker_row_087",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 20.875,
+      "base_scenario_id": "final_gym_locker_row_088",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 9.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.0625,
+      "base_scenario_id": "final_gym_locker_row_093",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 14.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 16.0,
+      "base_scenario_id": "final_gym_locker_row_103",
+      "cell": "B",
+      "family": "gym_locker_row",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 11.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -20.0,
+      "base_scenario_id": "final_library_return_cart_008",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.75,
+      "base_scenario_id": "final_library_return_cart_013",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.75,
+      "base_scenario_id": "final_library_return_cart_016",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.875,
+      "base_scenario_id": "final_library_return_cart_018",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.5,
+      "base_scenario_id": "final_library_return_cart_024",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.75,
+      "base_scenario_id": "final_library_return_cart_027",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.0,
+      "base_scenario_id": "final_library_return_cart_029",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.8125,
+      "base_scenario_id": "final_library_return_cart_030",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.875,
+      "base_scenario_id": "final_library_return_cart_041",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_library_return_cart_050",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -19.375,
+      "base_scenario_id": "final_library_return_cart_058",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.0625,
+      "base_scenario_id": "final_library_return_cart_059",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.9375,
+      "base_scenario_id": "final_library_return_cart_067",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.3125,
+      "base_scenario_id": "final_library_return_cart_068",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -19.875,
+      "base_scenario_id": "final_library_return_cart_070",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.6875,
+      "base_scenario_id": "final_library_return_cart_080",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.25,
+      "base_scenario_id": "final_library_return_cart_082",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -19.375,
+      "base_scenario_id": "final_library_return_cart_083",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.9375,
+      "base_scenario_id": "final_library_return_cart_103",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.4375,
+      "base_scenario_id": "final_library_return_cart_107",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.125,
+      "base_scenario_id": "final_library_return_cart_111",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.875,
+      "base_scenario_id": "final_library_return_cart_112",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.5625,
+      "base_scenario_id": "final_library_return_cart_115",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.0625,
+      "base_scenario_id": "final_library_return_cart_116",
+      "cell": "B",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.125,
+      "base_scenario_id": "final_summer_camp_cabin_002",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.875,
+      "base_scenario_id": "final_summer_camp_cabin_026",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.75,
+      "base_scenario_id": "final_summer_camp_cabin_027",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.6875,
+      "base_scenario_id": "final_summer_camp_cabin_030",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.1875,
+      "base_scenario_id": "final_summer_camp_cabin_032",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.125,
+      "base_scenario_id": "final_summer_camp_cabin_033",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_summer_camp_cabin_036",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.0,
+      "base_scenario_id": "final_summer_camp_cabin_045",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.125,
+      "base_scenario_id": "final_summer_camp_cabin_047",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.375,
+      "base_scenario_id": "final_summer_camp_cabin_051",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_summer_camp_cabin_052",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.625,
+      "base_scenario_id": "final_summer_camp_cabin_053",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.875,
+      "base_scenario_id": "final_summer_camp_cabin_062",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_summer_camp_cabin_064",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.0,
+      "base_scenario_id": "final_summer_camp_cabin_070",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.4375
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.375,
+      "base_scenario_id": "final_summer_camp_cabin_075",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -12.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.75,
+      "base_scenario_id": "final_summer_camp_cabin_078",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.375,
+      "base_scenario_id": "final_summer_camp_cabin_085",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.5,
+      "base_scenario_id": "final_summer_camp_cabin_097",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.5,
+      "base_scenario_id": "final_summer_camp_cabin_107",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": 0.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_summer_camp_cabin_109",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.3125,
+      "base_scenario_id": "final_summer_camp_cabin_110",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_summer_camp_cabin_115",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.25,
+      "base_scenario_id": "final_summer_camp_cabin_119",
+      "cell": "B",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    }
+  ],
+  "C": [
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.375,
+      "base_scenario_id": "final_bus_depot_bay_001",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.5625,
+      "base_scenario_id": "final_bus_depot_bay_004",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.0625,
+      "base_scenario_id": "final_bus_depot_bay_007",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -23.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.25,
+      "base_scenario_id": "final_bus_depot_bay_009",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.125,
+      "base_scenario_id": "final_bus_depot_bay_013",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -19.8125,
+      "base_scenario_id": "final_bus_depot_bay_017",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_bus_depot_bay_020",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.875,
+      "base_scenario_id": "final_bus_depot_bay_024",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.125,
+      "base_scenario_id": "final_bus_depot_bay_032",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.25,
+      "base_scenario_id": "final_bus_depot_bay_038",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.125,
+      "base_scenario_id": "final_bus_depot_bay_042",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.125,
+      "base_scenario_id": "final_bus_depot_bay_045",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.3125,
+      "base_scenario_id": "final_bus_depot_bay_050",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.9375,
+      "base_scenario_id": "final_bus_depot_bay_058",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.125,
+      "base_scenario_id": "final_bus_depot_bay_062",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.375,
+      "base_scenario_id": "final_bus_depot_bay_063",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.375,
+      "base_scenario_id": "final_bus_depot_bay_079",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.25,
+      "base_scenario_id": "final_bus_depot_bay_081",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.0,
+      "base_scenario_id": "final_bus_depot_bay_091",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.4375,
+      "base_scenario_id": "final_bus_depot_bay_100",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.0,
+      "base_scenario_id": "final_bus_depot_bay_101",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.1875,
+      "base_scenario_id": "final_bus_depot_bay_103",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.25,
+      "base_scenario_id": "final_bus_depot_bay_104",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.75,
+      "base_scenario_id": "final_bus_depot_bay_105",
+      "cell": "C",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.1875,
+      "base_scenario_id": "final_cafeteria_serving_window_000",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.4375,
+      "base_scenario_id": "final_cafeteria_serving_window_001",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -22.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.4375,
+      "base_scenario_id": "final_cafeteria_serving_window_004",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.5,
+      "base_scenario_id": "final_cafeteria_serving_window_006",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.625,
+      "base_scenario_id": "final_cafeteria_serving_window_008",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.8125,
+      "base_scenario_id": "final_cafeteria_serving_window_015",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.625,
+      "base_scenario_id": "final_cafeteria_serving_window_021",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.1875,
+      "base_scenario_id": "final_cafeteria_serving_window_035",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.375,
+      "base_scenario_id": "final_cafeteria_serving_window_041",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.6875,
+      "base_scenario_id": "final_cafeteria_serving_window_047",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.625,
+      "base_scenario_id": "final_cafeteria_serving_window_052",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.25,
+      "base_scenario_id": "final_cafeteria_serving_window_057",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.625,
+      "base_scenario_id": "final_cafeteria_serving_window_058",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.9375,
+      "base_scenario_id": "final_cafeteria_serving_window_059",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.875,
+      "base_scenario_id": "final_cafeteria_serving_window_068",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.8125,
+      "base_scenario_id": "final_cafeteria_serving_window_072",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -20.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.625,
+      "base_scenario_id": "final_cafeteria_serving_window_074",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.625,
+      "base_scenario_id": "final_cafeteria_serving_window_075",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.8125,
+      "base_scenario_id": "final_cafeteria_serving_window_096",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -19.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.3125,
+      "base_scenario_id": "final_cafeteria_serving_window_101",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_cafeteria_serving_window_102",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.6875,
+      "base_scenario_id": "final_cafeteria_serving_window_113",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.6875,
+      "base_scenario_id": "final_cafeteria_serving_window_115",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.25,
+      "base_scenario_id": "final_cafeteria_serving_window_116",
+      "cell": "C",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.0,
+      "base_scenario_id": "final_concert_hall_door_001",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.25,
+      "base_scenario_id": "final_concert_hall_door_003",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_concert_hall_door_005",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_concert_hall_door_017",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.5,
+      "base_scenario_id": "final_concert_hall_door_034",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -1.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.5,
+      "base_scenario_id": "final_concert_hall_door_046",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -2.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_concert_hall_door_053",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_concert_hall_door_056",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.0,
+      "base_scenario_id": "final_concert_hall_door_059",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.75,
+      "base_scenario_id": "final_concert_hall_door_060",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.0,
+      "base_scenario_id": "final_concert_hall_door_061",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.625,
+      "base_scenario_id": "final_concert_hall_door_066",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -1.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_concert_hall_door_073",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.0,
+      "base_scenario_id": "final_concert_hall_door_077",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.375,
+      "base_scenario_id": "final_concert_hall_door_082",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -2.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 3.75,
+      "base_scenario_id": "final_concert_hall_door_090",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.625,
+      "base_scenario_id": "final_concert_hall_door_092",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -3.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.125,
+      "base_scenario_id": "final_concert_hall_door_093",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.75,
+      "base_scenario_id": "final_concert_hall_door_094",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -2.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.0,
+      "base_scenario_id": "final_concert_hall_door_097",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.375,
+      "base_scenario_id": "final_concert_hall_door_100",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -3.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5,
+      "base_scenario_id": "final_concert_hall_door_107",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.125,
+      "base_scenario_id": "final_concert_hall_door_113",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -0.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.25,
+      "base_scenario_id": "final_concert_hall_door_118",
+      "cell": "C",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -3.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.5625,
+      "base_scenario_id": "final_gym_locker_row_002",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.6875,
+      "base_scenario_id": "final_gym_locker_row_008",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_gym_locker_row_013",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.125,
+      "base_scenario_id": "final_gym_locker_row_035",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.6875,
+      "base_scenario_id": "final_gym_locker_row_038",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.1875,
+      "base_scenario_id": "final_gym_locker_row_042",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.25,
+      "base_scenario_id": "final_gym_locker_row_044",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.375,
+      "base_scenario_id": "final_gym_locker_row_045",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -3.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.5,
+      "base_scenario_id": "final_gym_locker_row_052",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.375,
+      "base_scenario_id": "final_gym_locker_row_055",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.6875,
+      "base_scenario_id": "final_gym_locker_row_056",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_gym_locker_row_057",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_gym_locker_row_059",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.125,
+      "base_scenario_id": "final_gym_locker_row_063",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.25,
+      "base_scenario_id": "final_gym_locker_row_068",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.625,
+      "base_scenario_id": "final_gym_locker_row_071",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.8125,
+      "base_scenario_id": "final_gym_locker_row_076",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_gym_locker_row_077",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.625,
+      "base_scenario_id": "final_gym_locker_row_078",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_gym_locker_row_083",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.25,
+      "base_scenario_id": "final_gym_locker_row_087",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.375,
+      "base_scenario_id": "final_gym_locker_row_088",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.625,
+      "base_scenario_id": "final_gym_locker_row_093",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.9375,
+      "base_scenario_id": "final_gym_locker_row_103",
+      "cell": "C",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_library_return_cart_008",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.125,
+      "base_scenario_id": "final_library_return_cart_013",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.25,
+      "base_scenario_id": "final_library_return_cart_016",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.5,
+      "base_scenario_id": "final_library_return_cart_018",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_library_return_cart_024",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.6875,
+      "base_scenario_id": "final_library_return_cart_027",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.125,
+      "base_scenario_id": "final_library_return_cart_029",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -21.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.75,
+      "base_scenario_id": "final_library_return_cart_030",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.375,
+      "base_scenario_id": "final_library_return_cart_041",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.125,
+      "base_scenario_id": "final_library_return_cart_050",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -8.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.6875,
+      "base_scenario_id": "final_library_return_cart_058",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.875,
+      "base_scenario_id": "final_library_return_cart_059",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_library_return_cart_067",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.5,
+      "base_scenario_id": "final_library_return_cart_068",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -13.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.125,
+      "base_scenario_id": "final_library_return_cart_070",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_library_return_cart_080",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.75,
+      "base_scenario_id": "final_library_return_cart_082",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.4375,
+      "base_scenario_id": "final_library_return_cart_083",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.25,
+      "base_scenario_id": "final_library_return_cart_103",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_library_return_cart_107",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.625,
+      "base_scenario_id": "final_library_return_cart_111",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.375,
+      "base_scenario_id": "final_library_return_cart_112",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_library_return_cart_115",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.0,
+      "base_scenario_id": "final_library_return_cart_116",
+      "cell": "C",
+      "family": "library_return_cart",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 5.75,
+      "base_scenario_id": "final_summer_camp_cabin_002",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 14.875,
+      "base_scenario_id": "final_summer_camp_cabin_026",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -0.625
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.375,
+      "base_scenario_id": "final_summer_camp_cabin_027",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 3.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.25,
+      "base_scenario_id": "final_summer_camp_cabin_030",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.625,
+      "base_scenario_id": "final_summer_camp_cabin_032",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -2.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 6.875,
+      "base_scenario_id": "final_summer_camp_cabin_033",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -5.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 5.25,
+      "base_scenario_id": "final_summer_camp_cabin_036",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -2.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.125,
+      "base_scenario_id": "final_summer_camp_cabin_045",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 0.125,
+      "base_scenario_id": "final_summer_camp_cabin_047",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -1.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -3.125,
+      "base_scenario_id": "final_summer_camp_cabin_051",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 21.125,
+      "base_scenario_id": "final_summer_camp_cabin_052",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -0.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.625,
+      "base_scenario_id": "final_summer_camp_cabin_053",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.5
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 8.875,
+      "base_scenario_id": "final_summer_camp_cabin_062",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 1.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 4.625,
+      "base_scenario_id": "final_summer_camp_cabin_064",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -1.0,
+      "base_scenario_id": "final_summer_camp_cabin_070",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.25
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 1.5,
+      "base_scenario_id": "final_summer_camp_cabin_075",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 7.0,
+      "base_scenario_id": "final_summer_camp_cabin_078",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -3.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.75,
+      "base_scenario_id": "final_summer_camp_cabin_085",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 2.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.125,
+      "base_scenario_id": "final_summer_camp_cabin_097",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": 0.0,
+      "base_scenario_id": "final_summer_camp_cabin_107",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "record",
+      "rf_margin": 13.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.125,
+      "base_scenario_id": "final_summer_camp_cabin_109",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -2.75
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 7.75,
+      "base_scenario_id": "final_summer_camp_cabin_110",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "order_sensitive_unlabeled",
+      "rf_choice": "alternate",
+      "rf_margin": -6.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -0.125,
+      "base_scenario_id": "final_summer_camp_cabin_115",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.125
+    },
+    {
+      "af_choice": "record",
+      "af_margin": 2.125,
+      "base_scenario_id": "final_summer_camp_cabin_119",
+      "cell": "C",
+      "family": "summer_camp_cabin",
+      "label": "record_choice",
+      "rf_choice": "record",
+      "rf_margin": 2.5
+    }
+  ],
+  "D": [
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_bus_depot_bay_001",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.25,
+      "base_scenario_id": "final_bus_depot_bay_004",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_bus_depot_bay_007",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.125,
+      "base_scenario_id": "final_bus_depot_bay_009",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_bus_depot_bay_013",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.75,
+      "base_scenario_id": "final_bus_depot_bay_017",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_bus_depot_bay_020",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.375,
+      "base_scenario_id": "final_bus_depot_bay_024",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_bus_depot_bay_032",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_bus_depot_bay_038",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.375,
+      "base_scenario_id": "final_bus_depot_bay_042",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.5,
+      "base_scenario_id": "final_bus_depot_bay_045",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.6875,
+      "base_scenario_id": "final_bus_depot_bay_050",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.0,
+      "base_scenario_id": "final_bus_depot_bay_058",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_bus_depot_bay_062",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_bus_depot_bay_063",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_bus_depot_bay_079",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_bus_depot_bay_081",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.375,
+      "base_scenario_id": "final_bus_depot_bay_091",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.25,
+      "base_scenario_id": "final_bus_depot_bay_100",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.8125,
+      "base_scenario_id": "final_bus_depot_bay_101",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.25,
+      "base_scenario_id": "final_bus_depot_bay_103",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.0,
+      "base_scenario_id": "final_bus_depot_bay_104",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_bus_depot_bay_105",
+      "cell": "D",
+      "family": "bus_depot_bay",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.9375,
+      "base_scenario_id": "final_cafeteria_serving_window_000",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_cafeteria_serving_window_001",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.875,
+      "base_scenario_id": "final_cafeteria_serving_window_004",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.4375,
+      "base_scenario_id": "final_cafeteria_serving_window_006",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.0625,
+      "base_scenario_id": "final_cafeteria_serving_window_008",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.125,
+      "base_scenario_id": "final_cafeteria_serving_window_015",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.25,
+      "base_scenario_id": "final_cafeteria_serving_window_021",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.625,
+      "base_scenario_id": "final_cafeteria_serving_window_035",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.25,
+      "base_scenario_id": "final_cafeteria_serving_window_041",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.625,
+      "base_scenario_id": "final_cafeteria_serving_window_047",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.4375,
+      "base_scenario_id": "final_cafeteria_serving_window_052",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.125,
+      "base_scenario_id": "final_cafeteria_serving_window_057",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.1875,
+      "base_scenario_id": "final_cafeteria_serving_window_058",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.875,
+      "base_scenario_id": "final_cafeteria_serving_window_059",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.8125,
+      "base_scenario_id": "final_cafeteria_serving_window_068",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.5,
+      "base_scenario_id": "final_cafeteria_serving_window_072",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.125,
+      "base_scenario_id": "final_cafeteria_serving_window_074",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.875,
+      "base_scenario_id": "final_cafeteria_serving_window_075",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.25,
+      "base_scenario_id": "final_cafeteria_serving_window_096",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.75,
+      "base_scenario_id": "final_cafeteria_serving_window_101",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -6.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.875,
+      "base_scenario_id": "final_cafeteria_serving_window_102",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.375,
+      "base_scenario_id": "final_cafeteria_serving_window_113",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_cafeteria_serving_window_115",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.25,
+      "base_scenario_id": "final_cafeteria_serving_window_116",
+      "cell": "D",
+      "family": "cafeteria_serving_window",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.375,
+      "base_scenario_id": "final_concert_hall_door_001",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_concert_hall_door_003",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.25,
+      "base_scenario_id": "final_concert_hall_door_005",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.8125,
+      "base_scenario_id": "final_concert_hall_door_017",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.625,
+      "base_scenario_id": "final_concert_hall_door_034",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.6875,
+      "base_scenario_id": "final_concert_hall_door_046",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.8125,
+      "base_scenario_id": "final_concert_hall_door_053",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.8125,
+      "base_scenario_id": "final_concert_hall_door_056",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.625,
+      "base_scenario_id": "final_concert_hall_door_059",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.375,
+      "base_scenario_id": "final_concert_hall_door_060",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.75,
+      "base_scenario_id": "final_concert_hall_door_061",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_concert_hall_door_066",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.125,
+      "base_scenario_id": "final_concert_hall_door_073",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.875,
+      "base_scenario_id": "final_concert_hall_door_077",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.375,
+      "base_scenario_id": "final_concert_hall_door_082",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.0,
+      "base_scenario_id": "final_concert_hall_door_090",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5,
+      "base_scenario_id": "final_concert_hall_door_092",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5,
+      "base_scenario_id": "final_concert_hall_door_093",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.9375,
+      "base_scenario_id": "final_concert_hall_door_094",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.375,
+      "base_scenario_id": "final_concert_hall_door_097",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.25,
+      "base_scenario_id": "final_concert_hall_door_100",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.0,
+      "base_scenario_id": "final_concert_hall_door_107",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -2.75,
+      "base_scenario_id": "final_concert_hall_door_113",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.1875,
+      "base_scenario_id": "final_concert_hall_door_118",
+      "cell": "D",
+      "family": "concert_hall_door",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.125,
+      "base_scenario_id": "final_gym_locker_row_002",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.0,
+      "base_scenario_id": "final_gym_locker_row_008",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.75,
+      "base_scenario_id": "final_gym_locker_row_013",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.75,
+      "base_scenario_id": "final_gym_locker_row_035",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.25,
+      "base_scenario_id": "final_gym_locker_row_038",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.5625,
+      "base_scenario_id": "final_gym_locker_row_042",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.9375,
+      "base_scenario_id": "final_gym_locker_row_044",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.75,
+      "base_scenario_id": "final_gym_locker_row_045",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.8125,
+      "base_scenario_id": "final_gym_locker_row_052",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.375,
+      "base_scenario_id": "final_gym_locker_row_055",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.875,
+      "base_scenario_id": "final_gym_locker_row_056",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_gym_locker_row_057",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.75,
+      "base_scenario_id": "final_gym_locker_row_059",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.0,
+      "base_scenario_id": "final_gym_locker_row_063",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_gym_locker_row_068",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.5,
+      "base_scenario_id": "final_gym_locker_row_071",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.1875,
+      "base_scenario_id": "final_gym_locker_row_076",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.4375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.25,
+      "base_scenario_id": "final_gym_locker_row_077",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -4.75,
+      "base_scenario_id": "final_gym_locker_row_078",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.5625,
+      "base_scenario_id": "final_gym_locker_row_083",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.5,
+      "base_scenario_id": "final_gym_locker_row_087",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.625,
+      "base_scenario_id": "final_gym_locker_row_088",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.0,
+      "base_scenario_id": "final_gym_locker_row_093",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.6875,
+      "base_scenario_id": "final_gym_locker_row_103",
+      "cell": "D",
+      "family": "gym_locker_row",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.4375,
+      "base_scenario_id": "final_library_return_cart_008",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.0,
+      "base_scenario_id": "final_library_return_cart_013",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.6875,
+      "base_scenario_id": "final_library_return_cart_016",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.0,
+      "base_scenario_id": "final_library_return_cart_018",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.3125,
+      "base_scenario_id": "final_library_return_cart_024",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.3125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.625,
+      "base_scenario_id": "final_library_return_cart_027",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -8.25,
+      "base_scenario_id": "final_library_return_cart_029",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.5625,
+      "base_scenario_id": "final_library_return_cart_030",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.25,
+      "base_scenario_id": "final_library_return_cart_041",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_library_return_cart_050",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.375,
+      "base_scenario_id": "final_library_return_cart_058",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.6875,
+      "base_scenario_id": "final_library_return_cart_059",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -5.25,
+      "base_scenario_id": "final_library_return_cart_067",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -4.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.5,
+      "base_scenario_id": "final_library_return_cart_068",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -20.625,
+      "base_scenario_id": "final_library_return_cart_070",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -18.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -17.8125,
+      "base_scenario_id": "final_library_return_cart_080",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.6875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_library_return_cart_082",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.0,
+      "base_scenario_id": "final_library_return_cart_083",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.5
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_library_return_cart_103",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.625,
+      "base_scenario_id": "final_library_return_cart_107",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.25,
+      "base_scenario_id": "final_library_return_cart_111",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.75,
+      "base_scenario_id": "final_library_return_cart_112",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.875,
+      "base_scenario_id": "final_library_return_cart_115",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -15.3125,
+      "base_scenario_id": "final_library_return_cart_116",
+      "cell": "D",
+      "family": "library_return_cart",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.1875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.3125,
+      "base_scenario_id": "final_summer_camp_cabin_002",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.9375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -18.0625,
+      "base_scenario_id": "final_summer_camp_cabin_026",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -7.875,
+      "base_scenario_id": "final_summer_camp_cabin_027",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.5625,
+      "base_scenario_id": "final_summer_camp_cabin_030",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.0625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.75,
+      "base_scenario_id": "final_summer_camp_cabin_032",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.9375,
+      "base_scenario_id": "final_summer_camp_cabin_033",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.5625,
+      "base_scenario_id": "final_summer_camp_cabin_036",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -9.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.625,
+      "base_scenario_id": "final_summer_camp_cabin_045",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -14.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_summer_camp_cabin_047",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.75
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.0,
+      "base_scenario_id": "final_summer_camp_cabin_051",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -13.875,
+      "base_scenario_id": "final_summer_camp_cabin_052",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.25,
+      "base_scenario_id": "final_summer_camp_cabin_053",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.5,
+      "base_scenario_id": "final_summer_camp_cabin_062",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.4375,
+      "base_scenario_id": "final_summer_camp_cabin_064",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -15.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.5,
+      "base_scenario_id": "final_summer_camp_cabin_070",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -11.125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -12.0,
+      "base_scenario_id": "final_summer_camp_cabin_075",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.8125
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -16.8125,
+      "base_scenario_id": "final_summer_camp_cabin_078",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -16.5625
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -6.875,
+      "base_scenario_id": "final_summer_camp_cabin_085",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -5.0
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.25,
+      "base_scenario_id": "final_summer_camp_cabin_097",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -13.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -11.75,
+      "base_scenario_id": "final_summer_camp_cabin_107",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -8.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -14.6875,
+      "base_scenario_id": "final_summer_camp_cabin_109",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -12.375
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -19.5625,
+      "base_scenario_id": "final_summer_camp_cabin_110",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -17.875
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -9.625,
+      "base_scenario_id": "final_summer_camp_cabin_115",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -10.25
+    },
+    {
+      "af_choice": "alternate",
+      "af_margin": -10.0,
+      "base_scenario_id": "final_summer_camp_cabin_119",
+      "cell": "D",
+      "family": "summer_camp_cabin",
+      "label": "goal_favored_alternate_choice",
+      "rf_choice": "alternate",
+      "rf_margin": -7.875
+    }
+  ]
+}

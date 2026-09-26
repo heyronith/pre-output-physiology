@@ -1,0 +1,466 @@
+{
+  "cell_D_note": "Family identity intentionally removed from model-visible text in D; family grouping in D reflects only which record/alternate numbers and item IDs the family's selected bases carry.",
+  "created_at": "2026-09-26T22:45:26+00:00",
+  "family_dependence_by_cell": {
+    "A": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 2,
+          "stable_alternate": 22,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 0.9473684210526315,
+          "n": 24,
+          "order_sensitive": 5,
+          "stable_alternate": 18,
+          "stable_record": 1
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 0.0,
+          "n": 24,
+          "order_sensitive": 1,
+          "stable_alternate": 0,
+          "stable_record": 23
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.0,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 0,
+          "stable_record": 16
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 5,
+          "stable_alternate": 19,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 0.5333333333333333,
+          "n": 24,
+          "order_sensitive": 9,
+          "stable_alternate": 8,
+          "stable_record": 7
+        }
+      },
+      "cramers_v_family_label": 0.9113448198984814,
+      "family_alternate_rate_range": 1.0,
+      "n_bases": 144,
+      "n_stable": 114,
+      "n_stable_alternate": 67,
+      "n_stable_record": 47,
+      "order_sensitive_rate": 0.20833333333333337,
+      "stable_fraction": 0.7916666666666666,
+      "substantial_family_dependence": true
+    },
+    "B": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 0.5625,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 9,
+          "stable_record": 7
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 9,
+          "stable_alternate": 15,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.1,
+          "n": 24,
+          "order_sensitive": 4,
+          "stable_alternate": 2,
+          "stable_record": 18
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 1,
+          "stable_alternate": 23,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.8434159800856974,
+      "family_alternate_rate_range": 0.9,
+      "n_bases": 144,
+      "n_stable": 122,
+      "n_stable_alternate": 97,
+      "n_stable_record": 25,
+      "order_sensitive_rate": 0.1527777777777778,
+      "stable_fraction": 0.8472222222222222,
+      "substantial_family_dependence": true
+    },
+    "C": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 0.9545454545454546,
+          "n": 24,
+          "order_sensitive": 2,
+          "stable_alternate": 21,
+          "stable_record": 1
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 3,
+          "stable_alternate": 21,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 0.7272727272727273,
+          "n": 24,
+          "order_sensitive": 13,
+          "stable_alternate": 8,
+          "stable_record": 3
+        }
+      },
+      "cramers_v_family_label": 0.43612061663073504,
+      "family_alternate_rate_range": 0.2727272727272727,
+      "n_bases": 144,
+      "n_stable": 126,
+      "n_stable_alternate": 122,
+      "n_stable_record": 4,
+      "order_sensitive_rate": 0.125,
+      "stable_fraction": 0.875,
+      "substantial_family_dependence": false
+    },
+    "D": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.0,
+      "family_alternate_rate_range": 0.0,
+      "n_bases": 144,
+      "n_stable": 144,
+      "n_stable_alternate": 144,
+      "n_stable_record": 0,
+      "order_sensitive_rate": 0.0,
+      "stable_fraction": 1.0,
+      "substantial_family_dependence": false
+    }
+  },
+  "git_commit": "860e81be19a0ffd0eb3df93bff898bf420b0618b",
+  "interpretation": {
+    "A_cramers_v": 0.9113448198984814,
+    "interaction_or_other_family_structure": false,
+    "mixed_contributors": false,
+    "replication_passed": true,
+    "semantic_shell_contributor": true,
+    "state_vocabulary_contributor": false,
+    "thresholds": {
+      "replication": "A V >= 0.7",
+      "substantial": "V >= 0.5 and range >= 0.5"
+    }
+  },
+  "locked_model_calls": 0,
+  "margins_by_cell_label_order": {
+    "A": {
+      "goal_favored_alternate_choice": {
+        "AF": {
+          "max": -0.125,
+          "mean": -7.726679104477612,
+          "median": -7.875,
+          "min": -21.0,
+          "n": 67
+        },
+        "RF": {
+          "max": -0.75,
+          "mean": -11.378731343283581,
+          "median": -11.625,
+          "min": -18.0625,
+          "n": 67
+        }
+      },
+      "order_sensitive_unlabeled": {
+        "AF": {
+          "max": 16.375,
+          "mean": 5.208333333333333,
+          "median": 4.6875,
+          "min": -10.375,
+          "n": 30
+        },
+        "RF": {
+          "max": 15.3125,
+          "mean": -4.59375,
+          "median": -5.1875,
+          "min": -11.75,
+          "n": 30
+        }
+      },
+      "record_choice": {
+        "AF": {
+          "max": 25.84375,
+          "mean": 16.17619680851064,
+          "median": 16.1875,
+          "min": 4.875,
+          "n": 47
+        },
+        "RF": {
+          "max": 25.46875,
+          "mean": 10.029920212765957,
+          "median": 9.625,
+          "min": 0.625,
+          "n": 47
+        }
+      }
+    },
+    "B": {
+      "goal_favored_alternate_choice": {
+        "AF": {
+          "max": -0.25,
+          "mean": -10.100515463917526,
+          "median": -10.0,
+          "min": -20.0,
+          "n": 97
+        },
+        "RF": {
+          "max": 0.0,
+          "mean": -13.411726804123711,
+          "median": -13.8125,
+          "min": -20.25,
+          "n": 97
+        }
+      },
+      "order_sensitive_unlabeled": {
+        "AF": {
+          "max": 12.125,
+          "mean": 3.5795454545454546,
+          "median": 2.9375,
+          "min": -3.25,
+          "n": 22
+        },
+        "RF": {
+          "max": 7.75,
+          "mean": -7.017045454545454,
+          "median": -6.8125,
+          "min": -14.625,
+          "n": 22
+        }
+      },
+      "record_choice": {
+        "AF": {
+          "max": 24.40625,
+          "mean": 16.525,
+          "median": 16.0,
+          "min": 7.25,
+          "n": 25
+        },
+        "RF": {
+          "max": 23.8125,
+          "mean": 8.92,
+          "median": 6.625,
+          "min": 0.5,
+          "n": 25
+        }
+      }
+    },
+    "C": {
+      "goal_favored_alternate_choice": {
+        "AF": {
+          "max": -0.125,
+          "mean": -11.329405737704919,
+          "median": -11.75,
+          "min": -19.8125,
+          "n": 122
+        },
+        "RF": {
+          "max": -0.25,
+          "mean": -12.94672131147541,
+          "median": -13.3125,
+          "min": -23.25,
+          "n": 122
+        }
+      },
+      "order_sensitive_unlabeled": {
+        "AF": {
+          "max": 21.125,
+          "mean": 5.1875,
+          "median": 4.6875,
+          "min": -0.75,
+          "n": 18
+        },
+        "RF": {
+          "max": 13.875,
+          "mean": -3.576388888888889,
+          "median": -3.125,
+          "min": -13.75,
+          "n": 18
+        }
+      },
+      "record_choice": {
+        "AF": {
+          "max": 8.875,
+          "mean": 3.78125,
+          "median": 2.9375,
+          "min": 0.375,
+          "n": 4
+        },
+        "RF": {
+          "max": 3.5,
+          "mean": 2.21875,
+          "median": 2.0625,
+          "min": 1.25,
+          "n": 4
+        }
+      }
+    },
+    "D": {
+      "goal_favored_alternate_choice": {
+        "AF": {
+          "max": -2.75,
+          "mean": -12.08420138888889,
+          "median": -11.75,
+          "min": -20.625,
+          "n": 144
+        },
+        "RF": {
+          "max": -4.25,
+          "mean": -12.330729166666666,
+          "median": -12.75,
+          "min": -18.4375,
+          "n": 144
+        }
+      }
+    }
+  },
+  "matched_agreement": {
+    "A_vs_B": {
+      "af_choice_agreement": 0.6736111111111112,
+      "label_exact_agreement": 0.5347222222222222,
+      "n_bases": 144,
+      "n_both_stable": 96,
+      "rf_choice_agreement": 0.7013888888888888,
+      "stable_label_agreement": 0.7604166666666666
+    },
+    "A_vs_C": {
+      "af_choice_agreement": 0.4930555555555556,
+      "label_exact_agreement": 0.4375,
+      "n_bases": 144,
+      "n_both_stable": 99,
+      "rf_choice_agreement": 0.6597222222222222,
+      "stable_label_agreement": 0.6060606060606061
+    },
+    "B_vs_D": {
+      "af_choice_agreement": 0.6805555555555556,
+      "label_exact_agreement": 0.6736111111111112,
+      "n_bases": 144,
+      "n_both_stable": 122,
+      "rf_choice_agreement": 0.8194444444444444,
+      "stable_label_agreement": 0.7950819672131147
+    },
+    "C_vs_D": {
+      "af_choice_agreement": 0.8611111111111112,
+      "label_exact_agreement": 0.8472222222222222,
+      "n_bases": 144,
+      "n_both_stable": 126,
+      "rf_choice_agreement": 0.9583333333333334,
+      "stable_label_agreement": 0.9682539682539683
+    }
+  },
+  "n_cell_a_reused_variants": 288,
+  "n_new_evaluations": 864,
+  "order_switch_by_cell": {
+    "A": {
+      "rf_alternate_to_af_record": 26,
+      "rf_record_to_af_alternate": 4
+    },
+    "B": {
+      "rf_alternate_to_af_record": 21,
+      "rf_record_to_af_alternate": 1
+    },
+    "C": {
+      "rf_alternate_to_af_record": 16,
+      "rf_record_to_af_alternate": 2
+    },
+    "D": {
+      "rf_alternate_to_af_record": 0,
+      "rf_record_to_af_alternate": 0
+    }
+  },
+  "run_id": "phase12a_diagnostic_20260926T224325Z_860e81be",
+  "status": "phase12a_family_bias_source_diagnostic_complete_awaiting_audit"
+}
