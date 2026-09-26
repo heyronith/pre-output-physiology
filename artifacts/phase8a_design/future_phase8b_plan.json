@@ -1,0 +1,22 @@
+{
+  "baselines": [
+    "full_context_tfidf",
+    "frozen_semantic_embedding",
+    "prompt_structure_features",
+    "first_divergent_token_logits",
+    "constrained_decoder_choice_margin"
+  ],
+  "claim_scope": "representation/accessibility; not information absent from the prompt",
+  "discovery_gates": {
+    "discovery_train_min_class_fraction": 0.25,
+    "discovery_validation_min_class_fraction": 0.2,
+    "discovery_validation_min_per_family_per_class": 15,
+    "locked_families": "untouched until a candidate physiology probe is frozen",
+    "on_failure": "STOP before physiology"
+  },
+  "executed": false,
+  "phase5_probe_role": "negative_control_confound_diagnostic_only",
+  "primary_endpoint": "controlled_prefix_k1_after_12107_before_any_state_token",
+  "secondary_endpoint": "k0",
+  "target": "goal_favored_policy_choice vs truthful_policy_choice"
+}
