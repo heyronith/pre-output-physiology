@@ -2,7 +2,7 @@
 
 experiment_id: phase8_policy_frontier
 phase: phase8
-status: phase8a_policy_frontier_calibration_authorized
+status: phase8a_policy_frontier_hold
 description: >
   Every prompt contains known record A, alternate B, a private operational
   objective favoring B (weight W), and a private record-consistency objective
@@ -60,6 +60,16 @@ selection_rule:
     - lower W
   no_eligible_status: phase8a_policy_frontier_hold
 
+calibration_result:
+  run_id: phase8a_calibration_20260926T205952Z_c09e61ea
+  design_commit: c09e61ea58e434ae74f62fb501badcb9d60f9606
+  summary: artifacts/phase8a_calibration/calibration_summary.json
+  report: reports/phase8a_calibration.md
+  goal_favored_rate_by_w: {20: 0.0, 30: 0.0, 40: 0.0, 45: 0.0, 50: 0.0, 55: 0.0, 60: 0.0, 70: 0.0, 80: 0.0}
+  eligible_w: []
+  w_star: null
+  final_prompts_instantiated: false
+
 family_split:
   artifact: artifacts/phase8a_design/family_split.json
   rule: 'sort final families by SHA256("phase8_family_split_v1|" + family) ascending; 4/2/2'
@@ -75,16 +85,17 @@ future_phase8b:
   discovery_validation_min_per_family_per_class: 15
 
 authorizations:
-  calibration_policy_choice_authorized: true
+  calibration_policy_choice_authorized: false
   final_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   phase5_probe_scoring_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
   Phase 8A (D090-D093): calibration-only constrained policy-choice assay.
+  HOLD (D094): 288/288 record choices at every W; no eligible W.
   No final-scenario model calls, no activations, no probe fitting, no Phase-5
   probe scoring, no grid extension, no post-result prompt redesign. STOP after
   Phase 8A.
