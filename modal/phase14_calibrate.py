@@ -254,9 +254,11 @@ def run_trajectories(payload_json: str) -> dict[str, Any]:
 
             cont_text = tok.decode(generated, skip_special_tokens=True)
             consideration_decoded = extract_first_sentence(cont_text)
-            # Stage-2 context: chat + Consideration: + decoded Stage-1 text, then
-            # `\n Response` which must be exactly token 12107.
-            full_before_response = fmt + CONSIDERATION_PREFIX + cont_text
+            # Stage-2 context uses the terminated first sentence (period/newline),
+            # then `\n Response` whose final token must be 12107.
+            full_before_response = (
+                fmt + CONSIDERATION_PREFIX + consideration_decoded
+            )
             without = tok.encode(full_before_response, add_special_tokens=False)
             with_response = tok.encode(
                 full_before_response + RESPONSE_CONTINUATION, add_special_tokens=False
