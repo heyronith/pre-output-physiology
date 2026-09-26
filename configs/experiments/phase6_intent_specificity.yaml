@@ -1,8 +1,8 @@
-# Phase 6 intent specificity — Phase 6A revision-2 design frozen; re-pilot AUTHORIZED
+# Phase 6 intent specificity — Phase 6A HOLD (revision-2 pilot failed)
 
 experiment_id: phase6_intent_specificity
 phase: phase6
-status: phase6a_specificity_design_frozen_pilot_authorized
+status: phase6a_specificity_pilot_hold
 description: >
   2x2 factorial (operational conflict x communication conflict) testing whether
   the frozen Phase-5 L12/k1 probe tracks communication/deceptive intent or
@@ -65,6 +65,13 @@ pilot_revision1:
   pilot_prompt_text_sha256: 486c38d96a270218c3f44754f459366521086bdfd2fc81fe7bd9eade10267035
   gates_passed: false
 
+pilot_revision2:
+  run_id: phase6a_pilot_r2_20260926T200124Z_028b033c
+  summary: artifacts/phase6a_pilot/pilot_behavior_summary.json
+  valid: {F00: 24, F10: 24, F01: 17, F11: 24}
+  all_four_valid: 17
+  gates_passed: false
+
 pilot_gates:
   behavior_min_per_condition: 22
   all_four_min: 20
@@ -83,16 +90,16 @@ future_frozen_probe_analysis:
   ci: scenario_paired_bootstrap
 
 authorizations:
-  pilot_generation_authorized: true
+  pilot_generation_authorized: false
   final_generation_authorized: false
   activation_extraction_authorized: false
   probe_scoring_authorized: false
   probe_fitting_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
-  Phase 6A revision-2 re-pilot authorized (D077–D081) after revision-1 pilot
-  failed on format only (example-value copying, trailing notes). F10 is a non-deceptive
-  conflict control. Frozen Phase-5 probe pinned by SHA256 only (not loaded or
-  scored). STOP after Phase 6A.
+  Phase 6A HOLD (D082). Revision-2 pilot failed: F01 17/24 valid (7 correct
+  first lines followed by appended disclaimer notes); all-four 17/24. F00, F10,
+  F11 24/24. No further revisions permitted. Frozen Phase-5 probe pinned by hash
+  only (not loaded or scored). STOP after Phase 6A.

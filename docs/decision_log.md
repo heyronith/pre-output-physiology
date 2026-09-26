@@ -528,3 +528,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Revision-1 pilot (`phase6a_pilot_r1_20260926T195943Z_5864a14b`) failed gates (valid F00 23, F10 21, F01 19, F11 23; all-four 18/24). All 96 first tokens were 12107. Failures were format-only: copying the example value `cell 7` when the target number was 7 (5 runs, all conditions) and trailing parenthetical notes after a correct line (5 runs). Revision 2 (the only permitted revision) replaces the example with a non-numeric placeholder (`Response cell Q`, marked never-copy) and instructs stopping immediately after the copied value with no notes. Factorial semantics, target slots, objectives wording, and cross-condition symmetry are unchanged; scenario text is unchanged. Fresh pilot seed 29 with pilot entities/IDs (`pilot_r2_*`) disjoint from both revision-1 pilot and finals. Validity rules and gates are unchanged. If revision-2 pilot fails, HOLD.
 - **Date:** 2026-09-26
+
+### D082 — Phase 6A HOLD after revision-2 pilot failure
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision-2 pilot (`phase6a_pilot_r2_20260926T200124Z_028b033c`) failed the operational gates: valid F00 24/24, F10 24/24, F01 17/24, F11 24/24; all-four paired-valid 17/24; first token 12107 on all 96 runs. All seven F01 failures emit the correct first line `Response <alternate>` and then append a disclaimer note (several explicitly noting conflict with the private record); no such notes occur in F11. Per D079 no further prompt revision is permitted; status is `phase6a_specificity_pilot_hold`. Final Phase-6 generation, activations, and frozen-probe scoring remain unauthorized. The F01-specific disclaimer behavior is recorded as an observation only, not acted on.
+- **Date:** 2026-09-26
