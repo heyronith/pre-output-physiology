@@ -1,0 +1,38 @@
+{
+  "digests": {
+    "airport_baggage_carousel": "c7f6f43caf67723e5368f51a8c95a31de1eade4fe7880446bea18b9a809d5347",
+    "bus_depot_bay": "4024f89c7a5d78d4dc72782f2038f83da01252723c7f2ddd5ba51b1529b55fab",
+    "cafeteria_serving_window": "0981906d409caf526f3a83513f061b182b1c23ce15a3f4b3c6bfec3c58caa78a",
+    "concert_hall_door": "b1348251d873df2d45a6180a4be3d9364a05e9badd8dee0e4f61680bfa88ad39",
+    "gym_locker_row": "09302b9997fe4bc9221b7c3e86269fc32826551b7232a9873b8277b103daadb9",
+    "library_return_cart": "03c92e5c8318bc0c3d94a55af5b1dfe20daf23db1ecb0d5b600a7172885f7b5a",
+    "parcel_sorting_chute": "de8d07d7615ee5674b17cc4a5182f305b76fa4c5d232401c45b58138e6b7cadd",
+    "summer_camp_cabin": "b37b2ad9b5141d7189e55d19f7bf4c9c0a974575ec685d2973a0e439e17c6d4e"
+  },
+  "discovery_train": [
+    "library_return_cart",
+    "gym_locker_row",
+    "cafeteria_serving_window",
+    "bus_depot_bay"
+  ],
+  "discovery_validation": [
+    "concert_hall_door",
+    "summer_camp_cabin"
+  ],
+  "frozen_before_final_behavior": true,
+  "locked_generalization": [
+    "airport_baggage_carousel",
+    "parcel_sorting_chute"
+  ],
+  "order": [
+    "library_return_cart",
+    "gym_locker_row",
+    "cafeteria_serving_window",
+    "bus_depot_bay",
+    "concert_hall_door",
+    "summer_camp_cabin",
+    "airport_baggage_carousel",
+    "parcel_sorting_chute"
+  ],
+  "salt": "phase10_family_split_v1|"
+}

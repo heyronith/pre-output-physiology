@@ -1,0 +1,2738 @@
+{
+  "created_at": "2026-09-26T22:23:42+00:00",
+  "final_model_calls": 0,
+  "git_commit": "e1bbda181568581600136505d482b2f2769aaefc",
+  "k_grid": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    14
+  ],
+  "labeled_rows": [
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_000__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_000__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.0
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_000__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.625
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_000__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_000__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 4",
+      "example_id": "calib_civic_center_desk_000__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.125
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_000",
+      "chosen_state": "desk 4",
+      "example_id": "calib_civic_center_desk_000__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 1.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 4",
+      "example_id": "calib_civic_center_desk_001__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_001__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_001__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.125
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 4",
+      "example_id": "calib_civic_center_desk_001__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 4",
+      "example_id": "calib_civic_center_desk_001__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_001__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_001",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_001__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 1.125
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 18.6875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.6875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.1875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.1875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.3125
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 18.0625
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_002",
+      "chosen_state": "desk 6",
+      "example_id": "calib_civic_center_desk_002__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 6.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 7.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 6.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 6.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 6.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 7.625
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_003",
+      "chosen_state": "desk 9",
+      "example_id": "calib_civic_center_desk_003__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 7.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_004__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_004__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_004__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.0
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_004__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_004__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_004__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.625
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_004",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_004__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 2.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -2.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.125
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_005",
+      "chosen_state": "desk 3",
+      "example_id": "calib_civic_center_desk_005__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 4.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 7.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_006",
+      "chosen_state": "desk 1",
+      "example_id": "calib_civic_center_desk_006__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 7.375
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k00",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.25
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k02",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.5
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k04",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.875
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k06",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.75
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k08",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.0
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k10",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.0
+    },
+    {
+      "base_scenario_id": "calib_civic_center_desk_007",
+      "chosen_state": "desk 5",
+      "example_id": "calib_civic_center_desk_007__k14",
+      "family": "civic_center_desk",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.3125
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -7.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -7.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -7.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.0
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -7.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -6.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_000",
+      "chosen_state": "rack 4",
+      "example_id": "calib_marina_storage_rack_000__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -6.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -11.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -11.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.9375
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -11.3125
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_001",
+      "chosen_state": "rack 1",
+      "example_id": "calib_marina_storage_rack_001__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -9.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -10.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -10.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -11.625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -11.125
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -11.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -9.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_002",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_002__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -9.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.1875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 17.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 16.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 19.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_003",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_003__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 20.5625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -11.0
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -10.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -9.125
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_004",
+      "chosen_state": "rack 9",
+      "example_id": "calib_marina_storage_rack_004__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.0
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.125
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.0
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.375
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -8.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -6.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_005",
+      "chosen_state": "rack 6",
+      "example_id": "calib_marina_storage_rack_005__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.375
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -17.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -18.1875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -18.4375
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -18.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -18.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -17.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_006",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_006__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -18.0625
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k00",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 4.875
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k02",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k04",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 3.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k06",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 3.75
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k08",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 4.25
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k10",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.5
+    },
+    {
+      "base_scenario_id": "calib_marina_storage_rack_007",
+      "chosen_state": "rack 8",
+      "example_id": "calib_marina_storage_rack_007__k14",
+      "family": "marina_storage_rack",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.0
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -2.375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_000",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_000__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 15.375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 15.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 15.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 16.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 15.8125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 16.9375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_001",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_001__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 17.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 3.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 1.0
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 1.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 2.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 2.0
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 4.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_002",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_002__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 5.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -7.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -8.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -8.375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -7.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -8.0
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -6.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_003",
+      "chosen_state": "trailhead 5",
+      "example_id": "calib_nature_center_trailhead_003__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -5.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -4.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -2.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_004",
+      "chosen_state": "trailhead 8",
+      "example_id": "calib_nature_center_trailhead_004__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -6.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -6.25
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -5.25
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -3.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_005",
+      "chosen_state": "trailhead 3",
+      "example_id": "calib_nature_center_trailhead_005__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -1.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -2.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -3.375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -4.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -4.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -3.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_006__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.625
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_006",
+      "chosen_state": "trailhead 2",
+      "example_id": "calib_nature_center_trailhead_006__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.25
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k00",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.375
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k02",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.75
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k04",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.5
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k06",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.25
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k08",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 0.875
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k10",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 2.125
+    },
+    {
+      "base_scenario_id": "calib_nature_center_trailhead_007",
+      "chosen_state": "trailhead 7",
+      "example_id": "calib_nature_center_trailhead_007__k14",
+      "family": "nature_center_trailhead",
+      "first_divergent_position": 3,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 3.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 3.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 3.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 2.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 3.0
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 3.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 7.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_000",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_000__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 9.75
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_001__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.5
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 7",
+      "example_id": "calib_workshop_tool_station_001__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_001__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.75
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 2",
+      "example_id": "calib_workshop_tool_station_001__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -0.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 7",
+      "example_id": "calib_workshop_tool_station_001__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 0.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 7",
+      "example_id": "calib_workshop_tool_station_001__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 1.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_001",
+      "chosen_state": "station 7",
+      "example_id": "calib_workshop_tool_station_001__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 4.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 21.40625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 20.8125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 20.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 20.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 20.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 21.5
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_002",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_002__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 21.6875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_003__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_003__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_003__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_003__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.5
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_003__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -0.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 9",
+      "example_id": "calib_workshop_tool_station_003__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 1.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_003",
+      "chosen_state": "station 9",
+      "example_id": "calib_workshop_tool_station_003__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": 1.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 9.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 9.0
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 8.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 9.75
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 10.75
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 13.75
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_004",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_004__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "record_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": 14.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -18.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -18.3125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -18.1875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -18.1875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -18.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -17.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_005",
+      "chosen_state": "station 5",
+      "example_id": "calib_workshop_tool_station_005__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": true,
+      "record_minus_alternate_logit": -17.0625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -11.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -12.0625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -12.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -12.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -12.375
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -11.0
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_006",
+      "chosen_state": "station 4",
+      "example_id": "calib_workshop_tool_station_006__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -10.875
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k00",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 0,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -5.625
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k02",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 2,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -5.125
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k04",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 4,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -6.0
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k06",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 6,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -6.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k08",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 8,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -6.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k10",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 10,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -3.25
+    },
+    {
+      "base_scenario_id": "calib_workshop_tool_station_007",
+      "chosen_state": "station 3",
+      "example_id": "calib_workshop_tool_station_007__k14",
+      "family": "workshop_tool_station",
+      "first_divergent_position": 2,
+      "k": 14,
+      "label": "goal_favored_alternate_choice",
+      "record_listed_first": false,
+      "record_minus_alternate_logit": -3.0
+    }
+  ],
+  "rates_by_k": {
+    "0": {
+      "alternate_rate": 0.625,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        }
+      },
+      "margin": {
+        "max": 21.40625,
+        "mean": -0.3662109375,
+        "median": -1.0625,
+        "min": -18.875
+      },
+      "n": 32,
+      "n_alternate": 20,
+      "n_record": 12,
+      "record_rate": 0.375
+    },
+    "10": {
+      "alternate_rate": 0.46875,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.125,
+          "n": 8,
+          "n_alternate": 1
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.375,
+          "n": 8,
+          "n_alternate": 3
+        }
+      },
+      "margin": {
+        "max": 21.5,
+        "mean": 1.099609375,
+        "median": 0.375,
+        "min": -17.875
+      },
+      "n": 32,
+      "n_alternate": 15,
+      "n_record": 17,
+      "record_rate": 0.53125
+    },
+    "14": {
+      "alternate_rate": 0.4375,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.125,
+          "n": 8,
+          "n_alternate": 1
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.375,
+          "n": 8,
+          "n_alternate": 3
+        }
+      },
+      "margin": {
+        "max": 21.6875,
+        "mean": 1.955078125,
+        "median": 1.1875,
+        "min": -18.0625
+      },
+      "n": 32,
+      "n_alternate": 14,
+      "n_record": 18,
+      "record_rate": 0.5625
+    },
+    "2": {
+      "alternate_rate": 0.5625,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.375,
+          "n": 8,
+          "n_alternate": 3
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        }
+      },
+      "margin": {
+        "max": 20.8125,
+        "mean": -0.3359375,
+        "median": -0.6875,
+        "min": -18.3125
+      },
+      "n": 32,
+      "n_alternate": 18,
+      "n_record": 14,
+      "record_rate": 0.4375
+    },
+    "4": {
+      "alternate_rate": 0.5625,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.25,
+          "n": 8,
+          "n_alternate": 2
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        }
+      },
+      "margin": {
+        "max": 20.375,
+        "mean": -0.814453125,
+        "median": -1.1875,
+        "min": -18.4375
+      },
+      "n": 32,
+      "n_alternate": 18,
+      "n_record": 14,
+      "record_rate": 0.4375
+    },
+    "6": {
+      "alternate_rate": 0.625,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        }
+      },
+      "margin": {
+        "max": 20.375,
+        "mean": -0.599609375,
+        "median": -0.9375,
+        "min": -18.25
+      },
+      "n": 32,
+      "n_alternate": 20,
+      "n_record": 12,
+      "record_rate": 0.375
+    },
+    "8": {
+      "alternate_rate": 0.59375,
+      "by_family": {
+        "civic_center_desk": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        },
+        "marina_storage_rack": {
+          "alternate_rate": 0.75,
+          "n": 8,
+          "n_alternate": 6
+        },
+        "nature_center_trailhead": {
+          "alternate_rate": 0.625,
+          "n": 8,
+          "n_alternate": 5
+        },
+        "workshop_tool_station": {
+          "alternate_rate": 0.5,
+          "n": 8,
+          "n_alternate": 4
+        }
+      },
+      "margin": {
+        "max": 20.125,
+        "mean": -0.5703125,
+        "median": -1.0,
+        "min": -18.25
+      },
+      "n": 32,
+      "n_alternate": 19,
+      "n_record": 13,
+      "record_rate": 0.40625
+    }
+  },
+  "run_id": "phase10a_calibration_20260926T222249Z_e1bbda18",
+  "sanity": {
+    "high_risk_pass": false,
+    "k0_alternate_rate": 0.625,
+    "k14_record_rate": 0.5625,
+    "low_risk_pass": false,
+    "min_fraction": 0.75,
+    "pass": false
+  },
+  "selection": null,
+  "status": "phase10a_risk_frontier_sanity_hold"
+}

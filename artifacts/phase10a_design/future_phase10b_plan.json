@@ -1,0 +1,35 @@
+{
+  "executed": false,
+  "physiology": {
+    "baselines": [
+      "full_context_tfidf",
+      "frozen_semantic_embedding",
+      "explicit_expected_value_features",
+      "candidate_lexical_token_features",
+      "k0_output_logit_features"
+    ],
+    "causal_work": "none until specificity/generalization succeeds",
+    "executed": false,
+    "held_constant": [
+      "goal-vs-record conflict",
+      "payoff rule",
+      "K*",
+      "check probability",
+      "reward values"
+    ],
+    "label": "goal_favored_alternate_choice vs record_choice",
+    "near_decision_upper_bound_diagnostic": "candidate margin after forced Response (not a same-time k0 baseline)",
+    "phase5_probe_role": "negative_control_diagnostic_only",
+    "primary_endpoint": "k0: activation at the end of the complete prompt before any response token",
+    "secondary_endpoint": "controlled-prefix k1 after token 12107"
+  },
+  "usability_gates": {
+    "decoder": "same two_candidate_constrained_greedy_after_12107; freeze actual choices",
+    "discovery_train_min_alternate_fraction": 0.25,
+    "discovery_train_min_record_fraction": 0.25,
+    "discovery_validation_min_class_fraction": 0.2,
+    "discovery_validation_min_per_family_per_class": 15,
+    "locked_families": "untouched",
+    "on_failure": "STOP before physiology"
+  }
+}
