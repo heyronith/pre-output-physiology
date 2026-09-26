@@ -203,6 +203,34 @@ def main() -> int:
     )
 
     art = REPO_ROOT / "artifacts"
+    revision = int(design["prompt_template_revision"])
+    check(revision in (1, 2) and revision == matrix["prompt_template_revision"], "≤1 revision")
+    if revision == 2:
+        check("### D088" in decisions, "D088 revision decision present")
+        r1 = cfg["pilot_revision1"]
+        r1_path = REPO_ROOT / r1["summary"]
+        check(r1_path.is_file() and (REPO_ROOT / r1["report"]).is_file(), "revision-1 artifacts")
+        r1_rows = json.loads(r1_path.read_text(encoding="utf-8"))["eval_rows"]
+        r1_ids = {r["base_scenario_id"] for r in r1_rows}
+        check(
+            len(r1_ids) == 32
+            and not r1_ids
+            & (
+                {s["base_scenario_id"] for s in pilot_sc}
+                | {s["base_scenario_id"] for s in final_sc}
+            )
+            and sha_ids(sorted(r1_ids)) == matrix["pilot_revision1_base_scenario_ids_sha256"],
+            "revision-2 pilot disjoint from revision-1 pilot",
+        )
+        r1_topics = {s["topic_sentence"] for s in regen["pilot_r1"]}
+        check(
+            not r1_topics & {s["topic_sentence"] for s in final_sc + pilot_sc},
+            "revision-1 pilot text disjoint",
+        )
+        check(
+            sha_scenarios(regen["pilot_r1"]) == r1["pilot_scenario_text_sha256"],
+            "revision-1 pilot scenarios reproduce recorded hash",
+        )
     act = [
         str(p.relative_to(REPO_ROOT))
         for p in art.rglob("*")

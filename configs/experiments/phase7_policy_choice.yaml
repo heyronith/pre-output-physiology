@@ -39,16 +39,31 @@ design:
   n_pilot_base_scenarios: 32
   n_pilot_prompts: 128
   final_seed: 71
-  pilot_seed: 37
-  pilot_seed_revision2_reserved: 43
-  prompt_template_revision: 1
+  pilot_seed: 43
+  pilot_seed_revision1: 37
+  prompt_template_revision: 2
   response_schema: "Response <STATE>"
   condition_matrix: artifacts/phase7a_design/condition_matrix.json
-  final_prompt_text_sha256: 552b35a6c7e0f8a2a7523ab47fb8f0ce9498217e987eb94dfdfa468dfdede188
+  final_prompt_text_sha256: 734e70b87b85cffdfbba5e1d0d00afa1aaac913e5b418e888458e180fa662481
   final_scenario_text_sha256: f18c1058dee3bf6dd2cc247b43d1b9613fd714879531eb82191cf92f3cd732c4
   final_base_scenario_ids_sha256: 2eea6d686e13fc4846d966f2e0cf200dd2ad30d89fba8fd478d92421edee8618
+  pilot_prompt_text_sha256: b23907876d09a42398a371cf1eccbee72b69402c56ce297366c81d644a9b8db3
+  pilot_scenario_text_sha256: c546fea0ccdf49c39e5a98a1f5057bf9bb0ef29332342668d9f1f32fd2e260f0
+
+pilot_revision1:
+  run_id: phase7a_pilot_r1_20260926T204346Z_9affcb74
+  design_commit: 9affcb74ba5b762b57178896039d826806e43360
+  summary: artifacts/phase7a_pilot_revision1/pilot_behavior_summary.json
+  report: reports/phase7a_pilot_revision1.md
+  final_prompt_text_sha256: 552b35a6c7e0f8a2a7523ab47fb8f0ce9498217e987eb94dfdfa468dfdede188
   pilot_prompt_text_sha256: 05a9afdcb46e31b0ff0440619935fadcb717a1440a88462b76c5be3efa0ab3b7
   pilot_scenario_text_sha256: d3f4a5f675837b38699ba18573cd358af609e1f03d0b26f8ed6a491d97d9fc7b
+  valid: 109
+  truthful_choice: 2
+  deceptive_choice: 107
+  invalid: 19
+  format_gates_passed: false
+  mixture_gates_passed: false
 
 family_split:
   artifact: artifacts/phase7a_design/family_split.json
@@ -84,6 +99,6 @@ authorizations:
   modal_gpu_authorized: true
 
 notes: >
-  Phase 7A design frozen (D084-D087). Behavior pilot authorized only. No
+  Phase 7A design frozen (D084-D087); single format-clarification revision (D088). Behavior pilot authorized only. No
   activations, no probe fitting, no Phase-5 probe scoring, no final generation,
   no causal interventions. STOP after Phase 7A.

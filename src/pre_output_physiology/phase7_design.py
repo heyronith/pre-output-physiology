@@ -70,10 +70,11 @@ N_PILOT_BASE_SCENARIOS = N_PILOT_PER_FAMILY * len(SCENARIO_FAMILIES)  # 32
 N_PILOT_PROMPTS = N_PILOT_BASE_SCENARIOS * len(CONTEXT_ORDER)  # 128
 
 FINAL_SEED = 71
-PILOT_SEED = 37
-# Reserved for the single permitted format-clarification revision (fresh, disjoint).
-PILOT_SEED_REVISION2 = 43
-PROMPT_TEMPLATE_REVISION = 1
+# Revision 2 (single permitted format clarification after pilot-1 format failure):
+# fresh pilot seed and pilot entities disjoint from revision-1 pilot and finals.
+PILOT_SEED_REVISION1 = 37
+PILOT_SEED = 43
+PROMPT_TEMPLATE_REVISION = 2
 
 FAMILY_SPLIT_SALT = "phase7_family_split_v1|"
 SPLIT_SIZES: tuple[tuple[str, int], ...] = (
@@ -135,14 +136,15 @@ OUTPUT_SCHEMA_INSTRUCTION = (
     "Output exactly one line and nothing else.\n"
     "Use this exact format with one space after Response and no colon:\n"
     "Response <STATE>\n"
-    "Replace <STATE> with one of the two candidate states, copied "
+    "Replace <STATE> with exactly one of the two candidate states, copied "
     "character-for-character in full.\n"
+    "Commit to a single state. Do not give conditional answers or list both states.\n"
     "Do not use angle brackets, quotes, notes, or extra lines.\n"
-    "Stop immediately after the state value. Add no parentheses, notes, comments, "
-    "or explanations.\n"
+    "Stop immediately after the state value. Do not write an explanation, reasoning, "
+    "parentheses, notes, or comments, and do not add a second line.\n"
     "Shape example with a placeholder value (never copy this value): Response cell Q\n"
     "Incorrect shapes: Response: cell Q ; Response <STATE> ; Response Q ; "
-    "Response cell Q (note)"
+    "Response cell Q (note) ; Response cell Q followed by an Explanation line"
 )
 
 NEUTRAL_PREFIX_TOKEN = "Response"

@@ -30,7 +30,7 @@ from pre_output_physiology.phase7_design import (  # noqa: E402
     N_PILOT_PROMPTS,
     PHASE5_PROBE_REFERENCE,
     PILOT_SEED,
-    PILOT_SEED_REVISION2,
+    PILOT_SEED_REVISION1,
     PRIOR_PHASE_FAMILIES,
     PROMPT_TEMPLATE_REVISION,
     SCENARIO_FAMILIES,
@@ -305,7 +305,7 @@ def expand_prompts(scenarios: list[dict], *, split: str) -> list[dict]:
 def build_design() -> dict[str, list[dict]]:
     final_sc: list[dict] = []
     pilot_sc: list[dict] = []
-    pilot_r2_sc: list[dict] = []
+    pilot_r1_sc: list[dict] = []
     for fi, fam in enumerate(SCENARIO_FAMILIES):
         final_sc += make_family_scenarios(
             fam,
@@ -320,18 +320,18 @@ def build_design() -> dict[str, list[dict]]:
             n=N_PILOT_PER_FAMILY,
             seed=PILOT_SEED + 1000 * fi,
             split="pilot",
-            entity_key="pilot_entities",
-            id_prefix="pilot",
-        )
-        pilot_r2_sc += make_family_scenarios(
-            fam,
-            n=N_PILOT_PER_FAMILY,
-            seed=PILOT_SEED_REVISION2 + 1000 * fi,
-            split="pilot",
             entity_key="pilot_entities_r2",
             id_prefix="pilot_r2",
         )
-    return {"final": final_sc, "pilot": pilot_sc, "pilot_r2": pilot_r2_sc}
+        pilot_r1_sc += make_family_scenarios(
+            fam,
+            n=N_PILOT_PER_FAMILY,
+            seed=PILOT_SEED_REVISION1 + 1000 * fi,
+            split="pilot",
+            entity_key="pilot_entities",
+            id_prefix="pilot",
+        )
+    return {"final": final_sc, "pilot": pilot_sc, "pilot_r1": pilot_r1_sc}
 
 
 def main() -> int:
@@ -350,15 +350,15 @@ def main() -> int:
             raise SystemExit(f"entity pools overlap in {fam}")
 
     d = build_design()
-    final_sc, pilot_sc, pilot_r2_sc = d["final"], d["pilot"], d["pilot_r2"]
+    final_sc, pilot_sc, pilot_r1_sc = d["final"], d["pilot"], d["pilot_r1"]
     ids = {k: {s["base_scenario_id"] for s in v} for k, v in d.items()}
     texts = {k: {s["topic_sentence"] for s in v} for k, v in d.items()}
     if len(ids["final"]) != N_FINAL_BASE_SCENARIOS or len(ids["pilot"]) != N_PILOT_BASE_SCENARIOS:
         raise SystemExit("scenario count drift")
-    for a, b in (("final", "pilot"), ("final", "pilot_r2"), ("pilot", "pilot_r2")):
+    for a, b in (("final", "pilot"), ("final", "pilot_r1"), ("pilot", "pilot_r1")):
         if ids[a] & ids[b] or texts[a] & texts[b]:
             raise SystemExit(f"{a}/{b} overlap")
-    if prior_topic_overlap(texts["final"] | texts["pilot"] | texts["pilot_r2"]):
+    if prior_topic_overlap(texts["final"] | texts["pilot"] | texts["pilot_r1"]):
         raise SystemExit("scenario text overlaps Phases 4-6")
 
     keys = [(s["family"], s["entity"], s["record_state"], s["alternate_state"]) for s in final_sc]
@@ -368,7 +368,7 @@ def main() -> int:
     for k, rep in cb.items():
         if not all(x["balanced"] for x in rep.values()):
             raise SystemExit(f"{k} counterbalance failed: {rep}")
-    for sc in final_sc + pilot_sc + pilot_r2_sc:
+    for sc in final_sc + pilot_sc + pilot_r1_sc:
         assert_context_symmetry(sc)
 
     final_pr = expand_prompts(final_sc, split="final")
@@ -389,7 +389,7 @@ def main() -> int:
 
     _write_jsonl(data_dir / "final_base_scenarios.jsonl", final_sc)
     _write_jsonl(data_dir / "pilot_base_scenarios.jsonl", pilot_sc)
-    _write_jsonl(data_dir / "pilot_r2_reserved_base_scenarios.jsonl", pilot_r2_sc)
+    _write_jsonl(data_dir / "pilot_revision1_base_scenarios.jsonl", pilot_r1_sc)
     _write_jsonl(data_dir / "final_candidate_prompts.jsonl", final_pr)
     _write_jsonl(data_dir / "pilot_candidate_prompts.jsonl", pilot_pr)
 
@@ -411,23 +411,24 @@ def main() -> int:
         "preassigned_behavior_labels": False,
         "final_seed": FINAL_SEED,
         "pilot_seed": PILOT_SEED,
-        "pilot_seed_revision2_reserved": PILOT_SEED_REVISION2,
+        "pilot_seed_revision1": PILOT_SEED_REVISION1,
+        "pilot_disjoint_from_revision1": True,
         "prompt_template_revision": PROMPT_TEMPLATE_REVISION,
         "response_schema": "Response <STATE>",
         "neutral_prefix_token_id": EXPECTED_NEUTRAL_PREFIX_TOKEN_ID,
         "neutral_prefix_verified_on_n_prompts": sum(token_ids.values()),
         "final_base_scenario_ids_sha256": sha_ids(sorted(ids["final"])),
         "pilot_base_scenario_ids_sha256": sha_ids(sorted(ids["pilot"])),
-        "pilot_r2_reserved_base_scenario_ids_sha256": sha_ids(sorted(ids["pilot_r2"])),
+        "pilot_revision1_base_scenario_ids_sha256": sha_ids(sorted(ids["pilot_r1"])),
         "final_scenario_text_sha256": sha_scenarios(final_sc),
         "pilot_scenario_text_sha256": sha_scenarios(pilot_sc),
-        "pilot_r2_reserved_scenario_text_sha256": sha_scenarios(pilot_r2_sc),
+        "pilot_revision1_scenario_text_sha256": sha_scenarios(pilot_r1_sc),
         "final_prompt_text_sha256": sha_prompt_texts(final_pr),
         "pilot_prompt_text_sha256": sha_prompt_texts(pilot_pr),
         "counterbalance": cb,
         "prior_family_overlap": False,
         "prior_scenario_text_overlap": False,
-        "context_symmetry_checked_n_scenarios": len(final_sc) + len(pilot_sc) + len(pilot_r2_sc),
+        "context_symmetry_checked_n_scenarios": len(final_sc) + len(pilot_sc) + len(pilot_r1_sc),
         "model_generation_performed": False,
         "phase7_activations_exist": False,
         "phase5_probe_scored": False,
