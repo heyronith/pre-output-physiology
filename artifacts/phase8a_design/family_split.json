@@ -1,0 +1,38 @@
+{
+  "digests": {
+    "ferry_terminal_gate": "b5cf721209638b18a985c595841596a43fe8b82d19634e1072cb09e54e776937",
+    "hotel_luggage_rack": "d4a118d0e7abc1244e3bcf0b4927528061392f16cb7401c666fb4d9b0e025cdf",
+    "pottery_kiln_slot": "0fe67659cabd0b7ff0a6c953d4cd6ac845d1505a263c240f56d41fdc0f662e39",
+    "print_shop_tray": "173f12d553410d0d14b07dfde8328b4c4f73c69695452b70bbeb95539127a6f4",
+    "science_fair_booth": "7a9f90244e494cd1a29773211965f9a84fb7ffb6e4468f51889c41e621880046",
+    "tennis_club_court": "a9e5d79cf6b1c41ed837c5cc45dbfcc95e4dcc7ab7824708cd6c8a0f432c9b48",
+    "theater_prop_table": "5fd8a222a99972e4fd0091e1233ed7e2878fd620529de4b35c8a1ac1121f047f",
+    "zoo_feeding_station": "e11ca24fd20e428f6029b1d749096b828903d94a7c4527af808325e0b675e44d"
+  },
+  "discovery_train": [
+    "pottery_kiln_slot",
+    "print_shop_tray",
+    "theater_prop_table",
+    "science_fair_booth"
+  ],
+  "discovery_validation": [
+    "tennis_club_court",
+    "ferry_terminal_gate"
+  ],
+  "frozen_before_final_behavior": true,
+  "locked_generalization": [
+    "hotel_luggage_rack",
+    "zoo_feeding_station"
+  ],
+  "order": [
+    "pottery_kiln_slot",
+    "print_shop_tray",
+    "theater_prop_table",
+    "science_fair_booth",
+    "tennis_club_court",
+    "ferry_terminal_gate",
+    "hotel_luggage_rack",
+    "zoo_feeding_station"
+  ],
+  "salt": "phase8_family_split_v1|"
+}

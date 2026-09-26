@@ -1,0 +1,138 @@
+{
+  "calibration_base_scenario_ids_sha256": "7a715c506a0ac56e55092c0bb0fa06a59afe38b5f0a2d5214e0c65a30fcca19d",
+  "calibration_families": [
+    "campus_mail_locker",
+    "botanical_garden_bench",
+    "community_center_room",
+    "storage_shelf_bin"
+  ],
+  "calibration_prompt_text_sha256": "f093c1c738709808aa8361b70e0cd3e88d2201f895872d4192f2159c0de286dd",
+  "calibration_scenario_text_sha256": "baf114b439bdd58e988d3d2d911008b3d1520b9ce474094646d1a9bc0caf079e",
+  "calibration_seed": 81,
+  "communication_target_present": false,
+  "counterbalance": {
+    "calibration": {
+      "botanical_garden_bench": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 8,
+        "record_listed_first_false": 4,
+        "record_listed_first_true": 4
+      },
+      "campus_mail_locker": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 8,
+        "record_listed_first_false": 4,
+        "record_listed_first_true": 4
+      },
+      "community_center_room": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 8,
+        "record_listed_first_false": 4,
+        "record_listed_first_true": 4
+      },
+      "storage_shelf_bin": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 8,
+        "record_listed_first_false": 4,
+        "record_listed_first_true": 4
+      }
+    },
+    "final": {
+      "ferry_terminal_gate": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "hotel_luggage_rack": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "pottery_kiln_slot": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "print_shop_tray": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "science_fair_booth": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "tennis_club_court": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "theater_prop_table": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      },
+      "zoo_feeding_station": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 120,
+        "record_listed_first_false": 60,
+        "record_listed_first_true": 60
+      }
+    }
+  },
+  "created_at": "2026-09-26T20:55:49+00:00",
+  "final_base_scenario_ids_sha256": "d515022eb7f1d07712e249fef0e0fca876e83291d077b465b9bdf69790fa50ee",
+  "final_families": [
+    "ferry_terminal_gate",
+    "hotel_luggage_rack",
+    "theater_prop_table",
+    "zoo_feeding_station",
+    "pottery_kiln_slot",
+    "print_shop_tray",
+    "tennis_club_court",
+    "science_fair_booth"
+  ],
+  "final_prompts_instantiated": false,
+  "final_scenario_text_sha256": "78a5ceebcf362ffc08b317e78a3209af6a5725da86ee3516e3b47caa571cbab0",
+  "final_seed": 83,
+  "goal_record_conflict_fraction": 1.0,
+  "model_calls_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_calibration_bases": 32,
+  "n_calibration_evals": 288,
+  "n_final_bases": 960,
+  "phase": "phase8a",
+  "prior_scenario_text_overlap": false,
+  "prompt_template_revision": 1,
+  "w_grid": [
+    20,
+    30,
+    40,
+    45,
+    50,
+    55,
+    60,
+    70,
+    80
+  ]
+}

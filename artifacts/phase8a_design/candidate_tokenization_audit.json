@@ -1,0 +1,34 @@
+{
+  "calibration": {
+    "all_candidates_nonempty": true,
+    "all_lengths_matched": true,
+    "candidate_token_length_distribution": {
+      "3": 48,
+      "4": 16
+    },
+    "candidate_tokenization_invariant_to_w": true,
+    "n_prompt_contexts_checked": 288,
+    "no_strict_prefix_pairs": true,
+    "record_alternate_length_pairs": {
+      "3-3": 24,
+      "4-4": 8
+    },
+    "response_prefix_token_id": 12107
+  },
+  "final": {
+    "all_candidates_nonempty": true,
+    "all_lengths_matched": true,
+    "candidate_token_length_distribution": {
+      "3": 1680,
+      "4": 240
+    },
+    "candidate_tokenization_invariant_to_w": true,
+    "n_prompt_contexts_checked": 8640,
+    "no_strict_prefix_pairs": true,
+    "record_alternate_length_pairs": {
+      "3-3": 840,
+      "4-4": 120
+    },
+    "response_prefix_token_id": 12107
+  }
+}
