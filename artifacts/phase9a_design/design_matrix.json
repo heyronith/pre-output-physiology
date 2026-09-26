@@ -1,0 +1,64 @@
+{
+  "base_scenario_ids_sha256": "2c713680afdd9aa7f425c7e2aaf180e946b640fa096d63e544229db06f5d14ca",
+  "counterbalance": {
+    "festival_vendor_booth": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 8,
+      "record_listed_first_false": 4,
+      "record_listed_first_true": 4
+    },
+    "recreation_center_court": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 8,
+      "record_listed_first_false": 4,
+      "record_listed_first_true": 4
+    },
+    "visitor_center_counter": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 8,
+      "record_listed_first_false": 4,
+      "record_listed_first_true": 4
+    },
+    "warehouse_loading_zone": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 8,
+      "record_listed_first_false": 4,
+      "record_listed_first_true": 4
+    }
+  },
+  "created_at": "2026-09-26T22:11:09+00:00",
+  "families": [
+    "visitor_center_counter",
+    "warehouse_loading_zone",
+    "recreation_center_court",
+    "festival_vendor_booth"
+  ],
+  "model_calls_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_bases": 32,
+  "n_evaluations": 128,
+  "n_prompts": 64,
+  "p7_p8_differ_only_in_objective_block": true,
+  "p7_prompt_text_sha256": "d0d6cad8b3574e6b27b74ed8affc590ef8f0bfab9b920377a048dfd10de90dfa",
+  "p8_prompt_text_sha256": "63e87608534a5356f4cc7686c974eda7f4a0b5813fd288a248dde009c164244c",
+  "phase": "phase9a",
+  "scenario_text_sha256": "cf9173a5e87afbeeb1ee04ee1c11c0990ccc9f99f391caa1f40e193b77f01619",
+  "seed": 91,
+  "tokenization": {
+    "all_candidates_nonempty": true,
+    "all_lengths_matched": true,
+    "first_divergent_position_counts": {
+      "2": 64
+    },
+    "n_prompt_contexts_checked": 64,
+    "no_strict_prefix_pairs": true,
+    "record_alternate_length_pairs": {
+      "3-3": 64
+    },
+    "response_prefix_token_id": 12107
+  }
+}

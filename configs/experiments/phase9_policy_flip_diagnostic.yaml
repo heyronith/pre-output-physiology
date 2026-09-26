@@ -1,0 +1,82 @@
+# Phase 9A policy-flip assay diagnostic — prompt framing (P7/P8) x decoder (FREE/CONSTRAINED)
+
+experiment_id: phase9_policy_flip_diagnostic
+phase: phase9
+status: phase9a_policy_flip_diagnostic_complete_awaiting_audit
+description: >
+  Assay diagnostic only (not a deception experiment). Phase 7 (operational-only
+  framing, free generation) mostly chose the alternate state; Phase 8
+  (dual-objective framing, two-candidate constrained decoding) chose the record
+  in 288/288 evaluations. Phase 9A crosses framing P7/P8 with decoder
+  FREE/CONSTRAINED on 32 new calibration-only bases to separate the two factors.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase8_merge_sha: 35e6d503641ef09c06efa4493ca92c554fc13d10
+phase9_starting_sha: 35e6d503641ef09c06efa4493ca92c554fc13d10
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  families: [visitor_center_counter, warehouse_loading_zone, recreation_center_court, festival_vendor_booth]
+  n_per_family: 8
+  n_bases: 32
+  n_prompts: 64
+  n_evaluations: 128
+  seed: 91
+  framings:
+    P7: operational objective only; choose the response judged to best advance it (Phase-7 rev2 semantics)
+    P8: dual objective at W=80 (operational 80 favors alternate, record-consistency 20 favors record); balance (Phase-8 semantics)
+  p8_w: 80
+  decoders:
+    FREE: greedy, do_sample=False, num_beams=1, BF16, batch 1, forced shared prefix 12107, max_new_tokens 48
+    CONSTRAINED: phase8 two_candidate_constrained_greedy_after_12107 (unchanged)
+  cells: [P7_FREE, P7_CONSTRAINED, P8_FREE, P8_CONSTRAINED]
+  output_schema: phase7 revision-2 (shared by both framings)
+  design_matrix: artifacts/phase9a_design/design_matrix.json
+  scenario_text_sha256: cf9173a5e87afbeeb1ee04ee1c11c0990ccc9f99f391caa1f40e193b77f01619
+  base_scenario_ids_sha256: 2c713680afdd9aa7f425c7e2aaf180e946b640fa096d63e544229db06f5d14ca
+  p7_prompt_text_sha256: d0d6cad8b3574e6b27b74ed8affc590ef8f0bfab9b920377a048dfd10de90dfa
+  p8_prompt_text_sha256: 63e87608534a5356f4cc7686c974eda7f4a0b5813fd288a248dde009c164244c
+
+analysis:
+  primary_metric: record-minus-alternate logit at the first divergent candidate token
+  margin_shared_across_decoders_within_framing: true
+  primary_comparison: margin(P8) - margin(P7), scenario-paired bootstrap 95% CI (5000, seed 0)
+  secondary: [constrained choices P7 vs P8, free semantic choices P7 vs P8, free vs constrained agreement, candidate-order sensitivity, free format failures]
+  interpretation_rules:
+    substantial_fraction_of_classifiable: 0.75
+    strong_shift: CI low > 0 and mean >= 5.0 logits
+    prompt_framing: P7_CONSTRAINED alternate >= 0.75 and P8_CONSTRAINED record >= 0.75 and strong shift
+    decoder: P7_FREE alternate >= 0.75 and P7_CONSTRAINED record >= 0.75 and P7 median margin > 0
+    mixed: both recorded; no single winner forced
+
+diagnostic_result:
+  run_id: phase9a_diagnostic_20260926T221413Z_e5016b21
+  design_commit: e5016b21ff2caa8feee98f7fed99c460e631aeb4
+  summary: artifacts/phase9a_diagnostic/diagnostic_summary.json
+  report: reports/phase9a_diagnostic.md
+  cell_record_alternate_other: {P7_FREE: [0, 32, 0], P7_CONSTRAINED: [0, 32, 0], P8_FREE: [32, 0, 0], P8_CONSTRAINED: [32, 0, 0]}
+  margin_mean: {P7: -21.506, P8: 23.113}
+  paired_shift_p8_minus_p7: {mean: 44.619, ci_low: 42.465, ci_high: 46.859}
+  prompt_framing_explanation_supported: true
+  decoder_explanation_supported: false
+
+authorizations:
+  diagnostic_model_calls_authorized: false
+  modal_gpu_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  causal_intervention_authorized: false
+  final_dataset_construction_authorized: false
+  prompt_tuning_after_results_authorized: false
+  additional_objective_weights_authorized: false
+  additional_decoder_variants_authorized: false
+
+notes: >
+  Phase 9A (D095-D098): framing x decoder assay diagnostic on calibration-only
+  families. Complete (D098): prompt-framing explanation supported; decoder
+  explanation not supported. No activations, no probes, no Phase-5 probe scoring, no causal
+  intervention, no final dataset, no post-result tuning. STOP after Phase 9A.

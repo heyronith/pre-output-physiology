@@ -1,0 +1,27 @@
+{
+  "activations_collected": false,
+  "batch_size": 1,
+  "causal_intervention": false,
+  "created_at": "2026-09-26T22:14:52+00:00",
+  "decoders": {
+    "CONSTRAINED": "phase8 two_candidate_constrained_greedy_after_12107 (unchanged)",
+    "FREE": "greedy do_sample=False num_beams=1 after 12107, max_new_tokens=48"
+  },
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.01684864460428556,
+  "git_commit": "e5016b21ff2caa8feee98f7fed99c460e631aeb4",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_evaluations": 128,
+  "n_forwards_excluding_generate": 256,
+  "n_prompts": 64,
+  "p7_prompt_text_sha256": "d0d6cad8b3574e6b27b74ed8affc590ef8f0bfab9b920377a048dfd10de90dfa",
+  "p8_prompt_text_sha256": "63e87608534a5356f4cc7686c974eda7f4a0b5813fd288a248dde009c164244c",
+  "phase5_probe_scored": false,
+  "probe_scored": false,
+  "quantization": null,
+  "raw_outputs_sha256": "97255ccc687656774244ae8cf2d676d7d135d0b3aaa9ff9f97a709aa6c2f7dd3",
+  "run_id": "phase9a_diagnostic_20260926T221413Z_e5016b21",
+  "runner_sha256": "73ea125cf23859fc0c6ad4a90a0cf0993b843069f1c261b78a8e76e7a38554d1",
+  "wall_seconds": 31.10519003868103
+}

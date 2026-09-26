@@ -1,0 +1,407 @@
+{
+  "by_family": {
+    "P7": {
+      "festival_vendor_booth": {
+        "constrained": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "margin_mean": -19.0234375
+      },
+      "recreation_center_court": {
+        "constrained": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "margin_mean": -24.1328125
+      },
+      "visitor_center_counter": {
+        "constrained": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "margin_mean": -21.015625
+      },
+      "warehouse_loading_zone": {
+        "constrained": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 8,
+          "other": 0,
+          "record": 0
+        },
+        "margin_mean": -21.8515625
+      }
+    },
+    "P8": {
+      "festival_vendor_booth": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "margin_mean": 24.16796875
+      },
+      "recreation_center_court": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "margin_mean": 24.7158203125
+      },
+      "visitor_center_counter": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "margin_mean": 19.267578125
+      },
+      "warehouse_loading_zone": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 8
+        },
+        "margin_mean": 24.30078125
+      }
+    }
+  },
+  "candidate_order_sensitivity": {
+    "P7": {
+      "alternate_listed_first": {
+        "constrained": {
+          "alternate": 16,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 16,
+          "other": 0,
+          "record": 0
+        },
+        "margin": {
+          "fraction_negative_alternate_favored": 1.0,
+          "fraction_positive_record_favored": 0.0,
+          "max": -13.9375,
+          "mean": -19.564453125,
+          "median": -18.53125,
+          "min": -29.1875,
+          "n": 16
+        },
+        "n": 16
+      },
+      "record_listed_first": {
+        "constrained": {
+          "alternate": 16,
+          "other": 0,
+          "record": 0
+        },
+        "free": {
+          "alternate": 16,
+          "other": 0,
+          "record": 0
+        },
+        "margin": {
+          "fraction_negative_alternate_favored": 1.0,
+          "fraction_positive_record_favored": 0.0,
+          "max": -19.6875,
+          "mean": -23.447265625,
+          "median": -23.03125,
+          "min": -28.78125,
+          "n": 16
+        },
+        "n": 16
+      }
+    },
+    "P8": {
+      "alternate_listed_first": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 16
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 16
+        },
+        "margin": {
+          "fraction_negative_alternate_favored": 0.0,
+          "fraction_positive_record_favored": 1.0,
+          "max": 29.078125,
+          "mean": 22.4814453125,
+          "median": 22.25,
+          "min": 15.5,
+          "n": 16
+        },
+        "n": 16
+      },
+      "record_listed_first": {
+        "constrained": {
+          "alternate": 0,
+          "other": 0,
+          "record": 16
+        },
+        "free": {
+          "alternate": 0,
+          "other": 0,
+          "record": 16
+        },
+        "margin": {
+          "fraction_negative_alternate_favored": 0.0,
+          "fraction_positive_record_favored": 1.0,
+          "max": 29.765625,
+          "mean": 23.74462890625,
+          "median": 24.6875,
+          "min": 12.1875,
+          "n": 16
+        },
+        "n": 16
+      }
+    }
+  },
+  "cell_choice_counts": {
+    "P7_CONSTRAINED": {
+      "alternate": 32,
+      "other": 0,
+      "record": 0
+    },
+    "P7_FREE": {
+      "alternate": 32,
+      "other": 0,
+      "record": 0
+    },
+    "P8_CONSTRAINED": {
+      "alternate": 0,
+      "other": 0,
+      "record": 32
+    },
+    "P8_FREE": {
+      "alternate": 0,
+      "other": 0,
+      "record": 32
+    }
+  },
+  "constrained_p7_by_p8": {
+    "alternate": {
+      "alternate": 0,
+      "other": 0,
+      "record": 32
+    },
+    "other": {
+      "alternate": 0,
+      "other": 0,
+      "record": 0
+    },
+    "record": {
+      "alternate": 0,
+      "other": 0,
+      "record": 0
+    }
+  },
+  "created_at": "2026-09-26T22:14:59+00:00",
+  "free_format": {
+    "P7_FREE": {
+      "failure_reasons": {},
+      "n": 32,
+      "n_format_invalid": 0,
+      "n_format_valid": 32,
+      "n_free_first_token_ids": {
+        "26868": 8,
+        "5484": 8,
+        "5573": 8,
+        "8860": 8
+      },
+      "n_natural_first_token_12107": 32
+    },
+    "P8_FREE": {
+      "failure_reasons": {
+        "extra_lines": 5,
+        "trailing_text_on_first_line": 1
+      },
+      "n": 32,
+      "n_format_invalid": 6,
+      "n_format_valid": 26,
+      "n_free_first_token_ids": {
+        "26868": 8,
+        "5484": 8,
+        "5573": 8,
+        "8860": 8
+      },
+      "n_natural_first_token_12107": 32
+    }
+  },
+  "free_p7_by_p8": {
+    "alternate": {
+      "alternate": 0,
+      "other": 0,
+      "record": 32
+    },
+    "other": {
+      "alternate": 0,
+      "other": 0,
+      "record": 0
+    },
+    "record": {
+      "alternate": 0,
+      "other": 0,
+      "record": 0
+    }
+  },
+  "free_vs_constrained_agreement": {
+    "P7": {
+      "crosstab_free_by_constrained": {
+        "alternate": {
+          "alternate": 32,
+          "other": 0,
+          "record": 0
+        },
+        "other": {
+          "alternate": 0,
+          "other": 0,
+          "record": 0
+        },
+        "record": {
+          "alternate": 0,
+          "other": 0,
+          "record": 0
+        }
+      },
+      "n_agree": 32,
+      "n_free_classifiable": 32
+    },
+    "P8": {
+      "crosstab_free_by_constrained": {
+        "alternate": {
+          "alternate": 0,
+          "other": 0,
+          "record": 0
+        },
+        "other": {
+          "alternate": 0,
+          "other": 0,
+          "record": 0
+        },
+        "record": {
+          "alternate": 0,
+          "other": 0,
+          "record": 32
+        }
+      },
+      "n_agree": 32,
+      "n_free_classifiable": 32
+    }
+  },
+  "git_commit": "e5016b21ff2caa8feee98f7fed99c460e631aeb4",
+  "interpretation": {
+    "decoder_explanation_supported": false,
+    "inputs": {
+      "P7_CONSTRAINED_alternate_fraction": 1.0,
+      "P7_CONSTRAINED_record_fraction": 0.0,
+      "P7_FREE_alternate_fraction": 1.0,
+      "P7_median_margin": -22.0,
+      "P8_CONSTRAINED_record_fraction": 1.0,
+      "shift_strongly_positive": true
+    },
+    "mixed_explanation": false,
+    "neither_supported": false,
+    "prompt_framing_explanation_supported": true,
+    "thresholds": {
+      "strong_shift": "CI low > 0 and mean >= 5.0 logits",
+      "substantial_fraction_of_classifiable": 0.75
+    }
+  },
+  "margin_note": "The first-divergent-token margin depends only on the prompt, so FREE and CONSTRAINED cells of a framing share identical margins by construction.",
+  "margins_by_cell": {
+    "P7_CONSTRAINED": {
+      "fraction_negative_alternate_favored": 1.0,
+      "fraction_positive_record_favored": 0.0,
+      "max": -13.9375,
+      "mean": -21.505859375,
+      "median": -22.0,
+      "min": -29.1875,
+      "n": 32
+    },
+    "P7_FREE": {
+      "fraction_negative_alternate_favored": 1.0,
+      "fraction_positive_record_favored": 0.0,
+      "max": -13.9375,
+      "mean": -21.505859375,
+      "median": -22.0,
+      "min": -29.1875,
+      "n": 32
+    },
+    "P8_CONSTRAINED": {
+      "fraction_negative_alternate_favored": 0.0,
+      "fraction_positive_record_favored": 1.0,
+      "max": 29.765625,
+      "mean": 23.113037109375,
+      "median": 23.390625,
+      "min": 12.1875,
+      "n": 32
+    },
+    "P8_FREE": {
+      "fraction_negative_alternate_favored": 0.0,
+      "fraction_positive_record_favored": 1.0,
+      "max": 29.765625,
+      "mean": 23.113037109375,
+      "median": 23.390625,
+      "min": 12.1875,
+      "n": 32
+    }
+  },
+  "n_evaluations": 128,
+  "paired_shift_p8_minus_p7": {
+    "ci_high": 46.85897216796875,
+    "ci_low": 42.465032958984374,
+    "mean": 44.618896484375,
+    "n_bootstrap": 5000,
+    "n_scenarios": 32,
+    "seed": 0
+  },
+  "run_id": "phase9a_diagnostic_20260926T221413Z_e5016b21",
+  "status": "phase9a_policy_flip_diagnostic_complete_awaiting_audit"
+}
