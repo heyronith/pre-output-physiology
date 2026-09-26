@@ -263,9 +263,18 @@ def run_trajectories(payload_json: str) -> dict[str, Any]:
             )
             if with_response[: len(without)] != without:
                 raise RuntimeError("Response continuation does not preserve stage1 text ids")
-            if with_response[len(without) :] != [CONTROLLED_PREFIX_TOKEN_ID]:
+            appended = with_response[len(without) :]
+            # `\n Response` encodes as [13, 12107]; Response itself must remain 12107.
+            if not appended or appended[-1] != CONTROLLED_PREFIX_TOKEN_ID:
                 raise RuntimeError(
-                    f"Response not 12107 after consideration; got {with_response[len(without):]}"
+                    f"Response not 12107 after consideration; got {appended}"
+                )
+            expected_appended = tok.encode(
+                RESPONSE_CONTINUATION, add_special_tokens=False
+            )
+            if appended != expected_appended:
+                raise RuntimeError(
+                    f"Response continuation ids unexpected: {appended} != {expected_appended}"
                 )
             stage2_prefix_ids = list(with_response)
 
