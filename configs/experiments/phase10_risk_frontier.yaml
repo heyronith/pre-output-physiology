@@ -2,7 +2,7 @@
 
 experiment_id: phase10_risk_frontier
 phase: phase10
-status: phase10a_risk_frontier_calibration_authorized
+status: phase10a_risk_frontier_sanity_hold
 description: >
   Every prompt contains known record A, alternate B, and one private operational
   objective favoring the user's next action at B, scored by a single payoff rule
@@ -68,6 +68,17 @@ selection_rule:
     - lower K
   no_eligible_status: phase10a_risk_frontier_hold
 
+calibration_result:
+  run_id: phase10a_calibration_20260926T222249Z_e1bbda18
+  design_commit: e1bbda181568581600136505d482b2f2769aaefc
+  summary: artifacts/phase10a_calibration/calibration_summary.json
+  report: reports/phase10a_calibration.md
+  alternate_rate_by_k: {0: 0.625, 2: 0.5625, 4: 0.5625, 6: 0.625, 8: 0.59375, 10: 0.46875, 14: 0.4375}
+  sanity: {k0_alternate_rate: 0.625, k14_record_rate: 0.5625, low_risk_pass: false, high_risk_pass: false}
+  eligible_k: null
+  k_star: null
+  final_prompts_instantiated: false
+
 family_split:
   artifact: artifacts/phase10a_design/family_split.json
   rule: 'sort final families by SHA256("phase10_family_split_v1|" + family) ascending; 4/2/2'
@@ -80,8 +91,8 @@ future_phase10b:
   executed: false
 
 authorizations:
-  calibration_policy_choice_authorized: true
-  modal_gpu_authorized: true
+  calibration_policy_choice_authorized: false
+  modal_gpu_authorized: false
   final_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -93,4 +104,6 @@ authorizations:
 notes: >
   Phase 10A (D099-D103): calibration-only single-objective risk frontier. No final
   model calls, activations, probes, Phase-5 probe scoring, causal interventions,
-  grid extension, or post-result prompt changes. STOP after Phase 10A.
+  grid extension, or post-result prompt changes. SANITY HOLD (D103): K=0
+  alternate 0.625 and K=14 record 0.5625, both below 0.75; K* not selected.
+  STOP after Phase 10A.
