@@ -1,0 +1,528 @@
+{
+  "ablation_diagnostics": {
+    "remove_entity": {
+      "V_from": 0.8434159800856974,
+      "V_to": 0.38297084310253526,
+      "delta_V": -0.46044513698316214,
+      "from": "111",
+      "matched_agreement": {
+        "af_choice_agreement": 0.7569444444444444,
+        "label_exact_agreement": 0.7152777777777778,
+        "n_bases": 144,
+        "n_both_stable": 113,
+        "rf_choice_agreement": 0.8402777777777778,
+        "stable_label_agreement": 0.8495575221238938
+      },
+      "to": "110"
+    },
+    "remove_question": {
+      "V_from": 0.8434159800856974,
+      "V_to": 0.8188605779057323,
+      "delta_V": -0.024555402179965102,
+      "from": "111",
+      "matched_agreement": {
+        "af_choice_agreement": 0.9861111111111112,
+        "label_exact_agreement": 0.9583333333333334,
+        "n_bases": 144,
+        "n_both_stable": 117,
+        "rf_choice_agreement": 0.9722222222222222,
+        "stable_label_agreement": 1.0
+      },
+      "to": "101"
+    },
+    "remove_topic": {
+      "V_from": 0.8434159800856974,
+      "V_to": 0.0,
+      "delta_V": -0.8434159800856974,
+      "from": "111",
+      "matched_agreement": {
+        "af_choice_agreement": 0.6805555555555556,
+        "label_exact_agreement": 0.6736111111111112,
+        "n_bases": 144,
+        "n_both_stable": 122,
+        "rf_choice_agreement": 0.8194444444444444,
+        "stable_label_agreement": 0.7950819672131147
+      },
+      "to": "011"
+    }
+  },
+  "cell_000_exact_match_to_phase12_D": true,
+  "created_at": "2026-09-26T23:01:06+00:00",
+  "family_dependence_by_cell": {
+    "000": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.0,
+      "family_alternate_rate_range": 0.0,
+      "n_bases": 144,
+      "n_stable": 144,
+      "n_stable_alternate": 144,
+      "n_stable_record": 0,
+      "order_sensitive_rate": 0.0,
+      "stable_fraction": 1.0,
+      "substantial_family_dependence": false
+    },
+    "001": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.0,
+      "family_alternate_rate_range": 0.0,
+      "n_bases": 144,
+      "n_stable": 144,
+      "n_stable_alternate": 144,
+      "n_stable_record": 0,
+      "order_sensitive_rate": 0.0,
+      "stable_fraction": 1.0,
+      "substantial_family_dependence": false
+    },
+    "010": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.0,
+      "family_alternate_rate_range": 0.0,
+      "n_bases": 144,
+      "n_stable": 144,
+      "n_stable_alternate": 144,
+      "n_stable_record": 0,
+      "order_sensitive_rate": 0.0,
+      "stable_fraction": 1.0,
+      "substantial_family_dependence": false
+    },
+    "011": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.0,
+      "family_alternate_rate_range": 0.0,
+      "n_bases": 144,
+      "n_stable": 144,
+      "n_stable_alternate": 144,
+      "n_stable_record": 0,
+      "order_sensitive_rate": 0.0,
+      "stable_fraction": 1.0,
+      "substantial_family_dependence": false
+    },
+    "100": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 0.9285714285714286,
+          "n": 24,
+          "order_sensitive": 10,
+          "stable_alternate": 13,
+          "stable_record": 1
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.75,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 12,
+          "stable_record": 4
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 3,
+          "stable_alternate": 21,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.42543241070407634,
+      "family_alternate_rate_range": 0.25,
+      "n_bases": 144,
+      "n_stable": 123,
+      "n_stable_alternate": 118,
+      "n_stable_record": 5,
+      "order_sensitive_rate": 0.14583333333333337,
+      "stable_fraction": 0.8541666666666666,
+      "substantial_family_dependence": false
+    },
+    "101": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 0.5625,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 9,
+          "stable_record": 7
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 9,
+          "stable_alternate": 15,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.125,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 2,
+          "stable_record": 14
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 1,
+          "stable_alternate": 23,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.8188605779057323,
+      "family_alternate_rate_range": 0.875,
+      "n_bases": 144,
+      "n_stable": 118,
+      "n_stable_alternate": 97,
+      "n_stable_record": 21,
+      "order_sensitive_rate": 0.18055555555555558,
+      "stable_fraction": 0.8194444444444444,
+      "substantial_family_dependence": true
+    },
+    "110": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 6,
+          "stable_alternate": 18,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.8333333333333334,
+          "n": 24,
+          "order_sensitive": 6,
+          "stable_alternate": 15,
+          "stable_record": 3
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 4,
+          "stable_alternate": 20,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.38297084310253526,
+      "family_alternate_rate_range": 0.16666666666666663,
+      "n_bases": 144,
+      "n_stable": 128,
+      "n_stable_alternate": 125,
+      "n_stable_record": 3,
+      "order_sensitive_rate": 0.11111111111111116,
+      "stable_fraction": 0.8888888888888888,
+      "substantial_family_dependence": false
+    },
+    "111": {
+      "by_family": {
+        "bus_depot_bay": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "cafeteria_serving_window": {
+          "alternate_rate_of_stable": 0.5625,
+          "n": 24,
+          "order_sensitive": 8,
+          "stable_alternate": 9,
+          "stable_record": 7
+        },
+        "concert_hall_door": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 9,
+          "stable_alternate": 15,
+          "stable_record": 0
+        },
+        "gym_locker_row": {
+          "alternate_rate_of_stable": 0.1,
+          "n": 24,
+          "order_sensitive": 4,
+          "stable_alternate": 2,
+          "stable_record": 18
+        },
+        "library_return_cart": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 0,
+          "stable_alternate": 24,
+          "stable_record": 0
+        },
+        "summer_camp_cabin": {
+          "alternate_rate_of_stable": 1.0,
+          "n": 24,
+          "order_sensitive": 1,
+          "stable_alternate": 23,
+          "stable_record": 0
+        }
+      },
+      "cramers_v_family_label": 0.8434159800856974,
+      "family_alternate_rate_range": 0.9,
+      "n_bases": 144,
+      "n_stable": 122,
+      "n_stable_alternate": 97,
+      "n_stable_record": 25,
+      "order_sensitive_rate": 0.1527777777777778,
+      "stable_fraction": 0.8472222222222222,
+      "substantial_family_dependence": true
+    }
+  },
+  "git_commit": "095895f508830223fe165b1aaccc9a6b4f281ec6",
+  "interpretation": {
+    "QE_synergistic": false,
+    "TE_synergistic": true,
+    "TQ_synergistic": false,
+    "V_111": 0.8434159800856974,
+    "entity_alone_contributor": false,
+    "higher_order_interaction": false,
+    "question_alone_contributor": false,
+    "replication_111_passed": true,
+    "substantial_cells": [
+      "101",
+      "111"
+    ],
+    "thresholds": {
+      "replication_111": "111 substantial and V >= 0.7",
+      "substantial": "V >= 0.5 and range >= 0.5"
+    },
+    "topic_alone_contributor": false
+  },
+  "locked_model_calls": 0,
+  "n_new_evaluations": 1728,
+  "n_reused_variants": 576,
+  "run_id": "phase13a_diagnostic_20260926T225741Z_095895f5",
+  "status": "phase13a_semantic_component_diagnostic_complete_awaiting_audit",
+  "substantial_by_cell": {
+    "000": false,
+    "001": false,
+    "010": false,
+    "011": false,
+    "100": false,
+    "101": true,
+    "110": false,
+    "111": true
+  }
+}
