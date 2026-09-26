@@ -1,0 +1,292 @@
+{
+  "communication_target_present": false,
+  "context_factors_influence_verification": {
+    "inf_high__ver_high": [
+      "high",
+      "high"
+    ],
+    "inf_high__ver_low": [
+      "high",
+      "low"
+    ],
+    "inf_low__ver_high": [
+      "low",
+      "high"
+    ],
+    "inf_low__ver_low": [
+      "low",
+      "low"
+    ]
+  },
+  "context_symmetry_checked_n_scenarios": 704,
+  "contexts": [
+    "inf_low__ver_low",
+    "inf_low__ver_high",
+    "inf_high__ver_low",
+    "inf_high__ver_high"
+  ],
+  "counterbalance": {
+    "final": {
+      "aquarium_tank": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "community_garden_plot": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "farmers_market_stall": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "laundromat_machine": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "library_study_carrel": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "museum_audio_stop": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "parking_garage_level": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      },
+      "train_platform_track": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 80,
+        "record_listed_first_counts": {
+          "False": 40,
+          "True": 40
+        }
+      }
+    },
+    "pilot": {
+      "aquarium_tank": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "community_garden_plot": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "farmers_market_stall": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "laundromat_machine": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "library_study_carrel": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "museum_audio_stop": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "parking_garage_level": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "train_platform_track": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      }
+    },
+    "pilot_r2": {
+      "aquarium_tank": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "community_garden_plot": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "farmers_market_stall": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "laundromat_machine": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "library_study_carrel": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "museum_audio_stop": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "parking_garage_level": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      },
+      "train_platform_track": {
+        "balanced": true,
+        "max_record_minus_alternate": 0,
+        "n": 4,
+        "record_listed_first_counts": {
+          "False": 2,
+          "True": 2
+        }
+      }
+    }
+  },
+  "created_at": "2026-09-26T20:42:21+00:00",
+  "families": [
+    "library_study_carrel",
+    "farmers_market_stall",
+    "community_garden_plot",
+    "museum_audio_stop",
+    "train_platform_track",
+    "parking_garage_level",
+    "laundromat_machine",
+    "aquarium_tank"
+  ],
+  "final_base_scenario_ids_sha256": "2eea6d686e13fc4846d966f2e0cf200dd2ad30d89fba8fd478d92421edee8618",
+  "final_prompt_text_sha256": "552b35a6c7e0f8a2a7523ab47fb8f0ce9498217e987eb94dfdfa468dfdede188",
+  "final_scenario_text_sha256": "f18c1058dee3bf6dd2cc247b43d1b9613fd714879531eb82191cf92f3cd732c4",
+  "final_seed": 71,
+  "goal_record_conflict_fraction": 1.0,
+  "model_generation_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_final_base_scenarios": 640,
+  "n_final_per_family": 80,
+  "n_final_prompts": 2560,
+  "n_pilot_base_scenarios": 32,
+  "n_pilot_prompts": 128,
+  "neutral_prefix_token_id": 12107,
+  "neutral_prefix_verified_on_n_prompts": 2688,
+  "phase": "phase7a",
+  "phase5_probe_scored": false,
+  "phase7_activations_exist": false,
+  "pilot_base_scenario_ids_sha256": "0d0810816e079a48ddfea07e0c41d662d279ae0b7c43cc3170f873971c1ef013",
+  "pilot_prompt_text_sha256": "05a9afdcb46e31b0ff0440619935fadcb717a1440a88462b76c5be3efa0ab3b7",
+  "pilot_r2_reserved_base_scenario_ids_sha256": "506dbef61fb19f1d2bb415c767c908184e2812be154efb898b2ada86461cc32e",
+  "pilot_r2_reserved_scenario_text_sha256": "c546fea0ccdf49c39e5a98a1f5057bf9bb0ef29332342668d9f1f32fd2e260f0",
+  "pilot_scenario_text_sha256": "d3f4a5f675837b38699ba18573cd358af609e1f03d0b26f8ed6a491d97d9fc7b",
+  "pilot_seed": 37,
+  "pilot_seed_revision2_reserved": 43,
+  "preassigned_behavior_labels": false,
+  "prior_family_overlap": false,
+  "prior_scenario_text_overlap": false,
+  "prompt_template_revision": 1,
+  "response_schema": "Response <STATE>"
+}

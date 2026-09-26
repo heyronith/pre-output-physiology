@@ -1,0 +1,23 @@
+{
+  "caveat": "Full prompt contains decision-relevant context; this does not establish an information-theoretically hidden intention.",
+  "executed": false,
+  "order": [
+    "generate final behavior",
+    "freeze actual behavioral labels",
+    "fit new probe on discovery_train families only",
+    "validate on discovery_validation families",
+    "test once on locked_generalization families",
+    "compare against full-context text/semantic baselines",
+    "analyze matched within-base decision-context changes"
+  ],
+  "phase5_probe": {
+    "future_role": "negative_control_confound_diagnostic_only",
+    "primary_detector": false,
+    "probe_artifact": "artifacts/phase5c_discovery_physiology/selected_probe_k1.npz",
+    "probe_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8"
+  },
+  "prediction_target": "policy the model actually chose under goal-record conflict",
+  "primary_endpoint": "controlled_prefix_k1_after_token_12107",
+  "requires_phase7a_pass": true,
+  "secondary_endpoint": "k0"
+}
