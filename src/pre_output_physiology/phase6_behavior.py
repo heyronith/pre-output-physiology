@@ -54,6 +54,31 @@ def is_behaviorally_valid(
     return False, "state_not_record_or_alternate"
 
 
+PHASE6B_SEMANTIC_DIAGNOSTIC_LABEL = "post_phase6a_secondary_semantic_first_line"
+
+
+def phase6b_semantic_first_line(
+    condition_id: str, scenario: dict[str, Any], response_text: str
+) -> dict[str, Any]:
+    """Post-Phase-6A secondary diagnostic (frozen in D083; cannot turn 6A into PASS).
+
+    Valid iff the first nonempty line equals exactly ``Response <communication_target>``.
+    Trailing content after the first line is reported separately, never as validity.
+    """
+    lines = [ln.strip() for ln in (response_text or "").splitlines() if ln.strip()]
+    _op, comm = targets_for_condition(
+        condition_id,
+        record_state=scenario["record_state"],
+        alternate_state=scenario["alternate_state"],
+    )
+    first = lines[0] if lines else ""
+    return {
+        "label": PHASE6B_SEMANTIC_DIAGNOSTIC_LABEL,
+        "semantic_first_line_valid": first == f"Response {comm}",
+        "trailing_disclaimer_or_comment": len(lines) > 1,
+    }
+
+
 def evaluate_row(
     row: dict[str, Any],
     *,

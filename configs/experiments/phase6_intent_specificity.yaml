@@ -1,8 +1,10 @@
-# Phase 6 intent specificity — Phase 6A HOLD (revision-2 pilot failed)
+# Phase 6 intent specificity — Phase 6A HOLD; Phase 6B frozen-probe factorial (D083)
 
 experiment_id: phase6_intent_specificity
 phase: phase6
-status: phase6a_specificity_pilot_hold
+status: phase6b_factorial_frozen_probe_authorized
+phase6a_outcome: phase6a_specificity_pilot_hold_operational_format_failure
+phase6a_original_exact_one_line_gate_passed: false
 description: >
   2x2 factorial (operational conflict x communication conflict) testing whether
   the frozen Phase-5 L12/k1 probe tracks communication/deceptive intent or
@@ -89,17 +91,44 @@ future_frozen_probe_analysis:
   operational_conflict_effect: "0.5 * [(F10 - F00) + (F11 - F01)]"
   ci: scenario_paired_bootstrap
 
+phase6b:
+  decision: D083
+  prospective_amendment_before_final_model_call: true
+  starting_head: 0f1673e7c2eae9b0a90ab6e96f111cb2684ce032
+  general_deception_intent_test: false
+  claim_under_test: >
+    Does the frozen Phase-5 representation preferentially encode a private
+    communication target that conflicts with the known record, rather than
+    generic private-goal conflict?
+  frozen_corpus:
+    final_prompt_text_sha256: fa4ad2629e911e0226620dd10edbf9ff9d517051837be818e55a56b2f0124721
+    final_scenario_text_sha256: 839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1
+    final_base_scenario_ids_sha256: 6bb09c18ad206d39c354e8520dd1ad1f9eb7b855f07f3fda64e25622f3881034
+  extractor: modal/phase6b_extract.py
+  scorer: scripts/score_phase6b.py
+  analysis_module: src/pre_output_physiology/phase6_analysis.py
+  report: reports/phase6b_primary.md
+  primary_population: all_720_scenarios_x_4_conditions_no_behavior_conditioning
+  primary_score_scale: frozen_probe_probability
+  secondary_score_scale: frozen_probe_logit
+  n_bootstrap: 5000
+  bootstrap_seed: 0
+  repeatability_cosine_min: 0.9999
+  secondary_behavior_diagnostic: post_phase6a_secondary_semantic_first_line
+
 authorizations:
   pilot_generation_authorized: false
   final_generation_authorized: false
-  activation_extraction_authorized: false
-  probe_scoring_authorized: false
+  activation_extraction_authorized: true
+  probe_scoring_authorized: true
   probe_fitting_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: false
+  modal_gpu_authorized: true
 
 notes: >
   Phase 6A HOLD (D082). Revision-2 pilot failed: F01 17/24 valid (7 correct
   first lines followed by appended disclaimer notes); all-four 17/24. F00, F10,
   F11 24/24. No further revisions permitted. Frozen Phase-5 probe pinned by hash
-  only (not loaded or scored). STOP after Phase 6A.
+  only (not loaded or scored). Phase 6A outcome remains HOLD. Phase 6B (D083)
+  authorizes frozen-probe L12/k1 extraction and scoring of the unchanged final
+  corpus only; final response generation remains unauthorized.

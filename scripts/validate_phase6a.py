@@ -38,7 +38,10 @@ STATUSES = {
     "phase6a_specificity_design_frozen_pilot_authorized",
     "phase6a_specificity_pilot_pass_awaiting_audit",
     "phase6a_specificity_pilot_hold",
+    "phase6b_factorial_frozen_probe_authorized",
+    "phase6b_factorial_primary_complete_awaiting_audit",
 }
+PHASE6A_HOLD_OUTCOME = "phase6a_specificity_pilot_hold_operational_format_failure"
 
 
 class Result:
@@ -112,18 +115,20 @@ def main() -> int:
     else:
         result.fail(f"unexpected status {status}")
 
+    is_6b = str(status).startswith("phase6b")
     auth = cfg.get("authorizations", {})
-    for key in (
+    must_be_false = [
         "final_generation_authorized",
-        "activation_extraction_authorized",
-        "probe_scoring_authorized",
         "probe_fitting_authorized",
         "causal_intervention_authorized",
-    ):
+    ]
+    if not is_6b:
+        must_be_false += ["activation_extraction_authorized", "probe_scoring_authorized"]
+    for key in must_be_false:
         if auth.get(key) is False:
             result.ok(f"{key}=false")
         else:
-            result.fail(f"{key} must be false in Phase 6A")
+            result.fail(f"{key} must be false")
     expected_pilot_auth = status == "phase6a_specificity_design_frozen_pilot_authorized"
     if auth.get("pilot_generation_authorized") is expected_pilot_auth:
         result.ok(f"pilot_generation_authorized={expected_pilot_auth}")
@@ -364,6 +369,12 @@ def main() -> int:
         if p.is_file()
         and "phase6" in str(p.relative_to(REPO_ROOT))
         and p.suffix in {".safetensors", ".npz", ".pt", ".pth"}
+        and not (
+            is_6b
+            and p.suffix == ".safetensors"
+            and p.relative_to(REPO_ROOT).parts[:2] == ("artifacts", "runs")
+            and p.relative_to(REPO_ROOT).parts[2].startswith("phase6b_extract_")
+        )
     ]
     if act_hits:
         result.fail(f"phase6 activation/weight artifacts present: {act_hits[:3]}")
@@ -373,12 +384,14 @@ def main() -> int:
     non_pilot = [
         d.name
         for d in runs.glob("phase6*")
-        if d.is_dir() and not d.name.startswith("phase6a_pilot_")
+        if d.is_dir()
+        and not d.name.startswith("phase6a_pilot_")
+        and not (is_6b and d.name.startswith("phase6b_extract_"))
     ] if runs.is_dir() else []
     if non_pilot:
         result.fail(f"non-pilot Phase-6 runs present: {non_pilot}")
     else:
-        result.ok("only Phase-6A pilot runs exist (no final generation)")
+        result.ok("only Phase-6A pilot / Phase-6B extraction runs exist (no final generation)")
     final_output_hits = 0
     if runs.is_dir():
         for path in runs.glob("phase6a_pilot_*/pilot_outputs.jsonl"):
@@ -399,8 +412,10 @@ def main() -> int:
             result.ok("pilot summary/report present")
             summary = json.loads(summary_path.read_text(encoding="utf-8"))["summary"]
             gates = summary["gates"]["all_operational_gates_pass"]
-            if (status.endswith("pass_awaiting_audit") and gates) or (
-                status.endswith("hold") and not gates
+            if (
+                (status.endswith("pass_awaiting_audit") and gates)
+                or (status.endswith("hold") and not gates)
+                or (is_6b and not gates and cfg.get("phase6a_outcome") == PHASE6A_HOLD_OUTCOME)
             ):
                 result.ok("status matches pilot gates")
             else:
@@ -431,9 +446,14 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("Phase 6A validation OK.")
-    print("NO PHASE 6 ACTIVATIONS WERE COLLECTED.")
-    print("THE FROZEN PHASE-5 PROBE WAS NOT SCORED, RETRAINED, RECALIBRATED, OR MODIFIED.")
-    print("NO FINAL PHASE-6 SCENARIOS WERE RUN THROUGH THE MODEL.")
+    if is_6b:
+        print(f"PHASE 6A OUTCOME REMAINS {PHASE6A_HOLD_OUTCOME}.")
+        print("THE FROZEN PHASE-5 PROBE WAS NOT RETRAINED, RECALIBRATED, OR MODIFIED.")
+        print("NO FINAL PHASE-6 RESPONSES WERE GENERATED.")
+    else:
+        print("NO PHASE 6 ACTIVATIONS WERE COLLECTED.")
+        print("THE FROZEN PHASE-5 PROBE WAS NOT SCORED, RETRAINED, RECALIBRATED, OR MODIFIED.")
+        print("NO FINAL PHASE-6 SCENARIOS WERE RUN THROUGH THE MODEL.")
     print("NO CAUSAL INTERVENTIONS WERE PERFORMED.")
     return 0
 

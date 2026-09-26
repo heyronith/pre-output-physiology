@@ -16,7 +16,6 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from pre_output_physiology.phase5_physiology import (  # noqa: E402
     EXPECTED_TRAIN_ALL_PAIR_SHA256,
     EXPECTED_VAL_ALL_PAIR_SHA256,
-    LOCKED_FAMILIES,
     SEMANTIC_EMBEDDING_REVISION,
 )
 

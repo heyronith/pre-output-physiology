@@ -46,20 +46,23 @@ SC = {
 
 def test_phase6_status_and_auth() -> None:
     cfg = load_experiment_config(EXPERIMENTS_DIR / "phase6_intent_specificity.yaml")
-    assert cfg.status.startswith("phase6a_specificity")
+    assert cfg.status.startswith(("phase6a_specificity", "phase6b_factorial"))
     raw = yaml.safe_load(
         (REPO_ROOT / "configs/experiments/phase6_intent_specificity.yaml").read_text(
             encoding="utf-8"
         )
     )
     auth = raw["authorizations"]
-    for key in (
+    must_be_false = [
         "final_generation_authorized",
-        "activation_extraction_authorized",
-        "probe_scoring_authorized",
         "probe_fitting_authorized",
         "causal_intervention_authorized",
-    ):
+    ]
+    if cfg.status.startswith("phase6b"):
+        assert raw["phase6a_outcome"] == "phase6a_specificity_pilot_hold_operational_format_failure"
+    else:
+        must_be_false += ["activation_extraction_authorized", "probe_scoring_authorized"]
+    for key in must_be_false:
         assert auth[key] is False
 
 

@@ -93,6 +93,8 @@ class ExperimentConfig(BaseModel):
         "phase6a_specificity_design_frozen_pilot_authorized",
         "phase6a_specificity_pilot_pass_awaiting_audit",
         "phase6a_specificity_pilot_hold",
+        "phase6b_factorial_frozen_probe_authorized",
+        "phase6b_factorial_primary_complete_awaiting_audit",
         "running",
         "complete",
         "blocked",
