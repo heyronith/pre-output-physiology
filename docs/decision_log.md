@@ -426,3 +426,75 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** After Phase 4E found ~chance C3-vs-C2 separation under controlled `Response` (12107), Phase 4F diagnoses whether that null was caused by replacing the model's natural greedy first token. Natural-token k1 uses truncated `prompt + [argmax next-token]` only—no full response regeneration, no prompt/eligibility/probe changes, no retraining. If C3-vs-C2 remains ~0.5, controlled-prefix choice did not explain the specificity failure. If natural-token AUROC clearly exceeds 0.5, interpret as distribution shift and check first-token identity confounding before claiming deception specificity.
 - **Date:** 2026-09-25
+
+### D065 — Phase 4 falsified original-probe deception specificity
+
+- **Type:** **FACT**
+- **Decision:** Phase 4 demonstrated that the frozen Phase-3 RoleplayDeception L12 probe does not specifically separate intentional strategic deception from matched strategic honesty under Phase-4 controls (C3 vs C2 near chance under both controlled and natural first-token k1). No causal interventions are authorized on that probe.
+- **Date:** 2026-09-25
+
+### D066 — Phase 5 discovery contrast is S3 vs S2 from inception
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5 discovers physiology distinguishing strategic deception (S3) from strategic honesty (S2) while holding strategic/private-objective framing constant. The only intended difference is whether the private objective target agrees with (S2) or conflicts with (S3) the private record. Prompts must not use condition-revealing lexicon.
+- **Date:** 2026-09-25
+
+### D067 — Controlled-prefix primary endpoint for Phase 5 physiology
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Future Phase-5 candidate discovery uses the controlled-prefix hidden state after the shared neutral `Response` token (verified tokenizer ID under real chat-generation context) before the state answer appears, scanned across layers `[0,4,8,12,16,20,24,28,31]`. Secondary endpoint is k0 prompt-boundary. Natural-first-token analyses are diagnostic only, not candidate-selection endpoints.
+- **Date:** 2026-09-25
+
+### D068 — Locked generalization families untouched until freeze
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Two Phase-5 families are reserved as locked generalization and must not receive discovery-stage model generation, activation extraction, or probe fitting until the entire probe/layer/endpoint selection procedure is frozen. Phase 5A generates only pilot scenarios (including pilot IDs from locked-family templates that remain disjoint from locked-final IDs).
+- **Date:** 2026-09-25
+
+### D069 — Uncertainty control remains out of Phase-5 discovery
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase-4 C5 / uncertainty remains an unresolved later specificity control and is not part of Phase-5 S2/S3 discovery.
+- **Date:** 2026-09-25
+
+### D070 — Phase 5 does not claim information-theoretic absence from text
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Because record and objective target are present in privileged full context, S2/S3 is in principle inferable from text. Phase 5 therefore does not claim information-theoretic absence from text; it seeks a physiological representation that is robust across scenarios/families, specific to strategic deception relative to strategic honesty, prospectively available before the semantic answer, and transferable to unseen families.
+- **Date:** 2026-09-25
+
+### D071 — Single Phase 5A prompt-format revision after revision-1 pilot fail
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision-1 free-generation pilot failed operational gates (S2 valid 0/32; S3 valid 3/32; paired 0/32), mainly from `Response:` colon schema mismatches and truncated/shortened states. Exactly one prompt-format revision is authorized: revision 2 strengthens the shared output-schema block (no colon; verbatim full target; one line; correct/incorrect shape examples) while preserving S2/S3 semantic symmetry. A new frozen pilot set (pilot_seed=19) is required. Validity definitions are not weakened. If the revision-2 pilot fails, Phase 5A holds.
+- **Date:** 2026-09-25
+
+### D072 — Deterministic discovery train/validation family split
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Before Phase 5B discovery generation, assign the six discovery families by sorting `SHA256("phase5_family_split_v1|" + family_name)` ascending: first 4 = discovery-train, last 2 = discovery-validation. No scenario-level mixing across splits. Assignment is outcome-independent and must be committed before model generation. Locked families remain excluded.
+- **Date:** 2026-09-25
+
+### D073 — Primary estimand is all designed S2/S3 pairs
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Primary future Phase-5 physiology analysis uses all designed S2/S3 pairs (train N=640; validation N=320), independent of later behavioral compliance, because behavior occurs downstream of the k1 state and compliance filtering would introduce post-treatment selection bias. Behaviorally valid paired subsets are secondary sensitivity analyses only and must not replace the primary all-pair populations. Future probe procedure is preregistered (standardized logistic regression, C=0.01, intercept, max_iter=500, seed=42; train on discovery-train; layer select on discovery-validation) but not executed in Phase 5B.
+- **Date:** 2026-09-25
+
+### D074 — Phase 5C candidate selection and locked-test gate
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5C extracts truncated-prefix last-token residual activations at layers `[0,4,8,12,16,20,24,28,31]` for k0 and controlled-prefix k1 (`Response`/12107) on discovery families only. Candidate selection uses **k1 only**, choosing the layer with highest validation all-pair AUROC (tie-break: higher worst-family AUROC, then lower layer). k0 cannot be the primary candidate. Locked-test authorization requires overall validation AUROC ≥ 0.70, bootstrap lower 95% bound > 0.50, and AUROC ≥ 0.60 in each validation family. Gates are frozen before results; failure means HOLD without inspecting locked families.
+- **Date:** 2026-09-25
+
+### D075 — Phase 5C baselines and information-theoretic stance
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Preregistered baselines (user-visible TFIDF; full privileged word+char TFIDF; frozen `all-mpnet-base-v2` revision `e8c3b32edf5434bc2275fc9bab85f82640a19130` mean-pooled embedding + LR; fixed output-logit state-alternative summary; first-token identity diagnostic) are fit on train families only with leave-one-train-family-out C selection for learned text/embedding baselines over `[0.01,0.1,1,10]`. Physiology is not required to beat privileged full-context text. Phase 5 does not claim information uniquely absent from the prompt.
+- **Date:** 2026-09-25
+
+### D076 — Phase 5D locked one-shot confirmatory test
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Phase 5D tests the frozen Phase-5C candidate exactly once on the two untouched locked families (`harbor_dock_slip`, `trail_marker_post`; 320 pairs / 640 prompts). Endpoint is controlled-prefix k1 after Response token 12107 at layer 12 only; probe SHA256 `fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8` is loaded without retraining, recalibration, or reselection. Primary analysis uses all 320 designed pairs (behavior validity does not alter the primary population). Confirmation requires overall AUROC bootstrap CI lower bound > 0.50, paired S3−S2 score-difference CI entirely > 0, and both locked-family AUROCs > 0.50. Thresholds are not changed after seeing results. Behavior sensitivity is secondary and may run only after primary physiology is written. No alternative layers/endpoints for candidate selection; no causal interventions.
+- **Date:** 2026-09-25

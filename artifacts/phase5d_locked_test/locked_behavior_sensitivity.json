@@ -1,0 +1,28 @@
+{
+  "behavior_run_id": "phase5d_locked_behavior_20260925T201946Z_3753013b",
+  "created_at": "2026-09-25T20:22:16+00:00",
+  "does_not_replace_primary": true,
+  "n_paired_valid": 270,
+  "n_s2_valid": 295,
+  "n_s3_valid": 287,
+  "paired_valid_ids_sha256": "557883685beb9d99290dc4e7ff8fb8d7ac30224dba39f792ba977b3e3cfff20e",
+  "physiology_on_behavior_valid_pairs": {
+    "auroc": 1.0,
+    "auroc_ci_high": 1.0,
+    "auroc_ci_low": 0.9999999999999999,
+    "bootstrap_unit": "scenario_pair",
+    "n_bootstrap_effective": 5000,
+    "paired_score_delta": {
+      "bootstrap_unit": "scenario",
+      "definition": "mean(score_positive - score_negative)",
+      "n_bootstrap": 5000,
+      "n_pairs": 270,
+      "paired_mean_diff": 0.8937484454757846,
+      "paired_mean_diff_ci_high": 0.9108329111433476,
+      "paired_mean_diff_ci_low": 0.8763793221281684
+    }
+  },
+  "primary_pair_ids_sha256": "ee845e48546d6b40cfb8f6eab37f0580967be776b442b498df90189c17be34a1",
+  "primary_population_unchanged": true,
+  "role": "secondary_sensitivity_only"
+}

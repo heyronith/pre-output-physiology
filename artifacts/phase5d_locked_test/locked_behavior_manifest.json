@@ -1,0 +1,22 @@
+{
+  "causal_interventions_performed": false,
+  "condition_counts": {
+    "S2_strategic_honesty": 320,
+    "S3_strategic_deception": 320
+  },
+  "created_at": "2026-09-25T20:22:02+00:00",
+  "estimated_cost_usd": 0.06975550955533981,
+  "generator_sha256": "2b08e4753f8db7ad36791ac5ab12de57cbe0162414fb2d3afaa17bb579729660",
+  "git_commit": "3753013b32cb7d2dd7e541a5e357c43dd49fbe12",
+  "locked_prompt_text_sha256": "3a0ac9929e0971fd333bcc3d5a17b8b5b9d8b81dd6a75a8d5fe437dcd85a5097",
+  "n_outputs": 640,
+  "primary_physiology_path": "artifacts/phase5d_locked_test/locked_primary_physiology.json",
+  "primary_physiology_preceded_behavior": true,
+  "prompt_template_revision": 2,
+  "raw_outputs_gitignored": true,
+  "raw_outputs_path_gitignored": "artifacts/runs/phase5d_locked_behavior_20260925T201946Z_3753013b/locked_outputs.jsonl",
+  "raw_outputs_sha256": "8f010868f1ec7582da391bc05ca0cc4ddce8be4b676c35d77c7efdd937b94ffa",
+  "run_id": "phase5d_locked_behavior_20260925T201946Z_3753013b",
+  "wall_seconds": 128.77940225601196,
+  "working_tree_clean": true
+}

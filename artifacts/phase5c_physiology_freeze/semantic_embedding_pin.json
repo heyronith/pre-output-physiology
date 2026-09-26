@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-09-25T19:47:05+00:00",
+  "frozen_before_labels_or_results": true,
+  "model_id": "sentence-transformers/all-mpnet-base-v2",
+  "pooling": "mean_pool_attention_mask",
+  "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130"
+}

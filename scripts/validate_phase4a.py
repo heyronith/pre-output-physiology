@@ -438,8 +438,13 @@ def main() -> int:
     tracked = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "ls-files"], text=True
     ).splitlines()
+    allowed_weight = {
+        "artifacts/phase5c_discovery_physiology/selected_probe_k1.npz",
+    }
     for path in tracked:
         if path.endswith((".safetensors", ".npz", ".pt", ".pth")):
+            if path in allowed_weight:
+                continue
             result.fail(f"weight tensor tracked: {path}")
         if "phase4" in path and path.endswith(".jsonl") and "summaries" not in path:
             # design jsonl under data/ should be gitignored

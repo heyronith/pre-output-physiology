@@ -54,3 +54,30 @@ Phase 1 produces no experimental run artifacts.
 - `phase4f_natural_token_diagnostic/` — natural greedy first-token k1 vs controlled-prefix comparison.
 - Raw activations under gitignored `artifacts/runs/phase4f_natural_*/`.
 - Diagnostic only (D064); no full response regeneration.
+
+## Phase 5A design + pilot (committed summaries only)
+
+- `phase5a_design/` — condition matrix + hashes (no raw scenario texts required in git).
+- `phase5a_pilot_revision1/` — failed revision-1 free-generation pilot summaries (D071).
+- `phase5a_pilot/` — revision-2 re-pilot summaries after the behavior pilot.
+- Design JSONL under gitignored `data/processed/phase5_design/`.
+- Raw pilot outputs under gitignored `artifacts/runs/phase5a_pilot_*/`.
+
+## Phase 5B discovery behavior (committed summaries only)
+
+- `phase5b_discovery_split/` — pre-generation family train/val split + primary all-pair populations + future probe procedure (D072/D073).
+- `phase5b_discovery_behavior/` — discovery generation/behavior summaries + sensitivity valid-pair freeze.
+- Raw discovery outputs under gitignored `artifacts/runs/phase5b_discovery_*/`.
+- Locked families never generated.
+
+## Phase 5C discovery physiology (committed summaries only)
+
+- `phase5c_physiology_freeze/` — pre-extraction contracts (selection rule, logit formula, embedding pin).
+- `phase5c_discovery_physiology/` — extraction manifest, physiology summary, selected probe npz + SHA256.
+- Raw activations under gitignored `artifacts/runs/phase5c_extract_*/`.
+
+## Phase 5D locked confirmatory test (committed summaries only)
+
+- `phase5d_locked_freeze/` — locked pair population + confirmation criteria frozen pre-model-call.
+- `phase5d_locked_test/` — primary locked physiology scores; optional behavior sensitivity (secondary).
+- Raw locked activations/outputs under gitignored `artifacts/runs/phase5d_locked_*/`.

@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-25T19:47:05+00:00",
+  "endpoint": "k1_only",
+  "k0_cannot_be_primary_candidate": true,
+  "locked_test_gates": {
+    "bootstrap_ci_low_min": 0.5,
+    "overall_auroc_min": 0.7,
+    "per_family_auroc_min": 0.6
+  },
+  "metric": "validation_all_pair_auroc",
+  "tie_break": [
+    "higher_worst_validation_family_auroc",
+    "lower_layer_number"
+  ]
+}
