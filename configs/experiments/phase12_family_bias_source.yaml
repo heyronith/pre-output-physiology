@@ -2,7 +2,7 @@
 
 experiment_id: phase12_family_bias_source
 phase: phase12
-status: phase12a_family_bias_source_diagnostic_authorized
+status: phase12a_family_bias_source_diagnostic_complete_awaiting_audit
 description: >
   Phase 11A order-stable labels were almost entirely family-determined (Cramér's V
   0.905). Phase 12A separates family semantic shell from family state vocabulary
@@ -55,9 +55,24 @@ analysis:
     mixed_contributors: B and C substantial
     interaction_or_other_family_structure: A substantial, neither B nor C
 
+diagnostic_result:
+  run_id: phase12a_diagnostic_20260926T224325Z_860e81be
+  design_commit: 860e81be19a0ffd0eb3df93bff898bf420b0618b
+  summary: artifacts/phase12a_diagnostic/diagnostic_summary.json
+  report: reports/phase12a_diagnostic.md
+  cramers_v: {A: 0.911, B: 0.843, C: 0.436, D: 0.0}
+  family_alternate_rate_range: {A: 1.0, B: 0.9, C: 0.273, D: 0.0}
+  stable_record_alternate: {A: [47, 67], B: [25, 97], C: [4, 122], D: [0, 144]}
+  replication_passed: true
+  state_vocabulary_contributor: false
+  semantic_shell_contributor: true
+  mixed_contributors: false
+  interaction_or_other_family_structure: false
+  locked_model_calls: 0
+
 authorizations:
-  diagnostic_model_calls_authorized: true
-  modal_gpu_authorized: true
+  diagnostic_model_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
