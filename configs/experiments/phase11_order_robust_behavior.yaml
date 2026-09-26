@@ -1,0 +1,91 @@
+# Phase 11 order-robust behavioral labels — Phase 11A discovery behavior at fixed K=10
+
+experiment_id: phase11_order_robust_behavior
+phase: phase11
+status: phase11a_order_robust_behavior_hold
+description: >
+  Every prompt has the same goal-vs-record conflict, the same single-objective
+  payoff rule (Phase-10 wording), and the same fixed K=10. Each discovery base is
+  decoded in two candidate orders (RF record-first, AF alternate-first) that are
+  byte-identical except for the candidate-list line. A base is labeled only if both
+  orders choose the same candidate; otherwise it is order_sensitive_unlabeled.
+  Locked families are not run.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase10_merge_sha: 57e2cec72e124741c08ae4a4d94d62eaa177746a
+phase11_starting_sha: 57e2cec72e124741c08ae4a4d94d62eaa177746a
+phase10_status: phase10a_risk_frontier_sanity_hold
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  fixed_k: 10
+  k_rationale: >
+    Phase-10 calibration-only data showed K=10 had the grid value closest to a
+    50/50 overall choice rate: alternate = 0.469, record = 0.531. K is not being
+    interpreted as a successfully calibrated causal policy-control parameter. It is
+    now simply one globally fixed prompt setting chosen on sacrificial calibration
+    data to obtain approximately balanced future labels.
+  other_k_on_phase11_scenarios: forbidden
+  prompt: Phase-10 build_risk_prompt at K=10, unchanged; only candidate order differs between RF and AF
+  reused_final_scenario_text_sha256: 10cd10a1009db95968fe930538798054a264610bcba4f07794e106478b4edb5e
+  reused_final_base_scenario_ids_sha256: 60d151b045e6536ccfabc171b535e895902655d64dba9805ab90e49f1db47037
+  family_split:
+    discovery_train: [library_return_cart, gym_locker_row, cafeteria_serving_window, bus_depot_bay]
+    discovery_validation: [concert_hall_door, summer_camp_cabin]
+    locked_generalization: [airport_baggage_carousel, parcel_sorting_chute]
+  n_discovery_bases: 720
+  n_evaluations: 1440
+  n_locked_bases_not_run: 240
+  orders: [RF, AF]
+  canonical_physiology_order: RF
+  decoder: two_candidate_constrained_greedy_after_12107 (unchanged)
+  design_matrix: artifacts/phase11a_design/design_matrix.json
+  rf_prompt_text_sha256: 1b764d565e67d06e885a286e0baba67a545e6c0d63a1c482960bea94fec72a51
+  af_prompt_text_sha256: dcf43c8f27f3868bb6461fa668e55c0aa978714d21dca17725a279e48705be2c
+  discovery_base_ids_sha256: d28fd03d02574893d1272317c5ca2e1e210cef3af16378382f5bfa47e36d102a
+
+label_rule:
+  stable_record: RF record AND AF record -> record_choice
+  stable_alternate: RF alternate AND AF alternate -> goal_favored_alternate_choice
+  order_sensitive: RF and AF differ -> order_sensitive_unlabeled
+  future_population: order-stable bases only (preregistered label-validity rule); RF-only all-base analyses as sensitivity
+
+behavior_gates:
+  discovery_train: {min_stable_fraction: 0.70, min_record_fraction_of_stable: 0.25, min_alternate_fraction_of_stable: 0.25, per_family_min_stable_per_class: 20, min_families_meeting: 3}
+  discovery_validation: {min_stable_fraction: 0.70, min_record_fraction_of_stable: 0.20, min_alternate_fraction_of_stable: 0.20, per_family_min_stable_per_class: 15, min_families_meeting: 2}
+  on_failure: STOP before physiology (phase11a_order_robust_behavior_hold); no tuning of K, wording, order, scenarios, or decoder
+
+behavior_result:
+  run_id: phase11a_behavior_20260926T223153Z_aa9a743b
+  design_commit: aa9a743bc1cd9bae805b69743c49df09de32d6b1
+  summary: artifacts/phase11a_behavior/behavior_summary.json
+  report: reports/phase11a_behavior.md
+  discovery_train: {stable_record: 83, stable_alternate: 297, order_sensitive: 100, stable_fraction: 0.792, record_fraction_of_stable: 0.218, families_meeting_per_class: 0, pass: false}
+  discovery_validation: {stable_record: 139, stable_alternate: 46, order_sensitive: 55, stable_fraction: 0.771, families_meeting_per_class: 1, pass: false}
+  gates_pass: false
+  locked_model_calls: 0
+
+future_phase11b:
+  artifact: artifacts/phase11a_design/future_phase11b_plan.json
+  executed: false
+
+authorizations:
+  discovery_behavior_calls_authorized: false
+  modal_gpu_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  causal_intervention_authorized: false
+  k_search_authorized: false
+  prompt_revision_authorized: false
+  decoder_revision_authorized: false
+
+notes: >
+  Phase 11A (D104-D108). Phase 10A remains a sanity hold. No activations, probes,
+  Phase-5 probe scoring, locked-family calls, K search, prompt or decoder revision,
+  or causal intervention. HOLD (D108): behavior gates failed (class balance
+  within families). STOP after Phase 11A.

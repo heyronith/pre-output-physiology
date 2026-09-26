@@ -1,0 +1,64 @@
+{
+  "af_prompt_text_sha256": "dcf43c8f27f3868bb6461fa668e55c0aa978714d21dca17725a279e48705be2c",
+  "created_at": "2026-09-26T22:29:23+00:00",
+  "discovery_base_ids_sha256": "d28fd03d02574893d1272317c5ca2e1e210cef3af16378382f5bfa47e36d102a",
+  "family_split": {
+    "discovery_train": [
+      "library_return_cart",
+      "gym_locker_row",
+      "cafeteria_serving_window",
+      "bus_depot_bay"
+    ],
+    "discovery_validation": [
+      "concert_hall_door",
+      "summer_camp_cabin"
+    ],
+    "locked_generalization": [
+      "airport_baggage_carousel",
+      "parcel_sorting_chute"
+    ]
+  },
+  "fixed_k": 10,
+  "gates": {
+    "discovery_train": {
+      "min_alternate_fraction_of_stable": 0.25,
+      "min_families_meeting_per_class": 3,
+      "min_record_fraction_of_stable": 0.25,
+      "min_stable_fraction": 0.7,
+      "per_family_min_stable_per_class": 20
+    },
+    "discovery_validation": {
+      "min_alternate_fraction_of_stable": 0.2,
+      "min_families_meeting_per_class": 2,
+      "min_record_fraction_of_stable": 0.2,
+      "min_stable_fraction": 0.7,
+      "per_family_min_stable_per_class": 15
+    }
+  },
+  "k_rationale": "Phase-10 calibration-only data showed K=10 had the grid value closest to a 50/50 overall choice rate: alternate = 0.469, record = 0.531. K is not being interpreted as a successfully calibrated causal policy-control parameter. It is now simply one globally fixed prompt setting chosen on sacrificial calibration data to obtain approximately balanced future labels.",
+  "model_calls_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_discovery_bases": 720,
+  "n_evaluations": 1440,
+  "n_locked_bases_excluded": 240,
+  "phase": "phase11a",
+  "phase10_status": "phase10a_risk_frontier_sanity_hold",
+  "reused_final_base_scenario_ids_sha256": "60d151b045e6536ccfabc171b535e895902655d64dba9805ab90e49f1db47037",
+  "reused_final_scenario_text_sha256": "10cd10a1009db95968fe930538798054a264610bcba4f07794e106478b4edb5e",
+  "rf_af_byte_identical_after_masking_candidate_line": 720,
+  "rf_prompt_text_sha256": "1b764d565e67d06e885a286e0baba67a545e6c0d63a1c482960bea94fec72a51",
+  "tokenization": {
+    "all_candidates_nonempty": true,
+    "all_lengths_matched": true,
+    "candidate_tokenization_invariant_to_order": true,
+    "first_divergent_position_counts": {
+      "2": 720
+    },
+    "n_prompt_contexts_checked": 1440,
+    "no_strict_prefix_pairs": true,
+    "record_alternate_length_pairs": {
+      "3-3": 720
+    },
+    "response_prefix_token_id": 12107
+  }
+}

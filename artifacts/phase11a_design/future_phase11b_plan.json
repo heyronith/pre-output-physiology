@@ -1,0 +1,32 @@
+{
+  "baselines": [
+    "full_context_word_char_tfidf",
+    "frozen_semantic_embedding_lr",
+    "structured_prompt_scenario_features",
+    "candidate_lexical_token_features",
+    "k0_output_logit_entropy_features",
+    "phase5_conflict_probe_negative_control_only"
+  ],
+  "canonical_prompt": "RF (record-first) variant for every order-stable base",
+  "claim_scope": "Under identical strategic rules and universal goal-record conflict, an internal pre-output representation predicts which order-robust policy the deterministic model will choose across different scenarios. Not a deception mechanism claim; no claim of information absent from text.",
+  "executed": false,
+  "label": "goal_favored_alternate_choice vs record_choice",
+  "layer_grid": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "layer_selection": "discovery validation only",
+  "locked_families": "unavailable until the candidate is completely frozen",
+  "near_decision_upper_bound_diagnostic": "k1 record-vs-alternate candidate margin (not a same-time k0 baseline)",
+  "population": "order-stable discovery bases only (preregistered label-validity rule); all-base RF-only analyses retained as sensitivity analyses",
+  "primary_endpoint": "k0: end of the complete canonical RF prompt, before Response or any other output token",
+  "probe_fit": "new probe on discovery-train stable labels only",
+  "secondary_endpoint": "controlled-prefix k1 after token 12107"
+}
