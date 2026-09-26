@@ -1,0 +1,53 @@
+{
+  "duplicate_activation_rows": {
+    "conditions_in_duplicate_groups": [
+      "F00"
+    ],
+    "cross_condition_groups": 0,
+    "explanation": "In F00 all three stated values equal the record state, so the alternate state is not model-visible; base scenarios sharing entity+record state have byte-identical F00 prompts in the frozen corpus. Deterministic extraction yields identical activations. Not an extraction fault. The scenario bootstrap treats these scenarios as independent, which may modestly understate CI widths for contrasts involving F00.",
+    "matches_identical_prompt_text_groups_exactly": true,
+    "n_F00_rows_sharing_text_with_another_scenario": 484,
+    "n_duplicate_groups": 200,
+    "n_extra_rows": 284
+  },
+  "family_condition_mean_probability": {
+    "art_studio_easel": {
+      "F00": 0.0423094485,
+      "F01": 0.7209301197499999,
+      "F10": 0.9838025542499998,
+      "F11": 0.9724726935
+    },
+    "bakery_oven_deck": {
+      "F00": 0.28376097274999995,
+      "F01": 0.9612229556666666,
+      "F10": 0.9953782736666668,
+      "F11": 0.9933550395
+    },
+    "bike_share_stand": {
+      "F00": 0.9859188852499999,
+      "F01": 0.9997404100833334,
+      "F10": 0.9999770742499999,
+      "F11": 0.9999721079999999
+    },
+    "orchard_picking_lane": {
+      "F00": 0.09363743666666666,
+      "F01": 0.7410791807500001,
+      "F10": 0.979184499,
+      "F11": 0.9618682437500001
+    },
+    "pantry_spice_jar": {
+      "F00": 0.034726120166666666,
+      "F01": 0.7534452795833333,
+      "F10": 0.9846140679166666,
+      "F11": 0.9680705655
+    },
+    "school_coat_cubby": {
+      "F00": 0.45132662700000004,
+      "F01": 0.9775404320833333,
+      "F10": 0.9990390131666665,
+      "F11": 0.9984173413333334
+    }
+  },
+  "label": "post_result_descriptive_integrity_audit (no reanalysis; primary results unchanged)",
+  "run_id": "phase6b_extract_20260926T201145Z_142773a1"
+}

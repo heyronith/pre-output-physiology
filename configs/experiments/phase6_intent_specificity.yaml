@@ -2,7 +2,7 @@
 
 experiment_id: phase6_intent_specificity
 phase: phase6
-status: phase6b_factorial_frozen_probe_authorized
+status: phase6b_factorial_primary_complete_awaiting_audit
 phase6a_outcome: phase6a_specificity_pilot_hold_operational_format_failure
 phase6a_original_exact_one_line_gate_passed: false
 description: >
@@ -115,15 +115,21 @@ phase6b:
   bootstrap_seed: 0
   repeatability_cosine_min: 0.9999
   secondary_behavior_diagnostic: post_phase6a_secondary_semantic_first_line
+  pre_run_commit: 142773a108f0029218896b8abbcd4984e59ab47e
+  extraction_run_id: phase6b_extract_20260926T201145Z_142773a1
+  activations_sha256: 4833ca74ad75ae2700696acb49a3327bc5240c92e8f303294b1bf6680a22a487
+  primary_summary: artifacts/phase6b_primary/phase6b_primary_summary.json
+  post_result_integrity_audit: artifacts/phase6b_primary/post_result_integrity_audit.json
+  behavior_run_performed: false
 
 authorizations:
   pilot_generation_authorized: false
   final_generation_authorized: false
-  activation_extraction_authorized: true
-  probe_scoring_authorized: true
+  activation_extraction_authorized: false
+  probe_scoring_authorized: false
   probe_fitting_authorized: false
   causal_intervention_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
 
 notes: >
   Phase 6A HOLD (D082). Revision-2 pilot failed: F01 17/24 valid (7 correct
@@ -131,4 +137,5 @@ notes: >
   F11 24/24. No further revisions permitted. Frozen Phase-5 probe pinned by hash
   only (not loaded or scored). Phase 6A outcome remains HOLD. Phase 6B (D083)
   authorizes frozen-probe L12/k1 extraction and scoring of the unchanged final
-  corpus only; final response generation remains unauthorized.
+  corpus only; final response generation remains unauthorized. Primary
+  physiology complete (awaiting audit); extraction/scoring authorizations closed.
