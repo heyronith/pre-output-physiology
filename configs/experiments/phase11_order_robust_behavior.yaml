@@ -2,7 +2,7 @@
 
 experiment_id: phase11_order_robust_behavior
 phase: phase11
-status: phase11a_order_robust_behavior_authorized
+status: phase11a_order_robust_behavior_hold
 description: >
   Every prompt has the same goal-vs-record conflict, the same single-objective
   payoff rule (Phase-10 wording), and the same fixed K=10. Each discovery base is
@@ -58,13 +58,23 @@ behavior_gates:
   discovery_validation: {min_stable_fraction: 0.70, min_record_fraction_of_stable: 0.20, min_alternate_fraction_of_stable: 0.20, per_family_min_stable_per_class: 15, min_families_meeting: 2}
   on_failure: STOP before physiology (phase11a_order_robust_behavior_hold); no tuning of K, wording, order, scenarios, or decoder
 
+behavior_result:
+  run_id: phase11a_behavior_20260926T223153Z_aa9a743b
+  design_commit: aa9a743bc1cd9bae805b69743c49df09de32d6b1
+  summary: artifacts/phase11a_behavior/behavior_summary.json
+  report: reports/phase11a_behavior.md
+  discovery_train: {stable_record: 83, stable_alternate: 297, order_sensitive: 100, stable_fraction: 0.792, record_fraction_of_stable: 0.218, families_meeting_per_class: 0, pass: false}
+  discovery_validation: {stable_record: 139, stable_alternate: 46, order_sensitive: 55, stable_fraction: 0.771, families_meeting_per_class: 1, pass: false}
+  gates_pass: false
+  locked_model_calls: 0
+
 future_phase11b:
   artifact: artifacts/phase11a_design/future_phase11b_plan.json
   executed: false
 
 authorizations:
-  discovery_behavior_calls_authorized: true
-  modal_gpu_authorized: true
+  discovery_behavior_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -77,4 +87,5 @@ authorizations:
 notes: >
   Phase 11A (D104-D108). Phase 10A remains a sanity hold. No activations, probes,
   Phase-5 probe scoring, locked-family calls, K search, prompt or decoder revision,
-  or causal intervention. STOP after Phase 11A.
+  or causal intervention. HOLD (D108): behavior gates failed (class balance
+  within families). STOP after Phase 11A.
