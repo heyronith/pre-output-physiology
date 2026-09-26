@@ -2,13 +2,13 @@
 
 experiment_id: phase14_same_prompt_trajectory
 phase: phase14
-status: phase14a_same_prompt_trajectory_calibration_authorized
+status: phase14a_same_prompt_trajectory_calibration_hold
 description: >
   Scientific pivot: multiple stochastic Stage-1 Consideration continuations from the
   exact same Phase-10 single-objective prompt (K=10), then deterministic constrained
   greedy Response (12107) readout. Within a prompt group, k0 is identical across seeds
   and is a future negative control only. Calibration-only temperature selection on a
-  frozen grid; final prompts frozen but not sampled.
+  frozen grid; final prompts frozen but not sampled. Calibration HOLD: no eligible T*.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -68,6 +68,28 @@ selection_rule:
     - lower temperature
   no_eligible_status: phase14a_same_prompt_trajectory_calibration_hold
 
+calibration_result:
+  run_id: phase14a_calibration_20260926T231646Z_e6206543
+  design_commit: e62065436954b44454364d097dc440839b486a78
+  summary: artifacts/phase14a_calibration/calibration_summary.json
+  report: reports/phase14a_calibration.md
+  eligible_temperatures: []
+  t_star: null
+  tie_break_path: []
+  rates_by_temperature:
+    "0.7": {valid_fraction: 0.75, leak_rate: 0.25, record_fraction: 0.8802083333333334, alternate_fraction: 0.11979166666666667, n_prompt_groups_ge3_each_class: 4, median_valid_continuations_per_prompt: 15.5}
+    "0.9": {valid_fraction: 0.787109375, leak_rate: 0.212890625, record_fraction: 0.8784119106699751, alternate_fraction: 0.12158808933002481, n_prompt_groups_ge3_each_class: 4, median_valid_continuations_per_prompt: 15.0}
+    "1.1": {valid_fraction: 0.744140625, leak_rate: 0.255859375, record_fraction: 0.8530183727034121, alternate_fraction: 0.14698162729658792, n_prompt_groups_ge3_each_class: 5, median_valid_continuations_per_prompt: 13.5}
+  label_counts_by_temperature:
+    "0.7": {record_choice: 338, goal_favored_alternate_choice: 46, pre_answer_leak_invalid: 128, invalid: 0}
+    "0.9": {record_choice: 354, goal_favored_alternate_choice: 49, pre_answer_leak_invalid: 109, invalid: 0}
+    "1.1": {record_choice: 325, goal_favored_alternate_choice: 56, pre_answer_leak_invalid: 131, invalid: 0}
+  response_token_id_verified: true
+  final_model_calls: 0
+  locked_model_calls: 0
+  sampling_grid_extended: false
+  post_result_prompt_tuning: false
+
 family_split:
   artifact: artifacts/phase14a_design/family_split.json
   rule: 'sort final families by SHA256("phase14_family_split_v1|" + family) ascending; 4/2/2'
@@ -86,8 +108,8 @@ k0_theorem: >
   extraction tolerance.
 
 authorizations:
-  calibration_trajectory_calls_authorized: true
-  modal_gpu_authorized: true
+  calibration_trajectory_calls_authorized: false
+  modal_gpu_authorized: false
   final_model_calls_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
@@ -98,5 +120,5 @@ authorizations:
   post_result_prompt_changes_authorized: false
 
 notes: >
-  Phase 14A (D117-D120). Calibration-only same-prompt trajectory assay. STOP after
-  Phase 14A.
+  Phase 14A (D117-D120). Calibration HOLD — no eligible temperature on the frozen
+  grid. STOP after Phase 14A. No prompt redesign or grid extension.

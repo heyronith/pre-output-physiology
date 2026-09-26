@@ -79,7 +79,7 @@ def main() -> int:
     check(auth["calibration_trajectory_calls_authorized"] is pre, "calib auth matches")
     check(cfg["phase13_merge_sha"] == "abc3dd9c4c5d8b7b3ba6fd3a99e84d7ebac71783", "phase13 merge")
     dec = (REPO_ROOT / "docs/decision_log.md").read_text("utf-8")
-    check(all(f"### {d}" in dec for d in ("D117", "D118", "D119")), "D117-D119")
+    check(all(f"### {d}" in dec for d in ("D117", "D118", "D119", "D120")), "D117-D120")
     check(
         list(cfg["design"]["temperature_grid"]) == list(TEMPERATURE_GRID) == [0.7, 0.9, 1.1],
         "temperature grid frozen",
