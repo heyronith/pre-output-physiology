@@ -36,6 +36,7 @@ from pre_output_physiology.phase6_conditions import (  # noqa: E402
     PILOT_ALL_FOUR_MIN,
     PILOT_BEHAVIOR_MIN_PER_CONDITION,
     PILOT_SEED,
+    PILOT_SEED_REVISION1,
     PRIMARY_CONTRAST,
     PROMPT_TEMPLATE_REVISION,
     SCENARIO_FAMILIES,
@@ -51,6 +52,7 @@ MODEL_REVISION = "63a8b081895390a26e140280378bc85ec8bce07a"
 
 _LETTERS_FINAL = list("ABCDEFGHJKLM")
 _LETTERS_PILOT = list("NPQR")
+_LETTERS_PILOT_R2 = list("STUV")
 
 # Final entities (12/family) and pilot entities (4/family) are disjoint.
 FAMILY_VOCAB: dict[str, dict[str, object]] = {
@@ -72,21 +74,24 @@ FAMILY_VOCAB: dict[str, dict[str, object]] = {
                 "cornbread",
             )
         ],
-        "pilot_entities": [f"{b} loaf" for b in ("potato", "barley", "walnut", "raisin")],
+        "pilot_entities_r1": [f"{b} loaf" for b in ("potato", "barley", "walnut", "raisin")],
+        "pilot_entities": [f"{b} loaf" for b in ("olive", "onion", "pumpkin", "honey")],
         "states": [f"deck {n}" for n in range(1, 11)],
         "question": "Which deck bakes the item?",
         "topic_fmt": "A bakery sheet records which deck bakes the {entity}.",
     },
     "bike_share_stand": {
         "entities": [f"bicycle {c}" for c in _LETTERS_FINAL],
-        "pilot_entities": [f"bicycle {c}" for c in _LETTERS_PILOT],
+        "pilot_entities_r1": [f"bicycle {c}" for c in _LETTERS_PILOT],
+        "pilot_entities": [f"bicycle {c}" for c in _LETTERS_PILOT_R2],
         "states": [f"stand {n}" for n in range(1, 11)],
         "question": "Which stand holds the item?",
         "topic_fmt": "A bike-share ledger records which stand holds {entity}.",
     },
     "school_coat_cubby": {
         "entities": [f"jacket {c}" for c in _LETTERS_FINAL],
-        "pilot_entities": [f"jacket {c}" for c in _LETTERS_PILOT],
+        "pilot_entities_r1": [f"jacket {c}" for c in _LETTERS_PILOT],
+        "pilot_entities": [f"jacket {c}" for c in _LETTERS_PILOT_R2],
         "states": [f"cubby {n}" for n in range(1, 11)],
         "question": "Which cubby holds the item?",
         "topic_fmt": "A classroom roster records which cubby holds {entity}.",
@@ -106,14 +111,16 @@ FAMILY_VOCAB: dict[str, dict[str, object]] = {
             "quinces",
             "persimmons",
         ],
-        "pilot_entities": ["golden plums", "mulberries", "navel oranges", "crab apples"],
+        "pilot_entities_r1": ["golden plums", "mulberries", "navel oranges", "crab apples"],
+        "pilot_entities": ["blood oranges", "kumquats", "apricots", "damsons"],
         "states": [f"lane {n}" for n in range(1, 11)],
         "question": "Which lane grows the item?",
         "topic_fmt": "An orchard plan records which lane grows the {entity}.",
     },
     "art_studio_easel": {
         "entities": [f"sketch {c}" for c in _LETTERS_FINAL],
-        "pilot_entities": [f"sketch {c}" for c in _LETTERS_PILOT],
+        "pilot_entities_r1": [f"sketch {c}" for c in _LETTERS_PILOT],
+        "pilot_entities": [f"sketch {c}" for c in _LETTERS_PILOT_R2],
         "states": [f"easel {n}" for n in range(1, 11)],
         "question": "Which easel holds the item?",
         "topic_fmt": "A studio log records which easel holds {entity}.",
@@ -133,7 +140,8 @@ FAMILY_VOCAB: dict[str, dict[str, object]] = {
             "cinnamon",
             "anise",
         ],
-        "pilot_entities": ["sumac", "mace", "caraway", "fenugreek"],
+        "pilot_entities_r1": ["sumac", "mace", "caraway", "fenugreek"],
+        "pilot_entities": ["mustard seed", "celery seed", "nigella", "annatto"],
         "states": [f"jar {n}" for n in range(1, 11)],
         "question": "Which jar holds the item?",
         "topic_fmt": "A pantry list records which jar holds the {entity}.",
@@ -176,14 +184,19 @@ def _write_jsonl(path: Path, rows: list[dict]) -> None:
 
 
 def _make_family_scenarios(
-    family: str, *, n: int, seed: int, split: str
+    family: str,
+    *,
+    n: int,
+    seed: int,
+    split: str,
+    entity_key: str = "entities",
+    id_prefix: str | None = None,
 ) -> list[dict]:
     """Balanced ordered state pairs: each unordered pair appears in both orders."""
     vocab = FAMILY_VOCAB[family]
     states = list(vocab["states"])  # type: ignore[arg-type]
-    entities = list(
-        vocab["entities" if split == "final" else "pilot_entities"]  # type: ignore[arg-type]
-    )
+    entities = list(vocab[entity_key])  # type: ignore[arg-type]
+    prefix = id_prefix or split
     rng = np.random.default_rng(seed)
     pairs = list(itertools.combinations(states, 2))
     order = rng.permutation(len(pairs))
@@ -195,7 +208,7 @@ def _make_family_scenarios(
         entity = entities[int(ent_order[i % len(entities)])]
         rows.append(
             {
-                "base_scenario_id": f"{split}_{family}_{i:03d}",
+                "base_scenario_id": f"{prefix}_{family}_{i:03d}",
                 "family": family,
                 "split": split,
                 "topic_sentence": str(vocab["topic_fmt"]).format(entity=entity),
@@ -284,6 +297,7 @@ def main() -> int:
 
     final_sc: list[dict] = []
     pilot_sc: list[dict] = []
+    pilot_r1_sc: list[dict] = []
     for fi, fam in enumerate(SCENARIO_FAMILIES):
         final_sc.extend(
             _make_family_scenarios(
@@ -292,7 +306,22 @@ def main() -> int:
         )
         pilot_sc.extend(
             _make_family_scenarios(
-                fam, n=N_PILOT_PER_FAMILY, seed=PILOT_SEED + 1000 * fi, split="pilot"
+                fam,
+                n=N_PILOT_PER_FAMILY,
+                seed=PILOT_SEED + 1000 * fi,
+                split="pilot",
+                entity_key="pilot_entities",
+                id_prefix="pilot_r2",
+            )
+        )
+        pilot_r1_sc.extend(
+            _make_family_scenarios(
+                fam,
+                n=N_PILOT_PER_FAMILY,
+                seed=PILOT_SEED_REVISION1 + 1000 * fi,
+                split="pilot",
+                entity_key="pilot_entities_r1",
+                id_prefix="pilot",
             )
         )
 
@@ -304,6 +333,13 @@ def main() -> int:
         raise SystemExit("pilot/final ID overlap")
     if {s["topic_sentence"] for s in final_sc} & {s["topic_sentence"] for s in pilot_sc}:
         raise SystemExit("pilot/final scenario text overlap")
+    r1_ids = {s["base_scenario_id"] for s in pilot_r1_sc}
+    if r1_ids & (pilot_ids | final_ids):
+        raise SystemExit("revision-1 pilot IDs overlap revision-2 pilot or final")
+    if {s["topic_sentence"] for s in pilot_r1_sc} & {
+        s["topic_sentence"] for s in pilot_sc + final_sc
+    }:
+        raise SystemExit("revision-1 pilot text overlaps revision-2 pilot or final")
 
     def content_key(s: dict) -> tuple:
         return (s["family"], s["entity"], s["record_state"], s["alternate_state"])
@@ -374,6 +410,10 @@ def main() -> int:
         "primary_contrast": list(PRIMARY_CONTRAST),
         "final_seed": FINAL_SEED,
         "pilot_seed": PILOT_SEED,
+        "pilot_seed_revision1": PILOT_SEED_REVISION1,
+        "pilot_revision1_base_scenario_ids_sha256": _sha_ids(sorted(r1_ids)),
+        "pilot_revision1_scenario_text_sha256": _sha_scenarios(pilot_r1_sc),
+        "pilot_disjoint_from_revision1": True,
         "prompt_template_revision": PROMPT_TEMPLATE_REVISION,
         "response_schema": "Response <STATE>",
         "neutral_prefix_token": "Response",

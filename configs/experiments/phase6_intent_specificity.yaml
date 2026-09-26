@@ -1,4 +1,4 @@
-# Phase 6 intent specificity — Phase 6A design frozen; pilot AUTHORIZED
+# Phase 6 intent specificity — Phase 6A revision-2 design frozen; re-pilot AUTHORIZED
 
 experiment_id: phase6_intent_specificity
 phase: phase6
@@ -49,14 +49,21 @@ design:
   n_pilot_base_scenarios: 24
   n_pilot_prompts: 96
   final_seed: 61
-  pilot_seed: 23
-  prompt_template_revision: 1
+  pilot_seed: 29
+  pilot_seed_revision1: 23
+  prompt_template_revision: 2
   response_schema: "Response <STATE>"
   condition_matrix: artifacts/phase6a_design/condition_matrix.json
-  final_prompt_text_sha256: 4e6f77aa9317c86ca2daea8c763be3382c518f9844e66832e276659826948e35
+  final_prompt_text_sha256: fa4ad2629e911e0226620dd10edbf9ff9d517051837be818e55a56b2f0124721
   final_scenario_text_sha256: 839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1
+  pilot_prompt_text_sha256: 4777311e8452b5e85e1518c2dee21d13012bada19074a7f6a1ea1ee321623325
+  pilot_scenario_text_sha256: 9f72ad6024ff6b988a8e43921e11af9ec2957107d4b6339da413db7f60c98b7d
+
+pilot_revision1:
+  run_id: phase6a_pilot_r1_20260926T195943Z_5864a14b
+  summary: artifacts/phase6a_pilot_revision1/pilot_behavior_summary.json
   pilot_prompt_text_sha256: 486c38d96a270218c3f44754f459366521086bdfd2fc81fe7bd9eade10267035
-  pilot_scenario_text_sha256: f634b5825d2fe7a3d736b4ad9ed758d859ed7bd61f42dda08647f8532d48d81d
+  gates_passed: false
 
 pilot_gates:
   behavior_min_per_condition: 22
@@ -85,6 +92,7 @@ authorizations:
   modal_gpu_authorized: true
 
 notes: >
-  Phase 6A design frozen; pilot authorized (D077–D080). F10 is a non-deceptive
+  Phase 6A revision-2 re-pilot authorized (D077–D081) after revision-1 pilot
+  failed on format only (example-value copying, trailing notes). F10 is a non-deceptive
   conflict control. Frozen Phase-5 probe pinned by SHA256 only (not loaded or
   scored). STOP after Phase 6A.

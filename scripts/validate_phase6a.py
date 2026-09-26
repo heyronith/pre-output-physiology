@@ -302,6 +302,37 @@ def main() -> int:
     else:
         result.fail("duplicate final scenarios")
 
+    revision = int(design["prompt_template_revision"])
+    if revision == 1:
+        result.ok("revision 1 (no format revision used)")
+    elif revision == 2:
+        r1_path = REPO_ROOT / "artifacts/phase6a_pilot_revision1/pilot_behavior_summary.json"
+        if r1_path.is_file() and (REPO_ROOT / "reports/phase6a_pilot_revision1.md").is_file():
+            r1 = json.loads(r1_path.read_text(encoding="utf-8"))
+            if r1["summary"]["gates"]["all_operational_gates_pass"] is False:
+                result.ok("revision 2 justified by failed revision-1 pilot")
+            else:
+                result.fail("revision 2 used although revision-1 pilot passed")
+            r1_ids = {r["base_scenario_id"] for r in r1["eval_rows"]}
+            if not r1_ids & (pilot_ids | final_ids):
+                result.ok("revision-2 pilot + finals disjoint from revision-1 pilot IDs")
+            else:
+                result.fail("revision-1 pilot IDs reused")
+            if matrix.get("pilot_seed") != matrix.get("pilot_seed_revision1"):
+                result.ok("fresh pilot seed for revision 2")
+            else:
+                result.fail("pilot seed not refreshed")
+            if matrix.get("pilot_revision1_scenario_text_sha256") != design[
+                "pilot_scenario_text_sha256"
+            ]:
+                result.ok("revision-2 pilot scenario text differs from revision 1")
+            else:
+                result.fail("revision-2 pilot reuses revision-1 scenarios")
+        else:
+            result.fail("missing revision-1 pilot artifacts")
+    else:
+        result.fail(f"more than one format revision: {revision}")
+
     prior_text = set()
     for rel in (
         "data/processed/phase5_design/final_base_scenarios.jsonl",

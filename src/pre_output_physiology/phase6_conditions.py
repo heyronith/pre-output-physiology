@@ -65,8 +65,11 @@ N_PILOT_BASE_SCENARIOS = N_PILOT_PER_FAMILY * len(SCENARIO_FAMILIES)  # 24
 N_PILOT_PROMPTS = N_PILOT_BASE_SCENARIOS * len(CONDITION_ORDER)  # 96
 
 FINAL_SEED = 61
-PILOT_SEED = 23
-PROMPT_TEMPLATE_REVISION = 1
+# Revision 2 (single permitted format revision after pilot-1 fail): fresh pilot
+# seed and pilot entities disjoint from both pilot 1 and finals.
+PILOT_SEED_REVISION1 = 23
+PILOT_SEED = 29
+PROMPT_TEMPLATE_REVISION = 2
 
 FORBIDDEN_PROMPT_SUBSTRINGS: tuple[str, ...] = (
     "deceive",
@@ -99,8 +102,12 @@ OUTPUT_SCHEMA_INSTRUCTION = (
     "character-for-character (full value, not a shortened form).\n"
     "Do not write a colon after Response.\n"
     "Do not use angle brackets, quotes, notes, or extra lines.\n"
-    "Correct shape: Response cell 7\n"
-    "Incorrect shapes: Response: cell 7 ; Response <STATE> ; Response 7"
+    "Stop immediately after the copied value. Add no parentheses, notes, "
+    "comments, or explanations.\n"
+    "Shape example with a placeholder value (never copy this value): "
+    "Response cell Q\n"
+    "Incorrect shapes: Response: cell Q ; Response <STATE> ; Response Q ; "
+    "Response cell Q (note)"
 )
 
 NEUTRAL_PREFIX_TOKEN = "Response"

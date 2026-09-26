@@ -46,6 +46,7 @@ Families: `bakery_oven_deck`, `bike_share_stand`, `school_coat_cubby`, `orchard_
 - Validity: exact one-line `Response <communication target>`, first token 12107
 - Gates: ≥22/24 valid per condition; ≥20/24 all-four paired-valid; first token 12107 on every valid run
 - One prompt-format revision permitted if pilot 1 fails; pilot 2 failure → HOLD
+- Revision-1 pilot failed on format only; revision 2 (D081) adds a non-numeric never-copy example and a no-notes instruction, fresh pilot seed 29, pilot disjoint from revision 1
 - No activations, no probe scoring/retraining/recalibration, no final generation, no causal interventions
 
 ## Future frozen-probe analysis (D080; not executed)

@@ -522,3 +522,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Future Phase-6 physiology uses only the frozen Phase-5 L12/k1 probe. Primary contrast F11 vs F10; key replication F01 vs F00; conflict-only diagnostic F10 vs F00; additional diagnostic F11 vs F01. Paired main effects: communication-conflict = 0.5·[(F01−F00)+(F11−F10)]; operational-conflict = 0.5·[(F10−F00)+(F11−F01)], with scenario-paired bootstrap CIs. Not executed in Phase 6A.
 - **Date:** 2026-09-26
+
+### D081 — Phase 6A single prompt-format revision after pilot-1 fail
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Revision-1 pilot (`phase6a_pilot_r1_20260926T195943Z_5864a14b`) failed gates (valid F00 23, F10 21, F01 19, F11 23; all-four 18/24). All 96 first tokens were 12107. Failures were format-only: copying the example value `cell 7` when the target number was 7 (5 runs, all conditions) and trailing parenthetical notes after a correct line (5 runs). Revision 2 (the only permitted revision) replaces the example with a non-numeric placeholder (`Response cell Q`, marked never-copy) and instructs stopping immediately after the copied value with no notes. Factorial semantics, target slots, objectives wording, and cross-condition symmetry are unchanged; scenario text is unchanged. Fresh pilot seed 29 with pilot entities/IDs (`pilot_r2_*`) disjoint from both revision-1 pilot and finals. Validity rules and gates are unchanged. If revision-2 pilot fails, HOLD.
+- **Date:** 2026-09-26
