@@ -2,7 +2,7 @@
 
 experiment_id: phase13_semantic_component
 phase: phase13
-status: phase13a_semantic_component_diagnostic_authorized
+status: phase13a_semantic_component_diagnostic_complete_awaiting_audit
 description: >
   Phase 12A found the dominant family confound in the semantic shell. Phase 13A
   decomposes that shell into topic (T), user question (Q), and entity (E) under a
@@ -58,9 +58,28 @@ analysis:
     pair_synergy: pair cell substantial and neither single-component cell substantial
     higher_order: 'cell "111" substantial and none of 100/010/001/110/101/011 substantial'
 
+diagnostic_result:
+  run_id: phase13a_diagnostic_20260926T225741Z_095895f5
+  design_commit: 095895f508830223fe165b1aaccc9a6b4f281ec6
+  summary: artifacts/phase13a_diagnostic/diagnostic_summary.json
+  report: reports/phase13a_diagnostic.md
+  cramers_v: {"000": 0.0, "001": 0.0, "010": 0.0, "011": 0.0, "100": 0.425, "101": 0.819, "110": 0.383, "111": 0.843}
+  family_alternate_rate_range: {"000": 0.0, "001": 0.0, "010": 0.0, "011": 0.0, "100": 0.25, "101": 0.875, "110": 0.167, "111": 0.9}
+  stable_record_alternate: {"000": [0, 144], "001": [0, 144], "010": [0, 144], "011": [0, 144], "100": [5, 118], "101": [21, 97], "110": [3, 125], "111": [25, 97]}
+  replication_111_passed: true
+  cell_000_exact_match_to_phase12_D: true
+  topic_alone_contributor: false
+  question_alone_contributor: false
+  entity_alone_contributor: false
+  TE_synergistic: true
+  TQ_synergistic: false
+  QE_synergistic: false
+  higher_order_interaction: false
+  locked_model_calls: 0
+
 authorizations:
-  diagnostic_model_calls_authorized: true
-  modal_gpu_authorized: true
+  diagnostic_model_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
