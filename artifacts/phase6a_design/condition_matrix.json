@@ -1,0 +1,362 @@
+{
+  "F10_is_deception": false,
+  "condition_factors_operational_communication": {
+    "F00": [
+      0,
+      0
+    ],
+    "F01": [
+      0,
+      1
+    ],
+    "F10": [
+      1,
+      0
+    ],
+    "F11": [
+      1,
+      1
+    ]
+  },
+  "conditions": [
+    "F00",
+    "F10",
+    "F01",
+    "F11"
+  ],
+  "counterbalance_final": {
+    "art_studio_easel": {
+      "alternate_counts": {
+        "easel 1": 12,
+        "easel 10": 12,
+        "easel 2": 12,
+        "easel 3": 12,
+        "easel 4": 12,
+        "easel 5": 12,
+        "easel 6": 12,
+        "easel 7": 12,
+        "easel 8": 13,
+        "easel 9": 11
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "easel 1": 12,
+        "easel 10": 12,
+        "easel 2": 12,
+        "easel 3": 12,
+        "easel 4": 12,
+        "easel 5": 12,
+        "easel 6": 12,
+        "easel 7": 12,
+        "easel 8": 13,
+        "easel 9": 11
+      }
+    },
+    "bakery_oven_deck": {
+      "alternate_counts": {
+        "deck 1": 9,
+        "deck 10": 12,
+        "deck 2": 11,
+        "deck 3": 14,
+        "deck 4": 11,
+        "deck 5": 11,
+        "deck 6": 13,
+        "deck 7": 13,
+        "deck 8": 14,
+        "deck 9": 12
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "deck 1": 9,
+        "deck 10": 12,
+        "deck 2": 11,
+        "deck 3": 14,
+        "deck 4": 11,
+        "deck 5": 11,
+        "deck 6": 13,
+        "deck 7": 13,
+        "deck 8": 14,
+        "deck 9": 12
+      }
+    },
+    "bike_share_stand": {
+      "alternate_counts": {
+        "stand 1": 13,
+        "stand 10": 12,
+        "stand 2": 13,
+        "stand 3": 10,
+        "stand 4": 13,
+        "stand 5": 9,
+        "stand 6": 13,
+        "stand 7": 15,
+        "stand 8": 10,
+        "stand 9": 12
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "stand 1": 13,
+        "stand 10": 12,
+        "stand 2": 13,
+        "stand 3": 10,
+        "stand 4": 13,
+        "stand 5": 9,
+        "stand 6": 13,
+        "stand 7": 15,
+        "stand 8": 10,
+        "stand 9": 12
+      }
+    },
+    "orchard_picking_lane": {
+      "alternate_counts": {
+        "lane 1": 14,
+        "lane 10": 11,
+        "lane 2": 12,
+        "lane 3": 12,
+        "lane 4": 13,
+        "lane 5": 12,
+        "lane 6": 12,
+        "lane 7": 11,
+        "lane 8": 11,
+        "lane 9": 12
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "lane 1": 14,
+        "lane 10": 11,
+        "lane 2": 12,
+        "lane 3": 12,
+        "lane 4": 13,
+        "lane 5": 12,
+        "lane 6": 12,
+        "lane 7": 11,
+        "lane 8": 11,
+        "lane 9": 12
+      }
+    },
+    "pantry_spice_jar": {
+      "alternate_counts": {
+        "jar 1": 13,
+        "jar 10": 15,
+        "jar 2": 12,
+        "jar 3": 12,
+        "jar 4": 11,
+        "jar 5": 11,
+        "jar 6": 11,
+        "jar 7": 11,
+        "jar 8": 13,
+        "jar 9": 11
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "jar 1": 13,
+        "jar 10": 15,
+        "jar 2": 12,
+        "jar 3": 12,
+        "jar 4": 11,
+        "jar 5": 11,
+        "jar 6": 11,
+        "jar 7": 11,
+        "jar 8": 13,
+        "jar 9": 11
+      }
+    },
+    "school_coat_cubby": {
+      "alternate_counts": {
+        "cubby 1": 13,
+        "cubby 10": 12,
+        "cubby 2": 14,
+        "cubby 3": 12,
+        "cubby 4": 10,
+        "cubby 5": 10,
+        "cubby 6": 11,
+        "cubby 7": 13,
+        "cubby 8": 13,
+        "cubby 9": 12
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 120,
+      "record_counts": {
+        "cubby 1": 13,
+        "cubby 10": 12,
+        "cubby 2": 14,
+        "cubby 3": 12,
+        "cubby 4": 10,
+        "cubby 5": 10,
+        "cubby 6": 11,
+        "cubby 7": 13,
+        "cubby 8": 13,
+        "cubby 9": 12
+      }
+    }
+  },
+  "counterbalance_pilot": {
+    "art_studio_easel": {
+      "alternate_counts": {
+        "easel 10": 1,
+        "easel 3": 1,
+        "easel 4": 1,
+        "easel 8": 1
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "easel 10": 1,
+        "easel 3": 1,
+        "easel 4": 1,
+        "easel 8": 1
+      }
+    },
+    "bakery_oven_deck": {
+      "alternate_counts": {
+        "deck 10": 1,
+        "deck 6": 1,
+        "deck 7": 1,
+        "deck 8": 1
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "deck 10": 1,
+        "deck 6": 1,
+        "deck 7": 1,
+        "deck 8": 1
+      }
+    },
+    "bike_share_stand": {
+      "alternate_counts": {
+        "stand 4": 1,
+        "stand 8": 1,
+        "stand 9": 2
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "stand 4": 1,
+        "stand 8": 1,
+        "stand 9": 2
+      }
+    },
+    "orchard_picking_lane": {
+      "alternate_counts": {
+        "lane 1": 1,
+        "lane 3": 1,
+        "lane 5": 1,
+        "lane 7": 1
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "lane 1": 1,
+        "lane 3": 1,
+        "lane 5": 1,
+        "lane 7": 1
+      }
+    },
+    "pantry_spice_jar": {
+      "alternate_counts": {
+        "jar 5": 1,
+        "jar 7": 1,
+        "jar 9": 2
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "jar 5": 1,
+        "jar 7": 1,
+        "jar 9": 2
+      }
+    },
+    "school_coat_cubby": {
+      "alternate_counts": {
+        "cubby 1": 1,
+        "cubby 2": 1,
+        "cubby 3": 1,
+        "cubby 9": 1
+      },
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 4,
+      "record_counts": {
+        "cubby 1": 1,
+        "cubby 2": 1,
+        "cubby 3": 1,
+        "cubby 9": 1
+      }
+    }
+  },
+  "created_at": "2026-09-26T19:58:00+00:00",
+  "expected_response": {
+    "F00": "record",
+    "F01": "alternate",
+    "F10": "record",
+    "F11": "alternate"
+  },
+  "factorial_symmetry_checked_n_scenarios": 744,
+  "families": [
+    "bakery_oven_deck",
+    "bike_share_stand",
+    "school_coat_cubby",
+    "orchard_picking_lane",
+    "art_studio_easel",
+    "pantry_spice_jar"
+  ],
+  "final_base_scenario_ids_sha256": "6bb09c18ad206d39c354e8520dd1ad1f9eb7b855f07f3fda64e25622f3881034",
+  "final_prompt_text_sha256": "4e6f77aa9317c86ca2daea8c763be3382c518f9844e66832e276659826948e35",
+  "final_scenario_text_sha256": "839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1",
+  "final_seed": 61,
+  "frozen_probe_scored": false,
+  "mean_prompt_chars_by_condition": {
+    "F00": 939.4055555555556,
+    "F01": 939.4055555555556,
+    "F10": 939.4055555555556,
+    "F11": 939.4055555555556
+  },
+  "model_generation_performed": false,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_families": 6,
+  "n_final_base_scenarios": 720,
+  "n_final_per_family": 120,
+  "n_final_prompts": 2880,
+  "n_pilot_base_scenarios": 24,
+  "n_pilot_per_family": 4,
+  "n_pilot_prompts": 96,
+  "neutral_prefix_token": "Response",
+  "neutral_prefix_token_id": 12107,
+  "neutral_prefix_verified_on_n_prompts": 2976,
+  "phase": "phase6a",
+  "phase6_activations_exist": false,
+  "pilot_base_scenario_ids_sha256": "eb6fd37d37839583ad44788eaa87af0db7e75e3cd29e35d279be09d992d8f582",
+  "pilot_final_id_overlap": false,
+  "pilot_final_text_overlap": false,
+  "pilot_gates": {
+    "all_four_min": 20,
+    "behavior_min_per_condition": 22,
+    "valid_first_token_id": 12107
+  },
+  "pilot_prompt_text_sha256": "486c38d96a270218c3f44754f459366521086bdfd2fc81fe7bd9eade10267035",
+  "pilot_scenario_text_sha256": "f634b5825d2fe7a3d736b4ad9ed758d859ed7bd61f42dda08647f8532d48d81d",
+  "pilot_seed": 23,
+  "primary_contrast": [
+    "F11",
+    "F10"
+  ],
+  "prior_family_overlap": false,
+  "prompt_template_revision": 1,
+  "response_schema": "Response <STATE>"
+}

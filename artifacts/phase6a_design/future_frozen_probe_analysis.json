@@ -1,0 +1,53 @@
+{
+  "F10_interpretation": "non-deceptive objective-record conflict control",
+  "ci_method": "scenario-paired bootstrap (resample base scenarios)",
+  "contrasts": {
+    "diagnostic_F10_vs_F00": {
+      "meaning": "operational conflict only; F10 is not deception",
+      "negative": "F00",
+      "positive": "F10",
+      "role": "conflict_only_diagnostic"
+    },
+    "diagnostic_F11_vs_F01": {
+      "meaning": "operational conflict when communication conflict present",
+      "negative": "F01",
+      "positive": "F11",
+      "role": "additional_diagnostic"
+    },
+    "primary_F11_vs_F10": {
+      "meaning": "communication conflict holding operational conflict present",
+      "negative": "F10",
+      "positive": "F11",
+      "role": "primary"
+    },
+    "replication_F01_vs_F00": {
+      "meaning": "communication conflict without operational conflict",
+      "negative": "F00",
+      "positive": "F01",
+      "role": "key_replication"
+    }
+  },
+  "executed": false,
+  "interpretation_map": {
+    "both": "both main effects present",
+    "communication_intent": "communication effect large; operational effect small",
+    "generic_objective_conflict": "operational effect large; F11 vs F10 small"
+  },
+  "new_probe_training": false,
+  "paired_main_effects": {
+    "communication_conflict_effect": "0.5 * [(score_F01 - score_F00) + (score_F11 - score_F10)]",
+    "operational_conflict_effect": "0.5 * [(score_F10 - score_F00) + (score_F11 - score_F01)]"
+  },
+  "probe": {
+    "controlled_prefix_token": "Response",
+    "controlled_prefix_token_id": 12107,
+    "endpoint": "controlled_prefix_k1",
+    "layer": 12,
+    "negative_class_at_training": "S2_strategic_honesty",
+    "positive_class_at_training": "S3_strategic_deception",
+    "probe_artifact": "artifacts/phase5c_discovery_physiology/selected_probe_k1.npz",
+    "probe_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8",
+    "recalibration_permitted": false,
+    "retraining_permitted": false
+  }
+}

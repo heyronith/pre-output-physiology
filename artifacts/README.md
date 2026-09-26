@@ -81,3 +81,10 @@ Phase 1 produces no experimental run artifacts.
 - `phase5d_locked_freeze/` — locked pair population + confirmation criteria frozen pre-model-call.
 - `phase5d_locked_test/` — primary locked physiology scores; optional behavior sensitivity (secondary).
 - Raw locked activations/outputs under gitignored `artifacts/runs/phase5d_locked_*/`.
+
+## Phase 6A factorial specificity design + pilot (committed summaries only)
+
+- `phase6a_design/` — condition matrix + hashes, frozen Phase-5 probe pin (hash only), preregistered future frozen-probe analysis.
+- `phase6a_pilot/` — factorial behavior pilot summaries (no raw texts).
+- Design JSONL under gitignored `data/processed/phase6_design/`.
+- Raw pilot outputs under gitignored `artifacts/runs/phase6a_pilot_*/`.

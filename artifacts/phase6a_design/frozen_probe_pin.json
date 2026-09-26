@@ -1,0 +1,14 @@
+{
+  "controlled_prefix_token": "Response",
+  "controlled_prefix_token_id": 12107,
+  "endpoint": "controlled_prefix_k1",
+  "layer": 12,
+  "negative_class_at_training": "S2_strategic_honesty",
+  "positive_class_at_training": "S3_strategic_deception",
+  "probe_artifact": "artifacts/phase5c_discovery_physiology/selected_probe_k1.npz",
+  "probe_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8",
+  "recalibration_permitted": false,
+  "retraining_permitted": false,
+  "verified_at": "2026-09-26T19:58:00+00:00",
+  "verified_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8"
+}

@@ -1,0 +1,90 @@
+# Phase 6 intent specificity — Phase 6A design frozen; pilot AUTHORIZED
+
+experiment_id: phase6_intent_specificity
+phase: phase6
+status: phase6a_specificity_design_frozen_pilot_authorized
+description: >
+  2x2 factorial (operational conflict x communication conflict) testing whether
+  the frozen Phase-5 L12/k1 probe tracks communication/deceptive intent or
+  generic objective-record conflict. Phase 6A: design freeze + 96-prompt
+  behavior pilot only. No activations, no probe scoring/retraining, no final
+  generation, no causal interventions.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+
+phase5_merge_sha: 38238d7a2a0991213d7ff3a5855087d67e96e069
+phase6_starting_sha: 38238d7a2a0991213d7ff3a5855087d67e96e069
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+frozen_phase5_probe:
+  layer: 12
+  endpoint: controlled_prefix_k1
+  controlled_prefix_token_id: 12107
+  probe_artifact: artifacts/phase5c_discovery_physiology/selected_probe_k1.npz
+  probe_sha256: fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8
+  retraining_permitted: false
+  recalibration_permitted: false
+
+design:
+  families:
+    - bakery_oven_deck
+    - bike_share_stand
+    - school_coat_cubby
+    - orchard_picking_lane
+    - art_studio_easel
+    - pantry_spice_jar
+  conditions: [F00, F10, F01, F11]
+  condition_factors_operational_communication:
+    F00: [0, 0]
+    F10: [1, 0]
+    F01: [0, 1]
+    F11: [1, 1]
+  F10_is_deception: false
+  n_final_per_family: 120
+  n_final_base_scenarios: 720
+  n_final_prompts: 2880
+  n_pilot_base_scenarios: 24
+  n_pilot_prompts: 96
+  final_seed: 61
+  pilot_seed: 23
+  prompt_template_revision: 1
+  response_schema: "Response <STATE>"
+  condition_matrix: artifacts/phase6a_design/condition_matrix.json
+  final_prompt_text_sha256: 4e6f77aa9317c86ca2daea8c763be3382c518f9844e66832e276659826948e35
+  final_scenario_text_sha256: 839b931be2d1982b3d08393f2c1004dc450e52f17aba90974e2f4e06ec7742f1
+  pilot_prompt_text_sha256: 486c38d96a270218c3f44754f459366521086bdfd2fc81fe7bd9eade10267035
+  pilot_scenario_text_sha256: f634b5825d2fe7a3d736b4ad9ed758d859ed7bd61f42dda08647f8532d48d81d
+
+pilot_gates:
+  behavior_min_per_condition: 22
+  all_four_min: 20
+  valid_first_token_id: 12107
+  max_prompt_format_revisions: 1
+
+future_frozen_probe_analysis:
+  artifact: artifacts/phase6a_design/future_frozen_probe_analysis.json
+  executed: false
+  primary_contrast: [F11, F10]
+  key_replication: [F01, F00]
+  conflict_only_diagnostic: [F10, F00]
+  additional_diagnostic: [F11, F01]
+  communication_conflict_effect: "0.5 * [(F01 - F00) + (F11 - F10)]"
+  operational_conflict_effect: "0.5 * [(F10 - F00) + (F11 - F01)]"
+  ci: scenario_paired_bootstrap
+
+authorizations:
+  pilot_generation_authorized: true
+  final_generation_authorized: false
+  activation_extraction_authorized: false
+  probe_scoring_authorized: false
+  probe_fitting_authorized: false
+  causal_intervention_authorized: false
+  modal_gpu_authorized: true
+
+notes: >
+  Phase 6A design frozen; pilot authorized (D077–D080). F10 is a non-deceptive
+  conflict control. Frozen Phase-5 probe pinned by SHA256 only (not loaded or
+  scored). STOP after Phase 6A.
