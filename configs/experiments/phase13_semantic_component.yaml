@@ -1,0 +1,75 @@
+# Phase 13 semantic-component diagnostic — Phase 13A (behavior only)
+
+experiment_id: phase13_semantic_component
+phase: phase13
+status: phase13a_semantic_component_diagnostic_authorized
+description: >
+  Phase 12A found the dominant family confound in the semantic shell. Phase 13A
+  decomposes that shell into topic (T), user question (Q), and entity (E) under a
+  full 2×2×2 factorial on the same 144 Phase-12 selected bases. Every cell uses
+  the common neutral `slot N` state namespace. Cells 000/111 reuse Phase-12 D/B
+  when prompts are byte-identical. Behavior-only confound diagnostic.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase12_merge_sha: fa41d9245f42136e5650d5eca20cb431926b72e9
+phase13_starting_sha: fa41d9245f42136e5650d5eca20cb431926b72e9
+phase12_status: phase12a_family_bias_source_diagnostic_complete_awaiting_audit
+phase11_status: phase11a_order_robust_behavior_hold
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  families: [bus_depot_bay, cafeteria_serving_window, gym_locker_row, library_return_cart, concert_hall_door, summer_camp_cabin]
+  locked_families: [airport_baggage_carousel, parcel_sorting_chute]
+  n_per_family: 24
+  n_bases: 144
+  selected_base_ids_sha256: 95d8f6e6fb4a0674323969de02cec1d9bbccea7bf6a7f01fc71be8d64264c418
+  fixed_k: 10
+  state_namespace: slot
+  payoff_and_decoder: unchanged (Phase-10 prompt; two_candidate_constrained_greedy_after_12107)
+  cells: ["000", "001", "010", "011", "100", "101", "110", "111"]
+  factors: {T: topic, Q: question, E: entity}
+  reuse: {"000": Phase-12 D FULL_NEUTRAL, "111": Phase-12 B SEMANTIC_ONLY}
+  new_cells: ["001", "010", "011", "100", "101", "110"]
+  n_new_evaluations: 1728
+  cell_000_prompt_text_sha256: 2c73dd6cc0cb5c7103f3d1255ed00d9024d675c04fa5d1d60d1177462f5f581a
+  cell_001_prompt_text_sha256: ab41b2c23800197c0bef6d363b3f565fffd57e130325ce089c0bb405c35b1dbb
+  cell_010_prompt_text_sha256: 848718590b6d86e67c3272d4c45582f6c6b40a9747758ce744f7fcc04dfb14c4
+  cell_011_prompt_text_sha256: 17e8029b43fbf264c0d9637e00f796bb1e96492030e998286db8dfc1de9f1614
+  cell_100_prompt_text_sha256: 2df828e45b537b555e7c57e0f53e6d5a5acefcebfc66ded6479fa87f45097d6b
+  cell_101_prompt_text_sha256: 950c61e8628a68124ad627c7ab922421a5abb4594b40339ca3084a3c07bab252
+  cell_110_prompt_text_sha256: f39622e39e03bf39454013e3861baab075b6236085988e37c80c80b1bab1a0e2
+  cell_111_prompt_text_sha256: 70fa9d7e3ad71106caf685b011a7c457da3190a20631806a9a0a7e58afbbb583
+  new_prompt_text_sha256: c86f186f40c69b1061afebb254d40a283e53fde67ec5d35d3065beba3775b2ca
+  design_matrix: artifacts/phase13a_design/design_matrix.json
+
+analysis:
+  label_rule: Phase-11 order-robust rule
+  substantial_family_dependence: Cramér's V >= 0.50 AND family alternate-rate range >= 0.50
+  replication:
+    cell_111: substantial and V >= 0.70
+    cell_000: exact match to reused Phase-12 D
+  interpretation:
+    topic_alone: 'cell "100" substantial'
+    question_alone: 'cell "010" substantial'
+    entity_alone: 'cell "001" substantial'
+    pair_synergy: pair cell substantial and neither single-component cell substantial
+    higher_order: 'cell "111" substantial and none of 100/010/001/110/101/011 substantial'
+
+authorizations:
+  diagnostic_model_calls_authorized: true
+  modal_gpu_authorized: true
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  causal_intervention_authorized: false
+  k_tuning_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  post_result_prompt_tuning_authorized: false
+
+notes: >
+  Phase 13A (D113-D116). Behavior-only confound diagnostic. STOP after Phase 13A.
