@@ -1,0 +1,107 @@
+{
+  "activations_authorized": false,
+  "cohort_prompt_group_ids": [
+    "final_bowling_alley_lane_003",
+    "final_bowling_alley_lane_009",
+    "final_bowling_alley_lane_012",
+    "final_bowling_alley_lane_013",
+    "final_bowling_alley_lane_016",
+    "final_bowling_alley_lane_030",
+    "final_daycare_cubby_shelf_000",
+    "final_daycare_cubby_shelf_001",
+    "final_daycare_cubby_shelf_004",
+    "final_daycare_cubby_shelf_023",
+    "final_daycare_cubby_shelf_024",
+    "final_daycare_cubby_shelf_029",
+    "final_radio_studio_booth_004",
+    "final_radio_studio_booth_020",
+    "final_radio_studio_booth_022",
+    "final_radio_studio_booth_025",
+    "final_radio_studio_booth_027",
+    "final_radio_studio_booth_034",
+    "final_veterinary_kennel_run_000",
+    "final_veterinary_kennel_run_004",
+    "final_veterinary_kennel_run_008",
+    "final_veterinary_kennel_run_009",
+    "final_veterinary_kennel_run_012",
+    "final_veterinary_kennel_run_032"
+  ],
+  "cohort_prompt_text_sha256": "51036abb8af1e91380a738d967c3e2171be2c227d39fb8e4ef3b9ab17f54503d",
+  "cohort_sha256": "02a7793b1f4f440ac855b6c7242d7895a713d9277ca5f2fd32abf5407b0c521a",
+  "created_at": "2026-09-27T15:10:32+00:00",
+  "excluded_families": [
+    "climbing_gym_route",
+    "subway_turnstile_bank"
+  ],
+  "final_prompt_group_ids_sha256": "d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd",
+  "final_prompt_text_sha256": "e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736",
+  "final_scenario_text_sha256": "caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407",
+  "fresh_schedule_sha256": "20c683265e40a72040753d525c5132857128bf4c50b5a4a07e8469eb06e2649a",
+  "locked_families_untouched": [
+    "museum_cloakroom_hook",
+    "pier_mooring_slip"
+  ],
+  "locked_prompt_group_ids_sha256": "ebd5414dd024cdd3bdb5b600aedfd4d1dd198c9d59ddc1a9446c00b0f0d88cf0",
+  "model_calls_performed": false,
+  "n_cohort": 24,
+  "n_continuations": 1152,
+  "n_samples_per_prompt": 48,
+  "n_train": 18,
+  "n_validation": 6,
+  "phase": "phase18a",
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "phase17_confirmed_ids_sha256": "78068558226919eac00d21e6df68b86b2b4f0e584cf067786c1b28450d9ed2c5",
+  "phase17_status": "phase17a_policy_unstable_screen_hold",
+  "qualifying_families": [
+    "bowling_alley_lane",
+    "radio_studio_booth",
+    "veterinary_kennel_run",
+    "daycare_cubby_shelf"
+  ],
+  "qualifying_train_families": [
+    "bowling_alley_lane",
+    "radio_studio_booth",
+    "veterinary_kennel_run"
+  ],
+  "qualifying_validation_families": [
+    "daycare_cubby_shelf"
+  ],
+  "seed_base": 18000000,
+  "selection": {
+    "n_per_family": 6,
+    "rule": "SHA256(salt+prompt_group_id) ascending; first 6 per qualifying family",
+    "salt": "phase18_enriched_v1|"
+  },
+  "temperature": 0.9,
+  "threshold_hash": "791a3486e2743b2e8d39e8408696ce15f4c8ed67d2222e7db06b961d45549a9a",
+  "top_p": 0.95,
+  "train_prompt_group_ids": [
+    "final_bowling_alley_lane_003",
+    "final_bowling_alley_lane_009",
+    "final_bowling_alley_lane_012",
+    "final_bowling_alley_lane_013",
+    "final_bowling_alley_lane_016",
+    "final_bowling_alley_lane_030",
+    "final_radio_studio_booth_004",
+    "final_radio_studio_booth_020",
+    "final_radio_studio_booth_022",
+    "final_radio_studio_booth_025",
+    "final_radio_studio_booth_027",
+    "final_radio_studio_booth_034",
+    "final_veterinary_kennel_run_000",
+    "final_veterinary_kennel_run_004",
+    "final_veterinary_kennel_run_008",
+    "final_veterinary_kennel_run_009",
+    "final_veterinary_kennel_run_012",
+    "final_veterinary_kennel_run_032"
+  ],
+  "validation_prompt_group_ids": [
+    "final_daycare_cubby_shelf_000",
+    "final_daycare_cubby_shelf_001",
+    "final_daycare_cubby_shelf_004",
+    "final_daycare_cubby_shelf_023",
+    "final_daycare_cubby_shelf_024",
+    "final_daycare_cubby_shelf_029"
+  ]
+}
