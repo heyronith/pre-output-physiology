@@ -1,0 +1,10 @@
+{
+  "activations_collected": false,
+  "model_calls": 0,
+  "n_continuations": 1536,
+  "phase14_run_id": "phase14a_calibration_20260926T231646Z_e6206543",
+  "raw_continuations_sha256": "b1c003b3282387ef43e0e3d8b31a14978fbfe32105eac8cdffd740ff19aa44b8",
+  "rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "rule_version": "phase15_onset_v1",
+  "status": "phase15a_same_prompt_onset_reanalysis_hold"
+}

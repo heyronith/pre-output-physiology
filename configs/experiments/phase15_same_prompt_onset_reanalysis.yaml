@@ -1,0 +1,75 @@
+# Phase 15 same-prompt proposition-onset reanalysis — Phase 15A
+
+experiment_id: phase15_same_prompt_onset_reanalysis
+phase: phase15
+status: phase15a_same_prompt_onset_reanalysis_hold
+description: >
+  Calibration-data reanalysis of the frozen Phase-14 same-prompt trajectory run.
+  Asks whether Phase-14's exact-candidate-substring leak rule was scientifically
+  over-conservative relative to proposition-onset validity. No model calls.
+  Phase 14A remains phase14a_same_prompt_trajectory_calibration_hold.
+  HOLD: no temperature is replication_worthy under the onset rule.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase14_merge_sha: 9ab4e9a5b805674bddbc5922a3efb330b9910cef
+phase15_starting_sha: 9ab4e9a5b805674bddbc5922a3efb330b9910cef
+phase14_status: phase14a_same_prompt_trajectory_calibration_hold
+
+design:
+  source: phase14_calibration_reanalysis_only
+  phase14_run_id: phase14a_calibration_20260926T231646Z_e6206543
+  raw_continuations_sha256: b1c003b3282387ef43e0e3d8b31a14978fbfe32105eac8cdffd740ff19aa44b8
+  n_continuations: 1536
+  temperature_grid: [0.7, 0.9, 1.1]
+  rule_version: phase15_onset_v1
+  rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  selects_t_star: false
+  valid_pre_answer_categories: [clean_no_candidate_mention, candidate_mention_only]
+  invalid_pre_answer_categories: [candidate_assignment_proposition, invalid_other]
+
+feasibility_rule:
+  min_record_fraction: 0.25
+  min_alternate_fraction: 0.25
+  min_prompt_groups_ge3_each_class: 16
+  min_valid_fraction: 0.90
+  max_assignment_proposition_leak_rate: 0.10
+  label: replication_worthy
+  no_eligible_status: phase15a_same_prompt_onset_reanalysis_hold
+  any_eligible_status: phase15a_same_prompt_onset_reanalysis_promising_awaiting_audit
+
+reanalysis_result:
+  status: phase15a_same_prompt_onset_reanalysis_hold
+  summary: artifacts/phase15a_onset_reanalysis/reanalysis_summary.json
+  report: reports/phase15a_onset_reanalysis.md
+  annotation_rules: artifacts/phase15a_onset_reanalysis/annotation_rules.json
+  rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  onset_category_counts:
+    clean_no_candidate_mention: 1168
+    candidate_mention_only: 336
+    candidate_assignment_proposition: 32
+    invalid_other: 0
+  replication_worthy_temperatures: []
+  selects_t_star: false
+  model_calls: 0
+  final_model_calls: 0
+  locked_model_calls: 0
+
+authorizations:
+  reanalysis_authorized: false
+  model_calls_authorized: false
+  final_model_calls_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  resampling_authorized: false
+  temperature_extension_authorized: false
+  prompt_changes_authorized: false
+  causal_intervention_authorized: false
+
+notes: >
+  Phase 15A (D121–D122). Onset-oriented reanalysis HOLD — admitting mention-only
+  Stage-1 text raises validity and lowers proposition-leak, but within-prompt
+  policy diversity remains insufficient for replication_worthy. STOP after 15A.
+  Phase 14A remains HOLD under its original rules.

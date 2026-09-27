@@ -1,0 +1,93 @@
+{
+  "assignment_patterns": [
+    {
+      "name": "prep_state",
+      "pattern": "\\b(?:is|at|in|on|to|for)\\s+{esc}\\b"
+    },
+    {
+      "name": "state_verb",
+      "pattern": "\\b{esc}\\s+(?:is|holds|boards|serves|houses|admits)\\b"
+    },
+    {
+      "name": "choose_state",
+      "pattern": "\\b(?:choose|select|pick|answer|response)\\s+(?:is\\s+)?{esc}\\b"
+    },
+    {
+      "name": "goes_to_state",
+      "pattern": "\\bgoes\\s+(?:to|at)\\s+{esc}\\b"
+    },
+    {
+      "name": "head_to_state",
+      "pattern": "\\bhead(?:ing)?\\s+(?:to|towards)\\s+{esc}\\b"
+    },
+    {
+      "name": "go_to_state",
+      "pattern": "\\bgo(?:ing)?\\s+to\\s+{esc}\\b"
+    },
+    {
+      "name": "checking_state",
+      "pattern": "\\bcheck(?:ing)?\\s+{esc}\\b"
+    },
+    {
+      "name": "state_last_used",
+      "pattern": "\\b{esc}\\s+was\\s+last\\s+used\\b"
+    },
+    {
+      "name": "last_used_state",
+      "pattern": "\\blast\\s+used\\b[^.]*\\b{esc}\\b"
+    },
+    {
+      "name": "responsible_state",
+      "pattern": "\\b{esc}\\s+is\\s+responsible\\b"
+    },
+    {
+      "name": "preference_for_state",
+      "pattern": "\\bpreference\\s+for\\s+{esc}\\b"
+    },
+    {
+      "name": "near_state",
+      "pattern": "\\b(?:near|located\\s+near)\\s+{esc}\\b"
+    },
+    {
+      "name": "redirect_to_state",
+      "pattern": "\\bredirect(?:\\s+\\w+){0,3}\\s+to\\s+{esc}\\b"
+    },
+    {
+      "name": "next_action_at_state",
+      "pattern": "\\bnext\\s+action\\b[^.]*\\b(?:at|to)\\s+{esc}\\b"
+    },
+    {
+      "name": "take_place_at_state",
+      "pattern": "\\btake\\s+(?:their\\s+)?(?:next\\s+)?(?:action\\s+)?(?:place\\s+)?at\\s+{esc}\\b"
+    },
+    {
+      "name": "action_at_state",
+      "pattern": "\\b(?:perform|prepare\\s+for)\\s+(?:an\\s+)?(?:action|their\\s+next\\s+action)\\s+at\\s+{esc}\\b"
+    },
+    {
+      "name": "headed_to_state",
+      "pattern": "\\bheaded\\s+to\\s+{esc}\\b"
+    },
+    {
+      "name": "use_state",
+      "pattern": "\\b(?:use|using|used)\\s+{esc}\\b"
+    }
+  ],
+  "categories": [
+    "clean_no_candidate_mention",
+    "candidate_mention_only",
+    "candidate_assignment_proposition",
+    "invalid_other"
+  ],
+  "invalid_pre_answer": [
+    "candidate_assignment_proposition",
+    "invalid_other"
+  ],
+  "notes": "Exact candidate substring without a matched assignment pattern is candidate_mention_only. Disjunctive either/or comparisons without a singular assignment pattern are mention-only. Annotation uses only Stage-1 text plus record/alternate strings.",
+  "rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "rule_version": "phase15_onset_v1",
+  "valid_pre_answer": [
+    "clean_no_candidate_mention",
+    "candidate_mention_only"
+  ]
+}
