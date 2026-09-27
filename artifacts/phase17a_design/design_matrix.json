@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-09-27T00:48:57+00:00",
+  "discovery_prompt_group_ids_sha256": "8a94e0a2ae7a58a416258a6c509372ce934c7e33c26820a5aea49ef7d28fae8b",
+  "discovery_prompt_text_sha256": "14475e14e315175c5e5cef011669a9d0d03fc12aa349fceb6785f1e62c6cdf2f",
+  "family_split": {
+    "discovery_train": [
+      "climbing_gym_route",
+      "radio_studio_booth",
+      "bowling_alley_lane",
+      "veterinary_kennel_run"
+    ],
+    "discovery_validation": [
+      "subway_turnstile_bank",
+      "daycare_cubby_shelf"
+    ],
+    "locked_generalization": [
+      "museum_cloakroom_hook",
+      "pier_mooring_slip"
+    ]
+  },
+  "final_prompt_group_ids_sha256": "d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd",
+  "final_prompt_text_sha256": "e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736",
+  "final_scenario_text_sha256": "caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407",
+  "locked_prompt_group_ids_sha256": "ebd5414dd024cdd3bdb5b600aedfd4d1dd198c9d59ddc1a9446c00b0f0d88cf0",
+  "model_calls_performed": false,
+  "n_discovery_prompts": 240,
+  "n_locked_prompts_untouched": 80,
+  "n_s1_continuations": 3840,
+  "phase": "phase17a",
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "s1_schedule_sha256": "a6061adc3aa31ce3d89f01215213a34756ef72b56eb0506745bb20b0c74074b5",
+  "s2_schedule_frozen": false,
+  "temperature": 0.9,
+  "temperature_rationale": "From Phase-15 calibration-only data: T=0.9 had 13/32 prompt groups with \u22651 example of each policy vs 12/32 at T=1.1; both had 6/32 with \u22653/class; T=0.9 had slightly higher proposition-valid fraction. Selected prospectively before any Phase-17 prompt is run. No other T in Phase 17.",
+  "threshold_hash": "878a780d745e2f12e86a774329462c8e9a704ee204364868f296b2e506373514",
+  "top_p": 0.95
+}

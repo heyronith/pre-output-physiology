@@ -1,0 +1,38 @@
+{
+  "discovery_gates": {
+    "train_min_confirmed": 20,
+    "train_min_per_family": 4,
+    "validation_min_confirmed": 10,
+    "validation_min_per_family": 4
+  },
+  "n_samples_per_prompt_per_stage": 16,
+  "phase14_final_hashes": {
+    "final_prompt_group_ids_sha256": "d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd",
+    "final_prompt_text_sha256": "e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736",
+    "final_scenario_text_sha256": "caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407"
+  },
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "s1_candidate_rule": {
+    "min_alternate": 2,
+    "min_record": 2,
+    "min_valid": 14
+  },
+  "s1_seed_base": 17000000,
+  "s2_confirmation_rule": {
+    "independent_of_s1": true,
+    "min_alternate": 3,
+    "min_record": 3,
+    "min_valid": 14
+  },
+  "s2_seed_base": 17100000,
+  "selection": {
+    "max_per_family": 8,
+    "salt": "phase17_selected_v1|",
+    "sort_key": "SHA256(\"phase17_selected_v1|\" + prompt_group_id)"
+  },
+  "temperature": 0.9,
+  "temperature_rationale": "From Phase-15 calibration-only data: T=0.9 had 13/32 prompt groups with \u22651 example of each policy vs 12/32 at T=1.1; both had 6/32 with \u22653/class; T=0.9 had slightly higher proposition-valid fraction. Selected prospectively before any Phase-17 prompt is run. No other T in Phase 17.",
+  "threshold_hash": "878a780d745e2f12e86a774329462c8e9a704ee204364868f296b2e506373514",
+  "top_p": 0.95
+}

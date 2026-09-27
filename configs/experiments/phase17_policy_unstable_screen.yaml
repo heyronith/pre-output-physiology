@@ -1,0 +1,74 @@
+# Phase 17 policy-unstable exact-prompt enrichment screen — Phase 17A
+
+experiment_id: phase17_policy_unstable_screen
+phase: phase17
+status: phase17a_policy_unstable_screen_authorized
+description: >
+  Behavior-only prospective enrichment screen of the untouched Phase-14 discovery
+  final prompt pool (240 prompts) at T=0.9 using the Phase-14 two-stage assay and
+  frozen Phase-15 onset validity rule. S1 (16 cont/prompt) then independent S2
+  confirmation. Locked families receive zero calls. No activations.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase16_merge_sha: bfb3bccc42e0812a0459e316e428e75f6ac7edda
+phase17_starting_sha: bfb3bccc42e0812a0459e316e428e75f6ac7edda
+phase14_status: phase14a_same_prompt_trajectory_calibration_hold
+phase15_status: phase15a_same_prompt_onset_reanalysis_hold
+phase16_status: phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  temperature: 0.9
+  temperature_rationale: >
+    Phase-15 calib: T=0.9 had 13/32 groups with ≥1/class vs 12/32 at T=1.1; both
+    6/32 with ≥3/class; T=0.9 slightly higher proposition-valid fraction. Chosen
+    before any Phase-17 prompt is run. No other T in Phase 17.
+  top_p: 0.95
+  n_samples_per_prompt_per_stage: 16
+  n_discovery_prompts: 240
+  n_s1_continuations: 3840
+  phase15_rule_version: phase15_onset_v1
+  phase15_rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  final_scenario_text_sha256: caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407
+  final_prompt_group_ids_sha256: d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd
+  final_prompt_text_sha256: e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736
+  # discovery / s1 schedule hashes filled by prepare_phase17_design.py into design_matrix
+  design_matrix: artifacts/phase17a_design/design_matrix.json
+  threshold_manifest: artifacts/phase17a_design/threshold_manifest.json
+  threshold_hash: 878a780d745e2f12e86a774329462c8e9a704ee204364868f296b2e506373514
+  discovery_prompt_group_ids_sha256: 8a94e0a2ae7a58a416258a6c509372ce934c7e33c26820a5aea49ef7d28fae8b
+  s1_schedule_sha256: a6061adc3aa31ce3d89f01215213a34756ef72b56eb0506745bb20b0c74074b5
+  s1_candidate_rule: {min_valid: 14, min_record: 2, min_alternate: 2}
+  s2_confirmation_rule: {min_valid: 14, min_record: 3, min_alternate: 3, independent_of_s1: true}
+  discovery_gates:
+    train: {min_confirmed: 20, min_per_family: 4}
+    validation: {min_confirmed: 10, min_per_family: 4}
+  selection: {salt: "phase17_selected_v1|", max_per_family: 8}
+
+family_split:
+  discovery_train: [climbing_gym_route, radio_studio_booth, bowling_alley_lane, veterinary_kennel_run]
+  discovery_validation: [subway_turnstile_bank, daycare_cubby_shelf]
+  locked_generalization: [museum_cloakroom_hook, pier_mooring_slip]
+
+authorizations:
+  s1_model_calls_authorized: true
+  s2_model_calls_authorized: false
+  modal_gpu_authorized: true
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  temperature_search_authorized: false
+  prompt_changes_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  onset_rule_changes_authorized: false
+  threshold_changes_authorized: false
+  causal_intervention_authorized: false
+
+notes: >
+  Phase 17A (D125–D127). Behavior-only enrichment screen. STOP after 17A unless
+  gates pass (then await audit; 17B not executed here).
