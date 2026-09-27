@@ -1,0 +1,55 @@
+# Phase 15 same-prompt proposition-onset reanalysis — Phase 15A
+
+experiment_id: phase15_same_prompt_onset_reanalysis
+phase: phase15
+status: phase15a_same_prompt_onset_reanalysis_authorized
+description: >
+  Calibration-data reanalysis of the frozen Phase-14 same-prompt trajectory run.
+  Asks whether Phase-14's exact-candidate-substring leak rule was scientifically
+  over-conservative relative to proposition-onset validity. No model calls.
+  Phase 14A remains phase14a_same_prompt_trajectory_calibration_hold.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase14_merge_sha: 9ab4e9a5b805674bddbc5922a3efb330b9910cef
+phase15_starting_sha: 9ab4e9a5b805674bddbc5922a3efb330b9910cef
+phase14_status: phase14a_same_prompt_trajectory_calibration_hold
+
+design:
+  source: phase14_calibration_reanalysis_only
+  phase14_run_id: phase14a_calibration_20260926T231646Z_e6206543
+  raw_continuations_sha256: b1c003b3282387ef43e0e3d8b31a14978fbfe32105eac8cdffd740ff19aa44b8
+  n_continuations: 1536
+  temperature_grid: [0.7, 0.9, 1.1]
+  rule_version: phase15_onset_v1
+  # rule_hash frozen at evaluate time into artifacts/phase15a_onset_reanalysis/annotation_rules.json
+  selects_t_star: false
+  valid_pre_answer_categories: [clean_no_candidate_mention, candidate_mention_only]
+  invalid_pre_answer_categories: [candidate_assignment_proposition, invalid_other]
+
+feasibility_rule:
+  min_record_fraction: 0.25
+  min_alternate_fraction: 0.25
+  min_prompt_groups_ge3_each_class: 16
+  min_valid_fraction: 0.90
+  max_assignment_proposition_leak_rate: 0.10
+  label: replication_worthy
+  no_eligible_status: phase15a_same_prompt_onset_reanalysis_hold
+  any_eligible_status: phase15a_same_prompt_onset_reanalysis_promising_awaiting_audit
+
+authorizations:
+  reanalysis_authorized: true
+  model_calls_authorized: false
+  final_model_calls_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  resampling_authorized: false
+  temperature_extension_authorized: false
+  prompt_changes_authorized: false
+  causal_intervention_authorized: false
+
+notes: >
+  Phase 15A (D121–D122). Onset-oriented reanalysis of Phase-14 calibration only.
+  STOP after Phase 15A. Does not reinterpret Phase 14A as passing.
