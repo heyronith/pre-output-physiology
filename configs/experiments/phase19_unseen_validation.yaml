@@ -2,7 +2,7 @@
 
 experiment_id: phase19_unseen_validation_family_screen
 phase: phase19
-status: phase19a_unseen_validation_family_screen_authorized
+status: phase19a_unseen_validation_family_screen_s1_complete_awaiting_s2
 description: >
   Behavior-only prospective screen of 6 never-before-used low-stakes families
   (24 prompts each = 144) to build a multi-family unseen validation cohort for
@@ -52,9 +52,26 @@ design:
     n_prompts_per_family: 6
   fresh_usability: {min_valid: 42, min_record: 6, min_alternate: 6, min_per_family: 5}
 
+s1_result:
+  run_id: phase19a_s1_20260927T224716Z_d78a4973
+  n_continuations: 2304
+  n_candidates: 49
+  n_s2_continuations: 784
+  s2_schedule_sha256: bff323bb8e48bda9de6ef7e6589fd4206837b4eafecf41358861791acc4db130
+  candidates_by_family:
+    florist_cooler_shelf: 7
+    hardware_pegboard_hook: 7
+    community_pool_lane: 12
+    music_school_practice_room: 10
+    toy_library_checkout_bin: 5
+    mini_golf_tee_pad: 8
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
 authorizations:
-  s1_model_calls_authorized: true
-  s2_model_calls_authorized: false
+  s1_model_calls_authorized: false
+  s2_model_calls_authorized: true
   fresh_confirmation_model_calls_authorized: false
   modal_gpu_authorized: true
   locked_family_model_calls_authorized: false
