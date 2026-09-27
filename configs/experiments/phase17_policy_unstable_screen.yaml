@@ -2,12 +2,12 @@
 
 experiment_id: phase17_policy_unstable_screen
 phase: phase17
-status: phase17a_policy_unstable_screen_authorized
+status: phase17a_policy_unstable_screen_s1_complete_awaiting_s2
 description: >
   Behavior-only prospective enrichment screen of the untouched Phase-14 discovery
   final prompt pool (240 prompts) at T=0.9 using the Phase-14 two-stage assay and
-  frozen Phase-15 onset validity rule. S1 (16 cont/prompt) then independent S2
-  confirmation. Locked families receive zero calls. No activations.
+  frozen Phase-15 onset validity rule. S1 complete (67 candidates); S2 authorized.
+  Locked families receive zero calls. No activations.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -35,12 +35,12 @@ design:
   final_scenario_text_sha256: caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407
   final_prompt_group_ids_sha256: d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd
   final_prompt_text_sha256: e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736
-  # discovery / s1 schedule hashes filled by prepare_phase17_design.py into design_matrix
   design_matrix: artifacts/phase17a_design/design_matrix.json
   threshold_manifest: artifacts/phase17a_design/threshold_manifest.json
   threshold_hash: 878a780d745e2f12e86a774329462c8e9a704ee204364868f296b2e506373514
   discovery_prompt_group_ids_sha256: 8a94e0a2ae7a58a416258a6c509372ce934c7e33c26820a5aea49ef7d28fae8b
   s1_schedule_sha256: a6061adc3aa31ce3d89f01215213a34756ef72b56eb0506745bb20b0c74074b5
+  s2_schedule_sha256: 200becdb7b0c60a09649db9a1d7ae3c753861779ac22d59b90561c76495ee3d9
   s1_candidate_rule: {min_valid: 14, min_record: 2, min_alternate: 2}
   s2_confirmation_rule: {min_valid: 14, min_record: 3, min_alternate: 3, independent_of_s1: true}
   discovery_gates:
@@ -53,9 +53,25 @@ family_split:
   discovery_validation: [subway_turnstile_bank, daycare_cubby_shelf]
   locked_generalization: [museum_cloakroom_hook, pier_mooring_slip]
 
+s1_result:
+  run_id: phase17a_s1_20260927T004928Z_e76c3592
+  n_continuations: 3840
+  n_candidates: 67
+  n_s2_continuations: 1072
+  s2_schedule_sha256: 200becdb7b0c60a09649db9a1d7ae3c753861779ac22d59b90561c76495ee3d9
+  candidates_by_family:
+    climbing_gym_route: 3
+    radio_studio_booth: 20
+    bowling_alley_lane: 22
+    veterinary_kennel_run: 10
+    subway_turnstile_bank: 3
+    daycare_cubby_shelf: 9
+  locked_model_calls: 0
+  activations_collected: false
+
 authorizations:
-  s1_model_calls_authorized: true
-  s2_model_calls_authorized: false
+  s1_model_calls_authorized: false
+  s2_model_calls_authorized: true
   modal_gpu_authorized: true
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
@@ -70,5 +86,5 @@ authorizations:
   causal_intervention_authorized: false
 
 notes: >
-  Phase 17A (D125–D127). Behavior-only enrichment screen. STOP after 17A unless
-  gates pass (then await audit; 17B not executed here).
+  Phase 17A (D125–D127). S1 complete; S2 authorized. STOP after 17A unless gates
+  pass (then await audit; 17B not executed here).

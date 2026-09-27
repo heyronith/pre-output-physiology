@@ -792,3 +792,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-16 merge `bfb3bccc42e0812a0459e316e428e75f6ac7edda`, Phase 17A prospectively screens the untouched Phase-14 final discovery pool (240 prompts; locked 80 untouched) for exact prompts with reproducible stochastic record/alternate policy diversity. Assay: Phase-14 two-stage (`Consideration` → deterministic `Response` 12107); validity: frozen Phase-15 `phase15_onset_v1` / `6bb40fa5…`. Temperature fixed at T=0.9 from Phase-15 calib evidence (13/32 ≥1/class vs 12/32 at T=1.1; both 6/32 ≥3/class; slightly higher valid frac) before any Phase-17 call. S1: 16 cont/prompt (3840); S1 candidate iff valid≥14 and ≥2/class. S2: 16 new cont with disjoint seeds; confirmed iff S2 alone valid≥14 and ≥3/class. Gates: train ≥20 confirmed with ≥4/family; validation ≥10 with ≥4/family; else HOLD with no retuning. If pass: SHA-cap ≤8/family (`phase17_selected_v1|`). Enrichment/screening only — not prevalence estimation; no physiology; no activations for screening. Phase 14A/15A remain HOLDs; Phase 16A sampling-only rescue remains unsupported.
 - **Date:** 2026-09-27
+
+### D126 — Phase 17A S1 complete; S2 schedule frozen
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S1 run `phase17a_s1_20260927T004928Z_e76c3592` (3840 continuations; ~$1.71; Response 12107 verified; 0 locked calls; 0 activations) yielded 67 S1 candidates under the frozen threshold (valid≥14, ≥2/class). Candidates by family: `climbing_gym_route` 3, `radio_studio_booth` 20, `bowling_alley_lane` 22, `veterinary_kennel_run` 10, `subway_turnstile_bank` 3, `daycare_cubby_shelf` 9. S2 schedule frozen (1072 continuations; SHA `200becdb…e3d9`; seeds disjoint from S1). Status `phase17a_policy_unstable_screen_s1_complete_awaiting_s2`. S2 authorized; no threshold/T/prompt changes.
+- **Date:** 2026-09-27
