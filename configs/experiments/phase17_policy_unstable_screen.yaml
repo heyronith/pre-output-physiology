@@ -2,12 +2,12 @@
 
 experiment_id: phase17_policy_unstable_screen
 phase: phase17
-status: phase17a_policy_unstable_screen_s1_complete_awaiting_s2
+status: phase17a_policy_unstable_screen_hold
 description: >
   Behavior-only prospective enrichment screen of the untouched Phase-14 discovery
-  final prompt pool (240 prompts) at T=0.9 using the Phase-14 two-stage assay and
-  frozen Phase-15 onset validity rule. S1 complete (67 candidates); S2 authorized.
-  Locked families receive zero calls. No activations.
+  final prompt pool (240 prompts) at T=0.9. S1/S2 complete. HOLD: discovery gates
+  failed (train climbing_gym_route <4 confirmed; validation subway 0 and overall <10).
+  Locked families untouched. No activations. No retuning.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -69,10 +69,27 @@ s1_result:
   locked_model_calls: 0
   activations_collected: false
 
+screen_result:
+  status: phase17a_policy_unstable_screen_hold
+  s1_run_id: phase17a_s1_20260927T004928Z_e76c3592
+  s2_run_id: phase17a_s2_20260927T014319Z_ec5bc192
+  n_s1_candidates: 67
+  n_confirmed: 40
+  s1_to_s2_confirmation_rate: 0.5970149253731343
+  gates_passed: false
+  train_confirmed: 34
+  train_per_family: {climbing_gym_route: 2, radio_studio_booth: 9, bowling_alley_lane: 15, veterinary_kennel_run: 8}
+  validation_confirmed: 6
+  validation_per_family: {subway_turnstile_bank: 0, daycare_cubby_shelf: 6}
+  selected_prompt_group_ids_sha256: null
+  n_selected: 0
+  locked_model_calls: 0
+  activations_collected: false
+
 authorizations:
   s1_model_calls_authorized: false
-  s2_model_calls_authorized: true
-  modal_gpu_authorized: true
+  s2_model_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -86,5 +103,5 @@ authorizations:
   causal_intervention_authorized: false
 
 notes: >
-  Phase 17A (D125–D127). S1 complete; S2 authorized. STOP after 17A unless gates
-  pass (then await audit; 17B not executed here).
+  Phase 17A (D125–D127) HOLD. Discovery gates failed; no selection; no retuning.
+  STOP after 17A. Phase 17B not authorized.

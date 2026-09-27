@@ -798,3 +798,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** S1 run `phase17a_s1_20260927T004928Z_e76c3592` (3840 continuations; ~$1.71; Response 12107 verified; 0 locked calls; 0 activations) yielded 67 S1 candidates under the frozen threshold (valid≥14, ≥2/class). Candidates by family: `climbing_gym_route` 3, `radio_studio_booth` 20, `bowling_alley_lane` 22, `veterinary_kennel_run` 10, `subway_turnstile_bank` 3, `daycare_cubby_shelf` 9. S2 schedule frozen (1072 continuations; SHA `200becdb…e3d9`; seeds disjoint from S1). Status `phase17a_policy_unstable_screen_s1_complete_awaiting_s2`. S2 authorized; no threshold/T/prompt changes.
 - **Date:** 2026-09-27
+
+### D127 — Phase 17A screen HOLD (discovery gates failed)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S2 run `phase17a_s2_20260927T014319Z_ec5bc192` (1072 continuations; ~$0.45; 0 locked; 0 activations) confirmed 40/67 S1 candidates (confirmation rate 0.597) under the frozen independent S2 rule (valid≥14, ≥3/class). Confirmed by family: train `climbing_gym_route` 2, `radio_studio_booth` 9, `bowling_alley_lane` 15, `veterinary_kennel_run` 8 (overall 34≥20 but `climbing_gym_route` <4 → train FAIL); validation `subway_turnstile_bank` 0, `daycare_cubby_shelf` 6 (overall 6<10 → validation FAIL). Descriptive: S1–S2 alt-fraction Pearson ≈0.875; median |Δ|≈0.10; 7 rec-heavy→alt-heavy and 3 reverse switches among candidates. Per D125: no T/prompt/threshold retuning; no selection set; Phase 17B unauthorized. Status `phase17a_policy_unstable_screen_hold`. STOP after Phase 17A.
+- **Date:** 2026-09-27
