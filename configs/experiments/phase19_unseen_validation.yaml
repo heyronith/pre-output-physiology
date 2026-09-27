@@ -2,12 +2,12 @@
 
 experiment_id: phase19_unseen_validation_family_screen
 phase: phase19
-status: phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh
+status: phase19a_unseen_validation_cohort_pass_awaiting_audit
 description: >
   Behavior-only prospective screen of 6 never-before-used low-stakes families
-  (24 prompts each = 144) to build a multi-family unseen validation cohort for
-  the Phase-18 enriched train population. Phase-18 train prompts untouched.
-  No activations. Failure of frozen family or fresh gates retires this assay.
+  complete. Family gate and fresh-confirmation gates PASSED. Frozen 11
+  fresh-usable validation prompts across music_school + mini_golf. Phase-18
+  train untouched. No activations. Awaiting audit before any physiology.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -72,7 +72,7 @@ s1_result:
   activations_collected: false
 
 screen_result:
-  status: phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh
+  status: phase19a_unseen_validation_cohort_pass_awaiting_audit
   s1_run_id: phase19a_s1_20260927T224716Z_d78a4973
   s2_run_id: phase19a_s2_20260927T231940Z_1910471f
   n_s1_candidates: 49
@@ -87,11 +87,23 @@ screen_result:
   phase18_train_model_calls: 0
   activations_collected: false
 
+confirmation_result:
+  status: phase19a_unseen_validation_cohort_pass_awaiting_audit
+  run_id: phase19a_fresh_20260927T233123Z_f039c172
+  n_continuations: 576
+  n_fresh_usable: 11
+  gates_passed: true
+  usable_per_family: {music_school_practice_room: 5, mini_golf_tee_pad: 6}
+  fresh_usable_prompt_group_ids_sha256: 60099744abc25099558ca401b303f4bcff86736e107436260842054020e4f49f
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
 authorizations:
   s1_model_calls_authorized: false
   s2_model_calls_authorized: false
-  fresh_confirmation_model_calls_authorized: true
-  modal_gpu_authorized: true
+  fresh_confirmation_model_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
