@@ -1,0 +1,123 @@
+# Phase 19A — unseen multi-family validation cohort screen
+
+experiment_id: phase19_unseen_validation_family_screen
+phase: phase19
+status: phase19a_unseen_validation_cohort_pass_awaiting_audit
+description: >
+  Behavior-only prospective screen of 6 never-before-used low-stakes families
+  complete. Family gate and fresh-confirmation gates PASSED. Frozen 11
+  fresh-usable validation prompts across music_school + mini_golf. Phase-18
+  train untouched. No activations. Awaiting audit before any physiology.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase18_merge_sha: 9b975e28e08f0f9ad2a3a315dd475c92a68cb346
+phase19_starting_sha: 9b975e28e08f0f9ad2a3a315dd475c92a68cb346
+phase17_status: phase17a_policy_unstable_screen_hold
+phase18_status: phase18a_enriched_cohort_fresh_confirmation_hold
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  temperature: 0.9
+  top_p: 0.95
+  n_samples_per_prompt_screen: 16
+  n_samples_per_prompt_fresh: 48
+  n_screen_prompts: 144
+  n_per_family: 24
+  n_s1_continuations: 2304
+  phase15_rule_version: phase15_onset_v1
+  phase15_rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  design_matrix: artifacts/phase19a_design/design_matrix.json
+  threshold_manifest: artifacts/phase19a_design/threshold_manifest.json
+  threshold_hash: d9c4ce137fd5f94b59158a9f5e5527473fb12d5816b0bf73252a037880ca8ecc
+  screen_prompt_group_ids_sha256: 267fda135100847be56c796fdf988f608d0ab04779859dc7f7f12a82a4cc1eec
+  screen_prompt_text_sha256: bfd5788fc8ef040a92e16b2edcc2fb7cb1530ab09b8370f824d470ded12db723
+  s1_schedule_sha256: c78eb9ee71fc98c8ab1f2b7ad98cfb557c6adc834695bc43b832a40669dd2e1f
+  new_families:
+    - florist_cooler_shelf
+    - hardware_pegboard_hook
+    - community_pool_lane
+    - music_school_practice_room
+    - toy_library_checkout_bin
+    - mini_golf_tee_pad
+  s1_candidate_rule: {min_valid: 14, min_record: 2, min_alternate: 2}
+  s2_confirmation_rule: {min_valid: 14, min_record: 3, min_alternate: 3, independent_of_s1: true}
+  family_qualify_rule: {min_confirmed: 6, min_qualifying_families: 2}
+  selection:
+    family_salt: "phase19_validation_family_v1|"
+    prompt_salt: "phase19_validation_prompt_v1|"
+    n_families: 2
+    n_prompts_per_family: 6
+  fresh_usability: {min_valid: 42, min_record: 6, min_alternate: 6, min_per_family: 5}
+
+s1_result:
+  run_id: phase19a_s1_20260927T224716Z_d78a4973
+  n_continuations: 2304
+  n_candidates: 49
+  n_s2_continuations: 784
+  s2_schedule_sha256: bff323bb8e48bda9de6ef7e6589fd4206837b4eafecf41358861791acc4db130
+  fresh_schedule_sha256: 5de3f97c030f36583c945d067ae7d5560c1b5634645a00b52447231ae67e7826
+  validation_cohort_sha256: 1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55
+  candidates_by_family:
+    florist_cooler_shelf: 7
+    hardware_pegboard_hook: 7
+    community_pool_lane: 12
+    music_school_practice_room: 10
+    toy_library_checkout_bin: 5
+    mini_golf_tee_pad: 8
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
+screen_result:
+  status: phase19a_unseen_validation_cohort_pass_awaiting_audit
+  s1_run_id: phase19a_s1_20260927T224716Z_d78a4973
+  s2_run_id: phase19a_s2_20260927T231940Z_1910471f
+  n_s1_candidates: 49
+  n_confirmed: 36
+  n_qualifying_families: 3
+  qualifying_families: [community_pool_lane, mini_golf_tee_pad, music_school_practice_room]
+  selected_families: [music_school_practice_room, mini_golf_tee_pad]
+  validation_cohort_sha256: 1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55
+  fresh_schedule_sha256: 5de3f97c030f36583c945d067ae7d5560c1b5634645a00b52447231ae67e7826
+  n_fresh_continuations: 576
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
+confirmation_result:
+  status: phase19a_unseen_validation_cohort_pass_awaiting_audit
+  run_id: phase19a_fresh_20260927T233123Z_f039c172
+  n_continuations: 576
+  n_fresh_usable: 11
+  gates_passed: true
+  usable_per_family: {music_school_practice_room: 5, mini_golf_tee_pad: 6}
+  fresh_usable_prompt_group_ids_sha256: 60099744abc25099558ca401b303f4bcff86736e107436260842054020e4f49f
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
+authorizations:
+  s1_model_calls_authorized: false
+  s2_model_calls_authorized: false
+  fresh_confirmation_model_calls_authorized: false
+  modal_gpu_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  temperature_search_authorized: false
+  prompt_changes_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  onset_rule_changes_authorized: false
+  threshold_changes_authorized: false
+  selection_rule_changes_authorized: false
+  phase18_train_model_calls_authorized: false
+  causal_intervention_authorized: false
+
+notes: >
+  Phase 19A (D130) authorized for S1 screen only. Design frozen before any
+  Phase-19 model call. Phase-18 train untouched. STOP if family or fresh gates fail.

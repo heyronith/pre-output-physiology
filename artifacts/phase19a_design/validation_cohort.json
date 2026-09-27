@@ -1,0 +1,154 @@
+{
+  "cohort_sha256": "1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55",
+  "n_confirmed_by_family": {
+    "community_pool_lane": 10,
+    "florist_cooler_shelf": 3,
+    "hardware_pegboard_hook": 5,
+    "mini_golf_tee_pad": 6,
+    "music_school_practice_room": 8,
+    "toy_library_checkout_bin": 4
+  },
+  "n_selected": 12,
+  "qualifying_families": [
+    "community_pool_lane",
+    "mini_golf_tee_pad",
+    "music_school_practice_room"
+  ],
+  "qualifying_family_digests": {
+    "community_pool_lane": "7fb30850caa474ba022f87589847a790b08a770b1ca356061af0b8c00cc8709f",
+    "mini_golf_tee_pad": "6129918f2e592328d294410198f15d56648497ea91f9b09d83067c00a91da9ad",
+    "music_school_practice_room": "26cedec0cbd202e721e5dafd5b38f017981166f14b9bcb0f59d12d834908667c"
+  },
+  "selected_families": [
+    "music_school_practice_room",
+    "mini_golf_tee_pad"
+  ],
+  "selected_family_digests": {
+    "mini_golf_tee_pad": "6129918f2e592328d294410198f15d56648497ea91f9b09d83067c00a91da9ad",
+    "music_school_practice_room": "26cedec0cbd202e721e5dafd5b38f017981166f14b9bcb0f59d12d834908667c"
+  },
+  "selected_prompt_group_ids": [
+    "p19_mini_golf_tee_pad_000",
+    "p19_mini_golf_tee_pad_008",
+    "p19_mini_golf_tee_pad_009",
+    "p19_mini_golf_tee_pad_011",
+    "p19_mini_golf_tee_pad_015",
+    "p19_mini_golf_tee_pad_017",
+    "p19_music_school_practice_room_001",
+    "p19_music_school_practice_room_004",
+    "p19_music_school_practice_room_005",
+    "p19_music_school_practice_room_010",
+    "p19_music_school_practice_room_014",
+    "p19_music_school_practice_room_018"
+  ],
+  "selected_prompts": [
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.2,
+      "phase19_s2_n_alternate": 3,
+      "phase19_s2_n_record": 12,
+      "phase19_s2_n_valid": 15,
+      "prompt_group_id": "p19_mini_golf_tee_pad_000",
+      "selection_digest": "4ef6c033fbb1ef98c88b15848b9916eea79fceea5df50c3860525e0a3b3d7b7c"
+    },
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.5625,
+      "phase19_s2_n_alternate": 9,
+      "phase19_s2_n_record": 7,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_mini_golf_tee_pad_008",
+      "selection_digest": "8b0269f1152df910aa643df3b4f623e65c36048e464e6a9d47e601aab82d0ad0"
+    },
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.3125,
+      "phase19_s2_n_alternate": 5,
+      "phase19_s2_n_record": 11,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_mini_golf_tee_pad_009",
+      "selection_digest": "17eee6b3c8806445a56ee94657227174ba50c923f7008fd829a5cf1cf9efc408"
+    },
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.4375,
+      "phase19_s2_n_alternate": 7,
+      "phase19_s2_n_record": 9,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_mini_golf_tee_pad_011",
+      "selection_digest": "aa928f4d85d114dc529f9a5febff79317121eb5cb7d414db0b637bcc9e21d5f3"
+    },
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.6666666666666666,
+      "phase19_s2_n_alternate": 10,
+      "phase19_s2_n_record": 5,
+      "phase19_s2_n_valid": 15,
+      "prompt_group_id": "p19_mini_golf_tee_pad_015",
+      "selection_digest": "feb0de86357e1ca05830f3de662558911267b18cfa1d1e5a6e7f3fbfc8845a76"
+    },
+    {
+      "family": "mini_golf_tee_pad",
+      "phase19_s2_alternate_fraction": 0.3333333333333333,
+      "phase19_s2_n_alternate": 5,
+      "phase19_s2_n_record": 10,
+      "phase19_s2_n_valid": 15,
+      "prompt_group_id": "p19_mini_golf_tee_pad_017",
+      "selection_digest": "21afd2f91e06bfd663cb733c787d53f55755648f6bdc8ec748f74a40d24e1fdc"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.26666666666666666,
+      "phase19_s2_n_alternate": 4,
+      "phase19_s2_n_record": 11,
+      "phase19_s2_n_valid": 15,
+      "prompt_group_id": "p19_music_school_practice_room_001",
+      "selection_digest": "1657ca7422cc8c31a4f5be8bcc1116937ea67840b5b7cb569f3b953b02e3ae5d"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.3333333333333333,
+      "phase19_s2_n_alternate": 5,
+      "phase19_s2_n_record": 10,
+      "phase19_s2_n_valid": 15,
+      "prompt_group_id": "p19_music_school_practice_room_004",
+      "selection_digest": "386c9e0bbafc6e120543e0094472261c017ac7d95714b0930c6fa5976e289807"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.75,
+      "phase19_s2_n_alternate": 12,
+      "phase19_s2_n_record": 4,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_music_school_practice_room_005",
+      "selection_digest": "3d7658b869a4cacaafb08d50d195f3c757ced08861bcd742fdbd9d87c01adbd6"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.75,
+      "phase19_s2_n_alternate": 12,
+      "phase19_s2_n_record": 4,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_music_school_practice_room_010",
+      "selection_digest": "0ed5b77c65bc9ad6db2a9ac319d92b424bcf1ba453fd7f72b91b175573123eec"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.3125,
+      "phase19_s2_n_alternate": 5,
+      "phase19_s2_n_record": 11,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_music_school_practice_room_014",
+      "selection_digest": "665a9ad54c175ebe71ffb7e02d3475213f911bc6d1fb82e4dcdb595556c1399f"
+    },
+    {
+      "family": "music_school_practice_room",
+      "phase19_s2_alternate_fraction": 0.25,
+      "phase19_s2_n_alternate": 4,
+      "phase19_s2_n_record": 12,
+      "phase19_s2_n_valid": 16,
+      "prompt_group_id": "p19_music_school_practice_room_018",
+      "selection_digest": "a8109a0ce6a8ad8bf97c23a76604d97f8c90348148d7a85311ab188b8577d71d"
+    }
+  ]
+}

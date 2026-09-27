@@ -816,3 +816,27 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Fresh confirmation run `phase18a_fresh_20260927T151145Z_9ccfe9be` (1152 continuations; ~\$0.51; Response 12107 verified; 0 locked calls; 0 activations) evaluated under frozen fresh-usable rule (valid≥42, ≥6/class on the NEW batch alone). Train gate PASS: 17/18 usable with per-family bowling 6, radio 5, veterinary 6. Validation gate FAIL: daycare 4/6 usable <5 (`final_daycare_cubby_shelf_004` valid=40<42; `final_daycare_cubby_shelf_023` alternate=5<6). Overall 21/24 fresh-usable. Descriptive S2→P18 alt-fraction Pearson ≈0.909, Spearman ≈0.890, median |Δ|≈0.065; 2 rec-heavy→alt-heavy and 3 reverse switches. Per D128: no replacement of failed prompts; no threshold/T/prompt retuning; no physiology; Phase 18B unauthorized. Status `phase18a_enriched_cohort_fresh_confirmation_hold`. Phase 17A remains HOLD. STOP after Phase 18A.
 - **Date:** 2026-09-27
+
+### D130 — Phase 19A unseen multi-family validation cohort screen (authorized)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-18 merge `9b975e28e08f0f9ad2a3a315dd475c92a68cb346`, Phase 19A prospectively builds a multi-family unseen validation cohort for the already-working Phase-18 enriched train population. Phase-18 train prompts remain untouched (zero additional model calls). Six completely new low-stakes families never used in prior phases — `florist_cooler_shelf`, `hardware_pegboard_hook`, `community_pool_lane`, `music_school_practice_room`, `toy_library_checkout_bin`, `mini_golf_tee_pad` — with 24 prompts each (144 total; prompt-group IDs SHA `267fda13…1eec`; text SHA `bfd5788f…b723`) frozen before any Phase-19 call. Assay unchanged: Phase-14 two-stage; T=0.9; top_p=0.95; K=10; Response 12107; Phase-15 onset `phase15_onset_v1` / `6bb40fa5…`. S1: 16 cont/prompt (2304; schedule SHA `c78eb9ee…2e1f`; seed base 19_000_000); candidate iff valid≥14 and ≥2/class. S2: 16 new seeds (base 19_100_000); confirmed iff S2 alone valid≥14 and ≥3/class. Family qualifies iff ≥6 S2-confirmed; require ≥2 of 6 families else HOLD `phase19a_unseen_validation_family_screen_hold` and retire this synthetic assay. If ≥2 qualify: select first 2 families by SHA256(`phase19_validation_family_v1|`+name) and 6 confirmed prompts/family by SHA256(`phase19_validation_prompt_v1|`+id); fresh 48-cont confirmation (seed base 19_200_000; 576 total); fresh-usable iff valid≥42 and ≥6/class; require ≥5/6 usable in each selected family else HOLD `phase19a_unseen_validation_cohort_hold` and retire. Pass → freeze usable validation IDs; no activations. Threshold hash `d9c4ce13…8ecc` frozen before calls. Phase 18A remains validation-gate HOLD.
+- **Date:** 2026-09-27
+
+### D131 — Phase 19A S1 complete; S2 schedule frozen
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S1 run `phase19a_s1_20260927T224716Z_d78a4973` (2304 continuations; ~$1.02; Response 12107 verified; 0 locked; 0 Phase-18 train calls; 0 activations) yielded 49 S1 candidates under the frozen threshold (valid≥14, ≥2/class). Candidates by family: florist 7, hardware 7, community_pool 12, music_school 10, toy_library 5, mini_golf 8. S2 schedule frozen (784 continuations; SHA `bff323bb…b130`; seeds base 19_100_000). Status `phase19a_unseen_validation_family_screen_s1_complete_awaiting_s2`. S2 authorized; no threshold/T/prompt changes.
+- **Date:** 2026-09-27
+
+### D132 — Phase 19A S2 complete; validation cohort + fresh schedule frozen
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S2 run `phase19a_s2_20260927T231940Z_1910471f` (784 continuations; ~$0.35; 0 locked; 0 Phase-18 train calls; 0 activations) confirmed 36/49 S1 candidates. Confirmed by family: florist 3, hardware 5, community_pool 10, music_school 8, toy_library 4, mini_golf 6. Qualifying (≥6): community_pool, music_school, mini_golf (3≥2 → family gate PASS). SHA family select (`phase19_validation_family_v1|`): `music_school_practice_room`, `mini_golf_tee_pad`. SHA prompt select (`phase19_validation_prompt_v1|`): 6 confirmed/family → 12 prompts (cohort SHA `1e9ead05…5c55`). Fresh schedule frozen (576 continuations; SHA `5de3f97c…7826`; seed base 19_200_000). Status `phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh`. Fresh confirmation authorized; no retuning.
+- **Date:** 2026-09-27
+
+### D133 — Phase 19A unseen validation cohort PASS (awaiting audit)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Fresh confirmation run `phase19a_fresh_20260927T233123Z_f039c172` (576 continuations; ~$0.25; Response 12107 verified; 0 locked; 0 Phase-18 train calls; 0 activations) evaluated under frozen fresh-usable rule (valid≥42, ≥6/class). Usable: music_school 5/6, mini_golf 6/6 (both ≥5 → PASS); overall 11/12. Non-usable: `p19_music_school_practice_room_001` (alt=1). Frozen fresh-usable IDs SHA `60099744…f49f`. Status `phase19a_unseen_validation_cohort_pass_awaiting_audit`. No activations collected. Physiology / Phase 19B unauthorized until separate audit. Phase 18A remains validation-gate HOLD. Phase-18 train prompts remain untouched.
+- **Date:** 2026-09-27
