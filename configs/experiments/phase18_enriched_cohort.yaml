@@ -1,0 +1,90 @@
+# Phase 18A — enriched near-boundary cohort fresh confirmation
+
+experiment_id: phase18_enriched_cohort_fresh_confirmation
+phase: phase18
+status: phase18a_enriched_cohort_fresh_confirmation_hold
+description: >
+  Behavior-only fresh confirmation of a SHA-selected 24-prompt enriched cohort
+  drawn from Phase-17 S2-confirmed prompts in qualifying families (≥6 confirmed).
+  Independent 48-continuation seed batch (1152 total) complete. HOLD: validation
+  daycare fresh-usable 4/6 <5. Train passed. No replacement/threshold change.
+  No activations. Phase 17A remains HOLD. Phase 18B unauthorized.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase17_merge_sha: 8353b8bafafbc554ac8ff8056d029ba4de10f384
+phase18_starting_sha: 8353b8bafafbc554ac8ff8056d029ba4de10f384
+phase14_status: phase14a_same_prompt_trajectory_calibration_hold
+phase15_status: phase15a_same_prompt_onset_reanalysis_hold
+phase16_status: phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit
+phase17_status: phase17a_policy_unstable_screen_hold
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  temperature: 0.9
+  top_p: 0.95
+  n_samples_per_prompt: 48
+  n_cohort: 24
+  n_continuations: 1152
+  seed_base: 18000000
+  phase15_rule_version: phase15_onset_v1
+  phase15_rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  final_scenario_text_sha256: caeef7d1a1f941c87e44aff070ddbbf21102bc15e506cd15eb52aed03b8b2407
+  final_prompt_group_ids_sha256: d470586b1e8055d1a7b07af4551eeffdcdbb569c0d56bb30810d41e1df514dbd
+  final_prompt_text_sha256: e35ece844c15a0393b218d67d67fe1bcd3000bf2770f41bd4613715dfbafe736
+  phase17_confirmed_ids_sha256: 78068558226919eac00d21e6df68b86b2b4f0e584cf067786c1b28450d9ed2c5
+  design_matrix: artifacts/phase18a_design/design_matrix.json
+  threshold_manifest: artifacts/phase18a_design/threshold_manifest.json
+  threshold_hash: 791a3486e2743b2e8d39e8408696ce15f4c8ed67d2222e7db06b961d45549a9a
+  cohort_sha256: 02a7793b1f4f440ac855b6c7242d7895a713d9277ca5f2fd32abf5407b0c521a
+  fresh_schedule_sha256: 20c683265e40a72040753d525c5132857128bf4c50b5a4a07e8469eb06e2649a
+  selection:
+    salt: "phase18_enriched_v1|"
+    n_per_family: 6
+    rule: SHA256(salt+prompt_group_id) ascending; first 6 per qualifying family
+  qualifying_families:
+    train: [bowling_alley_lane, radio_studio_booth, veterinary_kennel_run]
+    validation: [daycare_cubby_shelf]
+  excluded_families: [climbing_gym_route, subway_turnstile_bank]
+  locked_families: [museum_cloakroom_hook, pier_mooring_slip]
+  fresh_usability: {min_valid: 42, min_record: 6, min_alternate: 6}
+  gates:
+    train: {min_usable: 15, min_per_family: 5}
+    validation: {min_usable: 5}
+
+confirmation_result:
+  status: phase18a_enriched_cohort_fresh_confirmation_hold
+  run_id: phase18a_fresh_20260927T151145Z_9ccfe9be
+  n_continuations: 1152
+  n_fresh_usable: 21
+  gates_passed: false
+  train_usable: 17
+  train_per_family: {bowling_alley_lane: 6, radio_studio_booth: 5, veterinary_kennel_run: 6}
+  validation_usable: 4
+  validation_per_family: {daycare_cubby_shelf: 4}
+  locked_model_calls: 0
+  activations_collected: false
+
+authorizations:
+  fresh_confirmation_model_calls_authorized: false
+  modal_gpu_authorized: false
+  locked_family_model_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  phase5_probe_scoring_authorized: false
+  temperature_search_authorized: false
+  prompt_changes_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  onset_rule_changes_authorized: false
+  threshold_changes_authorized: false
+  selection_rule_changes_authorized: false
+  replacement_of_failed_prompts_authorized: false
+  causal_intervention_authorized: false
+  phase18b_authorized: false
+
+notes: >
+  Phase 18A (D128–D129) HOLD. Validation daycare fresh-usable 4/6 <5.
+  No replacement; no threshold change; no physiology. STOP after 18A.

@@ -1,0 +1,31 @@
+{
+  "fresh_usability": {
+    "min_alternate": 6,
+    "min_record": 6,
+    "min_valid": 42
+  },
+  "gates": {
+    "train_min_per_family": 5,
+    "train_min_usable": 15,
+    "validation_min_usable": 5
+  },
+  "n_cohort": 24,
+  "n_continuations": 1152,
+  "n_per_family": 6,
+  "n_samples": 48,
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "phase17_confirmed_ids_sha256": "78068558226919eac00d21e6df68b86b2b4f0e584cf067786c1b28450d9ed2c5",
+  "phase17_status_unchanged": "phase17a_policy_unstable_screen_hold",
+  "qualifying_families": [
+    "bowling_alley_lane",
+    "radio_studio_booth",
+    "veterinary_kennel_run",
+    "daycare_cubby_shelf"
+  ],
+  "seed_base": 18000000,
+  "selection_salt": "phase18_enriched_v1|",
+  "temperature": 0.9,
+  "threshold_hash": "791a3486e2743b2e8d39e8408696ce15f4c8ed67d2222e7db06b961d45549a9a",
+  "top_p": 0.95
+}
