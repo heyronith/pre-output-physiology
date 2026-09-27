@@ -2,12 +2,13 @@
 
 experiment_id: phase18_enriched_cohort_fresh_confirmation
 phase: phase18
-status: phase18a_enriched_cohort_fresh_confirmation_authorized
+status: phase18a_enriched_cohort_fresh_confirmation_hold
 description: >
   Behavior-only fresh confirmation of a SHA-selected 24-prompt enriched cohort
   drawn from Phase-17 S2-confirmed prompts in qualifying families (≥6 confirmed).
-  Independent 48-continuation seed batch (1152 total). No activations.
-  Phase 17A remains HOLD. Phase 18B unauthorized.
+  Independent 48-continuation seed batch (1152 total) complete. HOLD: validation
+  daycare fresh-usable 4/6 <5. Train passed. No replacement/threshold change.
+  No activations. Phase 17A remains HOLD. Phase 18B unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -53,9 +54,22 @@ design:
     train: {min_usable: 15, min_per_family: 5}
     validation: {min_usable: 5}
 
+confirmation_result:
+  status: phase18a_enriched_cohort_fresh_confirmation_hold
+  run_id: phase18a_fresh_20260927T151145Z_9ccfe9be
+  n_continuations: 1152
+  n_fresh_usable: 21
+  gates_passed: false
+  train_usable: 17
+  train_per_family: {bowling_alley_lane: 6, radio_studio_booth: 5, veterinary_kennel_run: 6}
+  validation_usable: 4
+  validation_per_family: {daycare_cubby_shelf: 4}
+  locked_model_calls: 0
+  activations_collected: false
+
 authorizations:
-  fresh_confirmation_model_calls_authorized: true
-  modal_gpu_authorized: true
+  fresh_confirmation_model_calls_authorized: false
+  modal_gpu_authorized: false
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -72,5 +86,5 @@ authorizations:
   phase18b_authorized: false
 
 notes: >
-  Phase 18A (D128) authorized for fresh confirmation only. Cohort and thresholds
-  frozen before any Phase-18 model call. STOP after 18A; 18B not authorized.
+  Phase 18A (D128–D129) HOLD. Validation daycare fresh-usable 4/6 <5.
+  No replacement; no threshold change; no physiology. STOP after 18A.

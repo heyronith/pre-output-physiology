@@ -28,6 +28,8 @@
   ],
   "cohort_prompt_text_sha256": "51036abb8af1e91380a738d967c3e2171be2c227d39fb8e4ef3b9ab17f54503d",
   "cohort_sha256": "02a7793b1f4f440ac855b6c7242d7895a713d9277ca5f2fd32abf5407b0c521a",
+  "confirmation_run_id": "phase18a_fresh_20260927T151145Z_9ccfe9be",
+  "confirmation_status": "phase18a_enriched_cohort_fresh_confirmation_hold",
   "created_at": "2026-09-27T15:10:32+00:00",
   "excluded_families": [
     "climbing_gym_route",
@@ -42,7 +44,7 @@
     "pier_mooring_slip"
   ],
   "locked_prompt_group_ids_sha256": "ebd5414dd024cdd3bdb5b600aedfd4d1dd198c9d59ddc1a9446c00b0f0d88cf0",
-  "model_calls_performed": false,
+  "model_calls_performed": true,
   "n_cohort": 24,
   "n_continuations": 1152,
   "n_samples_per_prompt": 48,
