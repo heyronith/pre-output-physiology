@@ -828,3 +828,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** S1 run `phase19a_s1_20260927T224716Z_d78a4973` (2304 continuations; ~$1.02; Response 12107 verified; 0 locked; 0 Phase-18 train calls; 0 activations) yielded 49 S1 candidates under the frozen threshold (valid≥14, ≥2/class). Candidates by family: florist 7, hardware 7, community_pool 12, music_school 10, toy_library 5, mini_golf 8. S2 schedule frozen (784 continuations; SHA `bff323bb…b130`; seeds base 19_100_000). Status `phase19a_unseen_validation_family_screen_s1_complete_awaiting_s2`. S2 authorized; no threshold/T/prompt changes.
 - **Date:** 2026-09-27
+
+### D132 — Phase 19A S2 complete; validation cohort + fresh schedule frozen
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S2 run `phase19a_s2_20260927T231940Z_1910471f` (784 continuations; ~$0.35; 0 locked; 0 Phase-18 train calls; 0 activations) confirmed 36/49 S1 candidates. Confirmed by family: florist 3, hardware 5, community_pool 10, music_school 8, toy_library 4, mini_golf 6. Qualifying (≥6): community_pool, music_school, mini_golf (3≥2 → family gate PASS). SHA family select (`phase19_validation_family_v1|`): `music_school_practice_room`, `mini_golf_tee_pad`. SHA prompt select (`phase19_validation_prompt_v1|`): 6 confirmed/family → 12 prompts (cohort SHA `1e9ead05…5c55`). Fresh schedule frozen (576 continuations; SHA `5de3f97c…7826`; seed base 19_200_000). Status `phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh`. Fresh confirmation authorized; no retuning.
+- **Date:** 2026-09-27

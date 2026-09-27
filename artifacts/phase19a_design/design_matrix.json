@@ -45,7 +45,10 @@
     }
   },
   "created_at": "2026-09-27T22:45:02+00:00",
+  "fresh_schedule_frozen": true,
+  "fresh_schedule_sha256": "5de3f97c030f36583c945d067ae7d5560c1b5634645a00b52447231ae67e7826",
   "model_calls_performed": false,
+  "n_fresh_continuations": 576,
   "n_per_family": 24,
   "n_s1_candidates": 49,
   "n_s1_continuations": 2304,
@@ -72,6 +75,10 @@
   "screen_prompt_group_ids_sha256": "267fda135100847be56c796fdf988f608d0ab04779859dc7f7f12a82a4cc1eec",
   "screen_prompt_text_sha256": "bfd5788fc8ef040a92e16b2edcc2fb7cb1530ab09b8370f824d470ded12db723",
   "screen_scenario_text_sha256": "38a59c2b9ff436176cfd55a3016531e738c006e2f73f9195a604286f34752d4d",
+  "selected_families": [
+    "music_school_practice_room",
+    "mini_golf_tee_pad"
+  ],
   "temperature": 0.9,
   "threshold_hash": "d9c4ce137fd5f94b59158a9f5e5527473fb12d5816b0bf73252a037880ca8ecc",
   "tokenization_audit": {
@@ -87,5 +94,6 @@
     "response_continuation": "\n Response",
     "response_prefix_token_id": 12107
   },
-  "top_p": 0.95
+  "top_p": 0.95,
+  "validation_cohort_sha256": "1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55"
 }

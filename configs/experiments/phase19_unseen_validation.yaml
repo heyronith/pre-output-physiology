@@ -2,7 +2,7 @@
 
 experiment_id: phase19_unseen_validation_family_screen
 phase: phase19
-status: phase19a_unseen_validation_family_screen_s1_complete_awaiting_s2
+status: phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh
 description: >
   Behavior-only prospective screen of 6 never-before-used low-stakes families
   (24 prompts each = 144) to build a multi-family unseen validation cohort for
@@ -58,6 +58,8 @@ s1_result:
   n_candidates: 49
   n_s2_continuations: 784
   s2_schedule_sha256: bff323bb8e48bda9de6ef7e6589fd4206837b4eafecf41358861791acc4db130
+  fresh_schedule_sha256: 5de3f97c030f36583c945d067ae7d5560c1b5634645a00b52447231ae67e7826
+  validation_cohort_sha256: 1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55
   candidates_by_family:
     florist_cooler_shelf: 7
     hardware_pegboard_hook: 7
@@ -69,10 +71,26 @@ s1_result:
   phase18_train_model_calls: 0
   activations_collected: false
 
+screen_result:
+  status: phase19a_unseen_validation_family_screen_s2_complete_awaiting_fresh
+  s1_run_id: phase19a_s1_20260927T224716Z_d78a4973
+  s2_run_id: phase19a_s2_20260927T231940Z_1910471f
+  n_s1_candidates: 49
+  n_confirmed: 36
+  n_qualifying_families: 3
+  qualifying_families: [community_pool_lane, mini_golf_tee_pad, music_school_practice_room]
+  selected_families: [music_school_practice_room, mini_golf_tee_pad]
+  validation_cohort_sha256: 1e9ead05a8903710ac26f397408eae6deddde42790530959d89c027446605c55
+  fresh_schedule_sha256: 5de3f97c030f36583c945d067ae7d5560c1b5634645a00b52447231ae67e7826
+  n_fresh_continuations: 576
+  locked_model_calls: 0
+  phase18_train_model_calls: 0
+  activations_collected: false
+
 authorizations:
   s1_model_calls_authorized: false
-  s2_model_calls_authorized: true
-  fresh_confirmation_model_calls_authorized: false
+  s2_model_calls_authorized: false
+  fresh_confirmation_model_calls_authorized: true
   modal_gpu_authorized: true
   locked_family_model_calls_authorized: false
   activation_extraction_authorized: false
