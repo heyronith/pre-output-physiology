@@ -1,0 +1,30 @@
+{
+  "activations_collected": false,
+  "batch_size": 1,
+  "calibration_prompt_text_sha256": "e946ee720e32888efa03f4ac2039bf1122705fcca206efca0c1239272d2529f0",
+  "causal_intervention": false,
+  "created_at": "2026-09-26T23:39:49+00:00",
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.7376431874334812,
+  "final_model_calls": 0,
+  "git_commit": "e62065436954b44454364d097dc440839b486a78",
+  "locked_model_calls": 0,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_continuations": 1536,
+  "n_forwards": 35194,
+  "phase5_probe_scored": false,
+  "probe_scored": false,
+  "quantization": null,
+  "raw_continuations_sha256": "b1c003b3282387ef43e0e3d8b31a14978fbfe32105eac8cdffd740ff19aa44b8",
+  "run_id": "phase14a_calibration_20260926T231646Z_e6206543",
+  "runner_sha256": "944cf05c04e1eb839ab910b57a4372b7b135448d3426e154925d8216e8866849",
+  "sampling_schedule_sha256": "8aeac12e920553675bf56ce72f31f091fb33e679bf3ef1bf51fe0256d0dc5c2b",
+  "temperature_grid": [
+    0.7,
+    0.9,
+    1.1
+  ],
+  "top_p": 0.95,
+  "wall_seconds": 1361.8028075695038
+}

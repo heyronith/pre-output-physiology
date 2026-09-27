@@ -1,0 +1,37 @@
+{
+  "executed": false,
+  "physiology": {
+    "claim_scope": "incremental accessibility/predictive utility; never that information is absent from text",
+    "controls": [
+      "exact_generated_prefix_tfidf",
+      "frozen_semantic_embedding_of_prefix",
+      "generated_prefix_token_ids_ngrams",
+      "current_output_logits",
+      "record_vs_alternate_logit_margin",
+      "consideration_length",
+      "sampling_logprob_statistics",
+      "exact_prompt_fixed_effects_grouped_analysis"
+    ],
+    "exact_prompt_requirement": "no continuation crosses train/validation/locked; within-prompt analyses primary whenever possible",
+    "executed": false,
+    "k0_role": "negative control only; identical within exact prompt group (same model + exact same prompt/context = identical k0); any within-prompt k0 classifier indicates leakage or implementation error",
+    "label": "goal_favored_alternate_choice vs record_choice",
+    "literature_positioning": "not claiming generic trajectory monitoring novelty; distinction is repeated stochastic same-prompt continuations, k0 identity proof, pre-proposition alignment, strong prefix controls; provisional pending review",
+    "onset_annotation": "activation-independent; Response <alternate_state> is the intended proposition; Stage-1 assignment leaks are invalid",
+    "primary_endpoints": "onset-aligned pre-policy-output / pre-answer trajectory states before final Response <STATE>: final Stage-1 token; 2/4/8 tokens before end of Stage 1 where available (exact primary frozen before later extraction)"
+  },
+  "usability_gates": {
+    "continuations_per_prompt": 24,
+    "discovery_train_min_eligible_fraction": 0.7,
+    "discovery_validation_min_eligible_fraction": 0.6,
+    "discovery_validation_min_eligible_prompt_groups_per_family": 20,
+    "executed": false,
+    "on_failure": "STOP before physiology",
+    "prompt_group_eligible": {
+      "min_total_valid_nonleaking": 16,
+      "min_valid_alternate": 4,
+      "min_valid_record": 4
+    },
+    "scope": "discovery train and validation only; locked untouched"
+  }
+}

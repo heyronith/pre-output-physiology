@@ -1,0 +1,38 @@
+{
+  "digests": {
+    "bowling_alley_lane": "86be25283cce685e71a9e1553e3ca150880a9577be58642c8af79f9639453a05",
+    "climbing_gym_route": "098338460359048d73bb462725294a4700b362c95d97bdf67dbd617916ff99f2",
+    "daycare_cubby_shelf": "d6be526317c4fbb3c0796d3149d869f9af622aa98109220491c4e8afaf56b44f",
+    "museum_cloakroom_hook": "dff9ed34ed88d3684f7154342904dbcd4e01edc640ca6017b87dbeaf5d09e10d",
+    "pier_mooring_slip": "e8976789e494f04954fb2df9a02c15b96c92fb3cb3cae5667237d4af4feeb453",
+    "radio_studio_booth": "6177a8b1b9bb8e02387127efbd49085ba93951884624f9a230e1ed59ae43cbae",
+    "subway_turnstile_bank": "cab12bf9b45603bcdb95bb5e477b521fd741936af4ffde3abc4c745f6c778d07",
+    "veterinary_kennel_run": "a99a8a1577f89dd20b581ce7c303817323344667a8291c0877b953db96f64498"
+  },
+  "discovery_train": [
+    "climbing_gym_route",
+    "radio_studio_booth",
+    "bowling_alley_lane",
+    "veterinary_kennel_run"
+  ],
+  "discovery_validation": [
+    "subway_turnstile_bank",
+    "daycare_cubby_shelf"
+  ],
+  "frozen_before_final_behavior": true,
+  "locked_generalization": [
+    "museum_cloakroom_hook",
+    "pier_mooring_slip"
+  ],
+  "order": [
+    "climbing_gym_route",
+    "radio_studio_booth",
+    "bowling_alley_lane",
+    "veterinary_kennel_run",
+    "subway_turnstile_bank",
+    "daycare_cubby_shelf",
+    "museum_cloakroom_hook",
+    "pier_mooring_slip"
+  ],
+  "salt": "phase14_family_split_v1|"
+}
