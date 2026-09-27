@@ -2,12 +2,13 @@
 
 experiment_id: phase16_same_prompt_scaling_forecast
 phase: phase16
-status: phase16a_same_prompt_scaling_forecast_authorized
+status: phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit
 description: >
   Statistical design/power forecast: at observed Phase-15 per-prompt policy
   probabilities, would sampling N in {16,32,48,64,96,128} continuations per
   exact prompt at existing temperatures yield enough within-prompt record and
   alternate trajectories? No language-model calls. Phase 14A and 15A remain HOLDs.
+  Outcome: sampling-only rescue unsupported even at N=128.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -29,7 +30,7 @@ design:
   n_replicates: 50000
   jeffreys: true
   bootstrap_prompt_groups: true
-  # design_hash frozen into artifacts/phase16a_scaling_forecast/design_manifest.json
+  design_hash: 8669e01b6c552a746931c4130e482fb5cfdb4f90fe7c09cabb5c7daaec02943f
 
 interpretation_rule:
   plausible: >
@@ -38,8 +39,21 @@ interpretation_rule:
   expensive: fails N<=64 but succeeds at N=96 or 128
   unsupported: fails even at N=128
 
+forecast_result:
+  status: phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit
+  outcome: sampling_only_rescue_unsupported
+  summary: artifacts/phase16a_scaling_forecast/forecast_summary.json
+  report: reports/phase16a_scaling_forecast.md
+  design_manifest: artifacts/phase16a_scaling_forecast/design_manifest.json
+  design_hash: 8669e01b6c552a746931c4130e482fb5cfdb4f90fe7c09cabb5c7daaec02943f
+  recommended_prospective_t_n: null
+  prob_groups_ge4_ge20_at_n128: {0.7: 0.04172, 0.9: 0.32216, 1.1: 0.30224}
+  model_calls: 0
+  final_model_calls: 0
+  locked_model_calls: 0
+
 authorizations:
-  forecast_authorized: true
+  forecast_authorized: false
   monte_carlo_simulation_authorized: true
   model_calls_authorized: false
   final_model_calls_authorized: false
@@ -53,4 +67,6 @@ authorizations:
   causal_intervention_authorized: false
 
 notes: >
-  Phase 16A (D123–D124). Sampling-scaling design forecast only. STOP after 16A.
+  Phase 16A (D123–D124). Sampling-only rescue unsupported. Retire this particular
+  same-prompt Consideration→deterministic Response assay rather than continue
+  tuning via larger N. STOP after 16A. Phase 14A and 15A remain HOLDs.

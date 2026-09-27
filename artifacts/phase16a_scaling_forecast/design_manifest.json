@@ -1,0 +1,32 @@
+{
+  "bootstrap": "32 prompt groups with replacement from empirical calibration prompts",
+  "design_hash": "8669e01b6c552a746931c4130e482fb5cfdb4f90fe7c09cabb5c7daaec02943f",
+  "interpretation": {
+    "expensive": "fails N<=64 but succeeds at N=96 or 128",
+    "plausible": "any T with N<=64: P(groups>=20 with >=4/class) >=0.8 AND median valid_frac >=0.9",
+    "unsupported": "fails even at N=128"
+  },
+  "jeffreys_policy": "p_alt ~ Beta(alt+0.5, record+0.5)",
+  "jeffreys_validity": "q_valid ~ Beta(valid+0.5, invalid+0.5)",
+  "monte_carlo_seed": 1601,
+  "n_grid": [
+    16,
+    32,
+    48,
+    64,
+    96,
+    128
+  ],
+  "n_replicates": 50000,
+  "phase14_run_id": "phase14a_calibration_20260926T231646Z_e6206543",
+  "phase14_status_unchanged": "phase14a_same_prompt_trajectory_calibration_hold",
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "phase15_status_unchanged": "phase15a_same_prompt_onset_reanalysis_hold",
+  "raw_continuations_sha256": "b1c003b3282387ef43e0e3d8b31a14978fbfe32105eac8cdffd740ff19aa44b8",
+  "temperature_grid": [
+    0.7,
+    0.9,
+    1.1
+  ]
+}

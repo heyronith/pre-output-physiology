@@ -1,0 +1,8 @@
+{
+  "design_hash": "8669e01b6c552a746931c4130e482fb5cfdb4f90fe7c09cabb5c7daaec02943f",
+  "model_calls": 0,
+  "monte_carlo_seed": 1601,
+  "n_replicates": 50000,
+  "outcome": "sampling_only_rescue_unsupported",
+  "status": "phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit"
+}

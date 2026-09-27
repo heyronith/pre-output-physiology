@@ -1,0 +1,776 @@
+{
+  "0.7": [
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_000",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 16,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_004",
+      "record": 0,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_005",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_000",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 5,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_001",
+      "record": 11,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 6,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_004",
+      "record": 10,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_000",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 16,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_004",
+      "record": 0,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 2,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_000",
+      "record": 14,
+      "valid": 14
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 7,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_002",
+      "record": 9,
+      "valid": 16
+    },
+    {
+      "alternate": 3,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_003",
+      "record": 13,
+      "valid": 16
+    },
+    {
+      "alternate": 2,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_004",
+      "record": 14,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 13,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_006",
+      "record": 3,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_007",
+      "record": 16,
+      "valid": 16
+    }
+  ],
+  "0.9": [
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_000",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 1,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_001",
+      "record": 15,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 15,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_004",
+      "record": 1,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_005",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 4,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_006",
+      "record": 12,
+      "valid": 12
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_007",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 1,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_000",
+      "record": 14,
+      "valid": 15
+    },
+    {
+      "alternate": 4,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_001",
+      "record": 12,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_003",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 2,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_004",
+      "record": 13,
+      "valid": 15
+    },
+    {
+      "alternate": 1,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_005",
+      "record": 15,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 2,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_006",
+      "record": 14,
+      "valid": 14
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 1,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_000",
+      "record": 15,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 10,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_004",
+      "record": 6,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 6,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_000",
+      "record": 10,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 6,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_002",
+      "record": 10,
+      "valid": 16
+    },
+    {
+      "alternate": 2,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_003",
+      "record": 14,
+      "valid": 16
+    },
+    {
+      "alternate": 6,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_004",
+      "record": 9,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_005",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 10,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_006",
+      "record": 6,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_007",
+      "record": 16,
+      "valid": 16
+    }
+  ],
+  "1.1": [
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_000",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_003",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 16,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_004",
+      "record": 0,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 2,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_005",
+      "record": 14,
+      "valid": 14
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_arcade_prize_counter_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 2,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_000",
+      "record": 13,
+      "valid": 15
+    },
+    {
+      "alternate": 5,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_001",
+      "record": 10,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_003",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 5,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_004",
+      "record": 11,
+      "valid": 16
+    },
+    {
+      "alternate": 1,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_005",
+      "record": 14,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_006",
+      "record": 15,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_farmers_coop_silo_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 2,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_000",
+      "record": 14,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_001",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_002",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_003",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 13,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_004",
+      "record": 3,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_006",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_planetarium_seat_row_007",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 4,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_000",
+      "record": 12,
+      "valid": 16
+    },
+    {
+      "alternate": 2,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_001",
+      "record": 14,
+      "valid": 16
+    },
+    {
+      "alternate": 13,
+      "invalid": 2,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_002",
+      "record": 1,
+      "valid": 14
+    },
+    {
+      "alternate": 2,
+      "invalid": 2,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_003",
+      "record": 12,
+      "valid": 14
+    },
+    {
+      "alternate": 5,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_004",
+      "record": 10,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_005",
+      "record": 16,
+      "valid": 16
+    },
+    {
+      "alternate": 9,
+      "invalid": 1,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_006",
+      "record": 6,
+      "valid": 15
+    },
+    {
+      "alternate": 0,
+      "invalid": 0,
+      "n_observed": 16,
+      "prompt_group_id": "calib_ski_lodge_locker_007",
+      "record": 16,
+      "valid": 16
+    }
+  ]
+}
