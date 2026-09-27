@@ -1,0 +1,87 @@
+{
+  "activations_authorized": false,
+  "counterbalance": {
+    "community_pool_lane": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    },
+    "florist_cooler_shelf": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    },
+    "hardware_pegboard_hook": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    },
+    "mini_golf_tee_pad": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    },
+    "music_school_practice_room": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    },
+    "toy_library_checkout_bin": {
+      "balanced": true,
+      "max_record_minus_alternate": 0,
+      "n": 24,
+      "record_listed_first_false": 12,
+      "record_listed_first_true": 12
+    }
+  },
+  "created_at": "2026-09-27T22:45:02+00:00",
+  "model_calls_performed": false,
+  "n_per_family": 24,
+  "n_s1_continuations": 2304,
+  "n_screen_prompts": 144,
+  "new_families": [
+    "florist_cooler_shelf",
+    "hardware_pegboard_hook",
+    "community_pool_lane",
+    "music_school_practice_room",
+    "toy_library_checkout_bin",
+    "mini_golf_tee_pad"
+  ],
+  "phase": "phase19a",
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "phase18_status": "phase18a_enriched_cohort_fresh_confirmation_hold",
+  "phase18_train_prompts_untouched": true,
+  "s1_schedule_sha256": "c78eb9ee71fc98c8ab1f2b7ad98cfb557c6adc834695bc43b832a40669dd2e1f",
+  "s2_schedule_frozen": false,
+  "scenario_seed": 19140001,
+  "screen_prompt_group_ids_sha256": "267fda135100847be56c796fdf988f608d0ab04779859dc7f7f12a82a4cc1eec",
+  "screen_prompt_text_sha256": "bfd5788fc8ef040a92e16b2edcc2fb7cb1530ab09b8370f824d470ded12db723",
+  "screen_scenario_text_sha256": "38a59c2b9ff436176cfd55a3016531e738c006e2f73f9195a604286f34752d4d",
+  "temperature": 0.9,
+  "threshold_hash": "d9c4ce137fd5f94b59158a9f5e5527473fb12d5816b0bf73252a037880ca8ecc",
+  "tokenization_audit": {
+    "all_candidates_nonempty": true,
+    "all_lengths_matched": true,
+    "consideration_prefix": " Consideration:",
+    "n_prompt_contexts_checked": 144,
+    "no_strict_prefix_pairs": true,
+    "record_alternate_length_pairs": {
+      "3-3": 144
+    },
+    "response_12107_after_consideration_verified": true,
+    "response_continuation": "\n Response",
+    "response_prefix_token_id": 12107
+  },
+  "top_p": 0.95
+}
