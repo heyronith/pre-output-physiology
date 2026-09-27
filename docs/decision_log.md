@@ -786,3 +786,21 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Design forecast (hash `8669e01b…943f`; seed 1601; 50k replicates) finds sampling-only rescue **unsupported**. Empirical heterogeneity: at T=0.7/0.9/1.1, zero-alt groups are 24/19/19 of 32; alternate-rate median 0.0 at every T (IQR up to ~0.17 at T=1.1). Primary posterior-predictive P(≥20/32 groups with ≥4/class) at N=128 is only 0.042/0.322/0.302 by T — all ≪0.80; at N≤64 the probability is ≤0.027. Median valid fraction remains ≥0.94 at all T×N, so validity is not the bottleneck — within-prompt alternate production is. Optimistic pooled forecasts (non-primary) reach P(ge4≥20)≈1.0 by N=64, quantifying a large heterogeneity penalty (ΔP ≈ +0.97 at N=64). Per frozen D123 rule: retire this particular same-prompt `Consideration → deterministic Response` assay rather than continue tuning via larger N. Status `phase16a_same_prompt_scaling_forecast_unsupported_awaiting_audit`. No recommended prospective T/N. Phase 14A and 15A remain HOLDs. No language-model calls.
 - **Date:** 2026-09-27
+
+### D125 — Phase 17A policy-unstable enrichment screen (authorized)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-16 merge `bfb3bccc42e0812a0459e316e428e75f6ac7edda`, Phase 17A prospectively screens the untouched Phase-14 final discovery pool (240 prompts; locked 80 untouched) for exact prompts with reproducible stochastic record/alternate policy diversity. Assay: Phase-14 two-stage (`Consideration` → deterministic `Response` 12107); validity: frozen Phase-15 `phase15_onset_v1` / `6bb40fa5…`. Temperature fixed at T=0.9 from Phase-15 calib evidence (13/32 ≥1/class vs 12/32 at T=1.1; both 6/32 ≥3/class; slightly higher valid frac) before any Phase-17 call. S1: 16 cont/prompt (3840); S1 candidate iff valid≥14 and ≥2/class. S2: 16 new cont with disjoint seeds; confirmed iff S2 alone valid≥14 and ≥3/class. Gates: train ≥20 confirmed with ≥4/family; validation ≥10 with ≥4/family; else HOLD with no retuning. If pass: SHA-cap ≤8/family (`phase17_selected_v1|`). Enrichment/screening only — not prevalence estimation; no physiology; no activations for screening. Phase 14A/15A remain HOLDs; Phase 16A sampling-only rescue remains unsupported.
+- **Date:** 2026-09-27
+
+### D126 — Phase 17A S1 complete; S2 schedule frozen
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S1 run `phase17a_s1_20260927T004928Z_e76c3592` (3840 continuations; ~$1.71; Response 12107 verified; 0 locked calls; 0 activations) yielded 67 S1 candidates under the frozen threshold (valid≥14, ≥2/class). Candidates by family: `climbing_gym_route` 3, `radio_studio_booth` 20, `bowling_alley_lane` 22, `veterinary_kennel_run` 10, `subway_turnstile_bank` 3, `daycare_cubby_shelf` 9. S2 schedule frozen (1072 continuations; SHA `200becdb…e3d9`; seeds disjoint from S1). Status `phase17a_policy_unstable_screen_s1_complete_awaiting_s2`. S2 authorized; no threshold/T/prompt changes.
+- **Date:** 2026-09-27
+
+### D127 — Phase 17A screen HOLD (discovery gates failed)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** S2 run `phase17a_s2_20260927T014319Z_ec5bc192` (1072 continuations; ~$0.45; 0 locked; 0 activations) confirmed 40/67 S1 candidates (confirmation rate 0.597) under the frozen independent S2 rule (valid≥14, ≥3/class). Confirmed by family: train `climbing_gym_route` 2, `radio_studio_booth` 9, `bowling_alley_lane` 15, `veterinary_kennel_run` 8 (overall 34≥20 but `climbing_gym_route` <4 → train FAIL); validation `subway_turnstile_bank` 0, `daycare_cubby_shelf` 6 (overall 6<10 → validation FAIL). Descriptive: S1–S2 alt-fraction Pearson ≈0.875; median |Δ|≈0.10; 7 rec-heavy→alt-heavy and 3 reverse switches among candidates. Per D125: no T/prompt/threshold retuning; no selection set; Phase 17B unauthorized. Status `phase17a_policy_unstable_screen_hold`. STOP after Phase 17A.
+- **Date:** 2026-09-27
