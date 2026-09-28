@@ -2,7 +2,7 @@
 
 experiment_id: phase20_preanswer_physiology
 phase: phase20
-status: phase20a_preanswer_physiology_authorized
+status: phase20a_preanswer_physiology_population_pass_awaiting_discovery
 description: >
   First physiology test: whether internal pre-answer activations distinguish
   record vs goal-favored-alternate on frozen Phase-18 train (17) and Phase-19
@@ -41,12 +41,23 @@ design:
   probe_C: 0.01
   daycare_excluded: true
 
+population_result:
+  status: phase20a_preanswer_physiology_population_pass_awaiting_discovery
+  run_id: phase20a1_gen_20260928T013246Z_ac9daa40
+  n_continuations: 3584
+  n_eligible_prompts: 28
+  n_balanced_selected: 448
+  balanced_subset_sha256: 613ed2e86b4b47575734ba6e80ebf4416c87c01d14de38ab93d9d2c33f162b0e
+  gates_passed: true
+  locked_model_calls: 0
+  activations_collected: false
+
 authorizations:
-  generation_model_calls_authorized: true
+  generation_model_calls_authorized: false
   modal_gpu_authorized: true
-  activation_extraction_authorized: false
-  validation_activation_extraction_authorized: false
-  probe_fitting_authorized: false
+  activation_extraction_authorized: true
+  validation_activation_extraction_authorized: true
+  probe_fitting_authorized: true
   locked_family_model_calls_authorized: false
   phase5_probe_scoring_authorized: false
   temperature_search_authorized: false
