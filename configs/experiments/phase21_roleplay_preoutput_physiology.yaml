@@ -72,5 +72,7 @@ authorizations:
   phase20_stage2_authorized: false
 
 notes: >
-  D135: Generation complete (3710). Grading with gpt-4o-2024-08-06 authorized.
-  Onset/physiology remain unauthorized until grading completes.
+  D135: Generation complete (3710). Grading authorized but BLOCKED: Modal secret
+  `openai` returns 401 invalid_api_key — cannot call or verify gpt-4o-2024-08-06.
+  Per protocol: STOP rather than substitute another grader. Refresh Modal secret
+  then re-run modal/phase21_grader_check.py before phase21_grade.py.

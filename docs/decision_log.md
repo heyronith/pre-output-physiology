@@ -852,3 +852,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Generation run `phase21_gen_20260928T180342Z_3d3671eb` completed (3710 continuations; ~$3.30; T=1.0; max_new_tokens=200; BF16; batch=1; 0 activations; 0 locked). Status `phase21_roleplay_generation_complete_awaiting_grading`. Exact grader `gpt-4o-2024-08-06` + Apollo grading template authorized next; no onset/physiology yet; no threshold changes.
 - **Date:** 2026-09-28
+
+### D136 — Phase 21 grading STOP: OpenAI API key invalid (no grader substitution)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pre-grading check against Modal secret `openai` failed with OpenAI 401 `invalid_api_key` when retrieving `gpt-4o-2024-08-06`. Per Phase-21 protocol, STOP rather than silently substituting another grader model or API. Generation artifacts remain frozen (`phase21_gen_20260928T180342Z_3d3671eb`, 3710). No onset annotation, population selection, or physiology extraction performed. Resume requires a valid OpenAI credential that can call `gpt-4o-2024-08-06`, then `modal/phase21_grader_check.py` → `modal/phase21_grade.py`.
+- **Date:** 2026-09-28
