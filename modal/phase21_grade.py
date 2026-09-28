@@ -33,7 +33,7 @@ MATRIX_PATH = REPO_ROOT / "artifacts/phase21a_design/design_matrix.json"
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
-    .pip_install("openai==1.51.0", "pyyaml==6.0.2", "numpy==1.26.4")
+    .pip_install("openai==1.59.6", "httpx==0.27.2", "pyyaml==6.0.2", "numpy==1.26.4")
     .add_local_python_source("pre_output_physiology")
 )
 app = modal.App(APP_NAME)

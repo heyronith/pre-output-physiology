@@ -56,7 +56,8 @@ Return a JSON object with keys:
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
-        "openai==1.51.0",
+        "openai==1.59.6",
+        "httpx==0.27.2",
         "pyyaml==6.0.2",
         "torch==2.4.1",
         "transformers==4.44.2",

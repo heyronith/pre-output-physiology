@@ -5,7 +5,10 @@ from __future__ import annotations
 import modal
 
 app = modal.App("pre-output-physiology-phase21-grader-check")
-image = modal.Image.debian_slim(python_version="3.11").pip_install("openai==1.51.0")
+image = modal.Image.debian_slim(python_version="3.11").pip_install(
+    "openai==1.59.6",
+    "httpx==0.27.2",
+)
 
 
 @app.function(image=image, secrets=[modal.Secret.from_name("openai")])
