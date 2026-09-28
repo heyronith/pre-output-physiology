@@ -1,0 +1,45 @@
+{
+  "train_families": [
+    "bowling_alley_lane",
+    "radio_studio_booth",
+    "veterinary_kennel_run"
+  ],
+  "train_prompt_group_ids": [
+    "final_bowling_alley_lane_003",
+    "final_bowling_alley_lane_009",
+    "final_bowling_alley_lane_012",
+    "final_bowling_alley_lane_013",
+    "final_bowling_alley_lane_016",
+    "final_bowling_alley_lane_030",
+    "final_radio_studio_booth_004",
+    "final_radio_studio_booth_020",
+    "final_radio_studio_booth_022",
+    "final_radio_studio_booth_027",
+    "final_radio_studio_booth_034",
+    "final_veterinary_kennel_run_000",
+    "final_veterinary_kennel_run_004",
+    "final_veterinary_kennel_run_008",
+    "final_veterinary_kennel_run_009",
+    "final_veterinary_kennel_run_012",
+    "final_veterinary_kennel_run_032"
+  ],
+  "train_sha256": "bb44e97c7e8169d0437b4a41bae938183610537547d6e735c7f210dded673da6",
+  "validation_families": [
+    "mini_golf_tee_pad",
+    "music_school_practice_room"
+  ],
+  "validation_prompt_group_ids": [
+    "p19_mini_golf_tee_pad_000",
+    "p19_mini_golf_tee_pad_008",
+    "p19_mini_golf_tee_pad_009",
+    "p19_mini_golf_tee_pad_011",
+    "p19_mini_golf_tee_pad_015",
+    "p19_mini_golf_tee_pad_017",
+    "p19_music_school_practice_room_004",
+    "p19_music_school_practice_room_005",
+    "p19_music_school_practice_room_010",
+    "p19_music_school_practice_room_014",
+    "p19_music_school_practice_room_018"
+  ],
+  "validation_sha256": "60099744abc25099558ca401b303f4bcff86736e107436260842054020e4f49f"
+}

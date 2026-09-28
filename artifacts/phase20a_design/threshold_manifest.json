@@ -1,0 +1,55 @@
+{
+  "balanced_subset": {
+    "n_alternate": 8,
+    "n_record": 8,
+    "sort": "sample_seed ascending"
+  },
+  "blocks": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "discovery_min_auroc": 0.6,
+  "discovery_min_delta": 0.03,
+  "eligibility": {
+    "min_stage1_tokens": 5,
+    "phase15_valid": true,
+    "policy_record_or_alternate": true
+  },
+  "n_bootstrap": 5000,
+  "n_continuations": 3584,
+  "n_prompts": 28,
+  "n_samples": 128,
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "phase15_rule_version": "phase15_onset_v1",
+  "phase18_status": "phase18a_enriched_cohort_fresh_confirmation_hold",
+  "phase19_status": "phase19a_unseen_validation_cohort_pass_awaiting_audit",
+  "population_gates": {
+    "train_min_eligible": 15,
+    "train_min_per_family": 4,
+    "val_min_eligible": 9,
+    "val_min_per_family": 4
+  },
+  "positions": [
+    "end0",
+    "end2",
+    "end4"
+  ],
+  "probe_C": 0.01,
+  "seed_base": 20000000,
+  "temperature": 0.9,
+  "threshold_hash": "127ccc4d1eba3f24f56dc20e055368e3464f17c50e614183370df380621ae408",
+  "top_p": 0.95,
+  "train_prompt_group_ids_sha256": "bb44e97c7e8169d0437b4a41bae938183610537547d6e735c7f210dded673da6",
+  "validation_min_auroc": 0.65,
+  "validation_min_auroc_ci_low": 0.55,
+  "validation_min_family_auroc": 0.6,
+  "validation_min_incremental": 0.03,
+  "validation_prompt_group_ids_sha256": "60099744abc25099558ca401b303f4bcff86736e107436260842054020e4f49f"
+}

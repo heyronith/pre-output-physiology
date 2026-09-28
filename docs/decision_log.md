@@ -840,3 +840,21 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Fresh confirmation run `phase19a_fresh_20260927T233123Z_f039c172` (576 continuations; ~$0.25; Response 12107 verified; 0 locked; 0 Phase-18 train calls; 0 activations) evaluated under frozen fresh-usable rule (valid≥42, ≥6/class). Usable: music_school 5/6, mini_golf 6/6 (both ≥5 → PASS); overall 11/12. Non-usable: `p19_music_school_practice_room_001` (alt=1). Frozen fresh-usable IDs SHA `60099744…f49f`. Status `phase19a_unseen_validation_cohort_pass_awaiting_audit`. No activations collected. Physiology / Phase 19B unauthorized until separate audit. Phase 18A remains validation-gate HOLD. Phase-18 train prompts remain untouched.
 - **Date:** 2026-09-27
+
+### D134 — Phase 20A pre-answer physiology (20A1 generation authorized)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-19 merge `03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1`, Phase 20A is the first physiology test of whether internal pre-answer activations distinguish record-choice vs goal-favored-alternate-choice on different stochastic continuations of the exact same prompts. Frozen train: 17 Phase-18 fresh-usable TRAIN prompts only (bowling 6 / radio 5 / vet 6; SHA `bb44e97c…3da6`; daycare excluded). Frozen validation: 11 Phase-19 fresh-usable prompts (mini-golf 6 / music-school 5; SHA `60099744…f49f`) — excluded from all physiology model selection. Assay unchanged (Mistral rev `63a8b081…`; T=0.9; Phase-14 two-stage; Response 12107; Phase-15 onset `phase15_onset_v1` / `6bb40fa5…`). 20A1: 128 fresh cont/prompt × 28 = 3584 (seed base 20_000_000; schedule SHA `3d6f883b…aece`). Eligible: Phase-15 valid + record/alt + ≥5 Stage-1 body tokens; balanced subset = first 8/class by sample_seed. Population gates: train ≥15/17 with ≥4/family; val ≥9/11 with ≥4 mini-golf and ≥4 music. Failure → HOLD before physiology. Discovery: LOFO activation probes (C=0.01) on blocks `[0,4,8,12,16,20,24,28,31]` × `{end0,end2,end4}` vs B1–B4 surface baselines; k0 negative control; freeze candidate before any validation activation extraction. Threshold hash `127ccc4d…e408` frozen before calls. Locked museum/pier untouched. No Phase-5 probe scoring.
+- **Date:** 2026-09-28
+
+### D135 — Phase 20A1 population gates PASS; discovery extraction authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Generation run `phase20a1_gen_20260928T013246Z_ac9daa40` (3584 continuations; ~$1.60; Response 12107 verified; 0 locked; 0 activations during generation) yielded balanced-capable eligibility for all 28 prompts (train 17/17 with bowling 6 / radio 5 / vet 6; validation 11/11 with mini-golf 6 / music-school 5). Balanced subset: 448 trajectories (16/prompt; SHA `613ed2e8…2b0e`). Population gates PASS. Status `phase20a_preanswer_physiology_population_pass_awaiting_discovery`. Discovery activation extraction (TRAIN balanced subset only) and probe fitting authorized; validation activation extraction remains unauthorized until a candidate is frozen.
+- **Date:** 2026-09-28
+
+### D136 — Phase 20A2 discovery HOLD (no candidate freeze; no validation extract)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Discovery extract `phase20a2_disc_extract_20260928T022356Z_4d10eea8` (272 TRAIN balanced trajectories; activations SHA `8da45278…90d1`; blocks `[0,4,…,31]` × `{end0,end2,end4}`; k0 identity OK; all-block k0 LOFO AUROC = 0.50). Truncated-prefix B2 features recomputed without final-label leakage (`b2_features_train.npz` SHA `636d350e…6593`). LOFO L2 LR C=0.01: best activation AUROC 0.772 (block 28 / end0) but matched B2 baseline AUROC = 1.0 at end0 (constrained-decoder predicted candidate equals Stage-2 label by assay construction). Best activation−baseline Δ = −0.111 (block 8 / end4; act 0.730 vs B2 0.841). Zero candidates met act≥0.60 AND Δ≥0.03. Status `phase20a_preanswer_physiology_discovery_hold`. No candidate freeze; validation activation extraction remains unauthorized and was not performed; no 20A3. Locked calls = 0. STOP after Phase 20A.
+- **Date:** 2026-09-28

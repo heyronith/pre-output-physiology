@@ -1,0 +1,569 @@
+{
+  "baseline_by_position": {
+    "end0": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2"
+    },
+    "end2": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2"
+    },
+    "end4": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2"
+    }
+  },
+  "created_at": "2026-09-28T02:35:56+00:00",
+  "discovery_grid": [
+    {
+      "act_auroc": 0.5128676470588236,
+      "act_per_family": {
+        "bowling_alley_lane": 0.39583333333333337,
+        "radio_studio_booth": 0.6912500000000001,
+        "veterinary_kennel_run": 0.5247395833333333
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 0,
+      "delta": -0.4871323529411764,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.4551254325259516,
+      "act_per_family": {
+        "bowling_alley_lane": 0.3719618055555555,
+        "radio_studio_booth": 0.57625,
+        "veterinary_kennel_run": 0.3936631944444444
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 4,
+      "delta": -0.5448745674740484,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.6275410899653979,
+      "act_per_family": {
+        "bowling_alley_lane": 0.49175347222222227,
+        "radio_studio_booth": 0.59,
+        "veterinary_kennel_run": 0.8697916666666665
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 8,
+      "delta": -0.3724589100346021,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.6322988754325262,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4466145833333333,
+        "radio_studio_booth": 0.675625,
+        "veterinary_kennel_run": 0.8867187499999998
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 12,
+      "delta": -0.36770112456747384,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.6970696366782008,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4800347222222222,
+        "radio_studio_booth": 0.68375,
+        "veterinary_kennel_run": 0.8736979166666667
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 16,
+      "delta": -0.30293036332179923,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.7350778546712803,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6575520833333333,
+        "radio_studio_booth": 0.66125,
+        "veterinary_kennel_run": 0.8784722222222221
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 20,
+      "delta": -0.2649221453287197,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.7597318339100346,
+      "act_per_family": {
+        "bowling_alley_lane": 0.611111111111111,
+        "radio_studio_booth": 0.681875,
+        "veterinary_kennel_run": 0.9244791666666666
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 24,
+      "delta": -0.24026816608996537,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.7717884948096886,
+      "act_per_family": {
+        "bowling_alley_lane": 0.7122395833333334,
+        "radio_studio_booth": 0.6943750000000001,
+        "veterinary_kennel_run": 0.9006076388888887
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 28,
+      "delta": -0.22821150519031141,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.7516219723183392,
+      "act_per_family": {
+        "bowling_alley_lane": 0.7157118055555556,
+        "radio_studio_booth": 0.686875,
+        "veterinary_kennel_run": 0.9036458333333331
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2",
+      "block": 31,
+      "delta": -0.24837802768166084,
+      "position": "end0"
+    },
+    {
+      "act_auroc": 0.5912629757785467,
+      "act_per_family": {
+        "bowling_alley_lane": 0.45529513888888895,
+        "radio_studio_booth": 0.6012500000000001,
+        "veterinary_kennel_run": 0.8337673611111112
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 0,
+      "delta": -0.2954963235294118,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.50373053633218,
+      "act_per_family": {
+        "bowling_alley_lane": 0.578125,
+        "radio_studio_booth": 0.47624999999999995,
+        "veterinary_kennel_run": 0.3611111111111111
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 4,
+      "delta": -0.3830287629757785,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.501351643598616,
+      "act_per_family": {
+        "bowling_alley_lane": 0.5889756944444444,
+        "radio_studio_booth": 0.63375,
+        "veterinary_kennel_run": 0.3025173611111111
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 8,
+      "delta": -0.38540765570934254,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.43663494809688574,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4826388888888889,
+        "radio_studio_booth": 0.6224999999999999,
+        "veterinary_kennel_run": 0.21310763888888887
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 12,
+      "delta": -0.45012435121107275,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.4387435121107266,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4848090277777778,
+        "radio_studio_booth": 0.6174999999999999,
+        "veterinary_kennel_run": 0.2703993055555555
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 16,
+      "delta": -0.4480157871972319,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.41035899653979246,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4422743055555556,
+        "radio_studio_booth": 0.616875,
+        "veterinary_kennel_run": 0.17317708333333337
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 20,
+      "delta": -0.47640030276816603,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.48113105536332185,
+      "act_per_family": {
+        "bowling_alley_lane": 0.5108506944444444,
+        "radio_studio_booth": 0.670625,
+        "veterinary_kennel_run": 0.30208333333333337
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 24,
+      "delta": -0.40562824394463665,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.46696583044982704,
+      "act_per_family": {
+        "bowling_alley_lane": 0.4661458333333333,
+        "radio_studio_booth": 0.686875,
+        "veterinary_kennel_run": 0.29513888888888884
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 28,
+      "delta": -0.41979346885813146,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.5479563148788928,
+      "act_per_family": {
+        "bowling_alley_lane": 0.5677083333333334,
+        "radio_studio_booth": 0.69125,
+        "veterinary_kennel_run": 0.4934895833333333
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2",
+      "block": 31,
+      "delta": -0.33880298442906565,
+      "position": "end2"
+    },
+    {
+      "act_auroc": 0.6043468858131489,
+      "act_per_family": {
+        "bowling_alley_lane": 0.5798611111111112,
+        "radio_studio_booth": 0.729375,
+        "veterinary_kennel_run": 0.40842013888888884
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 0,
+      "delta": -0.23697015570934243,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.581693339100346,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6197916666666666,
+        "radio_studio_booth": 0.65875,
+        "veterinary_kennel_run": 0.3897569444444444
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 4,
+      "delta": -0.2596237024221453,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.7298334775086505,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6254340277777778,
+        "radio_studio_booth": 0.7050000000000001,
+        "veterinary_kennel_run": 0.9388020833333334
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 8,
+      "delta": -0.11148356401384085,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.6338127162629758,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6063368055555556,
+        "radio_studio_booth": 0.694375,
+        "veterinary_kennel_run": 0.5824652777777778
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 12,
+      "delta": -0.20750432525951557,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.6134839965397925,
+      "act_per_family": {
+        "bowling_alley_lane": 0.5238715277777778,
+        "radio_studio_booth": 0.69125,
+        "veterinary_kennel_run": 0.748263888888889
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 16,
+      "delta": -0.22783304498269885,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.6145112456747405,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6401909722222222,
+        "radio_studio_booth": 0.716875,
+        "veterinary_kennel_run": 0.4839409722222222
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 20,
+      "delta": -0.22680579584775085,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.6530601211072664,
+      "act_per_family": {
+        "bowling_alley_lane": 0.7495659722222222,
+        "radio_studio_booth": 0.755625,
+        "veterinary_kennel_run": 0.5199652777777778
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 24,
+      "delta": -0.1882569204152249,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.6244593425605536,
+      "act_per_family": {
+        "bowling_alley_lane": 0.6809895833333333,
+        "radio_studio_booth": 0.7281250000000001,
+        "veterinary_kennel_run": 0.45833333333333337
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 28,
+      "delta": -0.21685769896193774,
+      "position": "end4"
+    },
+    {
+      "act_auroc": 0.5981293252595156,
+      "act_per_family": {
+        "bowling_alley_lane": 0.7296006944444444,
+        "radio_studio_booth": 0.688125,
+        "veterinary_kennel_run": 0.3936631944444445
+      },
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2",
+      "block": 31,
+      "delta": -0.24318771626297575,
+      "position": "end4"
+    }
+  ],
+  "eligibility_note": "No block\u00d7position met act_AUROC>=0.60 AND act_AUROC - matched_best_baseline_AUROC >= 0.03. B2 (truncated-prefix constrained readout) dominates; at end0 B2.pred_alt equals Stage-2 label by assay construction.",
+  "extract_run_id": "phase20a2_disc_extract_20260928T022356Z_4d10eea8",
+  "guarantee": "PHASE 20A WAS THE FIRST PHYSIOLOGY TEST ON SAME-PROMPT STOCHASTIC POLICY TRAJECTORIES. PHYSIOLOGY MODEL SELECTION USED ONLY THE FROZEN ENRICHED TRAIN POPULATION. THE UNSEEN PHASE-19 VALIDATION FAMILIES WERE NOT USED FOR LAYER, POSITION, PROBE, BASELINE, OR THRESHOLD SELECTION. K0 WAS A NEGATIVE CONTROL ONLY. ALL PRIMARY TRAJECTORIES WERE MEASURED BEFORE THE FINAL RESPONSE PROPOSITION. NO LOCKED-FAMILY CALLS, POST-RESULT TUNING, PHASE-5 PROBE SCORING, OR CAUSAL INTERVENTIONS WERE PERFORMED.",
+  "k0_aurocs": {
+    "0": 0.5,
+    "4": 0.5,
+    "8": 0.5,
+    "12": 0.5,
+    "16": 0.5,
+    "20": 0.5,
+    "24": 0.5,
+    "28": 0.5,
+    "31": 0.5
+  },
+  "k0_ok": true,
+  "n_eligible_candidates": 0,
+  "selected": null,
+  "status": "phase20a_preanswer_physiology_discovery_hold",
+  "validation_activation_extraction_authorized": false
+}
