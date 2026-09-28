@@ -127,44 +127,17 @@ def build_text_features(
 
 def decoder_features_at_position(
     rows_cont: list[dict],
-    tok,
-    model_logits_fn,
     position: str,
+    *,
+    b2_override: np.ndarray | None = None,
 ) -> np.ndarray:
-    """B2 features: [seq_lp_margin, first_div_margin, constrained_pred].
-
-    model_logits_fn(ids)-> logits np array [V] at last position.
-    Computed offline via teacher-forcing with a small local model OR
-    precomputed fields. Here we use stored constrained outcome +
-    approximate margins from constrained_steps if present; otherwise
-    recompute with provided fn.
-    """
-    # Prefer recomputation through fn when available; for discovery analysis
-    # we recompute using transformers locally if GPU unavailable — skip heavy
-    # path and use features from continuations when possible.
-    feats = []
-    off = {"end0": 0, "end2": 2, "end4": 4}[position]
-    for r in rows_cont:
-        # Sequence logprob margin proxy: use final constrained step logit gap if any
-        steps = r.get("constrained_steps") or []
-        if steps:
-            last = steps[-1]
-            # chosen vs other
-            scores = last.get("candidate_scores") or last.get("scores")
-            if scores and len(scores) == 2:
-                margin = float(scores[0] - scores[1])
-            else:
-                margin = 0.0
-            first_div = float(steps[0].get("logit_margin", margin)) if steps else margin
-        else:
-            margin = 0.0
-            first_div = 0.0
-        pred = 1.0 if r.get("chosen_state") == r.get("alternate_state") else 0.0
-        # Adjust for truncation position by scaling body length (descriptive proxy)
-        body_n = int(r.get("stage1_body_n_tokens", 0))
-        scale = max(body_n - off, 1) / max(body_n, 1)
-        feats.append([margin * scale, first_div * scale, pred])
-    return np.asarray(feats, dtype=np.float64)
+    """B2 features at truncated prefix. Prefer precomputed truncated-prefix features."""
+    if b2_override is not None:
+        return np.asarray(b2_override, dtype=np.float64)
+    raise RuntimeError(
+        "B2 features must be precomputed at truncated prefixes "
+        "(modal/phase20_b2_features.py); refusing final-label leakage."
+    )
 
 
 def gen_stats_features(rows_cont: list[dict], position: str) -> np.ndarray:
@@ -264,12 +237,25 @@ def main() -> int:
     for pos in POSITIONS:
         texts_by_pos[pos] = [r["consideration_text"] for r in rows_cont]
 
+    # Load truncated-prefix B2 features (required; no label leakage).
+    b2_path = Path(args.out_dir) / "b2_features_train.npz"
+    if not b2_path.is_file():
+        raise SystemExit(
+            f"missing {b2_path}; run: uv run modal run modal/phase20_b2_features.py"
+        )
+    b2_npz = np.load(b2_path, allow_pickle=True)
+    b2_ids = [str(x) for x in b2_npz["continuation_ids"]]
+    if b2_ids != cont_ids:
+        raise SystemExit("B2 continuation_id order mismatch vs activations")
+
     discovery_grid = []
     best_by_pos: dict[str, dict] = {}
 
     for pos in POSITIONS:
         x_b3 = gen_stats_features(rows_cont, pos)
-        x_b2 = decoder_features_at_position(rows_cont, None, None, pos)
+        x_b2 = decoder_features_at_position(
+            rows_cont, pos, b2_override=np.asarray(b2_npz[pos], dtype=np.float64)
+        )
         # B1 via LOFO-aware TF-IDF: fit inside each fold
         b1_oof = np.full(len(y), np.nan)
         for fold in lofo_folds():
@@ -413,7 +399,9 @@ def main() -> int:
             **{k: v.tolist() for k, v in base_probe.export_npz_arrays().items()},
         }
     elif base_type == "B2":
-        x = decoder_features_at_position(rows_cont, None, None, pos)
+        x = decoder_features_at_position(
+            rows_cont, pos, b2_override=np.asarray(b2_npz[pos], dtype=np.float64)
+        )
         base_probe = _fit_lr(x, y)
         base_export = {
             "type": "B2",
@@ -428,7 +416,9 @@ def main() -> int:
         }
     else:
         x_b1, _ = build_text_features(texts_by_pos[pos], tr_all)
-        x_b2 = decoder_features_at_position(rows_cont, None, None, pos)
+        x_b2 = decoder_features_at_position(
+            rows_cont, pos, b2_override=np.asarray(b2_npz[pos], dtype=np.float64)
+        )
         x_b3 = gen_stats_features(rows_cont, pos)
         x = np.hstack([x_b1, x_b2, x_b3])
         base_probe = _fit_lr(x, y)
