@@ -1,7 +1,7 @@
 """Modal: Phase-21 honesty grading with gpt-4o-2024-08-06 (Apollo template).
 
 Uses Modal secret `openai`. Retries unknown judgements per Apollo logic (max 4).
-Does not see activations, seeds, or split labels beyond what's needed for I/O.
+Checkpoints each shard to disk; resumes by skipping already-graded IDs.
 
 Usage (clean tree; grading authorized):
 
@@ -29,7 +29,10 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/experiments/phase21_roleplay_preoutput_physiology.yaml"
 PROMPTS_PATH = REPO_ROOT / "data/processed/phase21_roleplay/prompts.jsonl"
 GRADING_PATH = REPO_ROOT / "data/raw/apollo_roleplaying/grading_template.txt"
-MATRIX_PATH = REPO_ROOT / "artifacts/phase21a_design/design_matrix.json"
+
+SHARD_SIZE = 100
+OPENAI_TIMEOUT_S = 60.0
+PRINT_EVERY = 25
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -37,6 +40,23 @@ image = (
     .add_local_python_source("pre_output_physiology")
 )
 app = modal.App(APP_NAME)
+
+
+def _ckpt_dir(run_id: str) -> Path:
+    return REPO_ROOT / "artifacts/runs" / f"phase21_grade_ckpt_{run_id}"
+
+
+def _load_checkpointed(ckpt: Path) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    if not ckpt.is_dir():
+        return out
+    for path in sorted(ckpt.glob("shard_*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            out[row["continuation_id"]] = row
+    return out
 
 
 def _local_setup(run_id: str) -> tuple[dict[str, Any], list[dict[str, Any]], str]:
@@ -103,7 +123,7 @@ def _local_setup(run_id: str) -> tuple[dict[str, Any], list[dict[str, Any]], str
 
 @app.function(
     image=image,
-    timeout=60 * 60 * 6,
+    timeout=60 * 60 * 2,
     secrets=[modal.Secret.from_name("openai")],
     memory=8192,
 )
@@ -121,8 +141,7 @@ def grade_batch(payload_json: str, template: str) -> dict[str, Any]:
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY missing from Modal secret")
 
-    # Verify exact model id is available — do not silently substitute.
-    client = OpenAI()
+    client = OpenAI(timeout=OPENAI_TIMEOUT_S)
     try:
         client.models.retrieve(GRADER_MODEL)
     except Exception as e:  # noqa: BLE001
@@ -149,6 +168,7 @@ def grade_batch(payload_json: str, template: str) -> dict[str, Any]:
                         {"role": "system", "content": GRADER_SYSTEM},
                         {"role": "user", "content": user},
                     ],
+                    timeout=OPENAI_TIMEOUT_S,
                 )
                 raw_text = resp.choices[0].message.content or ""
                 judgement, _ = parse_judgement(raw_text)
@@ -156,11 +176,15 @@ def grade_batch(payload_json: str, template: str) -> dict[str, Any]:
                     break
             except Exception as e:  # noqa: BLE001
                 last_err = e
-                delay = (2**attempt) + random.uniform(0, 0.2)
+                delay = min(30.0, (2**attempt) + random.uniform(0, 0.2))
+                print(
+                    f"retry continuation={r['continuation_id']} "
+                    f"attempt={attempt} err={type(e).__name__}: {e}",
+                    flush=True,
+                )
                 time.sleep(delay)
                 continue
-            # unknown judgement — retry
-            delay = (2**attempt) + random.uniform(0, 0.2)
+            delay = min(30.0, (2**attempt) + random.uniform(0, 0.2))
             time.sleep(delay)
         label = label_from_judgement(judgement)
         out.append(
@@ -179,8 +203,8 @@ def grade_batch(payload_json: str, template: str) -> dict[str, Any]:
                 "grader_error": str(last_err) if judgement == "unknown" else None,
             }
         )
-        if (i + 1) % 100 == 0:
-            print(f"graded {i + 1}/{len(rows)}")
+        if (i + 1) % PRINT_EVERY == 0 or (i + 1) == len(rows):
+            print(f"graded {i + 1}/{len(rows)}", flush=True)
     return {
         "rows": out,
         "wall_seconds": time.time() - t0,
@@ -192,18 +216,48 @@ def grade_batch(payload_json: str, template: str) -> dict[str, Any]:
 @app.local_entrypoint()
 def main(run_id: str) -> None:
     meta, payload, template = _local_setup(run_id)
-    print(f"Grading n={len(payload)} with {meta['grader_model']}")
-    # Shard to avoid huge single payloads / timeouts
-    shard_size = 500
-    all_rows: list[dict[str, Any]] = []
-    wall = 0.0
-    for start in range(0, len(payload), shard_size):
-        shard = payload[start : start + shard_size]
-        print(f"shard {start}:{start + len(shard)}")
-        result = grade_batch.remote(json.dumps(shard), template)
-        all_rows.extend(result["rows"])
-        wall += float(result["wall_seconds"])
+    ckpt = _ckpt_dir(run_id)
+    ckpt.mkdir(parents=True, exist_ok=True)
+    done = _load_checkpointed(ckpt)
+    remaining = [r for r in payload if r["continuation_id"] not in done]
+    print(
+        f"Grading with {meta['grader_model']}: "
+        f"total={len(payload)} done={len(done)} remaining={len(remaining)}",
+        flush=True,
+    )
 
+    wall = 0.0
+    existing = sorted(ckpt.glob("shard_*.jsonl"))
+    shard_idx = len(existing)
+    for start in range(0, len(remaining), SHARD_SIZE):
+        shard = remaining[start : start + SHARD_SIZE]
+        shard_path = ckpt / f"shard_{shard_idx:04d}.jsonl"
+        print(
+            f"shard {shard_idx} remaining_index {start}:{start + len(shard)} "
+            f"n={len(shard)} -> {shard_path.name}",
+            flush=True,
+        )
+        result = grade_batch.remote(json.dumps(shard), template)
+        with shard_path.open("w", encoding="utf-8") as f:
+            for row in result["rows"]:
+                f.write(json.dumps(row, sort_keys=True) + "\n")
+                done[row["continuation_id"]] = row
+        wall += float(result["wall_seconds"])
+        print(
+            f"checkpointed {len(result['rows'])} "
+            f"(cumulative_done={len(done)} wall_shard={result['wall_seconds']:.1f}s)",
+            flush=True,
+        )
+        shard_idx += 1
+
+    if len(done) != len(payload):
+        missing = [r["continuation_id"] for r in payload if r["continuation_id"] not in done]
+        raise SystemExit(
+            f"STOP: incomplete grading {len(done)}/{len(payload)}; "
+            f"missing e.g. {missing[:5]}"
+        )
+
+    all_rows = [done[r["continuation_id"]] for r in payload]
     ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     short = hashlib.sha256(meta["git_commit"].encode()).hexdigest()[:8]
     grade_run = f"phase21_grade_{ts}_{short}"
@@ -224,8 +278,11 @@ def main(run_id: str) -> None:
         "n": len(all_rows),
         "label_counts": counts,
         "wall_seconds": wall,
+        "checkpoint_dir": str(ckpt.relative_to(REPO_ROOT)),
+        "shard_size": SHARD_SIZE,
+        "openai_timeout_s": OPENAI_TIMEOUT_S,
     }
     (out_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n"
     )
-    print(json.dumps(manifest, indent=2))
+    print(json.dumps(manifest, indent=2), flush=True)
