@@ -2,12 +2,13 @@
 
 experiment_id: phase21_roleplay_preoutput_physiology
 phase: phase21
-status: phase21_roleplay_preoutput_physiology_authorized
+status: phase21_roleplay_generation_complete_awaiting_grading
 description: >
   Test whether Mistral layer-12 internal state predicts an upcoming deceptive
   statement before that statement begins, on Apollo RoleplayDeception (371
   original scenarios, T=1.0, 10 rollouts). Phase 2 already established the
   full-response positive control; this phase does not repeat that experiment.
+  Generation complete: phase21_gen_20260928T180342Z_3d3671eb (3710).
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -24,6 +25,13 @@ apollo:
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
 phase19_merge_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
 phase21_starting_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
+
+generation_result:
+  run_id: phase21_gen_20260928T180342Z_3d3671eb
+  n_continuations: 3710
+  estimated_cost_usd: 3.301879506756862
+  activations_collected: false
+  locked_model_calls: 0
 
 design:
   n_prompts: 371
@@ -50,9 +58,9 @@ design:
   generation_schedule_sha256: ed83f7f469b59159a4fda28203517290a36f140f5bf2d0c1ea19ff87def20b0f
 
 authorizations:
-  generation_model_calls_authorized: true
+  generation_model_calls_authorized: false
   modal_gpu_authorized: true
-  grading_api_authorized: false
+  grading_api_authorized: true
   onset_annotation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -64,6 +72,5 @@ authorizations:
   phase20_stage2_authorized: false
 
 notes: >
-  D137: Phase 21A authorized for generation only after design freeze.
-  Grading/onset/physiology require subsequent authorization after generation.
-  STOP after Phase 21.
+  D135: Generation complete (3710). Grading with gpt-4o-2024-08-06 authorized.
+  Onset/physiology remain unauthorized until grading completes.
