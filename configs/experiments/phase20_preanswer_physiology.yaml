@@ -1,0 +1,63 @@
+# Phase 20A — pre-answer physiology on same-prompt stochastic trajectories
+
+experiment_id: phase20_preanswer_physiology
+phase: phase20
+status: phase20a_preanswer_physiology_authorized
+description: >
+  First physiology test: whether internal pre-answer activations distinguish
+  record vs goal-favored-alternate on frozen Phase-18 train (17) and Phase-19
+  validation (11) prompts. 20A1 generation authorized. No activations until
+  population gates pass. Daycare excluded. Locked untouched.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase19_merge_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
+phase20_starting_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
+phase18_status: phase18a_enriched_cohort_fresh_confirmation_hold
+phase19_status: phase19a_unseen_validation_cohort_pass_awaiting_audit
+
+neutral_prefix_token: Response
+neutral_prefix_token_id: 12107
+
+design:
+  temperature: 0.9
+  top_p: 0.95
+  n_samples_per_prompt: 128
+  n_prompts: 28
+  n_train: 17
+  n_validation: 11
+  n_continuations: 3584
+  seed_base: 20000000
+  phase15_rule_version: phase15_onset_v1
+  phase15_rule_hash: 6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f
+  design_matrix: artifacts/phase20a_design/design_matrix.json
+  threshold_manifest: artifacts/phase20a_design/threshold_manifest.json
+  threshold_hash: 127ccc4d1eba3f24f56dc20e055368e3464f17c50e614183370df380621ae408
+  train_prompt_group_ids_sha256: bb44e97c7e8169d0437b4a41bae938183610537547d6e735c7f210dded673da6
+  validation_prompt_group_ids_sha256: 60099744abc25099558ca401b303f4bcff86736e107436260842054020e4f49f
+  generation_schedule_sha256: 3d6f883bcd41c8a114649af7d8764e91f481bfb7eaed37b93e821e6f39f8aece
+  blocks: [0, 4, 8, 12, 16, 20, 24, 28, 31]
+  positions: [end0, end2, end4]
+  probe_C: 0.01
+  daycare_excluded: true
+
+authorizations:
+  generation_model_calls_authorized: true
+  modal_gpu_authorized: true
+  activation_extraction_authorized: false
+  validation_activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  locked_family_model_calls_authorized: false
+  phase5_probe_scoring_authorized: false
+  temperature_search_authorized: false
+  prompt_changes_authorized: false
+  payoff_changes_authorized: false
+  decoder_changes_authorized: false
+  onset_rule_changes_authorized: false
+  threshold_changes_authorized: false
+  validation_layer_search_authorized: false
+  causal_intervention_authorized: false
+
+notes: >
+  Phase 20A (D134) authorized for 20A1 generation only. Train/val IDs and
+  schedule frozen before calls. STOP after 20A.
