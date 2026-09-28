@@ -2,13 +2,12 @@
 
 experiment_id: phase21_roleplay_preoutput_physiology
 phase: phase21
-status: phase21_roleplay_generation_complete_awaiting_grading
+status: phase21_roleplay_grading_complete_awaiting_onset
 description: >
   Test whether Mistral layer-12 internal state predicts an upcoming deceptive
   statement before that statement begins, on Apollo RoleplayDeception (371
-  original scenarios, T=1.0, 10 rollouts). Phase 2 already established the
-  full-response positive control; this phase does not repeat that experiment.
-  Generation complete: phase21_gen_20260928T180342Z_3d3671eb (3710).
+  original scenarios, T=1.0, 10 rollouts). Generation + grading complete.
+  Onset annotation authorized next.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -32,6 +31,21 @@ generation_result:
   estimated_cost_usd: 3.301879506756862
   activations_collected: false
   locked_model_calls: 0
+
+grading_result:
+  run_id: phase21_grade_20260928T205710Z_b6287702
+  grader_model: gpt-4o-2024-08-06
+  n: 3710
+  label_counts:
+    honest: 1173
+    ambiguous: 871
+    deceptive: 1586
+    exclude: 80
+  wall_seconds: 8410.772365570068
+  note: >
+    Original run completed after temporary OpenAI credit exhaustion caused a
+    mid-shard stall; credits were topped up and the same Modal job finished
+    without restart. Hardened checkpointed grader was not used for this run.
 
 design:
   n_prompts: 371
@@ -60,8 +74,8 @@ design:
 authorizations:
   generation_model_calls_authorized: false
   modal_gpu_authorized: true
-  grading_api_authorized: true
-  onset_annotation_authorized: false
+  grading_api_authorized: false
+  onset_annotation_authorized: true
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   prompt_changes_authorized: false
@@ -72,7 +86,5 @@ authorizations:
   phase20_stage2_authorized: false
 
 notes: >
-  D135: Generation complete (3710). Grading authorized but BLOCKED: Modal secret
-  `openai` returns 401 invalid_api_key — cannot call or verify gpt-4o-2024-08-06.
-  Per protocol: STOP rather than substitute another grader. Refresh Modal secret
-  then re-run modal/phase21_grader_check.py before phase21_grade.py.
+  D137: Grading complete on original Modal job after credit top-up.
+  Onset annotation authorized for 1586 deceptive responses.

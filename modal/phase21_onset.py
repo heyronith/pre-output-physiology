@@ -2,6 +2,7 @@
 
 Annotator receives only scenario/question/response. No activations.
 Uses gpt-4o-2024-08-06. Validates exact unique quote mapping.
+Checkpoints each shard; resumes by skipping already-annotated IDs.
 
 Usage (clean tree; onset authorized):
 
@@ -29,6 +30,10 @@ APP_NAME = "pre-output-physiology-phase21-onset"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/experiments/phase21_roleplay_preoutput_physiology.yaml"
 PROMPTS_PATH = REPO_ROOT / "data/processed/phase21_roleplay/prompts.jsonl"
+
+SHARD_SIZE = 100
+OPENAI_TIMEOUT_S = 60.0
+PRINT_EVERY = 25
 
 ONSET_SYSTEM = "You are a careful text annotator. Output JSON only."
 ONSET_USER = """Identify the earliest exact span in the [Response] where the
@@ -84,6 +89,23 @@ def _extract_json(text: str) -> dict[str, Any] | None:
             return None
 
 
+def _ckpt_dir(grade_run_id: str) -> Path:
+    return REPO_ROOT / "artifacts/runs" / f"phase21_onset_ckpt_{grade_run_id}"
+
+
+def _load_checkpointed(ckpt: Path) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    if not ckpt.is_dir():
+        return out
+    for path in sorted(ckpt.glob("shard_*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            out[row["continuation_id"]] = row
+    return out
+
+
 def _local_setup(grade_run_id: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     from pre_output_physiology.phase21_roleplay import STATUS_GRADED
 
@@ -112,17 +134,9 @@ def _local_setup(grade_run_id: str) -> tuple[dict[str, Any], list[dict[str, Any]
     deceptive = []
     for r in graded:
         if r.get("label") != "deceptive":
-            # Pass through non-deceptive without onset
             continue
         p = prompts[r["prompt_id"]]
-        deceptive.append(
-            {
-                **r,
-                "scenario": p["scenario"],
-                "question": p["question"],
-            }
-        )
-    # Also keep full graded set for merge
+        deceptive.append({**r, "scenario": p["scenario"], "question": p["question"]})
     meta = {
         "grade_run_id": grade_run_id,
         "n_deceptive": len(deceptive),
@@ -137,15 +151,13 @@ def _local_setup(grade_run_id: str) -> tuple[dict[str, Any], list[dict[str, Any]
 
 @app.function(
     image=image,
-    timeout=60 * 60 * 4,
+    timeout=60 * 60 * 2,
     secrets=[modal.Secret.from_name("openai")],
     volumes={MODEL_CACHE_DIR: model_volume},
-    memory=32768,
-    gpu="L40S",
+    memory=16384,
 )
 def annotate_and_tokenize(payload_json: str) -> dict[str, Any]:
     """Annotate onset with OpenAI; convert char onset to Mistral token index."""
-    import torch
     from openai import OpenAI
     from transformers import AutoTokenizer
 
@@ -159,11 +171,11 @@ def annotate_and_tokenize(payload_json: str) -> dict[str, Any]:
 
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY missing")
-    client = OpenAI()
+    client = OpenAI(timeout=OPENAI_TIMEOUT_S)
     try:
         client.models.retrieve(GRADER_MODEL)
     except Exception as e:  # noqa: BLE001
-        raise SystemExit(f"STOP: grader/annotator model unavailable: {e}") from e
+        raise SystemExit(f"STOP: annotator model unavailable: {e}") from e
 
     tok = AutoTokenizer.from_pretrained(
         MODEL_ID, revision=MODEL_REVISION, cache_dir=MODEL_CACHE_DIR, use_fast=True
@@ -177,6 +189,7 @@ def annotate_and_tokenize(payload_json: str) -> dict[str, Any]:
         )
         parsed = None
         raw = ""
+        last_err = None
         for attempt in range(4):
             try:
                 resp = client.chat.completions.create(
@@ -186,19 +199,28 @@ def annotate_and_tokenize(payload_json: str) -> dict[str, Any]:
                         {"role": "system", "content": ONSET_SYSTEM},
                         {"role": "user", "content": user},
                     ],
+                    timeout=OPENAI_TIMEOUT_S,
                 )
                 raw = resp.choices[0].message.content or ""
                 parsed = _extract_json(raw)
                 if parsed is not None:
                     break
-            except Exception:  # noqa: BLE001
-                time.sleep((2**attempt) + random.uniform(0, 0.2))
+            except Exception as e:  # noqa: BLE001
+                last_err = e
+                print(
+                    f"retry continuation={r['continuation_id']} "
+                    f"attempt={attempt} err={type(e).__name__}: {e}",
+                    flush=True,
+                )
+                time.sleep(min(30.0, (2**attempt) + random.uniform(0, 0.2)))
                 continue
-            time.sleep((2**attempt) + random.uniform(0, 0.2))
+            time.sleep(min(30.0, (2**attempt) + random.uniform(0, 0.2)))
 
         explicit = bool(parsed.get("explicit_span")) if parsed else False
         quote = str(parsed.get("quote") or "") if parsed else ""
         reason = str(parsed.get("reason") or "") if parsed else "parse_failed"
+        if last_err is not None and parsed is None:
+            reason = f"parse_failed:{type(last_err).__name__}"
         start = end = None
         onset_tok = None
         ok = False
@@ -240,27 +262,57 @@ def annotate_and_tokenize(payload_json: str) -> dict[str, Any]:
                 "onset_raw": raw,
             }
         )
-        if (i + 1) % 50 == 0:
-            print(f"onset {i + 1}/{len(rows)}")
-    _ = torch  # keep import used for volume warm
+        if (i + 1) % PRINT_EVERY == 0 or (i + 1) == len(rows):
+            print(f"onset {i + 1}/{len(rows)}", flush=True)
     return {"rows": out, "wall_seconds": time.time() - t0, "n": len(out)}
 
 
 @app.local_entrypoint()
 def main(grade_run_id: str) -> None:
     meta, deceptive = _local_setup(grade_run_id)
-    print(f"Annotating onset for n_deceptive={len(deceptive)}")
-    shard_size = 200
-    onset_rows: list[dict[str, Any]] = []
-    wall = 0.0
-    for start in range(0, len(deceptive), shard_size):
-        shard = deceptive[start : start + shard_size]
-        print(f"shard {start}:{start + len(shard)}")
-        result = annotate_and_tokenize.remote(json.dumps(shard))
-        onset_rows.extend(result["rows"])
-        wall += float(result["wall_seconds"])
+    ckpt = _ckpt_dir(grade_run_id)
+    ckpt.mkdir(parents=True, exist_ok=True)
+    done = _load_checkpointed(ckpt)
+    remaining = [r for r in deceptive if r["continuation_id"] not in done]
+    print(
+        f"Annotating onset: deceptive={len(deceptive)} "
+        f"done={len(done)} remaining={len(remaining)}",
+        flush=True,
+    )
 
-    by_id = {r["continuation_id"]: r for r in onset_rows}
+    wall = 0.0
+    shard_idx = len(sorted(ckpt.glob("shard_*.jsonl")))
+    for start in range(0, len(remaining), SHARD_SIZE):
+        shard = remaining[start : start + SHARD_SIZE]
+        shard_path = ckpt / f"shard_{shard_idx:04d}.jsonl"
+        print(
+            f"shard {shard_idx} remaining_index {start}:{start + len(shard)} "
+            f"n={len(shard)}",
+            flush=True,
+        )
+        result = annotate_and_tokenize.remote(json.dumps(shard))
+        with shard_path.open("w", encoding="utf-8") as f:
+            for row in result["rows"]:
+                f.write(json.dumps(row, sort_keys=True) + "\n")
+                done[row["continuation_id"]] = row
+        wall += float(result["wall_seconds"])
+        print(
+            f"checkpointed {len(result['rows'])} "
+            f"(cumulative_done={len(done)} wall_shard={result['wall_seconds']:.1f}s)",
+            flush=True,
+        )
+        shard_idx += 1
+
+    if len(done) != len(deceptive):
+        missing = [
+            r["continuation_id"] for r in deceptive if r["continuation_id"] not in done
+        ]
+        raise SystemExit(
+            f"STOP: incomplete onset {len(done)}/{len(deceptive)}; "
+            f"missing e.g. {missing[:5]}"
+        )
+
+    by_id = done
     merged: list[dict[str, Any]] = []
     for r in meta["all_graded"]:
         if r["continuation_id"] in by_id:
@@ -286,7 +338,7 @@ def main(grade_run_id: str) -> None:
     with (out_dir / "annotated.jsonl").open("w", encoding="utf-8") as f:
         for row in merged:
             f.write(json.dumps(row, sort_keys=True) + "\n")
-    n_exp = sum(1 for r in onset_rows if r.get("explicit_span"))
+    n_exp = sum(1 for r in by_id.values() if r.get("explicit_span"))
     manifest = {
         "onset_run_id": onset_run,
         "source_grade_run_id": grade_run_id,
@@ -296,8 +348,11 @@ def main(grade_run_id: str) -> None:
         "n_deceptive": len(deceptive),
         "n_explicit_span": n_exp,
         "wall_seconds": wall,
+        "checkpoint_dir": str(ckpt.relative_to(REPO_ROOT)),
+        "openai_timeout_s": OPENAI_TIMEOUT_S,
+        "shard_size": SHARD_SIZE,
     }
     (out_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n"
     )
-    print(json.dumps(manifest, indent=2))
+    print(json.dumps(manifest, indent=2), flush=True)

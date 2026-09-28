@@ -858,3 +858,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Pre-grading check against Modal secret `openai` failed with OpenAI 401 `invalid_api_key` when retrieving `gpt-4o-2024-08-06`. Per Phase-21 protocol, STOP rather than silently substituting another grader model or API. Generation artifacts remain frozen (`phase21_gen_20260928T180342Z_3d3671eb`, 3710). No onset annotation, population selection, or physiology extraction performed. Resume requires a valid OpenAI credential that can call `gpt-4o-2024-08-06`, then `modal/phase21_grader_check.py` → `modal/phase21_grade.py`.
 - **Date:** 2026-09-28
+
+### D137 — Phase 21 grading complete; onset annotation authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After credential refresh, grading run `phase21_grade_20260928T205710Z_b6287702` completed on the original Modal job (3710/3710; grader `gpt-4o-2024-08-06`; ~2.3h wall). Mid-run stall was OpenAI credit exhaustion (not cancelled/restarted). Labels: honest 1173, ambiguous 871, deceptive 1586, exclude 80. Status `phase21_roleplay_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1586 deceptive responses; no activations yet.
+- **Date:** 2026-09-28
