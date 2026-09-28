@@ -11,29 +11,21 @@ import hashlib
 import json
 import math
 import sys
-from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 import numpy as np
+from safetensors.numpy import load_file
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import average_precision_score, roc_auc_score
-from sklearn.preprocessing import StandardScaler
-from safetensors.numpy import load_file
+from sklearn.metrics import roc_auc_score
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from pre_output_physiology.phase14_design import (  # noqa: E402
-    CONSIDERATION_PREFIX,
-    RESPONSE_CONTINUATION,
-)
-from pre_output_physiology.phase15_onset import LABEL_ALTERNATE, LABEL_RECORD  # noqa: E402
+from pre_output_physiology.phase5_probes import ScaledLogisticProbe  # noqa: E402
 from pre_output_physiology.phase20_physiology import (  # noqa: E402
     BLOCKS,
-    DISCOVERY_MIN_AUROC,
-    DISCOVERY_MIN_DELTA,
     GUARANTEE,
     K0_AUROC_TOL,
     POSITIONS,
@@ -42,14 +34,10 @@ from pre_output_physiology.phase20_physiology import (  # noqa: E402
     PROBE_SEED,
     STATUS_DISC_HOLD,
     STATUS_DISC_PASS,
-    TRAIN_FAMILIES,
-    _sha_json,
     lofo_folds,
     select_discovery_candidate,
 )
-from pre_output_physiology.phase5_probes import ScaledLogisticProbe  # noqa: E402
 from pre_output_physiology.provenance import utc_now_iso, write_json  # noqa: E402
-from pre_output_physiology.phase8_design import format_chat  # noqa: E402
 
 
 def _auroc(y: np.ndarray, s: np.ndarray) -> float:
@@ -345,12 +333,29 @@ def main() -> int:
         summary = {
             "created_at": utc_now_iso(),
             "status": status,
+            "extract_run_id": Path(args.extract_run_dir).name,
             "k0_aurocs": k0_aurocs,
             "k0_ok": k0_ok,
             "discovery_grid": [
                 {k: v for k, v in g.items() if k != "oof_act"} for g in discovery_grid
             ],
+            "baseline_by_position": {
+                p: {
+                    "best_baseline_type": best_by_pos[p]["best_baseline_type"],
+                    "best_baseline_auroc": best_by_pos[p]["best_baseline_auroc"],
+                    "baselines": best_by_pos[p]["baselines"],
+                }
+                for p in POSITIONS
+            },
+            "n_eligible_candidates": 0,
+            "eligibility_note": (
+                "No block×position met act_AUROC>=0.60 AND "
+                "act_AUROC - matched_best_baseline_AUROC >= 0.03. "
+                "B2 (truncated-prefix constrained readout) dominates; "
+                "at end0 B2.pred_alt equals Stage-2 label by assay construction."
+            ),
             "selected": None,
+            "validation_activation_extraction_authorized": False,
             "guarantee": GUARANTEE,
         }
         write_json(out / "discovery_summary.json", summary)

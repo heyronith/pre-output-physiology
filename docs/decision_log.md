@@ -852,3 +852,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Generation run `phase20a1_gen_20260928T013246Z_ac9daa40` (3584 continuations; ~$1.60; Response 12107 verified; 0 locked; 0 activations during generation) yielded balanced-capable eligibility for all 28 prompts (train 17/17 with bowling 6 / radio 5 / vet 6; validation 11/11 with mini-golf 6 / music-school 5). Balanced subset: 448 trajectories (16/prompt; SHA `613ed2e8…2b0e`). Population gates PASS. Status `phase20a_preanswer_physiology_population_pass_awaiting_discovery`. Discovery activation extraction (TRAIN balanced subset only) and probe fitting authorized; validation activation extraction remains unauthorized until a candidate is frozen.
 - **Date:** 2026-09-28
+
+### D136 — Phase 20A2 discovery HOLD (no candidate freeze; no validation extract)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Discovery extract `phase20a2_disc_extract_20260928T022356Z_4d10eea8` (272 TRAIN balanced trajectories; activations SHA `8da45278…90d1`; blocks `[0,4,…,31]` × `{end0,end2,end4}`; k0 identity OK; all-block k0 LOFO AUROC = 0.50). Truncated-prefix B2 features recomputed without final-label leakage (`b2_features_train.npz` SHA `636d350e…6593`). LOFO L2 LR C=0.01: best activation AUROC 0.772 (block 28 / end0) but matched B2 baseline AUROC = 1.0 at end0 (constrained-decoder predicted candidate equals Stage-2 label by assay construction). Best activation−baseline Δ = −0.111 (block 8 / end4; act 0.730 vs B2 0.841). Zero candidates met act≥0.60 AND Δ≥0.03. Status `phase20a_preanswer_physiology_discovery_hold`. No candidate freeze; validation activation extraction remains unauthorized and was not performed; no 20A3. Locked calls = 0. STOP after Phase 20A.
+- **Date:** 2026-09-28

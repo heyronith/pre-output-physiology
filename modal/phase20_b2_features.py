@@ -8,8 +8,9 @@ import time
 from pathlib import Path
 from typing import Any
 
-import modal
 import numpy as np
+
+import modal
 
 APP_NAME = "pre-output-physiology-phase20a2-b2-features"
 MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
@@ -162,12 +163,14 @@ def compute_b2(payload_json: str) -> dict[str, Any]:
                     cands.append(list(full_c[len(stage2_prefix) :]))
                 validate_candidates(cands)
 
-                def seq_lp(cand: list[int]) -> float:
+                pref = list(stage2_prefix)
+
+                def seq_lp(cand: list[int], pref: list[int] = pref) -> float:
                     nonlocal n_forwards
                     lp = 0.0
                     for t, token in enumerate(cand):
                         ids = torch.tensor(
-                            [stage2_prefix + cand[:t]],
+                            [pref + cand[:t]],
                             dtype=torch.long,
                             device="cuda:0",
                         )
@@ -182,7 +185,7 @@ def compute_b2(payload_json: str) -> dict[str, Any]:
                 lp_a = seq_lp(cands[1])
                 seq_margin = lp_r - lp_a
 
-                ids0 = torch.tensor([stage2_prefix], dtype=torch.long, device="cuda:0")
+                ids0 = torch.tensor([pref], dtype=torch.long, device="cuda:0")
                 n_forwards += 1
                 logits0 = model(
                     input_ids=ids0, attention_mask=torch.ones_like(ids0)
@@ -190,7 +193,7 @@ def compute_b2(payload_json: str) -> dict[str, Any]:
                 logp0 = torch.log_softmax(logits0, dim=-1)
                 first_div = float((logp0[cands[0][0]] - logp0[cands[1][0]]).item())
 
-                def next_logits(generated_c: list[int], pref: list[int] = stage2_prefix):
+                def next_logits(generated_c: list[int], pref: list[int] = pref):
                     nonlocal n_forwards
                     ids = torch.tensor(
                         [pref + generated_c], dtype=torch.long, device="cuda:0"

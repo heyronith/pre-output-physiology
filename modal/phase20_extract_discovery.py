@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+
 import modal
 
 APP_NAME = "pre-output-physiology-phase20a2-discovery-extract"
@@ -176,7 +177,6 @@ def _local_setup() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, dict
 )
 def extract_discovery(payload_json: str) -> dict[str, Any]:
     import torch
-    from safetensors.numpy import save_file
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     from pre_output_physiology.phase8_design import format_chat
@@ -345,6 +345,8 @@ def main() -> None:
 
     from pre_output_physiology.phase15_onset import (
         LABEL_ALTERNATE as LA,
+    )
+    from pre_output_physiology.phase15_onset import (
         LABEL_RECORD as LR,
     )
 

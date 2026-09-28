@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+
 import modal
 
 APP_NAME = "pre-output-physiology-phase20a3-validation-extract"
@@ -249,6 +250,8 @@ def main() -> None:
 
     from pre_output_physiology.phase15_onset import (
         LABEL_ALTERNATE as LA,
+    )
+    from pre_output_physiology.phase15_onset import (
         LABEL_RECORD as LR,
     )
 

@@ -1,5 +1,37 @@
 {
-  "created_at": "2026-09-28T02:26:15+00:00",
+  "baseline_by_position": {
+    "end0": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 1.0,
+        "B3": 0.6513840830449826,
+        "B4": 0.6578179065743945
+      },
+      "best_baseline_auroc": 1.0,
+      "best_baseline_type": "B2"
+    },
+    "end2": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8867592993079585,
+        "B3": 0.5092993079584776,
+        "B4": 0.6004541522491351
+      },
+      "best_baseline_auroc": 0.8867592993079585,
+      "best_baseline_type": "B2"
+    },
+    "end4": {
+      "baselines": {
+        "B1": 0.5848291522491349,
+        "B2": 0.8413170415224913,
+        "B3": 0.5449826989619377,
+        "B4": 0.596128892733564
+      },
+      "best_baseline_auroc": 0.8413170415224913,
+      "best_baseline_type": "B2"
+    }
+  },
+  "created_at": "2026-09-28T02:35:56+00:00",
   "discovery_grid": [
     {
       "act_auroc": 0.5128676470588236,
@@ -12,7 +44,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -31,7 +63,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -50,7 +82,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -69,7 +101,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -88,7 +120,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -107,7 +139,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -126,7 +158,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -145,7 +177,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -164,7 +196,7 @@
         "B1": 0.5848291522491349,
         "B2": 1.0,
         "B3": 0.6513840830449826,
-        "B4": 0.636461937716263
+        "B4": 0.6578179065743945
       },
       "best_baseline_auroc": 1.0,
       "best_baseline_type": "B2",
@@ -181,14 +213,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 0,
-      "delta": -0.4087370242214533,
+      "delta": -0.2954963235294118,
       "position": "end2"
     },
     {
@@ -200,14 +232,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 4,
-      "delta": -0.49626946366782,
+      "delta": -0.3830287629757785,
       "position": "end2"
     },
     {
@@ -219,14 +251,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 8,
-      "delta": -0.49864835640138405,
+      "delta": -0.38540765570934254,
       "position": "end2"
     },
     {
@@ -238,14 +270,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 12,
-      "delta": -0.5633650519031143,
+      "delta": -0.45012435121107275,
       "position": "end2"
     },
     {
@@ -257,14 +289,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 16,
-      "delta": -0.5612564878892734,
+      "delta": -0.4480157871972319,
       "position": "end2"
     },
     {
@@ -276,14 +308,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 20,
-      "delta": -0.5896410034602075,
+      "delta": -0.47640030276816603,
       "position": "end2"
     },
     {
@@ -295,14 +327,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 24,
-      "delta": -0.5188689446366781,
+      "delta": -0.40562824394463665,
       "position": "end2"
     },
     {
@@ -314,14 +346,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 28,
-      "delta": -0.533034169550173,
+      "delta": -0.41979346885813146,
       "position": "end2"
     },
     {
@@ -333,14 +365,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8867592993079585,
         "B3": 0.5092993079584776,
-        "B4": 0.6335964532871973
+        "B4": 0.6004541522491351
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8867592993079585,
       "best_baseline_type": "B2",
       "block": 31,
-      "delta": -0.45204368512110715,
+      "delta": -0.33880298442906565,
       "position": "end2"
     },
     {
@@ -352,14 +384,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 0,
-      "delta": -0.3956531141868511,
+      "delta": -0.23697015570934243,
       "position": "end4"
     },
     {
@@ -371,14 +403,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 4,
-      "delta": -0.41830666089965396,
+      "delta": -0.2596237024221453,
       "position": "end4"
     },
     {
@@ -390,14 +422,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 8,
-      "delta": -0.27016652249134954,
+      "delta": -0.11148356401384085,
       "position": "end4"
     },
     {
@@ -409,14 +441,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 12,
-      "delta": -0.36618728373702425,
+      "delta": -0.20750432525951557,
       "position": "end4"
     },
     {
@@ -428,14 +460,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 16,
-      "delta": -0.38651600346020754,
+      "delta": -0.22783304498269885,
       "position": "end4"
     },
     {
@@ -447,14 +479,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 20,
-      "delta": -0.38548875432525953,
+      "delta": -0.22680579584775085,
       "position": "end4"
     },
     {
@@ -466,14 +498,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 24,
-      "delta": -0.3469398788927336,
+      "delta": -0.1882569204152249,
       "position": "end4"
     },
     {
@@ -485,14 +517,14 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 28,
-      "delta": -0.3755406574394464,
+      "delta": -0.21685769896193774,
       "position": "end4"
     },
     {
@@ -504,17 +536,19 @@
       },
       "baselines": {
         "B1": 0.5848291522491349,
-        "B2": 1.0,
+        "B2": 0.8413170415224913,
         "B3": 0.5449826989619377,
-        "B4": 0.6351102941176471
+        "B4": 0.596128892733564
       },
-      "best_baseline_auroc": 1.0,
+      "best_baseline_auroc": 0.8413170415224913,
       "best_baseline_type": "B2",
       "block": 31,
-      "delta": -0.40187067474048443,
+      "delta": -0.24318771626297575,
       "position": "end4"
     }
   ],
+  "eligibility_note": "No block\u00d7position met act_AUROC>=0.60 AND act_AUROC - matched_best_baseline_AUROC >= 0.03. B2 (truncated-prefix constrained readout) dominates; at end0 B2.pred_alt equals Stage-2 label by assay construction.",
+  "extract_run_id": "phase20a2_disc_extract_20260928T022356Z_4d10eea8",
   "guarantee": "PHASE 20A WAS THE FIRST PHYSIOLOGY TEST ON SAME-PROMPT STOCHASTIC POLICY TRAJECTORIES. PHYSIOLOGY MODEL SELECTION USED ONLY THE FROZEN ENRICHED TRAIN POPULATION. THE UNSEEN PHASE-19 VALIDATION FAMILIES WERE NOT USED FOR LAYER, POSITION, PROBE, BASELINE, OR THRESHOLD SELECTION. K0 WAS A NEGATIVE CONTROL ONLY. ALL PRIMARY TRAJECTORIES WERE MEASURED BEFORE THE FINAL RESPONSE PROPOSITION. NO LOCKED-FAMILY CALLS, POST-RESULT TUNING, PHASE-5 PROBE SCORING, OR CAUSAL INTERVENTIONS WERE PERFORMED.",
   "k0_aurocs": {
     "0": 0.5,
@@ -528,6 +562,8 @@
     "31": 0.5
   },
   "k0_ok": true,
+  "n_eligible_candidates": 0,
   "selected": null,
-  "status": "phase20a_preanswer_physiology_discovery_hold"
+  "status": "phase20a_preanswer_physiology_discovery_hold",
+  "validation_activation_extraction_authorized": false
 }

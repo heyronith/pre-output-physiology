@@ -2,12 +2,14 @@
 
 experiment_id: phase20_preanswer_physiology
 phase: phase20
-status: phase20a_preanswer_physiology_population_pass_awaiting_discovery
+status: phase20a_preanswer_physiology_discovery_hold
 description: >
   First physiology test: whether internal pre-answer activations distinguish
   record vs goal-favored-alternate on frozen Phase-18 train (17) and Phase-19
-  validation (11) prompts. 20A1 generation authorized. No activations until
-  population gates pass. Daycare excluded. Locked untouched.
+  validation (11) prompts. 20A1 generation + population gates PASS. 20A2
+  discovery HOLD: no block×position met act≥0.60 and Δ≥0.03 vs matched
+  truncated-prefix surface baseline (B2 dominates). Validation activations
+  not extracted. Daycare excluded. Locked untouched.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -52,6 +54,24 @@ population_result:
   locked_model_calls: 0
   activations_collected: false
 
+discovery_result:
+  status: phase20a_preanswer_physiology_discovery_hold
+  extract_run_id: phase20a2_disc_extract_20260928T022356Z_4d10eea8
+  activations_sha256: 8da452783470bf757bfea39677ff1a9351d9000d9a454bbe5fcf4501d74790d1
+  b2_features_sha256: 636d350e8a0b6450118cca2233faff0292cf8a509f0816035adbcbeaf7ff6593
+  k0_identity_ok: true
+  k0_auroc_all_blocks: 0.5
+  n_eligible_candidates: 0
+  best_act_auroc: 0.7717884948096886
+  best_act_block: 28
+  best_act_position: end0
+  best_delta: -0.11148356401384085
+  best_delta_block: 8
+  best_delta_position: end4
+  matched_baseline_type_at_best_delta: B2
+  selected: null
+  validation_activations_extracted: false
+
 authorizations:
   generation_model_calls_authorized: false
   modal_gpu_authorized: true
@@ -70,5 +90,6 @@ authorizations:
   causal_intervention_authorized: false
 
 notes: >
-  Phase 20A (D134) authorized for 20A1 generation only. Train/val IDs and
-  schedule frozen before calls. STOP after 20A.
+  Phase 20A STOP after discovery HOLD. No validation physiology. No candidate
+  freeze. Truncated-prefix B2 (constrained readout) dominates LOFO baselines;
+  at end0 B2.pred_alt equals Stage-2 label by assay construction.
