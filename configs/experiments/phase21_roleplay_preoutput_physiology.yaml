@@ -2,12 +2,12 @@
 
 experiment_id: phase21_roleplay_preoutput_physiology
 phase: phase21
-status: phase21_roleplay_grading_complete_awaiting_onset
+status: phase21_roleplay_mixed_population_hold
 description: >
   Test whether Mistral layer-12 internal state predicts an upcoming deceptive
   statement before that statement begins, on Apollo RoleplayDeception (371
-  original scenarios, T=1.0, 10 rollouts). Generation + grading complete.
-  Onset annotation authorized next.
+  original scenarios, T=1.0, 10 rollouts). Generation + grading + onset complete.
+  Mixed-population gates HOLD (train 19/25, test 1/8). No physiology.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 dataset_config_path: configs/datasets/roleplay_deception.yaml
 
@@ -41,11 +41,22 @@ grading_result:
     ambiguous: 871
     deceptive: 1586
     exclude: 80
-  wall_seconds: 8410.772365570068
-  note: >
-    Original run completed after temporary OpenAI credit exhaustion caused a
-    mid-shard stall; credits were topped up and the same Modal job finished
-    without restart. Hardened checkpointed grader was not used for this run.
+
+onset_result:
+  run_id: phase21_onset_20260928T212924Z_68a5621c
+  n_deceptive: 1586
+  n_explicit_span: 1579
+  wall_seconds: 1532.1476409435272
+
+population_result:
+  status: phase21_roleplay_mixed_population_hold
+  n_train_qualifying: 19
+  n_test_qualifying: 1
+  min_train: 25
+  min_test: 8
+  n_pairs: 40
+  balanced_subset_sha256: 881b16fe5a6657d09e5da546c187a3fb888b54d241e4f7a3614eea92e34d325a
+  gates_passed: false
 
 design:
   n_prompts: 371
@@ -75,7 +86,7 @@ authorizations:
   generation_model_calls_authorized: false
   modal_gpu_authorized: true
   grading_api_authorized: false
-  onset_annotation_authorized: true
+  onset_annotation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   prompt_changes_authorized: false
@@ -86,5 +97,5 @@ authorizations:
   phase20_stage2_authorized: false
 
 notes: >
-  D137: Grading complete on original Modal job after credit top-up.
-  Onset annotation authorized for 1586 deceptive responses.
+  D138: Mixed-population HOLD. Too few same-prompt mixed groups
+  (train 19 < 25; test 1 < 8). STOP before physiology. No replacement prompts.

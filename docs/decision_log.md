@@ -864,3 +864,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** After credential refresh, grading run `phase21_grade_20260928T205710Z_b6287702` completed on the original Modal job (3710/3710; grader `gpt-4o-2024-08-06`; ~2.3h wall). Mid-run stall was OpenAI credit exhaustion (not cancelled/restarted). Labels: honest 1173, ambiguous 871, deceptive 1586, exclude 80. Status `phase21_roleplay_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1586 deceptive responses; no activations yet.
 - **Date:** 2026-09-28
+
+### D138 — Phase 21 mixed-population HOLD (STOP before physiology)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Onset run `phase21_onset_20260928T212924Z_68a5621c` completed (1586 deceptive annotated; 1579 with validated explicit spans; ~25 min). Mixed-roleplay population gate: train qualifying prompts 19 < 25; test qualifying 1 < 8 → `phase21_roleplay_mixed_population_hold`. Primary failure mode: too few prompts with ≥2 honest rollouts (honest total 1173 across 371 prompts; many prompts are deception-dominant or ambiguous-heavy under T=1.0). No replacement prompts. Activation extraction / probe fitting remain unauthorized. STOP before primary physiology.
+- **Date:** 2026-09-28
