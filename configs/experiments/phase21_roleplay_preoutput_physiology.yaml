@@ -1,0 +1,69 @@
+# Phase 21 — Apollo RoleplayDeception onset-aligned pre-output physiology
+
+experiment_id: phase21_roleplay_preoutput_physiology
+phase: phase21
+status: phase21_roleplay_preoutput_physiology_authorized
+description: >
+  Test whether Mistral layer-12 internal state predicts an upcoming deceptive
+  statement before that statement begins, on Apollo RoleplayDeception (371
+  original scenarios, T=1.0, 10 rollouts). Phase 2 already established the
+  full-response positive control; this phase does not repeat that experiment.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+dataset_config_path: configs/datasets/roleplay_deception.yaml
+
+apollo:
+  repo: ApolloResearch/deception-detection
+  commit: f8ec4010e74927394709dffa22b97bdf8cd5a62f
+  dataset_path: data/roleplaying/dataset.yaml
+  dataset_blob_sha: b938599a955946f1c96fa8de79dda6aeab72452d
+  dataset_content_sha256: 7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564
+  grading_template_path: data/roleplaying/grading_template.txt
+  grading_blob_sha: 48f60df30e774c2246dbc9932464060780b5d77c
+  grading_content_sha256: 8c24e39629a73dbebedb0d80c8e97fffddf7bc0d2e2830dc68e5a14dddfad151
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase19_merge_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
+phase21_starting_sha: 03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1
+
+design:
+  n_prompts: 371
+  n_rollouts: 10
+  n_continuations: 3710
+  temperature: 1.0
+  max_new_tokens: 200
+  do_sample: true
+  top_p_override: null
+  seed_base: 21000000
+  dtype: bfloat16
+  batch_size: 1
+  block: 12
+  primary_offset: k1
+  secondary_offsets: [k2, k4, k8]
+  probe_C: 0.01
+  grader_model: gpt-4o-2024-08-06
+  min_train_qualifying: 25
+  min_test_qualifying: 8
+  design_matrix: artifacts/phase21a_design/design_matrix.json
+  threshold_manifest: artifacts/phase21a_design/threshold_manifest.json
+  threshold_hash: eaee69c16f96c83448bb1b1a567b69189d00aa29219ad763ac6518bedef0ca7a
+  prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
+  generation_schedule_sha256: ed83f7f469b59159a4fda28203517290a36f140f5bf2d0c1ea19ff87def20b0f
+
+authorizations:
+  generation_model_calls_authorized: true
+  modal_gpu_authorized: true
+  grading_api_authorized: false
+  onset_annotation_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  prompt_changes_authorized: false
+  layer_search_authorized: false
+  test_set_probe_selection_authorized: false
+  threshold_changes_authorized: false
+  causal_intervention_authorized: false
+  phase20_stage2_authorized: false
+
+notes: >
+  D137: Phase 21A authorized for generation only after design freeze.
+  Grading/onset/physiology require subsequent authorization after generation.
+  STOP after Phase 21.
