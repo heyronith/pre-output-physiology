@@ -56,7 +56,7 @@ authorizations:
   generation_model_calls_authorized: false
   modal_gpu_authorized: true
   activation_extraction_authorized: true
-  validation_activation_extraction_authorized: true
+  validation_activation_extraction_authorized: false
   probe_fitting_authorized: true
   locked_family_model_calls_authorized: false
   phase5_probe_scoring_authorized: false
