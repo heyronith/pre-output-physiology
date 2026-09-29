@@ -840,3 +840,69 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Fresh confirmation run `phase19a_fresh_20260927T233123Z_f039c172` (576 continuations; ~$0.25; Response 12107 verified; 0 locked; 0 Phase-18 train calls; 0 activations) evaluated under frozen fresh-usable rule (valid≥42, ≥6/class). Usable: music_school 5/6, mini_golf 6/6 (both ≥5 → PASS); overall 11/12. Non-usable: `p19_music_school_practice_room_001` (alt=1). Frozen fresh-usable IDs SHA `60099744…f49f`. Status `phase19a_unseen_validation_cohort_pass_awaiting_audit`. No activations collected. Physiology / Phase 19B unauthorized until separate audit. Phase 18A remains validation-gate HOLD. Phase-18 train prompts remain untouched.
 - **Date:** 2026-09-27
+
+### D134 — Phase 21 RoleplayDeception pre-output physiology (generation authorized)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-19 merge `03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1`, Phase 21 tests whether Mistral layer-12 internal state predicts an upcoming deceptive statement **before that statement begins**, using Apollo RoleplayDeception essentially unchanged. Pins: Apollo `f8ec4010…`; dataset blob `b938599a…` / content SHA `7d3e36dc…` (371 scenarios); grading template blob `48f60df3…` / content SHA `8c24e396…`; model rev `63a8b081…`. Prompt construction matches Apollo (`scenario` + postfix as system; original question; answer_prefix). Generation: T=1.0, do_sample, max_new_tokens=200, BF16, batch=1, 10 rollouts × 371 = 3710 (seed base 21_000_000; schedule SHA `ed83f7f4…0b0f`). Prompt-ID SHA256 split 318 train / 53 test (split SHA `fd3c5eec…c3b3`) frozen before calls. Grading: `gpt-4o-2024-08-06` + exact template; labels 1–2 honest / 3–5 ambiguous / 6–7 deceptive. Extension: text-only onset annotation for deceptive rollouts; mixed-prompt population (≥2 honest + ≥2 explicit-onset deceptive; first 2/class by seed; ≥25 train / ≥8 test groups). Physiology: fixed block 12; primary k1; k0 NC; surface/logit baselines; no layer search; no Phase-20 Stage-2 machinery. Threshold hash `eaee69c1…ca7a`. Status `phase21_roleplay_preoutput_physiology_authorized`. Generation authorized; grading/onset/physiology unauthorized until subsequent decisions.
+- **Date:** 2026-09-28
+
+### D135 — Phase 21 generation complete; grading authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Generation run `phase21_gen_20260928T180342Z_3d3671eb` completed (3710 continuations; ~$3.30; T=1.0; max_new_tokens=200; BF16; batch=1; 0 activations; 0 locked). Status `phase21_roleplay_generation_complete_awaiting_grading`. Exact grader `gpt-4o-2024-08-06` + Apollo grading template authorized next; no onset/physiology yet; no threshold changes.
+- **Date:** 2026-09-28
+
+### D136 — Phase 21 grading STOP: OpenAI API key invalid (no grader substitution)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Pre-grading check against Modal secret `openai` failed with OpenAI 401 `invalid_api_key` when retrieving `gpt-4o-2024-08-06`. Per Phase-21 protocol, STOP rather than silently substituting another grader model or API. Generation artifacts remain frozen (`phase21_gen_20260928T180342Z_3d3671eb`, 3710). No onset annotation, population selection, or physiology extraction performed. Resume requires a valid OpenAI credential that can call `gpt-4o-2024-08-06`, then `modal/phase21_grader_check.py` → `modal/phase21_grade.py`.
+- **Date:** 2026-09-28
+
+### D137 — Phase 21 grading complete; onset annotation authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After credential refresh, grading run `phase21_grade_20260928T205710Z_b6287702` completed on the original Modal job (3710/3710; grader `gpt-4o-2024-08-06`; ~2.3h wall). Mid-run stall was OpenAI credit exhaustion (not cancelled/restarted). Labels: honest 1173, ambiguous 871, deceptive 1586, exclude 80. Status `phase21_roleplay_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1586 deceptive responses; no activations yet.
+- **Date:** 2026-09-28
+
+### D138 — Phase 21 mixed-population HOLD (STOP before physiology)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Onset run `phase21_onset_20260928T212924Z_68a5621c` completed (1586 deceptive annotated; 1579 with validated explicit spans; ~25 min). Mixed-roleplay population gate: train qualifying prompts 19 < 25; test qualifying 1 < 8 → `phase21_roleplay_mixed_population_hold`. Primary failure mode: too few prompts with ≥2 honest rollouts (honest total 1173 across 371 prompts; many prompts are deception-dominant or ambiguous-heavy under T=1.0). No replacement prompts. Activation extraction / probe fitting remain unauthorized. STOP before primary physiology.
+- **Date:** 2026-09-28
+
+### D139 — Phase 22 sampling forecast complete (expansion supported; STOP)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-21 HOLD `439092b`, Phase 22A ran a zero-model-call Dirichlet–Multinomial posterior-predictive forecast on frozen Phase-21 onset counts only (run `phase21_onset_20260928T212924Z_68a5621c`; 371 prompts × 10 observed). Method: Jeffreys Dirichlet(0.5,0.5,0.5) on (honest, deceptive-explicit, other); keep observed 10; draw K−10 additional; MC 10k seed 22_000_000; K∈{20,40,80,160}. Gates unchanged (≥2/2; TRAIN≥25 / TEST≥8). Observed at K=10: 19 train / 1 test qualifying; stability buckets 10/0∨0/10=169, 9/1∨1/9=5, 8/2∨2/8=3, more_balanced_or_other=194. Primary forecast P(both): K20=0.5559, K40=0.9998, K80=1.0, K160=1.0 → `phase22_sampling_expansion_supported` / `supported_strong` (best K=80). Structural-zeros sensitivity (no Jeffreys rescue of never-seen classes): P(both)=0 at all K (TEST E[qual]≲5) — descriptive only; primary decision uses Jeffreys. Summary SHA `f0526b41…ea838`. 0 Mistral / 0 OpenAI / 0 activations / 0 physiology. Phase-21 labels, split, prompts, thresholds unchanged. No new responses. Phase 21 remains HOLD. STOP after Phase 22A pending audit before any resampling authorization.
+- **Date:** 2026-09-28
+
+### D140 — Phase 22B K=20 sampling validation authorized (generation only)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-22A `ece096b`, Phase 22B prospectively validates the Jeffreys K=20 forecast by collecting exactly 10 additional independent rollouts (r10–r19) for every one of the original 371 Apollo RoleplayDeception prompts (3710 new; seed base `21_100_000` → `21100000`–`21103709`; schedule SHA `6ed2f41e…4b51`). Phase-21 r00–r09 / gen `phase21_gen_20260928T180342Z_3d3671eb` / grade `phase21_grade_20260928T205710Z_b6287702` / onset `phase21_onset_20260928T212924Z_68a5621c` remain frozen and are not regenerated. Assay unchanged (Mistral rev `63a8b081…`; T=1.0; max_new_tokens=200; do_sample; BF16; batch=1; split SHA `fd3c5eec…c3b3`; grader `gpt-4o-2024-08-06`; same onset method; gates ≥2/2 and TRAIN≥25 / TEST≥8). Status `phase22b_k20_sampling_validation_authorized`. **Generation authorized only**; grading/onset/activations/physiology/prompt/threshold changes remain unauthorized. No K>20, no adaptive sampling, no prompt enrichment. After generation freeze → authorize grading → onset → K=20 population + switching analysis → STOP before activations regardless of gate outcome.
+- **Date:** 2026-09-28
+
+### D141 — Phase 22B generation complete; grading authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Generation run `phase22b_gen_20260929T025818Z_9e591156` completed on freeze commit `810c008` (3710 continuations; ~$3.90; wall ~7200s; T=1.0; max_new_tokens=200; BF16; batch=1; schedule SHA `6ed2f41e…4b51`; 0 activations; 0 locked). Status `phase22b_k20_generation_complete_awaiting_grading`. Exact grader `gpt-4o-2024-08-06` + Apollo grading template authorized next; onset/physiology remain unauthorized; no threshold/prompt changes; Phase-21 r00–r09 unchanged.
+- **Date:** 2026-09-28
+
+### D142 — Phase 22B grading STOP: OpenAI credit exhaustion (resume from checkpoint)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Grading of `phase22b_gen_20260929T025818Z_9e591156` with exact `gpt-4o-2024-08-06` hit OpenAI `insufficient_quota` / `credit_balance_exhausted` mid-run after 2900/3710 continuations were safely checkpointed under `artifacts/runs/phase22b_grade_ckpt_phase22b_gen_20260929T025818Z_9e591156/` (shards 0–28; labels so far honest 1014 / ambiguous 645 / deceptive 1241 / exclude 0). Job killed before writing a partial/failing shard to avoid API-failure excludes. No grader substitution. Generation remains frozen. Onset/physiology unauthorized. Resume requires topping up OpenAI credits, then re-run `uv run modal run modal/phase22b_grade.py --run-id phase22b_gen_20260929T025818Z_9e591156` (will skip the 2900 done IDs). Status remains `phase22b_k20_generation_complete_awaiting_grading`.
+- **Date:** 2026-09-29
+
+### D143 — Phase 22B grading complete; onset annotation authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After credit top-up, grading resumed from checkpoint and completed as run `phase22b_grade_20260929T043041Z_78ffd404` (3710/3710; grader `gpt-4o-2024-08-06`; wall ~1236s for remaining 810 plus finalize). Final labels: honest 1211, ambiguous 885, deceptive 1614, exclude 0. Status `phase22b_k20_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1614 deceptive responses (exact Phase-21 method). Activations, probe fitting, physiology, further generation, prompt/threshold changes remain unauthorized. Phase-21 r00–r09 unchanged.
+- **Date:** 2026-09-29
+
+### D144 — Phase 22B K=20 population HOLD (STOP before activations)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Onset run `phase22b_onset_20260929T130149Z_96f69da6` completed (1614 deceptive; 1604 validated explicit spans; ~25 min). Combined Phase-21 + Phase-22B (20 rollouts/prompt) under frozen gates: TRAIN qualifying 34 ≥ 25 PASS; TEST qualifying 4 < 8 FAIL → `phase22b_k20_population_hold`. Switching (Phase-21 one-sided → acquire missing class in r11–20): honest>0 & dec=0 → acquire dec 11/134 (8.2%); dec>0 & honest=0 → acquire honest 8/171 (4.7%); exact 10/0 → acquire dec 3/63; exact 0/10 → acquire honest 2/106. Empirically, additional sampling at K=20 does **not** rescue the TEST gate; one-sided prompts remain largely one-sided — consistent with Phase-22A structural-zeros sensitivity and against the Jeffreys primary forecast that P(both)≈0.56 at K=20. No replacement prompts. No K>20. Activation extraction / probe fitting / physiology remain unauthorized. STOP before activations.
+- **Date:** 2026-09-29

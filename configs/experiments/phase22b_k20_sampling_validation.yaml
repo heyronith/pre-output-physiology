@@ -1,0 +1,119 @@
+# Phase 22B — prospective K=20 sampling validation (behavior only)
+
+experiment_id: phase22b_k20_sampling_validation
+phase: phase22b
+status: phase22b_k20_population_hold
+description: >
+  Prospective K=20 sampling validation of Phase-22 Jeffreys forecast complete.
+  Generation + grading + onset done. Combined 20-rollout population gates HOLD
+  (train 34≥25 PASS; test 4<8 FAIL). No activations or physiology.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase22a_sha: ece096bc9d40d2708fd3887ec3b8032f66bb3b78
+phase21_hold_sha: 439092b1ce454caa302506c2bca3aedfb4011430
+phase22b_starting_sha: ece096bc9d40d2708fd3887ec3b8032f66bb3b78
+
+apollo:
+  repo: ApolloResearch/deception-detection
+  commit: f8ec4010e74927394709dffa22b97bdf8cd5a62f
+  dataset_blob_sha: b938599a955946f1c96fa8de79dda6aeab72452d
+  dataset_content_sha256: 7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564
+  grading_blob_sha: 48f60df30e774c2246dbc9932464060780b5d77c
+  grading_content_sha256: 8c24e39629a73dbebedb0d80c8e97fffddf7bc0d2e2830dc68e5a14dddfad151
+
+phase21_frozen:
+  gen_run_id: phase21_gen_20260928T180342Z_3d3671eb
+  grade_run_id: phase21_grade_20260928T205710Z_b6287702
+  onset_run_id: phase21_onset_20260928T212924Z_68a5621c
+  generation_schedule_sha256: ed83f7f469b59159a4fda28203517290a36f140f5bf2d0c1ea19ff87def20b0f
+  prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
+  seed_base: 21000000
+  n_train_qualifying_at_10: 19
+  n_test_qualifying_at_10: 1
+
+generation_result:
+  run_id: phase22b_gen_20260929T025818Z_9e591156
+  n_continuations: 3710
+  wall_seconds: 7200.143573522568
+  estimated_cost_usd: 3.900077768991391
+  git_commit: 810c00844b24b602eff38a33c3b4bec2d97ee24c
+  activations_collected: false
+  locked_model_calls: 0
+
+grading_result:
+  run_id: phase22b_grade_20260929T043041Z_78ffd404
+  source_gen_run_id: phase22b_gen_20260929T025818Z_9e591156
+  grader_model: gpt-4o-2024-08-06
+  n: 3710
+  wall_seconds: 1235.516960144043
+  label_counts:
+    honest: 1211
+    ambiguous: 885
+    deceptive: 1614
+    exclude: 0
+
+onset_result:
+  run_id: phase22b_onset_20260929T130149Z_96f69da6
+  source_grade_run_id: phase22b_grade_20260929T043041Z_78ffd404
+  n_deceptive: 1614
+  n_explicit_span: 1604
+  wall_seconds: 1513.503268957138
+
+population_result:
+  status: phase22b_k20_population_hold
+  k: 20
+  n_train_qualifying: 34
+  n_test_qualifying: 4
+  min_train: 25
+  min_test: 8
+  n_qualifying_prompts: 38
+  balanced_subset_sha256: c7695052bd050287354582da9b28e04a90d182c367afff8ab306fe5074b895db
+  gates_passed: false
+  summary: artifacts/phase22b_population/population_summary.json
+  report: reports/phase22b_k20_population.md
+
+design:
+  n_prompts: 371
+  n_additional_rollouts_per_prompt: 10
+  n_continuations: 3710
+  rollout_indices: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  temperature: 1.0
+  max_new_tokens: 200
+  do_sample: true
+  top_p_override: null
+  seed_base: 21100000
+  dtype: bfloat16
+  batch_size: 1
+  grader_model: gpt-4o-2024-08-06
+  min_train_qualifying: 25
+  min_test_qualifying: 8
+  min_honest: 2
+  min_deceptive_explicit: 2
+  design_matrix: artifacts/phase22b_design/design_matrix.json
+  generation_schedule_sha256: 6ed2f41e0e3f78934a536a2862dec00800b4c42439bab754a8cd696374de4b51
+  prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
+
+authorizations:
+  generation_model_calls_authorized: false
+  modal_gpu_authorized: false
+  grading_api_authorized: false
+  onset_annotation_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  physiology_authorized: false
+  prompt_changes_authorized: false
+  layer_search_authorized: false
+  test_set_probe_selection_authorized: false
+  threshold_changes_authorized: false
+  causal_intervention_authorized: false
+  phase20_stage2_authorized: false
+  k_gt_20_generation_authorized: false
+  adaptive_extra_sampling_authorized: false
+  prompt_selection_enrichment_authorized: false
+
+notes: >
+  D144: K=20 population HOLD. TRAIN 34≥25 PASS; TEST 4<8 FAIL. One-sided
+  prompts rarely acquire the missing class in r11–20 (≈5–8%). Empirically
+  rejects Jeffreys K=20 rescue; aligns with structural-zeros sensitivity.
+  STOP before activations. No physiology.

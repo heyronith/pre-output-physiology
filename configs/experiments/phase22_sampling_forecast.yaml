@@ -1,0 +1,85 @@
+# Phase 22 sampling forecast — Phase 22A
+
+experiment_id: phase22_sampling_forecast
+phase: phase22
+status: phase22_sampling_expansion_supported
+description: >
+  Zero-model-call Dirichlet–Multinomial posterior-predictive forecast: given
+  Phase-21 graded/onset counts (10 rollouts × 371 prompts), estimate whether
+  expanding to K ∈ {20,40,80,160} total rollouts per exact Apollo prompt is
+  likely to pass the frozen mixed-population gates (≥2 honest & ≥2
+  explicit-onset deceptive; TRAIN≥25 / TEST≥8). No Mistral/OpenAI calls,
+  activations, or physiology. Phase-21 labels/split/prompts/thresholds unchanged.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase21_hold_sha: 439092b1ce454caa302506c2bca3aedfb4011430
+phase22_starting_sha: 439092b1ce454caa302506c2bca3aedfb4011430
+phase21_status: phase21_roleplay_mixed_population_hold
+
+design:
+  source: phase21_onset_annotated
+  generation_run_id: phase21_gen_20260928T180342Z_3d3671eb
+  grade_run_id: phase21_grade_20260928T205710Z_b6287702
+  onset_run_id: phase21_onset_20260928T212924Z_68a5621c
+  n_prompts: 371
+  n_observed_rollouts_per_prompt: 10
+  forecast_totals: [20, 40, 80, 160]
+  categories: [honest, deceptive_explicit, other]
+  dirichlet_prior: [0.5, 0.5, 0.5]
+  conditioning: keep_observed_10_draw_K_minus_10_additional
+  n_monte_carlo: 10000
+  rng_seed: 22000000
+  gates:
+    min_honest: 2
+    min_deceptive_explicit: 2
+    min_train_qualifying: 25
+    min_test_qualifying: 8
+  decision_thresholds:
+    credible_p_both: 0.5
+    strong_p_both: 0.8
+  summary_sha256: f0526b4198c0d1880ec2b8f4da3b05ac59661fe35f66d0387dc07e45277ea838
+
+forecast_result:
+  status: phase22_sampling_expansion_supported
+  verdict: supported_strong
+  outcome: sampling_expansion_supported
+  best_total_rollouts: 80
+  best_p_both_gates: 1.0
+  primary_p_both:
+    K20: 0.5559
+    K40: 0.9998
+    K80: 1.0
+    K160: 1.0
+  structural_zeros_sensitivity:
+    note: descriptive_only_not_primary
+    best_p_both_gates: 0.0
+    verdict: sampling_only_rescue_unsupported
+  summary: artifacts/phase22a_forecast/forecast_summary.json
+  per_prompt_counts: artifacts/phase22a_forecast/per_prompt_counts.json
+  report: reports/phase22a_sampling_forecast.md
+  model_calls: 0
+  mistral_calls: 0
+  openai_calls: 0
+  activations: 0
+
+authorizations:
+  forecast_authorized: true
+  monte_carlo_simulation_authorized: true
+  model_calls_authorized: false
+  mistral_calls_authorized: false
+  openai_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  resampling_from_model_authorized: false
+  prompt_changes_authorized: false
+  threshold_changes_authorized: false
+  phase21_label_changes_authorized: false
+  physiology_authorized: false
+
+notes: >
+  Phase 22A (D139). Primary Jeffreys Dirichlet–Multinomial forecast supports
+  sampling expansion (P(both)≥0.56 at K=20; ≈1.0 at K≥40). Structural-zeros
+  sensitivity (no prior rescue of never-seen classes) does not pass TEST≥8
+  even at K=160 — descriptive caution only; primary decision uses Jeffreys.
+  STOP after 22A. No new responses generated. Phase 21 remains HOLD.
