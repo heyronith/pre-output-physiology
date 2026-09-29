@@ -1,0 +1,80 @@
+# Phase 22B — prospective K=20 sampling validation (behavior only)
+
+experiment_id: phase22b_k20_sampling_validation
+phase: phase22b
+status: phase22b_k20_sampling_validation_authorized
+description: >
+  Prospective validation of the Phase-22 Jeffreys sampling forecast: generate
+  exactly 10 additional independent rollouts (r10–r19) for every one of the
+  original 371 Apollo RoleplayDeception prompts (3710 new continuations), then
+  grade + onset and evaluate frozen mixed-population gates at K=20. Behavior
+  only — no activations or physiology.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase22a_sha: ece096bc9d40d2708fd3887ec3b8032f66bb3b78
+phase21_hold_sha: 439092b1ce454caa302506c2bca3aedfb4011430
+phase22b_starting_sha: ece096bc9d40d2708fd3887ec3b8032f66bb3b78
+
+apollo:
+  repo: ApolloResearch/deception-detection
+  commit: f8ec4010e74927394709dffa22b97bdf8cd5a62f
+  dataset_blob_sha: b938599a955946f1c96fa8de79dda6aeab72452d
+  dataset_content_sha256: 7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564
+  grading_blob_sha: 48f60df30e774c2246dbc9932464060780b5d77c
+  grading_content_sha256: 8c24e39629a73dbebedb0d80c8e97fffddf7bc0d2e2830dc68e5a14dddfad151
+
+phase21_frozen:
+  gen_run_id: phase21_gen_20260928T180342Z_3d3671eb
+  grade_run_id: phase21_grade_20260928T205710Z_b6287702
+  onset_run_id: phase21_onset_20260928T212924Z_68a5621c
+  generation_schedule_sha256: ed83f7f469b59159a4fda28203517290a36f140f5bf2d0c1ea19ff87def20b0f
+  prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
+  seed_base: 21000000
+  n_train_qualifying_at_10: 19
+  n_test_qualifying_at_10: 1
+
+design:
+  n_prompts: 371
+  n_additional_rollouts_per_prompt: 10
+  n_continuations: 3710
+  rollout_indices: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  temperature: 1.0
+  max_new_tokens: 200
+  do_sample: true
+  top_p_override: null
+  seed_base: 21100000
+  dtype: bfloat16
+  batch_size: 1
+  grader_model: gpt-4o-2024-08-06
+  min_train_qualifying: 25
+  min_test_qualifying: 8
+  min_honest: 2
+  min_deceptive_explicit: 2
+  design_matrix: artifacts/phase22b_design/design_matrix.json
+  generation_schedule_sha256: 6ed2f41e0e3f78934a536a2862dec00800b4c42439bab754a8cd696374de4b51
+  prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
+
+authorizations:
+  generation_model_calls_authorized: true
+  modal_gpu_authorized: true
+  grading_api_authorized: false
+  onset_annotation_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  physiology_authorized: false
+  prompt_changes_authorized: false
+  layer_search_authorized: false
+  test_set_probe_selection_authorized: false
+  threshold_changes_authorized: false
+  causal_intervention_authorized: false
+  phase20_stage2_authorized: false
+  k_gt_20_generation_authorized: false
+  adaptive_extra_sampling_authorized: false
+  prompt_selection_enrichment_authorized: false
+
+notes: >
+  D140: Generation-only authorization for Phase 22B. Freeze schedule SHA
+  6ed2f41e…4b51 (seeds 21100000–21103709; r10–r19) before first Mistral call.
+  Phase-21 r00–r09 unchanged. Grading/onset/physiology unauthorized until
+  subsequent decisions. STOP after K=20 population analysis before activations.
