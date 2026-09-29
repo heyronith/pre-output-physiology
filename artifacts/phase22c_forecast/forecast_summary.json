@@ -1,0 +1,647 @@
+{
+  "authorizations": {
+    "activation_extraction_authorized": false,
+    "adaptive_resampling_authorized": false,
+    "k_gt_20_generation_authorized": false,
+    "mistral_calls_authorized": false,
+    "model_calls_authorized": false,
+    "openai_calls_authorized": false,
+    "physiology_authorized": false,
+    "probe_fitting_authorized": false,
+    "prompt_changes_authorized": false,
+    "threshold_changes_authorized": false
+  },
+  "created_at": "2026-09-29T17:25:03+00:00",
+  "decision": {
+    "decision_text": "sampling expansion supported at K\u226560 (\u22652 non-structural-zero models P(BOTH)\u22650.8 and conservative rare-event P(BOTH)\u22650.5)",
+    "interpretation": "The observed K=20 result provided evidence that prompt-level behavior was more stable than the optimistic K=10 Jeffreys forecast assumed.",
+    "per_k": {
+      "30": {
+        "conservative_ge_0_5": false,
+        "conservative_p_both": 0.07905,
+        "empirical_weak_p_both": 0.3428,
+        "jeffreys_p_both": 0.4867,
+        "meets_support_rule": false,
+        "n_nonstruct_models_p_both_ge_0_8": 0,
+        "structural_zeros_p_both": 0.0417
+      },
+      "40": {
+        "conservative_ge_0_5": false,
+        "conservative_p_both": 0.41445,
+        "empirical_weak_p_both": 0.88755,
+        "jeffreys_p_both": 0.96035,
+        "meets_support_rule": false,
+        "n_nonstruct_models_p_both_ge_0_8": 2,
+        "structural_zeros_p_both": 0.1771
+      },
+      "60": {
+        "conservative_ge_0_5": true,
+        "conservative_p_both": 0.85425,
+        "empirical_weak_p_both": 0.99785,
+        "jeffreys_p_both": 0.9999,
+        "meets_support_rule": true,
+        "n_nonstruct_models_p_both_ge_0_8": 2,
+        "structural_zeros_p_both": 0.42455
+      },
+      "80": {
+        "conservative_ge_0_5": true,
+        "conservative_p_both": 0.96085,
+        "empirical_weak_p_both": 1.0,
+        "jeffreys_p_both": 1.0,
+        "meets_support_rule": true,
+        "n_nonstruct_models_p_both_ge_0_8": 2,
+        "structural_zeros_p_both": 0.5771
+      }
+    },
+    "smallest_supported_k": 60,
+    "status": "phase22c_sampling_expansion_supported",
+    "support_rule": {
+      "non_structural_zero_models": [
+        "jeffreys",
+        "empirical_weak"
+      ],
+      "require_conservative_p_both_ge": 0.5,
+      "require_n_nonstruct_p_both_ge_0_8": 2,
+      "same_practical_k": true
+    },
+    "verdict": "supported"
+  },
+  "forecasts_by_model": {
+    "conservative_rare_event": [
+      {
+        "additional_rollouts_per_prompt": 10,
+        "expected_test_qualifying": 5.82275,
+        "expected_train_qualifying": 43.7378,
+        "model": "conservative_rare_event",
+        "model_meta": {
+          "formulation": "For class i with count>0: \u03b1_i=count_i. For count=0: \u03b1_i=Clopper\u2013Pearson one-sided (1\u22120.05) UCB for 0/20 = 1\u22120.05^(1/20)\u22480.139108. Draw p~Dirichlet(\u03b1); additional Multinomial(K\u221220, p). Does not fully Jeffreys-rescue never-seen classes.",
+          "model": "conservative_rare_event",
+          "prior": null,
+          "ucb_alpha": 0.05,
+          "zero_class_ucb": 0.13910834066826516
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.07905,
+        "p_test_ge_8": 0.07905,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          4.0,
+          8.0
+        ],
+        "total_rollouts_per_prompt": 30,
+        "train_qualifying_ci95": [
+          39.0,
+          49.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 20,
+        "expected_test_qualifying": 7.2568,
+        "expected_train_qualifying": 51.95615,
+        "model": "conservative_rare_event",
+        "model_meta": {
+          "formulation": "For class i with count>0: \u03b1_i=count_i. For count=0: \u03b1_i=Clopper\u2013Pearson one-sided (1\u22120.05) UCB for 0/20 = 1\u22120.05^(1/20)\u22480.139108. Draw p~Dirichlet(\u03b1); additional Multinomial(K\u221220, p). Does not fully Jeffreys-rescue never-seen classes.",
+          "model": "conservative_rare_event",
+          "prior": null,
+          "ucb_alpha": 0.05,
+          "zero_class_ucb": 0.13910834066826516
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.41445,
+        "p_test_ge_8": 0.41445,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          5.0,
+          10.0
+        ],
+        "total_rollouts_per_prompt": 40,
+        "train_qualifying_ci95": [
+          45.0,
+          59.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 40,
+        "expected_test_qualifying": 9.39825,
+        "expected_train_qualifying": 64.3655,
+        "model": "conservative_rare_event",
+        "model_meta": {
+          "formulation": "For class i with count>0: \u03b1_i=count_i. For count=0: \u03b1_i=Clopper\u2013Pearson one-sided (1\u22120.05) UCB for 0/20 = 1\u22120.05^(1/20)\u22480.139108. Draw p~Dirichlet(\u03b1); additional Multinomial(K\u221220, p). Does not fully Jeffreys-rescue never-seen classes.",
+          "model": "conservative_rare_event",
+          "prior": null,
+          "ucb_alpha": 0.05,
+          "zero_class_ucb": 0.13910834066826516
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.85425,
+        "p_test_ge_8": 0.85425,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          6.0,
+          13.0
+        ],
+        "total_rollouts_per_prompt": 60,
+        "train_qualifying_ci95": [
+          56.0,
+          74.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 60,
+        "expected_test_qualifying": 10.88345,
+        "expected_train_qualifying": 73.39025,
+        "model": "conservative_rare_event",
+        "model_meta": {
+          "formulation": "For class i with count>0: \u03b1_i=count_i. For count=0: \u03b1_i=Clopper\u2013Pearson one-sided (1\u22120.05) UCB for 0/20 = 1\u22120.05^(1/20)\u22480.139108. Draw p~Dirichlet(\u03b1); additional Multinomial(K\u221220, p). Does not fully Jeffreys-rescue never-seen classes.",
+          "model": "conservative_rare_event",
+          "prior": null,
+          "ucb_alpha": 0.05,
+          "zero_class_ucb": 0.13910834066826516
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.96085,
+        "p_test_ge_8": 0.96085,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          7.0,
+          15.0
+        ],
+        "total_rollouts_per_prompt": 80,
+        "train_qualifying_ci95": [
+          64.0,
+          83.0
+        ]
+      }
+    ],
+    "empirical_weak": [
+      {
+        "additional_rollouts_per_prompt": 10,
+        "expected_test_qualifying": 6.9873,
+        "expected_train_qualifying": 50.54425,
+        "model": "empirical_weak",
+        "model_meta": {
+          "concentration": 1.0,
+          "formulation": "Dirichlet(\u03ba\u00b7\u03c0\u0302_global) with \u03ba=1.0; \u03c0\u0302 from pooled K=20 counts; prompt data dominate",
+          "model": "empirical_weak",
+          "prior": [
+            0.3212938005390836,
+            0.4289757412398922,
+            0.24973045822102427
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.3428,
+        "p_test_ge_8": 0.3428,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          4.0,
+          10.0
+        ],
+        "total_rollouts_per_prompt": 30,
+        "train_qualifying_ci95": [
+          44.0,
+          58.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 20,
+        "expected_test_qualifying": 9.85465,
+        "expected_train_qualifying": 67.16965,
+        "model": "empirical_weak",
+        "model_meta": {
+          "concentration": 1.0,
+          "formulation": "Dirichlet(\u03ba\u00b7\u03c0\u0302_global) with \u03ba=1.0; \u03c0\u0302 from pooled K=20 counts; prompt data dominate",
+          "model": "empirical_weak",
+          "prior": [
+            0.3212938005390836,
+            0.4289757412398922,
+            0.24973045822102427
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.88755,
+        "p_test_ge_8": 0.88755,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          6.0,
+          14.0
+        ],
+        "total_rollouts_per_prompt": 40,
+        "train_qualifying_ci95": [
+          58.0,
+          77.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 40,
+        "expected_test_qualifying": 14.26595,
+        "expected_train_qualifying": 92.93855,
+        "model": "empirical_weak",
+        "model_meta": {
+          "concentration": 1.0,
+          "formulation": "Dirichlet(\u03ba\u00b7\u03c0\u0302_global) with \u03ba=1.0; \u03c0\u0302 from pooled K=20 counts; prompt data dominate",
+          "model": "empirical_weak",
+          "prior": [
+            0.3212938005390836,
+            0.4289757412398922,
+            0.24973045822102427
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.99785,
+        "p_test_ge_8": 0.99785,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          10.0,
+          20.0
+        ],
+        "total_rollouts_per_prompt": 60,
+        "train_qualifying_ci95": [
+          81.0,
+          106.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 60,
+        "expected_test_qualifying": 17.44285,
+        "expected_train_qualifying": 111.40255,
+        "model": "empirical_weak",
+        "model_meta": {
+          "concentration": 1.0,
+          "formulation": "Dirichlet(\u03ba\u00b7\u03c0\u0302_global) with \u03ba=1.0; \u03c0\u0302 from pooled K=20 counts; prompt data dominate",
+          "model": "empirical_weak",
+          "prior": [
+            0.3212938005390836,
+            0.4289757412398922,
+            0.24973045822102427
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 1.0,
+        "p_test_ge_8": 1.0,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          12.0,
+          23.0
+        ],
+        "total_rollouts_per_prompt": 80,
+        "train_qualifying_ci95": [
+          98.0,
+          125.0
+        ]
+      }
+    ],
+    "jeffreys": [
+      {
+        "additional_rollouts_per_prompt": 10,
+        "expected_test_qualifying": 7.55355,
+        "expected_train_qualifying": 53.93725,
+        "model": "jeffreys",
+        "model_meta": {
+          "formulation": "Dirichlet(0.5,0.5,0.5) + observed counts",
+          "model": "jeffreys",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.4867,
+        "p_test_ge_8": 0.4867,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          5.0,
+          11.0
+        ],
+        "total_rollouts_per_prompt": 30,
+        "train_qualifying_ci95": [
+          47.0,
+          62.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 20,
+        "expected_test_qualifying": 11.18205,
+        "expected_train_qualifying": 75.11635,
+        "model": "jeffreys",
+        "model_meta": {
+          "formulation": "Dirichlet(0.5,0.5,0.5) + observed counts",
+          "model": "jeffreys",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.96035,
+        "p_test_ge_8": 0.96035,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          7.0,
+          16.0
+        ],
+        "total_rollouts_per_prompt": 40,
+        "train_qualifying_ci95": [
+          65.0,
+          86.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 40,
+        "expected_test_qualifying": 16.73545,
+        "expected_train_qualifying": 108.0706,
+        "model": "jeffreys",
+        "model_meta": {
+          "formulation": "Dirichlet(0.5,0.5,0.5) + observed counts",
+          "model": "jeffreys",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.9999,
+        "p_test_ge_8": 0.9999,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          11.0,
+          23.0
+        ],
+        "total_rollouts_per_prompt": 60,
+        "train_qualifying_ci95": [
+          95.0,
+          122.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 60,
+        "expected_test_qualifying": 20.6246,
+        "expected_train_qualifying": 130.96445,
+        "model": "jeffreys",
+        "model_meta": {
+          "formulation": "Dirichlet(0.5,0.5,0.5) + observed counts",
+          "model": "jeffreys",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 1.0,
+        "p_test_ge_8": 1.0,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          15.0,
+          27.0
+        ],
+        "total_rollouts_per_prompt": 80,
+        "train_qualifying_ci95": [
+          116.0,
+          146.0
+        ]
+      }
+    ],
+    "structural_zeros": [
+      {
+        "additional_rollouts_per_prompt": 10,
+        "expected_test_qualifying": 5.80675,
+        "expected_train_qualifying": 43.45885,
+        "model": "structural_zeros",
+        "model_meta": {
+          "formulation": "Never-observed class fixed at p=0 (no prior rescue); remaining classes use Jeffreys+data renorm via Dirichlet",
+          "model": "structural_zeros",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.0417,
+        "p_test_ge_8": 0.0417,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          4.0,
+          8.0
+        ],
+        "total_rollouts_per_prompt": 30,
+        "train_qualifying_ci95": [
+          39.0,
+          48.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 20,
+        "expected_test_qualifying": 6.59545,
+        "expected_train_qualifying": 47.6827,
+        "model": "structural_zeros",
+        "model_meta": {
+          "formulation": "Never-observed class fixed at p=0 (no prior rescue); remaining classes use Jeffreys+data renorm via Dirichlet",
+          "model": "structural_zeros",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.1771,
+        "p_test_ge_8": 0.1771,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          5.0,
+          8.0
+        ],
+        "total_rollouts_per_prompt": 40,
+        "train_qualifying_ci95": [
+          43.0,
+          52.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 40,
+        "expected_test_qualifying": 7.2305,
+        "expected_train_qualifying": 51.4248,
+        "model": "structural_zeros",
+        "model_meta": {
+          "formulation": "Never-observed class fixed at p=0 (no prior rescue); remaining classes use Jeffreys+data renorm via Dirichlet",
+          "model": "structural_zeros",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.42455,
+        "p_test_ge_8": 0.42455,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          5.0,
+          8.0
+        ],
+        "total_rollouts_per_prompt": 60,
+        "train_qualifying_ci95": [
+          48.0,
+          55.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 60,
+        "expected_test_qualifying": 7.48845,
+        "expected_train_qualifying": 52.97835,
+        "model": "structural_zeros",
+        "model_meta": {
+          "formulation": "Never-observed class fixed at p=0 (no prior rescue); remaining classes use Jeffreys+data renorm via Dirichlet",
+          "model": "structural_zeros",
+          "prior": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "n_monte_carlo": 20000,
+        "p_both_gates": 0.5771,
+        "p_test_ge_8": 0.5771,
+        "p_train_ge_25": 1.0,
+        "test_qualifying_ci95": [
+          6.0,
+          8.0
+        ],
+        "total_rollouts_per_prompt": 80,
+        "train_qualifying_ci95": [
+          50.0,
+          56.0
+        ]
+      }
+    ]
+  },
+  "guarantee": "PHASE 22C WAS A ZERO-MODEL-CALL UPDATED SAMPLING FORECAST USING ONLY FROZEN PHASE-21 AND PHASE-22B ONSET-ANNOTATED ROLLOUTS (20 PER PROMPT). NO MISTRAL CALLS, OPENAI CALLS, ACTIVATIONS, OR PHYSIOLOGY WERE PERFORMED. NO NEW RESPONSES WERE GENERATED. PHASE-21/22B LABELS, SPLIT, PROMPTS, AND POPULATION THRESHOLDS WERE NOT CHANGED. THE OBSERVED K=20 RESULT PROVIDED EVIDENCE THAT PROMPT-LEVEL BEHAVIOR WAS MORE STABLE THAN THE OPTIMISTIC K=10 JEFFREYS FORECAST ASSUMED.",
+  "interpretation": "The observed K=20 result provided evidence that prompt-level behavior was more stable than the optimistic K=10 Jeffreys forecast assumed.",
+  "k20_reproduction": {
+    "expected_test": 4,
+    "expected_train": 34,
+    "gates_passed": false,
+    "n_test_qualifying": 4,
+    "n_train_qualifying": 34,
+    "reproduced": true
+  },
+  "method": {
+    "conditioning": "keep observed 20; draw K-20 additional",
+    "forecast_totals": [
+      30,
+      40,
+      60,
+      80
+    ],
+    "gates": {
+      "min_deceptive_explicit": 2,
+      "min_honest": 2,
+      "min_test_qualifying": 8,
+      "min_train_qualifying": 25
+    },
+    "model_definitions": {
+      "conservative_rare_event": {
+        "formulation": "For class i with count>0: \u03b1_i=count_i. For count=0: \u03b1_i=Clopper\u2013Pearson one-sided (1\u22120.05) UCB for 0/20 = 1\u22120.05^(1/20)\u22480.139108. Draw p~Dirichlet(\u03b1); additional Multinomial(K\u221220, p). Does not fully Jeffreys-rescue never-seen classes.",
+        "model": "conservative_rare_event",
+        "prior": null,
+        "ucb_alpha": 0.05,
+        "zero_class_ucb": 0.13910834066826516
+      },
+      "empirical_weak": {
+        "concentration": 1.0,
+        "formulation": "Dirichlet(\u03ba\u00b7\u03c0\u0302_global) with \u03ba=1.0; \u03c0\u0302 from pooled K=20 counts; prompt data dominate",
+        "model": "empirical_weak",
+        "prior": [
+          0.3212938005390836,
+          0.4289757412398922,
+          0.24973045822102427
+        ]
+      },
+      "jeffreys": {
+        "formulation": "Dirichlet(0.5,0.5,0.5) + observed counts",
+        "model": "jeffreys",
+        "prior": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "structural_zeros": {
+        "formulation": "Never-observed class fixed at p=0 (no prior rescue); remaining classes use Jeffreys+data renorm via Dirichlet",
+        "model": "structural_zeros",
+        "prior": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "models": [
+      "jeffreys",
+      "empirical_weak",
+      "structural_zeros",
+      "conservative_rare_event"
+    ],
+    "n_monte_carlo": 20000,
+    "no_activations": true,
+    "no_k_gt_20_generation": true,
+    "no_mistral_calls": true,
+    "no_openai_calls": true,
+    "no_physiology": true,
+    "rng_seed": 22300000
+  },
+  "observed_at_20": {
+    "global_counts_honest_dec_other": [
+      2384,
+      3183,
+      1853
+    ],
+    "global_proportions": [
+      0.3212938005390836,
+      0.4289757412398922,
+      0.24973045822102427
+    ],
+    "n_observed_per_prompt": 20,
+    "n_prompts": 371,
+    "n_prompts_exactly_one_of_h_or_d_zero": 300,
+    "n_prompts_missing_at_least_one_of_h_or_d": 307,
+    "n_prompts_zero_deceptive_explicit": 137,
+    "n_prompts_zero_honest": 177,
+    "n_qualifying_at_20": 38,
+    "n_test_qualifying_at_20": 4,
+    "n_train_qualifying_at_20": 34,
+    "phase22b_switching_descriptive": {
+      "dec_gt0_honest_eq0_acquires_honest": {
+        "acquired": 8,
+        "n": 171
+      },
+      "exact_0_10_acquires_honest": {
+        "acquired": 2,
+        "n": 106
+      },
+      "exact_10_0_acquires_dec": {
+        "acquired": 3,
+        "n": 63
+      },
+      "honest_gt0_dec_eq0_acquires_dec": {
+        "acquired": 11,
+        "n": 134
+      },
+      "note": "Descriptive Phase-22B switching evidence only; not treated as proof of structural zeros."
+    }
+  },
+  "phase": "phase22c",
+  "sources": {
+    "n_combined_rows": 7420,
+    "n_observed_per_prompt": 20,
+    "phase21_onset_run_id": "phase21_onset_20260928T212924Z_68a5621c",
+    "phase22b_onset_run_id": "phase22b_onset_20260929T130149Z_96f69da6"
+  },
+  "status": "phase22c_sampling_expansion_supported",
+  "summary_sha256": "30162fbac53b8419da1d0de1c6db9f408f74842e89ab4d353686b836c4354083"
+}
