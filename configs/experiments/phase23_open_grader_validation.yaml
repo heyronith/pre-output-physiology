@@ -37,7 +37,8 @@ design:
     gpt_oss_20b:
       hf_id: openai/gpt-oss-20b
       revision: 6cee5e81ee83917806bbde320786a8fb61efebee
-      gpu: L40S
+      gpu: A100-80GB
+      gpu_note: L40S OOM on MXFP4->BF16 dequant without Triton>=3.4 kernels; escalated to A100-80GB
     qwen35_27b:
       hf_id: Qwen/Qwen3.5-27B
       revision: fc05daec18b0a78c049392ed2e771dde82bdf654

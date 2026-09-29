@@ -918,3 +918,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-22C `d218833`, Phase 23 validates whether an open-weight model can replace `gpt-4o-2024-08-06` on the frozen K=20 Apollo corpus (7420 responses from Phase-21 + Phase-22B onset). Candidates frozen before evaluation: (1) `openai/gpt-oss-20b` rev `6cee5e81…ebee` on 1×L40S; (2) `Qwen/Qwen3.5-27B` rev `fc05daec…f654` on 1×A100-80GB; (3) `google/gemma-4-31B-it` rev `842da379…f475` on 1×A100-80GB. Deterministic grader prompt-split: SHA256-ordered IDs → 260 DEVELOPMENT / 111 LOCKED (split SHA `6504b40b…3869`). Pilot: 200 DEVELOPMENT responses, stratified by GPT-4o label (67/67/66 H/A/D; 141 prompts; pilot SHA `6e412617…2533`). Shared inference: T=0, do_sample=False, max_new_tokens=256, max_model_len=8192, fixed JSON-over-Apollo-rubric prompt (design SHA `40fecca0…5cff`). Pilot elimination / DEV eligibility / locked acceptance / onset thresholds frozen before evaluation. Status `phase23_open_grader_design_frozen`. **23A pilot Modal GPU inference authorized**; Stage-2/3/4, Mistral generation, OpenAI API, activations, physiology, K>20 generation remain unauthorized. STOP after 23A for audit before DEVELOPMENT expansion.
 - **Date:** 2026-09-29
+
+### D147 — Phase 23A: gpt-oss-20b GPU escalation L40S→A100-80GB
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** 23A pilot attempt for `openai/gpt-oss-20b` on 1×L40S failed with CUDA OOM while Transformers dequantized native MXFP4 weights to BF16 (Triton<3.4 MXFP4 kernels unavailable in the frozen pilot image). Per Phase-23 rule (no TP unless single-GPU impossible), escalate this candidate only to 1×A100-80GB for BF16 inference. Candidate identity/revision/prompt/thresholds unchanged. Qwen3.5-27B and Gemma-4-31B-IT remain on A100-80GB as frozen.
+- **Date:** 2026-09-29

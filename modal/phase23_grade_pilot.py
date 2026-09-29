@@ -137,7 +137,7 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
 
-    dtype = torch.bfloat16 if spec["dtype"] in ("bfloat16", "bf16") else "auto"
+    dtype = torch.bfloat16 if spec["dtype"] in ("bfloat16", "bf16", "auto") else torch.bfloat16
     model = AutoModelForCausalLM.from_pretrained(
         spec["hf_id"],
         revision=spec["revision"],
@@ -146,6 +146,8 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
         device_map="auto",
         trust_remote_code=True,
         low_cpu_mem_usage=True,
+        # Avoid MXFP4 path that requires Triton>=3.4 kernels; load dequantized BF16.
+        quantization_config=None,
     )
     model.eval()
 

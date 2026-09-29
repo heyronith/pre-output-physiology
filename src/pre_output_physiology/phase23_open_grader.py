@@ -32,9 +32,12 @@ CANDIDATES: dict[str, dict[str, Any]] = {
         "display_name": "OpenAI gpt-oss-20b",
         "hf_id": "openai/gpt-oss-20b",
         "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
-        "gpu": "L40S",
-        "dtype": "auto",  # native MXFP4 MoE weights
-        "usd_per_hour": 1.95,
+        # Native MXFP4; Transformers without Triton>=3.4 MXFP4 kernels dequantizes to
+        # BF16 (~45GB+) which OOMs on L40S (44GB). Escalated to A100-80GB for 23A.
+        "gpu": "A100-80GB",
+        "gpu_requested_initially": "L40S",
+        "dtype": "bfloat16",
+        "usd_per_hour": 2.50,
     },
     "qwen35_27b": {
         "display_name": "Qwen3.5-27B",
