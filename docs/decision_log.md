@@ -900,3 +900,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** After credit top-up, grading resumed from checkpoint and completed as run `phase22b_grade_20260929T043041Z_78ffd404` (3710/3710; grader `gpt-4o-2024-08-06`; wall ~1236s for remaining 810 plus finalize). Final labels: honest 1211, ambiguous 885, deceptive 1614, exclude 0. Status `phase22b_k20_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1614 deceptive responses (exact Phase-21 method). Activations, probe fitting, physiology, further generation, prompt/threshold changes remain unauthorized. Phase-21 r00–r09 unchanged.
 - **Date:** 2026-09-29
+
+### D144 — Phase 22B K=20 population HOLD (STOP before activations)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Onset run `phase22b_onset_20260929T130149Z_96f69da6` completed (1614 deceptive; 1604 validated explicit spans; ~25 min). Combined Phase-21 + Phase-22B (20 rollouts/prompt) under frozen gates: TRAIN qualifying 34 ≥ 25 PASS; TEST qualifying 4 < 8 FAIL → `phase22b_k20_population_hold`. Switching (Phase-21 one-sided → acquire missing class in r11–20): honest>0 & dec=0 → acquire dec 11/134 (8.2%); dec>0 & honest=0 → acquire honest 8/171 (4.7%); exact 10/0 → acquire dec 3/63; exact 0/10 → acquire honest 2/106. Empirically, additional sampling at K=20 does **not** rescue the TEST gate; one-sided prompts remain largely one-sided — consistent with Phase-22A structural-zeros sensitivity and against the Jeffreys primary forecast that P(both)≈0.56 at K=20. No replacement prompts. No K>20. Activation extraction / probe fitting / physiology remain unauthorized. STOP before activations.
+- **Date:** 2026-09-29

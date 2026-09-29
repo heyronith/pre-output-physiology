@@ -2,13 +2,11 @@
 
 experiment_id: phase22b_k20_sampling_validation
 phase: phase22b
-status: phase22b_k20_grading_complete_awaiting_onset
+status: phase22b_k20_population_hold
 description: >
-  Prospective validation of the Phase-22 Jeffreys sampling forecast: generate
-  exactly 10 additional independent rollouts (r10–r19) for every one of the
-  original 371 Apollo RoleplayDeception prompts (3710 new continuations), then
-  grade + onset and evaluate frozen mixed-population gates at K=20. Behavior
-  only — no activations or physiology. Grading complete; onset authorized.
+  Prospective K=20 sampling validation of Phase-22 Jeffreys forecast complete.
+  Generation + grading + onset done. Combined 20-rollout population gates HOLD
+  (train 34≥25 PASS; test 4<8 FAIL). No activations or physiology.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -55,6 +53,26 @@ grading_result:
     deceptive: 1614
     exclude: 0
 
+onset_result:
+  run_id: phase22b_onset_20260929T130149Z_96f69da6
+  source_grade_run_id: phase22b_grade_20260929T043041Z_78ffd404
+  n_deceptive: 1614
+  n_explicit_span: 1604
+  wall_seconds: 1513.503268957138
+
+population_result:
+  status: phase22b_k20_population_hold
+  k: 20
+  n_train_qualifying: 34
+  n_test_qualifying: 4
+  min_train: 25
+  min_test: 8
+  n_qualifying_prompts: 38
+  balanced_subset_sha256: c7695052bd050287354582da9b28e04a90d182c367afff8ab306fe5074b895db
+  gates_passed: false
+  summary: artifacts/phase22b_population/population_summary.json
+  report: reports/phase22b_k20_population.md
+
 design:
   n_prompts: 371
   n_additional_rollouts_per_prompt: 10
@@ -78,9 +96,9 @@ design:
 
 authorizations:
   generation_model_calls_authorized: false
-  modal_gpu_authorized: true
+  modal_gpu_authorized: false
   grading_api_authorized: false
-  onset_annotation_authorized: true
+  onset_annotation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   physiology_authorized: false
@@ -95,7 +113,7 @@ authorizations:
   prompt_selection_enrichment_authorized: false
 
 notes: >
-  D143: Grading complete (phase22b_grade_20260929T043041Z_78ffd404; honest
-  1211 / amb 885 / dec 1614 / excl 0). Text-only onset authorized for the
-  1614 deceptive responses. Activations/physiology/further generation remain
-  unauthorized. STOP after K=20 population analysis before activations.
+  D144: K=20 population HOLD. TRAIN 34≥25 PASS; TEST 4<8 FAIL. One-sided
+  prompts rarely acquire the missing class in r11–20 (≈5–8%). Empirically
+  rejects Jeffreys K=20 rescue; aligns with structural-zeros sensitivity.
+  STOP before activations. No physiology.
