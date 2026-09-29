@@ -2,13 +2,13 @@
 
 experiment_id: phase22b_k20_sampling_validation
 phase: phase22b
-status: phase22b_k20_generation_complete_awaiting_grading
+status: phase22b_k20_grading_complete_awaiting_onset
 description: >
   Prospective validation of the Phase-22 Jeffreys sampling forecast: generate
   exactly 10 additional independent rollouts (r10–r19) for every one of the
   original 371 Apollo RoleplayDeception prompts (3710 new continuations), then
   grade + onset and evaluate frozen mixed-population gates at K=20. Behavior
-  only — no activations or physiology. Generation complete; grading authorized.
+  only — no activations or physiology. Grading complete; onset authorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -43,6 +43,18 @@ generation_result:
   activations_collected: false
   locked_model_calls: 0
 
+grading_result:
+  run_id: phase22b_grade_20260929T043041Z_78ffd404
+  source_gen_run_id: phase22b_gen_20260929T025818Z_9e591156
+  grader_model: gpt-4o-2024-08-06
+  n: 3710
+  wall_seconds: 1235.516960144043
+  label_counts:
+    honest: 1211
+    ambiguous: 885
+    deceptive: 1614
+    exclude: 0
+
 design:
   n_prompts: 371
   n_additional_rollouts_per_prompt: 10
@@ -67,8 +79,8 @@ design:
 authorizations:
   generation_model_calls_authorized: false
   modal_gpu_authorized: true
-  grading_api_authorized: true
-  onset_annotation_authorized: false
+  grading_api_authorized: false
+  onset_annotation_authorized: true
   activation_extraction_authorized: false
   probe_fitting_authorized: false
   physiology_authorized: false
@@ -83,6 +95,7 @@ authorizations:
   prompt_selection_enrichment_authorized: false
 
 notes: >
-  D142: Grading STOP — OpenAI credit exhaustion after 2900/3710 checkpointed
-  (honest 1014 / amb 645 / dec 1241 / excl 0). Resume same modal grade command
-  after credits; no grader substitution. Onset/physiology unauthorized.
+  D143: Grading complete (phase22b_grade_20260929T043041Z_78ffd404; honest
+  1211 / amb 885 / dec 1614 / excl 0). Text-only onset authorized for the
+  1614 deceptive responses. Activations/physiology/further generation remain
+  unauthorized. STOP after K=20 population analysis before activations.

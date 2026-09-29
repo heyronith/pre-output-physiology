@@ -894,3 +894,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Grading of `phase22b_gen_20260929T025818Z_9e591156` with exact `gpt-4o-2024-08-06` hit OpenAI `insufficient_quota` / `credit_balance_exhausted` mid-run after 2900/3710 continuations were safely checkpointed under `artifacts/runs/phase22b_grade_ckpt_phase22b_gen_20260929T025818Z_9e591156/` (shards 0–28; labels so far honest 1014 / ambiguous 645 / deceptive 1241 / exclude 0). Job killed before writing a partial/failing shard to avoid API-failure excludes. No grader substitution. Generation remains frozen. Onset/physiology unauthorized. Resume requires topping up OpenAI credits, then re-run `uv run modal run modal/phase22b_grade.py --run-id phase22b_gen_20260929T025818Z_9e591156` (will skip the 2900 done IDs). Status remains `phase22b_k20_generation_complete_awaiting_grading`.
 - **Date:** 2026-09-29
+
+### D143 — Phase 22B grading complete; onset annotation authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After credit top-up, grading resumed from checkpoint and completed as run `phase22b_grade_20260929T043041Z_78ffd404` (3710/3710; grader `gpt-4o-2024-08-06`; wall ~1236s for remaining 810 plus finalize). Final labels: honest 1211, ambiguous 885, deceptive 1614, exclude 0. Status `phase22b_k20_grading_complete_awaiting_onset`. Text-only onset annotation authorized for the 1614 deceptive responses (exact Phase-21 method). Activations, probe fitting, physiology, further generation, prompt/threshold changes remain unauthorized. Phase-21 r00–r09 unchanged.
+- **Date:** 2026-09-29
