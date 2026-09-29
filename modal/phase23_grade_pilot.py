@@ -35,9 +35,9 @@ image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
         "torch==2.6.0",
-        "transformers>=4.55.0",
+        "transformers==4.57.6",
         "accelerate==1.6.0",
-        "huggingface_hub==0.30.2",
+        "huggingface_hub==0.34.0",
         "sentencepiece==0.2.0",
         "protobuf==5.29.4",
         "numpy==1.26.4",
@@ -188,8 +188,6 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
                 **enc,
                 max_new_tokens=max_new,
                 do_sample=False,
-                temperature=None,
-                top_p=None,
                 pad_token_id=tok.pad_token_id,
             )
             in_len = enc["input_ids"].shape[1]
