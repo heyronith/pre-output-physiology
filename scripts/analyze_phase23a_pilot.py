@@ -145,8 +145,30 @@ def main() -> int:
             )
         lines.append("")
 
+    total_cost = sum(
+        float(v["manifest"]["cost"]["estimated_cost_usd"]) for v in by_cand.values()
+    )
     lines += [
         f"**Survivors:** {survivors}",
+        "",
+        "## STOP audit fields",
+        "",
+        f"- Design SHA: `40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff`",
+        f"- Grader split SHA: `6504b40b43153a7bd359c344efb6eee01afca887fe4978960d9d2e0d6fec3869`",
+        f"- Pilot IDs SHA: `6e412617f7a4e461500880f1420be1c05c8453b433a96ac3d55a9fccb8f02533`",
+        f"- Inference: T=0, do_sample=False, max_new_tokens=256, batch=4, "
+        f"engine=transformers_generate_temp0_batch4",
+        f"- Estimated Modal cost (23A total): ~${total_cost:.3f}",
+        "",
+        "## Authorization state",
+        "",
+        "- `stage2_development_authorized`: **false** (awaiting 23A audit)",
+        "- `stage3_locked_validation_authorized`: false",
+        "- `stage4_onset_validation_authorized`: false",
+        "- `k_gt_20_generation_authorized`: false",
+        "- `mistral_roleplay_generation_authorized`: false",
+        "- `openai_*_api_authorized`: false",
+        "- `physiology_authorized`: false",
         "",
         "## Guarantee",
         "",

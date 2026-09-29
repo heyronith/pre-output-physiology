@@ -2,16 +2,18 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23_open_grader_design_frozen
+status: phase23a_pilot_complete_awaiting_audit
 description: >
   Validate whether an open-weight model can replace gpt-4o-2024-08-06 as the
   Apollo RoleplayDeception grader on the frozen K=20 corpus (7420 responses).
-  Stage 23A: 200-response pilot × 3 candidates. No Mistral generation / no
-  OpenAI API / no physiology.
+  Stage 23A pilot complete; STOP for audit. Gemma and Qwen are pilot survivors
+  only — no Stage-2 winner selected. No Mistral generation / no OpenAI API /
+  no physiology.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
 phase23_starting_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
+phase23a_pilot_run_commit: f8517418a81f0584ffdddbe4e464cedd47ae93e9
 
 sources:
   phase21_onset_run_id: phase21_onset_20260928T212924Z_68a5621c
@@ -32,7 +34,11 @@ design:
     do_sample: false
     max_new_tokens: 256
     max_model_len: 8192
+    batch_size: 4
     seed: 23000000
+    backend: transformers
+    not_vllm: true
+    gpu: A100-80GB
   candidates:
     gpt_oss_20b:
       hf_id: openai/gpt-oss-20b
@@ -48,8 +54,23 @@ design:
       revision: 842da3794eaa0b77d5f08bae87a17459d91ff475
       gpu: A100-80GB
 
+phase23a_pilot:
+  freeze_artifact: artifacts/phase23a_pilot/freeze.json
+  status: phase23a_pilot_complete_awaiting_audit
+  survivors_pilot_only:
+    - gemma4_31b_it
+    - qwen35_27b
+  eliminated:
+    - gpt_oss_20b
+  stage2_winner_selected: false
+  modal_cost_usd_approx: 1.46
+  run_ids:
+    gemma4_31b_it: phase23a_pilot_gemma4_31b_it_20260929T213351Z_7e341a62
+    qwen35_27b: phase23a_pilot_qwen35_27b_20260929T212300Z_7e341a62
+    gpt_oss_20b: phase23a_pilot_gpt_oss_20b_20260929T194731Z_7e341a62
+
 authorizations:
-  modal_gpu_open_grader_inference_authorized: true
+  modal_gpu_open_grader_inference_authorized: false
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -64,5 +85,8 @@ authorizations:
   stage4_onset_validation_authorized: false
 
 notes: >
-  D146: Phase-23 design frozen before any candidate evaluation. 23A pilot
-  authorized only. STOP after pilot for audit before Stage-2 DEVELOPMENT.
+  D149: 23A pilot complete; Gemma and Qwen are pilot survivors only — no Stage-2
+  winner selected. Qwen survives because honest sensitivity 0.85 > pilot threshold
+  0.80; do not apply Stage-2 thresholds retroactively. gpt-oss HD metrics are on
+  158/200 valid rows only. All Modal/OpenAI/Mistral/physiology/K>20 authorizations
+  remain false pending audit before any Stage-2 DEVELOPMENT.

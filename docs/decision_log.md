@@ -924,3 +924,15 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** 23A pilot attempt for `openai/gpt-oss-20b` on 1×L40S failed with CUDA OOM while Transformers dequantized native MXFP4 weights to BF16 (Triton<3.4 MXFP4 kernels unavailable in the frozen pilot image). Per Phase-23 rule (no TP unless single-GPU impossible), escalate this candidate only to 1×A100-80GB for BF16 inference. Candidate identity/revision/prompt/thresholds unchanged. Qwen3.5-27B and Gemma-4-31B-IT remain on A100-80GB as frozen.
 - **Date:** 2026-09-29
+
+### D148 — Phase 23A: Transformers image bump for Qwen3.5 / Gemma-4 architectures
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Frozen candidates `Qwen/Qwen3.5-27B` and `google/gemma-4-31B-it` require Transformers architectures not present in 4.57.x. Phase-23A Modal image upgraded to `transformers==5.17.0` (+ `huggingface_hub==1.5.0`, `safetensors==0.8.0`, `accelerate==1.15.0`) for Qwen/Gemma pilots only. Candidate revisions, prompts, decode settings, and elimination thresholds unchanged. Engine remains Transformers generate T=0 batch=4 (not vLLM) for cross-model comparability. gpt-oss-20b pilot already completed under the prior 4.57.6 image and is not re-run.
+- **Date:** 2026-09-29
+
+### D149 — Phase 23A pilot complete; STOP for audit (no Stage 2)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** 23A 200-response pilot finished for all three frozen candidates on 1×A100-80GB. Results vs GPT-4o reference: (1) `gpt_oss_20b` eliminated — invalid structured-output rate 0.21 (Harmony `analysis` channel, no JSON within max_new_tokens=256) despite strong HD metrics on valid rows (bal-acc 0.97 / κ 0.95); (2) `qwen35_27b` survives — invalid 0, HD bal-acc 0.91 / κ 0.94 / H-sens 0.85 / D-sens 0.97 (~$0.52); (3) `gemma4_31b_it` survives — invalid 0, HD bal-acc 0.97 / κ 0.97 / H-sens 0.94 / D-sens 1.00 (~$0.43). Run IDs: `phase23a_pilot_gpt_oss_20b_20260929T194731Z_7e341a62`, `phase23a_pilot_qwen35_27b_20260929T212300Z_7e341a62`, `phase23a_pilot_gemma4_31b_it_20260929T213351Z_7e341a62`. Status `phase23a_pilot_complete_awaiting_audit`. **No winner selected.** Stage-2 DEVELOPMENT (~5200×survivors), locked validation, onset, and K>20 remain unauthorized pending audit.
+- **Date:** 2026-09-29
