@@ -83,6 +83,6 @@ authorizations:
   prompt_selection_enrichment_authorized: false
 
 notes: >
-  D141: Generation complete (phase22b_gen_20260929T025818Z_9e591156; 3710;
-  ~$3.90; 0 activations). Exact grader gpt-4o-2024-08-06 authorized. Onset/
-  physiology remain unauthorized. STOP after K=20 population before activations.
+  D142: Grading STOP — OpenAI credit exhaustion after 2900/3710 checkpointed
+  (honest 1014 / amb 645 / dec 1241 / excl 0). Resume same modal grade command
+  after credits; no grader substitution. Onset/physiology unauthorized.

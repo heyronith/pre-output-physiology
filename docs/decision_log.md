@@ -888,3 +888,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Generation run `phase22b_gen_20260929T025818Z_9e591156` completed on freeze commit `810c008` (3710 continuations; ~$3.90; wall ~7200s; T=1.0; max_new_tokens=200; BF16; batch=1; schedule SHA `6ed2f41e…4b51`; 0 activations; 0 locked). Status `phase22b_k20_generation_complete_awaiting_grading`. Exact grader `gpt-4o-2024-08-06` + Apollo grading template authorized next; onset/physiology remain unauthorized; no threshold/prompt changes; Phase-21 r00–r09 unchanged.
 - **Date:** 2026-09-28
+
+### D142 — Phase 22B grading STOP: OpenAI credit exhaustion (resume from checkpoint)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Grading of `phase22b_gen_20260929T025818Z_9e591156` with exact `gpt-4o-2024-08-06` hit OpenAI `insufficient_quota` / `credit_balance_exhausted` mid-run after 2900/3710 continuations were safely checkpointed under `artifacts/runs/phase22b_grade_ckpt_phase22b_gen_20260929T025818Z_9e591156/` (shards 0–28; labels so far honest 1014 / ambiguous 645 / deceptive 1241 / exclude 0). Job killed before writing a partial/failing shard to avoid API-failure excludes. No grader substitution. Generation remains frozen. Onset/physiology unauthorized. Resume requires topping up OpenAI credits, then re-run `uv run modal run modal/phase22b_grade.py --run-id phase22b_gen_20260929T025818Z_9e591156` (will skip the 2900 done IDs). Status remains `phase22b_k20_generation_complete_awaiting_grading`.
+- **Date:** 2026-09-29
