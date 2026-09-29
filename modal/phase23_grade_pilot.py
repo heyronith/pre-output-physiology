@@ -133,6 +133,7 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
         cache_dir=CACHE_DIR,
         trust_remote_code=True,
     )
+    tok.padding_side = "left"
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
 
