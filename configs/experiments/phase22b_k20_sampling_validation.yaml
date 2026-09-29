@@ -2,13 +2,13 @@
 
 experiment_id: phase22b_k20_sampling_validation
 phase: phase22b
-status: phase22b_k20_sampling_validation_authorized
+status: phase22b_k20_generation_complete_awaiting_grading
 description: >
   Prospective validation of the Phase-22 Jeffreys sampling forecast: generate
   exactly 10 additional independent rollouts (r10–r19) for every one of the
   original 371 Apollo RoleplayDeception prompts (3710 new continuations), then
   grade + onset and evaluate frozen mixed-population gates at K=20. Behavior
-  only — no activations or physiology.
+  only — no activations or physiology. Generation complete; grading authorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
@@ -34,6 +34,15 @@ phase21_frozen:
   n_train_qualifying_at_10: 19
   n_test_qualifying_at_10: 1
 
+generation_result:
+  run_id: phase22b_gen_20260929T025818Z_9e591156
+  n_continuations: 3710
+  wall_seconds: 7200.143573522568
+  estimated_cost_usd: 3.900077768991391
+  git_commit: 810c00844b24b602eff38a33c3b4bec2d97ee24c
+  activations_collected: false
+  locked_model_calls: 0
+
 design:
   n_prompts: 371
   n_additional_rollouts_per_prompt: 10
@@ -56,9 +65,9 @@ design:
   prompt_split_sha256: fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3
 
 authorizations:
-  generation_model_calls_authorized: true
+  generation_model_calls_authorized: false
   modal_gpu_authorized: true
-  grading_api_authorized: false
+  grading_api_authorized: true
   onset_annotation_authorized: false
   activation_extraction_authorized: false
   probe_fitting_authorized: false
@@ -74,7 +83,6 @@ authorizations:
   prompt_selection_enrichment_authorized: false
 
 notes: >
-  D140: Generation-only authorization for Phase 22B. Freeze schedule SHA
-  6ed2f41e…4b51 (seeds 21100000–21103709; r10–r19) before first Mistral call.
-  Phase-21 r00–r09 unchanged. Grading/onset/physiology unauthorized until
-  subsequent decisions. STOP after K=20 population analysis before activations.
+  D141: Generation complete (phase22b_gen_20260929T025818Z_9e591156; 3710;
+  ~$3.90; 0 activations). Exact grader gpt-4o-2024-08-06 authorized. Onset/
+  physiology remain unauthorized. STOP after K=20 population before activations.

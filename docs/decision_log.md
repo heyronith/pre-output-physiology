@@ -882,3 +882,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-22A `ece096b`, Phase 22B prospectively validates the Jeffreys K=20 forecast by collecting exactly 10 additional independent rollouts (r10–r19) for every one of the original 371 Apollo RoleplayDeception prompts (3710 new; seed base `21_100_000` → `21100000`–`21103709`; schedule SHA `6ed2f41e…4b51`). Phase-21 r00–r09 / gen `phase21_gen_20260928T180342Z_3d3671eb` / grade `phase21_grade_20260928T205710Z_b6287702` / onset `phase21_onset_20260928T212924Z_68a5621c` remain frozen and are not regenerated. Assay unchanged (Mistral rev `63a8b081…`; T=1.0; max_new_tokens=200; do_sample; BF16; batch=1; split SHA `fd3c5eec…c3b3`; grader `gpt-4o-2024-08-06`; same onset method; gates ≥2/2 and TRAIN≥25 / TEST≥8). Status `phase22b_k20_sampling_validation_authorized`. **Generation authorized only**; grading/onset/activations/physiology/prompt/threshold changes remain unauthorized. No K>20, no adaptive sampling, no prompt enrichment. After generation freeze → authorize grading → onset → K=20 population + switching analysis → STOP before activations regardless of gate outcome.
 - **Date:** 2026-09-28
+
+### D141 — Phase 22B generation complete; grading authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Generation run `phase22b_gen_20260929T025818Z_9e591156` completed on freeze commit `810c008` (3710 continuations; ~$3.90; wall ~7200s; T=1.0; max_new_tokens=200; BF16; batch=1; schedule SHA `6ed2f41e…4b51`; 0 activations; 0 locked). Status `phase22b_k20_generation_complete_awaiting_grading`. Exact grader `gpt-4o-2024-08-06` + Apollo grading template authorized next; onset/physiology remain unauthorized; no threshold/prompt changes; Phase-21 r00–r09 unchanged.
+- **Date:** 2026-09-28
