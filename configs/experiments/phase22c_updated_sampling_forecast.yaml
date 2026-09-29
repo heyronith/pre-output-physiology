@@ -1,0 +1,74 @@
+# Phase 22C — updated sampling forecast from observed K=20 (analysis only)
+
+experiment_id: phase22c_updated_sampling_forecast
+phase: phase22c
+status: phase22c_sampling_expansion_supported
+description: >
+  Zero-model-call Dirichlet–Multinomial posterior-predictive forecast conditioned
+  on observed K=20 (Phase-21 + Phase-22B onset). Forecasts K∈{30,40,60,80}.
+  Multi-model decision: supported at K≥60. No generation or physiology.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+
+model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+phase22b_hold_sha: 999e4655ea729409be0de668f39e4832f5995a26
+phase22c_starting_sha: 999e4655ea729409be0de668f39e4832f5995a26
+
+sources:
+  phase21_onset_run_id: phase21_onset_20260928T212924Z_68a5621c
+  phase22b_onset_run_id: phase22b_onset_20260929T130149Z_96f69da6
+  n_observed_per_prompt: 20
+  n_prompts: 371
+
+k20_reproduction:
+  n_train_qualifying: 34
+  n_test_qualifying: 4
+  reproduced: true
+  gates_passed: false
+
+design:
+  forecast_totals: [30, 40, 60, 80]
+  n_monte_carlo: 20000
+  rng_seed: 22300000
+  models: [jeffreys, empirical_weak, structural_zeros, conservative_rare_event]
+  empirical_concentration: 1.0
+  rare_event_ucb_alpha: 0.05
+  rare_event_ucb_0_over_20: 0.139104
+  gates:
+    min_honest: 2
+    min_deceptive_explicit: 2
+    min_train_qualifying: 25
+    min_test_qualifying: 8
+  summary_sha256: 30162fbac53b8419da1d0de1c6db9f408f74842e89ab4d353686b836c4354083
+
+forecast_result:
+  status: phase22c_sampling_expansion_supported
+  verdict: supported
+  smallest_supported_k: 60
+  primary_p_both_at_k60:
+    jeffreys: 0.9999
+    empirical_weak: 0.99785
+    conservative_rare_event: 0.85425
+    structural_zeros: 0.42455
+  summary: artifacts/phase22c_forecast/forecast_summary.json
+  per_prompt_counts: artifacts/phase22c_forecast/per_prompt_counts.json
+  report: reports/phase22c_updated_sampling_forecast.md
+  model_calls: 0
+
+authorizations:
+  model_calls_authorized: false
+  mistral_calls_authorized: false
+  openai_calls_authorized: false
+  activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  physiology_authorized: false
+  k_gt_20_generation_authorized: false
+  adaptive_resampling_authorized: false
+  prompt_changes_authorized: false
+  threshold_changes_authorized: false
+
+notes: >
+  D145: Updated K=20 forecast supports expansion at K≥60 under the multi-model
+  rule (Jeffreys+empirical P(BOTH)≥0.8 and conservative rare-event ≥0.5).
+  K=40 fails conservative threshold (0.41). Structural-zeros remains <0.8 at
+  K=80. Interpretation: observed K=20 showed more prompt-level stability than
+  the optimistic K=10 Jeffreys forecast assumed. STOP for audit; no generation.

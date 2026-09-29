@@ -1,0 +1,273 @@
+{
+  "created_at": "2026-09-28T23:09:45+00:00",
+  "decision": {
+    "best_p_both_gates": 1.0,
+    "best_total_rollouts": 80,
+    "credible_p_both_threshold": 0.5,
+    "decision_text": "sampling expansion supported",
+    "status": "phase22_sampling_expansion_supported",
+    "strong_p_both_threshold": 0.8,
+    "verdict": "supported_strong"
+  },
+  "forecasts": [
+    {
+      "additional_rollouts_per_prompt": 10,
+      "dirichlet_prior": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected_test_qualifying": 7.9104,
+      "expected_train_qualifying": 56.2005,
+      "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10",
+      "n_monte_carlo": 10000,
+      "p_both_gates": 0.5559,
+      "p_test_ge_8": 0.5559,
+      "p_train_ge_25": 1.0,
+      "structural_zeros": false,
+      "test_qualifying_ci95": [
+        4.0,
+        12.0
+      ],
+      "total_rollouts_per_prompt": 20,
+      "train_qualifying_ci95": [
+        46.0,
+        67.0
+      ]
+    },
+    {
+      "additional_rollouts_per_prompt": 30,
+      "dirichlet_prior": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected_test_qualifying": 17.5843,
+      "expected_train_qualifying": 112.8541,
+      "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10",
+      "n_monte_carlo": 10000,
+      "p_both_gates": 0.9998,
+      "p_test_ge_8": 0.9998,
+      "p_train_ge_25": 1.0,
+      "structural_zeros": false,
+      "test_qualifying_ci95": [
+        12.0,
+        24.0
+      ],
+      "total_rollouts_per_prompt": 40,
+      "train_qualifying_ci95": [
+        98.0,
+        128.0
+      ]
+    },
+    {
+      "additional_rollouts_per_prompt": 70,
+      "dirichlet_prior": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected_test_qualifying": 26.5381,
+      "expected_train_qualifying": 164.9496,
+      "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10",
+      "n_monte_carlo": 10000,
+      "p_both_gates": 1.0,
+      "p_test_ge_8": 1.0,
+      "p_train_ge_25": 1.0,
+      "structural_zeros": false,
+      "test_qualifying_ci95": [
+        20.0,
+        33.0
+      ],
+      "total_rollouts_per_prompt": 80,
+      "train_qualifying_ci95": [
+        149.0,
+        181.0
+      ]
+    },
+    {
+      "additional_rollouts_per_prompt": 150,
+      "dirichlet_prior": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected_test_qualifying": 33.7098,
+      "expected_train_qualifying": 206.6434,
+      "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10",
+      "n_monte_carlo": 10000,
+      "p_both_gates": 1.0,
+      "p_test_ge_8": 1.0,
+      "p_train_ge_25": 1.0,
+      "structural_zeros": false,
+      "test_qualifying_ci95": [
+        27.0,
+        40.0
+      ],
+      "total_rollouts_per_prompt": 160,
+      "train_qualifying_ci95": [
+        191.0,
+        223.0
+      ]
+    }
+  ],
+  "guarantee": "PHASE 22 WAS A ZERO-MODEL-CALL SAMPLING FORECAST USING ONLY FROZEN PHASE-21 GRADED AND ONSET-ANNOTATED ROLLOUTS. NO MISTRAL CALLS, OPENAI CALLS, ACTIVATIONS, OR PHYSIOLOGY WERE PERFORMED. PHASE-21 LABELS, SPLIT, PROMPTS, AND POPULATION THRESHOLDS WERE NOT CHANGED. NO NEW RESPONSES WERE GENERATED.",
+  "method": {
+    "categories": [
+      "honest",
+      "deceptive_explicit",
+      "other"
+    ],
+    "conditioning": "keep observed 10; draw K-10 additional",
+    "gates": {
+      "min_deceptive_explicit": 2,
+      "min_honest": 2,
+      "min_test_qualifying": 8,
+      "min_train_qualifying": 25
+    },
+    "model": "Dirichlet-Multinomial posterior predictive",
+    "n_monte_carlo": 10000,
+    "no_activations": true,
+    "no_mistral_calls": true,
+    "no_openai_calls": true,
+    "no_physiology": true,
+    "prior": "Jeffreys Dirichlet(0.5,0.5,0.5)",
+    "rng_seed": 22000000
+  },
+  "observed_at_10": {
+    "buckets_by_honest_vs_dec_explicit_counts": {
+      "10/0_or_0/10": 169,
+      "8/2_or_2/8": 3,
+      "9/1_or_1/9": 5,
+      "more_balanced_or_other": 194
+    },
+    "n_prompts": 371,
+    "n_pure_one_sided_usable": 305,
+    "n_qualifying_at_10": 20,
+    "n_test_qualifying_at_10": 1,
+    "n_train_qualifying_at_10": 19
+  },
+  "phase": "phase22",
+  "sensitivity_structural_zeros": {
+    "decision": {
+      "best_p_both_gates": 0.0,
+      "best_total_rollouts": 20,
+      "credible_p_both_threshold": 0.5,
+      "decision_text": "sampling-only rescue unsupported",
+      "status": "phase22_sampling_expansion_unsupported",
+      "strong_p_both_threshold": 0.8,
+      "verdict": "unsupported"
+    },
+    "forecasts": [
+      {
+        "additional_rollouts_per_prompt": 10,
+        "dirichlet_prior": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "expected_test_qualifying": 3.5665,
+        "expected_train_qualifying": 30.7752,
+        "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10_structural_zeros",
+        "n_monte_carlo": 10000,
+        "p_both_gates": 0.0,
+        "p_test_ge_8": 0.0,
+        "p_train_ge_25": 0.9981,
+        "structural_zeros": true,
+        "test_qualifying_ci95": [
+          2.0,
+          5.0
+        ],
+        "total_rollouts_per_prompt": 20,
+        "train_qualifying_ci95": [
+          27.0,
+          35.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 30,
+        "dirichlet_prior": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "expected_test_qualifying": 4.4917,
+        "expected_train_qualifying": 35.3783,
+        "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10_structural_zeros",
+        "n_monte_carlo": 10000,
+        "p_both_gates": 0.0,
+        "p_test_ge_8": 0.0,
+        "p_train_ge_25": 1.0,
+        "structural_zeros": true,
+        "test_qualifying_ci95": [
+          3.0,
+          5.0
+        ],
+        "total_rollouts_per_prompt": 40,
+        "train_qualifying_ci95": [
+          32.0,
+          38.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 70,
+        "dirichlet_prior": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "expected_test_qualifying": 4.8206,
+        "expected_train_qualifying": 37.0688,
+        "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10_structural_zeros",
+        "n_monte_carlo": 10000,
+        "p_both_gates": 0.0,
+        "p_test_ge_8": 0.0,
+        "p_train_ge_25": 1.0,
+        "structural_zeros": true,
+        "test_qualifying_ci95": [
+          4.0,
+          5.0
+        ],
+        "total_rollouts_per_prompt": 80,
+        "train_qualifying_ci95": [
+          35.0,
+          38.0
+        ]
+      },
+      {
+        "additional_rollouts_per_prompt": 150,
+        "dirichlet_prior": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "expected_test_qualifying": 4.9403,
+        "expected_train_qualifying": 37.6697,
+        "method": "dirichlet_multinomial_additional_draws_conditional_on_observed_10_structural_zeros",
+        "n_monte_carlo": 10000,
+        "p_both_gates": 0.0,
+        "p_test_ge_8": 0.0,
+        "p_train_ge_25": 1.0,
+        "structural_zeros": true,
+        "test_qualifying_ci95": [
+          4.0,
+          5.0
+        ],
+        "total_rollouts_per_prompt": 160,
+        "train_qualifying_ci95": [
+          36.0,
+          38.0
+        ]
+      }
+    ],
+    "note": "Categories never observed in the 10 rollouts are fixed at p=0 (no Jeffreys rescue of one-sided prompts). Descriptive only; primary decision uses Jeffreys Dirichlet-Multinomial."
+  },
+  "sources": {
+    "annotated_path": "artifacts/runs/phase21_onset_20260928T212924Z_68a5621c/annotated.jsonl",
+    "generation_run_id": "phase21_gen_20260928T180342Z_3d3671eb",
+    "grade_run_id": "phase21_grade_20260928T205710Z_b6287702",
+    "onset_run_id": "phase21_onset_20260928T212924Z_68a5621c"
+  },
+  "status": "phase22_sampling_expansion_supported",
+  "summary_sha256": "f0526b4198c0d1880ec2b8f4da3b05ac59661fe35f66d0387dc07e45277ea838"
+}

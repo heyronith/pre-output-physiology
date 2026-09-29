@@ -1,0 +1,19 @@
+{
+  "activations_collected": false,
+  "batch_size": 1,
+  "created_at": "2026-09-29T02:58:19.007529+00:00",
+  "do_sample": true,
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 3.900077768991391,
+  "generation_schedule_sha256": "6ed2f41e0e3f78934a536a2862dec00800b4c42439bab754a8cd696374de4b51",
+  "git_commit": "810c00844b24b602eff38a33c3b4bec2d97ee24c",
+  "locked_model_calls": 0,
+  "max_new_tokens": 200,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_continuations": 3710,
+  "prompt_split_sha256": "fd3c5eecbc89681a665ef22bd989ea1ee88231bdf9ff45e262a0c313ac9ac3b3",
+  "run_id": "phase22b_gen_20260929T025818Z_9e591156",
+  "temperature": 1.0,
+  "wall_seconds": 7200.143573522568
+}
