@@ -41,7 +41,10 @@ def test_additional_schedule_disjoint() -> None:
     add = build_additional_schedule(prompts, split["split_by_prompt_id"])
     assert len(add) == N_ADDITIONAL == N_PROMPTS * 10
     assert {r["rollout_index"] for r in add} == set(range(10, 20))
-    assert all(r["continuation_id"].endswith(tuple(f"__r{i:02d}" for i in range(10, 20))) for r in add[:20])
+    assert all(
+        r["continuation_id"].endswith(tuple(f"__r{i:02d}" for i in range(10, 20)))
+        for r in add[:20]
+    )
 
     p21_seeds = {r["sample_seed"] for r in p21}
     add_seeds = {r["sample_seed"] for r in add}

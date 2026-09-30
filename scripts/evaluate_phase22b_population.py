@@ -82,7 +82,7 @@ def main() -> int:
         "",
         f"- Phase-21 onset: `{args.phase21_onset_run_id}`",
         f"- Phase-22B onset: `{args.phase22b_onset_run_id}`",
-        f"- Combined rollouts/prompt: 20",
+        "- Combined rollouts/prompt: 20",
         "",
         "## Population gates",
         "",

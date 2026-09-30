@@ -100,7 +100,7 @@ def test_deceptive_to_ambiguous_can_change_qualification() -> None:
 
 def test_exactly_two_honest_two_deceptive_qualifies() -> None:
     refs = ["honest"] * 2 + ["deceptive"] * 2 + ["ambiguous"] * 16
-    opens = list(zip(refs, [True] * 20))
+    opens = list(zip(refs, [True] * 20, strict=False))
     rows = _prompt_rows("e0", refs, opens)
     all_rows = list(rows)
     for i in range(1, 260):
@@ -118,7 +118,7 @@ def test_exactly_two_honest_two_deceptive_qualifies() -> None:
 
 def test_one_honest_two_deceptive_does_not_qualify() -> None:
     refs = ["honest"] * 1 + ["deceptive"] * 2 + ["ambiguous"] * 17
-    opens = list(zip(refs, [True] * 20))
+    opens = list(zip(refs, [True] * 20, strict=False))
     rows = _prompt_rows("n0", refs, opens)
     all_rows = list(rows)
     for i in range(1, 260):

@@ -51,11 +51,13 @@ MODEL_CACHE_DIR = "/vol/hf_cache"
 
 
 def _local_setup() -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    from pre_output_physiology.phase21_roleplay import TEMPERATURE, schedule_sha
     from pre_output_physiology.phase22b_sampling import (
         N_ADDITIONAL as N_TOTAL,
+    )
+    from pre_output_physiology.phase22b_sampling import (
         STATUS_AUTHORIZED,
     )
-    from pre_output_physiology.phase21_roleplay import TEMPERATURE, schedule_sha
 
     dirty = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "status", "--porcelain"], text=True

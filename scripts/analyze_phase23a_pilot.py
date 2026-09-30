@@ -153,11 +153,11 @@ def main() -> int:
         "",
         "## STOP audit fields",
         "",
-        f"- Design SHA: `40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff`",
-        f"- Grader split SHA: `6504b40b43153a7bd359c344efb6eee01afca887fe4978960d9d2e0d6fec3869`",
-        f"- Pilot IDs SHA: `6e412617f7a4e461500880f1420be1c05c8453b433a96ac3d55a9fccb8f02533`",
-        f"- Inference: T=0, do_sample=False, max_new_tokens=256, batch=4, "
-        f"engine=transformers_generate_temp0_batch4",
+        "- Design SHA: `40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff`",
+        "- Grader split SHA: `6504b40b43153a7bd359c344efb6eee01afca887fe4978960d9d2e0d6fec3869`",
+        "- Pilot IDs SHA: `6e412617f7a4e461500880f1420be1c05c8453b433a96ac3d55a9fccb8f02533`",
+        "- Inference: T=0, do_sample=False, max_new_tokens=256, batch=4, "
+        "engine=transformers_generate_temp0_batch4",
         f"- Estimated Modal cost (23A total): ~${total_cost:.3f}",
         "",
         "## Authorization state",
@@ -176,7 +176,12 @@ def main() -> int:
         "",
     ]
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(json.dumps({"status": STATUS_23A, "survivors": survivors, "report": str(REPORT)}, indent=2))
+    print(
+        json.dumps(
+            {"status": STATUS_23A, "survivors": survivors, "report": str(REPORT)},
+            indent=2,
+        )
+    )
     return 0
 
 

@@ -24,9 +24,15 @@ def test_split_sizes() -> None:
     split = grader_prompt_split(ids)
     assert split["n_development"] == N_DEV_PROMPTS
     assert split["n_locked_validation"] == N_LOCKED_PROMPTS
-    assert len(set(split["development_prompt_ids"]) & set(split["locked_validation_prompt_ids"])) == 0
+    intersect = set(split["development_prompt_ids"]) & set(
+        split["locked_validation_prompt_ids"]
+    )
+    assert len(intersect) == 0
     # Deterministic
-    assert split["grader_prompt_split_sha256"] == grader_prompt_split(ids)["grader_prompt_split_sha256"]
+    assert (
+        split["grader_prompt_split_sha256"]
+        == grader_prompt_split(ids)["grader_prompt_split_sha256"]
+    )
 
 
 def test_parse_json_grade() -> None:
