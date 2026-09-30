@@ -1,0 +1,75 @@
+{
+  "activation_auprc": 0.6741863374477526,
+  "activation_auroc": 0.4868548387096774,
+  "activation_cls": {
+    "brier": 0.3801203477342684,
+    "fn": 63,
+    "fp": 10,
+    "log_loss": 1.396208301433864,
+    "precision": 0.7872340425531915,
+    "prevalence_deceptive": 0.6172839506172839,
+    "recall": 0.37,
+    "sensitivity": 0.37,
+    "specificity": 0.8387096774193549,
+    "threshold": 0.5,
+    "tn": 52,
+    "tp": 37
+  },
+  "coordinate": {
+    "layer": 20,
+    "time": 1
+  },
+  "delta_auroc": 0.07919354838709669,
+  "delta_auroc_bootstrap": {
+    "ci95": [
+      -0.1133442475603493,
+      0.3102389342794961
+    ],
+    "mean": 0.07842621682320576,
+    "n_finite": 10000,
+    "n_reps": 10000
+  },
+  "frozen_C": {
+    "activation": 0.1,
+    "logits": 0.01,
+    "surface": 0.1,
+    "surface_plus_activation": 10.0,
+    "text": 0.01
+  },
+  "n_dev_riskset": 388,
+  "n_test_riskset": 162,
+  "primary_pass": false,
+  "status": "phase24f_locked_test_not_confirmed_primary_precursor_unsupported",
+  "surface_auprc": 0.7161967066713792,
+  "surface_auroc": 0.5095967741935484,
+  "surface_cls": {
+    "brier": 0.28285928455907267,
+    "fn": 70,
+    "fp": 3,
+    "log_loss": 0.7672850985662742,
+    "precision": 0.9090909090909091,
+    "prevalence_deceptive": 0.6172839506172839,
+    "recall": 0.3,
+    "sensitivity": 0.3,
+    "specificity": 0.9516129032258065,
+    "threshold": 0.5,
+    "tn": 59,
+    "tp": 30
+  },
+  "surface_plus_activation_auprc": 0.6996538690978062,
+  "surface_plus_activation_auroc": 0.5887903225806451,
+  "surface_plus_activation_cls": {
+    "brier": 0.2641020584800783,
+    "fn": 39,
+    "fp": 26,
+    "log_loss": 0.7479720617267154,
+    "precision": 0.7011494252873564,
+    "prevalence_deceptive": 0.6172839506172839,
+    "recall": 0.61,
+    "sensitivity": 0.61,
+    "specificity": 0.5806451612903226,
+    "threshold": 0.5,
+    "tn": 36,
+    "tp": 61
+  }
+}

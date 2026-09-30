@@ -1014,3 +1014,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-24D complete `cc1c011…`, Phase 24E ran the frozen 7×32 discovery grid on TRAIN+VALIDATION only (K=16; ambiguous excluded; Δh=h(t)−h(0); TEXT/LOGITS/SURFACE/ACTIVATION/SURFACE+ACTIVATION; C∈{0.01,0.1,1,10} via TRAIN prompt-group CV; prompt-equal×balanced weights; OOF stacking; 2000 prompt-cluster VAL bootstrap). Input 24C/24D hashes verified. LOCKED TEST never opened. Frozen candidate rule selected earliest qualifying time t=1, band L8–L23 (median ΔAUROC 0.114), layer L20 (ΔAUROC 0.148; SURFACE 0.644 / ACT 0.791 / COMB 0.791; bootstrap ΔAUROC CI95 [0.000, 0.363]). Status `phase24e_candidate_discovered_awaiting_locked_test_authorization`. Interpretation limited to additional linearly decodable VAL signal beyond surface baseline; no claim of hidden intent, causality, or TEST generalization. No SAE, causal intervention, or locked-TEST confirmatory analysis.
 - **Date:** 2026-09-30
+
+### D163 — Phase 24F locked-TEST confirmation
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-24E freeze `4bbc6c2…`, Phase 24F performed the single prospectively frozen confirmatory analysis on LOCKED TEST at t=1/L20 (DEVELOPMENT refit; frozen Cs; 10k prompt-cluster bootstrap). Primary criterion FAIL (ΔAUROC=0.0792; CI95=[-0.1133, 0.3102]). Status `phase24f_locked_test_not_confirmed_primary_precursor_unsupported`. No TEST layer/time search, hyperparameter retuning, SAE, or causal intervention.
+- **Date:** 2026-09-30

@@ -1,0 +1,11 @@
+{
+  "bootstrap_10000.json": "c98da349ae94fae8a67d8e2cd447cc8a94febc0a434e6e48b2f57a0af4b84aaf",
+  "confirmation_manifest.json": "ecdff516d288ec8399ac272445642cc5670a14372ab91a28144cbc95924f0328",
+  "hash_verification.json": "2a40e088fd03a3aba612c8da144ad30519e966579283696008cc0df1cf51304c",
+  "phase24f_locked_test_confirmation.md": "737a4045a92ec1e577bde33577a8ef75afc6e75d2516a2986ef815751d40df32",
+  "phase24f_locked_test_confirmation.yaml": "23eda4e1cc58269526a34cbd71c818139cde02a8cf158b931fc576c4b00ede1b",
+  "preprocessing_metadata.json": "365addb47daef94a055581824ef041eeba11f03d8ddfe1c7e9e928d2fc65741f",
+  "primary_metrics.json": "f23fe5c78d9df1f70a24e302ebc163b49cfa71a96179162aee3e766527a116f0",
+  "same_prompt_secondary.json": "9af25d357b9fdeb0bae95cf76ac88c80f4e479faa5a9f4d5318c57451a2695a8",
+  "test_behavioral_summary.json": "bfb34aff7dd314dd1308bf3533df21fb76347a4f507c972868a4d5724577c94d"
+}

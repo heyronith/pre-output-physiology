@@ -1,0 +1,26 @@
+# Phase 24F — locked TEST confirmation (single coordinate)
+
+experiment_id: phase24f_locked_test_confirmation
+phase: phase24f
+status: phase24f_locked_test_not_confirmed_primary_precursor_unsupported
+starting_sha: 4bbc6c28f53298cb3dbcd9b909c08b498e7414ea
+candidate_time: 1
+candidate_layer: 20
+primary_pass: false
+
+frozen_C:
+  text: 0.01
+  logits: 0.01
+  surface: 0.1
+  activation: 0.1
+  surface_plus_activation: 10.0
+
+authorizations:
+  locked_test_confirmation_authorized: true
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  test_layer_time_search_authorized: false
+
+notes: >
+  One prospectively frozen confirmatory evaluation on LOCKED TEST at t=1/L20.
+  No retuning, no alternate coordinates, no SAE/causal analyses.

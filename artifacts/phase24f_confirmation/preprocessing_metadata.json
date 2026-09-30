@@ -1,0 +1,18 @@
+{
+  "analysis_seed": 2406,
+  "candidate_layer": 20,
+  "candidate_time": 1,
+  "fit_split": "DEVELOPMENT=TRAIN+VALIDATION",
+  "frozen_C": {
+    "activation": 0.1,
+    "logits": 0.01,
+    "surface": 0.1,
+    "surface_plus_activation": 10.0,
+    "text": 0.01
+  },
+  "no_C_selection": true,
+  "no_coordinate_search": true,
+  "oof_stacking": true,
+  "test_excluded_from_fit": true,
+  "weighting": "class-balanced via prompt_equal_balanced_weights; sklearn class_weight=None"
+}
