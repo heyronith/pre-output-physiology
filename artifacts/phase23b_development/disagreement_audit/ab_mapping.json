@@ -1,0 +1,414 @@
+{
+  "roleplay_003__r02": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_009__r15": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_013__r01": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_013__r07": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_013__r13": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_013__r14": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_021__r17": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_023__r07": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_023__r10": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_023__r13": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_023__r16": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_023__r19": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_033__r03": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_040__r14": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_055__r02": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_059__r18": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_062__r11": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_075__r03": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_078__r01": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_078__r05": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_078__r10": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_078__r14": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_099__r03": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_099__r18": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_115__r19": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r01": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r06": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r07": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r12": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r13": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_119__r15": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_141__r01": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_141__r19": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_143__r01": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r04": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r05": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r07": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r09": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r12": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r13": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_143__r16": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_144__r01": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_152__r18": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_156__r08": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_158__r01": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_158__r07": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_158__r13": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_161__r02": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_163__r17": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_168__r04": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_178__r17": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_179__r03": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_189__r02": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_189__r05": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_189__r12": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_192__r00": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_198__r08": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_198__r09": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_200__r01": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_200__r04": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_200__r06": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_200__r08": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_200__r18": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_230__r11": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_230__r12": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_230__r14": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_234__r15": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_236__r12": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_238__r12": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_242__r16": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_242__r19": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r00": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_246__r03": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r04": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_246__r05": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r06": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r09": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_246__r10": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r11": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_246__r12": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_246__r13": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_246__r18": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_248__r06": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_248__r09": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_279__r11": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_295__r08": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_295__r10": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_295__r16": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_299__r00": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_308__r11": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_330__r00": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_331__r07": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_343__r13": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_361__r04": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_363__r14": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_364__r14": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_366__r00": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_366__r02": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_366__r07": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_370__r07": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_370__r08": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  },
+  "roleplay_370__r09": {
+    "grader_a": "gpt-4o-2024-08-06",
+    "grader_b": "gemma4_31b_it"
+  },
+  "roleplay_370__r14": {
+    "grader_a": "gemma4_31b_it",
+    "grader_b": "gpt-4o-2024-08-06"
+  }
+}

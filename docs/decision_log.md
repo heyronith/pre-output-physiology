@@ -936,3 +936,15 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** 23A 200-response pilot finished for all three frozen candidates on 1×A100-80GB. Results vs GPT-4o reference: (1) `gpt_oss_20b` eliminated — invalid structured-output rate 0.21 (Harmony `analysis` channel, no JSON within max_new_tokens=256) despite strong HD metrics on valid rows (bal-acc 0.97 / κ 0.95); (2) `qwen35_27b` survives — invalid 0, HD bal-acc 0.91 / κ 0.94 / H-sens 0.85 / D-sens 0.97 (~$0.52); (3) `gemma4_31b_it` survives — invalid 0, HD bal-acc 0.97 / κ 0.97 / H-sens 0.94 / D-sens 1.00 (~$0.43). Run IDs: `phase23a_pilot_gpt_oss_20b_20260929T194731Z_7e341a62`, `phase23a_pilot_qwen35_27b_20260929T212300Z_7e341a62`, `phase23a_pilot_gemma4_31b_it_20260929T213351Z_7e341a62`. Status `phase23a_pilot_complete_awaiting_audit`. **No winner selected.** Stage-2 DEVELOPMENT (~5200×survivors), locked validation, onset, and K>20 remain unauthorized pending audit.
 - **Date:** 2026-09-29
+
+### D150 — Phase 23B DEVELOPMENT grading authorized
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** After 23A audit at `b08c4b2`, authorize Modal GPU open-grader inference and Stage-2 DEVELOPMENT for `gemma4_31b_it` and `qwen35_27b` only (reuse frozen 200 pilot judgments; grade 5000 remainder). Commit `00131f4`. Locked validation, onset, Mistral, OpenAI, physiology, and K>20 remain unauthorized.
+- **Date:** 2026-09-29
+
+### D151 — Phase 23B DEVELOPMENT complete; Gemma proposed winner pending audit
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Full DEVELOPMENT (5200) grading complete for both survivors (Transformers T=0, A100-80GB, reuse pilot). `gemma4_31b_it` passes frozen numeric gates (κ 0.983, bal-acc 0.956, H-sens 0.934, D-sens 0.978; invalid 0; 11 DEV qualification-status changes; Jaccard 0.656; new cost ~$6.46) → proposed Stage-23C winner. `qwen35_27b` fails bal-acc 0.914 < 0.95 and honest sensitivity 0.873 < 0.90 (κ 0.978; 13 membership changes; ~$11.03). Status `phase23b_winner_selected_pending_audit`. Stage 23C / onset / K>20 remain unauthorized pending audit. Remainder runs: `phase23b_dev_remainder_gemma4_31b_it_20260930T031505Z_ff2d709d`, `phase23b_dev_remainder_qwen35_27b_20260930T050455Z_ff2d709d`.
+- **Date:** 2026-09-30

@@ -31,6 +31,12 @@ CONFIG_PATH = REPO_ROOT / "configs/experiments/phase23_open_grader_validation.ya
 DESIGN_PATH = REPO_ROOT / "artifacts/phase23_design/design_matrix.json"
 PILOT_PATH = REPO_ROOT / "data/processed/phase23_open_grader/pilot_200.jsonl"
 CORPUS_PATH = REPO_ROOT / "data/processed/phase23_open_grader/reference_corpus.jsonl"
+REMAINDER_PATH = (
+    REPO_ROOT / "data/processed/phase23_open_grader/development_remainder_5000.jsonl"
+)
+
+# Survivors eligible for Stage-2 DEVELOPMENT (gpt_oss eliminated at 23A).
+STAGE2_CANDIDATES = frozenset({"gemma4_31b_it", "qwen35_27b"})
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -98,6 +104,20 @@ def _load_corpus_rows(grader_split: str) -> list[dict[str, Any]]:
         if len(pilot) != 200:
             raise SystemExit(f"pilot has {len(pilot)} rows, expected 200")
         return pilot
+    if grader_split == "development_remainder":
+        if not REMAINDER_PATH.is_file():
+            raise SystemExit(
+                "missing development_remainder_5000.jsonl; "
+                "run scripts/prepare_phase23b_remainder.py"
+            )
+        rem = [
+            json.loads(x)
+            for x in REMAINDER_PATH.read_text(encoding="utf-8").splitlines()
+            if x.strip()
+        ]
+        if len(rem) != 5000:
+            raise SystemExit(f"remainder has {len(rem)} rows, expected 5000")
+        return rem
     filtered = [r for r in rows if r["grader_split"] == grader_split]
     if grader_split == "development" and len(filtered) != 5200:
         raise SystemExit(f"development has {len(filtered)} rows, expected 5200")
@@ -129,6 +149,14 @@ def _local_setup(
     ):
         if auth.get(key) is not False:
             raise SystemExit(f"{key} must be false")
+    if grader_split in ("development", "development_remainder"):
+        if auth.get("stage2_development_authorized") is not True:
+            raise SystemExit("stage2_development_authorized must be true")
+        if candidate not in STAGE2_CANDIDATES:
+            raise SystemExit(f"{candidate} not authorized for Stage-2 DEVELOPMENT")
+    if grader_split == "locked_validation":
+        if auth.get("stage3_locked_validation_authorized") is not True:
+            raise SystemExit("stage3_locked_validation_authorized must be true")
     if candidate not in CANDIDATES:
         raise SystemExit(f"unknown candidate {candidate}")
 
@@ -152,7 +180,7 @@ def _local_setup(
 
 @app.function(
     image=image,
-    timeout=60 * 60 * 10,
+    timeout=60 * 60 * 12,
     volumes={CACHE_DIR: model_volume},
     memory=131072,
     secrets=[modal.Secret.from_name("huggingface")],
@@ -287,33 +315,115 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
     }
 
 
+SHARD_SIZE = 250  # Local checkpoint cadence for long DEVELOPMENT remainder runs
+
+
+def _ckpt_dir(candidate: str, grader_split: str) -> Path:
+    return (
+        REPO_ROOT
+        / "artifacts/runs"
+        / f"phase23b_ckpt_{grader_split}_{candidate}"
+    )
+
+
+def _load_ckpt_rows(ckpt: Path) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    if not ckpt.is_dir():
+        return out
+    for path in sorted(ckpt.glob("shard_*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            out[row["continuation_id"]] = row
+    return out
+
+
 @app.local_entrypoint()
 def main(candidate: str, grader_split: str = "pilot") -> None:
     from pre_output_physiology.phase23_open_grader import CANDIDATES, CostReport
 
-    if grader_split not in ("pilot", "development", "locked_validation"):
-        raise SystemExit("grader_split must be pilot|development|locked_validation")
+    allowed = ("pilot", "development", "development_remainder", "locked_validation")
+    if grader_split not in allowed:
+        raise SystemExit(f"grader_split must be one of {allowed}")
     meta, rows = _local_setup(candidate, grader_split=grader_split)
     spec = CANDIDATES[candidate]
     gpu = spec["gpu"]
-    stage = {"pilot": "23A_pilot", "development": "23B_development", "locked_validation": "23C_locked"}[
-        grader_split
-    ]
+    stage = {
+        "pilot": "23A_pilot",
+        "development": "23B_development",
+        "development_remainder": "23B_development_remainder",
+        "locked_validation": "23C_locked",
+    }[grader_split]
     print(
         f"Phase-23 grade: stage={stage} candidate={candidate} gpu={gpu} n={len(rows)}",
         flush=True,
     )
 
     remote = grade_pilot_remote.with_options(gpu=gpu)
-    result = remote.remote(candidate, json.dumps(rows), gpu)
+    all_rows: list[dict[str, Any]] = []
+    wall_total = 0.0
+    n_in_total = 0
+    n_out_total = 0
+    model_id = spec["hf_id"]
+    revision = spec["revision"]
+    dtype = spec["dtype"]
+    engine = "transformers_generate_temp0_batch4"
+
+    if grader_split == "development_remainder":
+        # Shard + local checkpoint so Modal workspace blips don't lose progress.
+        ckpt = _ckpt_dir(candidate, grader_split)
+        ckpt.mkdir(parents=True, exist_ok=True)
+        done = _load_ckpt_rows(ckpt)
+        print(f"checkpoint resume: {len(done)}/{len(rows)} already done", flush=True)
+        pending = [r for r in rows if r["continuation_id"] not in done]
+        for i in range(0, len(pending), SHARD_SIZE):
+            shard = pending[i : i + SHARD_SIZE]
+            shard_idx = len(list(ckpt.glob("shard_*.jsonl")))
+            print(
+                f"grading shard {shard_idx} n={len(shard)} "
+                f"(remaining {len(pending) - i}/{len(pending)})",
+                flush=True,
+            )
+            result = remote.remote(candidate, json.dumps(shard), gpu)
+            wall_total += float(result["wall_seconds"])
+            n_in_total += int(result["n_input_tokens"])
+            n_out_total += int(result["n_output_tokens"])
+            model_id = result["model_id"]
+            revision = result["revision"]
+            dtype = result["dtype"]
+            engine = result.get("engine") or engine
+            shard_path = ckpt / f"shard_{shard_idx:04d}.jsonl"
+            with shard_path.open("w", encoding="utf-8") as f:
+                for row in result["rows"]:
+                    f.write(json.dumps(row, sort_keys=True) + "\n")
+                    done[row["continuation_id"]] = row
+            print(
+                f"checkpointed {shard_path.name}; total done {len(done)}/{len(rows)}",
+                flush=True,
+            )
+        missing = [r["continuation_id"] for r in rows if r["continuation_id"] not in done]
+        if missing:
+            raise SystemExit(f"STOP: missing {len(missing)} judgments after shards")
+        all_rows = [done[r["continuation_id"]] for r in rows]
+    else:
+        result = remote.remote(candidate, json.dumps(rows), gpu)
+        all_rows = result["rows"]
+        wall_total = float(result["wall_seconds"])
+        n_in_total = int(result["n_input_tokens"])
+        n_out_total = int(result["n_output_tokens"])
+        model_id = result["model_id"]
+        revision = result["revision"]
+        dtype = result["dtype"]
+        engine = result.get("engine") or engine
 
     cost = CostReport(
         gpu_type=gpu,
-        wall_seconds=float(result["wall_seconds"]),
+        wall_seconds=wall_total,
         usd_per_hour=float(spec["usd_per_hour"]),
-        n_responses=len(result["rows"]),
-        n_input_tokens=int(result["n_input_tokens"]),
-        n_output_tokens=int(result["n_output_tokens"]),
+        n_responses=len(all_rows),
+        n_input_tokens=n_in_total,
+        n_output_tokens=n_out_total,
     )
 
     ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
@@ -321,13 +431,14 @@ def main(candidate: str, grader_split: str = "pilot") -> None:
     prefix = {
         "pilot": "phase23a_pilot",
         "development": "phase23b_dev",
+        "development_remainder": "phase23b_dev_remainder",
         "locked_validation": "phase23c_locked",
     }[grader_split]
     run_id = f"{prefix}_{candidate}_{ts}_{short}"
     out_dir = REPO_ROOT / "artifacts/runs" / run_id
     out_dir.mkdir(parents=True, exist_ok=True)
     with (out_dir / "judgments.jsonl").open("w", encoding="utf-8") as f:
-        for row in result["rows"]:
+        for row in all_rows:
             f.write(json.dumps(row, sort_keys=True) + "\n")
     manifest = {
         "run_id": run_id,
@@ -336,15 +447,15 @@ def main(candidate: str, grader_split: str = "pilot") -> None:
         "created_at": datetime.now(UTC).isoformat(),
         "git_commit": meta["git_commit"],
         "candidate": candidate,
-        "hf_id": result["model_id"],
-        "revision": result["revision"],
-        "dtype": result["dtype"],
-        "engine": result.get("engine"),
+        "hf_id": model_id,
+        "revision": revision,
+        "dtype": dtype,
+        "engine": engine,
         "design_sha256": meta["design_sha256"],
         "grader_prompt_split_sha256": meta["grader_prompt_split_sha256"],
         "pilot_ids_sha256": meta["pilot_ids_sha256"],
-        "n": len(result["rows"]),
-        "n_valid": sum(1 for r in result["rows"] if r["open_valid"]),
+        "n": len(all_rows),
+        "n_valid": sum(1 for r in all_rows if r["open_valid"]),
         "cost": cost.as_dict(),
         "inference": {
             "temperature": 0.0,
@@ -352,7 +463,8 @@ def main(candidate: str, grader_split: str = "pilot") -> None:
             "max_new_tokens": 256,
             "max_model_len": 8192,
             "batch_size": 4,
-            "engine": result.get("engine"),
+            "engine": engine,
+            "shard_size": SHARD_SIZE if grader_split == "development_remainder" else None,
         },
     }
     (out_dir / "manifest.json").write_text(

@@ -2,11 +2,11 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23b_development_authorized
+status: phase23b_winner_selected_pending_audit
 description: >
-  Phase 23B DEVELOPMENT grading authorized for pilot survivors gemma4_31b_it and
-  qwen35_27b only (~5000 new judgments each + reuse frozen 200 pilot). Locked
-  validation, onset, Mistral generation, OpenAI API, physiology, and K>20 remain
+  Phase 23B DEVELOPMENT complete. Proposed Stage-23C winner (pending audit):
+  gemma4_31b_it. Qwen failed honest sensitivity / balanced accuracy gates.
+  Locked validation, onset, Mistral, OpenAI, physiology, and K>20 remain
   unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
@@ -14,6 +14,7 @@ phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
 phase23_starting_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
 phase23a_pilot_run_commit: f8517418a81f0584ffdddbe4e464cedd47ae93e9
 phase23a_freeze_commit: b08c4b2ca2e4ade430bce0e96e768d98260f7e8d
+phase23b_authorization_commit: 00131f41670c52a202c3ac70ad940e40162e4b38
 
 sources:
   phase21_onset_run_id: phase21_onset_20260928T212924Z_68a5621c
@@ -43,13 +44,12 @@ design:
     gpt_oss_20b:
       hf_id: openai/gpt-oss-20b
       revision: 6cee5e81ee83917806bbde320786a8fb61efebee
-      gpu: A100-80GB
-      gpu_note: L40S OOM on MXFP4->BF16 dequant without Triton>=3.4 kernels; escalated to A100-80GB
       eliminated_at: phase23a
     qwen35_27b:
       hf_id: Qwen/Qwen3.5-27B
       revision: fc05daec18b0a78c049392ed2e771dde82bdf654
       gpu: A100-80GB
+      eliminated_at: phase23b
     gemma4_31b_it:
       hf_id: google/gemma-4-31B-it
       revision: 842da3794eaa0b77d5f08bae87a17459d91ff475
@@ -57,24 +57,24 @@ design:
 
 phase23a_pilot:
   freeze_artifact: artifacts/phase23a_pilot/freeze.json
-  status: phase23a_pilot_complete_awaiting_audit
   survivors_pilot_only:
     - gemma4_31b_it
     - qwen35_27b
   eliminated:
     - gpt_oss_20b
-  stage2_winner_selected: false
-  modal_cost_usd_approx: 1.46
-  run_ids:
-    gemma4_31b_it: phase23a_pilot_gemma4_31b_it_20260929T213351Z_7e341a62
-    qwen35_27b: phase23a_pilot_qwen35_27b_20260929T212300Z_7e341a62
-    gpt_oss_20b: phase23a_pilot_gpt_oss_20b_20260929T194731Z_7e341a62
-  pilot_judgment_sha256:
-    gemma4_31b_it: d9794d0268237ae6721554c6959e2b0a1c179784585e1f8f13de1f6c3f9c79f0
-    qwen35_27b: 7cdea08e3b65132eb7debd1dfbde2498afe780ec975cc8ef30a55478ed9c52b1
+
+phase23b_development:
+  freeze_artifact: artifacts/phase23b_development/freeze.json
+  status: phase23b_winner_selected_pending_audit
+  proposed_winner: gemma4_31b_it
+  stage2_winner_selected: true
+  stage3_locked_validation_authorized: false
+  remainder_run_ids:
+    gemma4_31b_it: phase23b_dev_remainder_gemma4_31b_it_20260930T031505Z_ff2d709d
+    qwen35_27b: phase23b_dev_remainder_qwen35_27b_20260930T050455Z_ff2d709d
 
 authorizations:
-  modal_gpu_open_grader_inference_authorized: true
+  modal_gpu_open_grader_inference_authorized: false
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -84,12 +84,14 @@ authorizations:
   k_gt_20_generation_authorized: false
   prompt_changes_authorized: false
   population_threshold_changes_authorized: false
-  stage2_development_authorized: true
+  stage2_development_authorized: false
   stage3_locked_validation_authorized: false
   stage4_onset_validation_authorized: false
 
 notes: >
-  D150: Phase 23B DEVELOPMENT grading authorized for gemma4_31b_it and qwen35_27b
-  only. Reuse frozen 200 pilot judgments; grade ~5000 remaining DEVELOPMENT
-  responses. Locked validation / onset / Mistral / OpenAI / physiology / K>20
-  remain unauthorized. STOP after 23B for audit before Stage 23C.
+  D151: Phase 23B DEVELOPMENT complete. gemma4_31b_it is the sole numeric-gate
+  passer (κ 0.983, bal-acc 0.956, H-sens 0.934, D-sens 0.978) and proposed
+  Stage-23C winner pending audit. qwen35_27b fails bal-acc 0.914 < 0.95 and
+  honest sensitivity 0.873 < 0.90. Population membership changes: Gemma 11 /
+  Qwen 13 DEVELOPMENT prompts (descriptive; no post-hoc numeric threshold).
+  Stage 23C / onset / K>20 remain unauthorized.

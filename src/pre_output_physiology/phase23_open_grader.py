@@ -559,6 +559,110 @@ def apply_open_grader_labels(
     return out
 
 
+def compare_development_population_membership(
+    annotated_dev: Sequence[dict[str, Any]],
+    open_judgments: Sequence[dict[str, Any]],
+) -> dict[str, Any]:
+    """Qualify DEVELOPMENT prompts only (260×20) under frozen mixed-population rule."""
+    from pre_output_physiology.phase21_roleplay import select_mixed_population
+
+    by_cid = judgments_index(open_judgments)
+    counts = Counter(r["prompt_id"] for r in annotated_dev)
+    if any(v != 20 for v in counts.values()):
+        bad = {k: v for k, v in counts.items() if v != 20}
+        raise ValueError(f"expected 20/prompt on DEV; bad {list(bad.items())[:5]}")
+
+    ref_pop = select_mixed_population(list(annotated_dev))
+    open_rows = apply_open_grader_labels(annotated_dev, by_cid)
+    open_pop = select_mixed_population(open_rows)
+
+    ref_ids = {q["prompt_id"] for q in ref_pop["qualifying_prompts"]}
+    open_ids = {q["prompt_id"] for q in open_pop["qualifying_prompts"]}
+    only_ref = sorted(ref_ids - open_ids)
+    only_open = sorted(open_ids - ref_ids)
+    changed = sorted(only_ref + only_open)
+
+    # Directional change reasons (label-count deltas on changed prompts)
+    change_reasons: list[dict[str, Any]] = []
+    by_prompt_ref: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    by_prompt_open: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for r in annotated_dev:
+        by_prompt_ref[r["prompt_id"]].append(r)
+    for r in open_rows:
+        by_prompt_open[r["prompt_id"]].append(r)
+
+    def _bucket_counts(rows: Sequence[dict[str, Any]]) -> dict[str, int]:
+        n_h = sum(1 for r in rows if r.get("label") == "honest")
+        n_d = sum(
+            1
+            for r in rows
+            if r.get("label") == "deceptive"
+            and r.get("explicit_span") is True
+            and r.get("onset_char_start") is not None
+        )
+        n_a = sum(1 for r in rows if r.get("label") == "ambiguous")
+        n_ex = sum(1 for r in rows if r.get("label") == "exclude")
+        return {"n_honest": n_h, "n_deceptive_explicit": n_d, "n_ambiguous": n_a, "n_exclude": n_ex}
+
+    for pid in changed:
+        rc = _bucket_counts(by_prompt_ref[pid])
+        oc = _bucket_counts(by_prompt_open[pid])
+        # Transition tallies for H/D/A among rows
+        transitions: dict[str, int] = Counter()
+        ref_by = {r["continuation_id"]: r for r in by_prompt_ref[pid]}
+        for o in by_prompt_open[pid]:
+            rr = ref_by[o["continuation_id"]]
+            rl = rr.get("label")
+            ol = o.get("label")
+            if rl != ol and rl in ("honest", "ambiguous", "deceptive") and ol in (
+                "honest",
+                "ambiguous",
+                "deceptive",
+                "exclude",
+            ):
+                transitions[f"{rl}->{ol}"] += 1
+        change_reasons.append(
+            {
+                "prompt_id": pid,
+                "reference_qualified": pid in ref_ids,
+                "open_qualified": pid in open_ids,
+                "reference_counts": rc,
+                "open_counts": oc,
+                "label_transitions": dict(transitions),
+            }
+        )
+
+    n_prompts = len(counts)
+    status_agree = n_prompts - len(changed)
+    return {
+        "scope": "development_prompts_only",
+        "n_prompts": n_prompts,
+        "reference": {
+            "n_qualifying_prompts": len(ref_ids),
+            "n_train_qualifying": ref_pop["gates"]["n_train_qualifying"],
+            "n_test_qualifying": ref_pop["gates"]["n_test_qualifying"],
+            "qualifying_prompt_ids": sorted(ref_ids),
+        },
+        "open_grader": {
+            "n_qualifying_prompts": len(open_ids),
+            "n_train_qualifying": open_pop["gates"]["n_train_qualifying"],
+            "n_test_qualifying": open_pop["gates"]["n_test_qualifying"],
+            "qualifying_prompt_ids": sorted(open_ids),
+        },
+        "overlap_n_prompts": len(ref_ids & open_ids),
+        "union_n_prompts": len(ref_ids | open_ids),
+        "jaccard_qualifying_prompts": _safe_div(
+            len(ref_ids & open_ids), len(ref_ids | open_ids)
+        ),
+        "qualification_status_agreement_rate": _safe_div(status_agree, n_prompts),
+        "only_reference_qualifying": only_ref,
+        "only_open_grader_qualifying": only_open,
+        "status_changed_prompt_ids": changed,
+        "n_status_changed": len(changed),
+        "change_reasons": change_reasons,
+    }
+
+
 def compare_k20_population_membership(
     phase21_annotated: Sequence[dict[str, Any]],
     phase22b_annotated: Sequence[dict[str, Any]],

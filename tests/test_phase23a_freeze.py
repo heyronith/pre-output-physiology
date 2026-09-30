@@ -31,7 +31,7 @@ def test_phase23a_freeze_present() -> None:
 
 def test_phase23a_config_authorizations_false() -> None:
     text = CFG.read_text(encoding="utf-8")
-    assert "status: phase23a_pilot_complete_awaiting_audit" in text
+    # Status advances after each freeze; authorizations must stay false after freeze commits.
     assert "modal_gpu_open_grader_inference_authorized: false" in text
     assert "stage2_development_authorized: false" in text
     assert "stage3_locked_validation_authorized: false" in text
@@ -40,3 +40,15 @@ def test_phase23a_config_authorizations_false() -> None:
     assert "physiology_authorized: false" in text
     assert "mistral_roleplay_generation_authorized: false" in text
     assert "openai_grading_api_authorized: false" in text
+
+
+def test_phase23b_freeze_if_present() -> None:
+    freeze = REPO / "artifacts/phase23b_development/freeze.json"
+    if not freeze.is_file():
+        return
+    data = json.loads(freeze.read_text(encoding="utf-8"))
+    assert data["status"] == "phase23b_winner_selected_pending_audit"
+    assert data["winner"] == "gemma4_31b_it"
+    assert data["authorizations_after_freeze"]["stage3_locked_validation_authorized"] is False
+    for v in data["authorizations_after_freeze"].values():
+        assert v is False

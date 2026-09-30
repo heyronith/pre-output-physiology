@@ -1,0 +1,11 @@
+{
+  "bucket_sizes": {
+    "ambiguous_disagreement": 688,
+    "qualification_changing": 74,
+    "ref_dec_open_honest": 10,
+    "ref_honest_open_dec": 20
+  },
+  "candidate": "gemma4_31b_it",
+  "n": 103,
+  "note": "A/B identities blinded in blinded_items.jsonl; mapping separate."
+}
