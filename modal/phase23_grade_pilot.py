@@ -37,6 +37,8 @@ REMAINDER_PATH = (
 
 # Survivors eligible for Stage-2 DEVELOPMENT (gpt_oss eliminated at 23A).
 STAGE2_CANDIDATES = frozenset({"gemma4_31b_it", "qwen35_27b"})
+# Stage-23C locked validation: sole frozen DEVELOPMENT numeric-gate passer.
+STAGE3_CANDIDATE = "gemma4_31b_it"
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -157,6 +159,10 @@ def _local_setup(
     if grader_split == "locked_validation":
         if auth.get("stage3_locked_validation_authorized") is not True:
             raise SystemExit("stage3_locked_validation_authorized must be true")
+        if candidate != STAGE3_CANDIDATE:
+            raise SystemExit(
+                f"Stage-23C locked validation requires {STAGE3_CANDIDATE}, got {candidate}"
+            )
     if candidate not in CANDIDATES:
         raise SystemExit(f"unknown candidate {candidate}")
 
@@ -189,7 +195,7 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
     import os
 
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+    from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
     from pre_output_physiology.phase23_open_grader import (
         CANDIDATES,
@@ -315,15 +321,15 @@ def grade_pilot_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, An
     }
 
 
-SHARD_SIZE = 250  # Local checkpoint cadence for long DEVELOPMENT remainder runs
+SHARD_SIZE = 250  # Local checkpoint cadence for long DEVELOPMENT/LOCKED runs
 
 
 def _ckpt_dir(candidate: str, grader_split: str) -> Path:
-    return (
-        REPO_ROOT
-        / "artifacts/runs"
-        / f"phase23b_ckpt_{grader_split}_{candidate}"
-    )
+    prefix = {
+        "development_remainder": "phase23b_ckpt",
+        "locked_validation": "phase23c_ckpt",
+    }.get(grader_split, "phase23_ckpt")
+    return REPO_ROOT / "artifacts/runs" / f"{prefix}_{grader_split}_{candidate}"
 
 
 def _load_ckpt_rows(ckpt: Path) -> dict[str, dict[str, Any]]:
@@ -370,8 +376,9 @@ def main(candidate: str, grader_split: str = "pilot") -> None:
     dtype = spec["dtype"]
     engine = "transformers_generate_temp0_batch4"
 
-    if grader_split == "development_remainder":
+    if grader_split in ("development_remainder", "locked_validation"):
         # Shard + local checkpoint so Modal workspace blips don't lose progress.
+        # Mechanical reliability only — does not alter per-example decoding.
         ckpt = _ckpt_dir(candidate, grader_split)
         ckpt.mkdir(parents=True, exist_ok=True)
         done = _load_ckpt_rows(ckpt)
@@ -464,7 +471,11 @@ def main(candidate: str, grader_split: str = "pilot") -> None:
             "max_model_len": 8192,
             "batch_size": 4,
             "engine": engine,
-            "shard_size": SHARD_SIZE if grader_split == "development_remainder" else None,
+            "shard_size": (
+                SHARD_SIZE
+                if grader_split in ("development_remainder", "locked_validation")
+                else None
+            ),
         },
     }
     (out_dir / "manifest.json").write_text(

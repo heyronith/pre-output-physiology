@@ -104,6 +104,7 @@ STATUS_DESIGN = "phase23_open_grader_design_frozen"
 STATUS_23A = "phase23a_pilot_complete_awaiting_audit"
 STATUS_23B = "phase23b_development_complete_winner_frozen"
 STATUS_23B_POSTAUDIT = "phase23b_postaudit_fixes_complete_awaiting_authorization"
+STATUS_23C_AUTHORIZED = "phase23c_locked_validation_authorized"
 STATUS_23C_PASS = "phase23_open_grader_labeling_validated_pending_onset_validation"
 STATUS_23C_FAIL = "phase23_open_grader_not_validated"
 STATUS_23D_PASS = "phase23_open_grader_fully_validated_awaiting_k60_auth"
@@ -691,7 +692,13 @@ def compare_development_population_membership_label_only(
             "onset_required": False,
             "invalid_open_treated_as": "exclude",
         },
-        "scope": "development_prompts_only",
+        "scope": (
+            "locked_validation_prompts_only"
+            if expected_n_prompts == N_LOCKED_PROMPTS
+            else "development_prompts_only"
+            if expected_n_prompts == N_DEV_PROMPTS
+            else f"{expected_n_prompts}_prompts"
+        ),
         "n_prompts": n_prompts,
         "n_responses": n_prompts * responses_per_prompt,
         "reference": {
@@ -721,6 +728,8 @@ def compare_development_population_membership_label_only(
 def compare_development_population_membership(
     annotated_dev: Sequence[dict[str, Any]],
     open_judgments: Sequence[dict[str, Any]],
+    *,
+    expected_n_prompts: int = N_DEV_PROMPTS,
 ) -> dict[str, Any]:
     """Sensitivity analysis: open labels + frozen GPT-4o onset metadata (hybrid).
 
@@ -733,11 +742,13 @@ def compare_development_population_membership(
 
     by_cid = judgments_index(open_judgments)
     counts = Counter(r["prompt_id"] for r in annotated_dev)
-    if len(counts) != N_DEV_PROMPTS:
-        raise ValueError(f"expected {N_DEV_PROMPTS} DEV prompts, got {len(counts)}")
+    if len(counts) != expected_n_prompts:
+        raise ValueError(
+            f"expected {expected_n_prompts} prompts, got {len(counts)}"
+        )
     if any(v != 20 for v in counts.values()):
         bad = {k: v for k, v in counts.items() if v != 20}
-        raise ValueError(f"expected 20/prompt on DEV; bad {list(bad.items())[:5]}")
+        raise ValueError(f"expected 20/prompt; bad {list(bad.items())[:5]}")
 
     ref_pop = select_mixed_population(list(annotated_dev))
     open_rows = apply_open_grader_labels(annotated_dev, by_cid)
@@ -812,7 +823,13 @@ def compare_development_population_membership(
             "This analysis is not a fully open-grader-defined population and is "
             "retained only as a sensitivity analysis."
         ),
-        "scope": "development_prompts_only",
+        "scope": (
+            "locked_validation_prompts_only"
+            if expected_n_prompts == N_LOCKED_PROMPTS
+            else "development_prompts_only"
+            if expected_n_prompts == N_DEV_PROMPTS
+            else f"{expected_n_prompts}_prompts"
+        ),
         "n_prompts": n_prompts,
         "reference": {
             "n_qualifying_prompts": len(ref_ids),

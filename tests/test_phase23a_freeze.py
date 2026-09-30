@@ -31,6 +31,18 @@ def test_phase23a_freeze_present() -> None:
 
 def test_phase23a_config_authorizations_false() -> None:
     text = CFG.read_text(encoding="utf-8")
+    cfg = __import__("yaml").safe_load(text)
+    status = cfg.get("status", "")
+    # During Stage-23C authorization only modal + stage3 may be true.
+    if status == "phase23c_locked_validation_authorized":
+        assert cfg["authorizations"]["stage3_locked_validation_authorized"] is True
+        assert cfg["authorizations"]["modal_gpu_open_grader_inference_authorized"] is True
+        assert cfg["authorizations"]["stage4_onset_validation_authorized"] is False
+        assert cfg["authorizations"]["k_gt_20_generation_authorized"] is False
+        assert cfg["authorizations"]["physiology_authorized"] is False
+        assert cfg["authorizations"]["mistral_roleplay_generation_authorized"] is False
+        assert cfg["authorizations"]["openai_grading_api_authorized"] is False
+        return
     # Status advances after each freeze; authorizations must stay false after freeze commits.
     assert "modal_gpu_open_grader_inference_authorized: false" in text
     assert "stage2_development_authorized: false" in text

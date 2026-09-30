@@ -2,12 +2,12 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23b_population_reanalysis_pending_audit
+status: phase23c_locked_validation_authorized
 description: >
-  Phase 23B DEVELOPMENT complete with population reanalysis. Primary population
-  equivalence is label-only (≥2 honest + ≥2 deceptive, no onset). Onset-gated
-  hybrid analysis retained as sensitivity only. Proposed winner gemma4_31b_it
-  pending audit. Stage 23C unauthorized.
+  Phase 23C LOCKED validation authorized for frozen DEVELOPMENT winner
+  gemma4_31b_it only (111 prompts × 20 = 2220 responses). Confirmatory test
+  under frozen Phase-23 contract. No threshold/prompt/revision changes.
+  Stage 23D, K>20, physiology remain unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
@@ -15,6 +15,7 @@ phase23_starting_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
 phase23a_pilot_run_commit: f8517418a81f0584ffdddbe4e464cedd47ae93e9
 phase23a_freeze_commit: b08c4b2ca2e4ade430bce0e96e768d98260f7e8d
 phase23b_authorization_commit: 00131f41670c52a202c3ac70ad940e40162e4b38
+phase23b_postaudit_commit: 9eecf49529c4a917405fddb37043c2cc32ceaefa
 
 sources:
   phase21_onset_run_id: phase21_onset_20260928T212924Z_68a5621c
@@ -69,15 +70,23 @@ phase23b_development:
   proposed_winner: gemma4_31b_it
   stage2_winner_selected: true
   stage3_scientifically_eligible: true
-  stage3_locked_validation_authorized: false
+  stage3_locked_validation_authorized: true
   population_metric_primary: label_only_mixed_behavior_population
   population_metric_secondary: reference_onset_gated_sensitivity_analysis
   remainder_run_ids:
     gemma4_31b_it: phase23b_dev_remainder_gemma4_31b_it_20260930T031505Z_ff2d709d
     qwen35_27b: phase23b_dev_remainder_qwen35_27b_20260930T050455Z_ff2d709d
 
+phase23c_locked:
+  candidate: gemma4_31b_it
+  n_locked_prompts: 111
+  n_locked_responses: 2220
+  stage3_scientifically_eligible: true
+  stage3_locked_validation_authorized: true
+  stage4_onset_validation_authorized: false
+
 authorizations:
-  modal_gpu_open_grader_inference_authorized: false
+  modal_gpu_open_grader_inference_authorized: true
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -88,12 +97,10 @@ authorizations:
   prompt_changes_authorized: false
   population_threshold_changes_authorized: false
   stage2_development_authorized: false
-  stage3_locked_validation_authorized: false
+  stage3_locked_validation_authorized: true
   stage4_onset_validation_authorized: false
 
 notes: >
-  D153: Phase 23B post-audit fixes. Label-only population is canonical primary;
-  onset-gated hybrid is sensitivity-only. Disagreement audit regenerated with
-  symmetric blinded schemas (explanation omitted both sides). Winner selection
-  unchanged (Gemma sole numeric-gate passer). Stage 23C scientifically eligible
-  but explicitly unauthorized. No model calls.
+  D154: Phase 23C locked validation authorized by PI for gemma4_31b_it only.
+  Frozen 111-prompt / 2220-response LOCKED split. Confirmatory; no tuning.
+  Stage 23D / K>20 / physiology remain unauthorized.
