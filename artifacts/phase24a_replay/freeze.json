@@ -1,0 +1,71 @@
+{
+  "attn_implementation": "sdpa",
+  "authorizations_after": {
+    "k20_activation_extraction_authorized": false,
+    "k_gt_20_generation_authorized": false,
+    "modal_gpu_mistral_replay_pilot_authorized": false,
+    "physiology_authorized": false,
+    "probe_fitting_authorized": false,
+    "sae_analysis_authorized": false
+  },
+  "cosine": {
+    "max": 1.0000000000000002,
+    "mean": 0.9999347410024718,
+    "median": 0.999941415686898,
+    "min": 0.9982704659727146,
+    "n": 29248.0,
+    "p01": 0.9997981653259832,
+    "p99": 0.9999943468310997
+  },
+  "gates": {
+    "gates": [
+      {
+        "metric": "median_cosine",
+        "observed": 0.999941415686898,
+        "pass": false,
+        "threshold": 0.99999
+      },
+      {
+        "metric": "p01_cosine",
+        "observed": 0.9997981653259832,
+        "pass": false,
+        "threshold": 0.9999
+      },
+      {
+        "metric": "median_rel_l2",
+        "observed": 0.010876166587771956,
+        "pass": false,
+        "threshold": 0.001
+      },
+      {
+        "metric": "p99_rel_l2",
+        "observed": 0.020251422240864327,
+        "pass": false,
+        "threshold": 0.01
+      }
+    ],
+    "passed": false,
+    "thresholds": {
+      "max_median_rel_l2": 0.001,
+      "max_p99_rel_l2": 0.01,
+      "min_median_cosine": 0.99999,
+      "min_p01_cosine": 0.9999
+    }
+  },
+  "git_commit": "3c9cb26f81dfadb7544b59db9a430ec05dda459c",
+  "live_activations_sha256": "0f8028711e36a6b6ecd879fe8f5ca519a8619f5017bb6bfbb66fbca571412800",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "pilot_prompt_ids_sha256": "a814fad9f5e9e9bacd9c7d1d0a6c8a45107a969b7682d6f901b690d4928d951a",
+  "relative_l2": {
+    "max": 0.05898065393967131,
+    "mean": 0.010941144406832588,
+    "median": 0.010876166587771956,
+    "min": 0.0,
+    "n": 29248.0,
+    "p01": 0.0033881550394084855,
+    "p99": 0.020251422240864327
+  },
+  "replay_activations_sha256": "490bf826a774cf2864535c028fb26750c491f05fd650aec72d9d7fb7bf5af405",
+  "run_id": "phase24a_replay_20260930T170222Z_965d18e7",
+  "status": "phase24a_replay_equivalence_failed_live_recording_required"
+}

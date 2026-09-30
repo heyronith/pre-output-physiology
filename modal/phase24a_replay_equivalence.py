@@ -28,6 +28,11 @@ CONTRACT_PATH = REPO_ROOT / "artifacts/phase24a_replay/contract.json"
 OUT_ROOT = REPO_ROOT / "artifacts/phase24a_replay"
 
 L40S_USD_PER_HOUR = 1.95
+A100_80GB_USD_PER_HOUR = 2.50
+GPU_TYPE = "A100-80GB"
+GPU_USD_PER_HOUR = A100_80GB_USD_PER_HOUR
+# Live vs replay compared on the same GPU; A100 used because L40S was capacity-queued.
+# K=20 generation historically used L40S; this pilot does not regenerate K=20.
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -98,7 +103,7 @@ def _local_setup() -> tuple[dict[str, Any], list[dict[str, Any]]]:
 
 @app.function(
     image=image,
-    gpu="L40S",
+    gpu="A100-80GB",
     timeout=60 * 60 * 3,
     volumes={MODEL_CACHE_DIR: model_volume},
     memory=65536,
@@ -358,6 +363,7 @@ def live_and_replay(payload_json: str) -> dict[str, Any]:
         )
     np.savez_compressed(live_path, **live_kw)
     np.savez_compressed(replay_path, **replay_kw)
+    model_volume.commit()
 
     return {
         "wall_seconds": time.time() - t0,
@@ -437,7 +443,7 @@ def main() -> None:
         result["top1_agree"] / result["top1_n"] if result["top1_n"] else float("nan")
     )
 
-    cost_usd = float(result["wall_seconds"]) / 3600.0 * L40S_USD_PER_HOUR
+    cost_usd = float(result["wall_seconds"]) / 3600.0 * GPU_USD_PER_HOUR
     summary = {
         "created_at": utc_now_iso(),
         "status": status,
@@ -471,7 +477,11 @@ def main() -> None:
         "pilot_prompt_ids_sha256": meta["pilot"]["prompt_ids_sha256"],
         "wall_seconds": result["wall_seconds"],
         "estimated_cost_usd": cost_usd,
-        "gpu": "L40S",
+        "gpu": GPU_TYPE,
+        "gpu_note": (
+            "A100-80GB used for live↔replay same-device comparison after L40S "
+            "capacity queue; does not regenerate historical K=20 corpus"
+        ),
         "guarantee": GUARANTEE,
         "authorizations_after": {
             "modal_gpu_mistral_replay_pilot_authorized": False,

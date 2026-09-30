@@ -2,7 +2,7 @@
 
 experiment_id: phase24a_replay_equivalence
 phase: phase24a
-status: phase24a_replay_equivalence_authorized
+status: phase24a_replay_equivalence_failed_live_recording_required
 description: >
   Instrumentation validation: do teacher-forced replay activations match live
   cached autoregressive activations under the frozen K=20 Mistral contract?
@@ -36,7 +36,7 @@ gates_frozen:
   max_p99_rel_l2: 0.01
 
 authorizations:
-  modal_gpu_mistral_replay_pilot_authorized: true
+  modal_gpu_mistral_replay_pilot_authorized: false
   k20_activation_extraction_authorized: false
   probe_fitting_authorized: false
   sae_analysis_authorized: false

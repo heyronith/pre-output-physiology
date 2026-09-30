@@ -1,0 +1,11 @@
+{
+  "attn_implementation": "sdpa",
+  "cost_usd": 0.23919444332520165,
+  "created_at": "2026-09-30T17:02:22+00:00",
+  "git_commit": "3c9cb26f81dfadb7544b59db9a430ec05dda459c",
+  "live_activations_sha256": "0f8028711e36a6b6ecd879fe8f5ca519a8619f5017bb6bfbb66fbca571412800",
+  "n": 16,
+  "replay_activations_sha256": "490bf826a774cf2864535c028fb26750c491f05fd650aec72d9d7fb7bf5af405",
+  "run_id": "phase24a_replay_20260930T170222Z_965d18e7",
+  "wall_seconds": 344.4399983882904
+}
