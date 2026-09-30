@@ -978,3 +978,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Stage 23C passed all frozen locked label-validation gates. Gemma is validated for response-level labeling. The incorrect `abs(char_diff)/4` token proxy was replaced (commit `40cb14b…`) with actual tokenizer-index distance via the frozen Phase-21/22B `char_onset_to_response_token_index` rule using pinned `mistralai/Mistral-7B-Instruct-v0.2` rev `63a8b081…e07a`. The PI explicitly authorized Stage 23D. Only the frozen 80-response onset sample (SHA `5a439094…57ca`) may be evaluated. Stage 23D is confirmatory; no thresholds or sample membership may be changed. Status `phase23d_onset_validation_authorized`. Modal GPU + `stage4_onset_validation_authorized` enabled for this run only. K>20 generation, Mistral generation, OpenAI API, activations, probes, and physiology remain unauthorized.
 - **Date:** 2026-09-30
+
+### D157 — Phase 23D onset validation FAIL; STOP
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Stage 23D confirmatory onset grading completed for `gemma4_31b_it` on the frozen 80-response sample (run `phase23d_onset_gemma4_31b_it_20260930T155157Z_994ba285`; judgments SHA `43d03d0a…f1a4`; 80/80 completed; ~$0.42; wall ~609s; Transformers T=0 A100-80GB; rev `842da379…f475`). Token error used true Mistral indices (not char/4). Frozen gates: explicit-span agreement 0.8375 < 0.90 FAIL; exact quote match 0.3167 < 0.80 FAIL; median abs token error 0.0 ≤ 2 PASS. Status `phase23_open_grader_onset_not_validated`. Authorization consumed. No prompt/sample/threshold/tokenizer retuning; no subset reruns; no model substitution. Any redesign must be prospective. K>20 / physiology remain unauthorized.
+- **Date:** 2026-09-30

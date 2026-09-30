@@ -2,11 +2,11 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23d_onset_validation_authorized
+status: phase23_open_grader_onset_not_validated
 description: >
-  Stage 23D onset validation authorized for gemma4_31b_it on the frozen 80-response
-  sample after true Mistral token-index metric repair. Confirmatory only.
-  K>20 / physiology remain unauthorized.
+  Stage 23D FAIL: Gemma onset localization did not meet frozen thresholds
+  (explicit-span 0.8375 < 0.90; exact-quote 0.3167 < 0.80). Median true token
+  error 0.0 passed. Authorization consumed. No retuning. K>20 unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
@@ -88,22 +88,26 @@ phase23c_locked:
   judgments_sha256: 62381aa4555dba66e98d2a39ba9e2384aa7aacf0d74b7feb37fcf7c344e215ca
   authorization_commit: 061163dbcf681075a5062b4d9cded4d076a1d890
   stage4_scientifically_eligible: true
-  stage4_onset_validation_authorized: true
+  stage4_onset_validation_authorized: false
 
 phase23d_onset:
+  freeze_artifact: artifacts/phase23d_onset/freeze.json
+  status: phase23_open_grader_onset_not_validated
+  run_id: phase23d_onset_gemma4_31b_it_20260930T155157Z_994ba285
   candidate: gemma4_31b_it
-  n_onset_sample: 80
+  judgments_path: artifacts/phase23d_onset/run/onset_judgments.jsonl
+  judgments_sha256: 43d03d0ab6c2424b78f1b22278ab0d0778d843a6974aa834abb46fa4d405f1a4
   onset_sample_sha256: 5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca
-  metric_repair_commit: 40cb14b8d63899c27982ad47dccc872d90ccb747
   tokenizer_hf_id: mistralai/Mistral-7B-Instruct-v0.2
   tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
-  stage4_scientifically_eligible: true
-  stage4_onset_validation_authorized: true
+  authorization_commit: acbe75d606b1996b08d1b53a38d5c62a34435018
+  metric_repair_commit: 40cb14b8d63899c27982ad47dccc872d90ccb747
   open_grader_for_k60_authorized: false
   k_gt_20_generation_authorized: false
 
+
 authorizations:
-  modal_gpu_open_grader_inference_authorized: true
+  modal_gpu_open_grader_inference_authorized: false
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -115,9 +119,7 @@ authorizations:
   population_threshold_changes_authorized: false
   stage2_development_authorized: false
   stage3_locked_validation_authorized: false
-  stage4_onset_validation_authorized: true
+  stage4_onset_validation_authorized: false
 
 notes: >
-  D156: Stage 23D authorized after true Mistral token-index metric repair
-  (40cb14b). Frozen 80-response onset sample only. Confirmatory. K>20 /
-  physiology unauthorized.
+  Stage 23D complete (phase23_open_grader_onset_not_validated). Authorization consumed. K>20 / physiology remain unauthorized.

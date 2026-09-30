@@ -1,0 +1,65 @@
+{
+  "analysis_git_commit": "acbe75d606b1996b08d1b53a38d5c62a34435018",
+  "authorization_commit": "acbe75d606b1996b08d1b53a38d5c62a34435018",
+  "authorizations_after_freeze": {
+    "activation_extraction_authorized": false,
+    "k_gt_20_generation_authorized": false,
+    "mistral_roleplay_generation_authorized": false,
+    "modal_gpu_open_grader_inference_authorized": false,
+    "open_grader_for_k60_authorized": false,
+    "openai_grading_api_authorized": false,
+    "openai_onset_api_authorized": false,
+    "physiology_authorized": false,
+    "population_threshold_changes_authorized": false,
+    "probe_fitting_authorized": false,
+    "prompt_changes_authorized": false,
+    "stage2_development_authorized": false,
+    "stage3_locked_validation_authorized": false,
+    "stage4_onset_validation_authorized": false
+  },
+  "candidate": "gemma4_31b_it",
+  "exact_quote_match_rate": 0.31666666666666665,
+  "explicit_span_agreement": 0.8375,
+  "gates": [
+    {
+      "metric": "explicit_span_agreement",
+      "observed": 0.8375,
+      "pass": false,
+      "threshold": 0.9
+    },
+    {
+      "metric": "exact_quote_match",
+      "observed": 0.31666666666666665,
+      "pass": false,
+      "threshold": 0.8
+    },
+    {
+      "metric": "median_abs_token_error",
+      "observed": 0.0,
+      "pass": true,
+      "threshold": 2.0
+    }
+  ],
+  "inference_git_commit": "acbe75d606b1996b08d1b53a38d5c62a34435018",
+  "judgments_path": "artifacts/phase23d_onset/run/onset_judgments.jsonl",
+  "judgments_sha256": "43d03d0ab6c2424b78f1b22278ab0d0778d843a6974aa834abb46fa4d405f1a4",
+  "k_gt_20_generation_authorized": false,
+  "manifest_path": "artifacts/phase23d_onset/run/manifest.json",
+  "median_abs_token_error": 0.0,
+  "metric_repair_commit": "40cb14b8d63899c27982ad47dccc872d90ccb747",
+  "offset_within_tolerance_rate": 0.4375,
+  "onset_sample_sha256": "5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca",
+  "open_grader_for_k60_authorized": false,
+  "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "run_id": "phase23d_onset_gemma4_31b_it_20260930T155157Z_994ba285",
+  "status": "phase23_open_grader_onset_not_validated",
+  "token_error_distribution": {
+    "eq_0": 34,
+    "gt_2": 25,
+    "le_1": 34,
+    "le_2": 34,
+    "n": 59
+  },
+  "tokenizer_hf_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+}
