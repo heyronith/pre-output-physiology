@@ -2,11 +2,11 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23_open_grader_labeling_validated_pending_onset_validation
+status: phase23d_onset_validation_authorized
 description: >
-  Phase 23C LOCKED validation PASS for gemma4_31b_it. Labeling validated pending
-  onset validation (Stage 23D unauthorized). Frozen contract unchanged.
-  Authorization consumed; all downstream flags false.
+  Stage 23D onset validation authorized for gemma4_31b_it on the frozen 80-response
+  sample after true Mistral token-index metric repair. Confirmatory only.
+  K>20 / physiology remain unauthorized.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
@@ -15,6 +15,8 @@ phase23a_pilot_run_commit: f8517418a81f0584ffdddbe4e464cedd47ae93e9
 phase23a_freeze_commit: b08c4b2ca2e4ade430bce0e96e768d98260f7e8d
 phase23b_authorization_commit: 00131f41670c52a202c3ac70ad940e40162e4b38
 phase23b_postaudit_commit: 9eecf49529c4a917405fddb37043c2cc32ceaefa
+phase23c_freeze_commit: 973158cb20728d2cc91ab37733db34abc60ea7b6
+phase23d_metric_repair_commit: 40cb14b8d63899c27982ad47dccc872d90ccb747
 
 sources:
   phase21_onset_run_id: phase21_onset_20260928T212924Z_68a5621c
@@ -27,6 +29,7 @@ design:
   design_sha256: 40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff
   grader_prompt_split_sha256: 6504b40b43153a7bd359c344efb6eee01afca887fe4978960d9d2e0d6fec3869
   pilot_ids_sha256: 6e412617f7a4e461500880f1420be1c05c8453b433a96ac3d55a9fccb8f02533
+  onset_sample_sha256: 5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca
   n_development_prompts: 260
   n_locked_validation_prompts: 111
   n_pilot_responses: 200
@@ -85,11 +88,22 @@ phase23c_locked:
   judgments_sha256: 62381aa4555dba66e98d2a39ba9e2384aa7aacf0d74b7feb37fcf7c344e215ca
   authorization_commit: 061163dbcf681075a5062b4d9cded4d076a1d890
   stage4_scientifically_eligible: true
-  stage4_onset_validation_authorized: false
+  stage4_onset_validation_authorized: true
 
+phase23d_onset:
+  candidate: gemma4_31b_it
+  n_onset_sample: 80
+  onset_sample_sha256: 5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca
+  metric_repair_commit: 40cb14b8d63899c27982ad47dccc872d90ccb747
+  tokenizer_hf_id: mistralai/Mistral-7B-Instruct-v0.2
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  stage4_scientifically_eligible: true
+  stage4_onset_validation_authorized: true
+  open_grader_for_k60_authorized: false
+  k_gt_20_generation_authorized: false
 
 authorizations:
-  modal_gpu_open_grader_inference_authorized: false
+  modal_gpu_open_grader_inference_authorized: true
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -101,7 +115,9 @@ authorizations:
   population_threshold_changes_authorized: false
   stage2_development_authorized: false
   stage3_locked_validation_authorized: false
-  stage4_onset_validation_authorized: false
+  stage4_onset_validation_authorized: true
 
 notes: >
-  Stage 23C complete (phase23_open_grader_labeling_validated_pending_onset_validation). Authorization consumed. Stage 23D / K>20 / physiology remain unauthorized.
+  D156: Stage 23D authorized after true Mistral token-index metric repair
+  (40cb14b). Frozen 80-response onset sample only. Confirmatory. K>20 /
+  physiology unauthorized.

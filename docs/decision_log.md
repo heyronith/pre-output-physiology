@@ -972,3 +972,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Stage 23C confirmatory locked grading completed for `gemma4_31b_it` (run `phase23c_locked_gemma4_31b_it_20260930T152519Z_49ac9754`; judgments SHA `62381aa4…15ca`; 2220/2220 valid; ~$3.26; wall ~4697s; Transformers T=0 batch=4 A100-80GB; rev `842da379…f475`). Frozen primary gates all PASS: HD κ 0.982 ≥ 0.90; bal-acc 0.960 ≥ 0.95; H-sens 0.940 ≥ 0.90; D-sens 0.979 ≥ 0.90. Status `phase23_open_grader_labeling_validated_pending_onset_validation`. Descriptive LOCKED population (not gates): label-only Jaccard 0.733 (GPT 11 / Gemma 15 / Δ4); onset-gated sensitivity Jaccard 0.917. Stage-23C authorization consumed (all Modal/Stage3/4/K>20/physiology flags false). Stage 23D onset validation remains unauthorized as a separate decision. No prompt/threshold/revision tuning; no locked-set winner search; no K>20.
 - **Date:** 2026-09-30
+
+### D156 — Phase 23D onset validation authorized (after token-metric repair)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Stage 23C passed all frozen locked label-validation gates. Gemma is validated for response-level labeling. The incorrect `abs(char_diff)/4` token proxy was replaced (commit `40cb14b…`) with actual tokenizer-index distance via the frozen Phase-21/22B `char_onset_to_response_token_index` rule using pinned `mistralai/Mistral-7B-Instruct-v0.2` rev `63a8b081…e07a`. The PI explicitly authorized Stage 23D. Only the frozen 80-response onset sample (SHA `5a439094…57ca`) may be evaluated. Stage 23D is confirmatory; no thresholds or sample membership may be changed. Status `phase23d_onset_validation_authorized`. Modal GPU + `stage4_onset_validation_authorized` enabled for this run only. K>20 generation, Mistral generation, OpenAI API, activations, probes, and physiology remain unauthorized.
+- **Date:** 2026-09-30

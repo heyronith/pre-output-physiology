@@ -83,6 +83,11 @@ def test_stage23c_auth_flags_when_authorized() -> None:
         assert auth["stage4_onset_validation_authorized"] is False
         assert auth["k_gt_20_generation_authorized"] is False
         assert auth["physiology_authorized"] is False
+    elif status == "phase23d_onset_validation_authorized":
+        assert auth["stage4_onset_validation_authorized"] is True
+        assert auth["modal_gpu_open_grader_inference_authorized"] is True
+        assert auth["k_gt_20_generation_authorized"] is False
+        assert auth["physiology_authorized"] is False
     else:
         # Pre-authorization: Stage 23C must not be live
         assert auth["stage3_locked_validation_authorized"] is False

@@ -24,7 +24,10 @@ APP_NAME = "pre-output-physiology-phase23-onset"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/experiments/phase23_open_grader_validation.yaml"
 SAMPLE_PATH = REPO_ROOT / "artifacts/phase23_onset_sample/onset_validation.jsonl"
+SAMPLE_MANIFEST_PATH = REPO_ROOT / "artifacts/phase23_onset_sample/manifest.json"
 DESIGN_PATH = REPO_ROOT / "artifacts/phase23_design/design_matrix.json"
+EXPECTED_SAMPLE_SHA = "5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca"
+STAGE4_CANDIDATE = "gemma4_31b_it"
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -91,7 +94,7 @@ def onset_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, Any]:
     import os
 
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+    from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
     from pre_output_physiology.phase23_open_grader import (
         CANDIDATES,
@@ -213,23 +216,58 @@ def onset_remote(candidate: str, rows_json: str, gpu: str) -> dict[str, Any]:
 
 @app.local_entrypoint()
 def main(candidate: str) -> None:
-    from pre_output_physiology.phase23_open_grader import CANDIDATES, CostReport
+    from pre_output_physiology.phase23_open_grader import (
+        CANDIDATES,
+        ONSET_TOKENIZER_HF_ID,
+        ONSET_TOKENIZER_REVISION,
+        CostReport,
+        _sha_json,
+    )
 
     _dirty_ok()
+    if candidate != STAGE4_CANDIDATE:
+        raise SystemExit(
+            f"Stage-23D requires {STAGE4_CANDIDATE}, got {candidate}"
+        )
     cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     auth = cfg.get("authorizations", {})
     if auth.get("stage4_onset_validation_authorized") is not True:
         raise SystemExit("Stage-4 onset validation not authorized")
     if auth.get("modal_gpu_open_grader_inference_authorized") is not True:
         raise SystemExit("open-grader Modal inference not authorized")
+    for key in (
+        "k_gt_20_generation_authorized",
+        "mistral_roleplay_generation_authorized",
+        "openai_grading_api_authorized",
+        "openai_onset_api_authorized",
+        "activation_extraction_authorized",
+        "physiology_authorized",
+    ):
+        if auth.get(key) is not False:
+            raise SystemExit(f"{key} must be false")
+
+    sample_man = json.loads(SAMPLE_MANIFEST_PATH.read_text(encoding="utf-8"))
+    if sample_man.get("onset_sample_sha256") != EXPECTED_SAMPLE_SHA:
+        raise SystemExit("STOP: frozen onset sample SHA mismatch")
+    if int(sample_man.get("n", -1)) != 80:
+        raise SystemExit("STOP: onset sample n != 80")
+    if _sha_json(sample_man["continuation_ids"]) != EXPECTED_SAMPLE_SHA:
+        raise SystemExit("STOP: continuation_ids SHA mismatch")
 
     rows = [
         json.loads(x)
         for x in SAMPLE_PATH.read_text(encoding="utf-8").splitlines()
         if x.strip()
     ]
+    if len(rows) != 80:
+        raise SystemExit(f"STOP: onset jsonl has {len(rows)} rows, expected 80")
+    if {r["continuation_id"] for r in rows} != set(sample_man["continuation_ids"]):
+        raise SystemExit("STOP: onset jsonl IDs != frozen manifest IDs")
+
     design = json.loads(DESIGN_PATH.read_text(encoding="utf-8"))
     spec = CANDIDATES[candidate]
+    if spec["revision"] != "842da3794eaa0b77d5f08bae87a17459d91ff475":
+        raise SystemExit("STOP: Gemma revision mismatch")
     gpu = spec["gpu"]
     print(f"Phase-23D onset: candidate={candidate} gpu={gpu} n={len(rows)}", flush=True)
 
@@ -255,6 +293,9 @@ def main(candidate: str) -> None:
     with (out_dir / "onset_judgments.jsonl").open("w", encoding="utf-8") as f:
         for row in result["rows"]:
             f.write(json.dumps(row, sort_keys=True) + "\n")
+    judgments_sha = hashlib.sha256(
+        (out_dir / "onset_judgments.jsonl").read_bytes()
+    ).hexdigest()
     manifest = {
         "run_id": run_id,
         "stage": "23D_onset",
@@ -264,8 +305,22 @@ def main(candidate: str) -> None:
         "hf_id": result["model_id"],
         "revision": result["revision"],
         "design_sha256": design["design_sha256"],
+        "onset_sample_sha256": EXPECTED_SAMPLE_SHA,
+        "metric_tokenizer_hf_id": ONSET_TOKENIZER_HF_ID,
+        "metric_tokenizer_revision": ONSET_TOKENIZER_REVISION,
         "n": len(result["rows"]),
+        "n_valid_json": sum(
+            1 for r in result["rows"] if (r.get("open_raw") or "").strip()
+        ),
+        "judgments_sha256": judgments_sha,
         "cost": cost.as_dict(),
+        "inference": {
+            "temperature": 0.0,
+            "do_sample": False,
+            "max_new_tokens": 256,
+            "max_model_len": 8192,
+            "engine": "transformers_generate_temp0",
+        },
     }
     (out_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
