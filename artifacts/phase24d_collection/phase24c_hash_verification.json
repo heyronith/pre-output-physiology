@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "expected": "b295ecf4176668ce59351baad83f682332ffdf51234cb7b97c581485bbfbd685",
+      "key": "analysis_spec.json",
+      "observed": "b295ecf4176668ce59351baad83f682332ffdf51234cb7b97c581485bbfbd685",
+      "pass": true,
+      "path": "artifacts/phase24c_design/analysis_spec.json"
+    },
+    {
+      "expected": "76105d19e39e2d389a05d640fb0c4fb760111f68ae33963df201b46f58c7bbfc",
+      "key": "config",
+      "observed": "76105d19e39e2d389a05d640fb0c4fb760111f68ae33963df201b46f58c7bbfc",
+      "pass": true,
+      "path": "configs/experiments/phase24c_full_trajectory_design.yaml"
+    },
+    {
+      "expected": "e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d",
+      "key": "design_matrix.json",
+      "observed": "e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d",
+      "pass": true,
+      "path": "artifacts/phase24c_design/design_matrix.json"
+    },
+    {
+      "expected": "f477a37514d67ff01fba72201195a48614b0bd6e28ed107006be5eb7b86c3e7e",
+      "key": "eligibility_manifest.json",
+      "observed": "f477a37514d67ff01fba72201195a48614b0bd6e28ed107006be5eb7b86c3e7e",
+      "pass": true,
+      "path": "artifacts/phase24c_design/eligibility_manifest.json"
+    },
+    {
+      "expected": "200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10",
+      "key": "generation_schedule_template.json",
+      "observed": "200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10",
+      "pass": true,
+      "path": "artifacts/phase24c_design/generation_schedule_template.json"
+    },
+    {
+      "expected": "977ddd71913b765eb8f4623d322e1c19d688c02da97f7761e927d19fdb741d42",
+      "key": "k_forecast.json",
+      "observed": "977ddd71913b765eb8f4623d322e1c19d688c02da97f7761e927d19fdb741d42",
+      "pass": true,
+      "path": "artifacts/phase24c_design/k_forecast.json"
+    },
+    {
+      "expected": "aa78d3e4b7ff6137040353d6a88ee8ecad7e4206f92918349b6bb20f9541011e",
+      "key": "k_forecast_gates_historical.svg",
+      "observed": "aa78d3e4b7ff6137040353d6a88ee8ecad7e4206f92918349b6bb20f9541011e",
+      "pass": true,
+      "path": "artifacts/phase24c_design/k_forecast_gates_historical.svg"
+    },
+    {
+      "expected": "6ff0f941df6298d6622ac13db9bf5af935b7f0ba692ea61b4382b863d7422671",
+      "key": "k_forecast_gates_primary.svg",
+      "observed": "6ff0f941df6298d6622ac13db9bf5af935b7f0ba692ea61b4382b863d7422671",
+      "pass": true,
+      "path": "artifacts/phase24c_design/k_forecast_gates_primary.svg"
+    },
+    {
+      "expected": "2a7be2b87b9a4dfd80116ace54a17c30bfc2833b7b2973bc0de273bc1bd15749",
+      "key": "k_forecast_test_counts.svg",
+      "observed": "2a7be2b87b9a4dfd80116ace54a17c30bfc2833b7b2973bc0de273bc1bd15749",
+      "pass": true,
+      "path": "artifacts/phase24c_design/k_forecast_test_counts.svg"
+    },
+    {
+      "expected": "e6c34a6ddfb050b44fa83f418d909d0f1da9407f9ca2cc18efd6f1f181188d8d",
+      "key": "provenance.json",
+      "observed": "e6c34a6ddfb050b44fa83f418d909d0f1da9407f9ca2cc18efd6f1f181188d8d",
+      "pass": true,
+      "path": "artifacts/phase24c_design/provenance.json"
+    },
+    {
+      "expected": "38e1e98937da312eb22d4e1a92aff0788ab36ea2727418131b63e982df2a689c",
+      "key": "report",
+      "observed": "38e1e98937da312eb22d4e1a92aff0788ab36ea2727418131b63e982df2a689c",
+      "pass": true,
+      "path": "reports/phase24c_full_trajectory_design.md"
+    },
+    {
+      "expected": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa",
+      "key": "split_manifest.json",
+      "observed": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa",
+      "pass": true,
+      "path": "artifacts/phase24c_design/split_manifest.json"
+    }
+  ],
+  "dataset_content_sha256": "7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564",
+  "k_grid": [
+    6,
+    8,
+    10,
+    12,
+    16,
+    20
+  ],
+  "selected_k_check": {
+    "expected": 16,
+    "observed": 16,
+    "pass": true
+  },
+  "verified": true
+}

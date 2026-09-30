@@ -1,0 +1,55 @@
+# Phase 24D — primary live K=16 collection (capture + grade only)
+
+experiment_id: phase24d_primary_live_collection
+phase: phase24d
+status: phase24d_primary_live_dataset_complete_awaiting_discovery_analysis_authorization
+description: >
+  Execute frozen Phase-24C design at K=16. Collect 528 new live trajectories,
+  reuse 96 Phase-24B TRAIN pilot trajectories, grade new responses with Gemma.
+  No physiology / probes / TEST scientific analysis.
+starting_sha: c649203f3f59701b556ea6ff8906e9752190027c
+selected_k: 16
+n_new_trajectories: 528
+n_reused_phase24b: 96
+n_total_trajectories: 624
+
+phase24c:
+  design_matrix_sha256: e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d
+  split_manifest_sha256: 2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa
+  schedule_template_sha256: 200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10
+  new_schedule_sha256: e8f8302fe693d49662fbba27a3057af55a5d1ae0881a1cef47b71895caf637d5
+
+model:
+  model_id: mistralai/Mistral-7B-Instruct-v0.2
+  revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  dtype: bfloat16
+  attention_implementation: sdpa
+
+generation:
+  temperature: 1.0
+  do_sample: true
+  max_new_tokens: 200
+  batch_size: 1
+
+grader:
+  hf_id: google/gemma-4-31B-it
+  revision: 842da3794eaa0b77d5f08bae87a17459d91ff475
+
+authorizations:
+  modal_gpu_mistral_live_capture_authorized: false
+  modal_gpu_gemma_grading_authorized: false
+  modal_gpu_mistral_canary_authorized: false
+  probe_fitting_authorized: false
+  physiology_authorized: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  onset_grading_authorized: false
+  openai_grading_api_authorized: false
+  test_scientific_analysis_authorized: false
+  auroc_analysis_authorized: false
+  layer_token_search_authorized: false
+
+notes: >
+  D161: Phase 24D authorized after 24C design freeze. Capture + grade only.
+  LOCKED TEST outcomes remain sealed. Capture loop code-equivalent to Phase 24B.

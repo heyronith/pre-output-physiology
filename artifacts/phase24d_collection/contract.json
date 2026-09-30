@@ -1,0 +1,29 @@
+{
+  "authorizations_intent": {
+    "modal_gpu_gemma_grading_authorized": true,
+    "modal_gpu_mistral_live_capture_authorized": true,
+    "physiology_authorized": false,
+    "probe_fitting_authorized": false,
+    "test_scientific_analysis_authorized": false
+  },
+  "capture_equivalence": {
+    "canary_required": false,
+    "code_equivalent": true,
+    "note": "Phase-24D modal embeds a byte-identical _generate_one; verified after modal file exists / updated by analyze step.",
+    "phase24b__generate_one_sha256": "6fdd28cf19d541a7433df7872385eaaf9e325cb99ef88ff5871b1866b43cceef",
+    "phase24d__generate_one_sha256": "6fdd28cf19d541a7433df7872385eaaf9e325cb99ef88ff5871b1866b43cceef"
+  },
+  "created_at": "2026-09-30T19:38:00+00:00",
+  "git_commit": "c649203f3f59701b556ea6ff8906e9752190027c",
+  "guarantee": "PHASE 24D COLLECTED THE FROZEN K=16 LIVE-ACTIVATION DATASET AND RESPONSE-LEVEL LABELS ONLY. NO PHYSIOLOGY PREDICTOR, AUROC ANALYSIS, LAYER\u00d7TOKEN SEARCH, SAE ANALYSIS, CAUSAL INTERVENTION, OR LOCKED-TEST SCIENTIFIC ANALYSIS WAS PERFORMED. LOCKED TEST OUTCOMES REMAIN SEALED.",
+  "n_new": 528,
+  "n_reuse": 96,
+  "n_total": 624,
+  "new_schedule_sha256": "e8f8302fe693d49662fbba27a3057af55a5d1ae0881a1cef47b71895caf637d5",
+  "reuse_refs_sha256": "ec68af6aef0245a9cc6697c4792e2b28b4fefea48569b0db4df5caa2e2a9711d",
+  "selected_k": 16,
+  "starting_sha": "c649203f3f59701b556ea6ff8906e9752190027c",
+  "test_sha256": "48175cdceb142ac75208883be986c34c3a1a07e32ee9a8cd9832d30e1da06a05",
+  "train_sha256": "094321f387793cbea3f92e5f31b54b246f1e0b11593cf2e7bae5ae1151d683cf",
+  "validation_sha256": "77cee997a27371717269bcc7df7ea31f8e05eb41262967830890af266a38e9ec"
+}

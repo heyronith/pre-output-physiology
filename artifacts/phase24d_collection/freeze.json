@@ -1,0 +1,14 @@
+{
+  "authorizations_after": {
+    "modal_gpu_gemma_grading_authorized": false,
+    "modal_gpu_mistral_live_capture_authorized": false,
+    "physiology_authorized": false,
+    "test_scientific_analysis_authorized": false
+  },
+  "engineering_passed": true,
+  "git_commit": "c649203f3f59701b556ea6ff8906e9752190027c",
+  "run_id": "phase24d_live_20260930T211824Z_84dd5265",
+  "status": "phase24d_primary_live_dataset_complete_awaiting_discovery_analysis_authorization",
+  "test_sealed": true,
+  "yield_passed": true
+}

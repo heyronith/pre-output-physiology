@@ -1002,3 +1002,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-24B PASS `2a08fae…`, Phase 24C freezes the prospective live-activation trajectory experiment design without GPU calls. Apollo RoleplayDeception provenance verified (content SHA `7d3e36dc…`). Split: TRAIN20/VAL8/TEST11 with all 16 Phase-24B pilots TRAIN-only. Primary live Dirichlet forecast (seed 2403, 100k MC) selects K=16 under frozen yield gates; status `phase24c_full_trajectory_design_frozen_awaiting_live_generation_authorization`. Analysis landmarks, Δh representation, surface baselines, candidate-selection, and confirmatory ΔAUROC CI rule frozen. No generation, grading, probing, SAE, or physiology.
 - **Date:** 2026-09-30
+
+### D161 — Phase 24D primary live K=16 collection
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-24C freeze `c649203…`, Phase 24D executed the frozen K=16 live-capture schedule (528 new + 96 reused). Engineering integrity PASS; TRAIN/VAL realized-yield PASS. Status `phase24d_primary_live_dataset_complete_awaiting_discovery_analysis_authorization`. LOCKED TEST labels sealed. No physiology, AUROC, layer×token search, SAE, or causal analysis.
+- **Date:** 2026-09-30
