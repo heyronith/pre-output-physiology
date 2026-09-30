@@ -71,3 +71,4 @@ logs/
 # Phase 4 frozen model weights (raw)
 artifacts/phase4_models/
 *.npz
+artifacts/phase24e_discovery/activations_local/

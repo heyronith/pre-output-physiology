@@ -1008,3 +1008,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-24C freeze `c649203…`, Phase 24D executed the frozen K=16 live-capture schedule (528 new + 96 reused). Engineering integrity PASS; TRAIN/VAL realized-yield PASS. Status `phase24d_primary_live_dataset_complete_awaiting_discovery_analysis_authorization`. LOCKED TEST labels sealed. No physiology, AUROC, layer×token search, SAE, or causal analysis.
 - **Date:** 2026-09-30
+
+### D162 — Phase 24E discovery analysis (TRAIN+VALIDATION)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-24D complete `cc1c011…`, Phase 24E ran the frozen 7×32 discovery grid on TRAIN+VALIDATION only (K=16; ambiguous excluded; Δh=h(t)−h(0); TEXT/LOGITS/SURFACE/ACTIVATION/SURFACE+ACTIVATION; C∈{0.01,0.1,1,10} via TRAIN prompt-group CV; prompt-equal×balanced weights; OOF stacking; 2000 prompt-cluster VAL bootstrap). Input 24C/24D hashes verified. LOCKED TEST never opened. Frozen candidate rule selected earliest qualifying time t=1, band L8–L23 (median ΔAUROC 0.114), layer L20 (ΔAUROC 0.148; SURFACE 0.644 / ACT 0.791 / COMB 0.791; bootstrap ΔAUROC CI95 [0.000, 0.363]). Status `phase24e_candidate_discovered_awaiting_locked_test_authorization`. Interpretation limited to additional linearly decodable VAL signal beyond surface baseline; no claim of hidden intent, causality, or TEST generalization. No SAE, causal intervention, or locked-TEST confirmatory analysis.
+- **Date:** 2026-09-30

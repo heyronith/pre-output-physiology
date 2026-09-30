@@ -1,0 +1,85 @@
+{
+  "candidate": {
+    "band": [
+      8,
+      23
+    ],
+    "band_median_delta_auroc": 0.11365176151761514,
+    "candidate_layer": 20,
+    "candidate_time": 1,
+    "layer_delta_auroc": 0.14769647696476973
+  },
+  "candidate_metrics": {
+    "C_activation": 0.1,
+    "C_logits": 0.01,
+    "C_surface": 0.1,
+    "C_surface_plus_activation": 10.0,
+    "C_text": 0.01,
+    "activation_auprc": 0.8852581191311343,
+    "activation_auroc": 0.7913279132791329,
+    "delta_auroc": 0.14769647696476973,
+    "delta_auroc_bootstrap": {
+      "ci95": [
+        0.0,
+        0.3629062754133911
+      ],
+      "mean": 0.13024750229138402,
+      "n_finite": 2000,
+      "n_reps": 2000
+    },
+    "layer": 20,
+    "n_deceptive_train": 120,
+    "n_deceptive_val": 72,
+    "n_honest_train": 155,
+    "n_honest_val": 41,
+    "n_prompts_train": 20,
+    "n_prompts_val": 8,
+    "skipped": false,
+    "surface_auprc": 0.7174476733709276,
+    "surface_auroc": 0.6436314363143631,
+    "surface_plus_activation_auprc": 0.8852581191311343,
+    "surface_plus_activation_auroc": 0.7913279132791329,
+    "time": 1
+  },
+  "qualifying_bands": [
+    {
+      "band": [
+        8,
+        23
+      ],
+      "median_delta_auroc": 0.11365176151761514,
+      "time": 1
+    },
+    {
+      "band": [
+        25,
+        31
+      ],
+      "median_delta_auroc": 0.07757452574525758,
+      "time": 4
+    },
+    {
+      "band": [
+        9,
+        24
+      ],
+      "median_delta_auroc": 0.13078216989066427,
+      "time": 32
+    },
+    {
+      "band": [
+        0,
+        31
+      ],
+      "median_delta_auroc": 0.12333333333333335,
+      "time": 64
+    }
+  ],
+  "rule": {
+    "choose_earliest_time_then_best_band_then_best_layer": true,
+    "min_band_median_delta_auroc": 0.05,
+    "min_consecutive_layers_delta_gt_0": 3,
+    "tie_break": "lower_layer_number"
+  },
+  "status": "phase24e_candidate_discovered_awaiting_locked_test_authorization"
+}

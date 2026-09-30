@@ -1,0 +1,2004 @@
+{
+  "t16_L0_ACTIVATION": {
+    "best_cv_auroc": 0.5666383701188455,
+    "selected_C": 10.0
+  },
+  "t16_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5708828522920204,
+    "selected_C": 0.01
+  },
+  "t16_L10_ACTIVATION": {
+    "best_cv_auroc": 0.6958404074702886,
+    "selected_C": 0.01
+  },
+  "t16_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6651103565365026,
+    "selected_C": 0.01
+  },
+  "t16_L11_ACTIVATION": {
+    "best_cv_auroc": 0.717402376910017,
+    "selected_C": 0.01
+  },
+  "t16_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6855970571590266,
+    "selected_C": 0.1
+  },
+  "t16_L12_ACTIVATION": {
+    "best_cv_auroc": 0.7379456706281833,
+    "selected_C": 0.01
+  },
+  "t16_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7112903225806452,
+    "selected_C": 1.0
+  },
+  "t16_L13_ACTIVATION": {
+    "best_cv_auroc": 0.772354272778721,
+    "selected_C": 1.0
+  },
+  "t16_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7462082625919638,
+    "selected_C": 1.0
+  },
+  "t16_L14_ACTIVATION": {
+    "best_cv_auroc": 0.8003112620260329,
+    "selected_C": 0.1
+  },
+  "t16_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7592246745897001,
+    "selected_C": 1.0
+  },
+  "t16_L15_ACTIVATION": {
+    "best_cv_auroc": 0.8372665534804754,
+    "selected_C": 0.1
+  },
+  "t16_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8091963780418788,
+    "selected_C": 10.0
+  },
+  "t16_L16_ACTIVATION": {
+    "best_cv_auroc": 0.8343237125070743,
+    "selected_C": 0.1
+  },
+  "t16_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8069326542161857,
+    "selected_C": 10.0
+  },
+  "t16_L17_ACTIVATION": {
+    "best_cv_auroc": 0.8047255234861346,
+    "selected_C": 1.0
+  },
+  "t16_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7604697226938314,
+    "selected_C": 1.0
+  },
+  "t16_L18_ACTIVATION": {
+    "best_cv_auroc": 0.7883701188455008,
+    "selected_C": 0.01
+  },
+  "t16_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7519807583474816,
+    "selected_C": 0.1
+  },
+  "t16_L19_ACTIVATION": {
+    "best_cv_auroc": 0.7859366157328807,
+    "selected_C": 0.1
+  },
+  "t16_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7543576683644596,
+    "selected_C": 1.0
+  },
+  "t16_L1_ACTIVATION": {
+    "best_cv_auroc": 0.6334748160724393,
+    "selected_C": 10.0
+  },
+  "t16_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5900113186191285,
+    "selected_C": 0.01
+  },
+  "t16_L20_ACTIVATION": {
+    "best_cv_auroc": 0.7752971137521222,
+    "selected_C": 0.01
+  },
+  "t16_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7467741935483871,
+    "selected_C": 10.0
+  },
+  "t16_L21_ACTIVATION": {
+    "best_cv_auroc": 0.7551499717034521,
+    "selected_C": 0.01
+  },
+  "t16_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7215902659875494,
+    "selected_C": 1.0
+  },
+  "t16_L22_ACTIVATION": {
+    "best_cv_auroc": 0.7425297113752122,
+    "selected_C": 0.01
+  },
+  "t16_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7103848330503679,
+    "selected_C": 0.01
+  },
+  "t16_L23_ACTIVATION": {
+    "best_cv_auroc": 0.7450198075834747,
+    "selected_C": 0.1
+  },
+  "t16_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7129881154499151,
+    "selected_C": 0.1
+  },
+  "t16_L24_ACTIVATION": {
+    "best_cv_auroc": 0.7087436332767403,
+    "selected_C": 0.01
+  },
+  "t16_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6646010186757216,
+    "selected_C": 0.01
+  },
+  "t16_L25_ACTIVATION": {
+    "best_cv_auroc": 0.6921052631578948,
+    "selected_C": 0.01
+  },
+  "t16_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6428692699490662,
+    "selected_C": 0.01
+  },
+  "t16_L26_ACTIVATION": {
+    "best_cv_auroc": 0.6812959818902095,
+    "selected_C": 0.01
+  },
+  "t16_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6368704018109791,
+    "selected_C": 0.01
+  },
+  "t16_L27_ACTIVATION": {
+    "best_cv_auroc": 0.6550933786078098,
+    "selected_C": 0.01
+  },
+  "t16_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.617062818336163,
+    "selected_C": 0.01
+  },
+  "t16_L28_ACTIVATION": {
+    "best_cv_auroc": 0.6750141482739106,
+    "selected_C": 0.01
+  },
+  "t16_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6339841539332203,
+    "selected_C": 0.01
+  },
+  "t16_L29_ACTIVATION": {
+    "best_cv_auroc": 0.6805602716468591,
+    "selected_C": 0.01
+  },
+  "t16_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6446236559139785,
+    "selected_C": 0.01
+  },
+  "t16_L2_ACTIVATION": {
+    "best_cv_auroc": 0.721194114318053,
+    "selected_C": 10.0
+  },
+  "t16_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6968590831918506,
+    "selected_C": 0.01
+  },
+  "t16_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7016694963214488,
+    "selected_C": 0.01
+  },
+  "t16_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6558856819468025,
+    "selected_C": 0.1
+  },
+  "t16_L31_ACTIVATION": {
+    "best_cv_auroc": 0.6236842105263157,
+    "selected_C": 0.01
+  },
+  "t16_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6256649688737974,
+    "selected_C": 0.1
+  },
+  "t16_L3_ACTIVATION": {
+    "best_cv_auroc": 0.6489247311827957,
+    "selected_C": 10.0
+  },
+  "t16_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6310979060554612,
+    "selected_C": 0.01
+  },
+  "t16_L4_ACTIVATION": {
+    "best_cv_auroc": 0.5459818902093945,
+    "selected_C": 1.0
+  },
+  "t16_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6005942275042444,
+    "selected_C": 0.01
+  },
+  "t16_L5_ACTIVATION": {
+    "best_cv_auroc": 0.4952178834182229,
+    "selected_C": 10.0
+  },
+  "t16_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6219864176570458,
+    "selected_C": 10.0
+  },
+  "t16_L6_ACTIVATION": {
+    "best_cv_auroc": 0.503254102999434,
+    "selected_C": 0.01
+  },
+  "t16_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6360780984719864,
+    "selected_C": 10.0
+  },
+  "t16_L7_ACTIVATION": {
+    "best_cv_auroc": 0.5265138653084325,
+    "selected_C": 0.01
+  },
+  "t16_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5862195812110923,
+    "selected_C": 0.1
+  },
+  "t16_L8_ACTIVATION": {
+    "best_cv_auroc": 0.6171760045274476,
+    "selected_C": 10.0
+  },
+  "t16_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5867855121675155,
+    "selected_C": 0.01
+  },
+  "t16_L9_ACTIVATION": {
+    "best_cv_auroc": 0.6699773627617431,
+    "selected_C": 0.01
+  },
+  "t16_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6455857385398981,
+    "selected_C": 0.01
+  },
+  "t16_LOGITS": {
+    "best_cv_auroc": 0.7201754385964912,
+    "cv_auroc_by_C": {
+      "0.01": 0.7107243916242219,
+      "0.1": 0.7201754385964912,
+      "1.0": 0.7175155631013016,
+      "10.0": 0.7117996604414261
+    },
+    "selected_C": 0.1
+  },
+  "t16_SURFACE": {
+    "best_cv_auroc": 0.6665251839275609,
+    "cv_auroc_by_C": {
+      "0.01": 0.6606960950764007,
+      "0.1": 0.6637521222410867,
+      "1.0": 0.6656196943972834,
+      "10.0": 0.6665251839275609
+    },
+    "selected_C": 10.0
+  },
+  "t16_TEXT": {
+    "best_cv_auroc": 0.6077815506508206,
+    "cv_auroc_by_C": {
+      "0.01": 0.6077815506508206,
+      "0.1": 0.5935766836445954,
+      "1.0": 0.5514714204867007,
+      "10.0": 0.5812393887945669
+    },
+    "selected_C": 0.01
+  },
+  "t1_L0_ACTIVATION": {
+    "best_cv_auroc": 0.8186290322580645,
+    "selected_C": 0.1
+  },
+  "t1_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7923924731182796,
+    "selected_C": 1.0
+  },
+  "t1_L10_ACTIVATION": {
+    "best_cv_auroc": 0.7711021505376344,
+    "selected_C": 0.1
+  },
+  "t1_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7656720430107528,
+    "selected_C": 0.01
+  },
+  "t1_L11_ACTIVATION": {
+    "best_cv_auroc": 0.8041666666666666,
+    "selected_C": 0.1
+  },
+  "t1_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7651344086021507,
+    "selected_C": 0.01
+  },
+  "t1_L12_ACTIVATION": {
+    "best_cv_auroc": 0.81002688172043,
+    "selected_C": 1.0
+  },
+  "t1_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7740053763440861,
+    "selected_C": 10.0
+  },
+  "t1_L13_ACTIVATION": {
+    "best_cv_auroc": 0.8291666666666667,
+    "selected_C": 10.0
+  },
+  "t1_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7965322580645162,
+    "selected_C": 10.0
+  },
+  "t1_L14_ACTIVATION": {
+    "best_cv_auroc": 0.8255645161290323,
+    "selected_C": 10.0
+  },
+  "t1_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.800510752688172,
+    "selected_C": 0.1
+  },
+  "t1_L15_ACTIVATION": {
+    "best_cv_auroc": 0.8099193548387096,
+    "selected_C": 0.1
+  },
+  "t1_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7741666666666667,
+    "selected_C": 0.01
+  },
+  "t1_L16_ACTIVATION": {
+    "best_cv_auroc": 0.7936827956989247,
+    "selected_C": 10.0
+  },
+  "t1_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7742741935483872,
+    "selected_C": 0.01
+  },
+  "t1_L17_ACTIVATION": {
+    "best_cv_auroc": 0.8066397849462366,
+    "selected_C": 1.0
+  },
+  "t1_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7821236559139785,
+    "selected_C": 0.01
+  },
+  "t1_L18_ACTIVATION": {
+    "best_cv_auroc": 0.8235752688172042,
+    "selected_C": 10.0
+  },
+  "t1_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7778225806451613,
+    "selected_C": 0.01
+  },
+  "t1_L19_ACTIVATION": {
+    "best_cv_auroc": 0.8278225806451612,
+    "selected_C": 1.0
+  },
+  "t1_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8092741935483871,
+    "selected_C": 0.01
+  },
+  "t1_L1_ACTIVATION": {
+    "best_cv_auroc": 0.7822311827956988,
+    "selected_C": 0.01
+  },
+  "t1_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7633602150537635,
+    "selected_C": 0.01
+  },
+  "t1_L20_ACTIVATION": {
+    "best_cv_auroc": 0.8287903225806451,
+    "selected_C": 0.1
+  },
+  "t1_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7966935483870968,
+    "selected_C": 10.0
+  },
+  "t1_L21_ACTIVATION": {
+    "best_cv_auroc": 0.8286827956989248,
+    "selected_C": 10.0
+  },
+  "t1_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7998655913978494,
+    "selected_C": 0.01
+  },
+  "t1_L22_ACTIVATION": {
+    "best_cv_auroc": 0.8288440860215054,
+    "selected_C": 0.1
+  },
+  "t1_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8069623655913979,
+    "selected_C": 10.0
+  },
+  "t1_L23_ACTIVATION": {
+    "best_cv_auroc": 0.8509408602150538,
+    "selected_C": 0.1
+  },
+  "t1_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8215860215053764,
+    "selected_C": 10.0
+  },
+  "t1_L24_ACTIVATION": {
+    "best_cv_auroc": 0.8188440860215054,
+    "selected_C": 0.1
+  },
+  "t1_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7835752688172043,
+    "selected_C": 0.01
+  },
+  "t1_L25_ACTIVATION": {
+    "best_cv_auroc": 0.8125,
+    "selected_C": 10.0
+  },
+  "t1_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7790053763440861,
+    "selected_C": 0.01
+  },
+  "t1_L26_ACTIVATION": {
+    "best_cv_auroc": 0.8001344086021505,
+    "selected_C": 1.0
+  },
+  "t1_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7667473118279571,
+    "selected_C": 0.01
+  },
+  "t1_L27_ACTIVATION": {
+    "best_cv_auroc": 0.798736559139785,
+    "selected_C": 0.1
+  },
+  "t1_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7697043010752689,
+    "selected_C": 0.01
+  },
+  "t1_L28_ACTIVATION": {
+    "best_cv_auroc": 0.8016397849462366,
+    "selected_C": 0.1
+  },
+  "t1_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7643279569892473,
+    "selected_C": 0.01
+  },
+  "t1_L29_ACTIVATION": {
+    "best_cv_auroc": 0.8053494623655915,
+    "selected_C": 10.0
+  },
+  "t1_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7779301075268817,
+    "selected_C": 0.01
+  },
+  "t1_L2_ACTIVATION": {
+    "best_cv_auroc": 0.7709408602150537,
+    "selected_C": 0.01
+  },
+  "t1_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7483602150537634,
+    "selected_C": 10.0
+  },
+  "t1_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7935215053763441,
+    "selected_C": 10.0
+  },
+  "t1_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.767768817204301,
+    "selected_C": 0.1
+  },
+  "t1_L31_ACTIVATION": {
+    "best_cv_auroc": 0.733252688172043,
+    "selected_C": 1.0
+  },
+  "t1_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7456182795698926,
+    "selected_C": 0.01
+  },
+  "t1_L3_ACTIVATION": {
+    "best_cv_auroc": 0.7549193548387096,
+    "selected_C": 0.01
+  },
+  "t1_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7408333333333335,
+    "selected_C": 0.01
+  },
+  "t1_L4_ACTIVATION": {
+    "best_cv_auroc": 0.7235752688172044,
+    "selected_C": 0.01
+  },
+  "t1_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7316397849462366,
+    "selected_C": 10.0
+  },
+  "t1_L5_ACTIVATION": {
+    "best_cv_auroc": 0.7719623655913979,
+    "selected_C": 0.01
+  },
+  "t1_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7339516129032259,
+    "selected_C": 0.01
+  },
+  "t1_L6_ACTIVATION": {
+    "best_cv_auroc": 0.729489247311828,
+    "selected_C": 10.0
+  },
+  "t1_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7231451612903226,
+    "selected_C": 0.01
+  },
+  "t1_L7_ACTIVATION": {
+    "best_cv_auroc": 0.7289516129032257,
+    "selected_C": 0.1
+  },
+  "t1_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7315322580645162,
+    "selected_C": 0.01
+  },
+  "t1_L8_ACTIVATION": {
+    "best_cv_auroc": 0.7754569892473119,
+    "selected_C": 1.0
+  },
+  "t1_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7504569892473119,
+    "selected_C": 0.01
+  },
+  "t1_L9_ACTIVATION": {
+    "best_cv_auroc": 0.7651344086021505,
+    "selected_C": 0.1
+  },
+  "t1_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7621774193548387,
+    "selected_C": 0.1
+  },
+  "t1_LOGITS": {
+    "best_cv_auroc": 0.8434677419354839,
+    "cv_auroc_by_C": {
+      "0.01": 0.8434677419354839,
+      "0.1": 0.8419086021505376,
+      "1.0": 0.8406720430107528,
+      "10.0": 0.8362634408602151
+    },
+    "selected_C": 0.01
+  },
+  "t1_SURFACE": {
+    "best_cv_auroc": 0.8123924731182796,
+    "cv_auroc_by_C": {
+      "0.01": 0.7923924731182796,
+      "0.1": 0.8123924731182796,
+      "1.0": 0.792768817204301,
+      "10.0": 0.7880376344086022
+    },
+    "selected_C": 0.1
+  },
+  "t1_TEXT": {
+    "best_cv_auroc": 0.5793817204301075,
+    "cv_auroc_by_C": {
+      "0.01": 0.5793817204301075,
+      "0.1": 0.5572849462365591,
+      "1.0": 0.5562634408602151,
+      "10.0": 0.5583064516129033
+    },
+    "selected_C": 0.01
+  },
+  "t2_L0_ACTIVATION": {
+    "best_cv_auroc": 0.802956989247312,
+    "selected_C": 10.0
+  },
+  "t2_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7860752688172042,
+    "selected_C": 0.01
+  },
+  "t2_L10_ACTIVATION": {
+    "best_cv_auroc": 0.8425806451612904,
+    "selected_C": 0.1
+  },
+  "t2_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8187634408602149,
+    "selected_C": 10.0
+  },
+  "t2_L11_ACTIVATION": {
+    "best_cv_auroc": 0.8570430107526882,
+    "selected_C": 1.0
+  },
+  "t2_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8554838709677419,
+    "selected_C": 10.0
+  },
+  "t2_L12_ACTIVATION": {
+    "best_cv_auroc": 0.8408064516129032,
+    "selected_C": 10.0
+  },
+  "t2_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8128494623655914,
+    "selected_C": 1.0
+  },
+  "t2_L13_ACTIVATION": {
+    "best_cv_auroc": 0.8534408602150536,
+    "selected_C": 0.1
+  },
+  "t2_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8239247311827957,
+    "selected_C": 1.0
+  },
+  "t2_L14_ACTIVATION": {
+    "best_cv_auroc": 0.8598924731182795,
+    "selected_C": 10.0
+  },
+  "t2_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8406989247311828,
+    "selected_C": 1.0
+  },
+  "t2_L15_ACTIVATION": {
+    "best_cv_auroc": 0.8379569892473118,
+    "selected_C": 1.0
+  },
+  "t2_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8020967741935484,
+    "selected_C": 0.01
+  },
+  "t2_L16_ACTIVATION": {
+    "best_cv_auroc": 0.8260215053763439,
+    "selected_C": 0.1
+  },
+  "t2_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7958602150537634,
+    "selected_C": 0.01
+  },
+  "t2_L17_ACTIVATION": {
+    "best_cv_auroc": 0.7904301075268816,
+    "selected_C": 0.01
+  },
+  "t2_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7677419354838709,
+    "selected_C": 0.1
+  },
+  "t2_L18_ACTIVATION": {
+    "best_cv_auroc": 0.7878494623655914,
+    "selected_C": 0.01
+  },
+  "t2_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7764516129032258,
+    "selected_C": 0.01
+  },
+  "t2_L19_ACTIVATION": {
+    "best_cv_auroc": 0.7873655913978495,
+    "selected_C": 0.1
+  },
+  "t2_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7674731182795699,
+    "selected_C": 0.01
+  },
+  "t2_L1_ACTIVATION": {
+    "best_cv_auroc": 0.7833333333333333,
+    "selected_C": 0.1
+  },
+  "t2_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7591397849462366,
+    "selected_C": 0.01
+  },
+  "t2_L20_ACTIVATION": {
+    "best_cv_auroc": 0.7934408602150537,
+    "selected_C": 0.01
+  },
+  "t2_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7856451612903226,
+    "selected_C": 0.01
+  },
+  "t2_L21_ACTIVATION": {
+    "best_cv_auroc": 0.8066666666666668,
+    "selected_C": 0.01
+  },
+  "t2_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7865591397849462,
+    "selected_C": 0.01
+  },
+  "t2_L22_ACTIVATION": {
+    "best_cv_auroc": 0.798494623655914,
+    "selected_C": 0.1
+  },
+  "t2_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7870430107526881,
+    "selected_C": 0.01
+  },
+  "t2_L23_ACTIVATION": {
+    "best_cv_auroc": 0.7978494623655914,
+    "selected_C": 0.1
+  },
+  "t2_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7796774193548387,
+    "selected_C": 0.01
+  },
+  "t2_L24_ACTIVATION": {
+    "best_cv_auroc": 0.7720430107526882,
+    "selected_C": 0.01
+  },
+  "t2_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7429569892473117,
+    "selected_C": 0.01
+  },
+  "t2_L25_ACTIVATION": {
+    "best_cv_auroc": 0.7874193548387097,
+    "selected_C": 0.1
+  },
+  "t2_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7557526881720431,
+    "selected_C": 0.01
+  },
+  "t2_L26_ACTIVATION": {
+    "best_cv_auroc": 0.770752688172043,
+    "selected_C": 0.1
+  },
+  "t2_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7443010752688172,
+    "selected_C": 0.01
+  },
+  "t2_L27_ACTIVATION": {
+    "best_cv_auroc": 0.7659139784946236,
+    "selected_C": 0.1
+  },
+  "t2_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.746021505376344,
+    "selected_C": 0.01
+  },
+  "t2_L28_ACTIVATION": {
+    "best_cv_auroc": 0.7662365591397851,
+    "selected_C": 0.01
+  },
+  "t2_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7431720430107526,
+    "selected_C": 0.01
+  },
+  "t2_L29_ACTIVATION": {
+    "best_cv_auroc": 0.7730645161290323,
+    "selected_C": 0.01
+  },
+  "t2_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7476344086021506,
+    "selected_C": 0.01
+  },
+  "t2_L2_ACTIVATION": {
+    "best_cv_auroc": 0.808709677419355,
+    "selected_C": 0.1
+  },
+  "t2_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7843548387096775,
+    "selected_C": 1.0
+  },
+  "t2_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7540322580645162,
+    "selected_C": 10.0
+  },
+  "t2_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.695752688172043,
+    "selected_C": 0.01
+  },
+  "t2_L31_ACTIVATION": {
+    "best_cv_auroc": 0.7641935483870967,
+    "selected_C": 10.0
+  },
+  "t2_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7511290322580645,
+    "selected_C": 0.01
+  },
+  "t2_L3_ACTIVATION": {
+    "best_cv_auroc": 0.7645161290322581,
+    "selected_C": 0.1
+  },
+  "t2_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.739516129032258,
+    "selected_C": 0.01
+  },
+  "t2_L4_ACTIVATION": {
+    "best_cv_auroc": 0.7436021505376345,
+    "selected_C": 0.1
+  },
+  "t2_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7030645161290322,
+    "selected_C": 0.01
+  },
+  "t2_L5_ACTIVATION": {
+    "best_cv_auroc": 0.7513978494623657,
+    "selected_C": 0.1
+  },
+  "t2_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7090322580645161,
+    "selected_C": 0.01
+  },
+  "t2_L6_ACTIVATION": {
+    "best_cv_auroc": 0.7661290322580646,
+    "selected_C": 0.1
+  },
+  "t2_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7488172043010752,
+    "selected_C": 0.01
+  },
+  "t2_L7_ACTIVATION": {
+    "best_cv_auroc": 0.7946236559139785,
+    "selected_C": 0.1
+  },
+  "t2_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.759247311827957,
+    "selected_C": 0.01
+  },
+  "t2_L8_ACTIVATION": {
+    "best_cv_auroc": 0.8118817204301075,
+    "selected_C": 0.1
+  },
+  "t2_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7863978494623656,
+    "selected_C": 1.0
+  },
+  "t2_L9_ACTIVATION": {
+    "best_cv_auroc": 0.8337096774193546,
+    "selected_C": 0.1
+  },
+  "t2_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8124731182795699,
+    "selected_C": 1.0
+  },
+  "t2_LOGITS": {
+    "best_cv_auroc": 0.7899462365591399,
+    "cv_auroc_by_C": {
+      "0.01": 0.7849462365591398,
+      "0.1": 0.7899462365591399,
+      "1.0": 0.786505376344086,
+      "10.0": 0.7806989247311827
+    },
+    "selected_C": 0.1
+  },
+  "t2_SURFACE": {
+    "best_cv_auroc": 0.7601612903225807,
+    "cv_auroc_by_C": {
+      "0.01": 0.7333333333333334,
+      "0.1": 0.7367741935483871,
+      "1.0": 0.7601612903225807,
+      "10.0": 0.7560215053763439
+    },
+    "selected_C": 1.0
+  },
+  "t2_TEXT": {
+    "best_cv_auroc": 0.5658602150537635,
+    "cv_auroc_by_C": {
+      "0.01": 0.5658602150537635,
+      "0.1": 0.5474731182795699,
+      "1.0": 0.5402150537634409,
+      "10.0": 0.5528494623655914
+    },
+    "selected_C": 0.01
+  },
+  "t32_L0_ACTIVATION": {
+    "best_cv_auroc": 0.5343650793650794,
+    "selected_C": 0.01
+  },
+  "t32_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.446031746031746,
+    "selected_C": 0.01
+  },
+  "t32_L10_ACTIVATION": {
+    "best_cv_auroc": 0.6823015873015872,
+    "selected_C": 10.0
+  },
+  "t32_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6549206349206349,
+    "selected_C": 0.1
+  },
+  "t32_L11_ACTIVATION": {
+    "best_cv_auroc": 0.7192857142857143,
+    "selected_C": 10.0
+  },
+  "t32_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6976190476190476,
+    "selected_C": 0.1
+  },
+  "t32_L12_ACTIVATION": {
+    "best_cv_auroc": 0.7345238095238096,
+    "selected_C": 10.0
+  },
+  "t32_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7153174603174604,
+    "selected_C": 0.1
+  },
+  "t32_L13_ACTIVATION": {
+    "best_cv_auroc": 0.7917460317460319,
+    "selected_C": 10.0
+  },
+  "t32_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7790476190476191,
+    "selected_C": 0.1
+  },
+  "t32_L14_ACTIVATION": {
+    "best_cv_auroc": 0.8116666666666666,
+    "selected_C": 1.0
+  },
+  "t32_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8053174603174603,
+    "selected_C": 0.1
+  },
+  "t32_L15_ACTIVATION": {
+    "best_cv_auroc": 0.7962698412698412,
+    "selected_C": 10.0
+  },
+  "t32_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7912698412698412,
+    "selected_C": 0.1
+  },
+  "t32_L16_ACTIVATION": {
+    "best_cv_auroc": 0.8254761904761905,
+    "selected_C": 0.1
+  },
+  "t32_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.8275396825396825,
+    "selected_C": 0.1
+  },
+  "t32_L17_ACTIVATION": {
+    "best_cv_auroc": 0.7332539682539683,
+    "selected_C": 0.1
+  },
+  "t32_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7122222222222222,
+    "selected_C": 0.1
+  },
+  "t32_L18_ACTIVATION": {
+    "best_cv_auroc": 0.7341269841269842,
+    "selected_C": 0.1
+  },
+  "t32_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.72,
+    "selected_C": 0.1
+  },
+  "t32_L19_ACTIVATION": {
+    "best_cv_auroc": 0.7616666666666666,
+    "selected_C": 0.1
+  },
+  "t32_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7497619047619047,
+    "selected_C": 0.1
+  },
+  "t32_L1_ACTIVATION": {
+    "best_cv_auroc": 0.5888095238095237,
+    "selected_C": 10.0
+  },
+  "t32_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.43079365079365084,
+    "selected_C": 10.0
+  },
+  "t32_L20_ACTIVATION": {
+    "best_cv_auroc": 0.7716666666666667,
+    "selected_C": 10.0
+  },
+  "t32_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7653968253968253,
+    "selected_C": 0.1
+  },
+  "t32_L21_ACTIVATION": {
+    "best_cv_auroc": 0.7256349206349206,
+    "selected_C": 1.0
+  },
+  "t32_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7166666666666667,
+    "selected_C": 0.1
+  },
+  "t32_L22_ACTIVATION": {
+    "best_cv_auroc": 0.7114285714285714,
+    "selected_C": 10.0
+  },
+  "t32_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.692063492063492,
+    "selected_C": 0.1
+  },
+  "t32_L23_ACTIVATION": {
+    "best_cv_auroc": 0.6992857142857143,
+    "selected_C": 10.0
+  },
+  "t32_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6757936507936508,
+    "selected_C": 0.1
+  },
+  "t32_L24_ACTIVATION": {
+    "best_cv_auroc": 0.6633333333333334,
+    "selected_C": 1.0
+  },
+  "t32_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6319841269841271,
+    "selected_C": 0.1
+  },
+  "t32_L25_ACTIVATION": {
+    "best_cv_auroc": 0.6416666666666666,
+    "selected_C": 1.0
+  },
+  "t32_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6148412698412699,
+    "selected_C": 1.0
+  },
+  "t32_L26_ACTIVATION": {
+    "best_cv_auroc": 0.6675396825396825,
+    "selected_C": 10.0
+  },
+  "t32_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6435714285714287,
+    "selected_C": 0.1
+  },
+  "t32_L27_ACTIVATION": {
+    "best_cv_auroc": 0.6531746031746031,
+    "selected_C": 10.0
+  },
+  "t32_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6511904761904761,
+    "selected_C": 1.0
+  },
+  "t32_L28_ACTIVATION": {
+    "best_cv_auroc": 0.641984126984127,
+    "selected_C": 1.0
+  },
+  "t32_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6404761904761904,
+    "selected_C": 10.0
+  },
+  "t32_L29_ACTIVATION": {
+    "best_cv_auroc": 0.633968253968254,
+    "selected_C": 1.0
+  },
+  "t32_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6323809523809525,
+    "selected_C": 10.0
+  },
+  "t32_L2_ACTIVATION": {
+    "best_cv_auroc": 0.6046825396825396,
+    "selected_C": 10.0
+  },
+  "t32_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5684126984126984,
+    "selected_C": 10.0
+  },
+  "t32_L30_ACTIVATION": {
+    "best_cv_auroc": 0.661904761904762,
+    "selected_C": 0.1
+  },
+  "t32_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6663492063492064,
+    "selected_C": 1.0
+  },
+  "t32_L31_ACTIVATION": {
+    "best_cv_auroc": 0.5967460317460317,
+    "selected_C": 10.0
+  },
+  "t32_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5664285714285715,
+    "selected_C": 10.0
+  },
+  "t32_L3_ACTIVATION": {
+    "best_cv_auroc": 0.5973809523809523,
+    "selected_C": 10.0
+  },
+  "t32_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5171428571428571,
+    "selected_C": 10.0
+  },
+  "t32_L4_ACTIVATION": {
+    "best_cv_auroc": 0.6053174603174604,
+    "selected_C": 10.0
+  },
+  "t32_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5282539682539683,
+    "selected_C": 10.0
+  },
+  "t32_L5_ACTIVATION": {
+    "best_cv_auroc": 0.4776984126984127,
+    "selected_C": 0.1
+  },
+  "t32_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5123015873015873,
+    "selected_C": 10.0
+  },
+  "t32_L6_ACTIVATION": {
+    "best_cv_auroc": 0.4973809523809524,
+    "selected_C": 0.1
+  },
+  "t32_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.4915079365079365,
+    "selected_C": 10.0
+  },
+  "t32_L7_ACTIVATION": {
+    "best_cv_auroc": 0.561984126984127,
+    "selected_C": 0.1
+  },
+  "t32_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.4603968253968254,
+    "selected_C": 10.0
+  },
+  "t32_L8_ACTIVATION": {
+    "best_cv_auroc": 0.5774603174603176,
+    "selected_C": 0.01
+  },
+  "t32_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.4626984126984127,
+    "selected_C": 10.0
+  },
+  "t32_L9_ACTIVATION": {
+    "best_cv_auroc": 0.6198412698412699,
+    "selected_C": 0.1
+  },
+  "t32_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5798412698412698,
+    "selected_C": 1.0
+  },
+  "t32_LOGITS": {
+    "best_cv_auroc": 0.601111111111111,
+    "cv_auroc_by_C": {
+      "0.01": 0.5958730158730158,
+      "0.1": 0.5988095238095239,
+      "1.0": 0.598015873015873,
+      "10.0": 0.601111111111111
+    },
+    "selected_C": 10.0
+  },
+  "t32_SURFACE": {
+    "best_cv_auroc": 0.5382539682539682,
+    "cv_auroc_by_C": {
+      "0.01": 0.5382539682539682,
+      "0.1": 0.5369047619047619,
+      "1.0": 0.5328571428571429,
+      "10.0": 0.5314285714285714
+    },
+    "selected_C": 0.01
+  },
+  "t32_TEXT": {
+    "best_cv_auroc": 0.6794444444444446,
+    "cv_auroc_by_C": {
+      "0.01": 0.6794444444444446,
+      "0.1": 0.6565873015873016,
+      "1.0": 0.5712698412698414,
+      "10.0": 0.5696825396825397
+    },
+    "selected_C": 0.01
+  },
+  "t4_L0_ACTIVATION": {
+    "best_cv_auroc": 0.6587903225806453,
+    "selected_C": 10.0
+  },
+  "t4_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.659489247311828,
+    "selected_C": 10.0
+  },
+  "t4_L10_ACTIVATION": {
+    "best_cv_auroc": 0.6791666666666666,
+    "selected_C": 10.0
+  },
+  "t4_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7033064516129033,
+    "selected_C": 10.0
+  },
+  "t4_L11_ACTIVATION": {
+    "best_cv_auroc": 0.677768817204301,
+    "selected_C": 10.0
+  },
+  "t4_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.705241935483871,
+    "selected_C": 10.0
+  },
+  "t4_L12_ACTIVATION": {
+    "best_cv_auroc": 0.6894892473118279,
+    "selected_C": 10.0
+  },
+  "t4_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6945967741935483,
+    "selected_C": 10.0
+  },
+  "t4_L13_ACTIVATION": {
+    "best_cv_auroc": 0.6880913978494624,
+    "selected_C": 10.0
+  },
+  "t4_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6879301075268817,
+    "selected_C": 10.0
+  },
+  "t4_L14_ACTIVATION": {
+    "best_cv_auroc": 0.7004032258064515,
+    "selected_C": 1.0
+  },
+  "t4_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7228763440860214,
+    "selected_C": 10.0
+  },
+  "t4_L15_ACTIVATION": {
+    "best_cv_auroc": 0.7342204301075269,
+    "selected_C": 1.0
+  },
+  "t4_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7524462365591398,
+    "selected_C": 10.0
+  },
+  "t4_L16_ACTIVATION": {
+    "best_cv_auroc": 0.7434139784946237,
+    "selected_C": 10.0
+  },
+  "t4_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7503494623655914,
+    "selected_C": 10.0
+  },
+  "t4_L17_ACTIVATION": {
+    "best_cv_auroc": 0.7207795698924732,
+    "selected_C": 0.1
+  },
+  "t4_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6976612903225807,
+    "selected_C": 10.0
+  },
+  "t4_L18_ACTIVATION": {
+    "best_cv_auroc": 0.6996505376344085,
+    "selected_C": 10.0
+  },
+  "t4_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6559408602150537,
+    "selected_C": 1.0
+  },
+  "t4_L19_ACTIVATION": {
+    "best_cv_auroc": 0.6690053763440861,
+    "selected_C": 10.0
+  },
+  "t4_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6127688172043011,
+    "selected_C": 1.0
+  },
+  "t4_L1_ACTIVATION": {
+    "best_cv_auroc": 0.6114247311827956,
+    "selected_C": 1.0
+  },
+  "t4_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5299193548387098,
+    "selected_C": 0.01
+  },
+  "t4_L20_ACTIVATION": {
+    "best_cv_auroc": 0.6816397849462366,
+    "selected_C": 10.0
+  },
+  "t4_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6542741935483871,
+    "selected_C": 10.0
+  },
+  "t4_L21_ACTIVATION": {
+    "best_cv_auroc": 0.690779569892473,
+    "selected_C": 10.0
+  },
+  "t4_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6671236559139785,
+    "selected_C": 10.0
+  },
+  "t4_L22_ACTIVATION": {
+    "best_cv_auroc": 0.7033064516129032,
+    "selected_C": 10.0
+  },
+  "t4_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6865322580645161,
+    "selected_C": 10.0
+  },
+  "t4_L23_ACTIVATION": {
+    "best_cv_auroc": 0.6693817204301076,
+    "selected_C": 10.0
+  },
+  "t4_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6669086021505376,
+    "selected_C": 10.0
+  },
+  "t4_L24_ACTIVATION": {
+    "best_cv_auroc": 0.6981989247311828,
+    "selected_C": 10.0
+  },
+  "t4_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6951881720430108,
+    "selected_C": 10.0
+  },
+  "t4_L25_ACTIVATION": {
+    "best_cv_auroc": 0.6773924731182795,
+    "selected_C": 10.0
+  },
+  "t4_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6648655913978495,
+    "selected_C": 10.0
+  },
+  "t4_L26_ACTIVATION": {
+    "best_cv_auroc": 0.6951344086021505,
+    "selected_C": 10.0
+  },
+  "t4_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6929301075268818,
+    "selected_C": 10.0
+  },
+  "t4_L27_ACTIVATION": {
+    "best_cv_auroc": 0.6761559139784945,
+    "selected_C": 1.0
+  },
+  "t4_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6591129032258064,
+    "selected_C": 10.0
+  },
+  "t4_L28_ACTIVATION": {
+    "best_cv_auroc": 0.6665322580645161,
+    "selected_C": 10.0
+  },
+  "t4_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.663252688172043,
+    "selected_C": 10.0
+  },
+  "t4_L29_ACTIVATION": {
+    "best_cv_auroc": 0.6935752688172042,
+    "selected_C": 10.0
+  },
+  "t4_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6848118279569891,
+    "selected_C": 10.0
+  },
+  "t4_L2_ACTIVATION": {
+    "best_cv_auroc": 0.6720698924731183,
+    "selected_C": 1.0
+  },
+  "t4_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6755645161290323,
+    "selected_C": 10.0
+  },
+  "t4_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7012096774193548,
+    "selected_C": 10.0
+  },
+  "t4_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7031989247311827,
+    "selected_C": 10.0
+  },
+  "t4_L31_ACTIVATION": {
+    "best_cv_auroc": 0.6905107526881721,
+    "selected_C": 10.0
+  },
+  "t4_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7018010752688172,
+    "selected_C": 10.0
+  },
+  "t4_L3_ACTIVATION": {
+    "best_cv_auroc": 0.6208870967741935,
+    "selected_C": 10.0
+  },
+  "t4_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5665860215053764,
+    "selected_C": 10.0
+  },
+  "t4_L4_ACTIVATION": {
+    "best_cv_auroc": 0.618252688172043,
+    "selected_C": 10.0
+  },
+  "t4_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5837903225806452,
+    "selected_C": 10.0
+  },
+  "t4_L5_ACTIVATION": {
+    "best_cv_auroc": 0.6173387096774193,
+    "selected_C": 10.0
+  },
+  "t4_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5959408602150538,
+    "selected_C": 10.0
+  },
+  "t4_L6_ACTIVATION": {
+    "best_cv_auroc": 0.6348118279569893,
+    "selected_C": 10.0
+  },
+  "t4_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5924462365591397,
+    "selected_C": 10.0
+  },
+  "t4_L7_ACTIVATION": {
+    "best_cv_auroc": 0.641263440860215,
+    "selected_C": 10.0
+  },
+  "t4_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5913172043010753,
+    "selected_C": 10.0
+  },
+  "t4_L8_ACTIVATION": {
+    "best_cv_auroc": 0.6444354838709677,
+    "selected_C": 10.0
+  },
+  "t4_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6016397849462365,
+    "selected_C": 10.0
+  },
+  "t4_L9_ACTIVATION": {
+    "best_cv_auroc": 0.6852419354838709,
+    "selected_C": 10.0
+  },
+  "t4_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6897043010752688,
+    "selected_C": 10.0
+  },
+  "t4_LOGITS": {
+    "best_cv_auroc": 0.6929301075268818,
+    "cv_auroc_by_C": {
+      "0.01": 0.6841129032258064,
+      "0.1": 0.6926612903225806,
+      "1.0": 0.6929301075268818,
+      "10.0": 0.6878225806451613
+    },
+    "selected_C": 1.0
+  },
+  "t4_SURFACE": {
+    "best_cv_auroc": 0.5670698924731183,
+    "cv_auroc_by_C": {
+      "0.01": 0.5666935483870968,
+      "0.1": 0.5656182795698925,
+      "1.0": 0.5670698924731183,
+      "10.0": 0.5638978494623655
+    },
+    "selected_C": 1.0
+  },
+  "t4_TEXT": {
+    "best_cv_auroc": 0.5729301075268818,
+    "cv_auroc_by_C": {
+      "0.01": 0.5655107526881721,
+      "0.1": 0.5478763440860215,
+      "1.0": 0.5458870967741936,
+      "10.0": 0.5729301075268818
+    },
+    "selected_C": 10.0
+  },
+  "t64_L0_ACTIVATION": {
+    "best_cv_auroc": 0.6334586466165414,
+    "selected_C": 10.0
+  },
+  "t64_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.691938178780284,
+    "selected_C": 0.01
+  },
+  "t64_L10_ACTIVATION": {
+    "best_cv_auroc": 0.6010860484544696,
+    "selected_C": 10.0
+  },
+  "t64_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.64578111946533,
+    "selected_C": 0.01
+  },
+  "t64_L11_ACTIVATION": {
+    "best_cv_auroc": 0.543233082706767,
+    "selected_C": 10.0
+  },
+  "t64_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6040100250626568,
+    "selected_C": 0.01
+  },
+  "t64_L12_ACTIVATION": {
+    "best_cv_auroc": 0.5864661654135339,
+    "selected_C": 10.0
+  },
+  "t64_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6501670843776107,
+    "selected_C": 0.01
+  },
+  "t64_L13_ACTIVATION": {
+    "best_cv_auroc": 0.7082289055973267,
+    "selected_C": 10.0
+  },
+  "t64_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7297410192147034,
+    "selected_C": 0.01
+  },
+  "t64_L14_ACTIVATION": {
+    "best_cv_auroc": 0.7604427736006684,
+    "selected_C": 10.0
+  },
+  "t64_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7738095238095238,
+    "selected_C": 0.01
+  },
+  "t64_L15_ACTIVATION": {
+    "best_cv_auroc": 0.7777777777777778,
+    "selected_C": 10.0
+  },
+  "t64_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7658730158730158,
+    "selected_C": 0.01
+  },
+  "t64_L16_ACTIVATION": {
+    "best_cv_auroc": 0.8134920634920635,
+    "selected_C": 10.0
+  },
+  "t64_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7907268170426065,
+    "selected_C": 0.01
+  },
+  "t64_L17_ACTIVATION": {
+    "best_cv_auroc": 0.7704678362573099,
+    "selected_C": 10.0
+  },
+  "t64_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7403926482873853,
+    "selected_C": 0.01
+  },
+  "t64_L18_ACTIVATION": {
+    "best_cv_auroc": 0.8266499582289056,
+    "selected_C": 10.0
+  },
+  "t64_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7959482038429406,
+    "selected_C": 0.01
+  },
+  "t64_L19_ACTIVATION": {
+    "best_cv_auroc": 0.7909356725146199,
+    "selected_C": 10.0
+  },
+  "t64_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.766499582289056,
+    "selected_C": 0.01
+  },
+  "t64_L1_ACTIVATION": {
+    "best_cv_auroc": 0.6384711779448622,
+    "selected_C": 10.0
+  },
+  "t64_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5975355054302423,
+    "selected_C": 10.0
+  },
+  "t64_L20_ACTIVATION": {
+    "best_cv_auroc": 0.7642021720969089,
+    "selected_C": 10.0
+  },
+  "t64_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7489557226399332,
+    "selected_C": 0.01
+  },
+  "t64_L21_ACTIVATION": {
+    "best_cv_auroc": 0.7412280701754387,
+    "selected_C": 10.0
+  },
+  "t64_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7357978279030911,
+    "selected_C": 0.01
+  },
+  "t64_L22_ACTIVATION": {
+    "best_cv_auroc": 0.7270258980785298,
+    "selected_C": 1.0
+  },
+  "t64_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7222222222222223,
+    "selected_C": 0.01
+  },
+  "t64_L23_ACTIVATION": {
+    "best_cv_auroc": 0.7230576441102756,
+    "selected_C": 10.0
+  },
+  "t64_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7170008354218881,
+    "selected_C": 0.01
+  },
+  "t64_L24_ACTIVATION": {
+    "best_cv_auroc": 0.7236842105263158,
+    "selected_C": 10.0
+  },
+  "t64_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7134502923976609,
+    "selected_C": 0.01
+  },
+  "t64_L25_ACTIVATION": {
+    "best_cv_auroc": 0.7284878863826233,
+    "selected_C": 10.0
+  },
+  "t64_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7138680033416875,
+    "selected_C": 0.01
+  },
+  "t64_L26_ACTIVATION": {
+    "best_cv_auroc": 0.7247284878863827,
+    "selected_C": 10.0
+  },
+  "t64_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7126148705096075,
+    "selected_C": 0.01
+  },
+  "t64_L27_ACTIVATION": {
+    "best_cv_auroc": 0.7332915622389305,
+    "selected_C": 10.0
+  },
+  "t64_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7268170426065164,
+    "selected_C": 0.01
+  },
+  "t64_L28_ACTIVATION": {
+    "best_cv_auroc": 0.7541771094402674,
+    "selected_C": 10.0
+  },
+  "t64_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.754594820384294,
+    "selected_C": 0.01
+  },
+  "t64_L29_ACTIVATION": {
+    "best_cv_auroc": 0.7431077694235589,
+    "selected_C": 10.0
+  },
+  "t64_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7462406015037594,
+    "selected_C": 0.01
+  },
+  "t64_L2_ACTIVATION": {
+    "best_cv_auroc": 0.5699665831244778,
+    "selected_C": 10.0
+  },
+  "t64_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6177944862155388,
+    "selected_C": 0.1
+  },
+  "t64_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7508354218880535,
+    "selected_C": 10.0
+  },
+  "t64_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7591896407685882,
+    "selected_C": 0.01
+  },
+  "t64_L31_ACTIVATION": {
+    "best_cv_auroc": 0.731203007518797,
+    "selected_C": 10.0
+  },
+  "t64_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.738095238095238,
+    "selected_C": 0.01
+  },
+  "t64_L3_ACTIVATION": {
+    "best_cv_auroc": 0.5177527151211362,
+    "selected_C": 10.0
+  },
+  "t64_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.5904344193817879,
+    "selected_C": 0.01
+  },
+  "t64_L4_ACTIVATION": {
+    "best_cv_auroc": 0.40538847117794485,
+    "selected_C": 10.0
+  },
+  "t64_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6426482873851296,
+    "selected_C": 0.01
+  },
+  "t64_L5_ACTIVATION": {
+    "best_cv_auroc": 0.36257309941520466,
+    "selected_C": 0.01
+  },
+  "t64_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.648078529657477,
+    "selected_C": 0.01
+  },
+  "t64_L6_ACTIVATION": {
+    "best_cv_auroc": 0.35818713450292394,
+    "selected_C": 10.0
+  },
+  "t64_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6798245614035089,
+    "selected_C": 0.01
+  },
+  "t64_L7_ACTIVATION": {
+    "best_cv_auroc": 0.47723475355054307,
+    "selected_C": 10.0
+  },
+  "t64_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.641812865497076,
+    "selected_C": 1.0
+  },
+  "t64_L8_ACTIVATION": {
+    "best_cv_auroc": 0.5311194653299917,
+    "selected_C": 10.0
+  },
+  "t64_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6015037593984962,
+    "selected_C": 0.01
+  },
+  "t64_L9_ACTIVATION": {
+    "best_cv_auroc": 0.5449039264828739,
+    "selected_C": 10.0
+  },
+  "t64_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6482873851294905,
+    "selected_C": 0.01
+  },
+  "t64_LOGITS": {
+    "best_cv_auroc": 0.5371762740183792,
+    "cv_auroc_by_C": {
+      "0.01": 0.5167084377610693,
+      "0.1": 0.5321637426900585,
+      "1.0": 0.5355054302422724,
+      "10.0": 0.5371762740183792
+    },
+    "selected_C": 10.0
+  },
+  "t64_SURFACE": {
+    "best_cv_auroc": 0.3663324979114453,
+    "cv_auroc_by_C": {
+      "0.01": 0.2752715121136174,
+      "0.1": 0.275062656641604,
+      "1.0": 0.297827903091061,
+      "10.0": 0.3663324979114453
+    },
+    "selected_C": 10.0
+  },
+  "t64_TEXT": {
+    "best_cv_auroc": 0.7270258980785297,
+    "cv_auroc_by_C": {
+      "0.01": 0.7270258980785297,
+      "0.1": 0.7157477025898079,
+      "1.0": 0.6359649122807018,
+      "10.0": 0.5079365079365079
+    },
+    "selected_C": 0.01
+  },
+  "t8_L0_ACTIVATION": {
+    "best_cv_auroc": 0.6275,
+    "selected_C": 1.0
+  },
+  "t8_L0_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6158870967741936,
+    "selected_C": 0.01
+  },
+  "t8_L10_ACTIVATION": {
+    "best_cv_auroc": 0.7788978494623656,
+    "selected_C": 0.1
+  },
+  "t8_L10_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7320161290322579,
+    "selected_C": 0.01
+  },
+  "t8_L11_ACTIVATION": {
+    "best_cv_auroc": 0.7787903225806453,
+    "selected_C": 0.1
+  },
+  "t8_L11_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7426075268817205,
+    "selected_C": 1.0
+  },
+  "t8_L12_ACTIVATION": {
+    "best_cv_auroc": 0.7798655913978494,
+    "selected_C": 1.0
+  },
+  "t8_L12_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7473387096774193,
+    "selected_C": 0.01
+  },
+  "t8_L13_ACTIVATION": {
+    "best_cv_auroc": 0.770241935483871,
+    "selected_C": 0.1
+  },
+  "t8_L13_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7341129032258066,
+    "selected_C": 0.01
+  },
+  "t8_L14_ACTIVATION": {
+    "best_cv_auroc": 0.7651344086021505,
+    "selected_C": 0.1
+  },
+  "t8_L14_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7249193548387097,
+    "selected_C": 0.01
+  },
+  "t8_L15_ACTIVATION": {
+    "best_cv_auroc": 0.7784139784946238,
+    "selected_C": 0.1
+  },
+  "t8_L15_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7423924731182796,
+    "selected_C": 0.01
+  },
+  "t8_L16_ACTIVATION": {
+    "best_cv_auroc": 0.7718548387096774,
+    "selected_C": 0.1
+  },
+  "t8_L16_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7313172043010753,
+    "selected_C": 0.01
+  },
+  "t8_L17_ACTIVATION": {
+    "best_cv_auroc": 0.758252688172043,
+    "selected_C": 1.0
+  },
+  "t8_L17_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7026612903225806,
+    "selected_C": 0.01
+  },
+  "t8_L18_ACTIVATION": {
+    "best_cv_auroc": 0.7495430107526881,
+    "selected_C": 10.0
+  },
+  "t8_L18_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7098655913978495,
+    "selected_C": 0.01
+  },
+  "t8_L19_ACTIVATION": {
+    "best_cv_auroc": 0.7337903225806451,
+    "selected_C": 1.0
+  },
+  "t8_L19_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6994354838709679,
+    "selected_C": 0.01
+  },
+  "t8_L1_ACTIVATION": {
+    "best_cv_auroc": 0.5930376344086021,
+    "selected_C": 10.0
+  },
+  "t8_L1_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6091129032258065,
+    "selected_C": 0.01
+  },
+  "t8_L20_ACTIVATION": {
+    "best_cv_auroc": 0.7059408602150536,
+    "selected_C": 10.0
+  },
+  "t8_L20_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6797043010752688,
+    "selected_C": 0.01
+  },
+  "t8_L21_ACTIVATION": {
+    "best_cv_auroc": 0.7005645161290323,
+    "selected_C": 1.0
+  },
+  "t8_L21_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.676747311827957,
+    "selected_C": 0.01
+  },
+  "t8_L22_ACTIVATION": {
+    "best_cv_auroc": 0.713252688172043,
+    "selected_C": 1.0
+  },
+  "t8_L22_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6889516129032258,
+    "selected_C": 0.01
+  },
+  "t8_L23_ACTIVATION": {
+    "best_cv_auroc": 0.7008333333333333,
+    "selected_C": 1.0
+  },
+  "t8_L23_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6786827956989246,
+    "selected_C": 0.01
+  },
+  "t8_L24_ACTIVATION": {
+    "best_cv_auroc": 0.6804569892473117,
+    "selected_C": 1.0
+  },
+  "t8_L24_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6578225806451613,
+    "selected_C": 0.01
+  },
+  "t8_L25_ACTIVATION": {
+    "best_cv_auroc": 0.6810483870967742,
+    "selected_C": 1.0
+  },
+  "t8_L25_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6640591397849462,
+    "selected_C": 0.01
+  },
+  "t8_L26_ACTIVATION": {
+    "best_cv_auroc": 0.6799193548387096,
+    "selected_C": 0.1
+  },
+  "t8_L26_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.669489247311828,
+    "selected_C": 0.01
+  },
+  "t8_L27_ACTIVATION": {
+    "best_cv_auroc": 0.6769086021505376,
+    "selected_C": 0.1
+  },
+  "t8_L27_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6839516129032258,
+    "selected_C": 0.01
+  },
+  "t8_L28_ACTIVATION": {
+    "best_cv_auroc": 0.6662096774193548,
+    "selected_C": 0.1
+  },
+  "t8_L28_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6592741935483871,
+    "selected_C": 0.01
+  },
+  "t8_L29_ACTIVATION": {
+    "best_cv_auroc": 0.691478494623656,
+    "selected_C": 10.0
+  },
+  "t8_L29_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6774462365591398,
+    "selected_C": 0.01
+  },
+  "t8_L2_ACTIVATION": {
+    "best_cv_auroc": 0.694005376344086,
+    "selected_C": 10.0
+  },
+  "t8_L2_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6751881720430107,
+    "selected_C": 0.01
+  },
+  "t8_L30_ACTIVATION": {
+    "best_cv_auroc": 0.7150806451612903,
+    "selected_C": 10.0
+  },
+  "t8_L30_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6921774193548386,
+    "selected_C": 0.1
+  },
+  "t8_L31_ACTIVATION": {
+    "best_cv_auroc": 0.6664784946236559,
+    "selected_C": 0.01
+  },
+  "t8_L31_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6586827956989247,
+    "selected_C": 0.01
+  },
+  "t8_L3_ACTIVATION": {
+    "best_cv_auroc": 0.6673924731182796,
+    "selected_C": 10.0
+  },
+  "t8_L3_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6531451612903226,
+    "selected_C": 0.01
+  },
+  "t8_L4_ACTIVATION": {
+    "best_cv_auroc": 0.6828763440860216,
+    "selected_C": 10.0
+  },
+  "t8_L4_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6747043010752688,
+    "selected_C": 0.01
+  },
+  "t8_L5_ACTIVATION": {
+    "best_cv_auroc": 0.6769623655913979,
+    "selected_C": 10.0
+  },
+  "t8_L5_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6776612903225807,
+    "selected_C": 0.01
+  },
+  "t8_L6_ACTIVATION": {
+    "best_cv_auroc": 0.6783602150537634,
+    "selected_C": 1.0
+  },
+  "t8_L6_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6767473118279569,
+    "selected_C": 0.01
+  },
+  "t8_L7_ACTIVATION": {
+    "best_cv_auroc": 0.706478494623656,
+    "selected_C": 1.0
+  },
+  "t8_L7_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.6763709677419355,
+    "selected_C": 0.01
+  },
+  "t8_L8_ACTIVATION": {
+    "best_cv_auroc": 0.7564784946236559,
+    "selected_C": 0.1
+  },
+  "t8_L8_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7067473118279571,
+    "selected_C": 0.01
+  },
+  "t8_L9_ACTIVATION": {
+    "best_cv_auroc": 0.7726612903225807,
+    "selected_C": 0.1
+  },
+  "t8_L9_SURFACE_PLUS_ACTIVATION": {
+    "best_cv_auroc": 0.7300806451612903,
+    "selected_C": 0.01
+  },
+  "t8_LOGITS": {
+    "best_cv_auroc": 0.7356720430107527,
+    "cv_auroc_by_C": {
+      "0.01": 0.7356720430107527,
+      "0.1": 0.7299731182795698,
+      "1.0": 0.7126075268817204,
+      "10.0": 0.6971774193548387
+    },
+    "selected_C": 0.01
+  },
+  "t8_SURFACE": {
+    "best_cv_auroc": 0.6927150537634409,
+    "cv_auroc_by_C": {
+      "0.01": 0.6927150537634409,
+      "0.1": 0.6895967741935484,
+      "1.0": 0.6921774193548388,
+      "10.0": 0.6898655913978494
+    },
+    "selected_C": 0.01
+  },
+  "t8_TEXT": {
+    "best_cv_auroc": 0.5684677419354839,
+    "cv_auroc_by_C": {
+      "0.01": 0.5684677419354839,
+      "0.1": 0.5526612903225807,
+      "1.0": 0.5458333333333333,
+      "10.0": 0.5649731182795699
+    },
+    "selected_C": 0.01
+  }
+}

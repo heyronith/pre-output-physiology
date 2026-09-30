@@ -1,0 +1,70 @@
+{
+  "C_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "analysis_seed": 2405,
+  "bootstrap_reps": 2000,
+  "created_at": "2026-09-30T22:45:11+00:00",
+  "git_commit": "cc1c011734e975d8ae8bcb71bba732110910b696",
+  "guarantee": "PHASE 24E USED TRAIN AND VALIDATION DATA ONLY. LOCKED TEST LABELS, ACTIVATIONS, AND SCIENTIFIC OUTCOMES REMAINED SEALED. NO SAE ANALYSIS, CAUSAL INTERVENTION, OR LOCKED-TEST CONFIRMATORY ANALYSIS WAS PERFORMED.",
+  "n_coordinates": 224,
+  "n_layers": 32,
+  "risk_sets": {
+    "1": {
+      "train": 275,
+      "validation": 113
+    },
+    "16": {
+      "train": 269,
+      "validation": 103
+    },
+    "2": {
+      "train": 275,
+      "validation": 113
+    },
+    "32": {
+      "train": 234,
+      "validation": 99
+    },
+    "4": {
+      "train": 275,
+      "validation": 113
+    },
+    "64": {
+      "train": 156,
+      "validation": 60
+    },
+    "8": {
+      "train": 275,
+      "validation": 113
+    }
+  },
+  "starting_sha": "cc1c011734e975d8ae8bcb71bba732110910b696",
+  "status": "phase24e_candidate_discovered_awaiting_locked_test_authorization",
+  "temporal_landmarks": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "test_sealed": true,
+  "train_usable": {
+    "deceptive": 120,
+    "honest": 155,
+    "n_prompts": 20,
+    "n_trajectories": 275
+  },
+  "validation_usable": {
+    "deceptive": 72,
+    "honest": 41,
+    "n_prompts": 8,
+    "n_trajectories": 113
+  },
+  "weighting": "class-balanced via prompt_equal_balanced_weights: w = (n/(n_classes*n_c)) * (1/n_prompt_usable); ambiguous excluded; sklearn class_weight=None"
+}
