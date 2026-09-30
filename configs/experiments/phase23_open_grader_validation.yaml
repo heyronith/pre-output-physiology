@@ -2,12 +2,11 @@
 
 experiment_id: phase23_open_grader_validation
 phase: phase23
-status: phase23c_locked_validation_authorized
+status: phase23_open_grader_labeling_validated_pending_onset_validation
 description: >
-  Phase 23C LOCKED validation authorized for frozen DEVELOPMENT winner
-  gemma4_31b_it only (111 prompts × 20 = 2220 responses). Confirmatory test
-  under frozen Phase-23 contract. No threshold/prompt/revision changes.
-  Stage 23D, K>20, physiology remain unauthorized.
+  Phase 23C LOCKED validation PASS for gemma4_31b_it. Labeling validated pending
+  onset validation (Stage 23D unauthorized). Frozen contract unchanged.
+  Authorization consumed; all downstream flags false.
 model_config_path: configs/models/mistral_7b_instruct_v02.yaml
 
 phase22c_sha: d218833450470ee3282fb6dec8aadf36f5fa69a3
@@ -70,7 +69,7 @@ phase23b_development:
   proposed_winner: gemma4_31b_it
   stage2_winner_selected: true
   stage3_scientifically_eligible: true
-  stage3_locked_validation_authorized: true
+  stage3_locked_validation_authorized: false
   population_metric_primary: label_only_mixed_behavior_population
   population_metric_secondary: reference_onset_gated_sensitivity_analysis
   remainder_run_ids:
@@ -78,15 +77,19 @@ phase23b_development:
     qwen35_27b: phase23b_dev_remainder_qwen35_27b_20260930T050455Z_ff2d709d
 
 phase23c_locked:
+  freeze_artifact: artifacts/phase23c_locked/freeze.json
+  status: phase23_open_grader_labeling_validated_pending_onset_validation
+  run_id: phase23c_locked_gemma4_31b_it_20260930T152519Z_49ac9754
   candidate: gemma4_31b_it
-  n_locked_prompts: 111
-  n_locked_responses: 2220
-  stage3_scientifically_eligible: true
-  stage3_locked_validation_authorized: true
+  judgments_path: artifacts/phase23c_locked/run/judgments.jsonl
+  judgments_sha256: 62381aa4555dba66e98d2a39ba9e2384aa7aacf0d74b7feb37fcf7c344e215ca
+  authorization_commit: 061163dbcf681075a5062b4d9cded4d076a1d890
+  stage4_scientifically_eligible: true
   stage4_onset_validation_authorized: false
 
+
 authorizations:
-  modal_gpu_open_grader_inference_authorized: true
+  modal_gpu_open_grader_inference_authorized: false
   mistral_roleplay_generation_authorized: false
   openai_grading_api_authorized: false
   openai_onset_api_authorized: false
@@ -97,10 +100,8 @@ authorizations:
   prompt_changes_authorized: false
   population_threshold_changes_authorized: false
   stage2_development_authorized: false
-  stage3_locked_validation_authorized: true
+  stage3_locked_validation_authorized: false
   stage4_onset_validation_authorized: false
 
 notes: >
-  D154: Phase 23C locked validation authorized by PI for gemma4_31b_it only.
-  Frozen 111-prompt / 2220-response LOCKED split. Confirmatory; no tuning.
-  Stage 23D / K>20 / physiology remain unauthorized.
+  Stage 23C complete (phase23_open_grader_labeling_validated_pending_onset_validation). Authorization consumed. Stage 23D / K>20 / physiology remain unauthorized.

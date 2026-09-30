@@ -1,0 +1,38 @@
+{
+  "candidate": "gemma4_31b_it",
+  "cost": {
+    "cost_per_1000_judgments_usd": 1.4692831252728615,
+    "estimated_cost_usd": 3.2618085381057527,
+    "gpu_seconds": 4697.004294872284,
+    "gpu_type": "A100-80GB",
+    "n_input_tokens": 1514346,
+    "n_output_tokens": 140830,
+    "n_responses": 2220,
+    "responses_per_sec": 0.47264167980931426,
+    "usd_per_hour_assumed": 2.5,
+    "wall_seconds": 4697.004294872284
+  },
+  "created_at": "2026-09-30T15:25:19.881634+00:00",
+  "design_sha256": "40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff",
+  "dtype": "bfloat16",
+  "engine": "transformers_generate_temp0_batch4",
+  "git_commit": "061163dbcf681075a5062b4d9cded4d076a1d890",
+  "grader_prompt_split_sha256": "6504b40b43153a7bd359c344efb6eee01afca887fe4978960d9d2e0d6fec3869",
+  "grader_split": "locked_validation",
+  "hf_id": "google/gemma-4-31B-it",
+  "inference": {
+    "batch_size": 4,
+    "do_sample": false,
+    "engine": "transformers_generate_temp0_batch4",
+    "max_model_len": 8192,
+    "max_new_tokens": 256,
+    "shard_size": 250,
+    "temperature": 0.0
+  },
+  "n": 2220,
+  "n_valid": 2220,
+  "pilot_ids_sha256": "6e412617f7a4e461500880f1420be1c05c8453b433a96ac3d55a9fccb8f02533",
+  "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "run_id": "phase23c_locked_gemma4_31b_it_20260930T152519Z_49ac9754",
+  "stage": "23C_locked"
+}

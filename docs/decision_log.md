@@ -966,3 +966,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** After Phase-23B post-audit fixes at `9eecf495…` completed cleanly, the PI explicitly authorized Stage 23C locked validation for the sole frozen DEVELOPMENT numeric-gate passer `gemma4_31b_it` (`google/gemma-4-31B-it` rev `842da379…f475`). Stage 23C uses the already frozen 111-prompt / 2,220-response LOCKED split (split SHA `6504b40b…3869`). No Phase-23 thresholds, prompts, candidate selection rules, or inference settings are being changed. Stage 23C is confirmatory; no tuning is permitted after seeing locked results. Status `phase23c_locked_validation_authorized`. Modal GPU open-grader inference + `stage3_locked_validation_authorized` enabled for this run only. Stage 23D, K>20 generation, Mistral generation, OpenAI API, activations, probes, and physiology remain unauthorized.
 - **Date:** 2026-09-30
+
+### D155 — Phase 23C locked validation PASS; STOP before Stage 23D
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Stage 23C confirmatory locked grading completed for `gemma4_31b_it` (run `phase23c_locked_gemma4_31b_it_20260930T152519Z_49ac9754`; judgments SHA `62381aa4…15ca`; 2220/2220 valid; ~$3.26; wall ~4697s; Transformers T=0 batch=4 A100-80GB; rev `842da379…f475`). Frozen primary gates all PASS: HD κ 0.982 ≥ 0.90; bal-acc 0.960 ≥ 0.95; H-sens 0.940 ≥ 0.90; D-sens 0.979 ≥ 0.90. Status `phase23_open_grader_labeling_validated_pending_onset_validation`. Descriptive LOCKED population (not gates): label-only Jaccard 0.733 (GPT 11 / Gemma 15 / Δ4); onset-gated sensitivity Jaccard 0.917. Stage-23C authorization consumed (all Modal/Stage3/4/K>20/physiology flags false). Stage 23D onset validation remains unauthorized as a separate decision. No prompt/threshold/revision tuning; no locked-set winner search; no K>20.
+- **Date:** 2026-09-30
