@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "n_tokens_off": 67,
+      "n_tokens_on": 67,
+      "passed": true,
+      "prompt_id": "roleplay_091",
+      "sample_seed": 685611028,
+      "stopping_reason": "eos",
+      "stopping_reason_match": true,
+      "token_sequence_match": true,
+      "trajectory_id": "roleplay_091__r00"
+    },
+    {
+      "n_tokens_off": 15,
+      "n_tokens_on": 15,
+      "passed": true,
+      "prompt_id": "roleplay_091",
+      "sample_seed": 1931680080,
+      "stopping_reason": "eos",
+      "stopping_reason_match": true,
+      "token_sequence_match": true,
+      "trajectory_id": "roleplay_091__r01"
+    },
+    {
+      "n_tokens_off": 19,
+      "n_tokens_on": 19,
+      "passed": true,
+      "prompt_id": "roleplay_091",
+      "sample_seed": 9582480,
+      "stopping_reason": "eos",
+      "stopping_reason_match": true,
+      "token_sequence_match": true,
+      "trajectory_id": "roleplay_091__r02"
+    },
+    {
+      "n_tokens_off": 15,
+      "n_tokens_on": 15,
+      "passed": true,
+      "prompt_id": "roleplay_091",
+      "sample_seed": 1218586616,
+      "stopping_reason": "eos",
+      "stopping_reason_match": true,
+      "token_sequence_match": true,
+      "trajectory_id": "roleplay_091__r03"
+    }
+  ]
+}
