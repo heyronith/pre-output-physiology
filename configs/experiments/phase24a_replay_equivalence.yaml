@@ -1,0 +1,53 @@
+# Phase 24A — live vs replay activation equivalence (instrumentation only)
+
+experiment_id: phase24a_replay_equivalence
+phase: phase24a
+status: phase24a_replay_equivalence_authorized
+description: >
+  Instrumentation validation: do teacher-forced replay activations match live
+  cached autoregressive activations under the frozen K=20 Mistral contract?
+  Exact-onset remains unvalidated. No K=20 extraction, probes, SAE, or K>20.
+model_config_path: configs/models/mistral_7b_instruct_v02.yaml
+starting_sha: b7fd54e73fdd148797a5a24b77dedc053446f670
+
+model:
+  model_id: mistralai/Mistral-7B-Instruct-v0.2
+  revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  dtype: bfloat16
+  quantization: null
+
+generation:
+  temperature: 1.0
+  do_sample: true
+  max_new_tokens: 200
+  batch_size: 1
+
+pilot:
+  n_prompts: 16
+  prompt_ids_sha256: a814fad9f5e9e9bacd9c7d1d0a6c8a45107a969b7682d6f901b690d4928d951a
+  manifest: artifacts/phase24a_replay/pilot_manifest.json
+  seed_base: 24000000
+
+gates_frozen:
+  min_median_cosine: 0.99999
+  min_p01_cosine: 0.9999
+  max_median_rel_l2: 0.001
+  max_p99_rel_l2: 0.01
+
+authorizations:
+  modal_gpu_mistral_replay_pilot_authorized: true
+  k20_activation_extraction_authorized: false
+  probe_fitting_authorized: false
+  sae_analysis_authorized: false
+  k_gt_20_generation_authorized: false
+  openai_grading_api_authorized: false
+  physiology_authorized: false
+  causal_intervention_authorized: false
+  prompt_changes_authorized: false
+  threshold_changes_authorized: false
+
+notes: >
+  D158: Phase 24A authorized. Instrumentation only. Exact-onset remains
+  unvalidated. Research target prospectively shifted to token×layer trajectories
+  and incremental information over surface baselines, contingent on replay PASS.
