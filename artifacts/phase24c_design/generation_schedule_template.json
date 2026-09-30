@@ -1,0 +1,931 @@
+{
+  "note": "Template only \u2014 generation not authorized in Phase 24C",
+  "projections": {
+    "new_trajectories_other_prompts": 368,
+    "new_trajectories_pilot_tail": 160,
+    "new_trajectories_total": 528,
+    "projected_new_bytes": 11058654024.0,
+    "projected_new_cost_usd": 2.1834090614484416,
+    "projected_new_gpu_seconds": 3144.109048485756,
+    "reused_phase24b_trajectories": 96,
+    "selected_k": 16,
+    "total_trajectories_after": 624
+  },
+  "rows": [
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_091",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_224",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_078",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_230",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_192",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_163",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_030",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_370",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_036",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_236",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_116",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_014",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_040",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_003",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_119",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_207",
+      "reused_phase24b_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_355",
+      "reused_phase24b_replicate_indices": [],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_296",
+      "reused_phase24b_replicate_indices": [],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_143",
+      "reused_phase24b_replicate_indices": [],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_308",
+      "reused_phase24b_replicate_indices": [],
+      "split": "train"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_026",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_122",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_304",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_263",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_281",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_366",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_123",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_009",
+      "reused_phase24b_replicate_indices": [],
+      "split": "validation"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_007",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_111",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_174",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_193",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_203",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_206",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_245",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_275",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_289",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_297",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    },
+    {
+      "new_replicate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prompt_id": "roleplay_298",
+      "reused_phase24b_replicate_indices": [],
+      "split": "test"
+    }
+  ],
+  "seed_rule": "sha256(phase24c|{prompt_id}|{replicate_index})[:8] as int",
+  "selected_k": 16
+}

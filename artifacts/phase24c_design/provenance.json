@@ -1,0 +1,16 @@
+{
+  "dataset_blob_sha": "b938599a955946f1c96fa8de79dda6aeab72452d",
+  "dataset_content_sha256": "7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564",
+  "dataset_relpath": "data/roleplaying/dataset.yaml",
+  "formatting": "Phase-21 format_prompt_for_generation / fold_system; unchanged scenario/question/answer_prefix fields from Apollo dataset.yaml",
+  "local_prompts_jsonl": "data/processed/phase21_roleplay/prompts.jsonl",
+  "local_prompts_sha256": "8c49552f0eac048c82710a5a012add5f8c217412e24a8f30a9fc426f0753aaa0",
+  "local_raw_path": "data/raw/apollo_roleplaying/dataset.yaml",
+  "local_raw_sha256_verified": "7d3e36dc9a2fa72ff823b651c2ade2e0fc34c5bc6267cdf9b7be8b046ed2e564",
+  "n_prompts": 371,
+  "phases_21_24_unchanged": true,
+  "prompt_ids_sha256": "f980c8fec39397980ca9a760efdcb224b51308084ee278ba4af7a79d3b8bc23b",
+  "source_provider": "ApolloResearch/deception-detection",
+  "upstream_commit": "f8ec4010e74927394709dffa22b97bdf8cd5a62f",
+  "verification": "PASS"
+}

@@ -1,0 +1,31 @@
+# Phase 24C — full trajectory design freeze (no GPU)
+
+experiment_id: phase24c_full_trajectory_design
+phase: phase24c
+status: phase24c_full_trajectory_design_frozen_awaiting_live_generation_authorization
+starting_sha: 2a08fae5b32bbb611d92c1b872cb0d15696bc317
+selected_k: 16
+
+split:
+  train_n: 20
+  validation_n: 8
+  test_n: 11
+  train_sha256: 094321f387793cbea3f92e5f31b54b246f1e0b11593cf2e7bae5ae1151d683cf
+  validation_sha256: 77cee997a27371717269bcc7df7ea31f8e05eb41262967830890af266a38e9ec
+  test_sha256: 48175cdceb142ac75208883be986c34c3a1a07e32ee9a8cd9832d30e1da06a05
+
+forecast:
+  seed: 2403
+  n_mc: 100000
+  k_grid: [6, 8, 10, 12, 16, 20]
+
+authorizations:
+  live_generation_authorized: false
+  probe_fitting_authorized: false
+  physiology_authorized: false
+  sae_authorized: false
+  causal_authorized: false
+  test_inspection_authorized: false
+
+notes: >
+  Prospective design only. Phase-24B pilots are TRAIN-only. No new generation.

@@ -1,0 +1,26 @@
+{
+  "analysis_spec_sha256": "530a82f971786e2177531711bd4c60fd1e9ab47d9e1c672e39deb4f3c3545b65",
+  "authorizations": {
+    "causal_authorized": false,
+    "live_generation_authorized": false,
+    "physiology_authorized": false,
+    "probe_fitting_authorized": false,
+    "sae_authorized": false,
+    "test_inspection_authorized": false
+  },
+  "bytes_per_trajectory_reference": 20944420.5,
+  "created_at": "2026-09-30T19:28:25+00:00",
+  "eligibility_sha256": "cafa7a97a9e7103f098e25ea550176bdbfcf5fd91a6314ba97e9436fb8cbbabc",
+  "git_commit": "2a08fae5b32bbb611d92c1b872cb0d15696bc317",
+  "gpu_seconds_per_trajectory_reference": 5.954751985768477,
+  "guarantee": "PHASE 24C WAS A PROSPECTIVE DESIGN, YIELD-FORECAST, AND STATISTICAL-FREEZE PHASE. NO NEW MODEL GENERATION, GRADING, ACTIVATION EXTRACTION, DECEPTION PROBING, SAE ANALYSIS, CAUSAL INTERVENTION, OR PRIMARY PHYSIOLOGY ANALYSIS WAS PERFORMED.",
+  "phase": "phase24c",
+  "provenance_sha256": "3ac562f3d5a774754ac46b93c634bf2ba532eef75ba7f7347f5931f152b01401",
+  "selected_k": 16,
+  "split_test_sha256": "48175cdceb142ac75208883be986c34c3a1a07e32ee9a8cd9832d30e1da06a05",
+  "split_train_sha256": "094321f387793cbea3f92e5f31b54b246f1e0b11593cf2e7bae5ae1151d683cf",
+  "split_validation_sha256": "77cee997a27371717269bcc7df7ea31f8e05eb41262967830890af266a38e9ec",
+  "starting_sha": "2a08fae5b32bbb611d92c1b872cb0d15696bc317",
+  "status": "phase24c_full_trajectory_design_frozen_awaiting_live_generation_authorization",
+  "usd_per_hour_reference": 2.5
+}

@@ -1,0 +1,14 @@
+{
+  "analysis_spec.json": "b295ecf4176668ce59351baad83f682332ffdf51234cb7b97c581485bbfbd685",
+  "config": "76105d19e39e2d389a05d640fb0c4fb760111f68ae33963df201b46f58c7bbfc",
+  "design_matrix.json": "e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d",
+  "eligibility_manifest.json": "f477a37514d67ff01fba72201195a48614b0bd6e28ed107006be5eb7b86c3e7e",
+  "generation_schedule_template.json": "200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10",
+  "k_forecast.json": "977ddd71913b765eb8f4623d322e1c19d688c02da97f7761e927d19fdb741d42",
+  "k_forecast_gates_historical.svg": "aa78d3e4b7ff6137040353d6a88ee8ecad7e4206f92918349b6bb20f9541011e",
+  "k_forecast_gates_primary.svg": "6ff0f941df6298d6622ac13db9bf5af935b7f0ba692ea61b4382b863d7422671",
+  "k_forecast_test_counts.svg": "2a7be2b87b9a4dfd80116ace54a17c30bfc2833b7b2973bc0de273bc1bd15749",
+  "provenance.json": "e6c34a6ddfb050b44fa83f418d909d0f1da9407f9ca2cc18efd6f1f181188d8d",
+  "report": "38e1e98937da312eb22d4e1a92aff0788ab36ea2727418131b63e982df2a689c",
+  "split_manifest.json": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa"
+}

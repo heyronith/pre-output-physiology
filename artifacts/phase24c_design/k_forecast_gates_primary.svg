@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="320" viewBox="0 0 520 320">
+<rect width="100%" height="100%" fill="white"/>
+<text x="260" y="20" text-anchor="middle" font-family="sans-serif" font-size="13">Primary Phase-24B live gate probabilities</text>
+<rect x="50" y="36" width="450" height="244" fill="none" stroke="#ccc"/>
+<line x1="50" y1="70.9" x2="500" y2="70.9" stroke="#1f77b4" stroke-dasharray="4,3"/>
+<line x1="50" y1="94.1" x2="500" y2="94.1" stroke="#888" stroke-dasharray="4,3"/>
+<line x1="50" y1="163.8" x2="500" y2="163.8" stroke="#c00" stroke-dasharray="4,3"/>
+<line x1="371.4" y1="36" x2="371.4" y2="280" stroke="#2ca02c" stroke-dasharray="5,3"/>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2" points="50.0,280.0 114.3,241.8 178.6,152.7 242.9,94.8 371.4,56.6 500.0,49.5"/>
+<circle cx="50.0" cy="280.0" r="3" fill="#1f77b4"/>
+<circle cx="114.3" cy="241.8" r="3" fill="#1f77b4"/>
+<circle cx="178.6" cy="152.7" r="3" fill="#1f77b4"/>
+<circle cx="242.9" cy="94.8" r="3" fill="#1f77b4"/>
+<circle cx="371.4" cy="56.6" r="3" fill="#1f77b4"/>
+<circle cx="500.0" cy="49.5" r="3" fill="#1f77b4"/>
+<!-- series TRAIN color=#1f77b4 -->
+<polyline fill="none" stroke="#ff7f0e" stroke-width="2" points="50.0,248.6 114.3,199.5 178.6,156.7 242.9,126.9 371.4,90.8 500.0,73.2"/>
+<circle cx="50.0" cy="248.6" r="3" fill="#ff7f0e"/>
+<circle cx="114.3" cy="199.5" r="3" fill="#ff7f0e"/>
+<circle cx="178.6" cy="156.7" r="3" fill="#ff7f0e"/>
+<circle cx="242.9" cy="126.9" r="3" fill="#ff7f0e"/>
+<circle cx="371.4" cy="90.8" r="3" fill="#ff7f0e"/>
+<circle cx="500.0" cy="73.2" r="3" fill="#ff7f0e"/>
+<!-- series VAL color=#ff7f0e -->
+<polyline fill="none" stroke="#d62728" stroke-width="2" points="50.0,247.5 114.3,187.6 178.6,139.0 242.9,106.2 371.4,72.9 500.0,60.0"/>
+<circle cx="50.0" cy="247.5" r="3" fill="#d62728"/>
+<circle cx="114.3" cy="187.6" r="3" fill="#d62728"/>
+<circle cx="178.6" cy="139.0" r="3" fill="#d62728"/>
+<circle cx="242.9" cy="106.2" r="3" fill="#d62728"/>
+<circle cx="371.4" cy="72.9" r="3" fill="#d62728"/>
+<circle cx="500.0" cy="60.0" r="3" fill="#d62728"/>
+<!-- series TEST color=#d62728 -->
+<text x="50.0" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">6</text>
+<text x="114.3" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">8</text>
+<text x="178.6" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">10</text>
+<text x="242.9" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">12</text>
+<text x="371.4" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">16</text>
+<text x="500.0" y="308" text-anchor="middle" font-family="sans-serif" font-size="11">20</text>
+</svg>

@@ -996,3 +996,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Phase 24A (`afb20fa…`) failed prospectively frozen live↔replay activation-equivalence gates; primary physiology will therefore require activations recorded during live autoregressive generation. Phase 24B validates live capture instrumentation and operational sampling only on 16 SHA-first enriched DEVELOPMENT historically mixed prompts × 6 rollouts (not for prevalence). Status `phase24b_live_capture_feasible_awaiting_full_trajectory_design_authorization`. No deception probe, layer×token predictive analysis, SAE, causal intervention, K=60, onset grading, OpenAI, or held-out physiology prompts.
 - **Date:** 2026-09-30
+
+### D160 — Phase 24C full-trajectory design freeze
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-24B PASS `2a08fae…`, Phase 24C freezes the prospective live-activation trajectory experiment design without GPU calls. Apollo RoleplayDeception provenance verified (content SHA `7d3e36dc…`). Split: TRAIN20/VAL8/TEST11 with all 16 Phase-24B pilots TRAIN-only. Primary live Dirichlet forecast (seed 2403, 100k MC) selects K=16 under frozen yield gates; status `phase24c_full_trajectory_design_frozen_awaiting_live_generation_authorization`. Analysis landmarks, Δh representation, surface baselines, candidate-selection, and confirmatory ΔAUROC CI rule frozen. No generation, grading, probing, SAE, or physiology.
+- **Date:** 2026-09-30

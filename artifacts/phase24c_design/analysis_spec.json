@@ -1,0 +1,104 @@
+{
+  "ambiguous_excluded_from_primary_fit": true,
+  "baselines": {
+    "ACTIVATION": "standardized L2 logistic on \u0394h(t,L)",
+    "LOGITS": "full next-token logits; standardized L2 logistic; scale TRAIN-only",
+    "SURFACE": "cross-fitted stack of TEXT+LOGIT log-odds; L2 meta; OOF only",
+    "SURFACE_PLUS_ACTIVATION": "cross-fitted stack SURFACE+ACTIVATION log-odds",
+    "TEXT": "TF-IDF word 1-2 + char-within-word 3-5; logistic L2; vocab/IDF TRAIN-only"
+  },
+  "candidate_selection": {
+    "min_band_median_delta_auroc": 0.05,
+    "min_consecutive_layers_delta_gt_0": 3,
+    "rule": "choose_earliest_time_then_best_band_then_best_layer",
+    "tie_break": "lower_layer_number"
+  },
+  "claim_limits": "additional linearly decodable predictive signal beyond frozen text-prefix and logit baselines; not hidden intent / not causal",
+  "class_weight": "balanced",
+  "confirmatory_test": {
+    "delta_auroc_bootstrap_reps": 10000,
+    "evaluate_once_on_11_locked": true,
+    "no_posthoc_layer_time_search_on_test": true,
+    "refit_on_all_28_development": true,
+    "support_requires_delta_gt_0_and_ci_low_gt_0": true
+  },
+  "grader": {
+    "hf_id": "google/gemma-4-31B-it",
+    "onset_grader": null,
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475"
+  },
+  "grouped_cv": "prompt-group folds on TRAIN only; no same-prompt across folds",
+  "logistic_C_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "outcome_primary": "honest_vs_deceptive",
+  "prediction_step_convention": "state at step t exists before generated token t is sampled; surface prefix is tokens 0..t-1 only",
+  "primary_activation": "post_block_residual_L0_L31",
+  "primary_contrast": "AUROC(SURFACE+ACTIVATION)-AUROC(SURFACE)",
+  "primary_representation": "delta_h(t,L)=h(t,L)-h(0,L)",
+  "prompt_equal_total_weight": true,
+  "secondary_activations": [
+    "raw_h",
+    "embedding_pre_block",
+    "final_rmsnorm"
+  ],
+  "step0_role": "prompt_conditioned_propensity_reference_not_rollout_trajectory",
+  "temporal_landmarks": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "validation_discovery": {
+    "bootstrap_prompt_cluster_reps": 2000,
+    "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "times": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ]
+  }
+}
