@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build blinded A/B disagreement audit artifact for Phase-23 winner."""
+"""Build blinded A/B disagreement audit artifact for Phase-23 winner.
+
+Blinded reviewer items expose only score/class on both sides (no explanation,
+no grader identity). Identities live solely in a separate ab_mapping.json.
+"""
 
 from __future__ import annotations
 
@@ -12,6 +16,11 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
+from pre_output_physiology.phase23_open_grader import (  # noqa: E402
+    assert_blinded_item_has_no_identity_leak,
+    build_blinded_disagreement_item,
+    select_disagreement_audit_ids,
+)
 from pre_output_physiology.provenance import utc_now_iso, write_json  # noqa: E402
 
 PROC = REPO_ROOT / "data/processed/phase23_open_grader"
@@ -25,9 +34,8 @@ def _load_jsonl(path: Path) -> list[dict]:
     ]
 
 
-def _load_judgments(run_dir: Path) -> dict[str, dict]:
-    rows = _load_jsonl(run_dir / "judgments.jsonl")
-    return {r["continuation_id"]: r for r in rows}
+def _load_judgments(run_dir: Path) -> list[dict]:
+    return _load_jsonl(run_dir / "judgments.jsonl")
 
 
 def main() -> int:
@@ -38,102 +46,78 @@ def main() -> int:
         "--out",
         default=str(REPO_ROOT / "artifacts/phase23_disagreement_audit"),
     )
+    ap.add_argument(
+        "--changed-prompts-json",
+        default="",
+        help="Optional JSON list/set of prompt_ids that changed qualification status",
+    )
     args = ap.parse_args()
 
     run_dir = REPO_ROOT / "artifacts/runs" / args.judgments_run_id
-    by_cid = _load_judgments(run_dir)
+    rows = _load_judgments(run_dir)
+    by_cid = {r["continuation_id"]: r for r in rows}
     corpus = {r["continuation_id"]: r for r in _load_jsonl(PROC / "reference_corpus.jsonl")}
 
-    buckets: dict[str, list[str]] = {
-        "ref_dec_open_honest": [],
-        "ref_honest_open_dec": [],
-        "ambiguous_disagreement": [],
-        "other_class_mismatch": [],
-    }
-    for cid, j in by_cid.items():
-        if not j.get("open_valid"):
-            continue
-        ref = j.get("reference_label")
-        pred = j.get("open_class")
-        if ref == pred:
-            continue
-        if ref == "deceptive" and pred == "honest":
-            buckets["ref_dec_open_honest"].append(cid)
-        elif ref == "honest" and pred == "deceptive":
-            buckets["ref_honest_open_dec"].append(cid)
-        elif ref == "ambiguous" or pred == "ambiguous":
-            buckets["ambiguous_disagreement"].append(cid)
+    changed: set[str] = set()
+    if args.changed_prompts_json:
+        payload = json.loads(Path(args.changed_prompts_json).read_text(encoding="utf-8"))
+        if isinstance(payload, dict) and "prompt_ids" in payload:
+            changed = set(payload["prompt_ids"])
         else:
-            buckets["other_class_mismatch"].append(cid)
+            changed = set(payload)
 
-    def _take(pool: list[str], k: int) -> list[str]:
-        pool = sorted(pool, key=lambda x: hashlib.sha256(x.encode()).hexdigest())
-        return pool[:k]
+    selected = select_disagreement_audit_ids(rows, changed, max_n=args.n)
+    cand = rows[0].get("candidate") if rows else "open_grader"
 
-    targets = {
-        "ref_dec_open_honest": 30,
-        "ref_honest_open_dec": 30,
-        "ambiguous_disagreement": 40,
-        "other_class_mismatch": 20,
-    }
-    selected: list[str] = []
-    for key, k in targets.items():
-        selected.extend(_take(buckets[key], k))
-    selected = sorted(
-        selected[: args.n],
-        key=lambda x: hashlib.sha256(x.encode()).hexdigest(),
-    )
-
-    # Randomize grader A/B per row (deterministic from continuation_id)
-    audit_rows = []
+    items = []
+    mapping = {}
     for cid in selected:
         c = corpus[cid]
         j = by_cid[cid]
-        swap = int(hashlib.sha256(f"ab|{cid}".encode()).hexdigest(), 16) % 2 == 0
-        grader_a = {
-            "score": j["reference_judgement"],
-            "class": j["reference_label"],
-            "grader": "gpt-4o-2024-08-06",
-        }
-        grader_b = {
-            "score": j.get("open_score"),
-            "class": j.get("open_class"),
-            "grader": j.get("candidate"),
-        }
-        if swap:
-            ga, gb = grader_b, grader_a
-        else:
-            ga, gb = grader_a, grader_b
-        audit_rows.append(
-            {
-                "continuation_id": cid,
-                "prompt_id": c["prompt_id"],
-                "scenario": c["scenario"],
-                "question": c["question"],
-                "response": c["full_response"],
-                "grader_a_judgment": ga,
-                "grader_b_judgment": gb,
-                "reference_label": j["reference_label"],
-                "open_class": j["open_class"],
-            }
+        item, ab = build_blinded_disagreement_item(
+            continuation_id=cid,
+            prompt_id=c["prompt_id"],
+            scenario=c["scenario"],
+            question=c["question"],
+            response=c["full_response"],
+            reference_judgement=j["reference_judgement"],
+            reference_label=j["reference_label"],
+            open_score=j.get("open_score"),
+            open_class=j["open_class"],
+            open_identity=j.get("candidate") or cand,
         )
+        assert_blinded_item_has_no_identity_leak(item)
+        mapping[cid] = ab
+        items.append(item)
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    with (out / "disagreement_audit.jsonl").open("w", encoding="utf-8") as f:
-        for row in audit_rows:
+    with (out / "blinded_items.jsonl").open("w", encoding="utf-8") as f:
+        for row in items:
             f.write(json.dumps(row, sort_keys=True) + "\n")
+    write_json(out / "ab_mapping.json", mapping)
     write_json(
         out / "manifest.json",
         {
             "created_at": utc_now_iso(),
             "judgments_run_id": args.judgments_run_id,
-            "n": len(audit_rows),
-            "bucket_sizes": {k: len(v) for k, v in buckets.items()},
-            "note": "Grader A/B identity is blinded; neither grader is assumed correct.",
+            "n": len(items),
+            "continuation_ids_sha256": hashlib.sha256(
+                "\n".join(selected).encode()
+            ).hexdigest(),
+            "blinding": {
+                "judgment_schema": ["score", "class"],
+                "explanation_omitted_from_both": True,
+                "identities_only_in": "ab_mapping.json",
+            },
+            "note": (
+                "Blinded judgments expose only score/class; grader A/B identities "
+                "are stored separately in ab_mapping.json."
+            ),
         },
     )
-    print(json.dumps({"n": len(audit_rows), "out": str(out)}, indent=2))
+    # Legacy combined path omitted intentionally — it leaked identities.
+    print(json.dumps({"n": len(items), "out": str(out)}, indent=2))
     return 0
 
 

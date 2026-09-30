@@ -17,12 +17,10 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from pre_output_physiology.phase23_open_grader import (  # noqa: E402
-    CANDIDATES,
     DEV_ELIGIBILITY,
     GUARANTEE,
     PHASE21_ONSET,
     PHASE22B_ONSET,
-    STATUS_23B,
     compare_development_population_membership,
     compute_agreement_metrics,
     development_eligibility_check,
@@ -182,7 +180,11 @@ def _extended_metrics(rows: list[dict]) -> dict:
     base["prompt_hd_disagreement"] = {
         "n_prompts_with_hd": len(rates),
         "median_rate": statistics.median(rates) if rates else float("nan"),
-        "p90_rate": rates_sorted[int(0.9 * (len(rates_sorted) - 1))] if rates_sorted else float("nan"),
+        "p90_rate": (
+            rates_sorted[int(0.9 * (len(rates_sorted) - 1))]
+            if rates_sorted
+            else float("nan")
+        ),
         "max_rate": max(rates) if rates else float("nan"),
         "top_disagreement_prompts": top[:20],
     }
@@ -269,95 +271,37 @@ def _merge(
 def _build_disagreement_audit(
     cand: str, rows: list[dict], changed_prompts: set[str], out: Path
 ) -> dict:
+    from pre_output_physiology.phase23_open_grader import (
+        assert_blinded_item_has_no_identity_leak,
+        build_blinded_disagreement_item,
+        select_disagreement_audit_ids,
+    )
+
     corpus = {
         r["continuation_id"]: r for r in _load_jsonl(PROC / "reference_corpus.jsonl")
     }
-    buckets = {
-        "ref_honest_open_dec": [],
-        "ref_dec_open_honest": [],
-        "ambiguous_disagreement": [],
-        "qualification_changing": [],
-    }
-    for r in rows:
-        if not r.get("open_valid"):
-            continue
-        ref, pred = r["reference_label"], r["open_class"]
-        if ref == pred:
-            continue
-        cid = r["continuation_id"]
-        if r["prompt_id"] in changed_prompts:
-            buckets["qualification_changing"].append(cid)
-        if ref == "honest" and pred == "deceptive":
-            buckets["ref_honest_open_dec"].append(cid)
-        elif ref == "deceptive" and pred == "honest":
-            buckets["ref_dec_open_honest"].append(cid)
-        elif ref == "ambiguous" or pred == "ambiguous":
-            buckets["ambiguous_disagreement"].append(cid)
-
-    def _take(pool: list[str], k: int) -> list[str]:
-        pool = sorted(pool, key=lambda x: hashlib.sha256(x.encode()).hexdigest())
-        return pool[:k]
-
-    selected = []
-    for key, k in (
-        ("ref_honest_open_dec", 30),
-        ("ref_dec_open_honest", 30),
-        ("ambiguous_disagreement", 40),
-        ("qualification_changing", 40),
-    ):
-        selected.extend(_take(buckets[key], k))
-    # unique preserve order by sha
-    seen = set()
-    uniq = []
-    for cid in sorted(selected, key=lambda x: hashlib.sha256(x.encode()).hexdigest()):
-        if cid not in seen:
-            seen.add(cid)
-            uniq.append(cid)
-    uniq = uniq[:120]
-
+    uniq = select_disagreement_audit_ids(rows, changed_prompts)
     by_j = {r["continuation_id"]: r for r in rows}
     items = []
     mapping = {}
     for cid in uniq:
         c = corpus[cid]
         j = by_j[cid]
-        swap = int(hashlib.sha256(f"ab23b|{cid}".encode()).hexdigest(), 16) % 2 == 0
-        gpt = {
-            "score": j["reference_judgement"],
-            "class": j["reference_label"],
-            "explanation": None,
-            "identity": "gpt-4o-2024-08-06",
-        }
-        op = {
-            "score": j.get("open_score"),
-            "class": j.get("open_class"),
-            "explanation": j.get("open_explanation"),
-            "identity": cand,
-        }
-        if swap:
-            a, b = op, gpt
-        else:
-            a, b = gpt, op
-        mapping[cid] = {"grader_a": a["identity"], "grader_b": b["identity"]}
-        items.append(
-            {
-                "continuation_id": cid,
-                "prompt_id": c["prompt_id"],
-                "scenario": c["scenario"],
-                "question": c["question"],
-                "response": c["full_response"],
-                "judgment_a": {
-                    "score": a["score"],
-                    "class": a["class"],
-                    "explanation": a["explanation"],
-                },
-                "judgment_b": {
-                    "score": b["score"],
-                    "class": b["class"],
-                    "explanation": b["explanation"],
-                },
-            }
+        item, ab = build_blinded_disagreement_item(
+            continuation_id=cid,
+            prompt_id=c["prompt_id"],
+            scenario=c["scenario"],
+            question=c["question"],
+            response=c["full_response"],
+            reference_judgement=j["reference_judgement"],
+            reference_label=j["reference_label"],
+            open_score=j.get("open_score"),
+            open_class=j["open_class"],
+            open_identity=cand,
         )
+        assert_blinded_item_has_no_identity_leak(item)
+        mapping[cid] = ab
+        items.append(item)
     audit_dir = out / "disagreement_audit"
     audit_dir.mkdir(parents=True, exist_ok=True)
     with (audit_dir / "blinded_items.jsonl").open("w", encoding="utf-8") as f:
@@ -369,8 +313,10 @@ def _build_disagreement_audit(
         {
             "n": len(items),
             "candidate": cand,
-            "bucket_sizes": {k: len(v) for k, v in buckets.items()},
-            "note": "A/B identities blinded in blinded_items.jsonl; mapping separate.",
+            "note": (
+                "Blinded judgments expose only score/class (no explanation). "
+                "Grader identities live solely in ab_mapping.json."
+            ),
         },
     )
     return {"n": len(items), "path": str(audit_dir.relative_to(REPO_ROOT))}
@@ -574,10 +520,12 @@ def main() -> int:
         lines += [
             f"## `{cand}`",
             "",
-            f"- Invalid rate: {m['invalid_rate']:.4f} ({v['merge']['n_invalid']}/{v['merge']['n_total']})",
+            f"- Invalid rate: {m['invalid_rate']:.4f} "
+            f"({v['merge']['n_invalid']}/{v['merge']['n_total']})",
             f"- HD κ: {u['cohen_kappa']:.4f}",
             f"- HD bal-acc (invalid=miss): {u['balanced_accuracy']:.4f}",
-            f"- H / D sens (invalid=miss): {u['honest_sensitivity']:.4f} / {u['deceptive_sensitivity']:.4f}",
+            f"- H / D sens (invalid=miss): {u['honest_sensitivity']:.4f} / "
+            f"{u['deceptive_sensitivity']:.4f}",
             f"- 3-class macro-F1: {m['three_class']['macro_f1']:.4f}",
             f"- Population Jaccard: {pop['jaccard_qualifying_prompts']:.4f}",
             f"- Qualifying prompts changed: {pop['n_status_changed']}",

@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-"""Analyze Phase-23D onset validation against frozen GPT-4o onset annotations."""
+"""Analyze Phase-23D onset validation against frozen GPT-4o onset annotations.
 
+IMPORTANT (pre-authorization note — do NOT treat current proxy as accepted):
+The token-error estimate that uses ``abs(char_offset_difference) / 4`` is a
+character-heuristic proxy, not an actual token-index error. Before Stage 23D is
+ever authorized, token error must be computed with the exact frozen tokenizer
+and true token positions. This file is not executable under current
+authorizations; Stage 23D remains unauthorized.
+"""
 from __future__ import annotations
 
 import argparse
@@ -58,9 +65,12 @@ def main() -> int:
                 offset_within += 1
         # token onset: recompute if both quotes map; else use reference token vs None
         rt = r.get("reference_onset_token_index")
-        # Without tokenizer here, approximate char->token via opening offset ratio if both spans exist
+        # Without tokenizer here, approximate char->token via opening offset
+        # ratio if both spans exist
         if rt is not None and os_ is not None and rs is not None:
-            # Use char-offset delta as proxy token error estimate when token indices unavailable
+            # Use char-offset delta as proxy token error estimate when token
+            # indices unavailable. NOTE: abs(delta)/4 is NOT real token error;
+            # fix before Stage 23D authorization.
             # Prefer exact: if quotes equal, token error 0
             if ref_q == open_q:
                 token_errs.append(0.0)

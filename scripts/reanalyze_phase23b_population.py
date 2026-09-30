@@ -17,6 +17,7 @@ from pre_output_physiology.phase23_open_grader import (  # noqa: E402
     N_DEV_PROMPTS,
     PHASE21_ONSET,
     PHASE22B_ONSET,
+    STATUS_23B_POSTAUDIT,
     compare_development_population_membership,
     compare_development_population_membership_label_only,
 )
@@ -24,7 +25,7 @@ from pre_output_physiology.provenance import utc_now_iso, write_json  # noqa: E4
 
 OUT = REPO_ROOT / "artifacts/phase23b_development"
 REPORT = REPO_ROOT / "reports/phase23b_development.md"
-STATUS = "phase23b_population_reanalysis_pending_audit"
+STATUS = STATUS_23B_POSTAUDIT
 
 EXPECTED_SHA = {
     "gemma4_31b_it": "c88f37349e587e7a9c071ebc276cf7f3d039e61a844557d18f7e7393eb8c4a03",
@@ -131,6 +132,7 @@ def main() -> int:
         "via label-only primary metric (onset-gated retained as sensitivity only)"
     )
     ws["stage3_locked_validation_authorized"] = False
+    ws["stage3_scientifically_eligible"] = True
     ws["created_at"] = utc_now_iso()
     ws["reanalysis_git_commit"] = git_commit
 

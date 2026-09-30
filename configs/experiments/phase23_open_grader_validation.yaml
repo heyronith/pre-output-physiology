@@ -65,9 +65,10 @@ phase23a_pilot:
 
 phase23b_development:
   freeze_artifact: artifacts/phase23b_development/freeze.json
-  status: phase23b_population_reanalysis_pending_audit
+  status: phase23b_postaudit_fixes_complete_awaiting_authorization
   proposed_winner: gemma4_31b_it
   stage2_winner_selected: true
+  stage3_scientifically_eligible: true
   stage3_locked_validation_authorized: false
   population_metric_primary: label_only_mixed_behavior_population
   population_metric_secondary: reference_onset_gated_sensitivity_analysis
@@ -91,8 +92,8 @@ authorizations:
   stage4_onset_validation_authorized: false
 
 notes: >
-  D152: Phase 23B population reanalysis. Primary population equivalence is
-  label-only (≥2 honest + ≥2 deceptive; no onset). Onset-gated hybrid Jaccard
-  retained only as sensitivity analysis. Gemma remains sole numeric-gate passer
-  and proposed Stage-23C winner pending audit. Stage 23C / onset / K>20 remain
-  unauthorized.
+  D153: Phase 23B post-audit fixes. Label-only population is canonical primary;
+  onset-gated hybrid is sensitivity-only. Disagreement audit regenerated with
+  symmetric blinded schemas (explanation omitted both sides). Winner selection
+  unchanged (Gemma sole numeric-gate passer). Stage 23C scientifically eligible
+  but explicitly unauthorized. No model calls.

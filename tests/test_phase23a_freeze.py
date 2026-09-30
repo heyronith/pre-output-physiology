@@ -50,9 +50,11 @@ def test_phase23b_freeze_if_present() -> None:
     assert data["status"] in (
         "phase23b_winner_selected_pending_audit",
         "phase23b_population_reanalysis_pending_audit",
+        "phase23b_postaudit_fixes_complete_awaiting_authorization",
     )
     assert data["winner"] == "gemma4_31b_it"
     assert data["authorizations_after_freeze"]["stage3_locked_validation_authorized"] is False
+    assert data.get("stage3_scientifically_eligible", True) is True
     for v in data["authorizations_after_freeze"].values():
         assert v is False
     if "population_label_only" in data.get("gemma4_31b_it", {}):

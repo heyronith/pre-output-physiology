@@ -1,11 +1,21 @@
 {
-  "bucket_sizes": {
-    "ambiguous_disagreement": 688,
-    "qualification_changing": 74,
-    "ref_dec_open_honest": 10,
-    "ref_honest_open_dec": 20
+  "ab_mapping_sha256": "f327f5be76be8de9e3a7789bdac76f4c2c57bd625bc62d3161ae62cbd53c38c6",
+  "blinded_items_sha256": "d477a8e52427633879c283f54935967a3ccf6ef8362efc4606398e5be596e5c2",
+  "blinding": {
+    "explanation_omitted_from_both": true,
+    "identities_only_in": "ab_mapping.json",
+    "judgment_schema": [
+      "score",
+      "class"
+    ]
   },
   "candidate": "gemma4_31b_it",
+  "continuation_ids_sha256": "1776de5d00273ad4d500d2fbc971dda5102693cdf83d3ad9c1e0d774ff87a386",
+  "created_at": "2026-09-30T13:48:46+00:00",
+  "merged_judgments_sha256": "c88f37349e587e7a9c071ebc276cf7f3d039e61a844557d18f7e7393eb8c4a03",
   "n": 103,
-  "note": "A/B identities blinded in blinded_items.jsonl; mapping separate."
+  "note": "Blinded judgments expose only score/class (no explanation). Grader identities live solely in ab_mapping.json. Sample continuation IDs and deterministic A/B assignment preserved from the prior Phase-23B disagreement audit.",
+  "regeneration_git_commit": "f4c5b600fd435f4e0c36e66b25af32c91e79cfd8",
+  "sample_preserved": true,
+  "status": "phase23b_postaudit_fixes_complete_awaiting_authorization"
 }

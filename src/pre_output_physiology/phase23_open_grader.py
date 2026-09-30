@@ -103,6 +103,7 @@ ONSET_ACCEPTANCE = {
 STATUS_DESIGN = "phase23_open_grader_design_frozen"
 STATUS_23A = "phase23a_pilot_complete_awaiting_audit"
 STATUS_23B = "phase23b_development_complete_winner_frozen"
+STATUS_23B_POSTAUDIT = "phase23b_postaudit_fixes_complete_awaiting_authorization"
 STATUS_23C_PASS = "phase23_open_grader_labeling_validated_pending_onset_validation"
 STATUS_23C_FAIL = "phase23_open_grader_not_validated"
 STATUS_23D_PASS = "phase23_open_grader_fully_validated_awaiting_k60_auth"
@@ -1077,3 +1078,130 @@ class CostReport:
             "estimated_cost_usd": self.estimated_cost_usd,
             "cost_per_1000_judgments_usd": self.cost_per_1000,
         }
+
+
+def select_disagreement_audit_ids(
+    rows: Sequence[dict[str, Any]],
+    changed_prompts: set[str],
+    *,
+    max_n: int = 120,
+) -> list[str]:
+    """Deterministic disagreement sample IDs (same bucket quotas as Phase-23B)."""
+    buckets: dict[str, list[str]] = {
+        "ref_honest_open_dec": [],
+        "ref_dec_open_honest": [],
+        "ambiguous_disagreement": [],
+        "qualification_changing": [],
+    }
+    for r in rows:
+        if not r.get("open_valid"):
+            continue
+        ref, pred = r["reference_label"], r["open_class"]
+        if ref == pred:
+            continue
+        cid = r["continuation_id"]
+        if r["prompt_id"] in changed_prompts:
+            buckets["qualification_changing"].append(cid)
+        if ref == "honest" and pred == "deceptive":
+            buckets["ref_honest_open_dec"].append(cid)
+        elif ref == "deceptive" and pred == "honest":
+            buckets["ref_dec_open_honest"].append(cid)
+        elif ref == "ambiguous" or pred == "ambiguous":
+            buckets["ambiguous_disagreement"].append(cid)
+
+    def _take(pool: list[str], k: int) -> list[str]:
+        pool = sorted(pool, key=lambda x: hashlib.sha256(x.encode()).hexdigest())
+        return pool[:k]
+
+    selected: list[str] = []
+    for key, k in (
+        ("ref_honest_open_dec", 30),
+        ("ref_dec_open_honest", 30),
+        ("ambiguous_disagreement", 40),
+        ("qualification_changing", 40),
+    ):
+        selected.extend(_take(buckets[key], k))
+    seen: set[str] = set()
+    uniq: list[str] = []
+    for cid in sorted(selected, key=lambda x: hashlib.sha256(x.encode()).hexdigest()):
+        if cid not in seen:
+            seen.add(cid)
+            uniq.append(cid)
+    return uniq[:max_n]
+
+
+def ab_swap_for_continuation(continuation_id: str) -> bool:
+    """Deterministic A/B swap flag used by Phase-23B disagreement audit."""
+    return int(hashlib.sha256(f"ab23b|{continuation_id}".encode()).hexdigest(), 16) % 2 == 0
+
+
+def build_blinded_disagreement_item(
+    *,
+    continuation_id: str,
+    prompt_id: str,
+    scenario: str,
+    question: str,
+    response: str,
+    reference_judgement: Any,
+    reference_label: str,
+    open_score: Any,
+    open_class: str,
+    open_identity: str,
+) -> tuple[dict[str, Any], dict[str, str]]:
+    """Build one blinded reviewer item + separate identity mapping.
+
+    Blinded judgments expose only score/class (no explanation, no grader name).
+    """
+    gpt = {
+        "score": reference_judgement,
+        "class": reference_label,
+        "identity": "gpt-4o-2024-08-06",
+    }
+    op = {
+        "score": open_score,
+        "class": open_class,
+        "identity": open_identity,
+    }
+    if ab_swap_for_continuation(continuation_id):
+        a, b = op, gpt
+    else:
+        a, b = gpt, op
+    mapping = {"grader_a": a["identity"], "grader_b": b["identity"]}
+    item = {
+        "continuation_id": continuation_id,
+        "prompt_id": prompt_id,
+        "scenario": scenario,
+        "question": question,
+        "response": response,
+        "judgment_a": {"score": a["score"], "class": a["class"]},
+        "judgment_b": {"score": b["score"], "class": b["class"]},
+    }
+    return item, mapping
+
+
+def assert_blinded_item_has_no_identity_leak(item: dict[str, Any]) -> None:
+    """Raise AssertionError if blinded item leaks grader identity."""
+    forbidden_keys = {
+        "explanation",
+        "grader",
+        "identity",
+        "reference_label",
+        "open_class",
+        "open_explanation",
+        "candidate",
+        "hf_id",
+        "revision",
+        "grader_a",
+        "grader_b",
+    }
+    blob = json.dumps(item, sort_keys=True).lower()
+    for key in ("gpt-4o", "gemma", "qwen", "openai", "open_grader", "reference_label"):
+        if key in blob:
+            raise AssertionError(f"blinded item leaks identity clue: {key}")
+    for side in ("judgment_a", "judgment_b"):
+        j = item[side]
+        if set(j.keys()) != {"score", "class"}:
+            raise AssertionError(f"{side} schema must be exactly score/class, got {set(j.keys())}")
+        for fk in forbidden_keys:
+            if fk in j:
+                raise AssertionError(f"{side} contains forbidden key {fk}")

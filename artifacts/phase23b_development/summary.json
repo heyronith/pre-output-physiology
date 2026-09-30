@@ -1,8 +1,16 @@
 {
   "authorization_commit": "00131f41670c52a202c3ac70ad940e40162e4b38",
   "authorizations_after_freeze": {
+    "activation_extraction_authorized": false,
     "k_gt_20_generation_authorized": false,
+    "mistral_roleplay_generation_authorized": false,
     "modal_gpu_open_grader_inference_authorized": false,
+    "openai_grading_api_authorized": false,
+    "openai_onset_api_authorized": false,
+    "physiology_authorized": false,
+    "population_threshold_changes_authorized": false,
+    "probe_fitting_authorized": false,
+    "prompt_changes_authorized": false,
     "stage2_development_authorized": false,
     "stage3_locked_validation_authorized": false,
     "stage4_onset_validation_authorized": false
@@ -3727,7 +3735,18 @@
   },
   "created_at": "2026-09-30T12:45:42+00:00",
   "disagreement_audit": {
+    "ab_mapping_sha256": "f327f5be76be8de9e3a7789bdac76f4c2c57bd625bc62d3161ae62cbd53c38c6",
+    "blinded_items_sha256": "d477a8e52427633879c283f54935967a3ccf6ef8362efc4606398e5be596e5c2",
+    "blinding": {
+      "explanation_omitted_from_both": true,
+      "identities_only_in": "ab_mapping.json",
+      "judgment_schema": [
+        "score",
+        "class"
+      ]
+    },
     "n": 103,
+    "note": "Blinded judgments expose only score/class (no explanation). Grader identities live solely in ab_mapping.json. Sample continuation IDs and deterministic A/B assignment preserved from the prior Phase-23B disagreement audit.",
     "path": "artifacts/phase23b_development/disagreement_audit"
   },
   "git_commit": "00131f41670c52a202c3ac70ad940e40162e4b38",
@@ -3741,8 +3760,15 @@
     },
     "note": "Label-only (\u22652 honest + \u22652 deceptive, no onset) is the primary population-equivalence comparison. Onset-gated hybrid Jaccard is sensitivity-only and must not be presented as primary."
   },
+  "postaudit_at": "2026-09-30T13:50:13+00:00",
+  "postaudit_git_commit": "f4c5b600fd435f4e0c36e66b25af32c91e79cfd8",
   "reanalysis_git_commit": "3b99caa7ab8b4bea850a33a8bce08a412540b885",
-  "status": "phase23b_population_reanalysis_pending_audit",
+  "stage3": {
+    "authorized": false,
+    "proposed_winner": "gemma4_31b_it",
+    "scientifically_eligible": true
+  },
+  "status": "phase23b_postaudit_fixes_complete_awaiting_authorization",
   "winner_selection": {
     "comparison": {
       "gemma4_31b_it": {
@@ -3771,17 +3797,26 @@
       }
     },
     "created_at": "2026-09-30T12:45:42+00:00",
+    "disagreement_audit": {
+      "ab_mapping_sha256": "f327f5be76be8de9e3a7789bdac76f4c2c57bd625bc62d3161ae62cbd53c38c6",
+      "blinded_items_sha256": "d477a8e52427633879c283f54935967a3ccf6ef8362efc4606398e5be596e5c2",
+      "explanation_omitted_from_both": true,
+      "n": 103
+    },
     "git_commit": "00131f41670c52a202c3ac70ad940e40162e4b38",
     "passed_numeric_gates": [
       "gemma4_31b_it"
     ],
     "population_metric_primary": "label_only_mixed_behavior_population",
     "population_metric_secondary": "reference_onset_gated_sensitivity_analysis",
+    "postaudit_at": "2026-09-30T13:50:13+00:00",
+    "postaudit_git_commit": "f4c5b600fd435f4e0c36e66b25af32c91e79cfd8",
     "reanalysis_git_commit": "3b99caa7ab8b4bea850a33a8bce08a412540b885",
-    "reason": "sole numeric gate passer: gemma4_31b_it; population equivalence now reported via label-only primary metric (onset-gated retained as sensitivity only)",
+    "reason": "sole numeric gate passer: gemma4_31b_it; label-only population is canonical primary; onset-gated retained as sensitivity; disagreement audit re-blinded; Stage 23C scientifically eligible but unauthorized",
+    "stage3_authorized": false,
     "stage3_locked_validation_authorized": false,
     "stage3_scientifically_eligible": true,
-    "status": "phase23b_population_reanalysis_pending_audit",
+    "status": "phase23b_postaudit_fixes_complete_awaiting_authorization",
     "winner": "gemma4_31b_it"
   }
 }

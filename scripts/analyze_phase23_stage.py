@@ -17,7 +17,6 @@ from pre_output_physiology.phase23_open_grader import (  # noqa: E402
     DEV_ELIGIBILITY,
     GUARANTEE,
     LOCKED_ACCEPTANCE,
-    ONSET_ACCEPTANCE,
     PHASE21_ONSET,
     PHASE22B_ONSET,
     STATUS_23B,
@@ -110,7 +109,9 @@ def analyze_development(run_ids: list[str]) -> dict:
         "frozen_winner": winner,
         "thresholds": DEV_ELIGIBILITY,
         "authorizations": {
-            "stage3_locked_validation_authorized": bool(winner),
+            # Winner implies scientific eligibility only — never auto-authorize Stage 23C.
+            "stage3_scientifically_eligible": bool(winner),
+            "stage3_locked_validation_authorized": False,
             "winner_frozen": winner,
         },
     }
@@ -135,7 +136,10 @@ def analyze_locked(run_id: str) -> dict:
         "population": pop,
         "thresholds": LOCKED_ACCEPTANCE,
         "authorizations": {
-            "stage4_onset_validation_authorized": acc["passed"],
+            # Locked acceptance implies scientific eligibility for onset only —
+            # never auto-authorize Stage 23D.
+            "stage4_scientifically_eligible": bool(acc["passed"]),
+            "stage4_onset_validation_authorized": False,
             "open_grader_for_k60_authorized": False,
         },
     }
