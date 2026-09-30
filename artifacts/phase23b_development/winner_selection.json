@@ -6,9 +6,11 @@
       "estimated_new_cost_usd": 6.4587759931882225,
       "honest_sensitivity": 0.9336609336609336,
       "invalid_rate": 0.0,
-      "jaccard_qualifying": 0.65625,
       "kappa": 0.9833944232567112,
-      "n_status_changed": 11
+      "label_only_jaccard": 0.5111111111111111,
+      "label_only_n_status_changed": 22,
+      "onset_gated_sensitivity_jaccard": 0.65625,
+      "onset_gated_sensitivity_n_status_changed": 11
     },
     "qwen35_27b": {
       "balanced_accuracy": 0.9137589932024403,
@@ -16,19 +18,24 @@
       "estimated_new_cost_usd": 11.031603194773197,
       "honest_sensitivity": 0.8728501228501229,
       "invalid_rate": 0.0,
-      "jaccard_qualifying": 0.6060606060606061,
       "kappa": 0.9779529016458796,
-      "n_status_changed": 13
+      "label_only_jaccard": 0.40816326530612246,
+      "label_only_n_status_changed": 29,
+      "onset_gated_sensitivity_jaccard": 0.6060606060606061,
+      "onset_gated_sensitivity_n_status_changed": 13
     }
   },
-  "created_at": "2026-09-30T05:05:27+00:00",
+  "created_at": "2026-09-30T12:45:42+00:00",
   "git_commit": "00131f41670c52a202c3ac70ad940e40162e4b38",
   "passed_numeric_gates": [
     "gemma4_31b_it"
   ],
-  "reason": "sole numeric gate passer: gemma4_31b_it",
+  "population_metric_primary": "label_only_mixed_behavior_population",
+  "population_metric_secondary": "reference_onset_gated_sensitivity_analysis",
+  "reanalysis_git_commit": "3b99caa7ab8b4bea850a33a8bce08a412540b885",
+  "reason": "sole numeric gate passer: gemma4_31b_it; population equivalence now reported via label-only primary metric (onset-gated retained as sensitivity only)",
   "stage3_locked_validation_authorized": false,
   "stage3_scientifically_eligible": true,
-  "status": "phase23b_winner_selected_pending_audit",
+  "status": "phase23b_population_reanalysis_pending_audit",
   "winner": "gemma4_31b_it"
 }

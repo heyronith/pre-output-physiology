@@ -559,15 +559,181 @@ def apply_open_grader_labels(
     return out
 
 
+N_DEV_RESPONSES = N_DEV_PROMPTS * 20  # 5200
+LABEL_ONLY_MIN_HONEST = 2
+LABEL_ONLY_MIN_DECEPTIVE = 2
+
+
+def _label_only_class_counts(labels: Sequence[str]) -> dict[str, int]:
+    c = Counter(labels)
+    return {
+        "n_honest": int(c.get("honest", 0)),
+        "n_ambiguous": int(c.get("ambiguous", 0)),
+        "n_deceptive": int(c.get("deceptive", 0)),
+        "n_exclude": int(c.get("exclude", 0)),
+        "n_invalid": int(c.get("invalid", 0)),
+    }
+
+
+def _label_only_qualifies(counts: dict[str, int]) -> bool:
+    return (
+        counts["n_honest"] >= LABEL_ONLY_MIN_HONEST
+        and counts["n_deceptive"] >= LABEL_ONLY_MIN_DECEPTIVE
+    )
+
+
+def compare_development_population_membership_label_only(
+    open_judgments: Sequence[dict[str, Any]],
+    *,
+    expected_n_prompts: int = N_DEV_PROMPTS,
+    responses_per_prompt: int = 20,
+) -> dict[str, Any]:
+    """Primary DEVELOPMENT population equivalence: ≥2 honest and ≥2 deceptive labels.
+
+    Uses grader class labels only. Does **not** consult explicit_span, onset offsets,
+    or any GPT-4o onset annotation. Invalid open outputs count as exclude.
+    """
+    if len(open_judgments) != expected_n_prompts * responses_per_prompt:
+        raise ValueError(
+            f"expected {expected_n_prompts * responses_per_prompt} judgments, "
+            f"got {len(open_judgments)}"
+        )
+    by_prompt: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for r in open_judgments:
+        by_prompt[r["prompt_id"]].append(r)
+    if len(by_prompt) != expected_n_prompts:
+        raise ValueError(
+            f"expected {expected_n_prompts} prompts, got {len(by_prompt)}"
+        )
+    for pid, rows in by_prompt.items():
+        if len(rows) != responses_per_prompt:
+            raise ValueError(
+                f"prompt {pid} has {len(rows)} responses, expected {responses_per_prompt}"
+            )
+        cids = [r["continuation_id"] for r in rows]
+        if len(set(cids)) != responses_per_prompt:
+            raise ValueError(f"prompt {pid} has duplicate continuation_ids")
+
+    ref_qual: set[str] = set()
+    open_qual: set[str] = set()
+    change_reasons: list[dict[str, Any]] = []
+
+    for pid in sorted(by_prompt):
+        rows = by_prompt[pid]
+        ref_labels: list[str] = []
+        open_count_labels: list[str] = []
+        open_for_qual: list[str] = []
+        transitions: Counter[str] = Counter()
+
+        for r in rows:
+            rl = r.get("reference_label")
+            if rl not in ("honest", "ambiguous", "deceptive", "exclude"):
+                rl = "exclude"
+            ref_labels.append(rl)
+
+            if r.get("open_valid") is True and r.get("open_class") in (
+                "honest",
+                "ambiguous",
+                "deceptive",
+            ):
+                ol = str(r["open_class"])
+                open_count_labels.append(ol)
+                open_for_qual.append(ol)
+                ol_report = ol
+            elif not r.get("open_valid"):
+                open_count_labels.append("invalid")
+                open_for_qual.append("exclude")
+                ol_report = "invalid"
+            else:
+                open_count_labels.append("exclude")
+                open_for_qual.append("exclude")
+                ol_report = "exclude"
+
+            if rl != ol_report:
+                transitions[f"{rl}->{ol_report}"] += 1
+
+        ref_counts = _label_only_class_counts(ref_labels)
+        open_counts = _label_only_class_counts(open_count_labels)
+        rq = _label_only_qualifies(ref_counts)
+        oq = _label_only_qualifies(
+            {
+                "n_honest": sum(1 for x in open_for_qual if x == "honest"),
+                "n_deceptive": sum(1 for x in open_for_qual if x == "deceptive"),
+            }
+        )
+        if rq:
+            ref_qual.add(pid)
+        if oq:
+            open_qual.add(pid)
+        if rq != oq:
+            change_reasons.append(
+                {
+                    "prompt_id": pid,
+                    "reference_qualified": rq,
+                    "open_qualified": oq,
+                    "reference_counts": ref_counts,
+                    "open_counts": open_counts,
+                    "label_transitions": dict(transitions),
+                }
+            )
+
+    only_ref = sorted(ref_qual - open_qual)
+    only_open = sorted(open_qual - ref_qual)
+    changed = sorted(only_ref + only_open)
+    n_prompts = expected_n_prompts
+    return {
+        "analysis_type": "label_only_mixed_behavior_population",
+        "primary_population_equivalence_metric": True,
+        "rule": {
+            "min_honest": LABEL_ONLY_MIN_HONEST,
+            "min_deceptive": LABEL_ONLY_MIN_DECEPTIVE,
+            "onset_required": False,
+            "invalid_open_treated_as": "exclude",
+        },
+        "scope": "development_prompts_only",
+        "n_prompts": n_prompts,
+        "n_responses": n_prompts * responses_per_prompt,
+        "reference": {
+            "n_qualifying_prompts": len(ref_qual),
+            "qualifying_prompt_ids": sorted(ref_qual),
+        },
+        "open_grader": {
+            "n_qualifying_prompts": len(open_qual),
+            "qualifying_prompt_ids": sorted(open_qual),
+        },
+        "overlap_n_prompts": len(ref_qual & open_qual),
+        "union_n_prompts": len(ref_qual | open_qual),
+        "jaccard_qualifying_prompts": _safe_div(
+            len(ref_qual & open_qual), len(ref_qual | open_qual)
+        ),
+        "qualification_status_agreement_rate": _safe_div(
+            n_prompts - len(changed), n_prompts
+        ),
+        "only_reference_qualifying": only_ref,
+        "only_open_grader_qualifying": only_open,
+        "status_changed_prompt_ids": changed,
+        "n_status_changed": len(changed),
+        "change_reasons": change_reasons,
+    }
+
+
 def compare_development_population_membership(
     annotated_dev: Sequence[dict[str, Any]],
     open_judgments: Sequence[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Qualify DEVELOPMENT prompts only (260×20) under frozen mixed-population rule."""
+    """Sensitivity analysis: open labels + frozen GPT-4o onset metadata (hybrid).
+
+    Open-grader labels are combined with frozen GPT-4o onset annotations
+    (`explicit_span`, `onset_char_start`). This is **not** a fully open-grader-
+    defined population and must not be used as the primary population-equivalence
+    metric. Retained as `reference_onset_gated_sensitivity_analysis`.
+    """
     from pre_output_physiology.phase21_roleplay import select_mixed_population
 
     by_cid = judgments_index(open_judgments)
     counts = Counter(r["prompt_id"] for r in annotated_dev)
+    if len(counts) != N_DEV_PROMPTS:
+        raise ValueError(f"expected {N_DEV_PROMPTS} DEV prompts, got {len(counts)}")
     if any(v != 20 for v in counts.values()):
         bad = {k: v for k, v in counts.items() if v != 20}
         raise ValueError(f"expected 20/prompt on DEV; bad {list(bad.items())[:5]}")
@@ -582,7 +748,6 @@ def compare_development_population_membership(
     only_open = sorted(open_ids - ref_ids)
     changed = sorted(only_ref + only_open)
 
-    # Directional change reasons (label-count deltas on changed prompts)
     change_reasons: list[dict[str, Any]] = []
     by_prompt_ref: dict[str, list[dict[str, Any]]] = defaultdict(list)
     by_prompt_open: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -602,12 +767,16 @@ def compare_development_population_membership(
         )
         n_a = sum(1 for r in rows if r.get("label") == "ambiguous")
         n_ex = sum(1 for r in rows if r.get("label") == "exclude")
-        return {"n_honest": n_h, "n_deceptive_explicit": n_d, "n_ambiguous": n_a, "n_exclude": n_ex}
+        return {
+            "n_honest": n_h,
+            "n_deceptive_explicit": n_d,
+            "n_ambiguous": n_a,
+            "n_exclude": n_ex,
+        }
 
     for pid in changed:
         rc = _bucket_counts(by_prompt_ref[pid])
         oc = _bucket_counts(by_prompt_open[pid])
-        # Transition tallies for H/D/A among rows
         transitions: dict[str, int] = Counter()
         ref_by = {r["continuation_id"]: r for r in by_prompt_ref[pid]}
         for o in by_prompt_open[pid]:
@@ -635,6 +804,13 @@ def compare_development_population_membership(
     n_prompts = len(counts)
     status_agree = n_prompts - len(changed)
     return {
+        "analysis_type": "reference_onset_gated_sensitivity_analysis",
+        "primary_population_equivalence_metric": False,
+        "disclaimer": (
+            "Open-grader labels are combined with frozen GPT-4o onset annotations. "
+            "This analysis is not a fully open-grader-defined population and is "
+            "retained only as a sensitivity analysis."
+        ),
         "scope": "development_prompts_only",
         "n_prompts": n_prompts,
         "reference": {
@@ -643,11 +819,19 @@ def compare_development_population_membership(
             "n_test_qualifying": ref_pop["gates"]["n_test_qualifying"],
             "qualifying_prompt_ids": sorted(ref_ids),
         },
+        "open_grader_labels_with_reference_onset": {
+            "n_qualifying_prompts": len(open_ids),
+            "n_train_qualifying": open_pop["gates"]["n_train_qualifying"],
+            "n_test_qualifying": open_pop["gates"]["n_test_qualifying"],
+            "qualifying_prompt_ids": sorted(open_ids),
+        },
+        # Back-compat alias (same hybrid object; do not treat as primary)
         "open_grader": {
             "n_qualifying_prompts": len(open_ids),
             "n_train_qualifying": open_pop["gates"]["n_train_qualifying"],
             "n_test_qualifying": open_pop["gates"]["n_test_qualifying"],
             "qualifying_prompt_ids": sorted(open_ids),
+            "note": "hybrid: open labels + GPT-4o onset metadata",
         },
         "overlap_n_prompts": len(ref_ids & open_ids),
         "union_n_prompts": len(ref_ids | open_ids),

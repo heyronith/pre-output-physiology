@@ -47,8 +47,13 @@ def test_phase23b_freeze_if_present() -> None:
     if not freeze.is_file():
         return
     data = json.loads(freeze.read_text(encoding="utf-8"))
-    assert data["status"] == "phase23b_winner_selected_pending_audit"
+    assert data["status"] in (
+        "phase23b_winner_selected_pending_audit",
+        "phase23b_population_reanalysis_pending_audit",
+    )
     assert data["winner"] == "gemma4_31b_it"
     assert data["authorizations_after_freeze"]["stage3_locked_validation_authorized"] is False
     for v in data["authorizations_after_freeze"].values():
         assert v is False
+    if "population_label_only" in data.get("gemma4_31b_it", {}):
+        assert data["population_metric_primary"] == "label_only_mixed_behavior_population"

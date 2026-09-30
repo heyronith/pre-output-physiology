@@ -948,3 +948,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Full DEVELOPMENT (5200) grading complete for both survivors (Transformers T=0, A100-80GB, reuse pilot). `gemma4_31b_it` passes frozen numeric gates (κ 0.983, bal-acc 0.956, H-sens 0.934, D-sens 0.978; invalid 0; 11 DEV qualification-status changes; Jaccard 0.656; new cost ~$6.46) → proposed Stage-23C winner. `qwen35_27b` fails bal-acc 0.914 < 0.95 and honest sensitivity 0.873 < 0.90 (κ 0.978; 13 membership changes; ~$11.03). Status `phase23b_winner_selected_pending_audit`. Stage 23C / onset / K>20 remain unauthorized pending audit. Remainder runs: `phase23b_dev_remainder_gemma4_31b_it_20260930T031505Z_ff2d709d`, `phase23b_dev_remainder_qwen35_27b_20260930T050455Z_ff2d709d`.
 - **Date:** 2026-09-30
+
+### D152 — Phase 23B population reanalysis: label-only primary vs onset-gated sensitivity
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Zero-GPU correction. Prior DEVELOPMENT population Jaccard mixed open-grader labels with frozen GPT-4o onset metadata (hybrid). Primary population equivalence is now **label-only** (≥2 honest + ≥2 deceptive; no onset). Onset-gated hybrid retained only as `reference_onset_gated_sensitivity_analysis`. Using frozen merged judgments (Gemma SHA `c88f3734…4a03`, Qwen SHA `22ddfd78…8dbc`): label-only Gemma GPT 28 / open 40 / ∩23 / Jaccard 0.511 / Δ22; Qwen GPT 28 / open 41 / ∩20 / Jaccard 0.408 / Δ29. Numeric gates unchanged; Gemma remains proposed Stage-23C winner. Status `phase23b_population_reanalysis_pending_audit`. Stage 23C still unauthorized.
+- **Date:** 2026-09-30
