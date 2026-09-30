@@ -110,6 +110,11 @@ STATUS_23C_FAIL = "phase23_open_grader_not_validated"
 STATUS_23D_PASS = "phase23_open_grader_fully_validated_awaiting_k60_auth"
 STATUS_23D_FAIL = "phase23_open_grader_onset_not_validated"
 
+# Frozen Mistral tokenizer identity for response-token onset indexing
+# (same pin used to annotate GPT-4o reference onset_token_index in Phase 21/22B).
+ONSET_TOKENIZER_HF_ID = "mistralai/Mistral-7B-Instruct-v0.2"
+ONSET_TOKENIZER_REVISION = "63a8b081895390a26e140280378bc85ec8bce07a"
+
 GUARANTEE = (
     "PHASE 23 VALIDATES OPEN-WEIGHT DECEPTION GRADERS AGAINST FROZEN GPT-4O-2024-08-06 "
     "LABELS ON THE EXISTING K=20 APOLLO ROLEPLAYDECEPTION CORPUS (7420 RESPONSES). "
@@ -538,6 +543,67 @@ def build_onset_messages(
     ]
 
 
+def load_frozen_onset_tokenizer(cache_dir: str | None = None) -> Any:
+    """Load the frozen Mistral tokenizer used for physiology token indexing."""
+    from transformers import AutoTokenizer
+
+    return AutoTokenizer.from_pretrained(
+        ONSET_TOKENIZER_HF_ID,
+        revision=ONSET_TOKENIZER_REVISION,
+        use_fast=True,
+        cache_dir=cache_dir,
+    )
+
+
+def response_char_to_onset_token_index(
+    tokenizer: Any,
+    *,
+    answer_prefix: str,
+    full_response: str,
+    char_start: int,
+) -> int | None:
+    """Map a character onset in full_response to a Mistral response-token index.
+
+    Frozen Phase-21/22B rule (``char_onset_to_response_token_index``):
+
+    1. ``full_response`` must equal ``answer_prefix + completion``.
+    2. Encode ``full_response`` and ``full_response[:char_start]`` with
+       ``add_special_tokens=False`` (no text rewrite / normalization).
+    3. Token index = ``len(encode(prefix_text))`` when that is a valid index
+       into ``encode(full_response)``.
+
+    This is an actual tokenizer-index distance coordinate used by physiology —
+    not ``abs(char_diff) / 4``.
+    """
+    from pre_output_physiology.phase21_roleplay import (
+        char_onset_to_response_token_index,
+    )
+
+    if answer_prefix is None or full_response is None:
+        return None
+    if not full_response.startswith(answer_prefix):
+        return None
+    completion = full_response[len(answer_prefix) :]
+    return char_onset_to_response_token_index(
+        tokenizer, answer_prefix, completion, int(char_start)
+    )
+
+
+def absolute_token_index_error(
+    reference_token_index: int | None,
+    predicted_token_index: int | None,
+) -> int | None:
+    """Integer token distance; None if either index is missing."""
+    if reference_token_index is None or predicted_token_index is None:
+        return None
+    return abs(int(reference_token_index) - int(predicted_token_index))
+
+
+def char_diff_over_four_proxy(ref_char: int, pred_char: int) -> float:
+    """Deprecated Stage-23D proxy — must never be used as the primary metric."""
+    return abs(int(ref_char) - int(pred_char)) / 4.0
+
+
 def judgments_index(rows: Sequence[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return {r["continuation_id"]: r for r in rows}
 
@@ -871,7 +937,6 @@ def compare_k20_population_membership(
     open_judgments: Sequence[dict[str, Any]],
 ) -> dict[str, Any]:
     """Reconstruct K=20 population with open labels; compare to GPT-4o reference."""
-    from pre_output_physiology.phase21_roleplay import select_mixed_population
     from pre_output_physiology.phase22b_sampling import evaluate_k20_population
 
     ref = evaluate_k20_population(phase21_annotated, phase22b_annotated)
