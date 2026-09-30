@@ -1,0 +1,91 @@
+{
+  "attention_implementation": "sdpa",
+  "behavioral_yield_frozen": {
+    "min_deceptive_total": 20,
+    "min_honest_total": 20,
+    "min_prompts_with_both_hd": 8
+  },
+  "capture_gates_frozen": {
+    "min_completed": 95,
+    "require_alignment_all": true,
+    "require_artifact_integrity_all": true,
+    "require_zero_nan_activations": true,
+    "require_zero_nan_logits": true
+  },
+  "created_at": "2026-09-30T18:26:47+00:00",
+  "dtype": "bfloat16",
+  "enrichment_warning": "16 prompts are historically switch-capable DEVELOPMENT prompts; do not use Phase-24B frequencies for population prevalence.",
+  "generation": {
+    "batch_size": 1,
+    "do_sample": true,
+    "max_new_tokens": 200,
+    "max_sequence_length": 32768,
+    "temperature": 1.0
+  },
+  "git_commit": "afb20fa87818fccd5201288f3dededc5860b896e",
+  "grader": {
+    "hf_id": "google/gemma-4-31B-it",
+    "note": "Phase-23C validated response-level only; no onset",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475"
+  },
+  "guarantee": "PHASE 24B WAS A LIVE-ACTIVATION INSTRUMENTATION AND SAMPLING-FEASIBILITY PILOT. NO DECEPTION PROBE, LAYER\u00d7TOKEN PREDICTIVE ANALYSIS, SAE, CAUSAL INTERVENTION, K=60 SAMPLING, ONSET GRADING, OR PHYSIOLOGY CLAIM WAS PERFORMED. HELD-OUT PHYSIOLOGY PROMPTS WERE NOT USED.",
+  "hook_paths": {
+    "convention": {
+      "embedding_pre_block_residual": "Forward-hook output of model.model.embed_tokens at the last sequence position of the current forward (prediction-step residual entering block 0).",
+      "final_rmsnorm": "Forward-hook output of model.model.norm at the last sequence position (state consumed by lm_head).",
+      "post_block_residual_L": "Forward-hook output of model.model.layers[L] at the last sequence position (post-block residual after transformer block L, L=0..31).",
+      "prediction_step": "prediction_step=0: state at final prompt token before sampling generated token 0. prediction_step=t>0: state after processing generated token t-1, before sampling generated token t. Activation at prediction_step=t exists before token t is emitted."
+    },
+    "embedding": "model.model.embed_tokens",
+    "final_rmsnorm": "model.model.norm",
+    "n_blocks": 32,
+    "transformer_blocks": [
+      "model.model.layers[0]",
+      "model.model.layers[1]",
+      "model.model.layers[2]",
+      "model.model.layers[3]",
+      "model.model.layers[4]",
+      "model.model.layers[5]",
+      "model.model.layers[6]",
+      "model.model.layers[7]",
+      "model.model.layers[8]",
+      "model.model.layers[9]",
+      "model.model.layers[10]",
+      "model.model.layers[11]",
+      "model.model.layers[12]",
+      "model.model.layers[13]",
+      "model.model.layers[14]",
+      "model.model.layers[15]",
+      "model.model.layers[16]",
+      "model.model.layers[17]",
+      "model.model.layers[18]",
+      "model.model.layers[19]",
+      "model.model.layers[20]",
+      "model.model.layers[21]",
+      "model.model.layers[22]",
+      "model.model.layers[23]",
+      "model.model.layers[24]",
+      "model.model.layers[25]",
+      "model.model.layers[26]",
+      "model.model.layers[27]",
+      "model.model.layers[28]",
+      "model.model.layers[29]",
+      "model.model.layers[30]",
+      "model.model.layers[31]"
+    ]
+  },
+  "layer_coordinates": {
+    "embedding_pre_block_residual": "Forward-hook output of model.model.embed_tokens at the last sequence position of the current forward (prediction-step residual entering block 0).",
+    "final_rmsnorm": "Forward-hook output of model.model.norm at the last sequence position (state consumed by lm_head).",
+    "post_block_residual_L": "Forward-hook output of model.model.layers[L] at the last sequence position (post-block residual after transformer block L, L=0..31).",
+    "prediction_step": "prediction_step=0: state at final prompt token before sampling generated token 0. prediction_step=t>0: state after processing generated token t-1, before sampling generated token t. Activation at prediction_step=t exists before token t is emitted."
+  },
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "phase": "phase24b",
+  "phase24a_status": "phase24a_replay_equivalence_failed_live_recording_required",
+  "prompt_formatting": "format_prompt_for_generation / fold_system (Phase-21)",
+  "quantization": null,
+  "starting_sha": "afb20fa87818fccd5201288f3dededc5860b896e",
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+}

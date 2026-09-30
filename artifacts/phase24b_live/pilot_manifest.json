@@ -1,0 +1,39 @@
+{
+  "canary_trajectory_ids": [
+    "roleplay_091__r00",
+    "roleplay_091__r01",
+    "roleplay_091__r02",
+    "roleplay_091__r03"
+  ],
+  "created_at": "2026-09-30T18:26:47+00:00",
+  "eligible_source": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/phase24a_replay/k20_label_only_inventory.json",
+  "git_commit": "afb20fa87818fccd5201288f3dededc5860b896e",
+  "n_canary": 4,
+  "n_eligible": 28,
+  "n_pilot_prompts": 16,
+  "n_replicates": 6,
+  "n_trajectories": 96,
+  "note": "Enriched DEVELOPMENT-only. Held-out 11 mixed prompts unused. Not for prevalence estimation.",
+  "prompt_ids": [
+    "roleplay_091",
+    "roleplay_224",
+    "roleplay_078",
+    "roleplay_230",
+    "roleplay_192",
+    "roleplay_163",
+    "roleplay_030",
+    "roleplay_370",
+    "roleplay_036",
+    "roleplay_236",
+    "roleplay_116",
+    "roleplay_014",
+    "roleplay_040",
+    "roleplay_003",
+    "roleplay_119",
+    "roleplay_207"
+  ],
+  "prompt_ids_sha256": "f41448eea0bab464c5dbabe721f6c83bafeba8416646c63e09c467c951191066",
+  "schedule_sha256": "7ead6c4ceaa2918fb71b64752c3cafd2453e6165b17c83f421d918c956fa291b",
+  "seed_rule": "sha256(phase24b|{prompt_id}|{replicate_index})[:8] as int",
+  "selection_method": "sha256_sort_28_dev_label_only_mixed_take_first_16"
+}
