@@ -93,6 +93,18 @@ def test_prediction_step_alignment() -> None:
     assert aligned[2]["prediction_step"] == 2
 
 
+def test_max_new_tokens_no_extra_prediction_step() -> None:
+    """Hitting max_new_tokens must not create a trailing unsampled step."""
+    n = 200
+    book = prediction_step_bookkeeping(n)
+    assert book["n_prediction_steps"] == n
+    # Simulated capture lengths must match generated tokens exactly
+    fake_generated = list(range(n))
+    aligned = align_sampled_token_to_prediction_step(fake_generated)
+    assert len(aligned) == n
+    assert aligned[-1]["prediction_step"] == n - 1
+
+
 def test_eos_handling() -> None:
     info = eos_terminal_handling([5, 6, 2], eos_token_id=2)
     assert info["stopped_on_eos"] is True

@@ -207,6 +207,10 @@ def _generate_one(
             if next_id == tok.eos_token_id:
                 stopping_reason = "eos"
                 break
+            # Do not forward after the final allowed token: that would create a
+            # prediction_step with no corresponding sampled token (off-by-one).
+            if len(generated) >= max_new_tokens:
+                break
             next_t = torch.tensor([[next_id]], dtype=torch.long, device=device)
             out = model(next_t, past_key_values=past, use_cache=True)
             past = out.past_key_values
