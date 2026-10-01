@@ -1032,3 +1032,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** From `8f2cbb6…`, Phase 24G-R attempted corrected LOPO/nested using full frozen stacked pipelines and exactly 1000 nested reps. Multiprocess pools swap-thrashed (~17GB); serial full grids remain ~39h for 1000 nested on this host. Per protocol we STOP without reducing reps or using proxy. Phase-24F FAIL unchanged. Prior 24G artifacts retained by hash. Status `phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive`.
 - **Date:** 2026-10-01
+
+### D166 — Phase 24G-R2 Modal 500 nested amendment
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Prospectively amend exploratory Phase-24G-R nested target from 1,000 to **500** full-pipeline repetitions solely for computational feasibility, **before** corrected nested results are observed. Execute on Modal CPU (16 cores / 128 GiB / 8 workers) with persistent Volume `pre-output-physiology-phase24g-r2`, resumable atomic checkpoints, no proxy primary path. Phase-24F FAIL unchanged.
+- **Date:** 2026-10-01

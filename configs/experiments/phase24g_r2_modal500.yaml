@@ -1,0 +1,31 @@
+# Phase 24G-R2 — Modal 500-rep corrected diagnostics (prospective amendment)
+
+experiment_id: phase24g_r2_modal500
+phase: phase24g_r2
+status: phase24g_r2_modal500_authorized_awaiting_execution
+starting_sha: be8bbdd8012ed0869d2b4b32c0000a417e45e0b7
+nested_reps: 500
+nested_reps_prior_target: 1000
+lopo_n: 28
+analysis_seed: 2408
+n_workers: 8
+modal_cpu: 16
+modal_memory_mib: 131072
+volume_name: pre-output-physiology-phase24g-r2
+app_name: pre-output-physiology-phase24g-r2-modal500
+proxy_used_in_primary: false
+phase24f_primary_pass: false
+
+amendment: >
+  The exploratory Phase-24G-R nested resampling target is amended from 1,000
+  to 500 full-pipeline repetitions solely for computational feasibility. No
+  result from the corrected nested analysis has yet been observed. All other
+  analysis rules remain unchanged.
+
+authorizations:
+  exploratory_corrected_diagnostics: true
+  modal_cpu_execution_authorized: true
+  primary_endpoint_redefinition: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  proxy_primary_analysis: false
