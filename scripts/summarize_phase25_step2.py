@@ -176,7 +176,7 @@ def main() -> int:
     # within vs between family variability of X false rate on K-verified
     fam_means = []
     within_vars = []
-    for fid, items in fam.items():
+    for _fid, items in fam.items():
         kv_items = [x for x in items if x["k_verified"]]
         if not kv_items:
             continue
@@ -236,13 +236,13 @@ def main() -> int:
         "",
         f"**Protocol version:** `{cfg['protocol_version']}`",
         f"**Model:** `{cfg['model']['model_id']}` @ `{cfg['model']['revision']}`",
-        f"**Attention:** `{cfg['model']['attention_implementation']}` (recovered Phase-24; not eager)",
+        f"**Attention:** `{cfg['model']['attention_implementation']}` (recovered Phase-24; not eager)",  # noqa: E501
         "",
         "## Counts",
         f"- Total generations: {n}",
         f"- Technical failures: {report['n_technical_failures']}",
         f"- SCREEN bases: {len(base_summaries)}",
-        f"- SEALED families inferred: 0 (forbidden)",
+        "- SEALED families inferred: 0 (forbidden)",
         "",
         "## Malformed rates by form",
         *[
@@ -327,7 +327,7 @@ def main() -> int:
     (root / cfg["paths"]["manifest_sha256"]).write_text(
         json.dumps({"files": hashes}, indent=2, sort_keys=True) + "\n"
     )
-    print(json.dumps({"ok": True, "n_generations": n, "k_verified_rate": report["k_verified_rate"]}, indent=2))
+    print(json.dumps({"ok": True, "n_generations": n, "k_verified_rate": report["k_verified_rate"]}, indent=2))  # noqa: E501
     return 0
 
 
