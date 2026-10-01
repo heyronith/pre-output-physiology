@@ -39,14 +39,14 @@ jobs:
       - name: Validate v2 candidate bank
         run: python scripts/validate_phase25_step1_v2.py --repo-root .
 
+      - name: Install test and lint tools
+        run: python -m pip install -q pytest ruff
+
       - name: Run targeted tests
         run: pytest -q tests/test_phase25_step1_v2.py
 
-      - name: Install and run Ruff
-        shell: bash
-        run: |
-          python -m pip install -q ruff
-          ruff check scripts/generate_phase25_step1_v2.py scripts/validate_phase25_step1_v2.py scripts/finalize_phase25_step1_v2_manifest.py tests/test_phase25_step1_v2.py
+      - name: Run Ruff
+        run: ruff check scripts/generate_phase25_step1_v2.py scripts/validate_phase25_step1_v2.py scripts/finalize_phase25_step1_v2_manifest.py tests/test_phase25_step1_v2.py
 
       - name: Freeze manifest
         run: python scripts/finalize_phase25_step1_v2_manifest.py --repo-root .
