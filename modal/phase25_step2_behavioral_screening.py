@@ -33,7 +33,7 @@ OUT_META = REPO_ROOT / "artifacts/phase25_step2/run_metadata.json"
 
 A100_USD_PER_HOUR = 2.50
 GPU_TYPE = "A100-80GB"
-CHUNK_SIZE = 198  # 4752 / 198 = 24 chunks
+CHUNK_SIZE = 4752  # single A100 job; avoid repeated model loads
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -150,7 +150,7 @@ def _generate_one(
 @app.function(
     image=image,
     gpu=GPU_TYPE,
-    timeout=60 * 60 * 3,
+    timeout=60 * 60 * 5,
     volumes={MODEL_CACHE: mistral_vol},
     memory=65536,
 )
