@@ -1,0 +1,32 @@
+{
+  "action": "Authorize either (a) a higher-RAM host / cloud runner for the unchanged 1000-rep full-pipeline protocol, or (b) an explicit protocol amendment. Do not silently reduce reps or use proxy.",
+  "action_required": "Authorize either (a) a higher-RAM host / cloud runner for the unchanged 1000-rep full-pipeline protocol, or (b) an explicit protocol amendment. Do not silently reduce reps or use proxy.",
+  "created_at": "2026-10-01T02:51:10+00:00",
+  "minutes_per_full_grid": 1.6416666666666666,
+  "n_finite_delta_cells": 224,
+  "nested_1000_serial_hours_clean": 27.36111111111111,
+  "nested_1000_serial_hours_observed": 38.888888888888886,
+  "parallel_attempt": {
+    "outcome": "swap_thrash",
+    "peak_swap_gb_observed": 17.5,
+    "workers_tried": [
+      4,
+      6,
+      10,
+      16
+    ]
+  },
+  "partial_lopo_completed": 4,
+  "partial_lopo_exact_t1_l20": 1,
+  "protocol_unchanged": {
+    "full_stacked_required": true,
+    "nested_reps_required": 1000,
+    "proxy_forbidden_for_primary": true
+  },
+  "reason": "Full frozen SURFACE+ACTIVATION stacked discovery grids are ~98.5s clean / ~140s under memory pressure on this 24GB host. Multiprocess fork pools caused ~17GB swap thrash and were abandoned. Serial in-process 1000 nested would require ~38.9h wall (~27.4h clean). Protocol forbids silently reducing repetitions or substituting the logits-only proxy for primary diagnostics.",
+  "seconds_per_full_grid": 98.5,
+  "seconds_per_full_grid_clean": 98.5,
+  "seconds_per_full_grid_observed_under_pressure": 140.0,
+  "status": "phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive",
+  "verdict": "PROHIBITIVE"
+}

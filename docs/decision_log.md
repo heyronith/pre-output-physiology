@@ -1026,3 +1026,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-24F FAIL `05d6257…`, Phase 24G ran exploratory post-confirmation diagnostics (LOPO, nested optimism n=50, TEST 7×32 exploratory grid, topology, heterogeneity, probe stability, power). Diagnostic category **C**. Phase-24F primary FAIL remains final and unchanged. No SAE, causal intervention, new trajectories, or endpoint redefinition.
 - **Date:** 2026-09-30
+
+### D165 — Phase 24G-R runtime STOP (full-pipeline 1000)
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** From `8f2cbb6…`, Phase 24G-R attempted corrected LOPO/nested using full frozen stacked pipelines and exactly 1000 nested reps. Multiprocess pools swap-thrashed (~17GB); serial full grids remain ~39h for 1000 nested on this host. Per protocol we STOP without reducing reps or using proxy. Phase-24F FAIL unchanged. Prior 24G artifacts retained by hash. Status `phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive`.
+- **Date:** 2026-10-01

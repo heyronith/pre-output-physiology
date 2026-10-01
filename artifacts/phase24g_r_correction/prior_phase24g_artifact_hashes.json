@@ -1,0 +1,100 @@
+{
+  "all_present": true,
+  "artifacts": {
+    "artifact_hashes.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/artifact_hashes.json",
+      "sha256": "0b65b2fc2f9dd0aace3984ab2ed9a6defeae1b7ce9c96a381ec85f696bf0617b"
+    },
+    "candidate_stability_by_split.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/candidate_stability_by_split.json",
+      "sha256": "61af4ad319311cb348a78d033a2981bb88883d42238a18817e135ccaa064ca1b"
+    },
+    "diagnostic_category.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/diagnostic_category.json",
+      "sha256": "8760da5baa20bf972b016e6086774367148e27badedeec4633c8d91f6b39c346"
+    },
+    "diagnostics_manifest.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/diagnostics_manifest.json",
+      "sha256": "c1d8fd2e93ccb88c41cb28d830a2a824dfae8b09ab22e8869fc1712130bbdc74"
+    },
+    "exploratory_test_coordinate_metrics.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/exploratory_test_coordinate_metrics.json",
+      "sha256": "06db06946db27d5de611ba4542c480cacf7984ee6bfaf4c2ef635e134cbd2f14"
+    },
+    "heatmap_test_activation.svg": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/heatmap_test_activation.svg",
+      "sha256": "f2a7a2cdb7f52ba115bb349a0af6422ba64ac82dad7a32c530a83c39d4ca63be"
+    },
+    "heatmap_test_combined.svg": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/heatmap_test_combined.svg",
+      "sha256": "ab165c22dab6c22aa0cccde457e14a3f2e7ee38f6f6d889d1969ca44eb30aa6a"
+    },
+    "heatmap_test_delta.svg": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/heatmap_test_delta.svg",
+      "sha256": "6b893874ccccbd9040e541665309d81760a98943a193b5f830709769ecd5d2e8"
+    },
+    "heatmap_test_surface.svg": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/heatmap_test_surface.svg",
+      "sha256": "606ecc11067574627748b9c9772e22cf620da87e4f63c7dcd1148f0635eeb887"
+    },
+    "heatmap_val_delta.svg": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/heatmap_val_delta.svg",
+      "sha256": "efd95ba1e1528b6a2b3356e0ae9420e626b0f0535a6dbd2082b7132189834510"
+    },
+    "lopo_candidate_stability.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/lopo_candidate_stability.json",
+      "sha256": "4fc1c6a372a7ee131fbd530ee92e3fd02458cef21f31aef8519ace54075a0dd4"
+    },
+    "nested_resampling_optimism.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/nested_resampling_optimism.json",
+      "sha256": "901e5c6ac9607774c34593883824be6b402e22a2f0cb3275fb62d515b9ce8fe8"
+    },
+    "phase24f_immutability.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/phase24f_immutability.json",
+      "sha256": "19672660009519c3fafa1c1b44a6b28bc5317f88333655f3baffa99389e79366"
+    },
+    "power_projections.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/power_projections.json",
+      "sha256": "bb52e52d43056506770d8ff7d26b3a90286a332535cbb144d987e01117ae33e8"
+    },
+    "probe_direction_stability.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/probe_direction_stability.json",
+      "sha256": "0c21089f6df345f9ad7bcaf2758407938a9c8afa44197a91d95ad5996eb64191"
+    },
+    "prompt_heterogeneity.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/prompt_heterogeneity.json",
+      "sha256": "a1214a73cfa5981f327cf070b7e09aaaf0f6f2273d9b69349b24533935c13659"
+    },
+    "same_prompt_robustness.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/same_prompt_robustness.json",
+      "sha256": "7e417d527bd0b2ca8abb53832b04ac6daa6ca165cb602817cd62ff4682b62a34"
+    },
+    "surface_baseline_diagnostics.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/surface_baseline_diagnostics.json",
+      "sha256": "b44abf8781b35dcd2e25ea7005d5f0feca121bbd380b06c24cf56621a20960c5"
+    },
+    "val_test_topology.json": {
+      "exists": true,
+      "path": "artifacts/phase24g_diagnostics/val_test_topology.json",
+      "sha256": "9db4d9f398dc572ac90429c39b69658808fe484a68280ef40422808837c632e5"
+    }
+  }
+}

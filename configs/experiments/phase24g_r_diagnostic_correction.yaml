@@ -1,0 +1,18 @@
+# Phase 24G-R — STOPPED (runtime prohibitive on this host)
+
+experiment_id: phase24g_r_diagnostic_correction
+phase: phase24g_r
+status: phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive
+starting_sha: 8f2cbb67d0ad6a8ae4d0c8afb304729166f11a17
+nested_reps_required: 1000
+nested_reps_completed: 0
+lopo_partial_completed: 4
+proxy_used_in_primary: false
+phase24f_primary_pass: false
+
+authorizations:
+  exploratory_corrected_diagnostics: true
+  primary_endpoint_redefinition: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  protocol_amendment_to_reduce_reps_or_use_proxy: false

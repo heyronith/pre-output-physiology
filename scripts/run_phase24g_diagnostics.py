@@ -118,12 +118,14 @@ def _decode_prefix(tok, prompt_text: str, gen_ids: list[int], t: int) -> str:
 
 
 def _load_npz(path: Path) -> dict[str, np.ndarray]:
-    with np.load(path) as z:
-        return {
-            "post_block_u16": z["post_block_bf16_u16"],
-            "logits_f16": z["logits_f16"],
-            "generated_token_ids": z["generated_token_ids"],
-        }
+    # mmap keeps post_block on disk until sliced; handle must stay alive.
+    z = np.load(path, mmap_mode="r")
+    return {
+        "post_block_u16": z["post_block_bf16_u16"],
+        "logits_f16": z["logits_f16"],
+        "generated_token_ids": z["generated_token_ids"],
+        "_npz_handle": z,
+    }
 
 
 def _label_map(path: Path, allowed: set[str]) -> dict[str, dict]:
@@ -305,8 +307,11 @@ def _feat_bundle(
         texts.append(_decode_prefix(tok, r["prompt_text"], r["generated_token_ids"], t))
         logits.append(arr["logits_f16"][t].astype(np.float32))
         if layer is not None:
-            post = bf16_u16_to_float32(arr["post_block_u16"])
-            acts.append(delta_h_vector(post[t][layer], post[0][layer]))
+            # Convert only the two time slices needed for Δh (numerically identical).
+            post_u16 = arr["post_block_u16"]
+            h_t = bf16_u16_to_float32(np.asarray(post_u16[t, layer]))
+            h_0 = bf16_u16_to_float32(np.asarray(post_u16[0, layer]))
+            acts.append(delta_h_vector(h_t, h_0))
         labels.append(r["label"])
         prompts.append(r["prompt_id"])
         tids.append(r["trajectory_id"])
@@ -336,8 +341,11 @@ def _delta_h_all_layers(
     for r in _primary(recs):
         if not survives_landmark(r["n_generated"], t):
             continue
-        post = bf16_u16_to_float32(cache[r["trajectory_id"]]["post_block_u16"])
-        mats.append(delta_h_vector(post[t], post[0]))
+        # Convert only t=0 and landmark slices (not the full 17-step tensor).
+        post_u16 = cache[r["trajectory_id"]]["post_block_u16"]
+        h_t = bf16_u16_to_float32(np.asarray(post_u16[t]))
+        h_0 = bf16_u16_to_float32(np.asarray(post_u16[0]))
+        mats.append(delta_h_vector(h_t, h_0))
         order.append(r)
     if not mats:
         return None, []

@@ -1,0 +1,15 @@
+{
+  "ci95": [
+    -0.1133442475603493,
+    0.3102389342794961
+  ],
+  "coordinate": {
+    "layer": 20,
+    "time": 1
+  },
+  "delta_auroc": 0.07919354838709669,
+  "hash": "f23fe5c78d9df1f70a24e302ebc163b49cfa71a96179162aee3e766527a116f0",
+  "immutable": true,
+  "primary_pass": false,
+  "status": "phase24f_locked_test_not_confirmed_primary_precursor_unsupported"
+}

@@ -1,0 +1,15 @@
+{
+  "correction_manifest.json": "add633625445d0e272753b044aff96defadfabf28cc6021f92e63dffeabba760",
+  "lopo_full_checkpoint.jsonl": "c29d77468543801c13fa400f74953749515073124e0ea4ecda8ec8ba8c9eafd2",
+  "lopo_full_checkpoint_partial.jsonl": "c29d77468543801c13fa400f74953749515073124e0ea4ecda8ec8ba8c9eafd2",
+  "partial_lopo_full_pipeline.json": "ce74730666288471d8d7520803f6d0670fe5a0ef9f7480bfbe489b3c80d61e9d",
+  "phase24f_immutability.json": "0eeae6096fa4fd07ccfbf556decde380dc57077a8a8fc0c0bf762b82272b894a",
+  "phase24g_r_code_audit_manifest.md": "b92867c9fa3aeb7aaf182960427ab6ca2a41fff7c7bea76444cd8d857fda5741",
+  "phase24g_r_diagnostic_correction.md": "840a18be72f5e09f7b2a3dfa5f6e1ab865a4091369e6463f5ffdc0192f9f4da0",
+  "phase24g_r_diagnostic_correction.yaml": "1dac1f140a7f949e170ad866a19d852ec3594f6bc321ff511734185e52e899f3",
+  "prior_phase24g_artifact_hashes.json": "4625dcd7ad34021afbea071b819ef5cf239526bf9a1786c72f70c1409d10a3de",
+  "prior_phase24g_unchanged_verification.json": "d2424cdb2c04efc9713a48eab76e0d5b6b0ad1ff5bf22a149c38850d4b1f38f5",
+  "run.log": "681c4681b49abdf0db366ffafd6ecff712a358979eb3d7686ea353c23957151d",
+  "runtime_benchmark.json": "1b7fbb2052e465dda20b39940ad8c451359fcdc03bb981317d040f7ff60eb6b3",
+  "runtime_stop.json": "a5be0e272fc86d565b046de7406a81a4bf28821f173bad256f4dc81eeaf58cad"
+}
