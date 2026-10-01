@@ -376,7 +376,16 @@ def run_diagnostics() -> dict[str, Any]:
     diag.SELECTED_C = repo_view / "artifacts/phase24e_discovery/selected_C.json"
 
     print("Loading tokenizer + DEVELOPMENT NPZs…", flush=True)
-    tok = _load_tokenizer()
+    tok_dir = work / "inputs" / "tokenizer"
+    if tok_dir.exists() and (tok_dir / "tokenizer.json").exists():
+        from transformers import AutoTokenizer
+
+        print(f"  loading tokenizer from {tok_dir}", flush=True)
+        tok = AutoTokenizer.from_pretrained(str(tok_dir), use_fast=True)
+    else:
+        print("  loading tokenizer from HF cache", flush=True)
+        tok = _load_tokenizer()
+    print("  tokenizer ready", flush=True)
 
     # DEVELOPMENT-only records (TEST NPZs not uploaded; not needed for LOPO/nested)
     def _build_dev_only(tokenizer):
@@ -444,14 +453,22 @@ def run_diagnostics() -> dict[str, Any]:
         return by_split
 
     by_split = _build_dev_only(tok)
+    print(
+        f"  records train={len(by_split['train'])} val={len(by_split['validation'])}",
+        flush=True,
+    )
     train, val = by_split["train"], by_split["validation"]
     # DEVELOPMENT only for LOPO/nested
     dev = train + val
     cache: dict[str, dict] = {}
-    for r in train + val:
+    for i, r in enumerate(train + val):
         cache[r["trajectory_id"]] = _load_npz(Path(r["npz_path"]))
+        if (i + 1) % 50 == 0:
+            print(f"  mmap NPZ {i+1}/{len(train)+len(val)}", flush=True)
+    print(f"  cache ready n={len(cache)}", flush=True)
     all_dev_prompts = sorted({r["prompt_id"] for r in _primary(dev)})
     assert len(all_dev_prompts) == LOPO_N
+    print(f"  prompts={len(all_dev_prompts)}", flush=True)
 
     out_root = work / "results"
     out_root.mkdir(parents=True, exist_ok=True)
