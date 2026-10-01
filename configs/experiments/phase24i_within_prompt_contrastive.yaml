@@ -1,0 +1,191 @@
+# Phase 24I — within-prompt contrastive analysis of ONE frozen Phase-24H lead
+# FROZEN PROTOCOL: committed before any scientific run. No threshold may change
+# after results are observed.
+
+experiment_id: phase24i_within_prompt_contrastive
+phase: phase24i
+status_on_completion: phase24i_within_prompt_contrastive_complete_awaiting_independent_code_audit
+starting_sha: baec005ac60208adb13f43e17f9e1b8c915e9af3
+branch: phase24/within-prompt-contrastive
+analysis_label: EXPLORATORY_DEVELOPMENT_ONLY_PHASE24I
+
+scientific_question: >
+  Among multiple stochastic rollouts from the same prompt, is there a common t=1
+  residual-stream activation pattern that ranks deceptive rollouts above honest rollouts
+  on entirely unseen prompts, and does that activation pattern add predictive value
+  beyond the visible SURFACE baseline?
+
+phase24f:
+  primary_pass: false          # Phase-24F remains the final confirmatory FAIL
+  immutable: true
+  primary_metrics_sha256: f23fe5c78d9df1f70a24e302ebc163b49cfa71a96179162aee3e766527a116f0
+  science_touched: false
+
+authorizations:
+  development_within_prompt_contrastive_analysis: true
+  rerun_phase24h: false
+  phase24g_r2_or_phase24h_repairs: false
+  locked_test_access: false
+  phase24f_test_activation_access: false
+  gpu_or_model_generation: false
+  new_trajectories_authorized: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+
+lead:
+  # exactly one representation from Phase 24H; nothing else is evaluated
+  phase24h_row: "C_MULTILAYER|DELTA|t1"
+  representation: "delta_h(1, L) = h(1, L) - h(0, L)"
+  layers: [0, 31]                # all 32 layers, no subset, no selection
+  n_layers: 32
+  time: 1
+  raw: false
+  other_times: false             # no t2 / t4 / t8
+  nonlinear: false
+  pca: false
+
+data:
+  scope: DEVELOPMENT_ONLY            # TRAIN + VALIDATION
+  n_dev_prompts: 28
+  n_records: 388                     # same H/D cohort as Phase 24H
+  labels: [honest, deceptive]        # ambiguous excluded
+  activation_dir: artifacts/phase24e_discovery/activations_local
+  allowed_activation_subdirs: [TRAIN, VALIDATION]
+  split_manifest: artifacts/phase24c_design/split_manifest.json
+  labels_train: artifacts/phase24d_collection/by_split/TRAIN/labels.json
+  labels_validation: artifacts/phase24d_collection/by_split/VALIDATION/labels.json
+  model_id: mistralai/Mistral-7B-Instruct-v0.2
+  model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  dtype: bfloat16
+  npz_key: post_block_bf16_u16
+  input_hash_manifest: artifacts/phase24h_internal_signal_breadth/input_hashes.json
+  input_aggregate_sha256: d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465
+  hash_all_dev_npz_contents: true
+  forbidden_path_markers:
+    - LOCKED_TEST
+    - labels_SEALED
+    - new_trajectories_SEALED
+    - /test/
+    - split=test
+    - phase24f_confirmation/activations_local
+
+outer_folds:
+  # EXACT Phase-24H folds are reused; no new fold assignment is ever generated.
+  source: artifacts/phase24h_internal_signal_breadth/outer_folds.json
+  sha256: dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6
+  salts: [0, 1, 2]
+  n_folds: 7
+  prompts_per_fold: 4
+  train_prompts_per_fold: 24
+  all_fitting_inside_training_side: true
+  inner_cv:
+    kind: prompt_group
+    n_folds: 5
+    fold_fn: phase24c_design.prompt_group_folds
+
+pairwise_training:
+  scope: within_prompt_only          # pairs never cross prompts
+  pairs: all H x D pairs of each training prompt that has both classes
+  orientations: both                 # (x_D - x_H, 1) and (x_H - x_D, 0)
+  weights: >
+    every sample of an unordered pair gets 1 / (2 * n_pairs_of_its_prompt):
+    each prompt has equal total weight and the two classes have equal total weight
+  prompts_without_both_classes: excluded from fitting
+  between_prompt_prevalence_used: false
+  feature_scaling: "divide by RMS of training pair differences (no centering, no intercept)"
+  solver: liblinear
+  report_per_outer_fold: [pair_bearing_training_prompts, hxd_pair_counts]
+
+layer_probe:
+  n_layers: 32
+  model: linear L2 pairwise logistic
+  C: 0.1                             # frozen; not tuned
+  train_scores: inner 5-fold prompt-group OOF
+  eval_scores: fit on all eligible outer-train prompts, score unseen prompts
+
+multilayer_meta:
+  inputs: 32 layer scores (within-prompt score differences)
+  model: linear L2 pairwise logistic
+  C: 1.0                             # frozen
+  layer_selection: false
+  pca: false
+  nonlinear: false
+  train_scores_for_combined: inner 5-fold prompt-group OOF of the meta
+
+surface:
+  # reuse Phase-24H SURFACE at t=1: TEXT (TF-IDF) + LOGITS probes -> logistic meta
+  implementation: phase24h_internal_signal_breadth.fit_surface
+  time: 1
+  frozen_C_text: 0.01
+  frozen_C_logits: 0.01
+  frozen_C_meta: 0.1
+  prefix: prompt_text + decode(generated_token_ids[:1])
+  train_scores: OOF on the 24 outer-train prompts
+  eval_scores: fit on the 24 outer-train prompts
+
+combination:
+  model: linear L2 pairwise logistic on pair differences of [SURFACE, ACTIVATION]
+  C: 10.0                            # frozen
+  per_eval_prompt_fitting: false
+  primary_comparison: SURFACE+ACTIVATION vs SURFACE
+
+primary_estimand:
+  qualifying_prompt: ">= 2 honest and >= 2 deceptive"
+  per_prompt_per_salt: [auroc_surface, auroc_combined, delta = combined - surface]
+  salt_averaging: mean of the 3 salt-specific deltas, one value per prompt
+  primary: prompt_equal_mean_of_salt_averaged_within_prompt_delta_auroc
+  pooled_trajectory_auroc_is_primary: false
+  also_report: [median, fraction_gt_0, individual_prompt_deltas, per_salt_mean_delta,
+                activation_alone_within_prompt_auroc_descriptive_only]
+  bootstrap:
+    kind: prompt_bootstrap
+    n_bootstrap: 10000
+    ci_level: 0.95
+
+promotion:
+  label: promising_for_independent_replication
+  all_required:
+    - prompt_equal_mean_delta > 0
+    - bootstrap_95_lower_bound > 0
+    - mean_delta > 0 in each of salts 0, 1, 2
+    - median_prompt_delta > 0
+    - fraction_of_prompts_with_positive_delta >= 0.60
+  min_fraction_positive_prompts: 0.60
+  thresholds_frozen: true
+
+shuffle_control:
+  applies_only_if_promoted: true
+  kind: within_prompt_activation_bundle_shuffle
+  description: >
+    Permute complete activation bundles (h0 and h1 together) among rollouts of the same
+    prompt; labels, TEXT, LOGITS and prompt membership are unchanged. Whole pipeline re-run.
+  n_shuffles: 100
+  outer_salts_used: [0]
+  seed_rule: "sha256(phase24i|shuffle|{rep}|{prompt_id}|{stratum})"
+  statistic: salt-0 prompt-equal mean within-prompt delta AUROC
+  survive_if:
+    - one_sided_p <= 0.05      # (1 + #(shuffle >= real)) / (1 + n)
+    - real_salt0_delta > shuffle_95th_percentile
+  otherwise: revoked_by_shuffle_control
+
+comparison_24h_vs_24i:
+  descriptive_only: true
+  alters_phase24h: false
+  reference: phase24h row C_MULTILAYER|DELTA|t1 from existing artifacts
+  fields: [global_pooled_delta_auroc, within_prompt_mean_delta,
+           within_prompt_median_delta, fraction_positive]
+
+compute:
+  device: cpu_only
+  gpu: false
+  model_generation: false
+  threads_env: {OMP_NUM_THREADS: 1, MKL_NUM_THREADS: 1, OPENBLAS_NUM_THREADS: 1, VECLIB_MAXIMUM_THREADS: 1}
+  worker_processes_default: 8
+  stop_if_estimated_runtime_hours_gt: 4
+  protocol_changes_after_smoke: false
+
+analysis_seed: 2408
+outputs:
+  artifacts_dir: artifacts/phase24i_within_prompt_contrastive
+  report: reports/phase24i_within_prompt_contrastive.md
