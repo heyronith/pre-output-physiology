@@ -1,0 +1,20 @@
+# Phase 24G — confirmatory failure diagnostics (exploratory)
+
+experiment_id: phase24g_failure_diagnostics
+phase: phase24g
+status: phase24g_confirmatory_failure_diagnostics_complete
+starting_sha: 05d6257e4ebb2b5e9951c91bbec297c843506cf0
+diagnostic_category: C
+phase24f_primary_pass: false
+phase24f_immutable: true
+
+authorizations:
+  exploratory_post_confirmation_diagnostics: true
+  primary_endpoint_redefinition: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  new_trajectories_authorized: false
+
+notes: >
+  EXPLORATORY_POST_CONFIRMATION diagnostics only.
+  Phase-24F FAIL remains final and unchanged.

@@ -1,0 +1,720 @@
+{
+  "discovery_delta_ci95": [
+    0.06696739130434784,
+    0.30333446819809173
+  ],
+  "expected_discovery_delta": 0.14163984993982598,
+  "expected_heldout_delta": 0.042418762759824286,
+  "frac_candidate_none": 0.0,
+  "frac_exact_t1_l20": 0.0,
+  "heldout_delta_ci95": [
+    -0.14719482585754223,
+    0.22158595641646484
+  ],
+  "n_reps_completed": 50,
+  "n_reps_requested_example": 1000,
+  "note": "Computational budget: completed 50 nested reps (example target 1000) with frozen Phase-24E Cs and proxy \u0394=ACTIVATION\u2212SURFACE for selection stability (full stacked \u0394 used for exploratory TEST grid and candidate stability sections).",
+  "optimism_gap": 0.0992210871800017,
+  "rows": [
+    {
+      "candidate": {
+        "band": [
+          8,
+          31
+        ],
+        "layer": 27,
+        "time": 1
+      },
+      "discovery_delta": 0.12576312576312576,
+      "heldout_delta": 0.026634382566586012,
+      "optimism": 0.09912874319653975,
+      "rep": 0
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          29
+        ],
+        "layer": 9,
+        "time": 1
+      },
+      "discovery_delta": 0.12263374485596701,
+      "heldout_delta": -0.0034305317324184736,
+      "optimism": 0.12606427658838548,
+      "rep": 1
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 19,
+        "time": 2
+      },
+      "discovery_delta": 0.16744913928012528,
+      "heldout_delta": -0.011080332409972193,
+      "optimism": 0.17852947169009747,
+      "rep": 2
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          23
+        ],
+        "layer": 14,
+        "time": 8
+      },
+      "discovery_delta": 0.15798611111111094,
+      "heldout_delta": -0.02529761904761918,
+      "optimism": 0.18328373015873012,
+      "rep": 3
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          28
+        ],
+        "layer": 12,
+        "time": 1
+      },
+      "discovery_delta": 0.18104448742746615,
+      "heldout_delta": -0.156832298136646,
+      "optimism": 0.33787678556411216,
+      "rep": 4
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          22
+        ],
+        "layer": 0,
+        "time": 1
+      },
+      "discovery_delta": 0.11842105263157898,
+      "heldout_delta": 0.09864672364672367,
+      "optimism": 0.019774328984855316,
+      "rep": 5
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          4
+        ],
+        "layer": 1,
+        "time": 2
+      },
+      "discovery_delta": 0.11789297658862896,
+      "heldout_delta": 0.047021943573667624,
+      "optimism": 0.07087103301496134,
+      "rep": 6
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          31
+        ],
+        "layer": 13,
+        "time": 1
+      },
+      "discovery_delta": 0.10423588039867093,
+      "heldout_delta": 0.04347826086956508,
+      "optimism": 0.060757619529105855,
+      "rep": 7
+    },
+    {
+      "candidate": {
+        "band": [
+          7,
+          29
+        ],
+        "layer": 15,
+        "time": 2
+      },
+      "discovery_delta": 0.13672496025437197,
+      "heldout_delta": 0.013081395348837122,
+      "optimism": 0.12364356490553485,
+      "rep": 8
+    },
+    {
+      "candidate": {
+        "band": [
+          12,
+          31
+        ],
+        "layer": 24,
+        "time": 1
+      },
+      "discovery_delta": 0.08509064002959665,
+      "heldout_delta": 0.026608611514271963,
+      "optimism": 0.05848202851532469,
+      "rep": 9
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          17
+        ],
+        "layer": 12,
+        "time": 1
+      },
+      "discovery_delta": 0.13227513227513232,
+      "heldout_delta": 0.14604651162790705,
+      "optimism": -0.013771379352774726,
+      "rep": 10
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          2
+        ],
+        "layer": 0,
+        "time": 1
+      },
+      "discovery_delta": 0.11645021645021647,
+      "heldout_delta": 0.008116883116883078,
+      "optimism": 0.10833333333333339,
+      "rep": 11
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 18,
+        "time": 1
+      },
+      "discovery_delta": 0.31484794275491956,
+      "heldout_delta": 0.0638852672750978,
+      "optimism": 0.25096267547982176,
+      "rep": 12
+    },
+    {
+      "candidate": {
+        "band": [
+          27,
+          31
+        ],
+        "layer": 28,
+        "time": 1
+      },
+      "discovery_delta": 0.12857142857142856,
+      "heldout_delta": 0.011252813203300738,
+      "optimism": 0.11731861536812782,
+      "rep": 13
+    },
+    {
+      "candidate": {
+        "band": [
+          6,
+          31
+        ],
+        "layer": 13,
+        "time": 1
+      },
+      "discovery_delta": 0.06608695652173913,
+      "heldout_delta": 0.07327935222672055,
+      "optimism": -0.007192395704981425,
+      "rep": 14
+    },
+    {
+      "candidate": {
+        "band": [
+          12,
+          27
+        ],
+        "layer": 15,
+        "time": 16
+      },
+      "discovery_delta": 0.12106643356643354,
+      "heldout_delta": 0.1049450549450549,
+      "optimism": 0.016121378621378635,
+      "rep": 15
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          5
+        ],
+        "layer": 1,
+        "time": 2
+      },
+      "discovery_delta": 0.0909863945578232,
+      "heldout_delta": 0.015408320493066285,
+      "optimism": 0.07557807406475692,
+      "rep": 16
+    },
+    {
+      "candidate": {
+        "band": [
+          7,
+          30
+        ],
+        "layer": 14,
+        "time": 1
+      },
+      "discovery_delta": 0.14701436130007572,
+      "heldout_delta": -0.03675048355899424,
+      "optimism": 0.18376484485906996,
+      "rep": 17
+    },
+    {
+      "candidate": {
+        "band": [
+          3,
+          25
+        ],
+        "layer": 5,
+        "time": 1
+      },
+      "discovery_delta": 0.07015306122448983,
+      "heldout_delta": 0.0810696095076402,
+      "optimism": -0.010916548283150362,
+      "rep": 18
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 11,
+        "time": 2
+      },
+      "discovery_delta": 0.10437109723461191,
+      "heldout_delta": 0.1502525252525253,
+      "optimism": -0.045881428017913395,
+      "rep": 19
+    },
+    {
+      "candidate": {
+        "band": [
+          4,
+          19
+        ],
+        "layer": 12,
+        "time": 2
+      },
+      "discovery_delta": 0.1337995337995338,
+      "heldout_delta": 0.15249662618083681,
+      "optimism": -0.018697092381303015,
+      "rep": 20
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          5
+        ],
+        "layer": 1,
+        "time": 1
+      },
+      "discovery_delta": 0.2599296128707893,
+      "heldout_delta": -0.03814616755793221,
+      "optimism": 0.2980757804287215,
+      "rep": 21
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          10
+        ],
+        "layer": 10,
+        "time": 2
+      },
+      "discovery_delta": 0.07000000000000006,
+      "heldout_delta": -0.07187938288920048,
+      "optimism": 0.14187938288920054,
+      "rep": 22
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          5
+        ],
+        "layer": 0,
+        "time": 1
+      },
+      "discovery_delta": 0.13595779220779236,
+      "heldout_delta": -0.015673981191222652,
+      "optimism": 0.151631773399015,
+      "rep": 23
+    },
+    {
+      "candidate": {
+        "band": [
+          3,
+          24
+        ],
+        "layer": 16,
+        "time": 1
+      },
+      "discovery_delta": 0.14714285714285713,
+      "heldout_delta": 0.0067698259187619625,
+      "optimism": 0.14037303122409517,
+      "rep": 24
+    },
+    {
+      "candidate": {
+        "band": [
+          12,
+          31
+        ],
+        "layer": 18,
+        "time": 4
+      },
+      "discovery_delta": 0.15104835258878901,
+      "heldout_delta": 0.021341463414634165,
+      "optimism": 0.12970688917415485,
+      "rep": 25
+    },
+    {
+      "candidate": {
+        "band": [
+          10,
+          22
+        ],
+        "layer": 15,
+        "time": 32
+      },
+      "discovery_delta": 0.2053571428571429,
+      "heldout_delta": 0.2923809523809523,
+      "optimism": -0.08702380952380939,
+      "rep": 26
+    },
+    {
+      "candidate": {
+        "band": [
+          14,
+          18
+        ],
+        "layer": 16,
+        "time": 4
+      },
+      "discovery_delta": 0.1207199297629501,
+      "heldout_delta": 0.05487804878048774,
+      "optimism": 0.06584188098246235,
+      "rep": 27
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          2
+        ],
+        "layer": 0,
+        "time": 1
+      },
+      "discovery_delta": 0.15476190476190455,
+      "heldout_delta": 0.11375041820006693,
+      "optimism": 0.04101148656183762,
+      "rep": 28
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 0,
+        "time": 1
+      },
+      "discovery_delta": 0.15131964809384169,
+      "heldout_delta": 0.05494505494505497,
+      "optimism": 0.09637459314878671,
+      "rep": 29
+    },
+    {
+      "candidate": {
+        "band": [
+          3,
+          17
+        ],
+        "layer": 15,
+        "time": 4
+      },
+      "discovery_delta": 0.09697235629662126,
+      "heldout_delta": 0.06885245901639336,
+      "optimism": 0.0281198972802279,
+      "rep": 30
+    },
+    {
+      "candidate": {
+        "band": [
+          21,
+          31
+        ],
+        "layer": 27,
+        "time": 4
+      },
+      "discovery_delta": 0.07052992756385801,
+      "heldout_delta": -0.11399908800729597,
+      "optimism": 0.18452901557115398,
+      "rep": 31
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          25
+        ],
+        "layer": 16,
+        "time": 1
+      },
+      "discovery_delta": 0.08245243128964064,
+      "heldout_delta": 0.056184668989547104,
+      "optimism": 0.026267762300093533,
+      "rep": 32
+    },
+    {
+      "candidate": {
+        "band": [
+          2,
+          4
+        ],
+        "layer": 2,
+        "time": 2
+      },
+      "discovery_delta": 0.1063829787234043,
+      "heldout_delta": 0.0037095919448861814,
+      "optimism": 0.10267338677851812,
+      "rep": 33
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          18
+        ],
+        "layer": 0,
+        "time": 4
+      },
+      "discovery_delta": 0.10844155844155845,
+      "heldout_delta": -0.2465753424657533,
+      "optimism": 0.35501690090731175,
+      "rep": 34
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          21
+        ],
+        "layer": 13,
+        "time": 1
+      },
+      "discovery_delta": 0.12100840336134444,
+      "heldout_delta": -0.010229132569558153,
+      "optimism": 0.1312375359309026,
+      "rep": 35
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 18,
+        "time": 2
+      },
+      "discovery_delta": 0.2827868852459017,
+      "heldout_delta": 0.08333333333333326,
+      "optimism": 0.19945355191256842,
+      "rep": 36
+    },
+    {
+      "candidate": {
+        "band": [
+          7,
+          21
+        ],
+        "layer": 18,
+        "time": 4
+      },
+      "discovery_delta": 0.17459016393442617,
+      "heldout_delta": 0.06841165972635338,
+      "optimism": 0.10617850420807279,
+      "rep": 37
+    },
+    {
+      "candidate": {
+        "band": [
+          7,
+          15
+        ],
+        "layer": 13,
+        "time": 1
+      },
+      "discovery_delta": 0.16477702191987909,
+      "heldout_delta": -0.06203007518796977,
+      "optimism": 0.22680709710784885,
+      "rep": 38
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          11
+        ],
+        "layer": 10,
+        "time": 2
+      },
+      "discovery_delta": 0.09503051438535304,
+      "heldout_delta": 0.22597402597402594,
+      "optimism": -0.1309435115886729,
+      "rep": 39
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 17,
+        "time": 4
+      },
+      "discovery_delta": 0.11679492983250372,
+      "heldout_delta": -0.007058823529411784,
+      "optimism": 0.12385375336191551,
+      "rep": 40
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          31
+        ],
+        "layer": 16,
+        "time": 4
+      },
+      "discovery_delta": 0.23265494912118412,
+      "heldout_delta": -0.0803678528588565,
+      "optimism": 0.3130228019800406,
+      "rep": 41
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "layer": 14,
+        "time": 1
+      },
+      "discovery_delta": 0.30929989550679216,
+      "heldout_delta": 0.004776378636560885,
+      "optimism": 0.30452351687023127,
+      "rep": 42
+    },
+    {
+      "candidate": {
+        "band": [
+          24,
+          31
+        ],
+        "layer": 30,
+        "time": 4
+      },
+      "discovery_delta": 0.21069518716577545,
+      "heldout_delta": 0.185570987654321,
+      "optimism": 0.025124199511454448,
+      "rep": 43
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          31
+        ],
+        "layer": 15,
+        "time": 1
+      },
+      "discovery_delta": 0.11627906976744184,
+      "heldout_delta": 0.0531561461794019,
+      "optimism": 0.06312292358803995,
+      "rep": 44
+    },
+    {
+      "candidate": {
+        "band": [
+          6,
+          31
+        ],
+        "layer": 19,
+        "time": 1
+      },
+      "discovery_delta": 0.11994784876140807,
+      "heldout_delta": 0.2064714946070878,
+      "optimism": -0.08652364584567973,
+      "rep": 45
+    },
+    {
+      "candidate": {
+        "band": [
+          10,
+          22
+        ],
+        "layer": 15,
+        "time": 4
+      },
+      "discovery_delta": 0.10918209876543206,
+      "heldout_delta": 0.05500910746812393,
+      "optimism": 0.054172991297308126,
+      "rep": 46
+    },
+    {
+      "candidate": {
+        "band": [
+          4,
+          31
+        ],
+        "layer": 15,
+        "time": 2
+      },
+      "discovery_delta": 0.2336711711711711,
+      "heldout_delta": 0.15605345911949686,
+      "optimism": 0.07761771205167423,
+      "rep": 47
+    },
+    {
+      "candidate": {
+        "band": [
+          4,
+          31
+        ],
+        "layer": 16,
+        "time": 4
+      },
+      "discovery_delta": 0.13649122807017544,
+      "heldout_delta": 0.12226512226512198,
+      "optimism": 0.014226105805053457,
+      "rep": 48
+    },
+    {
+      "candidate": {
+        "band": [
+          27,
+          29
+        ],
+        "layer": 28,
+        "time": 2
+      },
+      "discovery_delta": 0.05490196078431353,
+      "heldout_delta": 0.10423076923076924,
+      "optimism": -0.04932880844645571,
+      "rep": 49
+    }
+  ]
+}

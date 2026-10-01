@@ -1,0 +1,205 @@
+{
+  "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+  "method": "prompt-level residual bootstrap; shift mean to target effect; power = P(percentile CI lower bound of mean > 0)",
+  "n_observed_prompts": 9,
+  "observed_mean": 0.06211843711843712,
+  "observed_std": 0.08150183150183149,
+  "rows": [
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 11,
+      "n_sims": 2000,
+      "power_estimate": 0.698
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 20,
+      "n_sims": 2000,
+      "power_estimate": 0.932
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 30,
+      "n_sims": 2000,
+      "power_estimate": 0.9855
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 40,
+      "n_sims": 2000,
+      "power_estimate": 0.9985
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 60,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 80,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.05,
+      "n_prompts": 100,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 11,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 20,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 30,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 40,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 60,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 80,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.08,
+      "n_prompts": 100,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 11,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 20,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 30,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 40,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 60,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 80,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.1,
+      "n_prompts": 100,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 11,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 20,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 30,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 40,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 60,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 80,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    },
+    {
+      "criterion": "CI_low(mean)>0",
+      "effect_size_delta_auroc": 0.15,
+      "n_prompts": 100,
+      "n_sims": 2000,
+      "power_estimate": 1.0
+    }
+  ]
+}

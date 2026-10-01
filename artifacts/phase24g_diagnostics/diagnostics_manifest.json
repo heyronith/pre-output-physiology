@@ -1,0 +1,11 @@
+{
+  "category": "C",
+  "created_at": "2026-10-01T00:59:18+00:00",
+  "exploratory_label": "EXPLORATORY_POST_CONFIRMATION",
+  "git_commit": "05d6257e4ebb2b5e9951c91bbec297c843506cf0",
+  "guarantee": "PHASE 24G WAS AN EXPLORATORY POST-CONFIRMATION DIAGNOSTIC ANALYSIS. THE PHASE-24F PRIMARY CONFIRMATORY FAILURE REMAINS FINAL AND UNCHANGED. NO NEW TRAJECTORIES, SAE ANALYSIS, CAUSAL INTERVENTION, LABEL CHANGES, OR PRIMARY-ENDPOINT REDEFINITION WAS PERFORMED.",
+  "nested_reps": 50,
+  "phase24f_immutable": true,
+  "starting_sha": "05d6257e4ebb2b5e9951c91bbec297c843506cf0",
+  "status": "phase24g_confirmatory_failure_diagnostics_complete"
+}

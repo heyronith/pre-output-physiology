@@ -1,0 +1,21 @@
+{
+  "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+  "category": "C",
+  "definitions": {
+    "A": "Stable region, underpowered confirmation",
+    "B": "Real but prompt-specific / heterogeneous signal",
+    "C": "Candidate-selection instability",
+    "D": "Little robust evidence"
+  },
+  "evidence": {
+    "lopo_exact_frac": 0.0,
+    "lopo_neighborhood_frac": 0.03571428571428571,
+    "optimism_gap": 0.0992210871800017,
+    "probe_mean_cosine": 0.6704994731417859,
+    "test_ci_width": 0.42358318183984545,
+    "test_delta_auroc": 0.07919354838709669,
+    "test_same_prompt_frac_gt0": 0.8571428571428571,
+    "topology_pearson": -0.07438151743841141
+  },
+  "phase24f_remains_fail": true
+}

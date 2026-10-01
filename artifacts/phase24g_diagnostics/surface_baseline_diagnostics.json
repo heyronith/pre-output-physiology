@@ -1,0 +1,22 @@
+{
+  "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+  "note": "TEST SURFACE ~chance may inflate \u0394AUROC interpretation; inspect TEXT vs LOGITS separately.",
+  "test_exploratory": {
+    "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+    "logits_auroc": 0.5020161290322581,
+    "surface_auroc": 0.5095967741935484,
+    "text_auroc": 0.5189516129032258
+  },
+  "train_oof": {
+    "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+    "logits_auroc": 0.8434677419354839,
+    "surface_auroc": 0.8123924731182796,
+    "text_auroc": 0.5793817204301075
+  },
+  "validation": {
+    "analysis_label": "EXPLORATORY_POST_CONFIRMATION",
+    "logits_auroc": 0.6436314363143631,
+    "surface_auroc": 0.6436314363143631,
+    "text_auroc": 0.505420054200542
+  }
+}

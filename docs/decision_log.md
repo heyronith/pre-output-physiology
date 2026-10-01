@@ -1020,3 +1020,9 @@ Evidence labels: **FACT FROM SOURCE**, **OUR RESEARCH DECISION**, **OUR HYPOTHES
 - **Type:** **OUR RESEARCH DECISION**
 - **Decision:** Starting from Phase-24E freeze `4bbc6c2…`, Phase 24F performed the single prospectively frozen confirmatory analysis on LOCKED TEST at t=1/L20 (DEVELOPMENT refit; frozen Cs; 10k prompt-cluster bootstrap). Primary criterion FAIL (ΔAUROC=0.0792; CI95=[-0.1133, 0.3102]). Status `phase24f_locked_test_not_confirmed_primary_precursor_unsupported`. No TEST layer/time search, hyperparameter retuning, SAE, or causal intervention.
 - **Date:** 2026-09-30
+
+### D164 — Phase 24G confirmatory failure diagnostics
+
+- **Type:** **OUR RESEARCH DECISION**
+- **Decision:** Starting from Phase-24F FAIL `05d6257…`, Phase 24G ran exploratory post-confirmation diagnostics (LOPO, nested optimism n=50, TEST 7×32 exploratory grid, topology, heterogeneity, probe stability, power). Diagnostic category **C**. Phase-24F primary FAIL remains final and unchanged. No SAE, causal intervention, new trajectories, or endpoint redefinition.
+- **Date:** 2026-09-30
