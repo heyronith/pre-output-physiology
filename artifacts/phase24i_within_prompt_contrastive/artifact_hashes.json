@@ -1,0 +1,22 @@
+{
+  "comparison_24h_vs_24i.json": "6db718a59cd83c6d7778bc740179d85bf880bb1f159ca54df4f625d12bae755b",
+  "fold_diagnostics.json": "6061dabd9d33cfb48e7e60d406ff783b0a47b42f2d1351e9d50c5d45abca4bc7",
+  "frozen_input_verification.json": "3a5fdb0d28813984aa9e8ef9e715272ab5d4bef9fbc1d53f7e95bf4a2ded36ee",
+  "input_hash_verification_vs_phase24h.json": "245ddf0e7430a711080299e5ea1c939abc92a2dd6d898f77d384ff58a6726776",
+  "input_hashes.json": "7966f0d3fd2a7d1e614b9f5ad3155fce9c4940538e5dc55bcbb7bcc42792cf40",
+  "input_summary.json": "4750ce8feded9dedfdebfded7853d8d38e2f9a7a7f3c842674e675dc9c06dd8d",
+  "metrics.json": "6236264ae1d50e692db874f7987824c2036c5c387c1c414a682fad219dea1237",
+  "outer_folds_used.json": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "outer_folds_verification.json": "b7e317eb6d20ceeb0a08e620e35c8baf9c6de9d4ec577d99c7741dc9d2706ffa",
+  "pair_counts_by_outer_fold.json": "fd3017acad85f1b85e15b645dea6243cca09622e41ad0db408528f3bb55a54b6",
+  "phase24f_immutability.json": "007ab88e7631d9cc625bb41ca1d665baae062cf4095e8eaf01124f301f68fbba",
+  "posthoc_first_token_tie_diagnostic.json": "21cadeb2a45762c17c5b4d35a1eb99268caf51fdbf1585ea00ec306d160487f3",
+  "promotion.json": "83bb59993526949ada4f32b60d74edacf3c642b4fcac6a198b2df978051d036b",
+  "record_index.json": "d18d9087b1f68853478090e932812c0fcc4d1da999861d4d13a24b8a95187b72",
+  "run_manifest.json": "c9f7f2f3f462802e90f8128075140d296b5d5097fca6d591b251aa4a4c90815c",
+  "shuffle_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "surface_vs_phase24h_check.json": "6ff8e4f6d056dcfb0e83bf12320d3ccff7a23c96a5d9f405677e33b05e5c94fe",
+  "within_prompt_deltas.json": "15f0052d566f11e2f8395d3f802c2e8a4cc9fba25c5a2ee6f424229a841304b4",
+  "cross_fitted_predictions.npz": "9d003735ca31ba719219e3b6aa7195ba9d8165c46b461b02f768c858a093c431",
+  "phase24i_within_prompt_contrastive.md": "28cef9c6833c74cb11aa3a8e52a04ae6555550a921da90514bdc144142a891ee"
+}

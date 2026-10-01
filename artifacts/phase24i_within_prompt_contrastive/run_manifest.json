@@ -1,0 +1,79 @@
+{
+  "analysis_label": "EXPLORATORY_DEVELOPMENT_ONLY_PHASE24I",
+  "finished_at": "2026-10-01T16:15:34+00:00",
+  "fold_seconds": {
+    "salt0_fold0": 34.832601458067074,
+    "salt0_fold1": 35.739537209039554,
+    "salt0_fold2": 42.77469408302568,
+    "salt0_fold3": 45.04286437493283,
+    "salt0_fold4": 42.94495433301199,
+    "salt0_fold5": 44.16647758393083,
+    "salt0_fold6": 43.22412129200529,
+    "salt1_fold0": 47.96599387493916,
+    "salt1_fold1": 44.7159293750301,
+    "salt1_fold2": 40.74190029199235,
+    "salt1_fold3": 40.66257479204796,
+    "salt1_fold4": 43.559353166026995,
+    "salt1_fold5": 46.762456625001505,
+    "salt1_fold6": 36.705551958992146,
+    "salt2_fold0": 44.35982320900075,
+    "salt2_fold1": 45.51337516598869,
+    "salt2_fold2": 38.56242112501059,
+    "salt2_fold3": 31.568917875061743,
+    "salt2_fold4": 33.57406341691967,
+    "salt2_fold5": 35.194195625022985,
+    "salt2_fold6": 35.594534792006016
+  },
+  "git": {
+    "branch": "phase24/within-prompt-contrastive",
+    "head": "3757bc01672141496c983c44d7fd4e2e30eb4c0f",
+    "protocol_file_sha256": {
+      "configs/experiments/phase24i_within_prompt_contrastive.yaml": "9b2a35f2a620301dd936562ece0c79bac84dd3d7b17e067b90fd7bdc05cb0147",
+      "scripts/run_phase24i_within_prompt_contrastive.py": "05afd8d4d45ad3651b0e617598eb82d0f8ae3f350a82f72599aa93bc5beae494",
+      "src/pre_output_physiology/phase24i_within_prompt_contrastive.py": "0fba238a735894cfd5adc1cbe546f1120cf3ef2e33e7e444b5de945973a594f9",
+      "tests/test_phase24i_within_prompt_contrastive.py": "38c5ee40726b4050b113db6c63c68cc3c7616b9e126aee1b61bec135db315345"
+    },
+    "protocol_files_dirty": [],
+    "protocol_freeze_commit": "3757bc01672141496c983c44d7fd4e2e30eb4c0f"
+  },
+  "gpu_used": false,
+  "guarantee": "PHASE 24I WAS A WITHIN-PROMPT CONTRASTIVE ANALYSIS OF ONE FROZEN PHASE-24H LEAD ON DEVELOPMENT (TRAIN+VALIDATION) DATA ONLY. LOCKED TEST LABELS/ACTIVATIONS AND PHASE-24F TEST ACTIVATIONS WERE NOT ACCESSED. PHASE-24F REMAINS THE FINAL CONFIRMATORY FAIL. NO GPU, MODEL GENERATION, SAE, OR CAUSAL WORK WAS PERFORMED.",
+  "input_aggregate_sha256": "d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465",
+  "input_matches_phase24h_manifest": true,
+  "input_summary": {
+    "expected_model_metadata": {
+      "dtype": "bfloat16",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+      "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+      "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+    },
+    "metadata_verified": true,
+    "n_ambiguous_excluded": 60,
+    "n_deceptive": 192,
+    "n_honest": 196,
+    "n_prompts": 28,
+    "n_records": 388,
+    "n_train_prompts": 20,
+    "n_validation_prompts": 8,
+    "test_labels_opened": false
+  },
+  "memory": {
+    "children_max_rss_mb": 1367.3125,
+    "self_max_rss_mb": 725.71875
+  },
+  "n_workers": 8,
+  "outer_folds_sha256": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "outer_folds_sha256_matches_frozen": true,
+  "stage_seconds": {
+    "control": 0.0,
+    "hash": 1.4656333749881014,
+    "load": 20.02942666702438,
+    "metrics": 0.11099783307872713,
+    "real": 122.15354249998927
+  },
+  "starting_sha": "baec005ac60208adb13f43e17f9e1b8c915e9af3",
+  "status": "phase24i_within_prompt_contrastive_complete_awaiting_independent_code_audit",
+  "test_accessed": false,
+  "threads_env": "1",
+  "wall_seconds": 145.75165600003675
+}

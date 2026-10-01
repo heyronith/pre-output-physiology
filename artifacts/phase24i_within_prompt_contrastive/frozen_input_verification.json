@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "expected": "e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d",
+      "key": "phase24c_design_matrix",
+      "observed": "e0cb919840b9ca95566c55652c8ec83d34e7b90582ae67190d03e18eb49e877d",
+      "pass": true,
+      "path": "artifacts/phase24c_design/design_matrix.json"
+    },
+    {
+      "expected": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa",
+      "key": "phase24c_split",
+      "observed": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa",
+      "pass": true,
+      "path": "artifacts/phase24c_design/split_manifest.json"
+    },
+    {
+      "expected": "b295ecf4176668ce59351baad83f682332ffdf51234cb7b97c581485bbfbd685",
+      "key": "phase24c_analysis_spec",
+      "observed": "b295ecf4176668ce59351baad83f682332ffdf51234cb7b97c581485bbfbd685",
+      "pass": true,
+      "path": "artifacts/phase24c_design/analysis_spec.json"
+    },
+    {
+      "expected": "76105d19e39e2d389a05d640fb0c4fb760111f68ae33963df201b46f58c7bbfc",
+      "key": "phase24c_config",
+      "observed": "76105d19e39e2d389a05d640fb0c4fb760111f68ae33963df201b46f58c7bbfc",
+      "pass": true,
+      "path": "configs/experiments/phase24c_full_trajectory_design.yaml"
+    },
+    {
+      "expected": "200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10",
+      "key": "phase24c_schedule_template",
+      "observed": "200c5bffd8a757f0923cb54e313f17b9bef160eb73eacce6fd922e344949ec10",
+      "pass": true,
+      "path": "artifacts/phase24c_design/generation_schedule_template.json"
+    },
+    {
+      "expected": "18f33b07f3d9a683eef764be215f8a590c5684db3845d9091a343937a8a7f7ea",
+      "key": "phase24d_summary",
+      "observed": "18f33b07f3d9a683eef764be215f8a590c5684db3845d9091a343937a8a7f7ea",
+      "pass": true,
+      "path": "artifacts/phase24d_collection/summary.json"
+    },
+    {
+      "expected": "b3007322af33dd70b92d9ed466dc28f1c9953bbdec3bc634560f756f4a3752e2",
+      "key": "phase24d_schedule",
+      "observed": "b3007322af33dd70b92d9ed466dc28f1c9953bbdec3bc634560f756f4a3752e2",
+      "pass": true,
+      "path": "artifacts/phase24d_collection/schedule.json"
+    },
+    {
+      "expected": "ae049dc1919801dbeced022eb1722a8283aba28dbba5cc314abefcd1ffe08ac3",
+      "key": "phase24d_train_labels",
+      "observed": "ae049dc1919801dbeced022eb1722a8283aba28dbba5cc314abefcd1ffe08ac3",
+      "pass": true,
+      "path": "artifacts/phase24d_collection/by_split/TRAIN/labels.json"
+    },
+    {
+      "expected": "9c9c385622380984f62d9a9494847a7774ee266e1da4c556a77405dbc17bfee4",
+      "key": "phase24d_val_labels",
+      "observed": "9c9c385622380984f62d9a9494847a7774ee266e1da4c556a77405dbc17bfee4",
+      "pass": true,
+      "path": "artifacts/phase24d_collection/by_split/VALIDATION/labels.json"
+    },
+    {
+      "key": "locked_test_exists_unopened",
+      "note": "existence only; discovery must not deserialize contents",
+      "pass": true,
+      "path": "artifacts/phase24d_collection/by_split/LOCKED_TEST/labels_SEALED.json"
+    },
+    {
+      "key": "selected_k_16",
+      "observed": 16,
+      "pass": true
+    }
+  ],
+  "verified": true
+}

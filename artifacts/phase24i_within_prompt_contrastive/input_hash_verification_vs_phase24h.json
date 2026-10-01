@@ -1,0 +1,11 @@
+{
+  "aggregate_expected_frozen": "d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465",
+  "aggregate_manifest": "d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465",
+  "aggregate_now": "d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465",
+  "differing_vs_manifest": [],
+  "extra_vs_manifest": [],
+  "missing_vs_manifest": [],
+  "n_files_manifest": 448,
+  "n_files_now": 448,
+  "verified": true
+}

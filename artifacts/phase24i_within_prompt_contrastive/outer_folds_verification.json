@@ -1,0 +1,7 @@
+{
+  "expected_sha256": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "matches": true,
+  "new_fold_assignments_generated": false,
+  "sha256": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "source": "artifacts/phase24h_internal_signal_breadth/outer_folds.json"
+}

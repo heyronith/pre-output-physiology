@@ -1,0 +1,12 @@
+{
+  "analysis_label": "EXPLORATORY_DEVELOPMENT_ONLY_PHASE24I",
+  "criteria": {
+    "bootstrap_lower_gt_0": false,
+    "fraction_positive_prompts_ge_0.60": false,
+    "mean_delta_gt_0_in_all_salts": true,
+    "median_prompt_delta_gt_0": false,
+    "prompt_equal_mean_delta_gt_0": true
+  },
+  "final_label": "not_promoted",
+  "promoted_before_control": false
+}

@@ -1,0 +1,56 @@
+{
+  "analysis_label": "SMOKE_INFRASTRUCTURE_ONLY_NO_SCIENTIFIC_CONCLUSIONS",
+  "control_task_s": [
+    9.484417125000618,
+    9.768431750009768
+  ],
+  "data_load_s": 19.962728708051145,
+  "est_control_stage_hours_if_promoted": 0.31196745862285347,
+  "est_hash_all_min": 0.038796864708678595,
+  "est_real_stage_hours": 0.015303487378405407,
+  "est_total_hours_no_promotion": 0.02206571284326923,
+  "est_total_hours_worst_case_with_control": 0.3340331714661227,
+  "fold0_output_finite": true,
+  "fold0_pair_bearing_train_prompts": 17,
+  "fold0_pair_counts": 543,
+  "fold0_timings_s": {
+    "layer_probes": 12.325839374912903,
+    "meta_combined": 0.0064714159816503525,
+    "surface": 3.4072982920333743
+  },
+  "fold0_wall_s": 15.740729874931276,
+  "folds_sha256": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "folds_sha256_matches_frozen": true,
+  "git": {
+    "branch": "phase24/within-prompt-contrastive",
+    "head": "3757bc01672141496c983c44d7fd4e2e30eb4c0f",
+    "protocol_file_sha256": {
+      "configs/experiments/phase24i_within_prompt_contrastive.yaml": "9b2a35f2a620301dd936562ece0c79bac84dd3d7b17e067b90fd7bdc05cb0147",
+      "scripts/run_phase24i_within_prompt_contrastive.py": "05afd8d4d45ad3651b0e617598eb82d0f8ae3f350a82f72599aa93bc5beae494",
+      "src/pre_output_physiology/phase24i_within_prompt_contrastive.py": "0fba238a735894cfd5adc1cbe546f1120cf3ef2e33e7e444b5de945973a594f9",
+      "tests/test_phase24i_within_prompt_contrastive.py": "38c5ee40726b4050b113db6c63c68cc3c7616b9e126aee1b61bec135db315345"
+    },
+    "protocol_files_dirty": [],
+    "protocol_freeze_commit": "3757bc01672141496c983c44d7fd4e2e30eb4c0f"
+  },
+  "hash_24_files_s": 0.12470420799218118,
+  "hash_sample_ok": true,
+  "memory": {
+    "children_max_rss_mb": 5.71875,
+    "self_max_rss_mb": 1772.140625
+  },
+  "n_dev_npz_files": 448,
+  "n_records": 388,
+  "n_survivors_t1": 388,
+  "parallel_efficiency_assumed": 0.75,
+  "record_build_s": 2.0534710829379037,
+  "smoke_wall_s": 57.248170666978694,
+  "stop_threshold_hours": 4,
+  "surface_vs_phase24h": {
+    "max_abs_diff_surface_vs_phase24h": 0.0,
+    "n_compared": 61,
+    "record_index_identical_to_phase24h": true,
+    "surface_identical": true
+  },
+  "workers_assumed": 8
+}

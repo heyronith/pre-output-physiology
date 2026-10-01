@@ -1,0 +1,198 @@
+{
+  "label": "POST_HOC_DESCRIPTIVE_DIAGNOSTIC_NOT_PART_OF_FROZEN_PROTOCOL",
+  "finding": "delta_h(1,L) is bit-identical across rollouts of the same prompt that share the same first generated token",
+  "max_abs_delta_h_diff_same_prompt_same_first_token": 0.0,
+  "n_prompts": 28,
+  "mean_distinct_first_tokens_per_prompt_all": 1.7857142857142858,
+  "mean_distinct_first_tokens_per_prompt_qualifying": 1.8333333333333333,
+  "n_prompts_with_one_distinct_first_token_all": 11,
+  "n_qualifying_with_one_distinct_first_token": 5,
+  "qualifying_prompts": {
+    "roleplay_003": {
+      "n_rollouts": 12,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_014": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_026": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_036": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_040": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_091": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_116": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_123": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_163": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_224": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_230": {
+      "n_rollouts": 8,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_263": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_281": {
+      "n_rollouts": 11,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_296": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_304": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_308": {
+      "n_rollouts": 13,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_355": {
+      "n_rollouts": 9,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_366": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    }
+  },
+  "per_prompt": {
+    "roleplay_003": {
+      "n_rollouts": 12,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_009": {
+      "n_rollouts": 8,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_014": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_026": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_030": {
+      "n_rollouts": 14,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_036": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_040": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_078": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_091": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_116": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_119": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_122": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_123": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_143": {
+      "n_rollouts": 13,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_163": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_192": {
+      "n_rollouts": 10,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_207": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_224": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_230": {
+      "n_rollouts": 8,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_236": {
+      "n_rollouts": 8,
+      "n_distinct_first_tokens": 3
+    },
+    "roleplay_263": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_281": {
+      "n_rollouts": 11,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_296": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_304": {
+      "n_rollouts": 16,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_308": {
+      "n_rollouts": 13,
+      "n_distinct_first_tokens": 2
+    },
+    "roleplay_355": {
+      "n_rollouts": 9,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_366": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 1
+    },
+    "roleplay_370": {
+      "n_rollouts": 15,
+      "n_distinct_first_tokens": 3
+    }
+  }
+}
