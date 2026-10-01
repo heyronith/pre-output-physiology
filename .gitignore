@@ -73,3 +73,4 @@ artifacts/phase4_models/
 *.npz
 artifacts/phase24e_discovery/activations_local/
 artifacts/phase24f_confirmation/activations_local/
+artifacts/phase24g_diagnostics/activations_local/
