@@ -1,0 +1,187 @@
+# Phase 24H — exploratory internal-signal-breadth representation discovery
+# FROZEN PROTOCOL: committed before any scientific run. No threshold may change
+# after results are observed.
+
+experiment_id: phase24h_internal_signal_breadth
+phase: phase24h
+status_on_completion: phase24h_internal_signal_breadth_complete_awaiting_independent_code_audit
+starting_sha: f03c8eb006cf8cceb15ffbcb44baea5779599096
+analysis_label: EXPLORATORY_DEVELOPMENT_ONLY_PHASE24H
+
+phase24f:
+  primary_pass: false          # Phase-24F remains the final confirmatory FAIL
+  immutable: true
+  primary_metrics_sha256: f23fe5c78d9df1f70a24e302ebc163b49cfa71a96179162aee3e766527a116f0
+  science_touched: false
+
+authorizations:
+  exploratory_development_representation_discovery: true
+  locked_test_access: false
+  phase24f_test_activation_access: false
+  gpu_or_model_generation: false
+  new_trajectories_authorized: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  primary_endpoint_redefinition: false
+
+data:
+  scope: DEVELOPMENT_ONLY            # TRAIN + VALIDATION
+  n_dev_prompts: 28                  # 20 TRAIN + 8 VALIDATION
+  labels: [honest, deceptive]        # ambiguous excluded
+  activation_dir: artifacts/phase24e_discovery/activations_local
+  allowed_activation_subdirs: [TRAIN, VALIDATION]
+  split_manifest: artifacts/phase24c_design/split_manifest.json
+  labels_train: artifacts/phase24d_collection/by_split/TRAIN/labels.json
+  labels_validation: artifacts/phase24d_collection/by_split/VALIDATION/labels.json
+  model_id: mistralai/Mistral-7B-Instruct-v0.2
+  model_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  dtype: bfloat16
+  npz_key: post_block_bf16_u16      # (n_steps, 32 layers, 4096) uint16 bf16
+  n_layers: 32
+  hash_all_dev_npz_contents: true
+  forbidden_path_markers:
+    - LOCKED_TEST
+    - labels_SEALED
+    - new_trajectories_SEALED
+    - /test/
+    - split=test
+    - phase24f_confirmation/activations_local
+
+times:
+  early_times: [1, 2, 4, 8]         # frozen
+  survival_rule: n_generated > t     # prediction step t exists
+  baseline_rule: SURFACE at the SAME time as the activation feature
+  multitime_baseline: SURFACE@t8     # multitime uses t8 survivors only
+
+surface:
+  # TEXT (TF-IDF) + LOGITS probes -> 2-feature logistic meta (Phase-24E/G recipe)
+  frozen_C_text: 0.01
+  frozen_C_logits: 0.01
+  frozen_C_meta: 0.1
+  prefix: prompt_text + decode(generated_token_ids[:t])
+
+outer_cross_fitting:
+  salts: [0, 1, 2]
+  n_folds: 7
+  prompts_per_fold: 4
+  order_key: "sha256(phase24h|outer|{salt}|{prompt_id})"
+  assignment: round_robin_over_sorted_hash
+  train_prompts_per_fold: 24
+  eval_prompts_per_fold: 4
+  all_fitting_inside_training_side: true   # scaling, PCA, selection, probes
+  inner_cv:
+    kind: prompt_group
+    n_folds: 5
+    fold_fn: phase24c_design.prompt_group_folds
+
+activation_variants:
+  RAW: "h(t, L)"
+  DELTA: "h(t, L) - h(0, L)"
+
+layer_probe:
+  n_layers: 32
+  model: standardized L2 logistic (liblinear)
+  C: 0.1                             # FROZEN_C['activation']; not tuned per layer
+  sample_weight: prompt_equal_class_balanced
+  oof: inner prompt-group CV on the training side only
+
+families:
+  A_RAW_SINGLE:
+    variant: RAW
+    search: "inside training only: t in [1,2,4,8] x layer 0..31"
+    selection_criterion: inner-OOF DeltaAUROC (combined - surface)
+    also_report_fixed_time: true
+  B_DELTA_SINGLE:
+    variant: DELTA
+    search: same as A
+    role: reference
+  C_MULTILAYER:
+    variants: [RAW, DELTA]
+    features: 32 layer-probe OOF log-odds per time
+    meta: standardized L2 logistic
+    meta_C_grid: [0.01, 0.1, 1.0, 10.0]
+    selection: inner prompt-group CV AUROC of the meta on OOF features
+  D_MULTITIME:
+    variants: [RAW, DELTA]
+    features: family-C activation scores at t = 1, 2, 4, 8
+    trajectories: only those surviving t = 8
+    baseline: SURFACE@t8
+    meta_C_grid: [0.01, 0.1, 1.0, 10.0]
+  E_LOWDIM:
+    variants: [RAW, DELTA]
+    features: multilayer OOF features -> train-only scaler -> train-only PCA -> logistic
+    pca_dims: [4, 8, 16]
+    selection: inner prompt-group CV AUROC
+    logistic_C: 1.0
+  F_NONLINEAR:
+    variants: [RAW, DELTA]
+    features: multilayer OOF features -> train-only scaler -> RBF SVM
+    gamma: scale
+    C_grid: [0.1, 1.0, 10.0]
+    selection: inner prompt-group CV AUROC
+    neural_networks: false
+
+combination:
+  # SURFACE + ACTIVATION = standardized logistic on [surface log-odds, activation score]
+  frozen_C: 10.0
+  delta_auroc: "AUROC(SURFACE+ACTIVATION) - AUROC(SURFACE) at the same time"
+  activation_alone_is_incremental_evidence: false
+  report_auprc: true
+
+headline_estimand:
+  pooled_delta_auroc: mean over outer salts of per-salt pooled cross-fitted DeltaAUROC
+  bootstrap: prompt-cluster, resample prompts, per-salt delta averaged within replicate
+  n_bootstrap: 2000
+  ci_level: 0.95
+
+same_prompt_analysis:
+  uses: outer cross-fitted predictions only
+  per_prompt_model_fitting: false
+  qualifying_prompt: ">= 2 honest and >= 2 deceptive"
+  per_salt_then_mean: true
+  reports: [n_qualifying, median_delta, mean_delta, fraction_gt_0, prompt_bootstrap_95ci]
+
+promotion:
+  label: promising_for_independent_replication
+  all_required:
+    - pooled_cross_fitted_delta_auroc > 0
+    - prompt_bootstrap_95_lower_bound > 0
+    - delta_auroc > 0 in every outer salt (0, 1, 2)
+    - within_prompt_median_delta_auroc > 0
+    - fraction_of_qualifying_prompts_with_positive_delta >= 0.60
+  min_fraction_positive_prompts: 0.60
+  thresholds_frozen: true
+
+negative_control:
+  applies_to: promoted_rows_only
+  kind: prompt_preserving_activation_shuffle
+  description: >
+    Permute whole activation bundles (h0 and h at all times) among trajectories
+    of the same prompt and the same survival stratum; labels and SURFACE inputs
+    stay attached to their original trajectories. Entire pipeline re-run.
+  n_shuffles: 100
+  outer_salts_used: [0]
+  seed_rule: "sha256(phase24h|shuffle|{rep})"
+  revoke_unless:
+    - one_sided_p <= 0.05      # (1 + #(shuffle >= real)) / (1 + n)
+    - real > shuffle_95th_percentile
+  comparison_statistic: salt-0 pooled cross-fitted DeltaAUROC
+
+multiplicity_note: >
+  36 exploratory rows are evaluated with the promotion rule; promotion is a
+  screening label for independent replication, not confirmatory evidence.
+
+compute:
+  device: cpu_only
+  gpu: false
+  model_generation: false
+  threads_env: {OMP_NUM_THREADS: 1, MKL_NUM_THREADS: 1, OPENBLAS_NUM_THREADS: 1, VECLIB_MAXIMUM_THREADS: 1}
+  worker_processes_default: 6
+  stop_if_estimated_runtime_hours_gt: 8
+  protocol_changes_after_smoke: false
+
+analysis_seed: 2408
+outputs:
+  artifacts_dir: artifacts/phase24h_internal_signal_breadth
+  report: reports/phase24h_internal_signal_breadth.md
