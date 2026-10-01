@@ -1,0 +1,174 @@
+{
+  "a_x_word_length": {
+    "max_fractional_difference": 0.10655737704918032,
+    "median_A": 119.5,
+    "median_X": 115.0,
+    "median_fractional_difference": 0.04310344827586207
+  },
+  "counts": {
+    "bases": 240,
+    "families": 60,
+    "families_by_domain": {
+      "audit_reporting": 10,
+      "compliance_disclosure": 10,
+      "customer_entitlement_refunds": 10,
+      "performance_reporting": 10,
+      "product_service_representation": 10,
+      "resource_access_decisions": 10
+    },
+    "gold": {
+      "NO": 120,
+      "YES": 120
+    },
+    "prompts": 960,
+    "structures_by_family": {
+      "ALL": 12,
+      "ANY": 12,
+      "COMPARATIVE": 6,
+      "EXCEPTION": 12,
+      "TEMPORAL": 6,
+      "THRESHOLD": 12
+    }
+  },
+  "cross_family_similarity": {
+    "max_pair": [
+      "p25v2_201",
+      "p25v2_205",
+      "res_system_access",
+      "res_equipment"
+    ],
+    "max_similarity": 0.5255292652552926,
+    "method": "SequenceMatcher over normalized rule+question+facts; within-family pairs excluded",
+    "n_ge_0_80": 0,
+    "n_ge_0_90": 0
+  },
+  "errors": [],
+  "label_counterbalance_by_domain_variant": {
+    "audit_reporting|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "audit_reporting|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "audit_reporting|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "audit_reporting|v3": {
+      "NO": 5,
+      "YES": 5
+    },
+    "compliance_disclosure|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "compliance_disclosure|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "compliance_disclosure|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "compliance_disclosure|v3": {
+      "NO": 5,
+      "YES": 5
+    },
+    "customer_entitlement_refunds|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "customer_entitlement_refunds|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "customer_entitlement_refunds|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "customer_entitlement_refunds|v3": {
+      "NO": 5,
+      "YES": 5
+    },
+    "performance_reporting|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "performance_reporting|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "performance_reporting|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "performance_reporting|v3": {
+      "NO": 5,
+      "YES": 5
+    },
+    "product_service_representation|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "product_service_representation|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "product_service_representation|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "product_service_representation|v3": {
+      "NO": 5,
+      "YES": 5
+    },
+    "resource_access_decisions|v0": {
+      "NO": 5,
+      "YES": 5
+    },
+    "resource_access_decisions|v1": {
+      "NO": 5,
+      "YES": 5
+    },
+    "resource_access_decisions|v2": {
+      "NO": 5,
+      "YES": 5
+    },
+    "resource_access_decisions|v3": {
+      "NO": 5,
+      "YES": 5
+    }
+  },
+  "status": "PASS",
+  "validation_gates": {
+    "D_one_fact_removed_and_underdetermined": true,
+    "KAX_matched_except_objective": true,
+    "X_favors_opposite_gold_and_uses_family_incentive": true,
+    "at_least_four_structures_each_domain": true,
+    "domain_20_yes_20_no": true,
+    "family_2_yes_2_no": true,
+    "global_structure_share_le_25pct": true,
+    "max_A_X_fractional_word_difference_le_15pct": true,
+    "median_A_X_fractional_word_difference_le_10pct": true,
+    "n_bases_240": true,
+    "n_families_60": true,
+    "n_family_meta_60": true,
+    "n_gold_240": true,
+    "n_prompts_960": true,
+    "no_cross_family_similarity_ge_0_80": true,
+    "no_id_leakage": true,
+    "one_KAXD_per_base": true,
+    "one_incentive_pair_per_family": true,
+    "organization_balanced_across_labels": true,
+    "prohibited_explicit_deception_wording_absent": true,
+    "ten_families_per_domain": true,
+    "tested_metadata_features_not_perfect_gold_predictors": true,
+    "unique_prompt_hash": true,
+    "unique_prompt_text": true,
+    "unique_semantic_signatures": true,
+    "variant_label_counterbalanced_within_domain": true
+  },
+  "warnings": []
+}

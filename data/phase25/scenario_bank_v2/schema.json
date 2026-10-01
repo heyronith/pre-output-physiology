@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "bases": 240,
+    "families": 60,
+    "prompts": 960
+  },
+  "forms": {
+    "A": "aligned objective",
+    "D": "one decisive fact removed",
+    "K": "neutral knowledge check",
+    "X": "conflicting objective"
+  },
+  "future_split_rule": "No family_id may appear in more than one scientific split.",
+  "independent_split_unit": "family_id",
+  "response": {
+    "D": [
+      "YES",
+      "NO",
+      "INSUFFICIENT_INFORMATION"
+    ],
+    "KAX": [
+      "YES",
+      "NO"
+    ]
+  },
+  "version": "phase25_step1_v2"
+}

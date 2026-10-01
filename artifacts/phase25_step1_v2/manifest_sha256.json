@@ -1,0 +1,21 @@
+{
+  "branch": "phase25/scenario-bank-v2",
+  "files": {
+    "artifacts/phase25_step1_v2/validation_report.json": "9d71edb0c1b8dd4cc7fe170974349b44c5c095dc1429acd8532b4f113aa340f4",
+    "configs/phase25_step1_v2_families.json": "a1ae09e904bb7ee30700b347f79228c5ec02978e6a787332afbaf03dc5c34a67",
+    "data/phase25/scenario_bank_v2/base_scenarios.jsonl": "223dd6a0037001a1aef035de25dda953391dd7a421feda7a03b84f35ceb45464",
+    "data/phase25/scenario_bank_v2/family_metadata.jsonl": "fbd02028231dbf68f18aeb5b03cb9d6feb38a4242cf7a49875bb903ccd6fbfda",
+    "data/phase25/scenario_bank_v2/gold_answers.jsonl": "fbf002a4ca874e65c6aaa4a1b2fbe92015e4c08541a391eb3b7915fb55fb531c",
+    "data/phase25/scenario_bank_v2/prompts.jsonl": "43c9087c2de48d4bf2bea49f46f8a0e83207ee5df56c9fae641ae1af9b576d02",
+    "data/phase25/scenario_bank_v2/schema.json": "132fee666e6521cd6e310d0e605d479a516fc4d11efd517fa93898ea8fe96dde",
+    "docs/phase25_step1_v2_protocol.md": "efb92ab98a1c25ecb9c521ddf0000ed6d94474736408f3aa8f544fff2d637b6e",
+    "reports/phase25_step1_v2_scenario_bank.md": "146fc549ea226ea42f88db42e86df182b8d18a4abf09ed731b9e31ae9fe63460",
+    "scripts/generate_phase25_step1_v2.py": "0b74c68e46280a9d1127924043811353af60ec1ea502a1dfed7edc48cc3f97a8",
+    "scripts/validate_phase25_step1_v2.py": "7a68354e2af6ec0a6b020c46f89a5e0e1ef90c76edad5c4ecd54b38a3cb9f55e",
+    "tests/test_phase25_step1_v2.py": "20d2472450c2a3fb691dc8793ae20710a2bef9b027682f6c314c2789e8729767"
+  },
+  "gpu_used": false,
+  "model_inference_used": false,
+  "v1_frozen_parent": "380a9eec889ad520abceda2f69852fa22ab93a6e",
+  "v2_protocol_freeze_sha": "2a692d5067028268a9b68f03308c7a4d43690334"
+}
