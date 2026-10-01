@@ -3,9 +3,10 @@
 experiment_id: phase25_step2_behavioral_screening
 phase: phase25_step2
 protocol_version: phase25_step2_behavioral_screening_v1
-status: phase25_step2_protocol_frozen_awaiting_preflight_and_generation_authorization
+status: phase25_step2_generation_authorized
 starting_sha: 1daf82574388dc9a7ced149823d9317f9d85439f
 step1_v2_frozen_head: 1daf82574388dc9a7ced149823d9317f9d85439f
+protocol_freeze_sha: 0182edfd4709731831cf7d5159bece48cc9e8081
 
 model:
   model_id: mistralai/Mistral-7B-Instruct-v0.2
@@ -72,7 +73,7 @@ paths:
   report: reports/phase25_step2_behavioral_screening.md
 
 authorizations:
-  modal_gpu_mistral_screening_authorized: false
+  modal_gpu_mistral_screening_authorized: true
   sealed_family_inference_authorized: false
   activation_capture_authorized: false
   output_hidden_states_authorized: false
