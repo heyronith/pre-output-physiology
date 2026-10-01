@@ -1,0 +1,81 @@
+{
+  "interpretation": "Heuristic surface-similarity diagnostic only; controlled variants within the same template are intentionally excluded.",
+  "max_similarity": 0.7614973262032085,
+  "method": "difflib.SequenceMatcher over lowercased rule+question+evidence with numeric literals normalized; cross-template pairs only",
+  "n_cross_template_pairs": 15660,
+  "n_ge_0_80": 0,
+  "n_ge_0_90": 0,
+  "status": "PASS",
+  "top_10": [
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_120",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_119",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_118",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_117",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_116",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_102",
+      "base_b": "p25_115",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_101",
+      "base_b": "p25_120",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_101",
+      "base_b": "p25_119",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_101",
+      "base_b": "p25_118",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    },
+    {
+      "base_a": "p25_101",
+      "base_b": "p25_117",
+      "similarity": 0.7614973262032085,
+      "template_a": "sales_target",
+      "template_b": "training_target"
+    }
+  ]
+}

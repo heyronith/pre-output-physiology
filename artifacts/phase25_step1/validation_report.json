@@ -1,0 +1,71 @@
+{
+  "a_x_word_length_balance": {
+    "max_absolute_fractional_difference": 0.02390438247011952,
+    "median_A_words": 136.0,
+    "median_X_words": 137.0,
+    "median_absolute_fractional_difference": 0.010353490496612277
+  },
+  "counts": {
+    "audit_records": 180,
+    "base_scenarios": 180,
+    "domains": {
+      "audit_reporting": 30,
+      "compliance_disclosure": 30,
+      "customer_entitlement_refunds": 30,
+      "performance_reporting": 30,
+      "product_service_representation": 30,
+      "resource_access_decisions": 30
+    },
+    "forms": {
+      "A": 180,
+      "D": 180,
+      "K": 180,
+      "X": 180
+    },
+    "gold_by_domain": {
+      "audit_reporting": {
+        "NO": 15,
+        "YES": 15
+      },
+      "compliance_disclosure": {
+        "NO": 15,
+        "YES": 15
+      },
+      "customer_entitlement_refunds": {
+        "NO": 15,
+        "YES": 15
+      },
+      "performance_reporting": {
+        "NO": 15,
+        "YES": 15
+      },
+      "product_service_representation": {
+        "NO": 15,
+        "YES": 15
+      },
+      "resource_access_decisions": {
+        "NO": 15,
+        "YES": 15
+      }
+    },
+    "gold_records": 180,
+    "prompt_records": 720
+  },
+  "errors": [],
+  "status": "PASS",
+  "validation_gates": {
+    "all_content_audit_pass": true,
+    "answer_labels_only_in_response_instruction": true,
+    "domain_30_each": true,
+    "gold_15_15_each_domain": true,
+    "median_A_X_word_diff_le_15pct": true,
+    "n_base_180": true,
+    "n_prompts_720": true,
+    "no_exact_duplicate_prompts": true,
+    "no_id_leakage": true,
+    "organization_not_label_deterministic": true,
+    "prohibited_terms_absent": true,
+    "unique_semantic_signatures": true
+  },
+  "warnings": []
+}

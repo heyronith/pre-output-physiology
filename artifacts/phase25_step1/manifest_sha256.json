@@ -1,0 +1,23 @@
+{
+  "branch": "phase25/scenario-bank",
+  "files": {
+    "artifacts/phase25_step1/near_duplicate_report.json": "d3a1d3f0c98250b13f9cf3052bbb24cce9d92894e4d402a6302a3d4c1ef0b9d6",
+    "artifacts/phase25_step1/scientific_content_audit.json": "eb1df5f4cccecff44bb5db79fb02f2be9b8056825ea8a894f5394dcc71b666ca",
+    "artifacts/phase25_step1/validation_report.json": "4280fbb7a2ce3f0d2506682949d8b9fa92b14655ef1f1cb82688db0d4ae5c242",
+    "data/phase25/scenario_bank/base_scenarios.jsonl": "3fe8b2098eb5e8ef0553d7396a3b0f6d8771e77ca44b607b08407b79e6be73f6",
+    "data/phase25/scenario_bank/content_audit.jsonl": "4d3bb50759e1b2cd308e13333723a606ae1466c63ed66b2bfc7013b2525ec709",
+    "data/phase25/scenario_bank/gold_answers.jsonl": "3edf67c4628527798f22f8a7ee9a365368575bd1d5e5cd827b71000c8bcec876",
+    "data/phase25/scenario_bank/prompts.jsonl": "2f71674629842653dce4bb0e30e2884ee1706b3625ae38fd5a5c0d73624992c6",
+    "data/phase25/scenario_bank/schema.json": "edc17f524444aa164230dabebf718c9ea7304955bd5808b23e75bfab9d972f78",
+    "reports/phase25_step1_scenario_bank.md": "18666b72da627c491ba176ed287b5b4bf29e90b0d8eecb622b07d05167ab7e0a",
+    "scripts/finalize_phase25_step1_manifest.py": "05827bc65e1860cff103dbb94e752fabfd94254eda0ab8ac9edf6dbe07a42781",
+    "scripts/generate_phase25_step1_scenario_bank.py": "db18d6646c4fc903e59ce168e8a5ba66b97ddfa92affa4e3a6ba6bf6dd37f8c2",
+    "scripts/validate_phase25_step1_scenario_bank.py": "8be14424ccf66f19c33832d6f3f5fc6ff7b87c3a040f9d2ef818b17e0b515df3",
+    "tests/test_phase25_step1_scenario_bank.py": "ea404cb6f8f25bf76a0ef66986ada70b6cc2074ddd62f96424daadfdd9e6f33d"
+  },
+  "gpu_used": false,
+  "model_inference_used": false,
+  "phase24_start_sha": "2af0c27fe034b3419dd9de8ccaafbb2780d6f899",
+  "protocol_base_freeze_sha": "813776c6dbdeb96aa6f6cb87db78edd3c76b735a",
+  "protocol_freeze_sha": "654750f713daf686a7f711de8c836de478bb5e93"
+}
