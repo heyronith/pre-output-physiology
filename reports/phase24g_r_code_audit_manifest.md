@@ -58,6 +58,4 @@ Status: `phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive`
 
 ## Final commit SHA
 
-## Final commit SHA
-
 
