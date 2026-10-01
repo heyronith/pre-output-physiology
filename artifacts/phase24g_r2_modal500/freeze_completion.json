@@ -1,57 +1,62 @@
 {
-  "status": "phase24g_r2_modal500_corrected_diagnostics_complete_awaiting_code_audit",
-  "starting_sha": "be8bbdd8012ed0869d2b4b32c0000a417e45e0b7",
   "branch": "phase24/diagnostic-correction-modal500",
+  "completeness": {
+    "failed_reps": [],
+    "lopo": "28/28",
+    "nested": "500/500",
+    "resume_retry_events_after_detach": []
+  },
+  "ending_sha": "76fc2c4cedb0a31b33b7021b6e9a3f6db0a0348d",
+  "freeze_commit_sha": "76fc2c4cedb0a31b33b7021b6e9a3f6db0a0348d",
+  "guarantee": "PHASE 24G-R2 USED A PROSPECTIVELY AMENDED 500-REPETITION FULL-PIPELINE NESTED DIAGNOSTIC ON MODAL CPU. THE AMENDMENT WAS MADE FOR COMPUTATIONAL FEASIBILITY BEFORE CORRECTED RESULTS WERE OBSERVED. PHASE-24F REMAINS THE FINAL CONFIRMATORY RESULT. NO NEW MODEL DATA, LABEL CHANGES, PROXY PRIMARY ANALYSIS, SAE ANALYSIS, CAUSAL INTERVENTION, OR PRIMARY-ENDPOINT REDEFINITION WAS PERFORMED.",
   "modal": {
-    "app_id": "ap-dDyWrXnyiMKUNMQ8jf8JIL",
-    "function_call_id": "fc-01M3TRD9GTJ2NDCTZ6E9P9CG8H",
-    "volume": "pre-output-physiology-phase24g-r2",
-    "cpu": 16,
-    "memory_gib": 128,
-    "workers": 8,
-    "detached": true,
-    "resumable": true,
-    "compute_commit": "650b81f3614a0afec124d8614af217cae5430383",
-    "config_hash": "ae83d67bb4742fecc1cb9c8f91b9210590aa51c65ebf17c922221583c9247949",
-    "relaunch_at": "2026-10-01T03:34:14Z",
-    "complete_at": "2026-10-01T09:06:19Z",
-    "wall_hours": 5.5347,
     "actual_cost_usd": {
       "app_id": "ap-dDyWrXnyiMKUNMQ8jf8JIL",
       "cpu": 4.21243282,
       "memory": 5.69969768,
-      "total": 9.9121305,
-      "source": "modal billing report --start 2026-09-30 --end 2026-10-02"
-    }
+      "source": "modal billing report --start 2026-09-30 --end 2026-10-02",
+      "total": 9.9121305
+    },
+    "app_id": "ap-dDyWrXnyiMKUNMQ8jf8JIL",
+    "complete_at": "2026-10-01T09:06:19Z",
+    "compute_commit": "650b81f3614a0afec124d8614af217cae5430383",
+    "config_hash": "ae83d67bb4742fecc1cb9c8f91b9210590aa51c65ebf17c922221583c9247949",
+    "cpu": 16,
+    "detached": true,
+    "function_call_id": "fc-01M3TRD9GTJ2NDCTZ6E9P9CG8H",
+    "memory_gib": 128,
+    "relaunch_at": "2026-10-01T03:34:14Z",
+    "resumable": true,
+    "volume": "pre-output-physiology-phase24g-r2",
+    "wall_hours": 5.5347,
+    "workers": 8
   },
-  "completeness": {
-    "lopo": "28/28",
-    "nested": "500/500",
-    "failed_reps": [],
-    "resume_retry_events_after_detach": []
+  "paths": {
+    "aggregate_script": "scripts/aggregate_phase24g_r2_modal500.py",
+    "artifacts_dir": "artifacts/phase24g_r2_modal500",
+    "audit_manifest": "reports/phase24g_r2_modal500_code_audit_manifest.md",
+    "report": "reports/phase24g_r2_modal500_diagnostic_correction.md"
   },
   "results": {
     "candidate_production_frequency": 1.0,
+    "category_C_status": "changes",
+    "diagnostic_category": "B",
     "discovery_delta_auroc_mean": 0.17059825705621756,
     "discovery_delta_auroc_median": 0.14083136792452833,
     "heldout_delta_auroc_mean": 0.048730472278223,
     "heldout_delta_auroc_median": 0.03829714025138953,
+    "lopo_t1_l20_frequency": 0.35714285714285715,
+    "nested_t1_l20_frequency": 0.064,
+    "optimism_gap_ci95": [
+      -0.13284283185197843,
+      0.44294295505311737
+    ],
     "optimism_gap_mean": 0.12186778477799455,
     "optimism_gap_median": 0.10408391363021413,
-    "optimism_gap_ci95": [-0.13284283185197843, 0.44294295505311737],
-    "nested_t1_l20_frequency": 0.064,
-    "lopo_t1_l20_frequency": 0.35714285714285715,
-    "diagnostic_category": "B",
-    "category_C_status": "changes",
     "phase24f_immutable_fail": true
   },
-  "guarantee": "PHASE 24G-R2 USED A PROSPECTIVELY AMENDED 500-REPETITION FULL-PIPELINE NESTED DIAGNOSTIC ON MODAL CPU. THE AMENDMENT WAS MADE FOR COMPUTATIONAL FEASIBILITY BEFORE CORRECTED RESULTS WERE OBSERVED. PHASE-24F REMAINS THE FINAL CONFIRMATORY RESULT. NO NEW MODEL DATA, LABEL CHANGES, PROXY PRIMARY ANALYSIS, SAE ANALYSIS, CAUSAL INTERVENTION, OR PRIMARY-ENDPOINT REDEFINITION WAS PERFORMED.",
-  "paths": {
-    "report": "reports/phase24g_r2_modal500_diagnostic_correction.md",
-    "audit_manifest": "reports/phase24g_r2_modal500_code_audit_manifest.md",
-    "artifacts_dir": "artifacts/phase24g_r2_modal500",
-    "aggregate_script": "scripts/aggregate_phase24g_r2_modal500.py"
-  },
+  "starting_sha": "be8bbdd8012ed0869d2b4b32c0000a417e45e0b7",
+  "status": "phase24g_r2_modal500_corrected_diagnostics_complete_awaiting_code_audit",
   "tests": {
     "pytest": "359 passed",
     "ruff": "All checks passed"

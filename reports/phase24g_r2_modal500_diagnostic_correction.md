@@ -4,7 +4,9 @@
 
 **Branch:** `phase24/diagnostic-correction-modal500`
 
-**Starting SHA:** `be8bbdd8012ed0869d2b4b32c0000a417e45e0b7`
+**Starting SHA:** 
+
+**Ending / freeze SHA:** `be8bbdd8012ed0869d2b4b32c0000a417e45e0b7`
 
 ## Prospective amendment
 
