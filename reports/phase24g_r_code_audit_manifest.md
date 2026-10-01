@@ -51,11 +51,29 @@ Status: `phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive`
 ## git diff --stat from starting SHA
 
 ```
- scripts/run_phase24g_diagnostics.py | 28 ++++++++++++++++++----------
- 1 file changed, 18 insertions(+), 10 deletions(-)
-
+ .../phase24g_r_correction/artifact_hashes.json     |  15 +
+ .../phase24g_r_correction/correction_manifest.json |  15 +
+ .../lopo_full_checkpoint.jsonl                     |   4 +
+ .../lopo_full_checkpoint_partial.jsonl             |   4 +
+ .../partial_lopo_full_pipeline.json                | 203 ++++++
+ .../phase24f_immutability.json                     |  15 +
+ .../prior_phase24g_artifact_hashes.json            | 100 +++
+ .../prior_phase24g_unchanged_verification.json     |   4 +
+ .../phase24g_r_correction/runtime_benchmark.json   |  32 +
+ artifacts/phase24g_r_correction/runtime_stop.json  |  28 +
+ .../phase24g_r_diagnostic_correction.yaml          |  18 +
+ docs/decision_log.md                               |   6 +
+ reports/phase24g_r_code_audit_manifest.md          |  61 ++
+ reports/phase24g_r_diagnostic_correction.md        |  34 +
+ scripts/benchmark_phase24g_r_full_grid.py          |  95 +++
+ scripts/emit_phase24g_r_runtime_stop.py            | 303 ++++++++
+ scripts/run_phase24g_diagnostics.py                |  28 +-
+ scripts/run_phase24g_r_correction.py               | 785 +++++++++++++++++++++
+ src/pre_output_physiology/phase24g_r_correction.py | 330 +++++++++
+ tests/test_phase24g_r_correction.py                | 239 +++++++
+ 20 files changed, 2309 insertions(+), 10 deletions(-)
 ```
 
 ## Final commit SHA
 
-
+`922613c36aed11768eb52fabcdb988e19b635216`

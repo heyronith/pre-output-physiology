@@ -1,6 +1,6 @@
 {
   "created_at": "2026-10-01T02:51:10+00:00",
-  "git_commit": "751efcac53355b11cbb0acd76353a788a0f9e55b",
+  "git_commit": "922613c36aed11768eb52fabcdb988e19b635216",
   "guarantee_intent": "PHASE 24G-R CORRECTED THE PHASE-24G LOPO AND NESTED DIAGNOSTICS USING THE FULL FROZEN STACKED PIPELINES AND 1,000 NESTED PROMPT-LEVEL REPETITIONS. THE PHASE-24F PRIMARY CONFIRMATORY FAILURE REMAINS FINAL AND UNCHANGED. NO NEW MODEL DATA, LABEL CHANGES, SAE ANALYSIS, CAUSAL INTERVENTION, OR PRIMARY-ENDPOINT REDEFINITION WAS PERFORMED.",
   "lopo_completed": 4,
   "nested_reps_completed": 0,
@@ -11,5 +11,5 @@
   "starting_sha": "8f2cbb67d0ad6a8ae4d0c8afb304729166f11a17",
   "status": "phase24g_r_stopped_full_pipeline_1000_nested_runtime_prohibitive",
   "stopped": true,
-  "ending_sha": "751efcac53355b11cbb0acd76353a788a0f9e55b"
+  "ending_sha": "922613c36aed11768eb52fabcdb988e19b635216"
 }
