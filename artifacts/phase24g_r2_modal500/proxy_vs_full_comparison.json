@@ -1,0 +1,18 @@
+{
+  "lopo": {
+    "delta_auroc_pearson": 0.5658315397989285,
+    "frac_candidate_exists_agree": 1.0,
+    "frac_layer_agree": 0.17857142857142858,
+    "frac_time_agree": 0.9285714285714286,
+    "n_delta_pairs": 28,
+    "n_paired": 28
+  },
+  "nested_first_50": {
+    "delta_auroc_pearson": 0.1654946617658957,
+    "frac_candidate_exists_agree": 1.0,
+    "frac_layer_agree": 0.14,
+    "frac_time_agree": 0.6,
+    "n_delta_pairs": 50,
+    "n_paired": 50
+  }
+}

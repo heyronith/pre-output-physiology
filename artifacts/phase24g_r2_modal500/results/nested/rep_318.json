@@ -1,0 +1,54 @@
+{
+  "candidate": {
+    "band": [
+      0,
+      31
+    ],
+    "layer": 31,
+    "time": 1
+  },
+  "discovery_delta": 0.466206896551724,
+  "heldout_delta": 0.12207792207792212,
+  "in_neighborhood": false,
+  "optimism": 0.34412897447380186,
+  "proxy": false,
+  "rep": 318,
+  "rep_id": "318",
+  "seed": 2726,
+  "split": {
+    "ho": [
+      "roleplay_122",
+      "roleplay_143",
+      "roleplay_192",
+      "roleplay_281",
+      "roleplay_304",
+      "roleplay_355",
+      "roleplay_370"
+    ],
+    "tr": [
+      "roleplay_003",
+      "roleplay_009",
+      "roleplay_026",
+      "roleplay_030",
+      "roleplay_036",
+      "roleplay_040",
+      "roleplay_091",
+      "roleplay_123",
+      "roleplay_163",
+      "roleplay_207",
+      "roleplay_230",
+      "roleplay_236",
+      "roleplay_296",
+      "roleplay_366"
+    ],
+    "va": [
+      "roleplay_014",
+      "roleplay_078",
+      "roleplay_116",
+      "roleplay_119",
+      "roleplay_224",
+      "roleplay_263",
+      "roleplay_308"
+    ]
+  }
+}

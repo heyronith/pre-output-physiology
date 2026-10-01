@@ -1,0 +1,1401 @@
+{
+  "rows": [
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "band_median_delta_auroc": 0.1197493224932249,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.19308943089430897
+      },
+      "delta_auroc": 0.19308943089430897,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_003",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          23
+        ],
+        "band_median_delta_auroc": 0.1305259146341463,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.16692073170731703
+      },
+      "delta_auroc": 0.16692073170731703,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_009",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          3
+        ],
+        "band_median_delta_auroc": 0.14634146341463417,
+        "candidate_layer": 0,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.18157181571815717
+      },
+      "delta_auroc": 0.18157181571815717,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_014",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          12,
+          19
+        ],
+        "band_median_delta_auroc": 0.055871212121212044,
+        "candidate_layer": 18,
+        "candidate_time": 4,
+        "layer_delta_auroc": 0.08049242424242431
+      },
+      "delta_auroc": 0.08049242424242431,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_026",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          24
+        ],
+        "band_median_delta_auroc": 0.11263550135501355,
+        "candidate_layer": 15,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1507452574525745
+      },
+      "delta_auroc": 0.1507452574525745,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_030",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          3
+        ],
+        "band_median_delta_auroc": 0.11754742547425456,
+        "candidate_layer": 0,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.18089430894308944
+      },
+      "delta_auroc": 0.18089430894308944,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_036",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          31
+        ],
+        "band_median_delta_auroc": 0.09112466124661234,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.14193766937669383
+      },
+      "delta_auroc": 0.14193766937669383,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_040",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          31
+        ],
+        "band_median_delta_auroc": 0.08333333333333326,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.17920054200542013
+      },
+      "delta_auroc": 0.17920054200542013,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_078",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          10,
+          23
+        ],
+        "band_median_delta_auroc": 0.08841463414634165,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.11212737127371275
+      },
+      "delta_auroc": 0.11212737127371275,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_091",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          24
+        ],
+        "band_median_delta_auroc": 0.11856368563685638,
+        "candidate_layer": 0,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.18089430894308944
+      },
+      "delta_auroc": 0.18089430894308944,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_116",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          24
+        ],
+        "band_median_delta_auroc": 0.12195121951219523,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.19647696476964782
+      },
+      "delta_auroc": 0.19647696476964782,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_119",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          20
+        ],
+        "band_median_delta_auroc": 0.08972125435540068,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.127177700348432
+      },
+      "delta_auroc": 0.127177700348432,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_122",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          12,
+          23
+        ],
+        "band_median_delta_auroc": 0.09946949602122024,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.13704686118479226
+      },
+      "delta_auroc": 0.13704686118479226,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_123",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          3
+        ],
+        "band_median_delta_auroc": 0.11060298102981037,
+        "candidate_layer": 0,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.18089430894308944
+      },
+      "delta_auroc": 0.18089430894308944,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_143",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          31
+        ],
+        "band_median_delta_auroc": 0.11856368563685638,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1639566395663956
+      },
+      "delta_auroc": 0.1639566395663956,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_163",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          20,
+          23
+        ],
+        "band_median_delta_auroc": 0.08231707317073167,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.0934959349593496
+      },
+      "delta_auroc": 0.0934959349593496,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_192",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          0,
+          31
+        ],
+        "band_median_delta_auroc": 0.1212737127371275,
+        "candidate_layer": 0,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.21443089430894302
+      },
+      "delta_auroc": 0.21443089430894302,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_207",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          9,
+          23
+        ],
+        "band_median_delta_auroc": 0.10636856368563685,
+        "candidate_layer": 14,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1422764227642277
+      },
+      "delta_auroc": 0.1422764227642277,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_224",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          23
+        ],
+        "band_median_delta_auroc": 0.11382113821138207,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.14769647696476973
+      },
+      "delta_auroc": 0.14769647696476973,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_230",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          13,
+          21
+        ],
+        "band_median_delta_auroc": 0.10933557611438172,
+        "candidate_layer": 18,
+        "candidate_time": 32,
+        "layer_delta_auroc": 0.153910849453322
+      },
+      "delta_auroc": 0.153910849453322,
+      "exact_t1_l20": false,
+      "in_neighborhood": false,
+      "left_out_prompt": "roleplay_236",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          20,
+          23
+        ],
+        "band_median_delta_auroc": 0.13020833333333326,
+        "candidate_layer": 22,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1344696969696969
+      },
+      "delta_auroc": 0.1344696969696969,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_263",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          23
+        ],
+        "band_median_delta_auroc": 0.1451124567474048,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1825259515570934
+      },
+      "delta_auroc": 0.1825259515570934,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_281",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          20
+        ],
+        "band_median_delta_auroc": 0.07215447154471555,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.14837398373983746
+      },
+      "delta_auroc": 0.14837398373983746,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_296",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          20,
+          23
+        ],
+        "band_median_delta_auroc": 0.1536036036036036,
+        "candidate_layer": 22,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.15720720720720716
+      },
+      "delta_auroc": 0.15720720720720716,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_304",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          23
+        ],
+        "band_median_delta_auroc": 0.11856368563685638,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.14769647696476973
+      },
+      "delta_auroc": 0.14769647696476973,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_308",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          23
+        ],
+        "band_median_delta_auroc": 0.10535230352303515,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.14837398373983746
+      },
+      "delta_auroc": 0.14837398373983746,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_355",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          8,
+          23
+        ],
+        "band_median_delta_auroc": 0.16446078431372546,
+        "candidate_layer": 13,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.21470588235294108
+      },
+      "delta_auroc": 0.21470588235294108,
+      "exact_t1_l20": false,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_366",
+      "left_out_split": "validation",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355",
+        "roleplay_370"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304"
+      ]
+    },
+    {
+      "candidate": {
+        "band": [
+          5,
+          23
+        ],
+        "band_median_delta_auroc": 0.10806233062330617,
+        "candidate_layer": 20,
+        "candidate_time": 1,
+        "layer_delta_auroc": 0.1402439024390243
+      },
+      "delta_auroc": 0.1402439024390243,
+      "exact_t1_l20": true,
+      "in_neighborhood": true,
+      "left_out_prompt": "roleplay_370",
+      "left_out_split": "train",
+      "proxy": false,
+      "tr": [
+        "roleplay_003",
+        "roleplay_014",
+        "roleplay_030",
+        "roleplay_036",
+        "roleplay_040",
+        "roleplay_078",
+        "roleplay_091",
+        "roleplay_116",
+        "roleplay_119",
+        "roleplay_143",
+        "roleplay_163",
+        "roleplay_192",
+        "roleplay_207",
+        "roleplay_224",
+        "roleplay_230",
+        "roleplay_236",
+        "roleplay_296",
+        "roleplay_308",
+        "roleplay_355"
+      ],
+      "va": [
+        "roleplay_009",
+        "roleplay_026",
+        "roleplay_122",
+        "roleplay_123",
+        "roleplay_263",
+        "roleplay_281",
+        "roleplay_304",
+        "roleplay_366"
+      ]
+    }
+  ],
+  "summary": {
+    "delta_auroc_mean": 0.1571012142425059,
+    "frac_candidate_exists": 1.0,
+    "frac_exact_t1_l20": 0.35714285714285715,
+    "frac_layer_20": 0.35714285714285715,
+    "frac_neighborhood": 0.75,
+    "frac_time_1": 0.9285714285714286,
+    "layer_hist": {
+      "0": 5,
+      "13": 7,
+      "14": 1,
+      "15": 1,
+      "18": 2,
+      "20": 10,
+      "22": 2
+    },
+    "n": 28,
+    "pipeline": "full_stacked_SURFACE_plus_ACTIVATION_minus_SURFACE",
+    "proxy_used": false,
+    "time_hist": {
+      "1": 26,
+      "4": 1,
+      "32": 1
+    }
+  }
+}

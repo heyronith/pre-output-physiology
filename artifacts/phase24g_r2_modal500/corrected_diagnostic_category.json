@@ -1,0 +1,18 @@
+{
+  "amendment": "The exploratory Phase-24G-R nested resampling target is amended from 1,000 to 500 full-pipeline repetitions solely for computational feasibility. No result from the corrected nested analysis has yet been observed. All other analysis rules remain unchanged.",
+  "category_C_status": "changes",
+  "corrected_category": "B",
+  "evidence": {
+    "lopo_exact_frac": 0.35714285714285715,
+    "lopo_neighborhood_frac": 0.75,
+    "optimism_gap": 0.12186778477799455,
+    "probe_mean_cosine": 0.6704994731417859,
+    "test_ci_width": 0.42358318183984545,
+    "test_delta_auroc": 0.07919354838709669,
+    "test_same_prompt_frac_gt0": 0.8571428571428571,
+    "topology_pearson": -0.07438151743841141
+  },
+  "nested_reps": 500,
+  "phase24f_remains_fail": true,
+  "previous_category_phase24g": "C"
+}

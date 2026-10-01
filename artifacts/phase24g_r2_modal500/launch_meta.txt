@@ -1,0 +1,9 @@
+launch_start=2026-10-01T03:26:56Z
+volume=pre-output-physiology-phase24g-r2
+app=pre-output-physiology-phase24g-r2-modal500
+cpu=16 memory_mib=131072 workers=8 nested=500
+commit=650b81f3614a0afec124d8614af217cae5430383
+app_id=ap-dDyWrXnyiMKUNMQ8jf8JIL
+function_call_id=fc-01M3TRD9GTJ2NDCTZ6E9P9CG8H
+relaunched_at=2026-10-01T03:34:14Z
+spawn=true

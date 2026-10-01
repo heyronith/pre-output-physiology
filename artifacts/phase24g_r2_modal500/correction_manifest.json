@@ -1,0 +1,115 @@
+{
+  "amendment": "The exploratory Phase-24G-R nested resampling target is amended from 1,000 to 500 full-pipeline repetitions solely for computational feasibility. No result from the corrected nested analysis has yet been observed. All other analysis rules remain unchanged.",
+  "category": "B",
+  "category_C_status": "changes",
+  "config_hash": "ae83d67bb4742fecc1cb9c8f91b9210590aa51c65ebf17c922221583c9247949",
+  "created_at": "2026-10-01T13:10:03+00:00",
+  "ending_sha": "94add8a178ff84775660cf49a3106bb6c3394d48",
+  "freeze_prepared_at": "2026-10-01T13:18:26+00:00",
+  "guarantee": "PHASE 24G-R2 USED A PROSPECTIVELY AMENDED 500-REPETITION FULL-PIPELINE NESTED DIAGNOSTIC ON MODAL CPU. THE AMENDMENT WAS MADE FOR COMPUTATIONAL FEASIBILITY BEFORE CORRECTED RESULTS WERE OBSERVED. PHASE-24F REMAINS THE FINAL CONFIRMATORY RESULT. NO NEW MODEL DATA, LABEL CHANGES, PROXY PRIMARY ANALYSIS, SAE ANALYSIS, CAUSAL INTERVENTION, OR PRIMARY-ENDPOINT REDEFINITION WAS PERFORMED.",
+  "lopo_n": 28,
+  "lopo_summary": {
+    "delta_auroc_mean": 0.1571012142425059,
+    "frac_candidate_exists": 1.0,
+    "frac_exact_t1_l20": 0.35714285714285715,
+    "frac_layer_20": 0.35714285714285715,
+    "frac_neighborhood": 0.75,
+    "frac_time_1": 0.9285714285714286,
+    "layer_hist": {
+      "0": 5,
+      "13": 7,
+      "14": 1,
+      "15": 1,
+      "18": 2,
+      "20": 10,
+      "22": 2
+    },
+    "n": 28,
+    "pipeline": "full_stacked_SURFACE_plus_ACTIVATION_minus_SURFACE",
+    "proxy_used": false,
+    "time_hist": {
+      "1": 26,
+      "32": 1,
+      "4": 1
+    }
+  },
+  "nested_reps": 500,
+  "nested_summary": {
+    "expected_discovery_delta_mean": 0.17059825705621756,
+    "expected_discovery_delta_median": 0.14083136792452833,
+    "expected_heldout_delta_mean": 0.048730472278223,
+    "expected_heldout_delta_median": 0.03829714025138953,
+    "frac_candidate_exists": 1.0,
+    "frac_exact_t1_l20": 0.064,
+    "layer_hist": {
+      "0": 23,
+      "1": 15,
+      "10": 13,
+      "11": 13,
+      "12": 19,
+      "13": 40,
+      "14": 53,
+      "15": 45,
+      "16": 31,
+      "17": 18,
+      "18": 18,
+      "19": 10,
+      "2": 10,
+      "20": 36,
+      "21": 11,
+      "22": 17,
+      "23": 17,
+      "24": 9,
+      "25": 6,
+      "26": 2,
+      "27": 3,
+      "28": 7,
+      "29": 7,
+      "3": 7,
+      "30": 10,
+      "31": 11,
+      "4": 8,
+      "5": 8,
+      "6": 12,
+      "7": 2,
+      "8": 7,
+      "9": 12
+    },
+    "n_reps_completed": 500,
+    "optimism_gap_ci95": [
+      -0.13284283185197843,
+      0.44294295505311737
+    ],
+    "optimism_gap_mean": 0.12186778477799455,
+    "optimism_gap_median": 0.10408391363021413,
+    "time_hist": {
+      "1": 247,
+      "16": 25,
+      "2": 121,
+      "32": 11,
+      "4": 64,
+      "8": 32
+    }
+  },
+  "pre_freeze_ending_sha": "94add8a178ff84775660cf49a3106bb6c3394d48",
+  "proxy_vs_full": {
+    "lopo": {
+      "delta_auroc_pearson": 0.5658315397989285,
+      "frac_candidate_exists_agree": 1.0,
+      "frac_layer_agree": 0.17857142857142858,
+      "frac_time_agree": 0.9285714285714286,
+      "n_delta_pairs": 28,
+      "n_paired": 28
+    },
+    "nested_first_50": {
+      "delta_auroc_pearson": 0.1654946617658957,
+      "frac_candidate_exists_agree": 1.0,
+      "frac_layer_agree": 0.14,
+      "frac_time_agree": 0.6,
+      "n_delta_pairs": 50,
+      "n_paired": 50
+    }
+  },
+  "starting_sha": "be8bbdd8012ed0869d2b4b32c0000a417e45e0b7",
+  "status": "phase24g_r2_modal500_corrected_diagnostics_complete_awaiting_code_audit"
+}

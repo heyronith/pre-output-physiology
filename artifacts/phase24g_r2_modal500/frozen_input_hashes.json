@@ -1,0 +1,62 @@
+{
+  "activations": {
+    "inventory_sha256": "daabd685e49f41c46d385dbf0cd22957959247818c61c5e68201b8a3559be8de",
+    "n_npz": 448
+  },
+  "files": {
+    "capture_meta": {
+      "path": "artifacts/phase24d_collection/capture_meta.json",
+      "sha256": "18507472618d6648a2c69c0525b871bdd34d5f3cd40511c8b52541476c9132be"
+    },
+    "labels_train": {
+      "path": "artifacts/phase24d_collection/by_split/TRAIN/labels.json",
+      "sha256": "ae049dc1919801dbeced022eb1722a8283aba28dbba5cc314abefcd1ffe08ac3"
+    },
+    "labels_validation": {
+      "path": "artifacts/phase24d_collection/by_split/VALIDATION/labels.json",
+      "sha256": "9c9c385622380984f62d9a9494847a7774ee266e1da4c556a77405dbc17bfee4"
+    },
+    "phase24f_primary_metrics": {
+      "path": "artifacts/phase24f_confirmation/primary_metrics.json",
+      "sha256": "f23fe5c78d9df1f70a24e302ebc163b49cfa71a96179162aee3e766527a116f0"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase24c_design/split_manifest.json",
+      "sha256": "2cc3f66594e126b298d4e5e4ad848dd422a024e6c821d51a20724e0d19cb2afa"
+    }
+  },
+  "phase24g": {
+    "artifact_hashes.json": "0b65b2fc2f9dd0aace3984ab2ed9a6defeae1b7ce9c96a381ec85f696bf0617b",
+    "candidate_stability_by_split.json": "61af4ad319311cb348a78d033a2981bb88883d42238a18817e135ccaa064ca1b",
+    "diagnostic_category.json": "8760da5baa20bf972b016e6086774367148e27badedeec4633c8d91f6b39c346",
+    "diagnostics_manifest.json": "c1d8fd2e93ccb88c41cb28d830a2a824dfae8b09ab22e8869fc1712130bbdc74",
+    "exploratory_test_coordinate_metrics.json": "06db06946db27d5de611ba4542c480cacf7984ee6bfaf4c2ef635e134cbd2f14",
+    "heatmap_test_activation.svg": "f2a7a2cdb7f52ba115bb349a0af6422ba64ac82dad7a32c530a83c39d4ca63be",
+    "heatmap_test_combined.svg": "ab165c22dab6c22aa0cccde457e14a3f2e7ee38f6f6d889d1969ca44eb30aa6a",
+    "heatmap_test_delta.svg": "6b893874ccccbd9040e541665309d81760a98943a193b5f830709769ecd5d2e8",
+    "heatmap_test_surface.svg": "606ecc11067574627748b9c9772e22cf620da87e4f63c7dcd1148f0635eeb887",
+    "heatmap_val_delta.svg": "efd95ba1e1528b6a2b3356e0ae9420e626b0f0535a6dbd2082b7132189834510",
+    "lopo_candidate_stability.json": "4fc1c6a372a7ee131fbd530ee92e3fd02458cef21f31aef8519ace54075a0dd4",
+    "nested_resampling_optimism.json": "901e5c6ac9607774c34593883824be6b402e22a2f0cb3275fb62d515b9ce8fe8",
+    "phase24f_immutability.json": "19672660009519c3fafa1c1b44a6b28bc5317f88333655f3baffa99389e79366",
+    "power_projections.json": "bb52e52d43056506770d8ff7d26b3a90286a332535cbb144d987e01117ae33e8",
+    "probe_direction_stability.json": "0c21089f6df345f9ad7bcaf2758407938a9c8afa44197a91d95ad5996eb64191",
+    "prompt_heterogeneity.json": "a1214a73cfa5981f327cf070b7e09aaaf0f6f2273d9b69349b24533935c13659",
+    "same_prompt_robustness.json": "7e417d527bd0b2ca8abb53832b04ac6daa6ca165cb602817cd62ff4682b62a34",
+    "surface_baseline_diagnostics.json": "b44abf8781b35dcd2e25ea7005d5f0feca121bbd380b06c24cf56621a20960c5",
+    "val_test_topology.json": "9db4d9f398dc572ac90429c39b69658808fe484a68280ef40422808837c632e5"
+  },
+  "phase24g_r": {
+    "artifact_hashes.json": "5ba61d8da89158b7b0f40c2118fcebec7111911c368db5472f69d7ab77858ae3",
+    "correction_manifest.json": "39e5e1a66f94530175ca7c6c257fd5ac8ae47a19d9861534b4f97746c9c971fa",
+    "lopo_full_checkpoint.jsonl": "c29d77468543801c13fa400f74953749515073124e0ea4ecda8ec8ba8c9eafd2",
+    "lopo_full_checkpoint_partial.jsonl": "c29d77468543801c13fa400f74953749515073124e0ea4ecda8ec8ba8c9eafd2",
+    "partial_lopo_full_pipeline.json": "ce74730666288471d8d7520803f6d0670fe5a0ef9f7480bfbe489b3c80d61e9d",
+    "phase24f_immutability.json": "0eeae6096fa4fd07ccfbf556decde380dc57077a8a8fc0c0bf762b82272b894a",
+    "prior_phase24g_artifact_hashes.json": "4625dcd7ad34021afbea071b819ef5cf239526bf9a1786c72f70c1409d10a3de",
+    "prior_phase24g_unchanged_verification.json": "d2424cdb2c04efc9713a48eab76e0d5b6b0ad1ff5bf22a149c38850d4b1f38f5",
+    "run.log": "681c4681b49abdf0db366ffafd6ecff712a358979eb3d7686ea353c23957151d",
+    "runtime_benchmark.json": "1b7fbb2052e465dda20b39940ad8c451359fcdc03bb981317d040f7ff60eb6b3",
+    "runtime_stop.json": "a5be0e272fc86d565b046de7406a81a4bf28821f173bad256f4dc81eeaf58cad"
+  }
+}

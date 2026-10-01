@@ -1,0 +1,15 @@
+{
+  "amendment": "The exploratory Phase-24G-R nested resampling target is amended from 1,000 to 500 full-pipeline repetitions solely for computational feasibility. No result from the corrected nested analysis has yet been observed. All other analysis rules remain unchanged.",
+  "analysis_seed": 2408,
+  "app_name": "pre-output-physiology-phase24g-r2-modal500",
+  "experiment_id": "phase24g_r2_modal500",
+  "lopo_n": 28,
+  "modal_cpu": 16,
+  "modal_memory_mib": 131072,
+  "n_workers": 8,
+  "nested_reps": 500,
+  "proxy_used_in_primary": false,
+  "starting_sha": "be8bbdd8012ed0869d2b4b32c0000a417e45e0b7",
+  "status_target": "phase24g_r2_modal500_corrected_diagnostics_complete_awaiting_code_audit",
+  "volume_name": "pre-output-physiology-phase24g-r2"
+}
