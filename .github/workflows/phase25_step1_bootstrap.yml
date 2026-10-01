@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   build-freeze-bank:
-    if: github.event.head_commit.message == 'chore: bootstrap Phase 25 Step 1 data generation'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
