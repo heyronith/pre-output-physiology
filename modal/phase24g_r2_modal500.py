@@ -875,9 +875,20 @@ def upload_inputs() -> None:
 @app.local_entrypoint()
 def launch() -> None:
     """Detached entry: uv run modal run --detach modal/phase24g_r2_modal500.py::launch"""
-    print("Launching run_diagnostics on Modal…", flush=True)
-    out = run_diagnostics.remote()
-    print(json.dumps(out, indent=2, default=str))
+    print("Spawning run_diagnostics on Modal (non-blocking)…", flush=True)
+    call = run_diagnostics.spawn()
+    info = {
+        "spawned": True,
+        "function_call_id": getattr(call, "object_id", None)
+        or getattr(call, "call_id", str(call)),
+        "app_name": APP_NAME,
+        "volume": VOLUME_NAME,
+        "cpu": 16,
+        "memory_mib": 131072,
+        "workers": 8,
+        "nested_reps": 500,
+    }
+    print(json.dumps(info, indent=2), flush=True)
 
 
 @app.local_entrypoint()
