@@ -1,0 +1,75 @@
+{
+  "analysis_label": "SMOKE_INFRASTRUCTURE_ONLY_NO_SCIENTIFIC_CONCLUSIONS",
+  "control_task_s_single_variant_single_time": [
+    14.500661541940644,
+    14.74604800005909
+  ],
+  "data_load_s": 20.163841624977067,
+  "est_control_hours_per_single_group": 0.6318733543024635,
+  "est_control_hours_per_variant_all_times_group": 2.4601180085317336,
+  "est_control_hours_worst_case_all_promoted": 4.920236017063467,
+  "est_hash_all_min": 0.029284629743132326,
+  "est_real_stage_hours": 0.16588553511569948,
+  "est_total_hours_no_promotion": 0.17248100784531775,
+  "est_total_hours_worst_case": 5.092717024908785,
+  "expected_rows": 36,
+  "fold0_timings_s": {
+    "probes_DELTA_t1": 13.652075666934252,
+    "probes_DELTA_t2": 14.427135000005364,
+    "probes_DELTA_t4": 13.937848499976099,
+    "probes_DELTA_t8": 13.61080387502443,
+    "probes_RAW_t1": 13.614322458975948,
+    "probes_RAW_t2": 14.886123416945338,
+    "probes_RAW_t4": 14.14477795897983,
+    "probes_RAW_t8": 13.383589125005528,
+    "surface_t1": 3.7427275830414146,
+    "surface_t2": 3.499512125039473,
+    "surface_t4": 3.774572500027716,
+    "surface_t8": 3.3827091669663787,
+    "variant_DELTA_t1": 13.877580208005384,
+    "variant_DELTA_t2": 14.711815917049535,
+    "variant_DELTA_t4": 14.166078292066231,
+    "variant_DELTA_t8": 13.838408958981745,
+    "variant_RAW_t1": 13.847032584017143,
+    "variant_RAW_t2": 15.108563750050962,
+    "variant_RAW_t4": 14.36927870893851,
+    "variant_RAW_t8": 13.609284583013505
+  },
+  "fold0_wall_s": 127.96884137496818,
+  "git": {
+    "branch": "phase24/internal-signal-breadth",
+    "head": "d527849bfb81821d2be63a080b39bcf35ae67ccc",
+    "protocol_file_sha256": {
+      "configs/experiments/phase24h_internal_signal_breadth.yaml": "18eb7442ac60ce3168aa485dc4083a830f39299a195cbe7233f4a7b1b0d22a35",
+      "scripts/run_phase24h_internal_signal_breadth.py": "90b5dbd48c340c3d06f7e962bb5297f8d0902574d0ad72b935385f93493c6d75",
+      "src/pre_output_physiology/phase24h_internal_signal_breadth.py": "b60d00e9a898575d0604969281e3e0c38681ac9bf83064e1150c1060dd717e2f",
+      "tests/test_phase24h_internal_signal_breadth.py": "5f74b38eca38b9f1ef480a3e382f138b110ddc25fdbffb55e2fa60413fd2ba1f"
+    },
+    "protocol_files_dirty": [],
+    "protocol_freeze_commit": "d527849bfb81821d2be63a080b39bcf35ae67ccc"
+  },
+  "hash_24_files_s": 0.09412916703149676,
+  "hash_sample_ok": true,
+  "memory": {
+    "children_max_rss_mb": 5.734375,
+    "self_max_rss_mb": 2256.96875
+  },
+  "n_dev_npz_files": 448,
+  "n_records": 388,
+  "n_rows_all_finite": 36,
+  "n_rows_produced": 36,
+  "parallel_efficiency_assumed": 0.75,
+  "probe_example_timings": {
+    "probes_RAW_t1": 13.614322458975948
+  },
+  "record_build_s": 1.8227824170608073,
+  "smoke_wall_s": 179.40485783305485,
+  "stop_threshold_hours": 8,
+  "survivors_by_time": {
+    "1": 388,
+    "2": 388,
+    "4": 388,
+    "8": 388
+  },
+  "workers_assumed": 6
+}

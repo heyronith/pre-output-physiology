@@ -1,0 +1,17 @@
+{
+  "cross_fitted_predictions.npz": "2a0097911317b3288086e6a371a0da022fbd71ddeb6da333b70075d1a28b9ead",
+  "frozen_input_verification.json": "3a5fdb0d28813984aa9e8ef9e715272ab5d4bef9fbc1d53f7e95bf4a2ded36ee",
+  "input_hashes.json": "6c6b88211b47b51f1523e7d8e8146464d6ba147ffccc632ed2f8eade492b22bf",
+  "input_summary.json": "4750ce8feded9dedfdebfded7853d8d38e2f9a7a7f3c842674e675dc9c06dd8d",
+  "outer_folds.json": "dee54b0f39fc3a7c79afcbe5a90bccf9383e51da1f2ab21cf83b74c2f0d85eb6",
+  "phase24f_immutability.json": "007ab88e7631d9cc625bb41ca1d665baae062cf4095e8eaf01124f301f68fbba",
+  "phase24h_internal_signal_breadth.md": "33a5878c2a4902f37fbecc09f449b425fa04ce08c0b1791cc169621f7ceea5e7",
+  "promotion.json": "287fc87b3c828f22690bbc29914eb3c42e1e8dd06d47891e04c29e5bc93e83f6",
+  "record_index.json": "d18d9087b1f68853478090e932812c0fcc4d1da999861d4d13a24b8a95187b72",
+  "row_metrics.json": "4221ed2ee457a9e570dcf1d586bab9c9124cde5452e1bc50a46bbe6d7b330b17",
+  "run_manifest.json": "f78e80ee9b7bf4b74b869c2870599f929adbc5bb348710c5ad3c80d6deae8bd3",
+  "same_prompt_analysis.json": "142ee98d67965a6cc013dcdf54c94a704cfd64997d9782a867489e76bfedf8bd",
+  "selection_diagnostics.json": "aeffa182e2bed2b54ebf7bc2e3077aa596f3e8ba7bc7bdd5db679ed0445a2ffa",
+  "shuffle_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "stability_by_salt.json": "7d5f449b46ef8d7af2a24fdddea306d2c8785f2b3e1cb103b58296416fe5e8c1"
+}

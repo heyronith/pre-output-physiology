@@ -699,6 +699,11 @@ def run_controls(
 
 
 # ---- report ----
+def _k(key: str) -> str:
+    """Markdown-table-safe row key (escape the pipe separator)."""
+    return "`" + key.replace("|", "\\|") + "`"
+
+
 def _f(x: Any, nd: int = 3) -> str:
     try:
         return f"{float(x):.{nd}f}"
@@ -749,13 +754,13 @@ def write_report(
     for k in H.row_keys_all():
         m = metrics[k]
         if m.get("missing"):
-            L.append(f"| `{k}` | missing | | | | | | | | | {H.NOT_PROMOTED} |")
+            L.append(f"| {_k(k)} | missing | | | | | | | | | {H.NOT_PROMOTED} |")
             continue
         ci = m["bootstrap"]["ci95"]
         ds = "/".join(_f(m["per_salt"][str(s)]["delta_auroc"], 3) for s in H.OUTER_SALTS)
         sp = m["same_prompt"]
         L.append(
-            f"| `{k}` | {_f(m['pooled_delta_auroc'])} | [{_f(ci[0])}, {_f(ci[1])}] | {ds} | "
+            f"| {_k(k)} | {_f(m['pooled_delta_auroc'])} | [{_f(ci[0])}, {_f(ci[1])}] | {ds} | "
             f"{_f(m['pooled_surface_auroc'])} | {_f(m['pooled_combined_auroc'])} | "
             f"{_f(m['pooled_delta_auprc'])} | {sp['n_qualifying']} | {_f(sp['median_delta'])} | "
             f"{_f(sp['fraction_gt_0'], 2)} | {m['final_label']} |"
@@ -771,8 +776,8 @@ def write_report(
         sp = m["same_prompt"]
         b = sp["bootstrap"]
         L.append(
-            f"| `{k}` | {sp['n_qualifying']} | {_f(sp['median_delta'])} | {_f(sp['mean_delta'])} | "
-            f"{_f(sp['fraction_gt_0'], 2)} | "
+            f"| {_k(k)} | {sp['n_qualifying']} | {_f(sp['median_delta'])} | "
+            f"{_f(sp['mean_delta'])} | {_f(sp['fraction_gt_0'], 2)} | "
             f"[{_f(b['median_ci95'][0])}, {_f(b['median_ci95'][1])}] | "
             f"[{_f(b['mean_ci95'][0])}, {_f(b['mean_ci95'][1])}] |"
         )
@@ -786,7 +791,7 @@ def write_report(
             continue
         flags = " | ".join("yes" if v else "no" for v in c.values())
         verdict = "yes" if m["promotion"]["promoted"] else "no"
-        L.append(f"| `{k}` | {flags} | {verdict} |")
+        L.append(f"| {_k(k)} | {flags} | {verdict} |")
     L.append("\n## Negative control (prompt-preserving activation shuffle)\n")
     any_ctl = False
     for k in H.row_keys_all():

@@ -1,0 +1,5366 @@
+{
+  "A_RAW_SINGLE|search": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5666666666666667,
+        "delta_auroc": -0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.6333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.33333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6153846153846153,
+        "delta_auroc": 0.03418803418803407,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.1428571428571428,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.875,
+        "delta_auroc": 0.029761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8452380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.7303030303030301,
+        "delta_auroc": 0.24242424242424226,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.48787878787878786
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4444444444444444,
+        "delta_auroc": -0.0888888888888889,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5333333333333333
+      },
+      {
+        "combined_auroc": 0.9427083333333334,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9427083333333334
+      },
+      {
+        "combined_auroc": 0.5476190476190477,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5476190476190477
+      },
+      {
+        "combined_auroc": 0.8095238095238094,
+        "delta_auroc": -0.17857142857142871,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.5104166666666666,
+        "delta_auroc": 0.09027777777777773,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.4201388888888889
+      },
+      {
+        "combined_auroc": 0.9,
+        "delta_auroc": 0.13333333333333341,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.33333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.356060606060606,
+        "delta_auroc": -0.18181818181818193,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.537878787878788
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.014460959565126252,
+          0.12128747795414456
+        ],
+        "median_ci95": [
+          0.0,
+          0.12222222222222229
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5,
+      "mean_combined_auroc": 0.7180617414992414,
+      "mean_delta": 0.05192639150972481,
+      "mean_surface_auroc": 0.6661353499895166,
+      "median_delta": 0.014880952380952384,
+      "n_qualifying": 18
+    }
+  },
+  "A_RAW_SINGLE|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5384615384615384,
+        "delta_auroc": 0.07692307692307693,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8727272727272727,
+        "delta_auroc": 0.296969696969697,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0,
+          0.19966329966329965
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.16666666666666666,
+      "mean_combined_auroc": 0.6997618122618123,
+      "mean_delta": 0.07632737632737632,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "A_RAW_SINGLE|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.8571428571428571,
+        "delta_auroc": 0.2857142857142857,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.903030303030303,
+        "delta_auroc": 0.7696969696969697,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9322916666666666,
+        "delta_auroc": 0.04166666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": -0.09523809523809523,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4895833333333333,
+        "delta_auroc": 0.20138888888888884,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.9,
+        "delta_auroc": 0.13333333333333341,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.6325757575757576,
+        "delta_auroc": 0.030303030303030387,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.01767917267917269,
+          0.18921150994067656
+        ],
+        "median_ci95": [
+          0.0,
+          0.08750000000000002
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.7316656144781144,
+      "mean_delta": 0.09323446615113282,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "A_RAW_SINGLE|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4000000000000001,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5683760683760682,
+        "delta_auroc": 0.05128205128205121,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.890909090909091,
+        "delta_auroc": 0.0242424242424244,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.6,
+        "delta_auroc": 0.1999999999999999,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.02083333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.0714285714285714,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.5238095238095237,
+        "delta_auroc": 0.23809523809523803,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.5069444444444445,
+        "delta_auroc": 0.2847222222222223,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.7777777777777777,
+        "delta_auroc": 0.11111111111111105,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.3295454545454546,
+        "delta_auroc": -0.18939393939393934,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.023786475869809223,
+          0.1338751391355558
+        ],
+        "median_ci95": [
+          0.0,
+          0.15555555555555553
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.6111111111111112,
+      "mean_combined_auroc": 0.7083962333962334,
+      "mean_delta": 0.07907956241289574,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.037762237762237805,
+      "n_qualifying": 18
+    }
+  },
+  "A_RAW_SINGLE|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.3333333333333333,
+        "delta_auroc": -0.5666666666666667,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.25925925925925924,
+        "delta_auroc": -0.024691358024691357,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6153846153846153,
+        "delta_auroc": 0.03418803418803407,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.8452380952380952,
+        "delta_auroc": -0.125,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5303030303030303,
+        "delta_auroc": -0.048484848484848464,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": -0.022222222222222254,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.875,
+        "delta_auroc": -0.11458333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.11904761904761901,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8095238095238094,
+        "delta_auroc": -0.17857142857142871,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.5243055555555557,
+        "delta_auroc": -0.11805555555555536,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.9777777777777779,
+        "delta_auroc": 0.3666666666666667,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5476190476190476,
+        "delta_auroc": 0.23809523809523803,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.5833333333333334,
+        "delta_auroc": 0.10606060606060608,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.07484967343184935,
+          0.14609457511367216
+        ],
+        "median_ci95": [
+          -0.08153409090909092,
+          0.11255411255411255
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6923879232907012,
+      "mean_delta": 0.034706184590443855,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "B_DELTA_SINGLE|search": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": -0.1333333333333333,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.6333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.33333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.48148148148148145,
+        "delta_auroc": 0.037037037037037035,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.46581196581196577,
+        "delta_auroc": -0.017094017094017144,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4829059829059829
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.1428571428571428,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.706060606060606,
+        "delta_auroc": 0.2181818181818182,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.48787878787878786
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9427083333333334,
+        "delta_auroc": 0.01041666666666674,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9322916666666666
+      },
+      {
+        "combined_auroc": 0.5595238095238095,
+        "delta_auroc": -0.011904761904761973,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.8690476190476191,
+        "delta_auroc": -0.13095238095238093,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5243055555555556,
+        "delta_auroc": 0.10416666666666669,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.4201388888888889
+      },
+      {
+        "combined_auroc": 0.7444444444444445,
+        "delta_auroc": -0.022222222222222143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.19047619047619047,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.42424242424242425,
+        "delta_auroc": -0.1363636363636363,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5606060606060606
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.021531139578014558,
+          0.08976725338704503
+        ],
+        "median_ci95": [
+          -0.014499389499389559,
+          0.07060185185185186
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.6921498704484815,
+      "mean_delta": 0.03247769463047242,
+      "mean_surface_auroc": 0.6596721758180091,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "B_DELTA_SINGLE|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5666666666666667,
+        "delta_auroc": 0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.4615384615384615,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8666666666666666,
+        "delta_auroc": 0.2909090909090909,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0,
+          0.20639730639730638
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.16666666666666666,
+      "mean_combined_auroc": 0.6988553113553113,
+      "mean_delta": 0.07542087542087542,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "B_DELTA_SINGLE|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.3571428571428571,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8969696969696969,
+        "delta_auroc": 0.7636363636363636,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9114583333333334,
+        "delta_auroc": 0.02083333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4618055555555555,
+        "delta_auroc": 0.17361111111111105,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7444444444444445,
+        "delta_auroc": -0.022222222222222143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.5719696969696969,
+        "delta_auroc": -0.030303030303030276,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.014007836299502977,
+          0.1981592211800545
+        ],
+        "median_ci95": [
+          0.0,
+          0.036630036630036694
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.72852408008658,
+      "mean_delta": 0.09009293175959843,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "B_DELTA_SINGLE|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.09999999999999992,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.875,
+        "delta_auroc": -0.125,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.48148148148148145,
+        "delta_auroc": 0.037037037037037035,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.49145299145299143,
+        "delta_auroc": -0.025641025641025605,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9270833333333334,
+        "delta_auroc": -0.05208333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.5595238095238095,
+        "delta_auroc": -0.011904761904761973,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.30952380952380953,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.3541666666666667,
+        "delta_auroc": 0.13194444444444445,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.7999999999999999,
+        "delta_auroc": 0.1333333333333333,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.23106060606060608,
+        "delta_auroc": -0.28787878787878785,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.019924923970062874,
+          0.1095649617871839
+        ],
+        "median_ci95": [
+          -0.005952380952380987,
+          0.11597222222222218
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6724276366637478,
+      "mean_delta": 0.04311096568041011,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "B_DELTA_SINGLE|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.19999999999999998,
+        "delta_auroc": -0.7000000000000001,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.25925925925925924,
+        "delta_auroc": -0.024691358024691357,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5555555555555555,
+        "delta_auroc": -0.025641025641025772,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9166666666666666,
+        "delta_auroc": -0.0535714285714286,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.49393939393939396,
+        "delta_auroc": -0.08484848484848478,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.3333333333333333,
+        "delta_auroc": -0.15555555555555556,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.01041666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5595238095238095,
+        "delta_auroc": 0.08333333333333331,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8214285714285715,
+        "delta_auroc": -0.16666666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.6006944444444444,
+        "delta_auroc": -0.04166666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.9555555555555556,
+        "delta_auroc": 0.34444444444444444,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.4047619047619048,
+        "delta_auroc": 0.09523809523809529,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.5984848484848485,
+        "delta_auroc": 0.12121212121212122,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.09726641232138919,
+          0.14517137076743547
+        ],
+        "median_ci95": [
+          -0.047619047619047616,
+          0.0834821428571421
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6777335190529635,
+      "mean_delta": 0.02005178035270628,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|DELTA|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5666666666666667,
+        "delta_auroc": 0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5128205128205128,
+        "delta_auroc": 0.051282051282051266,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.818181818181818,
+        "delta_auroc": 0.24242424242424232,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0028490028490028483,
+          0.19934343434343407
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.2222222222222222,
+      "mean_combined_auroc": 0.6990107115107116,
+      "mean_delta": 0.07557627557627558,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|DELTA|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.3571428571428571,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.890909090909091,
+        "delta_auroc": 0.7575757575757577,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.921875,
+        "delta_auroc": 0.03125,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.34375,
+        "delta_auroc": 0.055555555555555525,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.5643939393939393,
+        "delta_auroc": -0.037878787878787845,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.009801887926887935,
+          0.17825512161449625
+        ],
+        "median_ci95": [
+          0.0,
+          0.036630036630036694
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.723021133958634,
+      "mean_delta": 0.0845899856316523,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|DELTA|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.7083333333333334,
+        "delta_auroc": -0.29166666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5085470085470085,
+        "delta_auroc": -0.008547008547008517,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8424242424242424,
+        "delta_auroc": -0.024242424242424176,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5333333333333333,
+        "delta_auroc": 0.13333333333333325,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9114583333333334,
+        "delta_auroc": -0.06770833333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.0714285714285714,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.4761904761904761,
+        "delta_auroc": 0.1904761904761904,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.4513888888888889,
+        "delta_auroc": 0.22916666666666666,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.5555555555555555,
+        "delta_auroc": -0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.3068181818181818,
+        "delta_auroc": -0.2121212121212121,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.03662207632259717,
+          0.09891066928827338
+        ],
+        "median_ci95": [
+          -0.016394716394716347,
+          0.1222222222222222
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6619158811867145,
+      "mean_delta": 0.03259921020337686,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|DELTA|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.7666666666666666,
+        "delta_auroc": -0.13333333333333341,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.271604938271605,
+        "delta_auroc": -0.012345679012345623,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6153846153846153,
+        "delta_auroc": 0.03418803418803407,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9166666666666666,
+        "delta_auroc": -0.0535714285714286,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.49393939393939384,
+        "delta_auroc": -0.0848484848484849,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.35555555555555557,
+        "delta_auroc": -0.1333333333333333,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.9895833333333334,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5595238095238096,
+        "delta_auroc": 0.08333333333333343,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.7619047619047619,
+        "delta_auroc": -0.22619047619047628,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.670138888888889,
+        "delta_auroc": 0.0277777777777779,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.5111111111111111,
+        "delta_auroc": -0.10000000000000009,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.3571428571428572,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.4924242424242424,
+        "delta_auroc": 0.015151515151515083,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.04700172212903696,
+          0.12041336535549498
+        ],
+        "median_ci95": [
+          -0.06920995670995675,
+          0.037698412698412787
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6812026022674171,
+      "mean_delta": 0.02352086356715986,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|RAW|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": -0.03333333333333338,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5128205128205128,
+        "delta_auroc": 0.051282051282051266,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.6606060606060605,
+        "delta_auroc": 0.08484848484848484,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.0018518518518518545,
+          0.1760942760942761
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.16666666666666666,
+      "mean_combined_auroc": 0.6847009472009472,
+      "mean_delta": 0.06126651126651127,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|RAW|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": -0.33333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5341880341880342,
+        "delta_auroc": 0.059829059829059894,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.3571428571428571,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.903030303030303,
+        "delta_auroc": 0.7696969696969697,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 0.9333333333333332,
+        "delta_auroc": -0.06666666666666676,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9114583333333334,
+        "delta_auroc": 0.02083333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4895833333333333,
+        "delta_auroc": 0.20138888888888884,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7444444444444445,
+        "delta_auroc": -0.022222222222222143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.6325757575757576,
+        "delta_auroc": 0.030303030303030387,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.01912465813507481,
+          0.1793346121471121
+        ],
+        "median_ci95": [
+          0.0,
+          0.04777167277167199
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.7134481066772733,
+      "mean_delta": 0.0750169583502917,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|RAW|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5512820512820512,
+        "delta_auroc": 0.03418803418803418,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.6,
+        "delta_auroc": -0.2666666666666666,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5333333333333333,
+        "delta_auroc": 0.13333333333333325,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.8854166666666666,
+        "delta_auroc": -0.09375,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.6190476190476191,
+        "delta_auroc": 0.04761904761904756,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.23809523809523805,
+        "delta_auroc": -0.047619047619047644,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.25,
+        "delta_auroc": 0.027777777777777762,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.8444444444444444,
+        "delta_auroc": 0.1777777777777778,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.36742424242424243,
+        "delta_auroc": -0.1515151515151515,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.02827406293552126,
+          0.08893977935644597
+        ],
+        "median_ci95": [
+          0.0,
+          0.08888888888888885
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5,
+      "mean_combined_auroc": 0.6592568311318311,
+      "mean_delta": 0.02994016014849347,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.013888888888888881,
+      "n_qualifying": 18
+    }
+  },
+  "C_MULTILAYER|RAW|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.3333333333333333,
+        "delta_auroc": -0.5666666666666667,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.25925925925925924,
+        "delta_auroc": -0.024691358024691357,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5811965811965812,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9047619047619048,
+        "delta_auroc": -0.06547619047619047,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4575757575757576,
+        "delta_auroc": -0.12121212121212116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.37777777777777777,
+        "delta_auroc": -0.1111111111111111,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.01041666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5476190476190477,
+        "delta_auroc": 0.07142857142857145,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8333333333333334,
+        "delta_auroc": -0.15476190476190477,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.5729166666666666,
+        "delta_auroc": -0.06944444444444442,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.7333333333333334,
+        "delta_auroc": 0.12222222222222223,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5476190476190477,
+        "delta_auroc": 0.23809523809523814,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.5227272727272727,
+        "delta_auroc": 0.045454545454545414,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.08315889967799689,
+          0.13232310567090663
+        ],
+        "median_ci95": [
+          -0.06746031746031744,
+          0.07142857142857145
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6761918508446286,
+      "mean_delta": 0.01851011214437142,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "D_MULTITIME|DELTA": {
+    "prompts": [
+      {
+        "combined_auroc": 0.8333333333333334,
+        "delta_auroc": -0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 0.9930555555555557,
+        "delta_auroc": 0.6805555555555556,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.2839506172839506,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5982905982905983,
+        "delta_auroc": 0.017094017094017033,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9107142857142857,
+        "delta_auroc": -0.059523809523809534,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.7727272727272726,
+        "delta_auroc": 0.19393939393939386,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.3111111111111111,
+        "delta_auroc": -0.17777777777777776,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.9895833333333334,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.6309523809523809,
+        "delta_auroc": 0.1547619047619047,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.011904761904761862,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.40625,
+        "delta_auroc": -0.23611111111111105,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.5777777777777778,
+        "delta_auroc": -0.033333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.2857142857142857,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.4166666666666667,
+        "delta_auroc": -0.06060606060606061,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.03065325877825877,
+          0.15631167058250392
+        ],
+        "median_ci95": [
+          -0.04642857142857143,
+          0.11309523809523811
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.71220283488802,
+      "mean_delta": 0.05452109618776286,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "D_MULTITIME|RAW": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": -0.4333333333333334,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.271604938271605,
+        "delta_auroc": -0.012345679012345623,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5726495726495727,
+        "delta_auroc": -0.008547008547008517,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9047619047619048,
+        "delta_auroc": -0.06547619047619047,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8030303030303031,
+        "delta_auroc": 0.22424242424242435,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.4222222222222222,
+        "delta_auroc": -0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.9791666666666666,
+        "delta_auroc": -0.01041666666666674,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.16666666666666669,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.9523809523809524,
+        "delta_auroc": -0.0357142857142857,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.37152777777777773,
+        "delta_auroc": -0.2708333333333333,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.05555555555555547,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.2857142857142857,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.49242424242424243,
+        "delta_auroc": 0.015151515151515138,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.05222323404904424,
+          0.15597238088557533
+        ],
+        "median_ci95": [
+          -0.02306547619047622,
+          0.1190476190476191
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.702288730645212,
+      "mean_delta": 0.04460699194495491,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|DELTA|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5666666666666667,
+        "delta_auroc": 0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.4871794871794872,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.818181818181818,
+        "delta_auroc": 0.24242424242424232,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0028490028490028574,
+          0.2001910126910125
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.2222222222222222,
+      "mean_combined_auroc": 0.6975862100862101,
+      "mean_delta": 0.07415177415177415,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|DELTA|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.4285714285714286,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.890909090909091,
+        "delta_auroc": 0.7575757575757577,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9114583333333334,
+        "delta_auroc": 0.02083333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.6428571428571429,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.34375,
+        "delta_auroc": 0.055555555555555525,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.465909090909091,
+        "delta_auroc": -0.1363636363636362,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.004981900815234166,
+          0.18598184223184228
+        ],
+        "median_ci95": [
+          0.0,
+          0.036630036630036694
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.7209393037518038,
+      "mean_delta": 0.08250815542482211,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|DELTA|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.43333333333333335,
+        "delta_auroc": 0.03333333333333327,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.75,
+        "delta_auroc": -0.25,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4444444444444444,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.4914529914529913,
+        "delta_auroc": -0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.890909090909091,
+        "delta_auroc": 0.0242424242424244,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9270833333333334,
+        "delta_auroc": -0.05208333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.6190476190476191,
+        "delta_auroc": 0.04761904761904756,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.35714285714285715,
+        "delta_auroc": 0.07142857142857145,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.4583333333333333,
+        "delta_auroc": 0.23611111111111108,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.5111111111111111,
+        "delta_auroc": -0.15555555555555556,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.2916666666666667,
+        "delta_auroc": -0.22727272727272724,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.04514660686535687,
+          0.07679454419037747
+        ],
+        "median_ci95": [
+          -0.012820512820512858,
+          0.05714285714285705
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6442526994610327,
+      "mean_delta": 0.014936028477695136,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|DELTA|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.8000000000000002,
+        "delta_auroc": -0.09999999999999987,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.25925925925925924,
+        "delta_auroc": -0.024691358024691357,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6068376068376068,
+        "delta_auroc": 0.02564102564102555,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9761904761904763,
+        "delta_auroc": 0.005952380952381042,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.6151515151515151,
+        "delta_auroc": 0.036363636363636376,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.37777777777777777,
+        "delta_auroc": -0.1111111111111111,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.01041666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.11904761904761901,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.7380952380952381,
+        "delta_auroc": -0.25,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.6909722222222222,
+        "delta_auroc": 0.04861111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.5777777777777778,
+        "delta_auroc": -0.033333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.4047619047619048,
+        "delta_auroc": 0.09523809523809529,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.4545454545454546,
+        "delta_auroc": -0.022727272727272707,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.03059220539833964,
+          0.13116395532194142
+        ],
+        "median_ci95": [
+          -0.022727272727272707,
+          0.05389610389610394
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5555555555555556,
+      "mean_combined_auroc": 0.6998115182142961,
+      "mean_delta": 0.0421297795140388,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.008184523809523836,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|RAW|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5333333333333333,
+        "delta_auroc": 0.033333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5128205128205128,
+        "delta_auroc": 0.051282051282051266,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.896969696969697,
+        "delta_auroc": 0.3212121212121213,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0028490028490028483,
+          0.20893453768453754
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.2222222222222222,
+      "mean_combined_auroc": 0.701535964035964,
+      "mean_delta": 0.0781015281015281,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|RAW|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5256410256410255,
+        "delta_auroc": 0.051282051282051266,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.9285714285714285,
+        "delta_auroc": 0.3571428571428571,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.9090909090909091,
+        "delta_auroc": 0.7757575757575758,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 0.9333333333333332,
+        "delta_auroc": -0.06666666666666676,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9166666666666666,
+        "delta_auroc": 0.02604166666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.5714285714285715,
+        "delta_auroc": -0.023809523809523725,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4895833333333333,
+        "delta_auroc": 0.20138888888888884,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.6325757575757576,
+        "delta_auroc": 0.030303030303030387,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.016741288225663217,
+          0.20227137012293253
+        ],
+        "median_ci95": [
+          0.0,
+          0.04079254079254083
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.7293841575091575,
+      "mean_delta": 0.09095300918217582,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|RAW|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.43333333333333335,
+        "delta_auroc": 0.03333333333333327,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5427350427350426,
+        "delta_auroc": 0.02564102564102555,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8424242424242424,
+        "delta_auroc": -0.024242424242424176,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5333333333333333,
+        "delta_auroc": 0.13333333333333325,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9166666666666666,
+        "delta_auroc": -0.0625,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.5833333333333334,
+        "delta_auroc": 0.011904761904761862,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.5238095238095237,
+        "delta_auroc": 0.23809523809523803,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.47222222222222215,
+        "delta_auroc": 0.24999999999999992,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.7333333333333334,
+        "delta_auroc": 0.06666666666666676,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.4886363636363636,
+        "delta_auroc": -0.03030303030303033,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.02382126168584502,
+          0.1198089911631578
+        ],
+        "median_ci95": [
+          0.0,
+          0.1222222222222222
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5555555555555556,
+      "mean_combined_auroc": 0.6989300051800051,
+      "mean_delta": 0.06961333419666751,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.018772893772893706,
+      "n_qualifying": 18
+    }
+  },
+  "E_LOWDIM|RAW|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.26666666666666666,
+        "delta_auroc": -0.6333333333333333,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.6875,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.25925925925925924,
+        "delta_auroc": -0.024691358024691357,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5982905982905983,
+        "delta_auroc": 0.017094017094017033,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.8988095238095238,
+        "delta_auroc": -0.0714285714285714,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5181818181818181,
+        "delta_auroc": -0.06060606060606066,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.37777777777777777,
+        "delta_auroc": -0.1111111111111111,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.9166666666666666,
+        "delta_auroc": -0.07291666666666674,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.02380952380952378,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8690476190476191,
+        "delta_auroc": -0.11904761904761907,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.5173611111111112,
+        "delta_auroc": -0.12499999999999989,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.7333333333333333,
+        "delta_auroc": 0.12222222222222212,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.2857142857142857,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.5606060606060607,
+        "delta_auroc": 0.08333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.09520112806860491,
+          0.13118401467359794
+        ],
+        "median_ci95": [
+          -0.0714471726190476,
+          0.07142857142857151
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.6728465849993628,
+      "mean_delta": 0.015164846299105559,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|DELTA|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5333333333333333,
+        "delta_auroc": 0.033333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.4871794871794872,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.818181818181818,
+        "delta_auroc": 0.24242424242424232,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0018518518518518515,
+          0.195027195027195
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.2222222222222222,
+      "mean_combined_auroc": 0.6957343582343581,
+      "mean_delta": 0.0722999222999223,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|DELTA|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5256410256410257,
+        "delta_auroc": 0.05128205128205138,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.8969696969696969,
+        "delta_auroc": 0.7636363636363636,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9114583333333334,
+        "delta_auroc": 0.02083333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.6190476190476191,
+        "delta_auroc": 0.023809523809523836,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.2951388888888889,
+        "delta_auroc": 0.00694444444444442,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7444444444444445,
+        "delta_auroc": -0.022222222222222143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.5037878787878788,
+        "delta_auroc": -0.0984848484848484,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          3.422310713978454e-05,
+          0.17265577400994056
+        ],
+        "median_ci95": [
+          0.0,
+          0.02083333333333337
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3888888888888889,
+      "mean_combined_auroc": 0.7076421842046842,
+      "mean_delta": 0.06921103587770255,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|DELTA|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.43333333333333335,
+        "delta_auroc": 0.03333333333333327,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": -0.33333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5185185185185185,
+        "delta_auroc": 0.07407407407407407,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5512820512820512,
+        "delta_auroc": 0.03418803418803418,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.393939393939394,
+        "delta_auroc": -0.4727272727272726,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9895833333333334,
+        "delta_auroc": 0.01041666666666674,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.5238095238095238,
+        "delta_auroc": -0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.35714285714285715,
+        "delta_auroc": 0.07142857142857145,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.4583333333333334,
+        "delta_auroc": 0.2361111111111112,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.7111111111111111,
+        "delta_auroc": 0.04444444444444451,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.39015151515151514,
+        "delta_auroc": -0.12878787878787878,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.08635674992445823,
+          0.0774880973578889
+        ],
+        "median_ci95": [
+          0.0,
+          0.06666666666666654
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5555555555555556,
+      "mean_combined_auroc": 0.6342164137303027,
+      "mean_delta": 0.004899742746964965,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.021875000000000006,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|DELTA|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.8000000000000002,
+        "delta_auroc": -0.09999999999999987,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 0.7777777777777778,
+        "delta_auroc": 0.46527777777777773,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.2962962962962963,
+        "delta_auroc": 0.012345679012345678,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5811965811965812,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.029761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.49393939393939396,
+        "delta_auroc": -0.08484848484848478,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.4222222222222222,
+        "delta_auroc": -0.06666666666666665,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 0.9895833333333334,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.4166666666666667,
+        "delta_auroc": -0.059523809523809534,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8095238095238094,
+        "delta_auroc": -0.17857142857142871,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.732638888888889,
+        "delta_auroc": 0.0902777777777779,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.6888888888888888,
+        "delta_auroc": 0.07777777777777761,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.3571428571428572,
+        "delta_auroc": 0.04761904761904767,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.3409090909090909,
+        "delta_auroc": -0.1363636363636364,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.03578589299075408,
+          0.09433358886483878
+        ],
+        "median_ci95": [
+          -0.059523809523809534,
+          0.05952380952380959
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.4444444444444444,
+      "mean_combined_auroc": 0.678154767043656,
+      "mean_delta": 0.020473028343398723,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|RAW|t1": {
+    "prompts": [
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 1.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5128205128205128,
+        "delta_auroc": 0.051282051282051266,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4615384615384615
+      },
+      {
+        "combined_auroc": 0.7857142857142857,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.6363636363636364,
+        "delta_auroc": 0.06060606060606066,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5757575757575757
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9375
+      },
+      {
+        "combined_auroc": 0.6071428571428571,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.6071428571428571
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.375,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.375
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          0.0,
+          0.17624967624967625
+        ],
+        "median_ci95": [
+          0.0,
+          0.0
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.16666666666666666,
+      "mean_combined_auroc": 0.6852059977059977,
+      "mean_delta": 0.06177156177156177,
+      "mean_surface_auroc": 0.6234344359344359,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|RAW|t2": {
+    "prompts": [
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": -0.03333333333333338,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.6666666666666666,
+        "delta_auroc": -0.33333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.025641025641025716,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.4743589743589743
+      },
+      {
+        "combined_auroc": 0.7857142857142856,
+        "delta_auroc": 0.2142857142857142,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.5714285714285714
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.903030303030303,
+        "delta_auroc": 0.7696969696969697,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.13333333333333333
+      },
+      {
+        "combined_auroc": 0.9333333333333332,
+        "delta_auroc": -0.06666666666666676,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.9010416666666666,
+        "delta_auroc": 0.01041666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.890625
+      },
+      {
+        "combined_auroc": 0.5952380952380952,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5952380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.37152777777777785,
+        "delta_auroc": 0.08333333333333337,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.2881944444444445
+      },
+      {
+        "combined_auroc": 0.7444444444444445,
+        "delta_auroc": -0.022222222222222143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.7666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.5416666666666666,
+        "delta_auroc": -0.06060606060606055,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.6022727272727272
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.03714127693294361,
+          0.15274691454378947
+        ],
+        "median_ci95": [
+          -0.011111111111111072,
+          0.012820512820512858
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.3333333333333333,
+      "mean_combined_auroc": 0.6869270582812249,
+      "mean_delta": 0.04849590995424328,
+      "mean_surface_auroc": 0.6384311483269817,
+      "median_delta": 0.0,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|RAW|t4": {
+    "prompts": [
+      {
+        "combined_auroc": 0.43333333333333335,
+        "delta_auroc": 0.03333333333333327,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.875,
+        "delta_auroc": -0.125,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.11111111111111116,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.4444444444444444
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.5085470085470085,
+        "delta_auroc": -0.008547008547008517,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.517094017094017
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.2142857142857143,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.7857142857142857
+      },
+      {
+        "combined_auroc": 0.8125,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.8125
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.3333333333333333,
+        "delta_auroc": -0.5333333333333332,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.8666666666666666
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.4666666666666666,
+        "delta_auroc": 0.06666666666666654,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4000000000000001
+      },
+      {
+        "combined_auroc": 0.9895833333333334,
+        "delta_auroc": 0.01041666666666674,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9791666666666666
+      },
+      {
+        "combined_auroc": 0.46428571428571425,
+        "delta_auroc": -0.10714285714285726,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.5714285714285715
+      },
+      {
+        "combined_auroc": 0.42857142857142855,
+        "delta_auroc": 0.14285714285714285,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.2857142857142857
+      },
+      {
+        "combined_auroc": 0.3680555555555556,
+        "delta_auroc": 0.14583333333333334,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.22222222222222224
+      },
+      {
+        "combined_auroc": 0.4888888888888889,
+        "delta_auroc": -0.17777777777777776,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6666666666666666
+      },
+      {
+        "combined_auroc": 0.6428571428571428,
+        "delta_auroc": 0.28571428571428564,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.35714285714285715
+      },
+      {
+        "combined_auroc": 0.6022727272727274,
+        "delta_auroc": 0.08333333333333348,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.5189393939393939
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.07945973875661373,
+          0.0754355222323972
+        ],
+        "median_ci95": [
+          -0.004273504273504258,
+          0.08888888888888885
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5,
+      "mean_combined_auroc": 0.6371917049000381,
+      "mean_delta": 0.007875033916700585,
+      "mean_surface_auroc": 0.6293166709833378,
+      "median_delta": 0.00520833333333337,
+      "n_qualifying": 18
+    }
+  },
+  "F_NONLINEAR|RAW|t8": {
+    "prompts": [
+      {
+        "combined_auroc": 0.3333333333333333,
+        "delta_auroc": -0.5666666666666667,
+        "n_salts": 3,
+        "prompt_id": "roleplay_003",
+        "surface_auroc": 0.9
+      },
+      {
+        "combined_auroc": 0.9444444444444445,
+        "delta_auroc": 0.6319444444444444,
+        "n_salts": 3,
+        "prompt_id": "roleplay_014",
+        "surface_auroc": 0.31250000000000006
+      },
+      {
+        "combined_auroc": 0.3209876543209877,
+        "delta_auroc": 0.03703703703703709,
+        "n_salts": 3,
+        "prompt_id": "roleplay_026",
+        "surface_auroc": 0.2839506172839506
+      },
+      {
+        "combined_auroc": 0.5,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_036",
+        "surface_auroc": 0.5
+      },
+      {
+        "combined_auroc": 0.49572649572649574,
+        "delta_auroc": -0.0854700854700855,
+        "n_salts": 3,
+        "prompt_id": "roleplay_040",
+        "surface_auroc": 0.5811965811965812
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.07142857142857151,
+        "n_salts": 3,
+        "prompt_id": "roleplay_091",
+        "surface_auroc": 0.9285714285714285
+      },
+      {
+        "combined_auroc": 0.9047619047619048,
+        "delta_auroc": -0.06547619047619047,
+        "n_salts": 3,
+        "prompt_id": "roleplay_116",
+        "surface_auroc": 0.9702380952380952
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.0,
+        "n_salts": 3,
+        "prompt_id": "roleplay_123",
+        "surface_auroc": 1.0
+      },
+      {
+        "combined_auroc": 0.47575757575757577,
+        "delta_auroc": -0.10303030303030297,
+        "n_salts": 3,
+        "prompt_id": "roleplay_163",
+        "surface_auroc": 0.5787878787878787
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.20000000000000007,
+        "n_salts": 3,
+        "prompt_id": "roleplay_224",
+        "surface_auroc": 0.7999999999999999
+      },
+      {
+        "combined_auroc": 0.5555555555555556,
+        "delta_auroc": 0.06666666666666671,
+        "n_salts": 3,
+        "prompt_id": "roleplay_230",
+        "surface_auroc": 0.4888888888888889
+      },
+      {
+        "combined_auroc": 1.0,
+        "delta_auroc": 0.01041666666666663,
+        "n_salts": 3,
+        "prompt_id": "roleplay_263",
+        "surface_auroc": 0.9895833333333334
+      },
+      {
+        "combined_auroc": 0.32142857142857145,
+        "delta_auroc": -0.15476190476190477,
+        "n_salts": 3,
+        "prompt_id": "roleplay_281",
+        "surface_auroc": 0.4761904761904762
+      },
+      {
+        "combined_auroc": 0.8333333333333334,
+        "delta_auroc": -0.15476190476190477,
+        "n_salts": 3,
+        "prompt_id": "roleplay_296",
+        "surface_auroc": 0.9880952380952381
+      },
+      {
+        "combined_auroc": 0.5590277777777778,
+        "delta_auroc": -0.08333333333333326,
+        "n_salts": 3,
+        "prompt_id": "roleplay_304",
+        "surface_auroc": 0.642361111111111
+      },
+      {
+        "combined_auroc": 0.8666666666666666,
+        "delta_auroc": 0.2555555555555554,
+        "n_salts": 3,
+        "prompt_id": "roleplay_308",
+        "surface_auroc": 0.6111111111111112
+      },
+      {
+        "combined_auroc": 0.5476190476190476,
+        "delta_auroc": 0.23809523809523803,
+        "n_salts": 3,
+        "prompt_id": "roleplay_355",
+        "surface_auroc": 0.30952380952380953
+      },
+      {
+        "combined_auroc": 0.537878787878788,
+        "delta_auroc": 0.06060606060606066,
+        "n_salts": 3,
+        "prompt_id": "roleplay_366",
+        "surface_auroc": 0.4772727272727273
+      }
+    ],
+    "summary": {
+      "bootstrap": {
+        "mean_ci95": [
+          -0.08811948853615517,
+          0.12500131106033882
+        ],
+        "median_ci95": [
+          -0.0833563311688311,
+          0.06666666666666671
+        ],
+        "n_reps": 2000
+      },
+      "fraction_gt_0": 0.5,
+      "mean_combined_auroc": 0.6775845082558045,
+      "mean_delta": 0.019902769555547338,
+      "mean_surface_auroc": 0.6576817387002571,
+      "median_delta": 0.005208333333333315,
+      "n_qualifying": 18
+    }
+  }
+}

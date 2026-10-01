@@ -1,0 +1,77 @@
+{
+  "analysis_label": "EXPLORATORY_DEVELOPMENT_ONLY_PHASE24H",
+  "finished_at": "2026-10-01T15:40:12+00:00",
+  "fold_seconds": {
+    "salt0_fold0": 286.55311149999034,
+    "salt0_fold1": 270.66808545798995,
+    "salt0_fold2": 287.79488062497694,
+    "salt0_fold3": 275.72859029099345,
+    "salt0_fold4": 289.53110791603103,
+    "salt0_fold5": 294.5097384999972,
+    "salt0_fold6": 338.5043087080121,
+    "salt1_fold0": 351.89936016709544,
+    "salt1_fold1": 352.86831995809916,
+    "salt1_fold2": 350.1167120420141,
+    "salt1_fold3": 333.1180220419774,
+    "salt1_fold4": 347.17875949991867,
+    "salt1_fold5": 358.25446574995294,
+    "salt1_fold6": 359.90042825008277,
+    "salt2_fold0": 358.07485491700936,
+    "salt2_fold1": 354.15230662503745,
+    "salt2_fold2": 368.88552254100796,
+    "salt2_fold3": 354.40076412505005,
+    "salt2_fold4": 253.46562933397945,
+    "salt2_fold5": 252.8087564589223,
+    "salt2_fold6": 247.33970545895863
+  },
+  "git": {
+    "branch": "phase24/internal-signal-breadth",
+    "head": "d527849bfb81821d2be63a080b39bcf35ae67ccc",
+    "protocol_file_sha256": {
+      "configs/experiments/phase24h_internal_signal_breadth.yaml": "18eb7442ac60ce3168aa485dc4083a830f39299a195cbe7233f4a7b1b0d22a35",
+      "scripts/run_phase24h_internal_signal_breadth.py": "90b5dbd48c340c3d06f7e962bb5297f8d0902574d0ad72b935385f93493c6d75",
+      "src/pre_output_physiology/phase24h_internal_signal_breadth.py": "b60d00e9a898575d0604969281e3e0c38681ac9bf83064e1150c1060dd717e2f",
+      "tests/test_phase24h_internal_signal_breadth.py": "5f74b38eca38b9f1ef480a3e382f138b110ddc25fdbffb55e2fa60413fd2ba1f"
+    },
+    "protocol_files_dirty": [],
+    "protocol_freeze_commit": "d527849bfb81821d2be63a080b39bcf35ae67ccc"
+  },
+  "gpu_used": false,
+  "guarantee": "PHASE 24H WAS EXPLORATORY REPRESENTATION DISCOVERY ON DEVELOPMENT (TRAIN+VALIDATION) DATA ONLY. LOCKED TEST LABELS/ACTIVATIONS AND PHASE-24F TEST ACTIVATIONS WERE NOT ACCESSED. PHASE-24F REMAINS THE FINAL CONFIRMATORY FAIL. NO GPU, MODEL GENERATION, SAE, OR CAUSAL WORK WAS PERFORMED.",
+  "input_aggregate_sha256": "d94982adb6db42b8fd290b36e228cb522edfc08b6a797a73236f2e712fb55465",
+  "input_summary": {
+    "expected_model_metadata": {
+      "dtype": "bfloat16",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+      "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+      "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+    },
+    "metadata_verified": true,
+    "n_ambiguous_excluded": 60,
+    "n_deceptive": 192,
+    "n_honest": 196,
+    "n_prompts": 28,
+    "n_records": 388,
+    "n_train_prompts": 20,
+    "n_validation_prompts": 8,
+    "test_labels_opened": false
+  },
+  "memory": {
+    "children_max_rss_mb": 1810.546875,
+    "self_max_rss_mb": 1059.3125
+  },
+  "n_rows": 36,
+  "n_workers": 6,
+  "stage_seconds": {
+    "control": 0.0,
+    "hash": 1.5899710409576073,
+    "load": 20.4559961669147,
+    "metrics": 219.63186112500262,
+    "real": 1235.4046972090146
+  },
+  "starting_sha": "f03c8eb006cf8cceb15ffbcb44baea5779599096",
+  "status": "phase24h_internal_signal_breadth_complete_awaiting_independent_code_audit",
+  "test_accessed": false,
+  "threads_env": "1",
+  "wall_seconds": 1479.382708790945
+}

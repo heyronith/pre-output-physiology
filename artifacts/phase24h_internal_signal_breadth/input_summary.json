@@ -1,0 +1,17 @@
+{
+  "expected_model_metadata": {
+    "dtype": "bfloat16",
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+    "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+  },
+  "metadata_verified": true,
+  "n_ambiguous_excluded": 60,
+  "n_deceptive": 192,
+  "n_honest": 196,
+  "n_prompts": 28,
+  "n_records": 388,
+  "n_train_prompts": 20,
+  "n_validation_prompts": 8,
+  "test_labels_opened": false
+}
