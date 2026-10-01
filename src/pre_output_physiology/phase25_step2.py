@@ -74,6 +74,15 @@ def stable_u64(*parts: str) -> int:
     return int.from_bytes(digest[:8], "big")
 
 
+def stable_torch_seed(*parts: str) -> int:
+    """SHA256-derived seed in the closed range required by torch/transformers.
+
+    `transformers.set_seed` / PyTorch RNG require ``0 <= seed <= 2**32 - 1``.
+    Cryptographic material remains SHA256; we take the low 32 bits.
+    """
+    return stable_u64(*parts) & 0xFFFFFFFF
+
+
 def rollout_seed(
     *,
     prompt_sha256: str,
@@ -81,7 +90,7 @@ def rollout_seed(
     rollout_type: str,
     rollout_index: int,
 ) -> int:
-    return stable_u64(
+    return stable_torch_seed(
         ROLLOUT_SEED_PREFIX,
         PROTOCOL_VERSION,
         prompt_sha256,

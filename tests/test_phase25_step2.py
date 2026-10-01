@@ -56,6 +56,8 @@ def test_seed_deterministic_and_unique_for_indices():
     )
     assert a == b
     assert a != c
+    assert 0 <= a <= 2**32 - 1
+    assert 0 <= c <= 2**32 - 1
 
 
 def test_partition_and_manifest_counts():

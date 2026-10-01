@@ -1,0 +1,167 @@
+{
+  "activation_capture": false,
+  "attn_implementation": "sdpa",
+  "chunk_meta": [
+    {
+      "chunk_index": 0,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.12926721572875977
+    },
+    {
+      "chunk_index": 1,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.061389923095703125
+    },
+    {
+      "chunk_index": 2,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.0565037727355957
+    },
+    {
+      "chunk_index": 3,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05643320083618164
+    },
+    {
+      "chunk_index": 4,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.058583736419677734
+    },
+    {
+      "chunk_index": 5,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05968904495239258
+    },
+    {
+      "chunk_index": 6,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05667686462402344
+    },
+    {
+      "chunk_index": 7,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05674171447753906
+    },
+    {
+      "chunk_index": 8,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.059839725494384766
+    },
+    {
+      "chunk_index": 9,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05933809280395508
+    },
+    {
+      "chunk_index": 10,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.057196617126464844
+    },
+    {
+      "chunk_index": 11,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.055495500564575195
+    },
+    {
+      "chunk_index": 12,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05895352363586426
+    },
+    {
+      "chunk_index": 13,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.06350231170654297
+    },
+    {
+      "chunk_index": 14,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05705690383911133
+    },
+    {
+      "chunk_index": 15,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05556321144104004
+    },
+    {
+      "chunk_index": 16,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05935072898864746
+    },
+    {
+      "chunk_index": 17,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.0620269775390625
+    },
+    {
+      "chunk_index": 18,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05765414237976074
+    },
+    {
+      "chunk_index": 19,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.05680584907531738
+    },
+    {
+      "chunk_index": 20,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.06255030632019043
+    },
+    {
+      "chunk_index": 21,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.0607142448425293
+    },
+    {
+      "chunk_index": 22,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.056908607482910156
+    },
+    {
+      "chunk_index": 23,
+      "n_rows": 198,
+      "total_generated_tokens": 0,
+      "wall_seconds": 0.055466651916503906
+    }
+  ],
+  "estimated_cost_usd": 0.08700683613618214,
+  "git_head": "7324d1ff170120115d7a19c02d2589670a2971ab",
+  "gpu": "A100-80GB",
+  "grader_model": false,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_generations": 4752,
+  "n_technical_failures": 4752,
+  "output_hidden_states": false,
+  "protocol_version": "phase25_step2_behavioral_screening_v1",
+  "raw_generations_path": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/data/phase25/behavioral_screening/raw_generations.jsonl",
+  "raw_generations_sha256": "8dbd3d1697b617f477493ec0db4186d643abee905c2905b91ec8b49693f3b444",
+  "run_id": "phase25_step2_20261001T222835Z",
+  "sealed_families_inferred": false,
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "total_generated_tokens": 0,
+  "wall_seconds": 125.2898440361023
+}

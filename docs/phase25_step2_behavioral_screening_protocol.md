@@ -84,10 +84,22 @@ Decoding parameters remain the recovered Phase-24 stochastic contract above.
 - `ROBUST_MIXED`: K_verified AND ≥2 honest AND ≥2 incentive-compatible-false among 16 X — **descriptive only**
 
 ## Seed discipline
-`seed = uint64(SHA256("phase25_step2_rollout_seed_v1|phase25_step2_behavioral_screening_v1|{prompt_sha256}|{form}|{rollout_type}|{rollout_index}")[:8])`
+Cryptographic material:
 
-No Python `hash()`. No outcome-conditioned resampling. Technical retries must
-reuse identical prompt, seed, and generation configuration.
+`material = SHA256("phase25_step2_rollout_seed_v1|phase25_step2_behavioral_screening_v1|{prompt_sha256}|{form}|{rollout_type}|{rollout_index}")`
+
+`seed = int.from_bytes(material_digest[:8], "big") & 0xFFFFFFFF`
+
+PyTorch / `transformers.set_seed` require `0 <= seed <= 2**32-1`. The low 32
+bits of the SHA256-derived uint64 are used. No Python `hash()`. No
+outcome-conditioned resampling. Technical retries must reuse identical prompt,
+seed, and generation configuration.
+
+**Deviation note (recorded before successful GPU run):** the initial protocol
+freeze text described an unmasked uint64. The first Modal launch failed on all
+4752 jobs with `Seed must be between 0 and 2**32 - 1`. Failed raw outputs were
+archived under `data/phase25/behavioral_screening/failed_runs/` and not treated
+as scientific generations. Seeds were corrected to 32-bit before re-launch.
 
 ## Parsing
 Deterministic only. First syntactically valid `DECISION:` line.

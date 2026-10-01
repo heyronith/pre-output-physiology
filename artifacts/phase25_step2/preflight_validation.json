@@ -1,6 +1,6 @@
 {
   "attn_implementation": "sdpa",
-  "config_status": "phase25_step2_protocol_frozen_awaiting_preflight_and_generation_authorization",
+  "config_status": "phase25_step2_generation_authorized",
   "cost_projection": {
     "basis": "Phase-22B text-only ~2 A100-h for 3710 gens; Step-2 responses are short categorical decisions so 0.9s/gen is the primary launch estimate; 2.2s/gen is a conservative upper bound still near ~2.9h.",
     "conservative_usd": 7.260000000000001,
@@ -21,8 +21,8 @@
     "yaml_contract": "configs/experiments/phase24d_primary_live_collection.yaml"
   },
   "generations_per_base": 33,
-  "git_head": "1daf82574388dc9a7ced149823d9317f9d85439f",
-  "inference_manifest_sha256": "a77a811bd89cb0f3ce70a3e06393ae569887ddbd945abaeb5e239535f136d435",
+  "git_head": "7324d1ff170120115d7a19c02d2589670a2971ab",
+  "inference_manifest_sha256": "71234f6035409cbc5da9166d92c95f78d9e5360983ba90c53de0d0a5eefe0535",
   "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
   "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
   "n_planned_generations": 4752,
