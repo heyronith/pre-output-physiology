@@ -174,7 +174,7 @@ def main() -> int:
                 "expected_heldout_delta_median",
                 "optimism_gap_mean",
                 "optimism_gap_median",
-                "optimism_gap_ci95",
+                "optimism_gap_empirical_percentile_025_975",
                 "frac_exact_t1_l20",
                 "time_hist",
                 "layer_hist",
@@ -205,7 +205,8 @@ Held-out ΔAUROC mean/median: **{nested_sum['expected_heldout_delta_mean']:.4f}*
 **{nested_sum['expected_heldout_delta_median']:.4f}**
 Optimism gap mean/median: **{nested_sum['optimism_gap_mean']:.4f}** /
 **{nested_sum['optimism_gap_median']:.4f}**
-Optimism 95% interval: **{nested_sum['optimism_gap_ci95']}**
+Optimism empirical 2.5–97.5% interval (of 500 gaps; not a CI on the mean):
+**{nested_sum['optimism_gap_empirical_percentile_025_975']}**
 Nested t=1/L20 frequency: **{nested_sum['frac_exact_t1_l20']:.4f}**
 
 Corrected category: **{new_cat}** (Category C: **{change}**)

@@ -77,10 +77,11 @@
       "9": 12
     },
     "n_reps_completed": 500,
-    "optimism_gap_ci95": [
+    "optimism_gap_empirical_percentile_025_975": [
       -0.13284283185197843,
       0.44294295505311737
     ],
+    "optimism_gap_interval_semantics": "empirical_2.5_97.5_percentiles_of_500_optimism_gaps_not_CI_on_mean",
     "optimism_gap_mean": 0.12186778477799455,
     "optimism_gap_median": 0.10408391363021413,
     "time_hist": {

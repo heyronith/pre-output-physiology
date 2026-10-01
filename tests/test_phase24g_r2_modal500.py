@@ -170,3 +170,57 @@ def test_config_hash_stable() -> None:
     b = config_hash(config_payload())
     assert a == b
     assert len(a) == 64
+
+
+def test_optimism_interval_is_empirical_percentile_not_mean_ci() -> None:
+    from pre_output_physiology.phase24g_r_correction import summarize_nested
+
+    rows = []
+    for opt in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0]:
+        rows.append(
+            {
+                "discovery_delta": 0.5,
+                "heldout_delta": 0.5 - opt,
+                "optimism": opt,
+                "candidate": {"time": 1, "layer": 20},
+            }
+        )
+    s = summarize_nested(rows)
+    assert "optimism_gap_ci95" not in s
+    lo, hi = s["optimism_gap_empirical_percentile_025_975"]
+    assert lo < hi
+    # Matches sample quantiles, not a mean-CI construction.
+    import numpy as np
+
+    opts = [r["optimism"] for r in rows]
+    assert lo == pytest.approx(float(np.quantile(opts, 0.025)))
+    assert hi == pytest.approx(float(np.quantile(opts, 0.975)))
+
+
+def test_provenance_sha_map_distinguishes_commits() -> None:
+    path = REPO / "artifacts/phase24g_r2_modal500/provenance_sha_map.json"
+    blob = json.loads(path.read_text(encoding="utf-8"))
+    assert blob["analysis_logic_upload_commit"].startswith("650b81f")
+    assert blob["successful_execution_wrapper_commit"].startswith("94add8a")
+    assert blob["freeze_commit"].startswith("76fc2c4")
+    assert blob["head_at_audit_repair_start"].startswith("a9c5f30")
+    assert blob["volume_code_commit_txt"] == blob["analysis_logic_upload_commit"]
+    assert blob["scientific_results_recomputed"] is False
+    assert "not" in blob["note"].lower() and "wrapper" in blob["note"].lower()
+
+
+def test_report_sha_fields_not_blank_or_swapped() -> None:
+    text = (
+        REPO / "reports/phase24g_r2_modal500_diagnostic_correction.md"
+    ).read_text(encoding="utf-8")
+    assert "**Starting SHA:** `be8bbdd8012ed0869d2b4b32c0000a417e45e0b7`" in text
+    assert "**Freeze commit SHA:** `76fc2c4cedb0a31b33b7021b6e9a3f6db0a0348d`" in text
+    assert "empirical 2.5" in text.lower()
+    assert "confidence interval" in text.lower()
+    assert "not" in text.lower().split("confidence interval")[0][-40:]
+    # Starting must not be blank; freeze must not equal starting.
+    assert "**Starting SHA:** \n" not in text
+    assert (
+        "**Freeze commit SHA:** `be8bbdd8012ed0869d2b4b32c0000a417e45e0b7`"
+        not in text
+    )

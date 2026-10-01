@@ -650,7 +650,8 @@ Held-out ΔAUROC mean/median:
 **{ns['expected_heldout_delta_median']:.4f}**
 Optimism gap mean/median:
 **{ns['optimism_gap_mean']:.4f}** / **{ns['optimism_gap_median']:.4f}**
-Optimism gap 95% interval: **{ns['optimism_gap_ci95']}**
+Optimism empirical 2.5–97.5% interval (of nested gaps; not a CI on the mean):
+**{ns['optimism_gap_empirical_percentile_025_975']}**
 Frac exact t=1/L20: **{ns['frac_exact_t1_l20']:.4f}**
 Time hist: `{json.dumps(ns['time_hist'])}`
 Layer hist: `{json.dumps(ns['layer_hist'])}`

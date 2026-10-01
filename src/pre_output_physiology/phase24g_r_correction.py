@@ -207,11 +207,14 @@ def summarize_nested(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "expected_heldout_delta_median": float(np.median(hold)) if hold else float("nan"),
         "optimism_gap_mean": float(np.mean(opt)) if opt else float("nan"),
         "optimism_gap_median": float(np.median(opt)) if opt else float("nan"),
-        "optimism_gap_ci95": (
+        # Empirical 2.5–97.5% percentiles of the optimism-gap sample
+        # (discovery − held-out across nested reps). NOT a CI on the mean.
+        "optimism_gap_empirical_percentile_025_975": (
             [float(np.quantile(opt, 0.025)), float(np.quantile(opt, 0.975))]
             if len(opt) >= 2
             else [float("nan"), float("nan")]
         ),
+
         "frac_exact_t1_l20": float(
             np.mean(
                 [

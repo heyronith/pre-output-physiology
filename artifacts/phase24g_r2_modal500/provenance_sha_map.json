@@ -1,0 +1,12 @@
+{
+  "note": "code_commit.txt on the Modal Volume was written at upload time and records the analysis-logic commit only. It is not the final execution-wrapper provenance.",
+  "authoritative_starting_sha": "be8bbdd8012ed0869d2b4b32c0000a417e45e0b7",
+  "analysis_logic_upload_commit": "650b81f3614a0afec124d8614af217cae5430383",
+  "successful_execution_wrapper_commit": "94add8a178ff84775660cf49a3106bb6c3394d48",
+  "freeze_commit": "76fc2c4cedb0a31b33b7021b6e9a3f6db0a0348d",
+  "head_at_audit_repair_start": "a9c5f303512c5758dc2ba09111149344054fa231",
+  "volume_code_commit_txt": "650b81f3614a0afec124d8614af217cae5430383",
+  "config_hash": "ae83d67bb4742fecc1cb9c8f91b9210590aa51c65ebf17c922221583c9247949",
+  "optimism_gap_interval_semantics": "empirical_2.5_97.5_percentiles_of_500_optimism_gaps_not_CI_on_mean",
+  "scientific_results_recomputed": false
+}
