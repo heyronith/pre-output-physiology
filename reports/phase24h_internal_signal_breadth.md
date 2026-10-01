@@ -109,42 +109,42 @@ Prompts with ≥2 honest and ≥2 deceptive; within-prompt Δ averaged over salt
 
 | row | pooled>0 | CI low>0 | all salts>0 | within median>0 | frac≥0.60 | promoted |
 |---|---|---|---|---|---|---|
-| `A_RAW_SINGLE\|t1` | no | yes | no | yes | no | no |
-| `A_RAW_SINGLE\|t2` | no | yes | no | yes | no | no |
-| `A_RAW_SINGLE\|t4` | no | no | yes | yes | yes | no |
-| `A_RAW_SINGLE\|t8` | no | yes | no | yes | no | no |
-| `A_RAW_SINGLE\|search` | no | no | no | yes | yes | no |
-| `B_DELTA_SINGLE\|t1` | no | yes | no | yes | no | no |
-| `B_DELTA_SINGLE\|t2` | no | yes | no | yes | no | no |
+| `A_RAW_SINGLE\|t1` | yes | no | yes | no | no | no |
+| `A_RAW_SINGLE\|t2` | yes | no | yes | no | no | no |
+| `A_RAW_SINGLE\|t4` | yes | no | no | yes | yes | no |
+| `A_RAW_SINGLE\|t8` | yes | no | yes | no | no | no |
+| `A_RAW_SINGLE\|search` | yes | no | no | yes | no | no |
+| `B_DELTA_SINGLE\|t1` | yes | no | yes | no | no | no |
+| `B_DELTA_SINGLE\|t2` | yes | no | yes | no | no | no |
 | `B_DELTA_SINGLE\|t4` | no | no | no | no | no | no |
-| `B_DELTA_SINGLE\|t8` | no | no | no | yes | no | no |
-| `B_DELTA_SINGLE\|search` | no | yes | no | yes | no | no |
-| `C_MULTILAYER\|RAW\|t1` | no | yes | no | yes | no | no |
-| `C_MULTILAYER\|RAW\|t2` | no | yes | no | yes | no | no |
-| `C_MULTILAYER\|RAW\|t4` | no | no | no | no | yes | no |
-| `C_MULTILAYER\|RAW\|t8` | no | yes | no | yes | no | no |
-| `C_MULTILAYER\|DELTA\|t1` | yes | yes | no | yes | no | no |
-| `C_MULTILAYER\|DELTA\|t2` | no | yes | no | yes | no | no |
+| `B_DELTA_SINGLE\|t8` | yes | no | no | no | no | no |
+| `B_DELTA_SINGLE\|search` | yes | no | yes | no | no | no |
+| `C_MULTILAYER\|RAW\|t1` | yes | no | yes | no | no | no |
+| `C_MULTILAYER\|RAW\|t2` | yes | no | yes | no | no | no |
+| `C_MULTILAYER\|RAW\|t4` | no | no | no | yes | no | no |
+| `C_MULTILAYER\|RAW\|t8` | yes | no | yes | no | no | no |
+| `C_MULTILAYER\|DELTA\|t1` | yes | yes | yes | no | no | no |
+| `C_MULTILAYER\|DELTA\|t2` | yes | no | yes | no | no | no |
 | `C_MULTILAYER\|DELTA\|t4` | no | no | no | no | no | no |
-| `C_MULTILAYER\|DELTA\|t8` | no | yes | no | yes | no | no |
-| `D_MULTITIME\|RAW` | no | yes | no | yes | no | no |
-| `D_MULTITIME\|DELTA` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|RAW\|t1` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|RAW\|t2` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|RAW\|t4` | no | yes | no | yes | yes | no |
-| `E_LOWDIM\|RAW\|t8` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|DELTA\|t1` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|DELTA\|t2` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|DELTA\|t4` | no | yes | no | yes | no | no |
-| `E_LOWDIM\|DELTA\|t8` | no | yes | no | yes | yes | no |
+| `C_MULTILAYER\|DELTA\|t8` | yes | no | yes | no | no | no |
+| `D_MULTITIME\|RAW` | yes | no | yes | no | no | no |
+| `D_MULTITIME\|DELTA` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|RAW\|t1` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|RAW\|t2` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|RAW\|t4` | yes | no | yes | yes | no | no |
+| `E_LOWDIM\|RAW\|t8` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|DELTA\|t1` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|DELTA\|t2` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|DELTA\|t4` | yes | no | yes | no | no | no |
+| `E_LOWDIM\|DELTA\|t8` | yes | no | yes | yes | no | no |
 | `F_NONLINEAR\|RAW\|t1` | no | no | no | no | no | no |
 | `F_NONLINEAR\|RAW\|t2` | no | no | no | no | no | no |
-| `F_NONLINEAR\|RAW\|t4` | no | no | no | no | yes | no |
-| `F_NONLINEAR\|RAW\|t8` | no | yes | no | yes | yes | no |
+| `F_NONLINEAR\|RAW\|t4` | no | no | no | yes | no | no |
+| `F_NONLINEAR\|RAW\|t8` | yes | no | yes | yes | no | no |
 | `F_NONLINEAR\|DELTA\|t1` | no | no | no | no | no | no |
-| `F_NONLINEAR\|DELTA\|t2` | no | no | no | yes | no | no |
-| `F_NONLINEAR\|DELTA\|t4` | no | no | no | no | yes | no |
-| `F_NONLINEAR\|DELTA\|t8` | no | no | no | yes | no | no |
+| `F_NONLINEAR\|DELTA\|t2` | yes | no | no | no | no | no |
+| `F_NONLINEAR\|DELTA\|t4` | no | no | no | yes | no | no |
+| `F_NONLINEAR\|DELTA\|t8` | yes | no | no | no | no | no |
 
 ## Negative control (prompt-preserving activation shuffle)
 

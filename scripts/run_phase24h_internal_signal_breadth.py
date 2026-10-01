@@ -784,12 +784,19 @@ def write_report(
     L.append("\n## Promotion criteria detail\n")
     L.append("| row | pooled>0 | CI low>0 | all salts>0 | within median>0 | frac≥0.60 | promoted |")
     L.append("|---|---|---|---|---|---|---|")
+    crit_order = (
+        "pooled_delta_gt_0",
+        "bootstrap_lower_gt_0",
+        "delta_gt_0_in_all_salts",
+        "within_prompt_median_gt_0",
+        "fraction_positive_prompts_ge_0.60",
+    )
     for k in H.row_keys_all():
         m = metrics[k]
         c = m["promotion"].get("criteria")
         if not c:
             continue
-        flags = " | ".join("yes" if v else "no" for v in c.values())
+        flags = " | ".join("yes" if c[name] else "no" for name in crit_order)
         verdict = "yes" if m["promotion"]["promoted"] else "no"
         L.append(f"| {_k(k)} | {flags} | {verdict} |")
     L.append("\n## Negative control (prompt-preserving activation shuffle)\n")
