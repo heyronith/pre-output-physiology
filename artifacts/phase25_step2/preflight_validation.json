@@ -1,0 +1,38 @@
+{
+  "attn_implementation": "sdpa",
+  "config_status": "phase25_step2_protocol_frozen_awaiting_preflight_and_generation_authorization",
+  "cost_projection": {
+    "basis": "Phase-22B text-only ~2 A100-h for 3710 gens; Step-2 responses are short categorical decisions so 0.9s/gen is the primary launch estimate; 2.2s/gen is a conservative upper bound still near ~2.9h.",
+    "conservative_usd": 7.260000000000001,
+    "conservative_wall_hours_at_2_2s_per_gen": 2.9040000000000004,
+    "gate_max_a100_hours": 4.0,
+    "gpu": "A100-80GB",
+    "optimistic_usd": 2.9699999999999998,
+    "optimistic_wall_hours_at_0_9s_per_gen": 1.188,
+    "within_gate": true
+  },
+  "errors": [],
+  "generation_config_sources": {
+    "note": "Stochastic path uses temperature=1.0 full-vocab softmax+multinomial with no top_p/top_k. Attention is sdpa (Phase-24 validated), not eager.\n",
+    "primary_constants": "src/pre_output_physiology/phase24b_live.py",
+    "primary_constants_commit": "62696d15dd4c5bbf2b5ccee9dde5eb6b5e553a96",
+    "sampling_loop": "modal/phase24d_live_collection.py::_generate_one",
+    "sampling_loop_commit": "cc1c011734e975d8ae8bcb71bba732110910b696",
+    "yaml_contract": "configs/experiments/phase24d_primary_live_collection.yaml"
+  },
+  "generations_per_base": 33,
+  "git_head": "1daf82574388dc9a7ced149823d9317f9d85439f",
+  "inference_manifest_sha256": "a77a811bd89cb0f3ce70a3e06393ae569887ddbd945abaeb5e239535f136d435",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_planned_generations": 4752,
+  "n_screen_bases": 144,
+  "n_screen_families": 36,
+  "n_sealed_families": 24,
+  "no_activation_capture": true,
+  "ok": true,
+  "sealed_in_manifest": 0,
+  "step1_ancestor_ok": true,
+  "stochastic_seed_unique": true,
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+}

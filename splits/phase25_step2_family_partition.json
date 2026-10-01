@@ -1,0 +1,595 @@
+{
+  "assignments": [
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "audit_reporting",
+      "family_id": "audit_access_exception",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_clean_opinion",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "audit_reporting",
+      "family_id": "audit_close_finding",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_control_escalation",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_control_pass",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_deficiency",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_evidence_recency",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "audit_reporting",
+      "family_id": "audit_expense",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "audit_reporting",
+      "family_id": "audit_inventory",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "audit_reporting",
+      "family_id": "audit_variance",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_breach_trigger",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_consent",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_deletion_hold",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_export_review",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_external_data",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_materiality",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_report_deadline",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_risk_review",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_safety_escalation",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "compliance_disclosure",
+      "family_id": "comp_vendor_due",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_goodwill",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_price_match",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_refund_standard",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_repair_replace",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_restock_waiver",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_return_window",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_shipping_credit",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_subscription_refund",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_travel_reimb",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "customer_entitlement_refunds",
+      "family_id": "ref_warranty_credit",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "performance_reporting",
+      "family_id": "perf_attendance_leave",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "performance_reporting",
+      "family_id": "perf_bonus",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "performance_reporting",
+      "family_id": "perf_fast_track",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_intervention",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_peer_benchmark",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "performance_reporting",
+      "family_id": "perf_pip",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_quota_returns",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_response_time",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_sla_bundle",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "performance_reporting",
+      "family_id": "perf_team_award",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "product_service_representation",
+      "family_id": "prod_accidental",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_defect_return",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_discount",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_launch",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "product_service_representation",
+      "family_id": "prod_premium",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_repair_replace",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "product_service_representation",
+      "family_id": "prod_seller_badge",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "product_service_representation",
+      "family_id": "prod_service_upgrade",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_trial",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "product_service_representation",
+      "family_id": "prod_warranty_replace",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_capacity",
+      "logic_structure": "COMPARATIVE",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_cert_expiry",
+      "logic_structure": "TEMPORAL",
+      "rule": "singleton_to_screen_for_6_4_balance"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_compute",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_conflict",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "resource_access_decisions",
+      "family_id": "res_emergency_access",
+      "logic_structure": "ANY",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "resource_access_decisions",
+      "family_id": "res_equipment",
+      "logic_structure": "ALL",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "resource_access_decisions",
+      "family_id": "res_privileged",
+      "logic_structure": "THRESHOLD",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SEALED_CONFIRMATORY",
+      "domain": "resource_access_decisions",
+      "family_id": "res_room",
+      "logic_structure": "EXCEPTION",
+      "rule": "pair_higher_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_system_access",
+      "logic_structure": "ALL",
+      "rule": "pair_lower_hash"
+    },
+    {
+      "cohort": "SCREEN",
+      "domain": "resource_access_decisions",
+      "family_id": "res_training",
+      "logic_structure": "ANY",
+      "rule": "pair_lower_hash"
+    }
+  ],
+  "n_screen_families": 36,
+  "n_sealed_families": 24,
+  "partition_algorithm": "phase25_step2_family_partition_v1",
+  "partition_notes": "Within each domain, structures with two families assign the lower SHA256(partition_prefix|domain|family_id) to SCREEN and the higher to SEALED_CONFIRMATORY. Singleton TEMPORAL and COMPARATIVE families are assigned to SCREEN so each domain has exactly 6 SCREEN / 4 SEALED while SEALED retains one family from each paired structure (ALL/ANY/THRESHOLD/EXCEPTION). Assignment uses Step-1 metadata only.",
+  "protocol_version": "phase25_step2_behavioral_screening_v1",
+  "screen_families": [
+    "audit_clean_opinion",
+    "audit_control_escalation",
+    "audit_control_pass",
+    "audit_deficiency",
+    "audit_evidence_recency",
+    "audit_variance",
+    "comp_breach_trigger",
+    "comp_consent",
+    "comp_materiality",
+    "comp_report_deadline",
+    "comp_safety_escalation",
+    "comp_vendor_due",
+    "perf_intervention",
+    "perf_peer_benchmark",
+    "perf_quota_returns",
+    "perf_response_time",
+    "perf_sla_bundle",
+    "perf_team_award",
+    "prod_defect_return",
+    "prod_discount",
+    "prod_launch",
+    "prod_repair_replace",
+    "prod_trial",
+    "prod_warranty_replace",
+    "ref_goodwill",
+    "ref_repair_replace",
+    "ref_restock_waiver",
+    "ref_return_window",
+    "ref_shipping_credit",
+    "ref_warranty_credit",
+    "res_capacity",
+    "res_cert_expiry",
+    "res_compute",
+    "res_conflict",
+    "res_system_access",
+    "res_training"
+  ],
+  "screen_per_domain": {
+    "audit_reporting": [
+      "audit_clean_opinion",
+      "audit_control_escalation",
+      "audit_control_pass",
+      "audit_deficiency",
+      "audit_evidence_recency",
+      "audit_variance"
+    ],
+    "compliance_disclosure": [
+      "comp_breach_trigger",
+      "comp_consent",
+      "comp_materiality",
+      "comp_report_deadline",
+      "comp_safety_escalation",
+      "comp_vendor_due"
+    ],
+    "customer_entitlement_refunds": [
+      "ref_goodwill",
+      "ref_repair_replace",
+      "ref_restock_waiver",
+      "ref_return_window",
+      "ref_shipping_credit",
+      "ref_warranty_credit"
+    ],
+    "performance_reporting": [
+      "perf_intervention",
+      "perf_peer_benchmark",
+      "perf_quota_returns",
+      "perf_response_time",
+      "perf_sla_bundle",
+      "perf_team_award"
+    ],
+    "product_service_representation": [
+      "prod_defect_return",
+      "prod_discount",
+      "prod_launch",
+      "prod_repair_replace",
+      "prod_trial",
+      "prod_warranty_replace"
+    ],
+    "resource_access_decisions": [
+      "res_capacity",
+      "res_cert_expiry",
+      "res_compute",
+      "res_conflict",
+      "res_system_access",
+      "res_training"
+    ]
+  },
+  "sealed_confirmatory_families": [
+    "audit_access_exception",
+    "audit_close_finding",
+    "audit_expense",
+    "audit_inventory",
+    "comp_deletion_hold",
+    "comp_export_review",
+    "comp_external_data",
+    "comp_risk_review",
+    "perf_attendance_leave",
+    "perf_bonus",
+    "perf_fast_track",
+    "perf_pip",
+    "prod_accidental",
+    "prod_premium",
+    "prod_seller_badge",
+    "prod_service_upgrade",
+    "ref_price_match",
+    "ref_refund_standard",
+    "ref_subscription_refund",
+    "ref_travel_reimb",
+    "res_emergency_access",
+    "res_equipment",
+    "res_privileged",
+    "res_room"
+  ],
+  "sealed_per_domain": {
+    "audit_reporting": [
+      "audit_access_exception",
+      "audit_close_finding",
+      "audit_expense",
+      "audit_inventory"
+    ],
+    "compliance_disclosure": [
+      "comp_deletion_hold",
+      "comp_export_review",
+      "comp_external_data",
+      "comp_risk_review"
+    ],
+    "customer_entitlement_refunds": [
+      "ref_price_match",
+      "ref_refund_standard",
+      "ref_subscription_refund",
+      "ref_travel_reimb"
+    ],
+    "performance_reporting": [
+      "perf_attendance_leave",
+      "perf_bonus",
+      "perf_fast_track",
+      "perf_pip"
+    ],
+    "product_service_representation": [
+      "prod_accidental",
+      "prod_premium",
+      "prod_seller_badge",
+      "prod_service_upgrade"
+    ],
+    "resource_access_decisions": [
+      "res_emergency_access",
+      "res_equipment",
+      "res_privileged",
+      "res_room"
+    ]
+  },
+  "structure_counts_screen": {
+    "ALL": 6,
+    "ANY": 6,
+    "COMPARATIVE": 6,
+    "EXCEPTION": 6,
+    "TEMPORAL": 6,
+    "THRESHOLD": 6
+  },
+  "structure_counts_sealed": {
+    "ALL": 6,
+    "ANY": 6,
+    "EXCEPTION": 6,
+    "THRESHOLD": 6
+  }
+}
