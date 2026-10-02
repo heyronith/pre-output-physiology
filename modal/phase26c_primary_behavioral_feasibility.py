@@ -730,12 +730,34 @@ def main() -> None:
     if cfg["model"]["revision"] != MODEL_REVISION:
         raise SystemExit("model revision gate failed")
 
-    auth_commit = subprocess.check_output(
-        ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
-    ).strip()
-    # Prefer explicit engineering durability parent when HEAD is the auth commit.
     eng_commit = subprocess.check_output(
-        ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD~1"], text=True
+        [
+            "git",
+            "-C",
+            str(REPO_ROOT),
+            "log",
+            "-1",
+            "--grep=make Phase 26C Modal execution detached and resumable",
+            "--format=%H",
+        ],
+        text=True,
+    ).strip()
+    auth_commit = subprocess.check_output(
+        [
+            "git",
+            "-C",
+            str(REPO_ROOT),
+            "log",
+            "-1",
+            "--grep=authorize frozen Phase 26C primary generation",
+            "--format=%H",
+        ],
+        text=True,
+    ).strip()
+    if not eng_commit or not auth_commit:
+        raise SystemExit("could not resolve engineering/authorization commit SHAs")
+    launch_head = subprocess.check_output(
+        ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
     ).strip()
     branch = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "branch", "--show-current"], text=True
@@ -807,6 +829,7 @@ def main() -> None:
         "branch": branch,
         "authorization_commit_sha": auth_commit,
         "engineering_durability_commit_sha": eng_commit,
+        "launch_head_sha": launch_head,
         "protocol_version": PROTOCOL_VERSION,
         "run_key": run_key,
         "modal_app_name": APP_NAME,
