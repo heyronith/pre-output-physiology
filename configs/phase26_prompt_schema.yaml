@@ -120,6 +120,13 @@ forbidden_model_visible_terms:
     - opposite answer
     - opposite outcome
     - opposite report
+  truth_metadata_leak:
+    - "\\bgold\\b"
+    - non-gold
+    - ground truth
+    - correct answer
+    - correct report
+    - true answer
   affective_subjective:
     - fear
     - afraid

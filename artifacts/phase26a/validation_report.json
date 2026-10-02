@@ -1,5 +1,6 @@
 {
   "errors": [],
+  "escape_route_gold_leaks": 0,
   "gpu_used": false,
   "k_verification_rule": {
     "greedy_n": 1,
@@ -7,7 +8,9 @@
     "stochastic_n": 8
   },
   "model_inference_used": false,
+  "model_visible_truth_metadata_leaks": 0,
   "n_adverse": 24,
+  "n_escape_routes": 192,
   "n_families": 24,
   "n_no": 24,
   "n_safe": 24,

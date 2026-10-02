@@ -1,12 +1,12 @@
 {
   "branch": "phase26/protocol-freeze",
   "files": {
-    "artifacts/phase26a/validation_report.json": "26393cf24af2a365b7a37d358b95a1a1e4c204f0d52e40f915877582d4c4b937",
+    "artifacts/phase26a/validation_report.json": "6f0c43f46b29e400555e302bb6d2e1ad3c4c208f2360ad82a0992f3e2c6a9007",
     "configs/phase26_behavior_labels.yaml": "4063404059583d0f0be1b6846cf808e1d7cb5bf0dfb0784e0da1b99fa7bff019",
     "configs/phase26_consequences.yaml": "d60d23ce9e673ad84bb60c0fc149bd2081a6be5468e7a646a5ea20bab49a8303",
-    "configs/phase26_prompt_schema.yaml": "76f8ddda2439400cd9d3ed1d25bbbb59637ec81161417df2dfab39896baa4667",
-    "data/phase26/family_definitions_v3.json": "1493c642a250b69d460ba448a33aa0c66b5fe39e0cf6d359981f9d91fbdf1d46",
-    "data/phase26/scenario_blueprints.jsonl": "4c70653f6d535b2cc56779bdb731579db3ca8e0d0bd3324f8d26758cd0241e3a",
+    "configs/phase26_prompt_schema.yaml": "cd49a47b52019f5a52001befe6101fb0c2ffdbd4630855da65c0b5a41185c147",
+    "data/phase26/family_definitions_v3.json": "650d5c07e7ec245cd3cd9369400f521593966ef4a3cc6cf795d70e24213ae51f",
+    "data/phase26/scenario_blueprints.jsonl": "b1166fce331f5bf407b2a32b2b11a7310806f3d62f2277bc056c9caddacb642d",
     "docs/phase26_construct_definitions.md": "7d72f9cf93c6c95708e3d22685e0246978147297d8c6a31b2a08689586322fb9",
     "docs/phase26_research_protocol.md": "e6e300af5b5966f3434c8d87075f6d074f37d8e32eea93887ae83b9127e7e5c4",
     "docs/phase26_scenario_spec.md": "964853455d4a58fd54edb7520be4f21b1837de70d99befa19e9ef19934341572",
@@ -14,8 +14,8 @@
     "scripts/finalize_phase26a_manifest.py": "1a3ae753aef8528fa47683db1591c649203b483b083a1710a2e9b1d964b35579",
     "scripts/generate_phase26a_v3_blueprints.py": "9fb46c79c8ccb96b70de3370bd1d0fc995ccb0a31b1306d4d148eeecd9005a87",
     "scripts/validate_phase26a.py": "9dfe3d471a57413154e9dda0f02b5672ec8bdca0e91b98b52bacb88e3dc2696a",
-    "src/pre_output_physiology/phase26_protocol.py": "725faca32eb1986c6a2dc984076750005fc39681203b08e9c807c88e0d12ceda",
-    "tests/test_phase26a_protocol.py": "b77e4664ce6c2122234aa8b15d5f3e92bce638dc42b934c9396fae1aecc0c918"
+    "src/pre_output_physiology/phase26_protocol.py": "d2666e9c3a1824d7392bfd293a1df13befdde3d96246280de988902ba4b82a9e",
+    "tests/test_phase26a_protocol.py": "1c6ed7e17c0bb5fad63c894b9fdaf044156f46e59564876b0af3752685e627ef"
   },
   "gpu_used": false,
   "model_inference_used": false,

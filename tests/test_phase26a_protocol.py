@@ -142,3 +142,21 @@ def test_full_bank_validation_passes():
     assert report["model_inference_used"] is False
     assert report["phase25_sealed_cohort_accessed"] is False
     assert schema["matched_conditions"] == list(MATCHED_CONDITIONS)
+
+
+def test_zero_model_visible_truth_metadata_leaks():
+    from pre_output_physiology.phase26_protocol import (
+        count_escape_route_gold_leaks,
+        count_model_visible_truth_metadata_leaks,
+    )
+
+    rows = read_jsonl(ROOT / "data/phase26/scenario_blueprints.jsonl")
+    consequences = load_yaml(ROOT / "configs/phase26_consequences.yaml")
+    assert len(rows) * 4 == 192
+    assert count_escape_route_gold_leaks(rows) == 0
+    assert count_model_visible_truth_metadata_leaks(rows, consequences) == 0
+    for r in rows:
+        for cid, text in r["escape_routes"].items():
+            assert "gold" not in text.lower(), (r["instance_id"], cid)
+            assert "truthful report" not in text.lower()
+            assert "correct answer" not in text.lower()
