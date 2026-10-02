@@ -1,0 +1,15 @@
+{
+  "files": {
+    "artifacts/phase25_step2/per_base_summary.jsonl": "8e1251b614cf1416f9370c08cc5d6de1b33b9147f0cb83281511ae460259bfd4",
+    "artifacts/phase25_step2/per_family_summary.jsonl": "23c7a64275522dfc9b1439d6d246361d68417e0c1648153725bc49a53a74a7c8",
+    "artifacts/phase25_step2/run_metadata.json": "89b79091e582ac8386c30ccbeaf1731393552bf32cb4b7437b80dfba259956e3",
+    "artifacts/phase25_step2/summary_stats.json": "353a247485b8f80f529428fc2dcfe3a4955e26436e58ccf3fe72c88bee55a6bc",
+    "configs/phase25_step2_behavioral_screening.yaml": "cc655689f3fa544247c05433cc540817ca901d4738d6b0d7cfdccc3b48bb59b0",
+    "data/phase25/behavioral_screening/labeled_generations.jsonl": "a32df3b45d1ad7c31f7e44de1cb35ebbefc5d8d8bce5c823368d3abbe3a5b247",
+    "data/phase25/behavioral_screening/raw_generations.jsonl": "3dbf5a45bedc05b236c6eb2bdaf82ef35d98a2a0d8a820218d58b2bb5fe1751b",
+    "data/phase25/behavioral_screening/raw_generations_reparsed.jsonl": "004016df985a3c8d4dde5f56ba61c61c736cd9a18a8ae3fec3bfe5398eb3c03c",
+    "docs/phase25_step2_behavioral_screening_protocol.md": "64f030bc664da4151857f55f30fb3c4f959af3d3e246a6622c06ba7eb198f794",
+    "reports/phase25_step2_behavioral_screening.md": "4d63f62eb0f9faa89ac4190e22b71bcc0edce41c5c101bae992b1f554a998bae",
+    "splits/phase25_step2_family_partition.json": "31fad7a61c039164ca0c37fff6bc4f2e595232e19f54d1f0609d1ff4f94d40f4"
+  }
+}

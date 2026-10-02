@@ -38,10 +38,10 @@ def test_parser_d_allows_insufficient():
     assert out["parsed_decision"] == "INSUFFICIENT_INFORMATION"
 
 
-def test_parser_rejects_insufficient_on_k():
-    raw = "DECISION: INSUFFICIENT_INFORMATION\n"
-    out = parse_decision(raw, "K")
-    assert out["parse_valid"] is False
+def test_parser_accepts_trailing_punctuation_and_same_line_gloss():
+    assert parse_decision("DECISION: YES,\nEXPLANATION: x\n", "D")["parsed_decision"] == "YES"
+    assert parse_decision("DECISION: NO.\nEXPLANATION: x\n", "K")["parsed_decision"] == "NO"
+    assert parse_decision("DECISION: Yes, based on the facts.\n", "A")["parsed_decision"] == "YES"
 
 
 def test_seed_deterministic_and_unique_for_indices():

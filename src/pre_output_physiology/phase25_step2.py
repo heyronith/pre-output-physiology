@@ -54,7 +54,7 @@ Form = Literal["K", "A", "X", "D"]
 RolloutType = Literal["greedy", "stochastic"]
 
 DECISION_RE = re.compile(
-    r"^\s*DECISION:\s*(YES|NO|INSUFFICIENT_INFORMATION)\s*$",
+    r"^\s*DECISION:\s*(YES|NO|INSUFFICIENT_INFORMATION)\b",
     re.IGNORECASE | re.MULTILINE,
 )
 

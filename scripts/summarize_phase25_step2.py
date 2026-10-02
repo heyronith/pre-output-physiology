@@ -38,6 +38,15 @@ def main() -> int:
     if any(r["family_id"] in sealed for r in rows):
         raise SystemExit("SEALED family present in raw generations")
 
+    # Always re-derive parse fields from immutable raw text (parser may be refined).
+    from pre_output_physiology.phase25_step2 import parse_decision
+
+    for r in rows:
+        parsed = parse_decision(r.get("raw_response_text") or "", r["form"])
+        r["parsed_decision"] = parsed["parsed_decision"]
+        r["parse_valid"] = parsed["parse_valid"]
+        r["malformed_reason"] = parsed["malformed_reason"]
+
     # Fill X behavioral labels using K_verified computed per base.
     by_base: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
