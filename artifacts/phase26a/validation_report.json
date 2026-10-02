@@ -1,0 +1,26 @@
+{
+  "consequence_classes_distinct": true,
+  "errors": [],
+  "gpu_used": false,
+  "model_inference_used": false,
+  "n_no": 12,
+  "n_scenarios": 24,
+  "n_yes": 12,
+  "pass": true,
+  "production_prompts_authored": false,
+  "protocol_version": "phase26a_protocol_freeze_v1",
+  "span_tags_present": [
+    "animals",
+    "cities",
+    "dependent_ai_populations",
+    "ecosystems",
+    "financial_communication_systems",
+    "hundreds_thousands_of_people",
+    "national_infrastructure",
+    "patients",
+    "single_individuals",
+    "small_crews_teams"
+  ],
+  "validator": "scripts/validate_phase26a.py",
+  "warnings": []
+}

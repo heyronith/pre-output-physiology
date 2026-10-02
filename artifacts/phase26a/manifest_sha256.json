@@ -1,0 +1,26 @@
+{
+  "branch": "phase26/protocol-freeze",
+  "files": {
+    "artifacts/phase26a/validation_report.json": "5e60a7bf90849bfe72c8f9f176c1d539c77ad02a9a16757d3c986debd0256150",
+    "configs/phase26_behavior_labels.yaml": "495b0badd8b991093cbefe5223724d6ff744f87e7730e3327be89afc34b79b21",
+    "configs/phase26_consequences.yaml": "3cfe1b654d6eae38362ce0fc63486d2991ce15ba2c828c17006443b0415ba7b9",
+    "configs/phase26_prompt_schema.yaml": "0657708fe7a1382c9de81b730c49fda96c7439f92e20d562649915bc4230ca15",
+    "data/phase26/scenario_blueprints.jsonl": "b7ae36d891ee80f2159a8c6b3391063e8f768385593e5e2c52fff56f205ede7c",
+    "docs/phase26_construct_definitions.md": "624fbd393e5a9c344be9454901859f30beb7c5c8a5372aa2ab8a12fbb3a24889",
+    "docs/phase26_research_protocol.md": "8476f060b8edd8ec12aac3be65b41df64f76284b7bd32b7533cc82d49e93728a",
+    "docs/phase26_scenario_spec.md": "633a1e97814777081ad937090e3c76ba5e7878311931a1d0d15ea1a7ae773807",
+    "reports/phase26a_protocol_freeze.md": "bdab77e9bebc8203ab8b56e8a7f60785522b2f1862d0cdbb469f5bd61699719e",
+    "scripts/finalize_phase26a_manifest.py": "d5892a689a37b77d1af0242ba26b514b7a5bb0b477d07c11e5ea707087cc034d",
+    "scripts/validate_phase26a.py": "70965bd8daf142ca4c229c5e2073f2b6121c32c1594970740191251d4ab7245a",
+    "src/pre_output_physiology/phase26_protocol.py": "16fa2f08fa5215915f2a66644875834574804645484302d139ba36561b118cba",
+    "tests/test_phase26a_protocol.py": "3805b9f45d00b38175040e378023618f3b750e493c2c7420cd0ced30e9c3b8fa"
+  },
+  "freeze_commit_placeholder": "filled_after_commit",
+  "gpu_used": false,
+  "model_inference_used": false,
+  "parent_endpoint_branch": "phase25/behavioral-screening",
+  "parent_endpoint_sha": "43798403fc52c7b31106948774a8a0d983beece9",
+  "phase25_sealed_cohort_modified": false,
+  "production_prompts_authored": false,
+  "protocol_version": "phase26a_protocol_freeze_v1"
+}
