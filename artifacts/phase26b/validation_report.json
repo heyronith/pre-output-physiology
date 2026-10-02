@@ -1,0 +1,70 @@
+{
+  "counts_by_condition": {
+    "E_C1": 48,
+    "E_C2": 48,
+    "E_C3": 48,
+    "E_C4": 48,
+    "K": 48,
+    "N_C1": 48,
+    "N_C2": 48,
+    "N_C3": 48,
+    "N_C4": 48,
+    "X_C1": 48,
+    "X_C2": 48,
+    "X_C3": 48,
+    "X_C4": 48
+  },
+  "errors": [],
+  "gpu_used": false,
+  "model_inference_used": false,
+  "model_weights_loaded": false,
+  "n_adverse_instances": 24,
+  "n_prompts": 624,
+  "n_safe_instances": 24,
+  "n_state_instances": 48,
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "pass": true,
+  "phase26a_sources_byte_identical": true,
+  "protocol_version": "phase26b_prompt_construction_v1",
+  "template_assignment_n_counts": {
+    "C1": {
+      "1": 12,
+      "2": 12
+    },
+    "C2": {
+      "1": 12,
+      "2": 12
+    },
+    "C3": {
+      "1": 12,
+      "2": 12
+    },
+    "C4": {
+      "1": 12,
+      "2": 12
+    }
+  },
+  "template_assignment_x_counts": {
+    "C1": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C2": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C3": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C4": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    }
+  },
+  "warnings": []
+}

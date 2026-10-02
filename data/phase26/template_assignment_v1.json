@@ -1,0 +1,769 @@
+{
+  "assignments": [
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 1,
+      "scenario_id": "S01"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 2,
+      "scenario_id": "S02"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 3,
+      "scenario_id": "S03"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 4,
+      "scenario_id": "S04"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 5,
+      "scenario_id": "S05"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 6,
+      "scenario_id": "S06"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 7,
+      "scenario_id": "S07"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 8,
+      "scenario_id": "S08"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 9,
+      "scenario_id": "S09"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 10,
+      "scenario_id": "S10"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 11,
+      "scenario_id": "S11"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 12,
+      "scenario_id": "S12"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 13,
+      "scenario_id": "S13"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 14,
+      "scenario_id": "S14"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 15,
+      "scenario_id": "S15"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 16,
+      "scenario_id": "S16"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 17,
+      "scenario_id": "S17"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 18,
+      "scenario_id": "S18"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 19,
+      "scenario_id": "S19"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 20,
+      "scenario_id": "S20"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 21,
+      "scenario_id": "S21"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 1,
+          "x_template_id": "C1_x1"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 2,
+          "x_template_id": "C2_x2"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 3,
+          "x_template_id": "C3_x3"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 1,
+          "x_template_id": "C4_x1"
+        }
+      },
+      "family_index": 22,
+      "scenario_id": "S22"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 1,
+          "n_template_id": "C1_n1",
+          "x_index": 2,
+          "x_template_id": "C1_x2"
+        },
+        "C2": {
+          "n_index": 2,
+          "n_template_id": "C2_n2",
+          "x_index": 3,
+          "x_template_id": "C2_x3"
+        },
+        "C3": {
+          "n_index": 1,
+          "n_template_id": "C3_n1",
+          "x_index": 1,
+          "x_template_id": "C3_x1"
+        },
+        "C4": {
+          "n_index": 2,
+          "n_template_id": "C4_n2",
+          "x_index": 2,
+          "x_template_id": "C4_x2"
+        }
+      },
+      "family_index": 23,
+      "scenario_id": "S23"
+    },
+    {
+      "classes": {
+        "C1": {
+          "n_index": 2,
+          "n_template_id": "C1_n2",
+          "x_index": 3,
+          "x_template_id": "C1_x3"
+        },
+        "C2": {
+          "n_index": 1,
+          "n_template_id": "C2_n1",
+          "x_index": 1,
+          "x_template_id": "C2_x1"
+        },
+        "C3": {
+          "n_index": 2,
+          "n_template_id": "C3_n2",
+          "x_index": 2,
+          "x_template_id": "C3_x2"
+        },
+        "C4": {
+          "n_index": 1,
+          "n_template_id": "C4_n1",
+          "x_index": 3,
+          "x_template_id": "C4_x3"
+        }
+      },
+      "family_index": 24,
+      "scenario_id": "S24"
+    }
+  ],
+  "n_rule": "n_index = ((family_index - 1 + class_index - 1) mod 2) + 1",
+  "notes": "ADVERSE and SAFE within a family share the same N/X template IDs. E uses the paired X template. Operational uses of the English word SAFE in frozen S01 stems are source-authorized and are not treated as state-metadata leakage.",
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "per_class_n_counts_over_24_families": {
+    "C1": {
+      "1": 12,
+      "2": 12
+    },
+    "C2": {
+      "1": 12,
+      "2": 12
+    },
+    "C3": {
+      "1": 12,
+      "2": 12
+    },
+    "C4": {
+      "1": 12,
+      "2": 12
+    }
+  },
+  "per_class_x_counts_over_24_families": {
+    "C1": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C2": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C3": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C4": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    }
+  },
+  "version": "phase26b_template_assignment_v1",
+  "x_rule": "x_index = ((family_index - 1 + class_index - 1) mod 3) + 1"
+}

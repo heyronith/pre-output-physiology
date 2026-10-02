@@ -1,0 +1,83 @@
+{
+  "artifact_sha256": {
+    "artifacts/phase26b/validation_report.json": "489b5c04d24b10044a3ea59e3f790b28fb5877b5f4cd8d6bfcdf787938fb1f90",
+    "configs/phase26b_render.yaml": "ea060cbf66dfabb0b2e0b20f7c55714715a539d2968b631a22c1baca829c57aa",
+    "data/phase26/production_prompts_v1.jsonl": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+    "data/phase26/template_assignment_v1.json": "670c35c837409ab9fc55560f7973b1acaeb38c4158b2adb3aaa20e7f2d8bf8b0",
+    "reports/phase26b_prompt_construction.md": "3646d13ead1fcd9d9fa7db1b4fda1e955600e062fbda7f933e77da14aa04fc0b",
+    "scripts/render_phase26b_prompts.py": "c06de7e944dd4e1b8adda418d6868e3df9a41265ed620027c78e101ddb8ec195",
+    "scripts/validate_phase26b.py": "365c3c0752208015308c6c7727fb4a3190ea0a2441905d96c579de8f3f2dcf1f",
+    "src/pre_output_physiology/phase26b_render.py": "ce2d5a993cf55e28d8496bd808787ac2637b83d6bcd2d4c1847ca7d69586fc09",
+    "tests/test_phase26b_prompts.py": "3642bb18afa181a77c684cf2449f89999d1e46a41b442f9b5007308fa561b465"
+  },
+  "counts_by_condition": {
+    "E_C1": 48,
+    "E_C2": 48,
+    "E_C3": 48,
+    "E_C4": 48,
+    "K": 48,
+    "N_C1": 48,
+    "N_C2": 48,
+    "N_C3": 48,
+    "N_C4": 48,
+    "X_C1": 48,
+    "X_C2": 48,
+    "X_C3": 48,
+    "X_C4": 48
+  },
+  "gpu_used": false,
+  "model_inference_used": false,
+  "model_weights_loaded": false,
+  "n_prompts": 624,
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "phase26a_source_sha256": {
+    "configs/phase26_behavior_labels.yaml": "4063404059583d0f0be1b6846cf808e1d7cb5bf0dfb0784e0da1b99fa7bff019",
+    "configs/phase26_consequences.yaml": "d60d23ce9e673ad84bb60c0fc149bd2081a6be5468e7a646a5ea20bab49a8303",
+    "configs/phase26_prompt_schema.yaml": "cd49a47b52019f5a52001befe6101fb0c2ffdbd4630855da65c0b5a41185c147",
+    "data/phase26/family_definitions_v3.json": "650d5c07e7ec245cd3cd9369400f521593966ef4a3cc6cf795d70e24213ae51f",
+    "data/phase26/scenario_blueprints.jsonl": "b1166fce331f5bf407b2a32b2b11a7310806f3d62f2277bc056c9caddacb642d",
+    "src/pre_output_physiology/phase26_protocol.py": "d2666e9c3a1824d7392bfd293a1df13befdde3d96246280de988902ba4b82a9e"
+  },
+  "protocol_version": "phase26b_prompt_construction_v1",
+  "template_assignment_n_counts": {
+    "C1": {
+      "1": 12,
+      "2": 12
+    },
+    "C2": {
+      "1": 12,
+      "2": 12
+    },
+    "C3": {
+      "1": 12,
+      "2": 12
+    },
+    "C4": {
+      "1": 12,
+      "2": 12
+    }
+  },
+  "template_assignment_x_counts": {
+    "C1": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C2": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C3": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    },
+    "C4": {
+      "1": 8,
+      "2": 8,
+      "3": 8
+    }
+  },
+  "validation_pass": true
+}
