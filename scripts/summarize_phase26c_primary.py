@@ -17,6 +17,7 @@ from pre_output_physiology.phase26c_primary import (
     label_row,
     read_jsonl,
     summarize_family,
+    validate_raw_against_manifest,
     write_jsonl,
 )
 
@@ -36,8 +37,11 @@ def main() -> int:
             "(expected only after authorized GPU execution)"
         )
     rows = read_jsonl(raw_path)
-    if any(r.get("state_id") == "SAFE" for r in rows):
-        raise SystemExit("SAFE rows present in primary raw generations")
+    manifest_jobs = read_jsonl(root / cfg["paths"]["inference_manifest"])
+    try:
+        validate_raw_against_manifest(rows, manifest_jobs)
+    except ValueError as exc:
+        raise SystemExit(f"STOP summarization: {exc}") from exc
 
     for r in rows:
         if r.get("technical_failure"):

@@ -1,6 +1,6 @@
 {
   "artifact_sha256": {
-    "artifacts/phase26c_primary/config_hash_manifest.json": "468748e8ec890409e4ce66a3b7bc9bd7b37dc9b1767797a2f1341fcca162c808",
+    "artifacts/phase26c_primary/config_hash_manifest.json": "97e71c3c6c3e7a9d7444c087a0a5eb711eef4b94cca08d3ba129c7d43612e61a",
     "artifacts/phase26c_primary/inference_manifest.jsonl": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
     "artifacts/phase26c_primary/preflight_validation.json": "a9e1034b54dc1e806140eaa6beeda2cf83bfc7beaa1998c0357d28bd03427acc",
     "artifacts/phase26c_primary/seed_manifest.jsonl": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
@@ -13,9 +13,9 @@
     "reports/phase26c_primary_readiness.md": "68b0349ce649550ce1c76c3f7a4a9764d53d7e2b4c7525988dbeb94feb80e620",
     "scripts/finalize_phase26c_primary_manifest.py": "8ef09abb8eae7a63dac8e6a2911692cb5964deed733c502da4200f167d05e115",
     "scripts/preflight_phase26c_primary.py": "49aa692c2538707b271308e3cffcc4c865ccec4315150f5e583cb733fe13d554",
-    "scripts/summarize_phase26c_primary.py": "e162a4da85d91a9f0e80ec6ebe623ab933141814bde19ae99f34a5e63281a3a5",
-    "src/pre_output_physiology/phase26c_primary.py": "3b6040ebda65822ff02c0cef1daef3a2cec1d18cfc38e1503818560b690087c7",
-    "tests/test_phase26c_primary.py": "27f12b85e41b5d8fc3f1345a56568cfc21662c65ec5508495eee9505c2c73c25"
+    "scripts/summarize_phase26c_primary.py": "7e53319913b4f4a01054e2c86445b12964de33ae37b8fc755c4973cf36f32bd4",
+    "src/pre_output_physiology/phase26c_primary.py": "46bc5d03e1a2d379bc74aac083cba433ffc5d8bc18c2596455ebda3268e7c86d",
+    "tests/test_phase26c_primary.py": "a1017995b26c2eda1b6f78d8057c62b1df0ccfe009c2197ff48d97e21f1e5724"
   },
   "gpu_used": false,
   "inference_executed": false,

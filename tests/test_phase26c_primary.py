@@ -35,6 +35,7 @@ from pre_output_physiology.phase26c_primary import (
     select_adverse_prompts,
     sha256_bytes,
     summarize_x_cell,
+    validate_raw_against_manifest,
     validate_template_assignment,
     x_template_index,
 )
@@ -156,13 +157,120 @@ def test_inference_and_seed_manifests():
     assert 0 <= j["seed"] <= 0xFFFFFFFF
 
 
-def test_rollout_seed_not_python_hash():
+def test_rollout_seed_frozen_vector():
     a = rollout_seed(prompt_sha256="abc", condition="X_C1", rollout_index=0)
     b = rollout_seed(prompt_sha256="abc", condition="X_C1", rollout_index=0)
     assert a == b
-    assert a != hash(f"phase26c_primary_behavior_v1|abc|X_C1|0") & 0xFFFFFFFF or True
-    # different index → different seed (extremely likely)
+    assert a == 1410709147
+    assert 0 <= a <= 0xFFFFFFFF
     assert rollout_seed(prompt_sha256="abc", condition="X_C1", rollout_index=1) != a
+
+
+def test_x_technical_failure_counted_once():
+    rows = []
+    for i in range(16):
+        if i == 0:
+            rows.append(
+                {
+                    "rollout_index": i,
+                    "parse_valid": False,
+                    "technical_failure": True,
+                    "parsed_decision": None,
+                    "raw_response_text": None,
+                    "malformed_reason": "technical_failure",
+                }
+            )
+        elif i < 4:
+            rows.append(
+                {
+                    "rollout_index": i,
+                    "parse_valid": True,
+                    "technical_failure": False,
+                    "parsed_decision": "YES",
+                    "raw_response_text": "REPORT: YES",
+                }
+            )
+        elif i < 7:
+            rows.append(
+                {
+                    "rollout_index": i,
+                    "parse_valid": True,
+                    "technical_failure": False,
+                    "parsed_decision": "NO",
+                    "raw_response_text": "REPORT: NO",
+                }
+            )
+        else:
+            rows.append(
+                {
+                    "rollout_index": i,
+                    "parse_valid": True,
+                    "technical_failure": False,
+                    "parsed_decision": "YES",
+                    "raw_response_text": "REPORT: YES",
+                }
+            )
+    s = summarize_x_cell(rows, k_verified=True, gold="YES")
+    assert s["n_generations"] == 16
+    assert s["n_malformed_or_technical"] == 1
+    assert (
+        s["n_honest_correct"]
+        + s["n_incentive_compatible_false"]
+        + s["n_ambiguous"]
+        + s["n_malformed_or_technical"]
+        == 16
+    )
+    # Must not double-count the technical failure as 2
+    assert s["n_malformed_or_technical"] != 2
+
+
+def test_validate_raw_against_manifest_integrity():
+    bank = load_prompt_bank(ROOT / "data/phase26/production_prompts_v1.jsonl")
+    selected = select_adverse_prompts(bank)
+    jobs = build_inference_manifest(selected)
+    # Happy path: raw mirrors manifest metadata
+    raw = []
+    for j in jobs:
+        raw.append(
+            {
+                "job_id": j["job_id"],
+                "scenario_id": j["scenario_id"],
+                "state_id": j["state_id"],
+                "condition": j["condition"],
+                "prompt_id": j["prompt_id"],
+                "prompt_sha256": j["prompt_sha256"],
+                "rollout_type": j["rollout_type"],
+                "rollout_index": j["rollout_index"],
+                "seed": j["seed"],
+                "model_id": MODEL_ID,
+                "model_revision": MODEL_REVISION,
+                "tokenizer_revision": TOKENIZER_REVISION,
+                "generation_parameters": j["generation"],
+            }
+        )
+    validate_raw_against_manifest(raw, jobs)
+
+    # Missing row
+    import pytest
+
+    with pytest.raises(ValueError, match="integrity failure"):
+        validate_raw_against_manifest(raw[:-1], jobs)
+
+    # Duplicate row
+    with pytest.raises(ValueError, match="duplicate raw job_id"):
+        validate_raw_against_manifest(raw + [raw[0]], jobs)
+
+    # Mismatched seed
+    bad = [dict(r) for r in raw]
+    bad[10]["seed"] = int(bad[10]["seed"]) ^ 0xDEAD
+    with pytest.raises(ValueError, match="field seed"):
+        validate_raw_against_manifest(bad, jobs)
+
+    # Mismatched job metadata (condition)
+    bad2 = [dict(r) for r in raw]
+    bad2[5]["condition"] = "N_C1" if bad2[5]["condition"] != "N_C1" else "N_C2"
+    with pytest.raises(ValueError, match="field condition"):
+        validate_raw_against_manifest(bad2, jobs)
 
 
 def test_parser_cases():
