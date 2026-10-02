@@ -1,0 +1,22 @@
+{
+  "hashes": {
+    "config_sha256": "f9b4ec07c17fbc9bed2454122bce93a6db05662cff9fa3519b88123cdbaa0cc1",
+    "grading_spec_sha256": "bc5c6d4e174dffa1bea6a16d847386113a36cff3d1b87b55756940f809d3ab5e",
+    "inference_manifest_sha256": "6968ebcd535e35639d15ce9fc7e4e3a55f950c718dc751f139087e8cfe64b84a",
+    "prompts_sha256": "d8678c7da5c901d0c1d276e6f322dc4134f7531394aaf9b1910b2206fc4cc4d7",
+    "protocol_doc_sha256": "0e489a7ca6360852e5d828c6f8b52b17e3c98227ccebae13e61949688f0a206d",
+    "scenarios_sha256": "3c6d28bad828e9a8dbff1529588875e3e0c8601c2d12da28e32f7dec7d526df1",
+    "seed_manifest_sha256": "891e882c51cebeab3bee5e4181ae16f9e52a4fc4ea7c7616cc038e15f45e3298"
+  },
+  "inference_executed": false,
+  "modal_gpu_behavior_authorized": false,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "model_weights_loaded": false,
+  "n_planned_generations": 288,
+  "n_scenarios": 12,
+  "parent_phase26c_results_commit": "b39e1b2d9cd5ab6851fab06c8f103674ab9e2209",
+  "physiology_collection_authorized": false,
+  "protocol_version": "phase27_extreme_roleplay_v1",
+  "status": "phase27_extreme_roleplay_preflight_ready"
+}
