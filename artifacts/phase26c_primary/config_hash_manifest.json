@@ -1,0 +1,22 @@
+{
+  "activation_capture_authorized": false,
+  "attn_implementation": "sdpa",
+  "hashes": {
+    "artifacts/phase26c_primary/inference_manifest.jsonl": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
+    "artifacts/phase26c_primary/seed_manifest.jsonl": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
+    "configs/phase26c_primary_behavioral_feasibility.yaml": "4760a7f73719b9296913dcc90b0e16a9ea2e63ad0924c2b6bc46e40e16ba40fa",
+    "data/phase26/phase26c_primary_prompt_selection.jsonl": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11",
+    "data/phase26/production_prompts_v1.jsonl": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+    "data/phase26/template_assignment_v1.json": "670c35c837409ab9fc55560f7973b1acaeb38c4158b2adb3aaa20e7f2d8bf8b0",
+    "src/pre_output_physiology/phase26c_primary.py": "3b6040ebda65822ff02c0cef1daef3a2cec1d18cfc38e1503818560b690087c7"
+  },
+  "inference_executed": false,
+  "modal_gpu_authorized": false,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "parent_phase26b_commit": "ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e",
+  "physiology_collection_authorized": false,
+  "protocol_version": "phase26c_primary_behavior_v1",
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
+}

@@ -1,0 +1,43 @@
+{
+  "artifact_sha256": {
+    "artifacts/phase26c_primary/config_hash_manifest.json": "468748e8ec890409e4ce66a3b7bc9bd7b37dc9b1767797a2f1341fcca162c808",
+    "artifacts/phase26c_primary/inference_manifest.jsonl": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
+    "artifacts/phase26c_primary/preflight_validation.json": "a9e1034b54dc1e806140eaa6beeda2cf83bfc7beaa1998c0357d28bd03427acc",
+    "artifacts/phase26c_primary/seed_manifest.jsonl": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
+    "configs/phase26c_primary_behavioral_feasibility.yaml": "4760a7f73719b9296913dcc90b0e16a9ea2e63ad0924c2b6bc46e40e16ba40fa",
+    "data/phase26/phase26c_primary_prompt_selection.jsonl": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11",
+    "data/phase26/production_prompts_v1.jsonl": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+    "data/phase26/template_assignment_v1.json": "670c35c837409ab9fc55560f7973b1acaeb38c4158b2adb3aaa20e7f2d8bf8b0",
+    "docs/phase26c_primary_behavioral_feasibility.md": "2b5d0ee691d46eac5b73bf65741c6866db9598d556ee277f6f2c57a60bb833d0",
+    "modal/phase26c_primary_behavioral_feasibility.py": "fd11c448ef8b8010ebed0f166b67408986f9bf3eacbe52794bd416b2c3456901",
+    "reports/phase26c_primary_readiness.md": "68b0349ce649550ce1c76c3f7a4a9764d53d7e2b4c7525988dbeb94feb80e620",
+    "scripts/finalize_phase26c_primary_manifest.py": "8ef09abb8eae7a63dac8e6a2911692cb5964deed733c502da4200f167d05e115",
+    "scripts/preflight_phase26c_primary.py": "49aa692c2538707b271308e3cffcc4c865ccec4315150f5e583cb733fe13d554",
+    "scripts/summarize_phase26c_primary.py": "e162a4da85d91a9f0e80ec6ebe623ab933141814bde19ae99f34a5e63281a3a5",
+    "src/pre_output_physiology/phase26c_primary.py": "3b6040ebda65822ff02c0cef1daef3a2cec1d18cfc38e1503818560b690087c7",
+    "tests/test_phase26c_primary.py": "27f12b85e41b5d8fc3f1345a56568cfc21662c65ec5508495eee9505c2c73c25"
+  },
+  "gpu_used": false,
+  "inference_executed": false,
+  "model_weights_loaded": false,
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "parent_phase26b_commit": "ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e",
+  "phase26a_source_sha256": {
+    "configs/phase26_behavior_labels.yaml": "4063404059583d0f0be1b6846cf808e1d7cb5bf0dfb0784e0da1b99fa7bff019",
+    "configs/phase26_consequences.yaml": "d60d23ce9e673ad84bb60c0fc149bd2081a6be5468e7a646a5ea20bab49a8303",
+    "configs/phase26_prompt_schema.yaml": "cd49a47b52019f5a52001befe6101fb0c2ffdbd4630855da65c0b5a41185c147",
+    "data/phase26/family_definitions_v3.json": "650d5c07e7ec245cd3cd9369400f521593966ef4a3cc6cf795d70e24213ae51f",
+    "data/phase26/scenario_blueprints.jsonl": "b1166fce331f5bf407b2a32b2b11a7310806f3d62f2277bc056c9caddacb642d",
+    "src/pre_output_physiology/phase26_protocol.py": "d2666e9c3a1824d7392bfd293a1df13befdde3d96246280de988902ba4b82a9e"
+  },
+  "phase26b_frozen_sha256": {
+    "configs/phase26b_render.yaml": "ea060cbf66dfabb0b2e0b20f7c55714715a539d2968b631a22c1baca829c57aa",
+    "data/phase26/production_prompts_v1.jsonl": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+    "data/phase26/template_assignment_v1.json": "670c35c837409ab9fc55560f7973b1acaeb38c4158b2adb3aaa20e7f2d8bf8b0",
+    "scripts/render_phase26b_prompts.py": "c06de7e944dd4e1b8adda418d6868e3df9a41265ed620027c78e101ddb8ec195",
+    "scripts/validate_phase26b.py": "365c3c0752208015308c6c7727fb4a3190ea0a2441905d96c579de8f3f2dcf1f",
+    "src/pre_output_physiology/phase26b_render.py": "ce2d5a993cf55e28d8496bd808787ac2637b83d6bcd2d4c1847ca7d69586fc09",
+    "tests/test_phase26b_prompts.py": "3642bb18afa181a77c684cf2449f89999d1e46a41b442f9b5007308fa561b465"
+  },
+  "protocol_version": "phase26c_primary_behavior_v1"
+}

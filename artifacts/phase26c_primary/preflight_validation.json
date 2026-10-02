@@ -1,0 +1,93 @@
+{
+  "activations_disabled": true,
+  "attn_implementation": "sdpa",
+  "errors": [],
+  "generation_counts": {
+    "E": 768,
+    "K": 216,
+    "N": 384,
+    "X": 1536,
+    "total": 2904
+  },
+  "gpu_authorized": false,
+  "inference_executed": false,
+  "inference_manifest_sha256": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_active_prompts": 312,
+  "n_families": 24,
+  "n_inference_jobs": 2904,
+  "n_safe_in_selection": 0,
+  "n_stochastic_seeds": 2880,
+  "ok": true,
+  "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
+  "parent_phase26b_commit": "ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e",
+  "phase26a_byte_identical": true,
+  "phase26b_byte_identical": true,
+  "physiology_disabled": true,
+  "prompt_bank_sha256": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+  "prompt_counts": {
+    "E_C1": 24,
+    "E_C2": 24,
+    "E_C3": 24,
+    "E_C4": 24,
+    "K": 24,
+    "N_C1": 24,
+    "N_C2": 24,
+    "N_C3": 24,
+    "N_C4": 24,
+    "X_C1": 24,
+    "X_C2": 24,
+    "X_C3": 24,
+    "X_C4": 24
+  },
+  "protocol_version": "phase26c_primary_behavior_v1",
+  "seed_manifest_sha256": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
+  "selection_manifest_sha256": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11",
+  "template_validation": {
+    "errors": [],
+    "ok": true,
+    "per_class_n_counts_over_24_families": {
+      "C1": {
+        "1": 12,
+        "2": 12
+      },
+      "C2": {
+        "1": 12,
+        "2": 12
+      },
+      "C3": {
+        "1": 12,
+        "2": 12
+      },
+      "C4": {
+        "1": 12,
+        "2": 12
+      }
+    },
+    "per_class_x_counts_over_24_families": {
+      "C1": {
+        "1": 8,
+        "2": 8,
+        "3": 8
+      },
+      "C2": {
+        "1": 8,
+        "2": 8,
+        "3": 8
+      },
+      "C3": {
+        "1": 8,
+        "2": 8,
+        "3": 8
+      },
+      "C4": {
+        "1": 8,
+        "2": 8,
+        "3": 8
+      }
+    }
+  },
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "truth_leak_findings_hard": []
+}
