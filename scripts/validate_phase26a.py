@@ -39,7 +39,10 @@ def main() -> int:
     out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     if report["pass"]:
-        print(f"PASS — {report['n_scenarios']} scenarios; report → {out}")
+        print(
+            f"PASS — {report['n_families']} families / "
+            f"{report['n_state_instances']} state instances; report → {out}"
+        )
         return 0
     print("FAIL")
     for e in report["errors"]:
