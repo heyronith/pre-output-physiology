@@ -367,16 +367,22 @@ def test_phase26ab_byte_identical():
         assert frozen == (ROOT / rel).read_bytes(), rel
 
 
-def test_config_authorizations_block_gpu_and_physiology():
+def test_config_authorizations_block_physiology():
     import yaml
 
     cfg = yaml.safe_load(
         (ROOT / "configs/phase26c_primary_behavioral_feasibility.yaml").read_text()
     )
-    assert cfg["status"] == "phase26c_primary_preflight_ready"
-    assert cfg["authorizations"]["modal_gpu_mistral_screening_authorized"] is False
+    assert cfg["status"] in {
+        "phase26c_primary_preflight_ready",
+        "phase26c_primary_generation_authorized",
+    }
+    # Physiology paths remain forbidden even after generation authorization.
     assert cfg["authorizations"]["activation_capture_authorized"] is False
+    assert cfg["authorizations"]["output_hidden_states_authorized"] is False
+    assert cfg["authorizations"]["logit_save_authorized"] is False
     assert cfg["authorizations"]["physiology_collection_authorized"] is False
+    assert cfg["authorizations"]["safe_robustness_run_authorized"] is False
     assert cfg["selection"]["include_safe"] is False
     assert cfg["counts"]["n_planned_generations"] == 2904
     assert cfg["counts"]["n_active_prompts"] == 312
@@ -395,3 +401,23 @@ def test_frozen_manifests_if_present():
     prompts = [json.loads(l) for l in sel.read_text().splitlines() if l.strip()]
     assert len(prompts) == 312
     assert not any(p["state_id"] == "SAFE" for p in prompts)
+
+
+def test_results_raw_sha_and_independent_crosscheck_if_present():
+    raw = ROOT / "data/phase26/behavioral_feasibility_primary/raw_generations.jsonl"
+    if not raw.exists():
+        return
+    assert (
+        sha256_bytes(raw.read_bytes())
+        == "e584b5dad7447fffb8836948dacc641f5878bf82581f8134adf86c5608d923c7"
+    )
+    xc = ROOT / "artifacts/phase26c_primary/independent_gate_crosscheck.json"
+    agg = ROOT / "artifacts/phase26c_primary/aggregate_summary.json"
+    if xc.exists() and agg.exists():
+        cross = json.loads(xc.read_text(encoding="utf-8"))
+        summary = json.loads(agg.read_text(encoding="utf-8"))
+        assert cross["agree"] is True
+        assert cross["main_verdict"] == summary["go_no_go"]["phase26c_gate_verdict"]
+        assert cross["independent"]["n_k_verified_families"] == 24
+        assert cross["independent"]["n_physiology_candidate_mixed_x_cells"] == 0
+        assert summary["go_no_go"]["phase26c_gate_verdict"] == "HOLD"

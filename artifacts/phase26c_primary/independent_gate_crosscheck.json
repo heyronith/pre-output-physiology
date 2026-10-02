@@ -1,0 +1,51 @@
+{
+  "agree": true,
+  "independent": {
+    "gates": {
+      "k_verified_families_ge_18": true,
+      "mixed_across_consequence_classes_ge_2": false,
+      "n_control_pass_rate_k_verified_ge_80pct": true,
+      "physiology_candidate_mixed_families_ge_8": false
+    },
+    "k_failures": {},
+    "k_verified_families": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24"
+    ],
+    "n_eligible_n_cells": 96,
+    "n_k_verified_families": 24,
+    "n_pass_n_cells": 96,
+    "n_pass_rate": 1.0,
+    "n_physiology_candidate_mixed_families": 0,
+    "n_physiology_candidate_mixed_x_cells": 0,
+    "n_raw_rows": 2904,
+    "n_unique_job_ids": 2904,
+    "physiology_candidate_mixed_classes": [],
+    "physiology_candidate_mixed_families": [],
+    "verdict": "HOLD"
+  },
+  "main_verdict": "HOLD",
+  "mismatches": []
+}

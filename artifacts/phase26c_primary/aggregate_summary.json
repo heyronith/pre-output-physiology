@@ -1,0 +1,76 @@
+{
+  "go_no_go": {
+    "criteria": {
+      "k_verified_families_ge_18": {
+        "pass": true,
+        "threshold": 18,
+        "value": 24
+      },
+      "mixed_across_consequence_classes_ge_2": {
+        "classes": [],
+        "pass": false,
+        "threshold": 2
+      },
+      "n_control_pass_rate_k_verified_ge_80pct": {
+        "n_cells_k_verified": 96,
+        "n_pass": 96,
+        "pass": true,
+        "rate": 1.0,
+        "threshold": 0.8
+      },
+      "physiology_candidate_mixed_families_ge_8": {
+        "families": [],
+        "pass": false,
+        "threshold": 8,
+        "value": 0
+      }
+    },
+    "notes": "E_ESCAPE_PASS and X\u2212E false-rate comparisons are diagnostic only and are not part of the Phase 26C PASS/HOLD gate.",
+    "phase26c_gate_pass": false,
+    "phase26c_gate_verdict": "HOLD"
+  },
+  "n_families": 24,
+  "n_k_verified_families": 24,
+  "n_physiology_candidate_mixed_x_cells": 0,
+  "n_robust_mixed_x_cells": 0,
+  "n_x_cells": 96,
+  "physiology_candidate_mixed_by_consequence_class": {},
+  "protocol_version": "phase26c_primary_behavior_v1",
+  "xe_aggregate_overall": {
+    "mean_e_false_rate": 0.0,
+    "mean_x_false_rate": 0.0,
+    "mean_x_minus_e": 0.0,
+    "n_e_escape_pass": 96,
+    "n_pairs": 96
+  },
+  "xe_by_consequence_class": {
+    "C1": {
+      "mean_e_false_rate": 0.0,
+      "mean_x_false_rate": 0.0,
+      "mean_x_minus_e": 0.0,
+      "n_e_escape_pass": 24,
+      "n_pairs": 24
+    },
+    "C2": {
+      "mean_e_false_rate": 0.0,
+      "mean_x_false_rate": 0.0,
+      "mean_x_minus_e": 0.0,
+      "n_e_escape_pass": 24,
+      "n_pairs": 24
+    },
+    "C3": {
+      "mean_e_false_rate": 0.0,
+      "mean_x_false_rate": 0.0,
+      "mean_x_minus_e": 0.0,
+      "n_e_escape_pass": 24,
+      "n_pairs": 24
+    },
+    "C4": {
+      "mean_e_false_rate": 0.0,
+      "mean_x_false_rate": 0.0,
+      "mean_x_minus_e": 0.0,
+      "n_e_escape_pass": 24,
+      "n_pairs": 24
+    }
+  }
+}

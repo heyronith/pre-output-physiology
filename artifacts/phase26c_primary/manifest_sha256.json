@@ -1,25 +1,29 @@
 {
   "artifact_sha256": {
-    "artifacts/phase26c_primary/config_hash_manifest.json": "97e71c3c6c3e7a9d7444c087a0a5eb711eef4b94cca08d3ba129c7d43612e61a",
+    "artifacts/phase26c_primary/COMPLETE.json": "c09528c0bd6c79f6dc05fecf21f343a806240a985509b0a792c2770f4c2ade1a",
+    "artifacts/phase26c_primary/aggregate_summary.json": "6167ded6b7fc24267704089379a10bc7e1054b862a0331c9c5acb8ad5e0ebb09",
+    "artifacts/phase26c_primary/descriptive_stats.json": "6e730c37f670d9e0d480768f6860be637a524bd58257d4b4283402ce08a24ad6",
+    "artifacts/phase26c_primary/independent_gate_crosscheck.json": "fc6050d5479153878653c2d3fb8f2ed31cd7b270925a1985fb4651cc5436e006",
     "artifacts/phase26c_primary/inference_manifest.jsonl": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
-    "artifacts/phase26c_primary/preflight_validation.json": "a9e1034b54dc1e806140eaa6beeda2cf83bfc7beaa1998c0357d28bd03427acc",
+    "artifacts/phase26c_primary/integrity_audit.json": "7bac722d75559c97f77b0fbb475da1b38f8e39c8da803cb33575e29e64f3ab2f",
+    "artifacts/phase26c_primary/launch_receipt.json": "b914364824441390f080fbadd97c7a7fd7468b1abba04ce5349aaf4ebce3d6b9",
+    "artifacts/phase26c_primary/paired_xe_summary.jsonl": "b570606cb5b04d90b41e4689563cf53d1d9e7c10c2a8efa25121be99ef395bd6",
+    "artifacts/phase26c_primary/per_cell_summary.jsonl": "86264be40cd142d0a10e903f2bd5d3417d057648ef34337f37ffe00e94fbc55a",
+    "artifacts/phase26c_primary/per_family_summary.jsonl": "c600bfc693bb1ded4d795780866b498d8ae7975ff25fa3a7066077f613a167ed",
+    "artifacts/phase26c_primary/progress.json": "c94b3222fd052d5d43248d406994be77af000e450eb8eb5c6e9b6ce1a68b3b42",
+    "artifacts/phase26c_primary/run_metadata.json": "19120e234e42adeb138845745947b970fe86dfbc1aa6a6ab636b07e3b052312d",
     "artifacts/phase26c_primary/seed_manifest.jsonl": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
-    "configs/phase26c_primary_behavioral_feasibility.yaml": "4760a7f73719b9296913dcc90b0e16a9ea2e63ad0924c2b6bc46e40e16ba40fa",
-    "data/phase26/phase26c_primary_prompt_selection.jsonl": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11",
-    "data/phase26/production_prompts_v1.jsonl": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
-    "data/phase26/template_assignment_v1.json": "670c35c837409ab9fc55560f7973b1acaeb38c4158b2adb3aaa20e7f2d8bf8b0",
-    "docs/phase26c_primary_behavioral_feasibility.md": "2b5d0ee691d46eac5b73bf65741c6866db9598d556ee277f6f2c57a60bb833d0",
-    "modal/phase26c_primary_behavioral_feasibility.py": "fd11c448ef8b8010ebed0f166b67408986f9bf3eacbe52794bd416b2c3456901",
-    "reports/phase26c_primary_readiness.md": "68b0349ce649550ce1c76c3f7a4a9764d53d7e2b4c7525988dbeb94feb80e620",
-    "scripts/finalize_phase26c_primary_manifest.py": "8ef09abb8eae7a63dac8e6a2911692cb5964deed733c502da4200f167d05e115",
-    "scripts/preflight_phase26c_primary.py": "49aa692c2538707b271308e3cffcc4c865ccec4315150f5e583cb733fe13d554",
-    "scripts/summarize_phase26c_primary.py": "7e53319913b4f4a01054e2c86445b12964de33ae37b8fc755c4973cf36f32bd4",
-    "src/pre_output_physiology/phase26c_primary.py": "46bc5d03e1a2d379bc74aac083cba433ffc5d8bc18c2596455ebda3268e7c86d",
-    "tests/test_phase26c_primary.py": "a1017995b26c2eda1b6f78d8057c62b1df0ccfe009c2197ff48d97e21f1e5724"
+    "configs/phase26c_primary_behavioral_feasibility.yaml": "53a4c8e0cb999954c8be75bd5afffe78821d57e04a761ab6ee679154c15d720a",
+    "data/phase26/behavioral_feasibility_primary/labeled_generations.jsonl": "67c4271bff33a95f8b7e082b699878c5a25b0c4ae3abcb47cdce72af896fde0a",
+    "data/phase26/behavioral_feasibility_primary/raw_generations.jsonl": "e584b5dad7447fffb8836948dacc641f5878bf82581f8134adf86c5608d923c7",
+    "reports/phase26c_primary_behavioral_results.md": "412f9c7f1ce2415822e2e9221e08241434ac6c8fae3c8eda91126bb97f7fe380",
+    "scripts/independent_phase26c_primary_gate_check.py": "752befcc6ac2a7034a13e35b4a92c8c6486eda4b2e4e91fe3f2120ed7122537f",
+    "scripts/summarize_phase26c_primary.py": "7e53319913b4f4a01054e2c86445b12964de33ae37b8fc755c4973cf36f32bd4"
   },
-  "gpu_used": false,
-  "inference_executed": false,
-  "model_weights_loaded": false,
+  "gate_verdict": "HOLD",
+  "gpu_used_for_analysis": false,
+  "inference_executed": true,
+  "model_weights_loaded_for_analysis": false,
   "parent_phase26a_commit": "bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb",
   "parent_phase26b_commit": "ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e",
   "phase26a_source_sha256": {
@@ -39,5 +43,8 @@
     "src/pre_output_physiology/phase26b_render.py": "ce2d5a993cf55e28d8496bd808787ac2637b83d6bcd2d4c1847ca7d69586fc09",
     "tests/test_phase26b_prompts.py": "3642bb18afa181a77c684cf2449f89999d1e46a41b442f9b5007308fa561b465"
   },
-  "protocol_version": "phase26c_primary_behavior_v1"
+  "physiology_performed": false,
+  "protocol_version": "phase26c_primary_behavior_v1",
+  "raw_generations_sha256": "e584b5dad7447fffb8836948dacc641f5878bf82581f8134adf86c5608d923c7",
+  "safe_robustness_run": false
 }

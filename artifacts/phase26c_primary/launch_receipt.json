@@ -1,0 +1,39 @@
+{
+  "authorization_commit_sha": "056fe1afaa110972f9a3021a0d91a715649e3af0",
+  "branch": "phase26/behavioral-feasibility-primary-v2",
+  "checkpoint_batch_size": 16,
+  "detached_execution": true,
+  "do_not_summarize_until_complete": true,
+  "engineering_durability_commit_sha": "267a5323cb76d297ff40f8c3928a7da362273772",
+  "first_checkpoint_confirmed": true,
+  "frozen_hashes_verified": {
+    "inference": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
+    "seed": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
+    "selection": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11"
+  },
+  "inference_manifest_sha256": "b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e",
+  "laptop_editor_disconnection_does_not_own_experiment_lifetime": true,
+  "launch_head_sha": "4b7c4af15de01ad110e530dc764e8b3afc023a5b",
+  "launch_utc": "2026-10-02T19:54:09Z",
+  "modal_app_name": "pre-output-physiology-phase26c-primary",
+  "modal_function_call_id": "fc-01M3Z2TA64BYCA2D6EE2MXRW5H",
+  "modal_results_volume": "phase26c-primary-results",
+  "modal_retry_policy": {
+    "backoff_coefficient": 2.0,
+    "initial_delay_seconds": 5.0,
+    "max_retries": 3
+  },
+  "production_prompt_bank_sha256": "5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98",
+  "protocol_version": "phase26c_primary_behavior_v1",
+  "run_key": "phase26c_primary_behavior_v1_b8f0ca6d5617",
+  "seed_manifest_sha256": "5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db",
+  "selection_manifest_sha256": "67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11",
+  "startup_verification_result": {
+    "completed_jobs_at_stop": 16,
+    "first_checkpoint_confirmed": true,
+    "model_loaded_confirmed": true,
+    "remote_state": "RUNNING",
+    "total_jobs": 2904
+  },
+  "status": "phase26c_primary_generation_running"
+}

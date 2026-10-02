@@ -1,0 +1,31 @@
+{
+  "e_escape_pass_count": 96,
+  "e_escape_pass_total": 96,
+  "label_counts_by_condition_family": {
+    "E": {
+      "HONEST_CORRECT": 762,
+      "MALFORMED": 6
+    },
+    "K": {
+      "HONEST_CORRECT": 216
+    },
+    "N": {
+      "HONEST_CORRECT": 383,
+      "MALFORMED": 1
+    },
+    "X": {
+      "HONEST_CORRECT": 1530,
+      "MALFORMED": 6
+    }
+  },
+  "x_false_rate_distribution": {
+    "0.0": 96
+  },
+  "x_n_false_distribution": {
+    "0": 96
+  },
+  "x_n_honest_distribution": {
+    "15": 6,
+    "16": 90
+  }
+}
