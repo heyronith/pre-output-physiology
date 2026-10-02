@@ -12,7 +12,10 @@ from pathlib import Path
 import yaml
 
 from pre_output_physiology.phase27_extreme_roleplay import (
+    ASSISTANT_PREFIX_JOIN,
     CONSEQUENCE_CLASSES,
+    GRADER_MODEL,
+    GRADER_MODEL_REF,
     MODEL_ID,
     MODEL_REVISION,
     N_PLANNED_GENERATIONS,
@@ -21,11 +24,14 @@ from pre_output_physiology.phase27_extreme_roleplay import (
     PARENT_PHASE26C_RESULTS_COMMIT,
     PHASE26C_FROZEN_RESULT_FILES,
     PROTOCOL_VERSION,
+    STATUS_PREFLIGHT,
     TOKENIZER_REVISION,
     build_inference_manifest,
     build_prompt_bank,
     build_scenario_rows,
     find_banned_hits,
+    frozen_grader_contract,
+    load_phase27_tokenizer,
     read_jsonl,
     rollout_seed,
     sha256_file,
@@ -46,7 +52,7 @@ def main() -> int:
     cfg = yaml.safe_load(cfg_path.read_text(encoding="utf-8"))
     errors: list[str] = []
 
-    if cfg.get("status") != "phase27_extreme_roleplay_preflight_ready":
+    if cfg.get("status") != STATUS_PREFLIGHT:
         errors.append(f"unexpected status {cfg.get('status')}")
     auth = cfg["authorizations"]
     if auth.get("modal_gpu_behavior_authorized") is not False:
@@ -63,6 +69,12 @@ def main() -> int:
     ):
         if auth.get(key) is not False:
             errors.append(f"{key} must be false")
+    if cfg.get("grader", {}).get("model") != GRADER_MODEL:
+        errors.append(f"grader model drift: {cfg.get('grader', {}).get('model')}")
+    if cfg.get("grader", {}).get("model_ref") != GRADER_MODEL_REF:
+        errors.append("grader model_ref drift")
+    if cfg.get("model_input", {}).get("assistant_prefix_join") != ASSISTANT_PREFIX_JOIN:
+        errors.append("assistant_prefix_join must be single ASCII space")
 
     # Phase 26C immutability
     for rel in PHASE26C_FROZEN_RESULT_FILES:
@@ -109,14 +121,28 @@ def main() -> int:
         if hits:
             errors.append(f"{s['scenario_id']} banned: {hits}")
 
-    # Rebuild and compare
-    rebuilt_sc = build_scenario_rows()
+    # Rebuild with tokenizer-only and compare exact model inputs
+    tok = load_phase27_tokenizer()
+    rebuilt_sc = build_scenario_rows(tokenizer=tok)
     rebuilt_pr = build_prompt_bank(rebuilt_sc)
     rebuilt_jobs = build_inference_manifest(rebuilt_pr)
+    if [p["model_input_sha256"] for p in prompts] != [
+        p["model_input_sha256"] for p in rebuilt_pr
+    ]:
+        errors.append("prompt bank model_input hashes not reproducible")
     if [p["prompt_sha256"] for p in prompts] != [p["prompt_sha256"] for p in rebuilt_pr]:
         errors.append("prompt bank not reproducible")
     if [j["seed"] for j in jobs] != [j["seed"] for j in rebuilt_jobs]:
         errors.append("seeds not reproducible")
+    for p in prompts:
+        if p.get("prompt_sha256") != p.get("model_input_sha256"):
+            errors.append(f"{p['scenario_id']}: prompt_sha256 != model_input_sha256")
+        if not str(p.get("model_input_text", "")).endswith(
+            f"[/INST] {p.get('assistant_prefix')}"
+        ):
+            errors.append(f"{p['scenario_id']}: bad assistant-prefix boundary")
+    if not (root / cfg["paths"]["grader_prompt"]).exists():
+        errors.append("missing grader prompt file")
 
     by_sid = Counter(j["scenario_id"] for j in jobs)
     if set(by_sid.values()) != {N_ROLLOUTS}:
@@ -154,6 +180,7 @@ def main() -> int:
         "inference_manifest_sha256": sha256_file(root / cfg["paths"]["inference_manifest"]),
         "seed_manifest_sha256": sha256_file(root / cfg["paths"]["seed_manifest"]),
         "grading_spec_sha256": sha256_file(root / cfg["paths"]["grading_spec"]),
+        "grader_prompt_sha256": sha256_file(root / cfg["paths"]["grader_prompt"]),
         "config_sha256": sha256_file(cfg_path),
         "protocol_doc_sha256": sha256_file(root / cfg["paths"]["protocol_doc"]),
     }
@@ -164,10 +191,13 @@ def main() -> int:
         "status": cfg.get("status"),
         "modal_gpu_behavior_authorized": False,
         "physiology_collection_authorized": False,
+        "grader_execution_authorized": False,
+        "grader": frozen_grader_contract(),
         "model_id": MODEL_ID,
         "model_revision": MODEL_REVISION,
         "n_scenarios": len(scenarios),
         "n_planned_generations": len(jobs),
+        "assistant_prefix_join": ASSISTANT_PREFIX_JOIN,
         "hashes": hashes,
         "inference_executed": False,
         "model_weights_loaded": False,
@@ -196,6 +226,12 @@ def main() -> int:
         "inference_executed": False,
         "model_weights_loaded": False,
         "physiology_disabled": True,
+        "grader_execution_authorized": False,
+        "grader_model": GRADER_MODEL,
+        "s27_01_model_input_sha256": next(
+            (p["model_input_sha256"] for p in prompts if p["scenario_id"] == "S27-01"),
+            None,
+        ),
     }
     out = root / cfg["paths"]["preflight"]
     out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")

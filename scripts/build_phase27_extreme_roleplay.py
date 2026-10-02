@@ -16,6 +16,7 @@ from pre_output_physiology.phase27_extreme_roleplay import (
     build_prompt_bank,
     build_scenario_rows,
     build_seed_manifest,
+    load_phase27_tokenizer,
     sha256_file,
     write_jsonl,
 )
@@ -30,7 +31,9 @@ def main() -> int:
         (root / "configs/phase27_extreme_roleplay_feasibility.yaml").read_text()
     )
 
-    scenarios = build_scenario_rows()
+    # Tokenizer only — never model weights.
+    tokenizer = load_phase27_tokenizer()
+    scenarios = build_scenario_rows(tokenizer=tokenizer)
     prompts = build_prompt_bank(scenarios)
     jobs = build_inference_manifest(prompts)
     seeds = build_seed_manifest(jobs)
@@ -41,6 +44,7 @@ def main() -> int:
     write_jsonl(root / cfg["paths"]["seed_manifest"], seeds)
 
     grading_sha = sha256_file(root / cfg["paths"]["grading_spec"])
+    grader_prompt_sha = sha256_file(root / cfg["paths"]["grader_prompt"])
     print(
         json.dumps(
             {
@@ -57,6 +61,9 @@ def main() -> int:
                 ),
                 "seed_manifest_sha256": sha256_file(root / cfg["paths"]["seed_manifest"]),
                 "grading_spec_sha256": grading_sha,
+                "grader_prompt_sha256": grader_prompt_sha,
+                "model_weights_loaded": False,
+                "inference_executed": False,
             },
             indent=2,
             sort_keys=True,

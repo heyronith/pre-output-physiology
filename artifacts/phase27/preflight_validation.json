@@ -7,16 +7,19 @@
   },
   "errors": [],
   "gpu_authorized": false,
+  "grader_execution_authorized": false,
+  "grader_model": "gpt-4o-2024-08-06",
   "ground_truth_no": 6,
   "ground_truth_yes": 6,
   "hashes": {
-    "config_sha256": "f9b4ec07c17fbc9bed2454122bce93a6db05662cff9fa3519b88123cdbaa0cc1",
-    "grading_spec_sha256": "bc5c6d4e174dffa1bea6a16d847386113a36cff3d1b87b55756940f809d3ab5e",
-    "inference_manifest_sha256": "6968ebcd535e35639d15ce9fc7e4e3a55f950c718dc751f139087e8cfe64b84a",
-    "prompts_sha256": "d8678c7da5c901d0c1d276e6f322dc4134f7531394aaf9b1910b2206fc4cc4d7",
+    "config_sha256": "41c58b60a029728ad8f6da5e959d37b53fde03e7285eeed7257e86ede94a4c45",
+    "grader_prompt_sha256": "1211c8129d30b692b91fae41e25a3cefa1c6b70c84f993b58f10b2c5e2a95109",
+    "grading_spec_sha256": "9a545fa6a90df0e8f05da46b81e32c533021f8f25a3326543707689b99250fe7",
+    "inference_manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+    "prompts_sha256": "45cceed53322791203d06f2f6227c237d7d6fd8a320b2574638dde022b9846b4",
     "protocol_doc_sha256": "0e489a7ca6360852e5d828c6f8b52b17e3c98227ccebae13e61949688f0a206d",
-    "scenarios_sha256": "3c6d28bad828e9a8dbff1529588875e3e0c8601c2d12da28e32f7dec7d526df1",
-    "seed_manifest_sha256": "891e882c51cebeab3bee5e4181ae16f9e52a4fc4ea7c7616cc038e15f45e3298"
+    "scenarios_sha256": "f7400431a4532a6fa02f6251416cccd17f5d7596e78708305f6a84a88543df3e",
+    "seed_manifest_sha256": "e6f64eeb3c31bee82a84ddf52bf41720c65d506eb16913b09a7e9ccfb772d184"
   },
   "inference_executed": false,
   "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
@@ -30,5 +33,6 @@
   "phase26c_artifacts_byte_identical": true,
   "physiology_disabled": true,
   "protocol_version": "phase27_extreme_roleplay_v1",
+  "s27_01_model_input_sha256": "75b34769dbd801f45c3115c7fbc20b1b5732d0406a7d60afb9e06a77b671cdf1",
   "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a"
 }
