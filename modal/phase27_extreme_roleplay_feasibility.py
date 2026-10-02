@@ -489,9 +489,27 @@ def sha256_text_local(s: str) -> str:
     return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
 
+def _deployed_functions() -> tuple[Any, Any]:
+    """Resolve deployed functions so spawn outlives ephemeral `modal run` apps."""
+    try:
+        status_fn = modal.Function.from_name(APP_NAME, "read_run_status")
+        run_fn = modal.Function.from_name(APP_NAME, "run_phase27_resumable")
+    except Exception as exc:  # noqa: BLE001
+        raise SystemExit(
+            "Deployed Phase 27 app not found. First run:\n"
+            "  uv run modal deploy modal/phase27_extreme_roleplay_feasibility.py\n"
+            f"Lookup error: {type(exc).__name__}: {exc}"
+        ) from exc
+    return status_fn, run_fn
+
+
 @app.local_entrypoint()
 def main() -> None:
-    """Authorize → validate → spawn detached → write receipt → exit (no wait)."""
+    """Authorize → validate → spawn on DEPLOYED app → write receipt → exit (no wait).
+
+    Spawning via Function.from_name (deployed app) is required so the GPU worker
+    is not killed when this ephemeral local entrypoint exits.
+    """
     cfg = _load_auth()
     manifest_text, jobs, manifest_sha = _verify_local_manifest()
     if cfg["model"]["revision"] != MODEL_REVISION:
@@ -500,7 +518,8 @@ def main() -> None:
         raise SystemExit("manifest sha re-read mismatch")
 
     run_key = run_key_from_manifest_sha(manifest_sha)
-    status = read_run_status.remote(run_key)
+    status_fn, run_fn = _deployed_functions()
+    status = status_fn.remote(run_key)
     decision = decide_launch_action(
         status=cfg.get("status"),
         modal_gpu_behavior_authorized=bool(
@@ -520,9 +539,21 @@ def main() -> None:
     branch = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "branch", "--show-current"], text=True
     ).strip()
-    auth_commit = launch_head
+    # Authorization commit is the dedicated authorize commit when available.
+    auth_commit = subprocess.check_output(
+        [
+            "git",
+            "-C",
+            str(REPO_ROOT),
+            "log",
+            "-1",
+            "--grep=authorize Phase 27 behavioral GPU generation",
+            "--format=%H",
+        ],
+        text=True,
+    ).strip() or launch_head
 
-    call = run_phase27_resumable.spawn(
+    call = run_fn.spawn(
         manifest_jsonl=manifest_text,
         manifest_sha256=manifest_sha,
         authorization_commit=auth_commit,
@@ -538,6 +569,12 @@ def main() -> None:
         launch_head=launch_head,
         branch=branch,
         resume=bool(decision.get("resume")),
+    )
+    receipt["deployed_app"] = APP_NAME
+    receipt["results_volume"] = RESULTS_VOLUME_NAME
+    receipt["prior_ephemeral_function_call_id"] = "fc-01M3ZEMEM6208AH10XHN0J2RVZ"
+    receipt["prior_ephemeral_failure"] = (
+        "ephemeral modal run stopped app before GPU worker persisted"
     )
     LAUNCH_RECEIPT.parent.mkdir(parents=True, exist_ok=True)
     LAUNCH_RECEIPT.write_text(
