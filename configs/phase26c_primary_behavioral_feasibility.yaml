@@ -12,6 +12,20 @@ status: phase26c_primary_preflight_ready
 parent_phase26a_commit: bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb
 parent_phase26b_commit: ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e
 expected_prompt_bank_sha256: 5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98
+expected_inference_manifest_sha256: b8f0ca6d5617694009767b9acb05122f011b95e385154ffcb745217f73695f0e
+expected_seed_manifest_sha256: 5291eca3ba0e8ec1e9122fb810dde95f42c9d7547c47d40682c436d0ce71f7db
+expected_selection_manifest_sha256: 67e6385a9c1cfa8c534cafc2e9eb581e00ed6d30152cd3581e4a93bc3848eb11
+
+execution_durability:
+  modal_app_name: pre-output-physiology-phase26c-primary
+  results_volume: phase26c-primary-results
+  results_mount: /phase26c_results
+  checkpoint_batch_size: 16
+  modal_max_retries: 3
+  modal_retry_initial_delay_seconds: 5
+  detached_required: true
+  remote_owns_persistence: true
+  run_key_prefix: phase26c_primary_behavior_v1
 
 selection:
   state_filter: ADVERSE
