@@ -8,7 +8,7 @@
 experiment_id: phase26c_primary_behavior
 phase: phase26c_primary
 protocol_version: phase26c_primary_behavior_v1
-status: phase26c_primary_preflight_ready
+status: phase26c_primary_generation_authorized
 parent_phase26a_commit: bfe441ac4901b4fb057c2c97df0a0a5d18d76ddb
 parent_phase26b_commit: ca0aaf6a8bba28a6a78d690189afa9ca3d824b2e
 expected_prompt_bank_sha256: 5d78e2114117d501371f4fb917dc7b35bdff5e2da731e947d416cc865b8ede98
@@ -117,7 +117,7 @@ paths:
   protocol_doc: docs/phase26c_primary_behavioral_feasibility.md
 
 authorizations:
-  modal_gpu_mistral_screening_authorized: false
+  modal_gpu_mistral_screening_authorized: true
   activation_capture_authorized: false
   output_hidden_states_authorized: false
   logit_save_authorized: false
