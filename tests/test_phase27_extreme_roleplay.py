@@ -18,9 +18,14 @@ from pre_output_physiology.phase27_extreme_roleplay import (
     EXPECTED_CHAT_TEMPLATE_SUFFIX,
     GRADER_MODEL,
     GRADER_MODEL_REF,
+    GRADER_MODEL_REVISION,
     GRADER_MODEL_SNAPSHOT,
     GRADER_PROMPT_RELPATH,
+    GRADER_SYSTEM,
     GRADER_TEMPERATURE,
+    GRADER_DO_SAMPLE,
+    GRADER_MAX_NEW_TOKENS,
+    GRADER_MAX_MODEL_LEN,
     MODEL_ID,
     MODEL_REVISION,
     N_PLANNED_GENERATIONS,
@@ -201,8 +206,10 @@ def test_model_and_generation_contract():
     assert cfg["generation"]["top_p"] is None
     assert cfg["generation"]["top_k"] is None
     assert cfg["generation"]["greedy"] is False
-    assert cfg["status"] == STATUS_PREFLIGHT
-    assert cfg["authorizations"]["modal_gpu_behavior_authorized"] is False
+    assert cfg["status"] in {STATUS_PREFLIGHT, STATUS_AUTHORIZED}
+    # After generation authorization, GPU may be true; grader/physiology stay false.
+    if cfg["status"] == STATUS_PREFLIGHT:
+        assert cfg["authorizations"]["modal_gpu_behavior_authorized"] is False
     for k in (
         "activation_capture_authorized",
         "output_hidden_states_authorized",
@@ -228,22 +235,49 @@ def test_mixed_eligible_and_score_mapping():
     assert parse_grader_judgement("x <judgement>6</judgement> y")[0] == 6
 
 
-def test_grader_frozen_no_execution():
+def test_grader_frozen_gemma_no_execution():
+    from pre_output_physiology.phase23_open_grader import (
+        APOLLO_RUBRIC_BODY,
+        GRADER_SYSTEM as P23_SYSTEM,
+        GRADER_USER_TEMPLATE,
+    )
+
     contract = frozen_grader_contract()
-    assert contract["grader_model"] == GRADER_MODEL == "gpt-4o-2024-08-06"
+    assert contract["grader_model"] == GRADER_MODEL == "google/gemma-4-31B-it"
     assert contract["grader_model_ref"] == GRADER_MODEL_REF
+    assert (
+        contract["grader_model_revision"]
+        == GRADER_MODEL_REVISION
+        == "842da3794eaa0b77d5f08bae87a17459d91ff475"
+    )
     assert contract["grader_model_snapshot"] == GRADER_MODEL_SNAPSHOT
-    assert contract["grader_temperature"] == 0.0
+    assert contract["grader_temperature"] == GRADER_TEMPERATURE == 0.0
+    assert contract["grader_do_sample"] is GRADER_DO_SAMPLE is False
+    assert contract["grader_max_new_tokens"] == GRADER_MAX_NEW_TOKENS == 256
+    assert contract["grader_max_model_len"] == GRADER_MAX_MODEL_LEN == 8192
+    assert contract["grader_system"] == GRADER_SYSTEM == P23_SYSTEM
     assert contract["execution_authorized"] is False
+    assert "ground_truth" in contract["grader_invisible_fields"]
+    assert "advantageous_false" in contract["grader_invisible_fields"]
+    assert contract["not_onset_localization"] is True
     prompt_path = ROOT / GRADER_PROMPT_RELPATH
-    assert prompt_path.exists()
     text = prompt_path.read_text(encoding="utf-8")
-    assert "{scenario}" in text and "{response}" in text
-    assert "advantageous false" in text.lower() or "Advantageous False" in text
+    expected = GRADER_USER_TEMPLATE.format(
+        apollo_rubric_body=APOLLO_RUBRIC_BODY,
+        scenario="{scenario}",
+        question="{question}",
+        response="{response}",
+    )
+    assert text.rstrip("\n") == expected.rstrip("\n")
+    assert "ground_truth" not in text
+    assert "advantageous_false" not in text
+    assert "{scenario}" in text and "{question}" in text and "{response}" in text
     cfg = yaml.safe_load(
         (ROOT / "configs/phase27_extreme_roleplay_feasibility.yaml").read_text()
     )
     assert cfg["authorizations"]["grader_execution_authorized"] is False
+    assert cfg["grader"]["model"] == "google/gemma-4-31B-it"
+    assert cfg["grader"]["revision"] == GRADER_MODEL_REVISION
 
 
 def test_checkpoint_resume_and_integrity(jobs, tmp_path: Path):
@@ -342,12 +376,22 @@ def test_run_key_and_checkpoint_batch():
 
 
 def test_launcher_refuses_preflight_status():
-    cfg = yaml.safe_load(
-        (ROOT / "configs/phase27_extreme_roleplay_feasibility.yaml").read_text()
-    )
-    assert cfg["status"] == STATUS_PREFLIGHT
+    # Pure decision helper must refuse preflight even if current config is authorized.
+    preflight_cfg = {
+        "status": STATUS_PREFLIGHT,
+        "authorizations": {
+            "modal_gpu_behavior_authorized": False,
+            "activation_capture_authorized": False,
+            "output_hidden_states_authorized": False,
+            "logit_save_authorized": False,
+            "probe_fitting_authorized": False,
+            "sae_analysis_authorized": False,
+            "causal_intervention_authorized": False,
+            "physiology_collection_authorized": False,
+        },
+    }
     with pytest.raises(SystemExit):
-        assert_generation_authorized(cfg)
+        assert_generation_authorized(preflight_cfg)
     decision = decide_launch_action(
         status=STATUS_PREFLIGHT,
         modal_gpu_behavior_authorized=False,
@@ -357,6 +401,11 @@ def test_launcher_refuses_preflight_status():
         active_run=None,
     )
     assert decision["action"] == "refuse"
+    # Grader remains unauthorized in the live config.
+    cfg = yaml.safe_load(
+        (ROOT / "configs/phase27_extreme_roleplay_feasibility.yaml").read_text()
+    )
+    assert cfg["authorizations"]["grader_execution_authorized"] is False
 
 
 def test_authorized_launcher_calls_spawn():
@@ -424,7 +473,8 @@ def test_runner_uses_frozen_input_not_reconstruction():
     text = (ROOT / "modal/phase27_extreme_roleplay_feasibility.py").read_text()
     assert "verify_frozen_model_input" in text
     assert "model_input_text" in text
-    assert "run_phase27_resumable.spawn" in text
+    assert "run_fn.spawn" in text or "run_phase27_resumable.spawn" in text
+    assert "Function.from_name" in text
     assert "decide_launch_action" in text
     # Must not independently rebuild via apply_chat_template in the generate loop.
     # (Tokenizer may still be used for encode verification / decoding.)

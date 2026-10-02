@@ -1,0 +1,128 @@
+{
+  "checkpoints": [
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00000.jsonl",
+      "sha256": "51d347089bd8611ae4c78155561676f04ecc5f478ec48ee14e1de79bfbf1eb43"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00001.jsonl",
+      "sha256": "a91fd7ca3dbe1d8a1341845f37860e3c2d27922bd3acf1664e1a2272d581cdbf"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00002.jsonl",
+      "sha256": "ae8ae0829cc50ea8830dea7fee37e8ca929c4b017220e3edc319fa5239aa0b69"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00003.jsonl",
+      "sha256": "24026a5063137050ba6fe2ca36c8e5351e08f29a2ce2292338b3c42ad923a041"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00004.jsonl",
+      "sha256": "a7aa79cdead5d8498ebeeb2b3299f586dabe4896f730013a95a052e443f722c4"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00005.jsonl",
+      "sha256": "2581fd1f4ec2632183d53533d9afba52ff94c7acdf3f101435c1b8b4ba0bfbcc"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00006.jsonl",
+      "sha256": "3c13a36d88506d415d872692153337edd96ce9cbd0c0ff1a82f0f1fd807c7248"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00007.jsonl",
+      "sha256": "1e9424b475a57822163ad0cb0884044e81b37ed9f0bbeed587333199649540d4"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00008.jsonl",
+      "sha256": "5c9eefa1f5c9b32af7e8fcfc7d8376cfefe5f4ff1ef3aee168d15ba96168c971"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00009.jsonl",
+      "sha256": "54b1c633a1ef0235d60502d1c12371323f8aabbe3699e408a27e7f91311789e6"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00010.jsonl",
+      "sha256": "ac98a68759dd87023956725e138f6aead4729845861e8a6add50642741c7ecef"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00011.jsonl",
+      "sha256": "2823a8b2f85d7968b0501bc8491de31353bef5d6433831ebbdb9887c88696e3b"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00012.jsonl",
+      "sha256": "8b57e110684f10e35fc41087103d68131c376fe9a1d7f580cb80cc2adb845b69"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00013.jsonl",
+      "sha256": "ce79b1bb32585452b23505017d9a3aa95b8a6938583db33802472a6535820046"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00014.jsonl",
+      "sha256": "8cb77656741f4cd908621ec724fe9dac75143a121478936057f3e78dd5900eda"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00015.jsonl",
+      "sha256": "169bfcefc4ff3222a7976db95c1f5dc6b30191e15e0633cac367995a8cf74345"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00016.jsonl",
+      "sha256": "8e947f99b3064b9f797670983b0e9855b2630dbf51ddc25952f8ae373a6082b0"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00017.jsonl",
+      "sha256": "b59d5de8deaeab88dc9981bc189a521e3db540a71b236c98ed6420adf82a55ac"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00018.jsonl",
+      "sha256": "8c8053d227c26779e11e65a89e792081a977c6f4e89216ee14bf8a20c05ea8fc"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00019.jsonl",
+      "sha256": "808464d7bcfe62f457ec1f49b098ce354f0178bf603d3c6169be926349aae94f"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00020.jsonl",
+      "sha256": "f937abff4bc750e10bfbcf8d2ff7de9f379cf728f598eb780daa2f2fb8e5f520"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00021.jsonl",
+      "sha256": "45ebbee564614772201c06b98276d1f890a75f6216db1d1b86604a8e01f9a5c3"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00022.jsonl",
+      "sha256": "9d0444d8e7d2b361245d20bc479fe832ab0a719ceef6781a0958565d99e463c5"
+    },
+    {
+      "n_rows": 12,
+      "path": "volume_mirror/phase27_extreme_roleplay_v1_331444a42699/checkpoints/checkpoint_00023.jsonl",
+      "sha256": "8425fbd38d88ce2a0a35db7acf569cc72090952266d0bc2255f4bc8803e946b9"
+    }
+  ],
+  "n_checkpoint_files": 24,
+  "n_checkpoint_rows": 288,
+  "run_key": "phase27_extreme_roleplay_v1_331444a42699",
+  "volume": "phase27-extreme-roleplay-results"
+}

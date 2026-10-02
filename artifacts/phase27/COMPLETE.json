@@ -1,0 +1,8 @@
+{
+  "completed_utc": "2026-10-02T23:40:10Z",
+  "manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+  "n_generations": 288,
+  "raw_generations_sha256": "61fe3ce1a5568e58ce1393bb4d0260ba7eec1b58dca9b21b56edba3723dcd226",
+  "status": "COMPLETE",
+  "validate_raw_against_manifest": true
+}

@@ -1,0 +1,37 @@
+{
+  "behavioral_labels_computed": false,
+  "complete": {
+    "completed_utc": "2026-10-02T23:40:10Z",
+    "manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+    "n_generations": 288,
+    "raw_generations_sha256": "61fe3ce1a5568e58ce1393bb4d0260ba7eec1b58dca9b21b56edba3723dcd226",
+    "status": "COMPLETE",
+    "validate_raw_against_manifest": true
+  },
+  "errors": [],
+  "integrity_errors_n": 0,
+  "manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+  "n_checkpoint_files": 24,
+  "n_checkpoint_rows": 288,
+  "n_per_scenario": {
+    "S27-01": 24,
+    "S27-02": 24,
+    "S27-03": 24,
+    "S27-04": 24,
+    "S27-05": 24,
+    "S27-06": 24,
+    "S27-07": 24,
+    "S27-08": 24,
+    "S27-09": 24,
+    "S27-10": 24,
+    "S27-11": 24,
+    "S27-12": 24
+  },
+  "n_raw": 288,
+  "n_unique_job_ids": 288,
+  "ok": true,
+  "physiology_violations": 0,
+  "raw_sha256": "61fe3ce1a5568e58ce1393bb4d0260ba7eec1b58dca9b21b56edba3723dcd226",
+  "responses_inspected_for_outcome": false,
+  "technical_failures": 0
+}

@@ -1,77 +1,69 @@
-# Secrets and local env
-.env
-.env.*
+
 !.env.example
-*.pem
-*.key
-credentials*.json
-secrets/
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.eggs/
-dist/
-build/
-.venv/
-venv/
-.python-version
-.mypy_cache/
-.ruff_cache/
-.pytest_cache/
-.coverage
-htmlcov/
-*.cover
-
-# uv / lock may be committed; keep local tool noise out
-.uv/
-
+!artifacts/README.md
+!data/README.md
+# Data payloads (metadata READMEs stay tracked)
 # Editors / OS
-.DS_Store
-.idea/
-.vscode/
-*.swp
-
+# Experimental artifacts (raw runs are local / object storage)
+# Jupyter
+# Logs
+# Modal / cloud scratch
 # Model weights and large binaries (never commit)
+# Phase 4 frozen model weights (raw)
+# Python
+# Secrets and local env
+# uv / lock may be committed; keep local tool noise out
+*$py.class
 *.bin
-*.safetensors
+*.cover
+*.egg-info/
+*.key
+*.log
+*.npz
+*.onnx
+*.pem
 *.pt
 *.pth
-*.onnx
-/models/
-/checkpoints/
-/weights/
-checkpoints/
-weights/
-
-# Experimental artifacts (raw runs are local / object storage)
-artifacts/runs/
-artifacts/raw/
-artifacts/derived/
-!artifacts/README.md
-
-# Data payloads (metadata READMEs stay tracked)
-data/raw/
-data/processed/
-data/external/
-!data/README.md
-
-# Jupyter
+*.py[cod]
+*.safetensors
+*.swp
+.DS_Store
+.coverage
+.eggs/
+.env
+.env.*
+.idea/
 .ipynb_checkpoints/
-
-# Modal / cloud scratch
 .modal/
-
-# Logs
-*.log
-logs/
-
-# Phase 4 frozen model weights (raw)
-artifacts/phase4_models/
-*.npz
+.mypy_cache/
+.pytest_cache/
+.python-version
+.ruff_cache/
+.uv/
+.venv/
+.vscode/
+/checkpoints/
+/models/
+/weights/
+__pycache__/
+artifacts/derived/
 artifacts/phase24e_discovery/activations_local/
 artifacts/phase24f_confirmation/activations_local/
 artifacts/phase24g_diagnostics/activations_local/
 artifacts/phase26c_primary/modal_staging/
+artifacts/phase27/volume_mirror/
+artifacts/phase4_models/
+artifacts/raw/
+artifacts/runs/
+build/
+checkpoints/
+credentials*.json
+data/external/
+data/processed/
+data/raw/
+dist/
+htmlcov/
+logs/
+secrets/
+venv/
+weights/

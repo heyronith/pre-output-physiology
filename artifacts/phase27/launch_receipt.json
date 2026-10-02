@@ -1,0 +1,17 @@
+{
+  "authorization_commit": "7c680af87cfc13ca72cc981ccf0c8ccc1e4e0245",
+  "branch": "phase27/extreme-roleplay-feasibility-v1",
+  "deployed_app": "pre-output-physiology-phase27-extreme-roleplay",
+  "detached": true,
+  "function_call_id": "fc-01M3ZFFJ1M553BZ5K7JN8XVDS8",
+  "launch_head": "5f7d8aa309a3b83a1e8586df3252af8f7ad5ede9",
+  "manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+  "n_planned_generations": 288,
+  "prior_ephemeral_failure": "ephemeral modal run stopped app before GPU worker persisted",
+  "prior_ephemeral_function_call_id": "fc-01M3ZEMEM6208AH10XHN0J2RVZ",
+  "protocol_version": "phase27_extreme_roleplay_v1",
+  "results_volume": "phase27-extreme-roleplay-results",
+  "resume": false,
+  "run_key": "phase27_extreme_roleplay_v1_331444a42699",
+  "wait_for_completion": false
+}
