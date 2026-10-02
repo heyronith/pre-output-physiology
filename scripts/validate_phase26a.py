@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Phase 26A protocol freeze artifacts (no model inference)."""
+"""Validate Phase 26A-v2 scientific construct freeze (no model inference)."""
 
 from __future__ import annotations
 
