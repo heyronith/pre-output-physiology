@@ -733,6 +733,10 @@ def main() -> None:
     auth_commit = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
     ).strip()
+    # Prefer explicit engineering durability parent when HEAD is the auth commit.
+    eng_commit = subprocess.check_output(
+        ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD~1"], text=True
+    ).strip()
     branch = subprocess.check_output(
         ["git", "-C", str(REPO_ROOT), "branch", "--show-current"], text=True
     ).strip()
@@ -802,7 +806,7 @@ def main() -> None:
     receipt = {
         "branch": branch,
         "authorization_commit_sha": auth_commit,
-        "engineering_durability_commit_sha": auth_commit,  # same HEAD at launch if auth is tip
+        "engineering_durability_commit_sha": eng_commit,
         "protocol_version": PROTOCOL_VERSION,
         "run_key": run_key,
         "modal_app_name": APP_NAME,
