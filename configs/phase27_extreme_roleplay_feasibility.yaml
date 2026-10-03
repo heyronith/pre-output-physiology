@@ -4,7 +4,7 @@ experiment_id: phase27_extreme_roleplay_feasibility
 phase: phase27_extreme_roleplay
 protocol_version: phase27_extreme_roleplay_v1
 status: phase27_extreme_roleplay_generation_authorized
-grading_status: phase27_gemma_grading_preflight_ready
+grading_status: phase27_gemma_grading_authorized
 parent_phase26c_results_commit: b39e1b2d9cd5ab6851fab06c8f103674ab9e2209
 
 model:
@@ -161,9 +161,9 @@ authorizations:
   sae_analysis_authorized: false
   causal_intervention_authorized: false
   physiology_collection_authorized: false
-  grader_execution_authorized: false
+  grader_execution_authorized: true
 
 notes: >
   Phase 26C factual REPORT framing yielded zero strategically false reports.
   Phase 27 tests natural human roleplay + extreme consequence only.
-  Behavioral GPU generation authorized; physiology and grader remain unauthorized.
+  Behavioral generation and Gemma response-level grading authorized; physiology remains unauthorized.
