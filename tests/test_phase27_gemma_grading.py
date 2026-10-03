@@ -16,6 +16,7 @@ from pre_output_physiology.phase27_gemma_grading import (
     EXPECTED_GRADING_SPEC_SHA256,
     EXPECTED_INFERENCE_MANIFEST_SHA256,
     EXPECTED_RAW_SHA256,
+    GRADER_BATCH_SIZE,
     GRADER_MODEL,
     GRADER_REVISION,
     GRADER_SYSTEM,
@@ -23,6 +24,9 @@ from pre_output_physiology.phase27_gemma_grading import (
     GRADING_STATUS_PREFLIGHT,
     INVALID_PRIMARY,
     N_PLANNED_GENERATIONS,
+    OPEN_GRADER_CACHE_VOLUME,
+    PHASE23_GRADING_ENGINE,
+    PHASE23_GRADING_IMAGE_PACKAGES,
     RESULTS_VOLUME_NAME,
     assert_grading_authorized,
     assert_raw_source,
@@ -37,6 +41,10 @@ from pre_output_physiology.phase27_gemma_grading import (
     mixed_eligible_from_counts,
     primary_label_from_parsed,
     sha256_file,
+    validate_grades_against_manifest,
+)
+FROZEN_GRADING_MANIFEST_SHA = (
+    "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9"
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -196,26 +204,29 @@ def test_authorization_interlock():
     assert d3["action"] == "refuse"
 
 
+def _grade_row_from_job(j: dict) -> dict:
+    return {
+        "grading_job_id": j["grading_job_id"],
+        "job_id": j["job_id"],
+        "scenario_id": j["scenario_id"],
+        "response_sha256": j["response_sha256"],
+        "grader_prompt_sha256": j["grader_prompt_sha256"],
+        "grader_model_input_sha256": j["grader_model_input_sha256"],
+        "grader_input_ids_sha256": j["grader_input_ids_sha256"],
+        "rollout_index": j["rollout_index"],
+        "grader": j["grader"],
+        "primary_label": "HONEST",
+        "parse_valid": True,
+    }
+
+
 def test_checkpoint_resume_and_duplicates(grading_jobs, tmp_path: Path):
     assert CHECKPOINT_BATCH_SIZE == 24
     subset = grading_jobs[:40]
     jobs_by = {j["grading_job_id"]: j for j in subset}
     ckpt = tmp_path / "checkpoints"
     ckpt.mkdir()
-    rows = []
-    for j in subset[:24]:
-        rows.append(
-            {
-                "grading_job_id": j["grading_job_id"],
-                "job_id": j["job_id"],
-                "scenario_id": j["scenario_id"],
-                "response_sha256": j["response_sha256"],
-                "grader_model_input_sha256": j["grader_model_input_sha256"],
-                "grader_input_ids_sha256": j["grader_input_ids_sha256"],
-                "rollout_index": j["rollout_index"],
-                "grader": j["grader"],
-            }
-        )
+    rows = [_grade_row_from_job(j) for j in subset[:24]]
     (ckpt / "checkpoint_00000.jsonl").write_text(
         "\n".join(json.dumps(r) for r in rows) + "\n"
     )
@@ -237,6 +248,127 @@ def test_checkpoint_resume_and_duplicates(grading_jobs, tmp_path: Path):
     (ckpt / "checkpoint_00001.jsonl").write_text(json.dumps(rows[0]) + "\n")
     _, err2 = load_grading_checkpoints(checkpoint_dir=ckpt, jobs_by_id=jobs_by)
     assert any("duplicate" in e for e in err2)
+
+
+def test_final_grades_validator_rejects_corruptions(grading_jobs):
+    good = [_grade_row_from_job(j) for j in grading_jobs]
+    assert validate_grades_against_manifest(good, grading_jobs) == []
+
+    # Duplicate grading IDs detected before dict collapse
+    dups = list(good)
+    dups.append(dict(good[0]))
+    err_dup = validate_grades_against_manifest(dups, grading_jobs)
+    assert any("duplicate grading_job_id" in e for e in err_dup)
+
+    # Changed response SHA
+    bad_resp = list(good)
+    bad_resp[0] = dict(bad_resp[0])
+    bad_resp[0]["response_sha256"] = "0" * 64
+    assert any(
+        "response_sha256" in e
+        for e in validate_grades_against_manifest(bad_resp, grading_jobs)
+    )
+
+    # Changed model-input SHA
+    bad_mi = list(good)
+    bad_mi[1] = dict(bad_mi[1])
+    bad_mi[1]["grader_model_input_sha256"] = "1" * 64
+    assert any(
+        "grader_model_input_sha256" in e
+        for e in validate_grades_against_manifest(bad_mi, grading_jobs)
+    )
+
+    # Changed Gemma revision
+    bad_rev = list(good)
+    bad_rev[2] = dict(bad_rev[2])
+    bad_rev[2]["grader"] = dict(bad_rev[2]["grader"])
+    bad_rev[2]["grader"]["model_revision"] = "deadbeef"
+    assert any(
+        "model_revision" in e
+        for e in validate_grades_against_manifest(bad_rev, grading_jobs)
+    )
+
+    # Changed generation settings
+    bad_set = list(good)
+    bad_set[3] = dict(bad_set[3])
+    bad_set[3]["grader"] = dict(bad_set[3]["grader"])
+    bad_set[3]["grader"]["temperature"] = 0.7
+    assert any(
+        "temperature" in e
+        for e in validate_grades_against_manifest(bad_set, grading_jobs)
+    )
+
+    # Missing row
+    missing = good[:-1]
+    assert any(
+        "grades rows" in e or "missing" in e or "set mismatch" in e
+        for e in validate_grades_against_manifest(missing, grading_jobs)
+    )
+
+
+def test_phase23_environment_and_production_path():
+    assert GRADER_BATCH_SIZE == 4
+    assert PHASE23_GRADING_ENGINE == "transformers_generate_temp0_batch4"
+    assert OPEN_GRADER_CACHE_VOLUME == "preoutput-open-grader-cache"
+    assert PHASE23_GRADING_IMAGE_PACKAGES == (
+        "torch==2.6.0",
+        "transformers==5.17.0",
+        "accelerate==1.15.0",
+        "huggingface_hub==1.5.0",
+        "sentencepiece==0.2.0",
+        "protobuf==5.29.4",
+        "numpy==1.26.4",
+        "pyyaml==6.0.2",
+        "safetensors==0.8.0",
+    )
+    text = (ROOT / "modal/phase27_gemma_grading.py").read_text()
+    assert "PHASE23_GRADING_IMAGE_PACKAGES" in text
+    assert ".pip_install(*PHASE23_GRADING_IMAGE_PACKAGES)" in text
+    assert "OPEN_GRADER_CACHE_VOLUME" in text
+    assert 'Volume.from_name(OPEN_GRADER_CACHE_VOLUME' in text
+    assert 'Volume.from_name("preoutput-mistral-cache"' not in text
+    assert "trust_remote_code=True" in text
+    assert 'padding_side = "left"' in text
+    assert "do_sample=False" in text
+    assert "GRADER_BATCH_SIZE" in text
+    assert "validate_grades_against_manifest" in text
+    assert '"validate_grades_against_manifest": True' in text
+    # COMPLETE write happens only after full grades validation.
+    body = text.split("def run_phase27_gemma_grading_resumable", 1)[1]
+    assert body.index("validate_grades_against_manifest(grade_rows") < body.index(
+        '(rdir / "COMPLETE.json").write_text'
+    )
+    assert body.index("validate_grades_against_manifest(written") < body.index(
+        '(rdir / "COMPLETE.json").write_text'
+    )
+
+    cfg = yaml.safe_load(
+        (ROOT / "configs/phase27_extreme_roleplay_feasibility.yaml").read_text()
+    )
+    assert cfg["grading_status"] == GRADING_STATUS_PREFLIGHT
+    assert cfg["authorizations"]["grader_execution_authorized"] is False
+    assert cfg["grading_execution_durability"]["grader_batch_size"] == 4
+    assert (
+        cfg["grading_execution_durability"]["open_grader_cache_volume"]
+        == "preoutput-open-grader-cache"
+    )
+    assert cfg["grading_execution_durability"]["image_packages"] == list(
+        PHASE23_GRADING_IMAGE_PACKAGES
+    )
+
+
+def test_tokenizer_left_padding_and_trust_remote(tokenizer):
+    assert tokenizer.padding_side == "left"
+    assert tokenizer.pad_token_id is not None
+    # Frozen revision identity
+    assert GRADER_REVISION == "842da3794eaa0b77d5f08bae87a17459d91ff475"
+
+
+def test_manifest_byte_identical_if_present():
+    man = ROOT / "artifacts/phase27/grading_manifest.jsonl"
+    if not man.exists():
+        return
+    assert sha256_file(man) == FROZEN_GRADING_MANIFEST_SHA
 
 
 def test_analysis_helpers_prepared_but_not_run_on_real_data():
@@ -262,8 +394,12 @@ def test_runner_refuses_preflight_and_no_outcome_retry():
     assert "outcome_dependent_retry" in text
     assert "parse_json_grade" in text
     assert "verify_frozen_grader_model_input" in text
-    assert "Mistral" not in text or "No Mistral" in text
+    assert "No Mistral" in text or "no Mistral" in text.lower() or "Mistral loading" in text
     assert RESULTS_VOLUME_NAME == "phase27-extreme-roleplay-grading-results"
+    # Invalid semantic output must not trigger resampling/rescue.
+    assert "INVALID_GRADER_OUTPUT" in (
+        ROOT / "src/pre_output_physiology/phase27_gemma_grading.py"
+    ).read_text()
 
 
 def test_artifacts_if_present():

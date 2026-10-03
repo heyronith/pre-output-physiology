@@ -61,8 +61,25 @@ GRADER_PROMPT_RELPATH = "docs/phase27_extreme_roleplay_grader_prompt.txt"
 GRADING_SPEC_RELPATH = "docs/phase27_extreme_roleplay_grading_spec.md"
 
 CHECKPOINT_BATCH_SIZE = 24
+GRADER_BATCH_SIZE = 4  # Phase 23 validated transformers_generate_temp0_batch4
 RESULTS_VOLUME_NAME = "phase27-extreme-roleplay-grading-results"
 RESULTS_MOUNT = "/phase27_grading_results"
+OPEN_GRADER_CACHE_VOLUME = "preoutput-open-grader-cache"
+CACHE_DIR = "/vol/hf_cache"
+
+# Exact Phase 23 Modal image pins (modal/phase23_grade_pilot.py).
+PHASE23_GRADING_IMAGE_PACKAGES = (
+    "torch==2.6.0",
+    "transformers==5.17.0",
+    "accelerate==1.15.0",
+    "huggingface_hub==1.5.0",
+    "sentencepiece==0.2.0",
+    "protobuf==5.29.4",
+    "numpy==1.26.4",
+    "pyyaml==6.0.2",
+    "safetensors==0.8.0",
+)
+PHASE23_GRADING_ENGINE = "transformers_generate_temp0_batch4"
 
 INVALID_PRIMARY = "INVALID_GRADER_OUTPUT"
 PRIMARY_LABELS = ("HONEST", "DECEPTIVE", "AMBIGUOUS", INVALID_PRIMARY)
@@ -151,15 +168,24 @@ def build_grader_messages_from_template(
 
 
 def load_gemma_tokenizer(*, local_files_only: bool = False) -> Any:
-    """Tokenizer only — never Gemma model weights."""
+    """Tokenizer only — never Gemma model weights.
+
+    Matches Phase 23 response-level grader tokenizer semantics:
+    trust_remote_code=True, padding_side=left, pad=EOS when absent.
+    """
     from transformers import AutoTokenizer
 
-    return AutoTokenizer.from_pretrained(
+    tok = AutoTokenizer.from_pretrained(
         GRADER_MODEL,
         revision=GRADER_REVISION,
         use_fast=True,
+        trust_remote_code=True,
         local_files_only=local_files_only,
     )
+    tok.padding_side = "left"
+    if tok.pad_token_id is None:
+        tok.pad_token = tok.eos_token
+    return tok
 
 
 def render_gemma_model_input(
@@ -486,16 +512,29 @@ GRADING_CHECKPOINT_FIELDS = (
     "grading_job_id",
     "job_id",
     "scenario_id",
+    "rollout_index",
     "response_sha256",
+    "grader_prompt_sha256",
     "grader_model_input_sha256",
     "grader_input_ids_sha256",
-    "rollout_index",
+)
+
+GRADING_SETTINGS_FIELDS = (
+    "model_id",
+    "model_revision",
+    "dtype",
+    "temperature",
+    "do_sample",
+    "top_p",
+    "max_new_tokens",
+    "max_model_len",
 )
 
 
 def validate_grading_checkpoint_row(
     row: dict[str, Any], job: dict[str, Any]
 ) -> list[str]:
+    """Shared field checks for checkpoints and final grades.jsonl."""
     errors: list[str] = []
     for field in GRADING_CHECKPOINT_FIELDS:
         if row.get(field) != job.get(field):
@@ -505,20 +544,88 @@ def validate_grading_checkpoint_row(
             )
     row_g = row.get("grader") or row.get("grader_settings") or {}
     job_g = job.get("grader") or {}
-    for field in (
-        "model_id",
-        "model_revision",
-        "temperature",
-        "do_sample",
-        "top_p",
-        "max_new_tokens",
-        "max_model_len",
-        "dtype",
-    ):
+    for field in GRADING_SETTINGS_FIELDS:
         if row_g.get(field) != job_g.get(field):
             errors.append(
-                f"{job.get('grading_job_id')}: grader.{field} mismatch"
+                f"{job.get('grading_job_id')}: grader.{field} mismatch "
+                f"row={row_g.get(field)!r} manifest={job_g.get(field)!r}"
             )
+    return errors
+
+
+def validate_grades_against_manifest(
+    grades: list[dict[str, Any]],
+    manifest_jobs: list[dict[str, Any]],
+) -> list[str]:
+    """Full exact grades↔manifest validation.
+
+    Duplicate IDs are detected from raw lists before any dict collapse so they
+    cannot be silently hidden.
+    """
+    errors: list[str] = []
+    if len(grades) != N_PLANNED_GENERATIONS:
+        errors.append(f"grades rows {len(grades)} != {N_PLANNED_GENERATIONS}")
+    if len(manifest_jobs) != N_PLANNED_GENERATIONS:
+        errors.append(
+            f"manifest jobs {len(manifest_jobs)} != {N_PLANNED_GENERATIONS}"
+        )
+
+    grade_gids = [g.get("grading_job_id") for g in grades]
+    grade_jids = [g.get("job_id") for g in grades]
+    man_gids = [j.get("grading_job_id") for j in manifest_jobs]
+    man_jids = [j.get("job_id") for j in manifest_jobs]
+
+    if any(x is None for x in grade_gids):
+        errors.append("grades missing grading_job_id")
+    if any(x is None for x in grade_jids):
+        errors.append("grades missing job_id")
+
+    if len(grade_gids) != len(set(x for x in grade_gids if x is not None)):
+        counts: dict[str, int] = {}
+        for gid in grade_gids:
+            if gid is None:
+                continue
+            counts[gid] = counts.get(gid, 0) + 1
+        dups = sorted([gid for gid, n in counts.items() if n > 1])
+        errors.append(f"duplicate grading_job_id(s): {dups[:5]}")
+
+    if len(grade_jids) != len(set(x for x in grade_jids if x is not None)):
+        counts2: dict[str, int] = {}
+        for jid in grade_jids:
+            if jid is None:
+                continue
+            counts2[jid] = counts2.get(jid, 0) + 1
+        dups2 = sorted([jid for jid, n in counts2.items() if n > 1])
+        errors.append(f"duplicate job_id(s): {dups2[:5]}")
+
+    if set(grade_gids) != set(man_gids):
+        missing = sorted(set(man_gids) - set(grade_gids))
+        extra = sorted(set(grade_gids) - set(man_gids))
+        errors.append(
+            f"grading_job_id set mismatch missing={len(missing)} extra={len(extra)}; "
+            f"missing_sample={missing[:3]} extra_sample={extra[:3]}"
+        )
+    if set(grade_jids) != set(man_jids):
+        errors.append("original job_id set mismatch vs grading manifest")
+
+    # Map only after duplicate detection above.
+    by_gid: dict[str, dict[str, Any]] = {}
+    for g in grades:
+        gid = g.get("grading_job_id")
+        if gid is None:
+            continue
+        if gid in by_gid:
+            # Already reported as duplicate; skip second overwrite.
+            continue
+        by_gid[gid] = g
+
+    for job in manifest_jobs:
+        gid = job["grading_job_id"]
+        row = by_gid.get(gid)
+        if row is None:
+            errors.append(f"missing grade for {gid}")
+            continue
+        errors.extend(validate_grading_checkpoint_row(row, job))
     return errors
 
 
@@ -552,6 +659,18 @@ def load_grading_checkpoints(
                 continue
             completed[gid] = row
     return completed, errors
+
+
+def collect_checkpoint_grade_rows(checkpoint_dir: Path) -> list[dict[str, Any]]:
+    """Collect checkpoint rows as a list (preserves duplicates for validation)."""
+    rows: list[dict[str, Any]] = []
+    if not checkpoint_dir.exists():
+        return rows
+    for path in sorted(checkpoint_dir.glob("checkpoint_*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                rows.append(json.loads(line))
+    return rows
 
 
 # --- Post-grading analysis (prepared; do not run during preflight) ---

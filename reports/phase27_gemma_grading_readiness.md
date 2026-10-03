@@ -19,6 +19,13 @@
 - T=0.0, do_sample=false, top_p=1.0, max_new_tokens=256, max_model_len=8192, bf16, A100-80GB
 - Inputs: Scenario / Question / Response only
 
+## Execution environment (Phase 23C-matched)
+
+- Image packages: torch 2.6.0 / transformers 5.17.0 / accelerate 1.15.0 / huggingface_hub 1.5.0 / sentencepiece 0.2.0 / protobuf 5.29.4 / numpy 1.26.4 / pyyaml 6.0.2 / safetensors 0.8.0
+- Cache Volume: `preoutput-open-grader-cache`
+- Engine: `transformers_generate_temp0_batch4` (batch size 4)
+- Tokenizer: `trust_remote_code=True`, `padding_side=left`
+
 ## Pipeline freeze
 
 - 288 grading jobs; exact raw job-set equality

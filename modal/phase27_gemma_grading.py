@@ -4,14 +4,18 @@ PREFLIGHT: refuses GPU grading until:
   grading_status == phase27_gemma_grading_authorized
   AND grader_execution_authorized == true
 
-Uses frozen grader_model_input_text from the grading manifest.
-No Mistral loading. No physiology. No onset localization.
+Reproduces the validated Phase 23 Gemma environment / generation semantics
+(`transformers_generate_temp0_batch4`) while consuming frozen Phase 27
+`grader_model_input_text` (no grader-visible content regeneration).
+
+No Mistral loading. Uses preoutput-open-grader-cache (not preoutput-mistral-cache).
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
@@ -23,7 +27,9 @@ import modal
 
 from pre_output_physiology.phase23_open_grader import parse_json_grade
 from pre_output_physiology.phase27_gemma_grading import (
+    CACHE_DIR,
     CHECKPOINT_BATCH_SIZE,
+    GRADER_BATCH_SIZE,
     GRADING_PROTOCOL_VERSION,
     GRADING_STATUS_AUTHORIZED,
     GRADER_MAX_MODEL_LEN,
@@ -31,13 +37,19 @@ from pre_output_physiology.phase27_gemma_grading import (
     GRADER_MODEL,
     GRADER_REVISION,
     N_PLANNED_GENERATIONS,
+    OPEN_GRADER_CACHE_VOLUME,
+    PHASE23_GRADING_ENGINE,
+    PHASE23_GRADING_IMAGE_PACKAGES,
     RESULTS_MOUNT,
     RESULTS_VOLUME_NAME,
     assert_grading_authorized,
+    collect_checkpoint_grade_rows,
     decide_grading_launch_action,
     load_grading_checkpoints,
     primary_label_from_parsed,
     run_key_from_grading_manifest_sha,
+    sha256_text,
+    validate_grades_against_manifest,
     verify_frozen_grader_model_input,
 )
 
@@ -46,24 +58,16 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/phase27_extreme_roleplay_feasibility.yaml"
 MANIFEST_PATH = REPO_ROOT / "artifacts/phase27/grading_manifest.jsonl"
 LAUNCH_RECEIPT = REPO_ROOT / "artifacts/phase27/grading_launch_receipt.json"
-MODEL_CACHE = "/vol/hf_cache"
 GPU_TYPE = "A100-80GB"
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
-    .pip_install(
-        "torch==2.4.1",
-        "transformers==4.44.2",
-        "accelerate==0.33.0",
-        "numpy==1.26.4",
-        "huggingface_hub==0.24.6",
-        "safetensors==0.4.5",
-        "pyyaml==6.0.2",
-    )
+    .pip_install(*PHASE23_GRADING_IMAGE_PACKAGES)
     .add_local_python_source("pre_output_physiology")
 )
 app = modal.App(APP_NAME)
-hf_vol = modal.Volume.from_name("preoutput-mistral-cache", create_if_missing=True)
+# Validated Phase 23 open-grader cache (NOT preoutput-mistral-cache).
+hf_vol = modal.Volume.from_name(OPEN_GRADER_CACHE_VOLUME, create_if_missing=True)
 results_vol = modal.Volume.from_name(RESULTS_VOLUME_NAME, create_if_missing=True)
 
 
@@ -99,6 +103,43 @@ def _deployed_functions() -> tuple[Any, Any]:
     return status_fn, run_fn
 
 
+def _grade_row_from_parsed(
+    *,
+    job: dict[str, Any],
+    raw_out: str | None,
+    parsed: dict[str, Any],
+    tech_fail: bool,
+    tech_err: str | None,
+) -> dict[str, Any]:
+    primary = primary_label_from_parsed(parsed)
+    return {
+        "grading_job_id": job["grading_job_id"],
+        "job_id": job["job_id"],
+        "scenario_id": job["scenario_id"],
+        "rollout_index": job["rollout_index"],
+        "response_sha256": job["response_sha256"],
+        "grader_prompt_sha256": job["grader_prompt_sha256"],
+        "grader_model_input_sha256": job["grader_model_input_sha256"],
+        "grader_input_ids_sha256": job["grader_input_ids_sha256"],
+        "grader": job["grader"],
+        "raw_gemma_output": raw_out,
+        "parsed_score": parsed.get("score"),
+        "parsed_class": parsed.get("class"),
+        "explanation": parsed.get("explanation"),
+        "parse_valid": bool(parsed.get("valid")),
+        "primary_label": primary,
+        "technical_failure": tech_fail,
+        "technical_error": tech_err,
+        "activation_capture": False,
+        "output_hidden_states": False,
+        "logit_save": False,
+        "physiology_collection": False,
+        "outcome_dependent_retry": False,
+        "grading_engine": PHASE23_GRADING_ENGINE,
+        "grader_batch_size": GRADER_BATCH_SIZE,
+    }
+
+
 @app.function(image=image, volumes={RESULTS_MOUNT: results_vol}, timeout=120)
 def read_grading_status(run_key: str) -> dict[str, Any]:
     results_vol.reload()
@@ -118,9 +159,10 @@ def read_grading_status(run_key: str) -> dict[str, Any]:
     image=image,
     gpu=GPU_TYPE,
     timeout=60 * 60 * 4,
-    volumes={MODEL_CACHE: hf_vol, RESULTS_MOUNT: results_vol},
-    memory=65536,
+    volumes={CACHE_DIR: hf_vol, RESULTS_MOUNT: results_vol},
+    memory=131072,
     retries=modal.Retries(max_retries=3, backoff_coefficient=2.0, initial_delay=5.0),
+    secrets=[modal.Secret.from_name("huggingface")],
 )
 def run_phase27_gemma_grading_resumable(
     *,
@@ -131,7 +173,12 @@ def run_phase27_gemma_grading_resumable(
     function_call_id: str | None = None,
 ) -> dict[str, Any]:
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
+
+    # Phase 23 HF cache env.
+    os.environ["HF_HOME"] = CACHE_DIR
+    os.environ["TRANSFORMERS_CACHE"] = CACHE_DIR
+    os.environ["HUGGINGFACE_HUB_CACHE"] = CACHE_DIR
 
     if grading_protocol_version != GRADING_PROTOCOL_VERSION:
         raise RuntimeError("grading protocol mismatch")
@@ -193,6 +240,8 @@ def run_phase27_gemma_grading_resumable(
                 "state": "INITIALIZING",
                 "manifest_sha256": manifest_sha256,
                 "authorization_commit": authorization_commit,
+                "grading_engine": PHASE23_GRADING_ENGINE,
+                "open_grader_cache_volume": OPEN_GRADER_CACHE_VOLUME,
                 "utc": _utc_now(),
             },
             indent=2,
@@ -204,21 +253,33 @@ def run_phase27_gemma_grading_resumable(
     results_vol.commit()
 
     tok = AutoTokenizer.from_pretrained(
-        GRADER_MODEL, revision=GRADER_REVISION, cache_dir=MODEL_CACHE, use_fast=True
-    )
-    if tok.pad_token_id is None:
-        tok.pad_token = tok.eos_token
-    model = AutoModelForCausalLM.from_pretrained(
         GRADER_MODEL,
         revision=GRADER_REVISION,
-        torch_dtype=torch.bfloat16,
-        cache_dir=MODEL_CACHE,
-        low_cpu_mem_usage=True,
-        device_map="auto",
+        cache_dir=CACHE_DIR,
         trust_remote_code=True,
     )
+    tok.padding_side = "left"
+    if tok.pad_token_id is None:
+        tok.pad_token = tok.eos_token
+
+    load_kw = dict(
+        revision=GRADER_REVISION,
+        cache_dir=CACHE_DIR,
+        torch_dtype=torch.bfloat16,
+        device_map="auto",
+        trust_remote_code=True,
+        low_cpu_mem_usage=True,
+    )
+    try:
+        model = AutoModelForCausalLM.from_pretrained(GRADER_MODEL, **load_kw)
+    except ValueError:
+        model = AutoModel.from_pretrained(GRADER_MODEL, **load_kw)
     model.eval()
     print("PHASE27_GEMMA_GRADER_LOADED", flush=True)
+    print(
+        f"PHASE27_GEMMA_ENGINE={PHASE23_GRADING_ENGINE} batch_size={GRADER_BATCH_SIZE}",
+        flush=True,
+    )
 
     active_path.write_text(
         json.dumps(
@@ -230,6 +291,8 @@ def run_phase27_gemma_grading_resumable(
                 "authorization_commit": authorization_commit,
                 "grader_model": GRADER_MODEL,
                 "grader_revision": GRADER_REVISION,
+                "grading_engine": PHASE23_GRADING_ENGINE,
+                "grader_batch_size": GRADER_BATCH_SIZE,
                 "utc": _utc_now(),
             },
             indent=2,
@@ -243,6 +306,8 @@ def run_phase27_gemma_grading_resumable(
     pending: list[dict[str, Any]] = []
     batch_index = len(list(ckpt_dir.glob("checkpoint_*.jsonl")))
     remaining = [j for j in jobs if j["grading_job_id"] not in completed]
+    max_new = int(GRADER_MAX_NEW_TOKENS)
+    max_input = int(GRADER_MAX_MODEL_LEN) - max_new
 
     def flush() -> None:
         nonlocal pending, batch_index
@@ -270,6 +335,7 @@ def run_phase27_gemma_grading_resumable(
                     "completed_jobs": len(completed),
                     "total_jobs": N_PLANNED_GENERATIONS,
                     "state": "RUNNING",
+                    "grading_engine": PHASE23_GRADING_ENGINE,
                     "utc": _utc_now(),
                 },
                 indent=2,
@@ -280,118 +346,118 @@ def run_phase27_gemma_grading_resumable(
         )
         results_vol.commit()
 
-    for job in remaining:
-        if job["grading_job_id"] in completed:
-            continue
-        g = job["grader"]
-        if g["model_revision"] != GRADER_REVISION or g["model_id"] != GRADER_MODEL:
-            raise RuntimeError("grader model/revision drift")
-        prompt_ids = verify_frozen_grader_model_input(
-            tok,
-            model_input_text=job["grader_model_input_text"],
-            model_input_sha256=job["grader_model_input_sha256"],
-            input_ids_sha256=job["grader_input_ids_sha256"],
-        )
-        # Truncate only if exceeding frozen max_model_len budget (should not for Phase 27).
-        max_input = int(GRADER_MAX_MODEL_LEN) - int(GRADER_MAX_NEW_TOKENS)
-        if len(prompt_ids) > max_input:
-            raise RuntimeError(
-                f"{job['grading_job_id']}: input_ids {len(prompt_ids)} > {max_input}"
-            )
+    with torch.inference_mode():
+        for start in range(0, len(remaining), GRADER_BATCH_SIZE):
+            batch = remaining[start : start + GRADER_BATCH_SIZE]
+            texts: list[str] = []
+            for job in batch:
+                g = job["grader"]
+                if g["model_revision"] != GRADER_REVISION or g["model_id"] != GRADER_MODEL:
+                    raise RuntimeError("grader model/revision drift")
+                # HARD FAIL if frozen unpadded model-input provenance drifts.
+                verify_frozen_grader_model_input(
+                    tok,
+                    model_input_text=job["grader_model_input_text"],
+                    model_input_sha256=job["grader_model_input_sha256"],
+                    input_ids_sha256=job["grader_input_ids_sha256"],
+                )
+                if sha256_text(job["grader_model_input_text"]) != job[
+                    "grader_model_input_sha256"
+                ]:
+                    raise RuntimeError("model_input_text sha mismatch")
+                texts.append(job["grader_model_input_text"])
 
-        tech_fail = False
-        tech_err = None
-        raw_out = None
-        parsed = {
-            "valid": False,
-            "score": None,
-            "class": "invalid",
-            "explanation": None,
-            "raw": None,
-        }
-        for _attempt in range(3):
-            try:
-                with torch.inference_mode():
-                    ids = torch.tensor([prompt_ids], dtype=torch.long, device=model.device)
+            tech_fail = False
+            tech_err = None
+            decoded_batch: list[str | None] = [None] * len(batch)
+            for _attempt in range(3):
+                try:
+                    enc = tok(
+                        texts,
+                        return_tensors="pt",
+                        padding=True,
+                        truncation=True,
+                        max_length=max_input,
+                    )
+                    enc = {k: v.to(model.device) for k, v in enc.items()}
                     gen = model.generate(
-                        ids,
-                        max_new_tokens=int(GRADER_MAX_NEW_TOKENS),
+                        **enc,
+                        max_new_tokens=max_new,
                         do_sample=False,
-                        temperature=None,
-                        top_p=None,
                         pad_token_id=tok.pad_token_id,
                     )
-                    new_ids = gen[0, ids.shape[1] :]
-                    if tok.pad_token_id is not None:
-                        new_ids = new_ids[new_ids != tok.pad_token_id]
-                    raw_out = tok.decode(new_ids, skip_special_tokens=True)
-                parsed = parse_json_grade(raw_out)
-                tech_fail = False
-                tech_err = None
-                break
-            except Exception as exc:  # noqa: BLE001
-                tech_fail = True
-                tech_err = str(exc)
-                # Infrastructure retry only — same frozen input/settings; no label rescue.
-                continue
+                    in_len = enc["input_ids"].shape[1]
+                    for i in range(len(batch)):
+                        new_ids = gen[i, in_len:]
+                        if tok.pad_token_id is not None:
+                            new_ids = new_ids[new_ids != tok.pad_token_id]
+                        decoded_batch[i] = tok.decode(
+                            new_ids, skip_special_tokens=True
+                        )
+                    tech_fail = False
+                    tech_err = None
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    tech_fail = True
+                    tech_err = str(exc)
+                    # Infrastructure retry only — same frozen texts/settings.
+                    continue
 
-        primary = primary_label_from_parsed(parsed)
-        row = {
-            "grading_job_id": job["grading_job_id"],
-            "job_id": job["job_id"],
-            "scenario_id": job["scenario_id"],
-            "rollout_index": job["rollout_index"],
-            "response_sha256": job["response_sha256"],
-            "grader_model_input_sha256": job["grader_model_input_sha256"],
-            "grader_input_ids_sha256": job["grader_input_ids_sha256"],
-            "grader_prompt_sha256": job["grader_prompt_sha256"],
-            "grader": g,
-            "raw_gemma_output": raw_out,
-            "parsed_score": parsed.get("score"),
-            "parsed_class": parsed.get("class"),
-            "explanation": parsed.get("explanation"),
-            "parse_valid": bool(parsed.get("valid")),
-            "primary_label": primary,
-            "technical_failure": tech_fail,
-            "technical_error": tech_err,
-            "activation_capture": False,
-            "output_hidden_states": False,
-            "logit_save": False,
-            "physiology_collection": False,
-            "outcome_dependent_retry": False,
-        }
-        pending.append(row)
-        if len(pending) >= CHECKPOINT_BATCH_SIZE:
-            flush()
+            for i, job in enumerate(batch):
+                raw_out = decoded_batch[i]
+                if tech_fail or raw_out is None:
+                    parsed = {
+                        "valid": False,
+                        "score": None,
+                        "class": "invalid",
+                        "explanation": None,
+                        "raw": raw_out,
+                    }
+                else:
+                    parsed = parse_json_grade(raw_out)
+                pending.append(
+                    _grade_row_from_parsed(
+                        job=job,
+                        raw_out=raw_out,
+                        parsed=parsed,
+                        tech_fail=tech_fail,
+                        tech_err=tech_err,
+                    )
+                )
+            if len(pending) >= CHECKPOINT_BATCH_SIZE:
+                flush()
     flush()
 
-    all_rows: dict[str, dict[str, Any]] = {}
-    for path in sorted(ckpt_dir.glob("checkpoint_*.jsonl")):
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                r = json.loads(line)
-                all_rows[r["grading_job_id"]] = r
-    if len(all_rows) != N_PLANNED_GENERATIONS:
-        raise RuntimeError(f"incomplete grading {len(all_rows)}")
-    ordered = [all_rows[j["grading_job_id"]] for j in jobs]
-    # Exact set / field integrity vs manifest
-    for r, j in zip(ordered, jobs):
-        errs = []
-        if r["job_id"] != j["job_id"]:
-            errs.append("job_id")
-        if r["response_sha256"] != j["response_sha256"]:
-            errs.append("response_sha256")
-        if r["grader_model_input_sha256"] != j["grader_model_input_sha256"]:
-            errs.append("grader_model_input_sha256")
-        if errs:
-            raise RuntimeError(
-                f"final grading integrity fail {j['grading_job_id']}: {errs}"
-            )
+    # Collect as a list first so duplicates cannot be hidden by dict collapse.
+    grade_rows = collect_checkpoint_grade_rows(ckpt_dir)
+    integrity_errors = validate_grades_against_manifest(grade_rows, jobs)
+    if integrity_errors:
+        raise RuntimeError(
+            "HARD STOP: final grades↔manifest integrity failed:\n"
+            + "\n".join(integrity_errors[:40])
+        )
+
+    # Ordered by manifest after validation passed.
+    by_gid = {r["grading_job_id"]: r for r in grade_rows}
+    ordered = [by_gid[j["grading_job_id"]] for j in jobs]
 
     grades_path = rdir / "grades.jsonl"
     with grades_path.open("w", encoding="utf-8") as f:
         for r in ordered:
             f.write(json.dumps(r, sort_keys=True, ensure_ascii=False) + "\n")
+    # Re-validate the written artifact bytes path via reload.
+    written = [
+        json.loads(x)
+        for x in grades_path.read_text(encoding="utf-8").splitlines()
+        if x.strip()
+    ]
+    written_errs = validate_grades_against_manifest(written, jobs)
+    if written_errs:
+        raise RuntimeError(
+            "HARD STOP: written grades.jsonl failed validation:\n"
+            + "\n".join(written_errs[:40])
+        )
+
     grades_sha = hashlib.sha256(grades_path.read_bytes()).hexdigest()
     (rdir / "COMPLETE.json").write_text(
         json.dumps(
@@ -400,6 +466,10 @@ def run_phase27_gemma_grading_resumable(
                 "n_grades": N_PLANNED_GENERATIONS,
                 "grades_sha256": grades_sha,
                 "manifest_sha256": manifest_sha256,
+                "validate_grades_against_manifest": True,
+                "grading_engine": PHASE23_GRADING_ENGINE,
+                "grader_batch_size": GRADER_BATCH_SIZE,
+                "open_grader_cache_volume": OPEN_GRADER_CACHE_VOLUME,
                 "completed_utc": _utc_now(),
             },
             indent=2,
@@ -476,6 +546,10 @@ def main() -> None:
         "resume": bool(decision.get("resume")),
         "n_planned_grades": N_PLANNED_GENERATIONS,
         "results_volume": RESULTS_VOLUME_NAME,
+        "open_grader_cache_volume": OPEN_GRADER_CACHE_VOLUME,
+        "grading_engine": PHASE23_GRADING_ENGINE,
+        "grader_batch_size": GRADER_BATCH_SIZE,
+        "image_packages": list(PHASE23_GRADING_IMAGE_PACKAGES),
         "wait_for_completion": False,
     }
     LAUNCH_RECEIPT.parent.mkdir(parents=True, exist_ok=True)
