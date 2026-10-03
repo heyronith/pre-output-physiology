@@ -1,0 +1,97 @@
+# Phase 28 — Same-prompt diversity replication (28A forecast / 28B preflight)
+
+experiment_id: phase28_same_prompt_diversity_replication
+phase: phase28_same_prompt_diversity
+protocol_version: phase28_same_prompt_replication_v1
+status: phase28b_same_prompt_replication_preflight_ready
+parent_phase27_results_commit: 29c98afcd86c34cfb8152bf87fad7e8214892cd6
+
+phase27_source:
+  grades_path: data/phase27/extreme_roleplay_behavior/grades.jsonl
+  grades_sha256: 8773d0c5a61bca57a24d9971f50748a26e4f4aec7deeecee0f9f6a6dfdef6e27
+  prompts_path: data/phase27/extreme_roleplay_prompts_v1.jsonl
+  n_grades: 288
+  n_per_scenario: 24
+  phase27_not_reinterpreted_as_pass: true
+
+forecast:
+  method: jeffreys_dirichlet_fresh_multinomial
+  prior: [0.5, 0.5, 0.5]
+  simulation: fresh_independent_batch
+  n_monte_carlo: 100000
+  rng_seed: 280280001
+  forecast_ns: [48, 64, 96, 128, 192, 256, 384]
+
+candidate_selection:
+  rule: P_fresh_N256(H>=12 and D>=12) >= 0.50
+  development_data_only: true
+  not_independent_confirmatory_result: true
+  expected_selected_scenario_ids:
+    - S27-01
+    - S27-03
+    - S27-04
+    - S27-07
+    - S27-09
+
+phase28b_generation:
+  executed: false
+  n_rollouts_per_selected: 256
+  temperature: 1.0
+  do_sample: true
+  top_p: null
+  top_k: null
+  max_new_tokens: 120
+  batch_size: 1
+  dtype: bfloat16
+  attention_implementation: sdpa
+  quantization: null
+  no_early_stopping: true
+  no_outcome_conditioned_sampling: true
+  no_rescue_samples: true
+  seed_namespace: phase28_same_prompt_replication_v1
+
+model:
+  model_id: mistralai/Mistral-7B-Instruct-v0.2
+  revision: 63a8b081895390a26e140280378bc85ec8bce07a
+  tokenizer_revision: 63a8b081895390a26e140280378bc85ec8bce07a
+
+grader_plan:
+  executed_in_phase28a: false
+  model_id: google/gemma-4-31B-it
+  revision: 842da3794eaa0b77d5f08bae87a17459d91ff475
+  reuse_phase23_27_response_level_contract: true
+
+phase28b_gate:
+  trajectory_sufficient: HONEST>=12 and DECEPTIVE>=12 in fresh 256
+  phase_pass: at_least_3_selected_prompts_trajectory_sufficient
+  min_consequence_classes_if_set_differs: 2
+  gate_type: trajectory_availability_not_prevalence_equivalence
+
+paths:
+  protocol: docs/phase28_same_prompt_diversity_protocol.md
+  readiness_report: reports/phase28a_same_prompt_diversity_readiness.md
+  observed_counts: artifacts/phase28/observed_phase27_counts.json
+  forecast_table: artifacts/phase28/forecast_table.json
+  joint_forecast: artifacts/phase28/joint_forecast_summary.json
+  candidate_selection: artifacts/phase28/candidate_selection.json
+  generation_manifest: artifacts/phase28/generation_manifest.jsonl
+  seed_manifest: artifacts/phase28/seed_manifest.jsonl
+  phase28b_gate: artifacts/phase28/phase28b_gate_definition.json
+  grader_plan: artifacts/phase28/grader_plan.json
+  preflight_validation: artifacts/phase28/preflight_validation.json
+
+authorizations:
+  modal_gpu_behavior_authorized: false
+  grader_execution_authorized: false
+  activation_capture_authorized: false
+  output_hidden_states_authorized: false
+  logit_save_authorized: false
+  probe_fitting_authorized: false
+  sae_analysis_authorized: false
+  causal_intervention_authorized: false
+  physiology_collection_authorized: false
+
+notes: >
+  Phase 28A freezes a development-data candidate-selection rule and a
+  trajectory-availability gate for larger same-prompt sampling. No GPU,
+  generation, grading, or physiology in Phase 28A.

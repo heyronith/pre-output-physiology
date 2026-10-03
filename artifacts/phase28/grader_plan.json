@@ -1,0 +1,16 @@
+{
+  "evidence_gates": [
+    "generate fresh raw responses",
+    "independently audit raw integrity",
+    "authorize Gemma grading",
+    "independently audit grades",
+    "compute Phase 28B gate"
+  ],
+  "executed_in_phase28a": false,
+  "grader_model_id": "google/gemma-4-31B-it",
+  "grader_model_revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "grading_engine": "transformers_generate_temp0_batch4",
+  "no_gpt4o": true,
+  "no_onset_localization": true,
+  "reuse": "exact Phase 23/27 response-level grader contract and environment"
+}

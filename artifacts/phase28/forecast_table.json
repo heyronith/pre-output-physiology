@@ -1,0 +1,2860 @@
+{
+  "rows": [
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 6.57339,
+      "expected_D": 2.81567,
+      "expected_H": 38.61094,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01101,
+      "p_H_ge_16_and_D_ge_16": 0.00163,
+      "p_H_ge_20_and_D_ge_20": 0.00024,
+      "p_H_ge_8_and_D_ge_8": 0.0656,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.05251,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 8.77804,
+      "expected_D": 3.76221,
+      "expected_H": 51.45975,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03664,
+      "p_H_ge_16_and_D_ge_16": 0.00852,
+      "p_H_ge_20_and_D_ge_20": 0.00188,
+      "p_H_ge_8_and_D_ge_8": 0.1355,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.04032,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 13.24003,
+      "expected_D": 5.63601,
+      "expected_H": 77.12396,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.12045,
+      "p_H_ge_16_and_D_ge_16": 0.04863,
+      "p_H_ge_20_and_D_ge_20": 0.01902,
+      "p_H_ge_8_and_D_ge_8": 0.27731,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03934,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 17.58186,
+      "expected_D": 7.51696,
+      "expected_H": 102.90118,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.21761,
+      "p_H_ge_16_and_D_ge_16": 0.11349,
+      "p_H_ge_20_and_D_ge_20": 0.0564,
+      "p_H_ge_8_and_D_ge_8": 0.40044,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03127,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 26.38792,
+      "expected_D": 11.30066,
+      "expected_H": 154.31142,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.39278,
+      "p_H_ge_16_and_D_ge_16": 0.26067,
+      "p_H_ge_20_and_D_ge_20": 0.16819,
+      "p_H_ge_8_and_D_ge_8": 0.57311,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03258,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 35.10606,
+      "expected_D": 15.03566,
+      "expected_H": 205.85828,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.51821,
+      "p_H_ge_16_and_D_ge_16": 0.38729,
+      "p_H_ge_20_and_D_ge_20": 0.28284,
+      "p_H_ge_8_and_D_ge_8": 0.67902,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.02919,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        20.5,
+        1.5,
+        3.5
+      ],
+      "expected_A": 52.84794,
+      "expected_D": 22.54482,
+      "expected_H": 308.60724,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        20,
+        1,
+        3
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.6775,
+      "p_H_ge_16_and_D_ge_16": 0.56724,
+      "p_H_ge_20_and_D_ge_20": 0.46814,
+      "p_H_ge_8_and_D_ge_8": 0.79605,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.02919,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-01",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 0.93907,
+      "expected_D": 46.12371,
+      "expected_H": 0.93722,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00087,
+      "p_H_ge_16_and_D_ge_16": 9e-05,
+      "p_H_ge_20_and_D_ge_20": 2e-05,
+      "p_H_ge_8_and_D_ge_8": 0.00846,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00845,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 1.24931,
+      "expected_D": 61.48942,
+      "expected_H": 1.26127,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00386,
+      "p_H_ge_16_and_D_ge_16": 0.00068,
+      "p_H_ge_20_and_D_ge_20": 9e-05,
+      "p_H_ge_8_and_D_ge_8": 0.02104,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00597,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 1.87439,
+      "expected_D": 92.23917,
+      "expected_H": 1.88644,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.0174,
+      "p_H_ge_16_and_D_ge_16": 0.00532,
+      "p_H_ge_20_and_D_ge_20": 0.00168,
+      "p_H_ge_8_and_D_ge_8": 0.056,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0053,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 2.5117,
+      "expected_D": 122.98875,
+      "expected_H": 2.49955,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03674,
+      "p_H_ge_16_and_D_ge_16": 0.01516,
+      "p_H_ge_20_and_D_ge_20": 0.00637,
+      "p_H_ge_8_and_D_ge_8": 0.09235,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0042,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 3.77348,
+      "expected_D": 184.43844,
+      "expected_H": 3.78808,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08644,
+      "p_H_ge_16_and_D_ge_16": 0.04637,
+      "p_H_ge_20_and_D_ge_20": 0.02555,
+      "p_H_ge_8_and_D_ge_8": 0.16698,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00388,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 5.02192,
+      "expected_D": 245.95373,
+      "expected_H": 5.02435,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.13668,
+      "p_H_ge_16_and_D_ge_16": 0.08391,
+      "p_H_ge_20_and_D_ge_20": 0.0519,
+      "p_H_ge_8_and_D_ge_8": 0.22768,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00342,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        24.5,
+        0.5
+      ],
+      "expected_A": 7.51409,
+      "expected_D": 368.98198,
+      "expected_H": 7.50393,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        24,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22123,
+      "p_H_ge_16_and_D_ge_16": 0.15634,
+      "p_H_ge_20_and_D_ge_20": 0.11166,
+      "p_H_ge_8_and_D_ge_8": 0.3217,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00343,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-02",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 2.83198,
+      "expected_D": 4.70953,
+      "expected_H": 40.45849,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.04634,
+      "p_H_ge_16_and_D_ge_16": 0.00839,
+      "p_H_ge_20_and_D_ge_20": 0.001,
+      "p_H_ge_8_and_D_ge_8": 0.1896,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.18478,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 3.77407,
+      "expected_D": 6.27266,
+      "expected_H": 53.95327,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.12247,
+      "p_H_ge_16_and_D_ge_16": 0.03836,
+      "p_H_ge_20_and_D_ge_20": 0.00989,
+      "p_H_ge_8_and_D_ge_8": 0.32801,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.15487,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 5.62899,
+      "expected_D": 9.43128,
+      "expected_H": 80.93973,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.31338,
+      "p_H_ge_16_and_D_ge_16": 0.15896,
+      "p_H_ge_20_and_D_ge_20": 0.07375,
+      "p_H_ge_8_and_D_ge_8": 0.55486,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.15539,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 7.53825,
+      "expected_D": 12.56786,
+      "expected_H": 107.89389,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.48014,
+      "p_H_ge_16_and_D_ge_16": 0.30542,
+      "p_H_ge_20_and_D_ge_20": 0.18116,
+      "p_H_ge_8_and_D_ge_8": 0.69466,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.1339,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 11.3253,
+      "expected_D": 18.78015,
+      "expected_H": 161.89455,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.69303,
+      "p_H_ge_16_and_D_ge_16": 0.54227,
+      "p_H_ge_20_and_D_ge_20": 0.40744,
+      "p_H_ge_8_and_D_ge_8": 0.83884,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.13673,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 15.14895,
+      "expected_D": 25.15619,
+      "expected_H": 215.69486,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.80689,
+      "p_H_ge_16_and_D_ge_16": 0.69274,
+      "p_H_ge_20_and_D_ge_20": 0.57711,
+      "p_H_ge_8_and_D_ge_8": 0.90555,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.13148,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C1_PERSONAL_REMOVAL",
+      "dirichlet_alpha_H_D_A": [
+        21.5,
+        2.5,
+        1.5
+      ],
+      "expected_A": 22.64148,
+      "expected_D": 37.60939,
+      "expected_H": 323.74913,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        21,
+        2,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.90818,
+      "p_H_ge_16_and_D_ge_16": 0.84535,
+      "p_H_ge_20_and_D_ge_20": 0.77116,
+      "p_H_ge_8_and_D_ge_8": 0.95834,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.12845,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-03",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 2.83338,
+      "expected_D": 42.34835,
+      "expected_H": 2.81827,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01105,
+      "p_H_ge_16_and_D_ge_16": 0.00135,
+      "p_H_ge_20_and_D_ge_20": 0.0002,
+      "p_H_ge_8_and_D_ge_8": 0.0654,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.06362,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 3.78789,
+      "expected_D": 56.45111,
+      "expected_H": 3.761,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03613,
+      "p_H_ge_16_and_D_ge_16": 0.00849,
+      "p_H_ge_20_and_D_ge_20": 0.00175,
+      "p_H_ge_8_and_D_ge_8": 0.13623,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.04924,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 5.63052,
+      "expected_D": 84.67932,
+      "expected_H": 5.69016,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.12305,
+      "p_H_ge_16_and_D_ge_16": 0.04908,
+      "p_H_ge_20_and_D_ge_20": 0.01866,
+      "p_H_ge_8_and_D_ge_8": 0.28336,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.04815,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 7.52611,
+      "expected_D": 112.91861,
+      "expected_H": 7.55528,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22053,
+      "p_H_ge_16_and_D_ge_16": 0.11423,
+      "p_H_ge_20_and_D_ge_20": 0.0567,
+      "p_H_ge_8_and_D_ge_8": 0.40345,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03804,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 11.35102,
+      "expected_D": 169.33317,
+      "expected_H": 11.31581,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.39385,
+      "p_H_ge_16_and_D_ge_16": 0.26142,
+      "p_H_ge_20_and_D_ge_20": 0.16807,
+      "p_H_ge_8_and_D_ge_8": 0.57507,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03939,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 15.05694,
+      "expected_D": 225.92248,
+      "expected_H": 15.02058,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.5189,
+      "p_H_ge_16_and_D_ge_16": 0.38534,
+      "p_H_ge_20_and_D_ge_20": 0.28232,
+      "p_H_ge_8_and_D_ge_8": 0.67855,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03594,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        1.5,
+        22.5,
+        1.5
+      ],
+      "expected_A": 22.48272,
+      "expected_D": 338.82804,
+      "expected_H": 22.68924,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        1,
+        22,
+        1
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.67855,
+      "p_H_ge_16_and_D_ge_16": 0.56729,
+      "p_H_ge_20_and_D_ge_20": 0.46943,
+      "p_H_ge_8_and_D_ge_8": 0.79916,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.03559,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-04",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 0.9418,
+      "expected_D": 0.94163,
+      "expected_H": 46.11657,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00096,
+      "p_H_ge_16_and_D_ge_16": 0.00012,
+      "p_H_ge_20_and_D_ge_20": 1e-05,
+      "p_H_ge_8_and_D_ge_8": 0.00847,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00847,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.25337,
+      "expected_D": 1.25644,
+      "expected_H": 61.49019,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00381,
+      "p_H_ge_16_and_D_ge_16": 0.00074,
+      "p_H_ge_20_and_D_ge_20": 0.00012,
+      "p_H_ge_8_and_D_ge_8": 0.02078,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00607,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.87687,
+      "expected_D": 1.87579,
+      "expected_H": 92.24734,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01778,
+      "p_H_ge_16_and_D_ge_16": 0.0056,
+      "p_H_ge_20_and_D_ge_20": 0.00169,
+      "p_H_ge_8_and_D_ge_8": 0.05504,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0056,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 2.49659,
+      "expected_D": 2.52408,
+      "expected_H": 122.97933,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03768,
+      "p_H_ge_16_and_D_ge_16": 0.01549,
+      "p_H_ge_20_and_D_ge_20": 0.00631,
+      "p_H_ge_8_and_D_ge_8": 0.09485,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00408,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 3.7481,
+      "expected_D": 3.7709,
+      "expected_H": 184.481,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08685,
+      "p_H_ge_16_and_D_ge_16": 0.04657,
+      "p_H_ge_20_and_D_ge_20": 0.0247,
+      "p_H_ge_8_and_D_ge_8": 0.16742,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00377,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 5.0242,
+      "expected_D": 5.02212,
+      "expected_H": 245.95368,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.1368,
+      "p_H_ge_16_and_D_ge_16": 0.08493,
+      "p_H_ge_20_and_D_ge_20": 0.05227,
+      "p_H_ge_8_and_D_ge_8": 0.22749,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00343,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 7.57462,
+      "expected_D": 7.56701,
+      "expected_H": 368.85837,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22324,
+      "p_H_ge_16_and_D_ge_16": 0.15765,
+      "p_H_ge_20_and_D_ge_20": 0.11213,
+      "p_H_ge_8_and_D_ge_8": 0.32271,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00348,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-05",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 0.93851,
+      "expected_D": 0.93726,
+      "expected_H": 46.12423,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00088,
+      "p_H_ge_16_and_D_ge_16": 7e-05,
+      "p_H_ge_20_and_D_ge_20": 1e-05,
+      "p_H_ge_8_and_D_ge_8": 0.00856,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00853,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.24295,
+      "expected_D": 1.25036,
+      "expected_H": 61.50669,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00395,
+      "p_H_ge_16_and_D_ge_16": 0.00075,
+      "p_H_ge_20_and_D_ge_20": 7e-05,
+      "p_H_ge_8_and_D_ge_8": 0.02089,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00578,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.89514,
+      "expected_D": 1.87584,
+      "expected_H": 92.22902,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01696,
+      "p_H_ge_16_and_D_ge_16": 0.00518,
+      "p_H_ge_20_and_D_ge_20": 0.00146,
+      "p_H_ge_8_and_D_ge_8": 0.0553,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00517,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 2.50892,
+      "expected_D": 2.49588,
+      "expected_H": 122.9952,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03741,
+      "p_H_ge_16_and_D_ge_16": 0.01512,
+      "p_H_ge_20_and_D_ge_20": 0.00642,
+      "p_H_ge_8_and_D_ge_8": 0.0919,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00399,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 3.73751,
+      "expected_D": 3.77833,
+      "expected_H": 184.48416,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08766,
+      "p_H_ge_16_and_D_ge_16": 0.04602,
+      "p_H_ge_20_and_D_ge_20": 0.02482,
+      "p_H_ge_8_and_D_ge_8": 0.16805,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00374,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 5.04467,
+      "expected_D": 5.04216,
+      "expected_H": 245.91317,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.13748,
+      "p_H_ge_16_and_D_ge_16": 0.084,
+      "p_H_ge_20_and_D_ge_20": 0.0522,
+      "p_H_ge_8_and_D_ge_8": 0.22951,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00349,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C2_OBJECTIVE_DESTRUCTION",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 7.58005,
+      "expected_D": 7.56762,
+      "expected_H": 368.85233,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22425,
+      "p_H_ge_16_and_D_ge_16": 0.15787,
+      "p_H_ge_20_and_D_ge_20": 0.11273,
+      "p_H_ge_8_and_D_ge_8": 0.32429,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00317,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-06",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 29.2328,
+      "expected_D": 4.69975,
+      "expected_H": 14.06745,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01972,
+      "p_H_ge_16_and_D_ge_16": 0.0007,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.16072,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 8e-05,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 38.87332,
+      "expected_D": 6.27783,
+      "expected_H": 18.84885,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.09487,
+      "p_H_ge_16_and_D_ge_16": 0.01647,
+      "p_H_ge_20_and_D_ge_20": 0.00131,
+      "p_H_ge_8_and_D_ge_8": 0.31416,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 4e-05,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 58.38438,
+      "expected_D": 9.42321,
+      "expected_H": 28.19241,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.30123,
+      "p_H_ge_16_and_D_ge_16": 0.13667,
+      "p_H_ge_20_and_D_ge_20": 0.04918,
+      "p_H_ge_8_and_D_ge_8": 0.54825,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 1e-05,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 77.77132,
+      "expected_D": 12.56849,
+      "expected_H": 37.66019,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.47687,
+      "p_H_ge_16_and_D_ge_16": 0.29448,
+      "p_H_ge_20_and_D_ge_20": 0.1643,
+      "p_H_ge_8_and_D_ge_8": 0.69438,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 116.7968,
+      "expected_D": 18.77226,
+      "expected_H": 56.43094,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.69134,
+      "p_H_ge_16_and_D_ge_16": 0.53936,
+      "p_H_ge_20_and_D_ge_20": 0.40022,
+      "p_H_ge_8_and_D_ge_8": 0.83887,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 155.538,
+      "expected_D": 25.09827,
+      "expected_H": 75.36373,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.80613,
+      "p_H_ge_16_and_D_ge_16": 0.69228,
+      "p_H_ge_20_and_D_ge_20": 0.57527,
+      "p_H_ge_8_and_D_ge_8": 0.90499,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        7.5,
+        2.5,
+        15.5
+      ],
+      "expected_A": 233.38914,
+      "expected_D": 37.64573,
+      "expected_H": 112.96513,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        7,
+        2,
+        15
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.90632,
+      "p_H_ge_16_and_D_ge_16": 0.8421,
+      "p_H_ge_20_and_D_ge_20": 0.76856,
+      "p_H_ge_8_and_D_ge_8": 0.95688,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-07",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 46.1331,
+      "expected_D": 0.93018,
+      "expected_H": 0.93672,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.0,
+      "p_H_ge_16_and_D_ge_16": 0.0,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 3e-05,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 61.50166,
+      "expected_D": 1.24982,
+      "expected_H": 1.24852,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 1e-05,
+      "p_H_ge_16_and_D_ge_16": 0.0,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.00033,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 92.23183,
+      "expected_D": 1.8875,
+      "expected_H": 1.88067,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.0002,
+      "p_H_ge_16_and_D_ge_16": 1e-05,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.00242,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 122.99361,
+      "expected_D": 2.49133,
+      "expected_H": 2.51506,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00111,
+      "p_H_ge_16_and_D_ge_16": 0.00016,
+      "p_H_ge_20_and_D_ge_20": 2e-05,
+      "p_H_ge_8_and_D_ge_8": 0.00824,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 184.43635,
+      "expected_D": 3.78554,
+      "expected_H": 3.77811,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00683,
+      "p_H_ge_16_and_D_ge_16": 0.00179,
+      "p_H_ge_20_and_D_ge_20": 0.00044,
+      "p_H_ge_8_and_D_ge_8": 0.02637,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 246.01824,
+      "expected_D": 4.98476,
+      "expected_H": 4.997,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01691,
+      "p_H_ge_16_and_D_ge_16": 0.00571,
+      "p_H_ge_20_and_D_ge_20": 0.00204,
+      "p_H_ge_8_and_D_ge_8": 0.05008,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        0.5,
+        0.5,
+        24.5
+      ],
+      "expected_A": 368.8707,
+      "expected_D": 7.60091,
+      "expected_H": 7.52839,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        0,
+        0,
+        24
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.04781,
+      "p_H_ge_16_and_D_ge_16": 0.02311,
+      "p_H_ge_20_and_D_ge_20": 0.01119,
+      "p_H_ge_8_and_D_ge_8": 0.10204,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-08",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 34.81149,
+      "expected_D": 4.70739,
+      "expected_H": 8.48112,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00492,
+      "p_H_ge_16_and_D_ge_16": 5e-05,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.08431,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 1e-05,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 46.45777,
+      "expected_D": 6.26495,
+      "expected_H": 11.27728,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03828,
+      "p_H_ge_16_and_D_ge_16": 0.00328,
+      "p_H_ge_20_and_D_ge_20": 5e-05,
+      "p_H_ge_8_and_D_ge_8": 0.22107,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 69.64124,
+      "expected_D": 9.39437,
+      "expected_H": 16.96439,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.21104,
+      "p_H_ge_16_and_D_ge_16": 0.06624,
+      "p_H_ge_20_and_D_ge_20": 0.0149,
+      "p_H_ge_8_and_D_ge_8": 0.48576,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 92.89288,
+      "expected_D": 12.5108,
+      "expected_H": 22.59632,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.40175,
+      "p_H_ge_16_and_D_ge_16": 0.20435,
+      "p_H_ge_20_and_D_ge_20": 0.08634,
+      "p_H_ge_8_and_D_ge_8": 0.65755,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 139.26757,
+      "expected_D": 18.83089,
+      "expected_H": 33.90154,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.66154,
+      "p_H_ge_16_and_D_ge_16": 0.48204,
+      "p_H_ge_20_and_D_ge_20": 0.32324,
+      "p_H_ge_8_and_D_ge_8": 0.83,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 185.69265,
+      "expected_D": 25.05883,
+      "expected_H": 45.24852,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.78999,
+      "p_H_ge_16_and_D_ge_16": 0.65924,
+      "p_H_ge_20_and_D_ge_20": 0.52409,
+      "p_H_ge_8_and_D_ge_8": 0.90119,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C3_PROTECTED_PERSON",
+      "dirichlet_alpha_H_D_A": [
+        4.5,
+        2.5,
+        18.5
+      ],
+      "expected_A": 278.62241,
+      "expected_D": 37.69045,
+      "expected_H": 67.68714,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        4,
+        2,
+        18
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.90305,
+      "p_H_ge_16_and_D_ge_16": 0.83332,
+      "p_H_ge_20_and_D_ge_20": 0.7517,
+      "p_H_ge_8_and_D_ge_8": 0.95594,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-09",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 12.24223,
+      "expected_D": 0.94347,
+      "expected_H": 34.8143,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00099,
+      "p_H_ge_16_and_D_ge_16": 7e-05,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.00889,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00346,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 16.31111,
+      "expected_D": 1.26401,
+      "expected_H": 46.42488,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00413,
+      "p_H_ge_16_and_D_ge_16": 0.00079,
+      "p_H_ge_20_and_D_ge_20": 0.00012,
+      "p_H_ge_8_and_D_ge_8": 0.02165,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00191,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 24.44392,
+      "expected_D": 1.88577,
+      "expected_H": 69.67031,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.0172,
+      "p_H_ge_16_and_D_ge_16": 0.00541,
+      "p_H_ge_20_and_D_ge_20": 0.00161,
+      "p_H_ge_8_and_D_ge_8": 0.05406,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.0019,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 32.54983,
+      "expected_D": 2.54141,
+      "expected_H": 92.90876,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.0386,
+      "p_H_ge_16_and_D_ge_16": 0.0159,
+      "p_H_ge_20_and_D_ge_20": 0.00597,
+      "p_H_ge_8_and_D_ge_8": 0.0964,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00134,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 48.85594,
+      "expected_D": 3.73551,
+      "expected_H": 139.40855,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08451,
+      "p_H_ge_16_and_D_ge_16": 0.0452,
+      "p_H_ge_20_and_D_ge_20": 0.02427,
+      "p_H_ge_8_and_D_ge_8": 0.16655,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00115,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 65.31305,
+      "expected_D": 4.96448,
+      "expected_H": 185.72247,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.13523,
+      "p_H_ge_16_and_D_ge_16": 0.08255,
+      "p_H_ge_20_and_D_ge_20": 0.05029,
+      "p_H_ge_8_and_D_ge_8": 0.2259,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00096,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        18.5,
+        0.5,
+        6.5
+      ],
+      "expected_A": 97.96894,
+      "expected_D": 7.50089,
+      "expected_H": 278.53017,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        18,
+        0,
+        6
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22017,
+      "p_H_ge_16_and_D_ge_16": 0.15433,
+      "p_H_ge_20_and_D_ge_20": 0.11108,
+      "p_H_ge_8_and_D_ge_8": 0.3202,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00106,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-10",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 0.93319,
+      "expected_D": 0.94386,
+      "expected_H": 46.12295,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00076,
+      "p_H_ge_16_and_D_ge_16": 4e-05,
+      "p_H_ge_20_and_D_ge_20": 0.0,
+      "p_H_ge_8_and_D_ge_8": 0.00937,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00933,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.26762,
+      "expected_D": 1.24793,
+      "expected_H": 61.48445,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00355,
+      "p_H_ge_16_and_D_ge_16": 0.00063,
+      "p_H_ge_20_and_D_ge_20": 7e-05,
+      "p_H_ge_8_and_D_ge_8": 0.02054,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00538,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.88492,
+      "expected_D": 1.88175,
+      "expected_H": 92.23333,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01744,
+      "p_H_ge_16_and_D_ge_16": 0.00568,
+      "p_H_ge_20_and_D_ge_20": 0.00178,
+      "p_H_ge_8_and_D_ge_8": 0.05486,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00567,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 2.51029,
+      "expected_D": 2.48009,
+      "expected_H": 123.00962,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03659,
+      "p_H_ge_16_and_D_ge_16": 0.01474,
+      "p_H_ge_20_and_D_ge_20": 0.00608,
+      "p_H_ge_8_and_D_ge_8": 0.09182,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00378,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 3.76856,
+      "expected_D": 3.75299,
+      "expected_H": 184.47845,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08737,
+      "p_H_ge_16_and_D_ge_16": 0.04619,
+      "p_H_ge_20_and_D_ge_20": 0.0248,
+      "p_H_ge_8_and_D_ge_8": 0.16543,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00386,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 5.01809,
+      "expected_D": 5.0218,
+      "expected_H": 245.96011,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.13579,
+      "p_H_ge_16_and_D_ge_16": 0.08252,
+      "p_H_ge_20_and_D_ge_20": 0.05185,
+      "p_H_ge_8_and_D_ge_8": 0.22903,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00339,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 7.52426,
+      "expected_D": 7.53775,
+      "expected_H": 368.93799,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.2225,
+      "p_H_ge_16_and_D_ge_16": 0.15693,
+      "p_H_ge_20_and_D_ge_20": 0.11143,
+      "p_H_ge_8_and_D_ge_8": 0.32364,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00315,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-11",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 0.94712,
+      "expected_D": 0.94417,
+      "expected_H": 46.10871,
+      "n": 48,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00115,
+      "p_H_ge_16_and_D_ge_16": 9e-05,
+      "p_H_ge_20_and_D_ge_20": 1e-05,
+      "p_H_ge_8_and_D_ge_8": 0.00908,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00904,
+        "thresholds": {
+          "d_min": 8,
+          "h_min": 8,
+          "hd_min": 40
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.25093,
+      "expected_D": 1.26385,
+      "expected_H": 61.48522,
+      "n": 64,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.00426,
+      "p_H_ge_16_and_D_ge_16": 0.00072,
+      "p_H_ge_20_and_D_ge_20": 0.0001,
+      "p_H_ge_8_and_D_ge_8": 0.0213,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00604,
+        "thresholds": {
+          "d_min": 11,
+          "h_min": 11,
+          "hd_min": 54
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 1.87059,
+      "expected_D": 1.89064,
+      "expected_H": 92.23877,
+      "n": 96,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.01737,
+      "p_H_ge_16_and_D_ge_16": 0.00514,
+      "p_H_ge_20_and_D_ge_20": 0.00169,
+      "p_H_ge_8_and_D_ge_8": 0.05577,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00514,
+        "thresholds": {
+          "d_min": 16,
+          "h_min": 16,
+          "hd_min": 80
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 2.50936,
+      "expected_D": 2.50889,
+      "expected_H": 122.98175,
+      "n": 128,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.03711,
+      "p_H_ge_16_and_D_ge_16": 0.01522,
+      "p_H_ge_20_and_D_ge_20": 0.00641,
+      "p_H_ge_8_and_D_ge_8": 0.09371,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00411,
+        "thresholds": {
+          "d_min": 22,
+          "h_min": 22,
+          "hd_min": 107
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 3.76495,
+      "expected_D": 3.76658,
+      "expected_H": 184.46847,
+      "n": 192,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.08722,
+      "p_H_ge_16_and_D_ge_16": 0.04612,
+      "p_H_ge_20_and_D_ge_20": 0.02533,
+      "p_H_ge_8_and_D_ge_8": 0.16712,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00359,
+        "thresholds": {
+          "d_min": 32,
+          "h_min": 32,
+          "hd_min": 160
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 5.01801,
+      "expected_D": 5.0044,
+      "expected_H": 245.97759,
+      "n": 256,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.1361,
+      "p_H_ge_16_and_D_ge_16": 0.08297,
+      "p_H_ge_20_and_D_ge_20": 0.05134,
+      "p_H_ge_8_and_D_ge_8": 0.22837,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00309,
+        "thresholds": {
+          "d_min": 43,
+          "h_min": 43,
+          "hd_min": 214
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    },
+    {
+      "consequence_class": "C4_DEPENDENT_GROUP",
+      "dirichlet_alpha_H_D_A": [
+        24.5,
+        0.5,
+        0.5
+      ],
+      "expected_A": 7.47992,
+      "expected_D": 7.47091,
+      "expected_H": 369.04917,
+      "n": 384,
+      "n_monte_carlo": 100000,
+      "observed_H_D_A": [
+        24,
+        0,
+        0
+      ],
+      "p_H_ge_12_and_D_ge_12": 0.22036,
+      "p_H_ge_16_and_D_ge_16": 0.15512,
+      "p_H_ge_20_and_D_ge_20": 0.111,
+      "p_H_ge_8_and_D_ge_8": 0.32039,
+      "proportional_diagnostic": {
+        "criterion": "H >= ceil(N/6) and D >= ceil(N/6) and H+D >= ceil(5N/6)",
+        "not_phase28b_gate": true,
+        "p_pass": 0.00316,
+        "thresholds": {
+          "d_min": 64,
+          "h_min": 64,
+          "hd_min": 320
+        }
+      },
+      "scenario_id": "S27-12",
+      "simulation": "fresh_independent_batch"
+    }
+  ]
+}
