@@ -1,6 +1,6 @@
 # Pre-token concealment direction
 
-**Status: protocol not started. Step 1 archive only.**
+**Status: Step 2 protocol frozen. No data collected.**
 
 The previous project, phases 1–28, is frozen on branch `archive/preoutput-v1` and tag `archive-preoutput-v1`, with the original phase branches left in place. Its files remain under `archive/v1/` for inspection. Those results are not evidence for this protocol. See `docs/ARCHIVE.md`.
 
