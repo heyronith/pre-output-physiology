@@ -1,22 +1,11 @@
-# Pre-token concealment direction
+# Pre-output physiology
 
-**Status: Step 3 dataset replaced. No model run.**
+The completed project, phases 1–28, is archived. It is not an active protocol.
 
-The previous project, phases 1–28, is frozen on branch `archive/preoutput-v1` and tag `archive-preoutput-v1`, with the original phase branches left in place. Its files remain under `archive/v1/` for inspection. Those results are not evidence for this protocol. See `docs/ARCHIVE.md`.
+- Branch: `archive/preoutput-v1` at `03ca29bd9d5e3e5cfb2fa983684261e7ef5e63a1`
+- Tag: `archive-preoutput-v1` at the same commit
+- Readable copy: `archive/v1/`
+- Index: `docs/ARCHIVE.md`
+- Original phase branches are unchanged
 
-## Claim to be tested
-
-On paired prompts that share a known fact, a pressure context can lower the log probability of the true answer before any output token is sampled. The residual stream at the last prompt token may carry a within-fact pressure-minus-safe direction that beats a text baseline and, when patched, moves that log probability. A random direction of the same norm must not.
-
-## Frozen choices
-
-- Primary model, not yet run: `meta-llama/Llama-3.1-8B-Instruct`
-- Replication model, not authorized: `Qwen/Qwen2.5-14B-Instruct`
-- Position, if activations are ever collected: last prompt token only
-- Development facts: 120. Locked facts: 60. Locked cover stories disjoint from development.
-- GPU is forbidden until a later approved step authorizes Modal.
-
-## Stop rules
-
-Stop if pressure does not lower the true-answer log probability on locked facts. Stop if a text classifier matches the activation direction. Stop if patching does nothing or the random-direction control also works. No layer search on locked data.
-
+The pre-token concealment-direction work added after that archive has been removed. No dataset, protocol, or model run from that attempt remains on main.
