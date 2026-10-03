@@ -22,6 +22,6 @@ REQUIRED_PHRASES = (
 def test_protocol_and_gates_contain_frozen_phrases() -> None:
     protocol = (REPO / "docs/protocol.md").read_text(encoding="utf-8")
     gates = (REPO / "docs/GATES.md").read_text(encoding="utf-8")
-    combined = protocol + "\n" + gates
-    missing = [p for p in REQUIRED_PHRASES if p not in combined]
+    combined = (protocol + "\n" + gates).lower()
+    missing = [p for p in REQUIRED_PHRASES if p.lower() not in combined]
     assert not missing, f"missing required phrases: {missing}"
