@@ -1,0 +1,23 @@
+{
+  "checkpoint_batch_size": 24,
+  "errors": [],
+  "gemma_model": "google/gemma-4-31B-it",
+  "gemma_revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "gemma_weights_loaded": false,
+  "grader_execution_authorized": false,
+  "grader_prompt_sha256": "a82284ae9113bfac4f9726ff85e0229d7a9e85c56b06b23c5aa0a35bb4c153df",
+  "grading_manifest_sha256": "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9",
+  "grading_protocol_version": "phase27_gemma_grading_v1",
+  "grading_spec_sha256": "0df0f93544e65c3fed3b7a45ff6af5fd24488160ca9da818f6f4fbe4fe44dc34",
+  "grading_status": "phase27_gemma_grading_preflight_ready",
+  "inference_manifest_sha256": "331444a42699f613411f545d94600de38dc5de53e13c6d322fee726869aa40d5",
+  "labels_produced": false,
+  "mixed_eligible_computed": false,
+  "n_grading_jobs": 288,
+  "ok": true,
+  "pass_hold_computed": false,
+  "physiology_disabled": true,
+  "raw_sha256": "61fe3ce1a5568e58ce1393bb4d0260ba7eec1b58dca9b21b56edba3723dcd226",
+  "results_volume": "phase27-extreme-roleplay-grading-results",
+  "run_key": "phase27_gemma_grading_v1_8123661137d8"
+}

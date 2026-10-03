@@ -1,0 +1,15 @@
+{
+  "gemma_weights_loaded": false,
+  "grader_execution_authorized": false,
+  "grader_prompt_sha256": "a82284ae9113bfac4f9726ff85e0229d7a9e85c56b06b23c5aa0a35bb4c153df",
+  "grading_manifest_sha256": "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9",
+  "grading_protocol_version": "phase27_gemma_grading_v1",
+  "grading_spec_sha256": "0df0f93544e65c3fed3b7a45ff6af5fd24488160ca9da818f6f4fbe4fe44dc34",
+  "grading_status": "phase27_gemma_grading_preflight_ready",
+  "labels_produced": false,
+  "mixed_eligible_computed": false,
+  "n_grading_jobs": 288,
+  "pass_hold_computed": false,
+  "raw_generations_sha256": "61fe3ce1a5568e58ce1393bb4d0260ba7eec1b58dca9b21b56edba3723dcd226",
+  "run_key": "phase27_gemma_grading_v1_8123661137d8"
+}

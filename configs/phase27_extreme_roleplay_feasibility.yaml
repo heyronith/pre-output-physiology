@@ -4,6 +4,7 @@ experiment_id: phase27_extreme_roleplay_feasibility
 phase: phase27_extreme_roleplay
 protocol_version: phase27_extreme_roleplay_v1
 status: phase27_extreme_roleplay_generation_authorized
+grading_status: phase27_gemma_grading_preflight_ready
 parent_phase26c_results_commit: b39e1b2d9cd5ab6851fab06c8f103674ab9e2209
 
 model:
@@ -113,6 +114,10 @@ paths:
   protocol_doc: docs/phase27_extreme_roleplay_protocol.md
   launch_receipt: artifacts/phase27/launch_receipt.json
   raw_generations: data/phase27/extreme_roleplay_behavior/raw_generations.jsonl
+  grading_manifest: artifacts/phase27/grading_manifest.jsonl
+  grading_preflight: artifacts/phase27/grading_preflight_validation.json
+  grading_build_summary: artifacts/phase27/grading_build_summary.json
+  grades: data/phase27/extreme_roleplay_behavior/grades.jsonl
 
 execution_durability:
   modal_app_name: pre-output-physiology-phase27-extreme-roleplay
@@ -122,6 +127,16 @@ execution_durability:
   modal_max_retries: 3
   modal_retry_initial_delay_seconds: 5
   detached_required: true
+
+grading_execution_durability:
+  modal_app_name: pre-output-physiology-phase27-gemma-grading
+  results_volume: phase27-extreme-roleplay-grading-results
+  results_mount: /phase27_grading_results
+  checkpoint_batch_size: 24
+  modal_max_retries: 3
+  modal_retry_initial_delay_seconds: 5
+  detached_required: true
+  protocol_version: phase27_gemma_grading_v1
 
 authorizations:
   modal_gpu_behavior_authorized: true
