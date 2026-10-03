@@ -4,7 +4,7 @@ experiment_id: phase27_extreme_roleplay_feasibility
 phase: phase27_extreme_roleplay
 protocol_version: phase27_extreme_roleplay_v1
 status: phase27_extreme_roleplay_generation_authorized
-grading_status: phase27_gemma_grading_authorized
+grading_status: phase27_gemma_grading_complete_pending_independent_analysis
 parent_phase26c_results_commit: b39e1b2d9cd5ab6851fab06c8f103674ab9e2209
 
 model:
@@ -161,7 +161,7 @@ authorizations:
   sae_analysis_authorized: false
   causal_intervention_authorized: false
   physiology_collection_authorized: false
-  grader_execution_authorized: true
+  grader_execution_authorized: false
 
 notes: >
   Phase 26C factual REPORT framing yielded zero strategically false reports.

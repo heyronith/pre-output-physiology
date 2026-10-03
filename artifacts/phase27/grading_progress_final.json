@@ -1,0 +1,11 @@
+{
+  "completed_jobs": 288,
+  "function_call_id": "fc-01M3ZJ2M96A4DKF0FCDYWCGNCA",
+  "grading_engine": "transformers_generate_temp0_batch4",
+  "grading_protocol_version": "phase27_gemma_grading_v1",
+  "manifest_sha256": "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9",
+  "run_key": "phase27_gemma_grading_v1_8123661137d8",
+  "state": "RUNNING",
+  "total_jobs": 288,
+  "utc": "2026-10-03T00:29:21Z"
+}

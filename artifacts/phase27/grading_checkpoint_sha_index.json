@@ -1,0 +1,67 @@
+{
+  "checkpoints": [
+    {
+      "n_rows": 24,
+      "sha256": "ca12fe15185f5e0a5d0826bd2dd873570251f830dc550ae13cba1856e81bc189",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00000.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "c9752405a4f39cc353706750568bf72d38c6c4fa0d5078a0a98f42e76b31805c",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00001.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "5c8450d6547a8cdbdd56a1567d84a64d61939ae595cc848a7c8b739dd454a4a6",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00002.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "c8c47d95368de7cd6f88e4fc870138b0c6a1e30bb1b2ccc16f3526091640f60c",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00003.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "e010c0b7cb9f46479033e21281fd68f5bbbe13a15f10392eb5cbb9eda1c05f89",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00004.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "f2ea4755c95a0d905325a0ae3c0980e8a254f70bbb58670e1bab4cc2c090c1f9",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00005.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "250125c23b5587e32cd642697fea2ffbfdb246b1ee96350d16416d6d64a116c3",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00006.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "443c7ea72baf6fc3b8892fd5425a109493478d9e9ee89e00647b5bb9e1562984",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00007.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "a47736e774db7128dc1fa2cc8609566a8d11b6f9e26e3828ce43287290fcd458",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00008.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "1fdf301311d9b8ad0c44c2f0155afb91da37f4b4b01cc6153d9e8ede50d47e5b",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00009.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "80e248d7419036bd4a5d402fec569100179e61219c70e038dbe038de69768a99",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00010.jsonl"
+    },
+    {
+      "n_rows": 24,
+      "sha256": "0600e413323090fbac58153c7e27f63679252f21c93ef8066807ccc514d38148",
+      "volume_path": "phase27_gemma_grading_v1_8123661137d8/checkpoints/checkpoint_00011.jsonl"
+    }
+  ],
+  "n_checkpoint_files": 12,
+  "run_key": "phase27_gemma_grading_v1_8123661137d8",
+  "source_volume": "phase27-extreme-roleplay-grading-results"
+}

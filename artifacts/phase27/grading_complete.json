@@ -1,0 +1,11 @@
+{
+  "completed_utc": "2026-10-03T00:29:22Z",
+  "grader_batch_size": 4,
+  "grades_sha256": "8773d0c5a61bca57a24d9971f50748a26e4f4aec7deeecee0f9f6a6dfdef6e27",
+  "grading_engine": "transformers_generate_temp0_batch4",
+  "manifest_sha256": "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9",
+  "n_grades": 288,
+  "open_grader_cache_volume": "preoutput-open-grader-cache",
+  "status": "COMPLETE",
+  "validate_grades_against_manifest": true
+}

@@ -1,0 +1,27 @@
+{
+  "branch": "phase27/extreme-roleplay-feasibility-v1",
+  "detached": true,
+  "function_call_id": "fc-01M3ZJ2M96A4DKF0FCDYWCGNCA",
+  "grader_batch_size": 4,
+  "grading_engine": "transformers_generate_temp0_batch4",
+  "grading_protocol_version": "phase27_gemma_grading_v1",
+  "image_packages": [
+    "torch==2.6.0",
+    "transformers==5.17.0",
+    "accelerate==1.15.0",
+    "huggingface_hub==1.5.0",
+    "sentencepiece==0.2.0",
+    "protobuf==5.29.4",
+    "numpy==1.26.4",
+    "pyyaml==6.0.2",
+    "safetensors==0.8.0"
+  ],
+  "launch_head": "e9f2ef414473aa7a355261777c7c81aaf7864387",
+  "manifest_sha256": "8123661137d8e4e8258a1762e11c29fc53fac1b7c48e35b9739f0f8e83bf20d9",
+  "n_planned_grades": 288,
+  "open_grader_cache_volume": "preoutput-open-grader-cache",
+  "results_volume": "phase27-extreme-roleplay-grading-results",
+  "resume": false,
+  "run_key": "phase27_gemma_grading_v1_8123661137d8",
+  "wait_for_completion": false
+}

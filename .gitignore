@@ -78,3 +78,6 @@ artifacts/phase26c_primary/modal_staging/
 
 # Phase 27 local Volume mirror (Volume remains source of truth)
 artifacts/phase27/volume_mirror/
+artifacts/phase27/grading_volume_mirror/
+artifacts/phase27/grading_volume_import/
+artifacts/phase27/grading_checkpoints/
