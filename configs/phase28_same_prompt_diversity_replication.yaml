@@ -3,38 +3,43 @@
 experiment_id: phase28_same_prompt_diversity_replication
 phase: phase28_same_prompt_diversity
 protocol_version: phase28_same_prompt_replication_v1
-status: phase28b_same_prompt_replication_preflight_ready
+status: phase28a_core_behavior_recount_complete_pending_next_model_decision
 parent_phase27_results_commit: 29c98afcd86c34cfb8152bf87fad7e8214892cd6
 
 phase27_source:
   grades_path: data/phase27/extreme_roleplay_behavior/grades.jsonl
   grades_sha256: 8773d0c5a61bca57a24d9971f50748a26e4f4aec7deeecee0f9f6a6dfdef6e27
+  grades_unmodified: true
   prompts_path: data/phase27/extreme_roleplay_prompts_v1.jsonl
   n_grades: 288
   n_per_scenario: 24
   phase27_not_reinterpreted_as_pass: true
+  phase27_remains_hold: true
+  label_construct_for_phase28_forecast: phase27_direct_report_core_proposition
+  apollo_honesty_not_sole_trajectory_selection_label: true
 
 forecast:
   method: jeffreys_dirichlet_fresh_multinomial
   prior: [0.5, 0.5, 0.5]
+  categories: [HONEST_CORE, ADVANTAGEOUS_FALSE_CORE, AMBIGUOUS_CORE]
   simulation: fresh_independent_batch
   n_monte_carlo: 100000
   rng_seed: 280280001
   forecast_ns: [48, 64, 96, 128, 192, 256, 384]
 
 candidate_selection:
-  rule: P_fresh_N256(H>=12 and D>=12) >= 0.50
+  rule: P_fresh_N256(H>=12 and F>=12) >= 0.50
   development_data_only: true
   not_independent_confirmatory_result: true
   expected_selected_scenario_ids:
     - S27-01
-    - S27-03
-    - S27-04
-    - S27-07
-    - S27-09
 
 phase28b_generation:
   executed: false
+  authorized: false
+  prior_manifest_sha256: 232ca180aea6a1f03a4629e775360e0def006ee03882954877a38fed4c081f85
+  prior_manifest_status: SUPERSEDED_BEFORE_EXECUTION_DUE_TO_LABEL_CONSTRUCT_MISMATCH
+  new_gpu_manifest_built: false
   n_rollouts_per_selected: 256
   temperature: 1.0
   do_sample: true
@@ -70,11 +75,15 @@ phase28b_gate:
 paths:
   protocol: docs/phase28_same_prompt_diversity_protocol.md
   readiness_report: reports/phase28a_same_prompt_diversity_readiness.md
+  decision_report: reports/phase28a_core_behavior_decision.md
   observed_counts: artifacts/phase28/observed_phase27_counts.json
+  core_adjudication: artifacts/phase28/core_behavior_adjudication.jsonl
+  core_counts: artifacts/phase28/core_behavior_counts.json
   forecast_table: artifacts/phase28/forecast_table.json
   joint_forecast: artifacts/phase28/joint_forecast_summary.json
   candidate_selection: artifacts/phase28/candidate_selection.json
   generation_manifest: artifacts/phase28/generation_manifest.jsonl
+  superseded_manifest: artifacts/phase28/superseded_generation_manifest.json
   seed_manifest: artifacts/phase28/seed_manifest.jsonl
   phase28b_gate: artifacts/phase28/phase28b_gate_definition.json
   grader_plan: artifacts/phase28/grader_plan.json

@@ -149,3 +149,9 @@ logits, probes, SAE, causal interventions, physiology collection.
 ## Confirmation
 
 **PHASE 28A IS A ZERO-GPU / ZERO-MODEL-CALL / ZERO-GRADER FORECAST AND PREFLIGHT FREEZE. NO MISTRAL GENERATION, NO GEMMA GRADING, NO ACTIVATIONS, AND NO PHYSIOLOGY WERE PERFORMED. PHASE 27 IS NOT REINTERPRETED AS PASS.**
+
+---
+
+## SUPERSEDED FORECAST NOTE
+
+The Apollo-honesty-based five-prompt forecast/manifest above is **superseded** by the core-behavior recount (`phase28a_core_behavior_recount_complete_pending_next_model_decision`). See `reports/phase28a_core_behavior_decision.md`. Manifest `232ca180aea6a1f03a4629e775360e0def006ee03882954877a38fed4c081f85` was never executed.

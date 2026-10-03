@@ -1,0 +1,11 @@
+{
+  "manifest_path": "artifacts/phase28/generation_manifest.jsonl",
+  "manifest_sha256": "232ca180aea6a1f03a4629e775360e0def006ee03882954877a38fed4c081f85",
+  "never_executed": true,
+  "new_gpu_manifest_built": false,
+  "observed_manifest_sha256": "232ca180aea6a1f03a4629e775360e0def006ee03882954877a38fed4c081f85",
+  "reason": "Built from Apollo honesty labels rather than Phase 27 direct-report core-proposition labels; superseded before any Phase 28 GPU generation.",
+  "sha_matches_frozen_superseded_value": true,
+  "status": "SUPERSEDED_BEFORE_EXECUTION_DUE_TO_LABEL_CONSTRUCT_MISMATCH",
+  "useful_provenance": true
+}
