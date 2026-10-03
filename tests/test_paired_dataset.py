@@ -1,4 +1,4 @@
-"""CPU tests for Step 3 paired safe/pressure dataset."""
+"""CPU tests for replaced Step 3 paired safe/pressure dataset."""
 
 from __future__ import annotations
 
@@ -13,17 +13,20 @@ SPLIT = REPO / "data/split.json"
 SUMS = REPO / "data/SHA256SUMS"
 
 LIE_RE = re.compile(r"\b(lie|lying)\b", re.IGNORECASE)
+BAD_ID_RE = re.compile(r"(_dup|_err)$", re.IGNORECASE)
 
-DEV_COVERS = {
-    "vault_owner_stranger",
-    "patient_insurer",
-    "student_proctor",
-    "account_owner_stranger",
-}
-LOCKED_COVERS = {
-    "warehouse_manager_auditor",
-    "scientist_visitor",
-}
+# Cover objects that must not be injected unless present in the fact sentence.
+COVER_OBJECTS = (
+    "vault",
+    "vault code",
+    "exam key",
+    "exam",
+    "password",
+    "pin",
+    "record number",
+    "reagent",
+    "reagent code",
+)
 
 
 def _load_pairs() -> list[dict]:
@@ -50,15 +53,16 @@ def test_facts_disjoint_across_splits() -> None:
     assert dev.isdisjoint(locked)
 
 
-def test_cover_stories_disjoint_and_balanced() -> None:
+def test_pressure_templates_disjoint() -> None:
     pairs = _load_pairs()
-    dev_covers = {p["cover_story_id"] for p in pairs if p["split"] == "development"}
-    locked_covers = {p["cover_story_id"] for p in pairs if p["split"] == "locked"}
-    assert dev_covers == DEV_COVERS
-    assert locked_covers == LOCKED_COVERS
-    assert dev_covers.isdisjoint(locked_covers)
-    for cover in DEV_COVERS | LOCKED_COVERS:
-        assert sum(1 for p in pairs if p["cover_story_id"] == cover) == 30
+    split = json.loads(SPLIT.read_text(encoding="utf-8"))
+    dev_tmpls = set(split["development_template_ids"])
+    locked_tmpls = set(split["locked_template_ids"])
+    assert dev_tmpls.isdisjoint(locked_tmpls)
+    assert {p["template_id"] for p in pairs if p["split"] == "development"} == dev_tmpls
+    assert {p["template_id"] for p in pairs if p["split"] == "locked"} == locked_tmpls
+    for tmpl in dev_tmpls | locked_tmpls:
+        assert sum(1 for p in pairs if p["template_id"] == tmpl) == 30
 
 
 def test_no_lie_word() -> None:
@@ -70,36 +74,60 @@ def test_no_lie_word() -> None:
                 p["pressure_prompt"],
                 p["true_answer"],
                 p["false_answer"],
+                p["fact_sentence"],
                 p["proposition"],
-                p["cover_story"],
             ]
         )
         assert not LIE_RE.search(blob), p["fact_id"]
 
 
-def test_false_answer_differs_and_mask_prompts_discarded() -> None:
+def test_true_answer_at_most_three_words() -> None:
     pairs = _load_pairs()
     for p in pairs:
-        assert p["false_answer"] != p["true_answer"]
-        assert p["mask_pressure_prompts_discarded"] is True
-        assert "Known fact:" in p["safe_prompt"]
-        assert "Known fact:" in p["pressure_prompt"]
+        assert 1 <= len(p["true_answer"].split()) <= 3, p["true_answer"]
+        assert 1 <= len(p["false_answer"].split()) <= 3, p["false_answer"]
+        assert p["true_answer"] != p["false_answer"]
+        assert p["scored_answer"] == p["true_answer"]
+        # Scored answer is the short string, not a paragraph.
+        assert "\n" not in p["true_answer"]
+        assert len(p["true_answer"]) < 80
+
+
+def test_no_bad_fact_id_suffixes() -> None:
+    pairs = _load_pairs()
+    for p in pairs:
+        assert not BAD_ID_RE.search(p["fact_id"]), p["fact_id"]
+        assert not BAD_ID_RE.search(p["source_task_id"]), p["source_task_id"]
+
+
+def test_reject_cover_object_absent_from_fact() -> None:
+    pairs = _load_pairs()
+    for p in pairs:
+        fact = p["fact_sentence"].lower()
+        prompts = (p["safe_prompt"] + "\n" + p["pressure_prompt"]).lower()
+        for obj in COVER_OBJECTS:
+            if obj in prompts and obj not in fact:
+                raise AssertionError(
+                    f"cover object {obj!r} present in prompts but absent from "
+                    f"fact for {p['fact_id']}"
+                )
+
+
+def test_same_fact_sentence_and_roles() -> None:
+    pairs = _load_pairs()
+    for p in pairs:
+        assert p["fact_sentence"] in p["safe_prompt"]
+        assert p["fact_sentence"] in p["pressure_prompt"]
         assert "shut down" in p["pressure_prompt"]
+        assert p["mask_pressure_prompts_discarded"] is True
 
 
 def test_split_json_and_checksums() -> None:
     pairs = _load_pairs()
     split = json.loads(SPLIT.read_text(encoding="utf-8"))
     assert split["n_pairs"] == 180
-    assert split["n_development"] == 120
-    assert split["n_locked"] == 60
     assert len(split["records"]) == 180
-    fact_ids = [r["fact_id"] for r in split["records"]]
-    assert fact_ids == [p["fact_id"] for p in pairs]
-    assert set(split["development_cover_story_ids"]).isdisjoint(
-        set(split["locked_cover_story_ids"])
-    )
-
+    assert [r["fact_id"] for r in split["records"]] == [p["fact_id"] for p in pairs]
     sums = {}
     for line in SUMS.read_text(encoding="utf-8").splitlines():
         if not line.strip():

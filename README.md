@@ -1,6 +1,6 @@
 # Pre-token concealment direction
 
-**Status: Step 3 dataset frozen. No model run.**
+**Status: Step 3 dataset replaced. No model run.**
 
 The previous project, phases 1–28, is frozen on branch `archive/preoutput-v1` and tag `archive-preoutput-v1`, with the original phase branches left in place. Its files remain under `archive/v1/` for inspection. Those results are not evidence for this protocol. See `docs/ARCHIVE.md`.
 
