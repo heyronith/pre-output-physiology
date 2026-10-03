@@ -1,0 +1,38 @@
+{
+  "activation_storage_dtype": "float32",
+  "activations_sha256": "8da452783470bf757bfea39677ff1a9351d9000d9a454bbe5fcf4501d74790d1",
+  "balanced_subset_sha256": "613ed2e86b4b47575734ba6e80ebf4416c87c01d14de38ab93d9d2c33f162b0e",
+  "created_at": "2026-09-28T02:26:07+00:00",
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.044570138742526376,
+  "generation_run_id": "phase20a1_gen_20260928T013246Z_ac9daa40",
+  "git_commit": "4d10eea801d33bf0fbee1730fe7b7798bfe2d48d",
+  "k0_identity_ok": true,
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "locked_model_calls": 0,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_trajectories": 272,
+  "phase15_rule_hash": "6bb40fa50eaf07b52e4709355bdb4652060658c2e73d3e41775b8bccac4bc24f",
+  "positions": [
+    "end0",
+    "end2",
+    "end4"
+  ],
+  "run_id": "phase20a2_disc_extract_20260928T022356Z_4d10eea8",
+  "runner_sha256": "311eab5ed8db66eee43e749bb28d55fe1827b76a9405a2da7875af4fb5ecd3a1",
+  "stage": "P20A2",
+  "threshold_hash": "127ccc4d1eba3f24f56dc20e055368e3464f17c50e614183370df380621ae408",
+  "validation_activations_collected": false,
+  "wall_seconds": 82.28333306312561
+}

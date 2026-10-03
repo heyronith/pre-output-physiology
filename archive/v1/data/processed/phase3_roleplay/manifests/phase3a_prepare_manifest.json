@@ -1,0 +1,191 @@
+{
+  "activations_collected": false,
+  "coarse_transformer_blocks": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "created_at": "2026-09-25T14:19:45+00:00",
+  "gpu_authorized": false,
+  "group_overlap": {
+    "train_test": 0,
+    "train_val": 0,
+    "val_test": 0
+  },
+  "grouping": {
+    "agree": true,
+    "hashes_with_multiple_prefixes_sample": {},
+    "n_hashes_with_multiple_prefixes": 0,
+    "n_id_prefixes": 359,
+    "n_prefixes_with_multiple_hashes": 0,
+    "n_prompt_hashes": 359,
+    "prefixes_with_multiple_hashes_sample": {},
+    "scientific_key": "prompt_sha256"
+  },
+  "judge_explanation_fields_present": [
+    "scale_label_explanation",
+    "label_explanation"
+  ],
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "onset_audit_index_path": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/phase3a_summaries/onset_audit_index.jsonl",
+  "onset_audit_note": "Raw audit JSONL with model outputs/explanations is gitignored under data/processed/. Commit-safe index stores IDs/hashes only.",
+  "onset_audit_raw_path": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/data/processed/phase3_roleplay/onset_audit_raw/onset_audit_sample.jsonl",
+  "onset_coverage": {
+    "locked_test": {
+      "coverage_among_deceptive": 0.124,
+      "n_deceptive": 250,
+      "n_high_confidence_onset": 31,
+      "n_total": 500,
+      "n_unique_prompt_groups_high_confidence": 18,
+      "n_unresolved": 219,
+      "onset_token_median": 0.0,
+      "onset_token_n": 31,
+      "onset_token_q1": 0.0,
+      "onset_token_q3": 0.0,
+      "prop_onset_eq_0": 0.9032258064516129,
+      "prop_onset_gt_16": 0.03225806451612903,
+      "prop_onset_gt_8": 0.0967741935483871,
+      "prop_onset_le_1": 0.9032258064516129,
+      "prop_onset_le_2": 0.9032258064516129,
+      "prop_onset_le_4": 0.9032258064516129,
+      "prop_onset_le_8": 0.9032258064516129
+    },
+    "phase3_train": {
+      "coverage_among_deceptive": 0.12859560067681894,
+      "n_deceptive": 1182,
+      "n_high_confidence_onset": 152,
+      "n_total": 2361,
+      "n_unique_prompt_groups_high_confidence": 82,
+      "n_unresolved": 1030,
+      "onset_token_median": 0.0,
+      "onset_token_n": 152,
+      "onset_token_q1": 0.0,
+      "onset_token_q3": 0.0,
+      "prop_onset_eq_0": 0.8157894736842105,
+      "prop_onset_gt_16": 0.05921052631578947,
+      "prop_onset_gt_8": 0.13815789473684212,
+      "prop_onset_le_1": 0.8157894736842105,
+      "prop_onset_le_2": 0.8223684210526315,
+      "prop_onset_le_4": 0.8289473684210527,
+      "prop_onset_le_8": 0.8618421052631579
+    },
+    "phase3_validation": {
+      "coverage_among_deceptive": 0.15723270440251572,
+      "n_deceptive": 318,
+      "n_high_confidence_onset": 50,
+      "n_total": 639,
+      "n_unique_prompt_groups_high_confidence": 24,
+      "n_unresolved": 268,
+      "onset_token_median": 0.0,
+      "onset_token_n": 50,
+      "onset_token_q1": 0.0,
+      "onset_token_q3": 0.0,
+      "prop_onset_eq_0": 0.8,
+      "prop_onset_gt_16": 0.04,
+      "prop_onset_gt_8": 0.14,
+      "prop_onset_le_1": 0.8,
+      "prop_onset_le_2": 0.8,
+      "prop_onset_le_4": 0.8,
+      "prop_onset_le_8": 0.86
+    }
+  },
+  "phase": "phase3a",
+  "prefix_lengths_k": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "preserved_fields_present": [
+    "ids",
+    "input",
+    "input_formatted",
+    "inputs",
+    "label_explanation",
+    "labels",
+    "model_outputs",
+    "scale_label_confidence",
+    "scale_label_explanation",
+    "scale_label_model",
+    "scale_labels"
+  ],
+  "primary_anchor_layer": 12,
+  "scenario_deception_rate_summary": {
+    "mean_rate": 0.5336502720727044,
+    "n_groups": 359,
+    "n_groups_mixed": 150,
+    "n_groups_rate_0": 92,
+    "n_groups_rate_1": 117
+  },
+  "source_files": {
+    "test": {
+      "hub_filename": "roleplaying/mistral_7b_incentivised_test.jsonl",
+      "path": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/data/processed/phase2_roleplay/raw_jsonl/mistral_7b_incentivised_test.jsonl",
+      "sha256": "fd292408e97ab9590d3fe9810ae987314c75c5dd68fdd4efadf0b882372868f3"
+    },
+    "train": {
+      "hub_filename": "roleplaying/mistral_7b_incentivised_train.jsonl",
+      "path": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/data/processed/phase2_roleplay/raw_jsonl/mistral_7b_incentivised_train.jsonl",
+      "sha256": "21e541e7284ac3a307aef5dcafa6c30a6ecfda6030584bb332d2ce10347ffc33"
+    }
+  },
+  "split_method": "GroupShuffleSplit(test_size=0.20, random_state=42)",
+  "splits": {
+    "locked_test": {
+      "class1_prevalence": 0.5,
+      "n_class0": 250,
+      "n_class1": 250,
+      "n_prompt_groups": 53,
+      "n_rows": 500
+    },
+    "phase3_train": {
+      "class1_prevalence": 0.5006353240152478,
+      "n_class0": 1179,
+      "n_class1": 1182,
+      "n_prompt_groups": 244,
+      "n_rows": 2361
+    },
+    "phase3_validation": {
+      "class1_prevalence": 0.49765258215962443,
+      "n_class0": 321,
+      "n_class1": 318,
+      "n_prompt_groups": 62,
+      "n_rows": 639
+    }
+  },
+  "surface_baseline_contract": {
+    "C_grid": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "char_tfidf_ngram_range": [
+      3,
+      5
+    ],
+    "logit_summaries_phase": "phase3b_optional",
+    "majority": true,
+    "negative_controls": [
+      "shuffled_label_probe",
+      "random_activation_direction"
+    ],
+    "prefix_structural": true,
+    "primary_surface_baseline": "prompt_plus_prefix",
+    "prompt_plus_prefix": true,
+    "prompt_text_only": true,
+    "select_C_on": "phase3_validation_only",
+    "word_tfidf_ngram_range": [
+      1,
+      2
+    ]
+  }
+}

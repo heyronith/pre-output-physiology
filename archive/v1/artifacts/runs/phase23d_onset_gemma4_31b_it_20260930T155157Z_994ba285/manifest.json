@@ -1,0 +1,35 @@
+{
+  "candidate": "gemma4_31b_it",
+  "cost": {
+    "cost_per_1000_judgments_usd": 5.283628571778537,
+    "estimated_cost_usd": 0.4226902857422829,
+    "gpu_seconds": 608.6740114688873,
+    "gpu_type": "A100-80GB",
+    "n_input_tokens": 26434,
+    "n_output_tokens": 5752,
+    "n_responses": 80,
+    "responses_per_sec": 0.13143324422039865,
+    "usd_per_hour_assumed": 2.5,
+    "wall_seconds": 608.6740114688873
+  },
+  "created_at": "2026-09-30T15:51:57.268950+00:00",
+  "design_sha256": "40fecca062757f489b1b7e1661e0728c9c52f205b9013e6dfc9b1b34a7c45cff",
+  "git_commit": "acbe75d606b1996b08d1b53a38d5c62a34435018",
+  "hf_id": "google/gemma-4-31B-it",
+  "inference": {
+    "do_sample": false,
+    "engine": "transformers_generate_temp0",
+    "max_model_len": 8192,
+    "max_new_tokens": 256,
+    "temperature": 0.0
+  },
+  "judgments_sha256": "43d03d0ab6c2424b78f1b22278ab0d0778d843a6974aa834abb46fa4d405f1a4",
+  "metric_tokenizer_hf_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "metric_tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n": 80,
+  "n_valid_json": 80,
+  "onset_sample_sha256": "5a439094f23cbb22ec121a7f2c074466a112a77bac737f36ce7dc6e7ddd357ca",
+  "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "run_id": "phase23d_onset_gemma4_31b_it_20260930T155157Z_994ba285",
+  "stage": "23D_onset"
+}

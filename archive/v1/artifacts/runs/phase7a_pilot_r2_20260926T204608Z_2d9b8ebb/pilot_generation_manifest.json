@@ -1,0 +1,31 @@
+{
+  "activations_collected": false,
+  "batch_size": 1,
+  "context_counts": {
+    "inf_high__ver_high": 32,
+    "inf_high__ver_low": 32,
+    "inf_low__ver_high": 32,
+    "inf_low__ver_low": 32
+  },
+  "created_at": "2026-09-26T20:47:01+00:00",
+  "do_sample": false,
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.02467301763097445,
+  "final_scenarios_run": false,
+  "generator_sha256": "2c363586705606a452c745b43b2e198eabd40de24caecb541c3730e2f44159b1",
+  "git_commit": "2d9b8ebb77f1bc77b1ee69453ff16177495cf928",
+  "gpu_type": "L40S",
+  "max_new_tokens": 32,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_pilot_outputs": 128,
+  "pilot_prompt_text_sha256": "b23907876d09a42398a371cf1eccbee72b69402c56ce297366c81d644a9b8db3",
+  "probe_scored": false,
+  "prompt_template_revision": 2,
+  "quantization": null,
+  "raw_outputs_path": "artifacts/runs/phase7a_pilot_r2_20260926T204608Z_2d9b8ebb/pilot_outputs.jsonl",
+  "raw_outputs_sha256": "de26d7950e1c3222f40123f52330331fa9cd9666c138ef87933f629d662e70f1",
+  "run_id": "phase7a_pilot_r2_20260926T204608Z_2d9b8ebb",
+  "wall_seconds": 45.55018639564514,
+  "working_tree_clean": true
+}

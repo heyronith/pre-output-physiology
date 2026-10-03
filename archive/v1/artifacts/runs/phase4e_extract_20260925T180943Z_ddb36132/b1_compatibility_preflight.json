@@ -1,0 +1,107 @@
+{
+  "canonical_b1_run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+  "cosine_min_required": 0.9999,
+  "estimated_cost_usd": 0.008265356659889221,
+  "example_ids": [
+    "92_8",
+    "86_1",
+    "51_4",
+    "223_1",
+    "364_2",
+    "243_0",
+    "185_6",
+    "2_18"
+  ],
+  "layer": 12,
+  "min_cosine_all": 0.9999999999999103,
+  "min_cosine_l12_k0": 0.9999999999999252,
+  "min_cosine_l12_k1": 0.9999999999999103,
+  "model_load_seconds": 12.99570083618164,
+  "n_samples": 8,
+  "passed": true,
+  "per_example": [
+    {
+      "cosine_l12_k0": 0.9999999999999313,
+      "cosine_l12_k1": 0.9999999999999274,
+      "example_id": "92_8",
+      "k1_token_id": 1770,
+      "n_prompt_tokens": 122
+    },
+    {
+      "cosine_l12_k0": 0.999999999999934,
+      "cosine_l12_k1": 0.9999999999999103,
+      "example_id": "86_1",
+      "k1_token_id": 415,
+      "n_prompt_tokens": 115
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999385,
+      "cosine_l12_k1": 0.9999999999999222,
+      "example_id": "51_4",
+      "k1_token_id": 1770,
+      "n_prompt_tokens": 115
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999264,
+      "cosine_l12_k1": 0.9999999999999175,
+      "example_id": "223_1",
+      "k1_token_id": 315,
+      "n_prompt_tokens": 112
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999297,
+      "cosine_l12_k1": 0.9999999999999243,
+      "example_id": "364_2",
+      "k1_token_id": 1770,
+      "n_prompt_tokens": 137
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999252,
+      "cosine_l12_k1": 0.9999999999999282,
+      "example_id": "243_0",
+      "k1_token_id": 5592,
+      "n_prompt_tokens": 130
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999314,
+      "cosine_l12_k1": 0.9999999999999153,
+      "example_id": "185_6",
+      "k1_token_id": 1770,
+      "n_prompt_tokens": 116
+    },
+    {
+      "cosine_l12_k0": 0.9999999999999356,
+      "cosine_l12_k1": 0.9999999999999242,
+      "example_id": "2_18",
+      "k1_token_id": 5592,
+      "n_prompt_tokens": 132
+    }
+  ],
+  "provenance": {
+    "activation_storage_dtype": "float32",
+    "batch_size": 1,
+    "canonical_b1_run_id": "phase3b1_extract_20260925T154005Z_39505f42",
+    "causal_intervention_authorized": false,
+    "compute_dtype": "bfloat16",
+    "condition_labels_in_extractor": false,
+    "controlled_prefix_token_id": 12107,
+    "extraction_mode": "truncated_prefix_single_example",
+    "extractor_path": "modal/phase4_extract_activations.py",
+    "extractor_sha256": "82cc09e409c2a48609def290d35fe291aa6bfb2c8911199dd739cb559eb9f268",
+    "frozen_probe_l12_k0_sha256": "dc14569a4e229cadc55fd3f6e6fef4e33f4eac4f58d00e83916238d5274f4f29",
+    "frozen_probe_l12_k1_sha256": "3bbf0c78e97d8ff14b028592e6e6ab3215651e973e0be1f004ce66e2b9b7aa65",
+    "future_response_tokens_present": false,
+    "git_commit": "ddb36132bb2209119958abaf00dbb44e234dfcc2",
+    "k_values": [
+      0,
+      1
+    ],
+    "layer": 12,
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+    "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "phase4d_run_id": "phase4d_final_20260925T174548Z_4d93730c",
+    "working_tree_clean": true
+  },
+  "run_id": "phase4e_extract_20260925T180943Z_ddb36132_preflight",
+  "wall_seconds": 15.259119987487793
+}

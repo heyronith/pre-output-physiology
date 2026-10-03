@@ -1,0 +1,13 @@
+{
+  "checkpoint_dir": "artifacts/runs/phase21_onset_ckpt_phase21_grade_20260928T205710Z_b6287702",
+  "created_at": "2026-09-28T21:29:24.169743+00:00",
+  "git_commit": "9b11c2fc024ae46788e7bac48bc917ad08dc8cbd",
+  "n_annotated": 3710,
+  "n_deceptive": 1586,
+  "n_explicit_span": 1579,
+  "onset_run_id": "phase21_onset_20260928T212924Z_68a5621c",
+  "openai_timeout_s": 60.0,
+  "shard_size": 100,
+  "source_grade_run_id": "phase21_grade_20260928T205710Z_b6287702",
+  "wall_seconds": 1532.1476409435272
+}

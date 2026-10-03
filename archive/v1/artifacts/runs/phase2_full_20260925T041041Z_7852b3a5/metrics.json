@@ -1,0 +1,42 @@
+{
+  "accuracy": 0.932,
+  "actual_fpr_at_tpr_metric": 0.008,
+  "auprc": 0.9841418474121428,
+  "auroc": 0.982464,
+  "auroc_bootstrap_mean": 0.9825002849822798,
+  "auroc_ci_high": 0.9901456028240577,
+  "auroc_ci_low": 0.9734022818778731,
+  "class_prevalence_positive": 0.5,
+  "confusion_matrix": {
+    "fn": 18,
+    "fp": 16,
+    "tn": 234,
+    "tp": 232
+  },
+  "f1": 0.9317269076305221,
+  "majority_baseline_accuracy": 0.5,
+  "n": 500,
+  "n_bootstrap_effective": 2000,
+  "n_negative": 250,
+  "n_positive": 250,
+  "phase2_verdict": "PASS",
+  "precision": 0.9354838709677419,
+  "probe": {
+    "C": 0.01,
+    "coef_norm": 1.3340329616563622,
+    "converged": true,
+    "fit_intercept": true,
+    "max_iter": 500,
+    "n_iter": 53,
+    "normalize": true,
+    "random_state": 42
+  },
+  "recall": 0.928,
+  "sensitivity": 0.928,
+  "specificity": 0.936,
+  "test_n": 500,
+  "tpr_at_or_below_1pct_fpr": 0.828,
+  "train_n": 3000,
+  "train_neg": 1500,
+  "train_pos": 1500
+}

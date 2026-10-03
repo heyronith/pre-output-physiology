@@ -1,0 +1,106 @@
+{
+  "activation_storage_dtype": "float32",
+  "analysis_script_sha256": "6b3dc9faa879fe10325a2906f94263e7db58585e8e87dac097a413c9d1f1eb2a",
+  "batch_size": 1,
+  "canonical_run_code_sha": "05a13a5ba0c327ce6a7f5774241c09916976a677",
+  "causal_interventions": false,
+  "compute_dtype": "bfloat16",
+  "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
+  "dev_analysis_script_sha256": "d531293d1e8310e71ba2089c2f27d2068a08865124de67d6ff51498307ba2731",
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.04864053263266881,
+  "extraction_mode": "truncated_prefix_single_example",
+  "extractor_sha256": "e56746511623645903047e45c21521eff5ea2cf49674b8f8d599a445e767ccdf",
+  "forwards_per_sec": 29.949193612610138,
+  "full_sequence_teacher_forced_primary": false,
+  "future_response_tokens_present": false,
+  "git_commit": "05a13a5ba0c327ce6a7f5774241c09916976a677",
+  "gpu_type": "L40S",
+  "hidden_size": 4096,
+  "k0_artifact": {
+    "bytes": 7815972,
+    "dtype": "float32",
+    "group_map": "k0_group_map.json",
+    "path": "k0_prompt_groups.safetensors",
+    "sha256": "7fa7f6ffaefc55bada14cba6ddb117e235d1a7498f6566dba755164dff15701a",
+    "shape": [
+      53,
+      9,
+      4096
+    ]
+  },
+  "k0_extract_seconds": 3.666300058364868,
+  "k_values": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "l40s_usd_per_hour_assumed": 1.95,
+  "labels_present_in_gpu_payload": false,
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "locked_analysis_script_sha256": "6b3dc9faa879fe10325a2906f94263e7db58585e8e87dac097a413c9d1f1eb2a",
+  "locked_eligibility_freeze_sha256": "30371dcaba266ebb2acec06563df9916f27d9e5afd4555e9fa1b8c206ae9ea2a",
+  "locked_test_present": true,
+  "mode": "extract_truncated_dev",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_load_seconds": 9.11407470703125,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_examples": 500,
+  "n_prompt_groups": 53,
+  "n_scientific_forwards": 2407,
+  "num_gpus": 1,
+  "original_preflight_gate_relaxed": false,
+  "preserves_original_dev_run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
+  "quantization": null,
+  "regime_c_run": false,
+  "resolved_commit_hash": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "run_id": "phase3b2_extract_20260925T161009Z_ae18a95e",
+  "software_versions": {
+    "accelerate": "0.33.0",
+    "python": "3.11",
+    "safetensors": "0.4.4",
+    "torch": "2.4.1",
+    "transformers": "4.44.2"
+  },
+  "splits_present": [
+    "locked_test"
+  ],
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00",
+  "tokens_per_sec": 3979.5970862775243,
+  "total_artifact_bytes": 450231788,
+  "total_tokens": 319838,
+  "trajectory_extract_seconds": 76.70314264297485,
+  "trajectory_shards": [
+    {
+      "bytes": 221207908,
+      "example_ids_sha256": "f5fb31c04c9d0676a14409bfaa6b9473b993012587310246bd3f683a8ea51e62",
+      "meta": "trajectory_shard_00000_00249_meta.json",
+      "n_rows": 250,
+      "sha256": "1c54d76a248377b67b80479423fb5cfa108f79eedfbd64ab78c7b3ff3359d8d4",
+      "shard": "trajectory_shard_00000_00249.safetensors"
+    },
+    {
+      "bytes": 221207908,
+      "example_ids_sha256": "7da2436469e9be7c053438f76621d06988ff0baeb2aafad990efb67ef72cf40d",
+      "meta": "trajectory_shard_00250_00499_meta.json",
+      "n_rows": 250,
+      "sha256": "f517c835e304aed4695f7ad29b20aea48be5e2cb6f3f3d110da9378fb299895d",
+      "shard": "trajectory_shard_00250_00499.safetensors"
+    }
+  ],
+  "wall_seconds": 89.7979063987732,
+  "working_tree_clean": true
+}

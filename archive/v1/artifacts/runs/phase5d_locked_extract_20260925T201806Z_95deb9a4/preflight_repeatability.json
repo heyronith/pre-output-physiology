@@ -1,0 +1,27 @@
+{
+  "cosine_min_required": 0.9999,
+  "endpoint": "k1",
+  "estimated_cost_usd": 0.008262934317191441,
+  "layer": 12,
+  "n_samples": 8,
+  "passed": true,
+  "provenance": {
+    "causal_intervention_authorized": false,
+    "condition_labels_in_extractor": false,
+    "controlled_prefix_token_id": 12107,
+    "endpoint": "k1",
+    "extractor_sha256": "46f948e64d82d5bcd03b4a13ed3d94c154d76c5325a446d0ec81b750e50c097e",
+    "future_response_tokens_present": false,
+    "git_commit": "95deb9a42cb5e09526ec2f805c96e1c248be27aa",
+    "layer": 12,
+    "locked_pair_ids_sha256": "ee845e48546d6b40cfb8f6eab37f0580967be776b442b498df90189c17be34a1",
+    "locked_prompt_text_sha256": "3a0ac9929e0971fd333bcc3d5a17b8b5b9d8b81dd6a75a8d5fe437dcd85a5097",
+    "no_layer_selection": true,
+    "no_retraining": true,
+    "probe_sha256": "fa725af194eb1ca227301e6519029c818e942dab4bc130de060aa0754f4709c8",
+    "working_tree_clean": true
+  },
+  "repeatability_min_cosine": 0.999999999999934,
+  "run_id": "phase5d_locked_extract_20260925T201806Z_95deb9a4_preflight",
+  "wall_seconds": 15.254647970199585
+}

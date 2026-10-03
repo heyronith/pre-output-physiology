@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-28T20:57:10.617766+00:00",
+  "git_commit": "2555876e295d08b75e1cfcf2d03726d49ff37002",
+  "grade_run_id": "phase21_grade_20260928T205710Z_b6287702",
+  "grader_model": "gpt-4o-2024-08-06",
+  "label_counts": {
+    "ambiguous": 871,
+    "deceptive": 1586,
+    "exclude": 80,
+    "honest": 1173
+  },
+  "n": 3710,
+  "source_gen_run_id": "phase21_gen_20260928T180342Z_3d3671eb",
+  "wall_seconds": 8410.772365570068
+}

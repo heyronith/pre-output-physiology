@@ -1,0 +1,48 @@
+{
+  "activation_shape": [
+    100,
+    4096
+  ],
+  "activations_sha256": "ff21cabd3f3d8cb141421db9eb221afe7aac46f79f838805e0aba88d00d946d0",
+  "artifacts": {
+    "activations": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/runs/phase2_preflight_20260925T041010Z_ceaecfe5/activations.safetensors",
+    "metadata": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/artifacts/runs/phase2_preflight_20260925T041010Z_ceaecfe5/metadata.jsonl"
+  },
+  "batch_size": 8,
+  "cost_accounting_note": "Recalculated locally at $1.95/hr from recorded durations; no GPU re-run.",
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.007395464688539505,
+  "examples_per_sec": 25.548931764748307,
+  "extract_seconds": 3.914057970046997,
+  "gpu_type": "L40S",
+  "hidden_size": 4096,
+  "hook_fire_count": 17,
+  "hook_module_path": "model.model.layers[12]",
+  "l40s_usd_per_hour_assumed": 1.95,
+  "metadata_rows_n": 100,
+  "mode": "preflight",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_load_seconds": 9.739107608795166,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_examples": 100,
+  "num_gpus": 1,
+  "quantization": null,
+  "reproducibility_checks": [
+    {
+      "example_id": "92_8",
+      "max_abs_diff": 0.0
+    },
+    {
+      "example_id": "86_1",
+      "max_abs_diff": 0.0
+    }
+  ],
+  "reproducibility_tolerance_max_abs": 1e-05,
+  "resolved_commit_hash": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "resolved_name_or_path": "mistralai/Mistral-7B-Instruct-v0.2",
+  "run_id": "phase2_preflight_20260925T041010Z_ceaecfe5",
+  "tokens_per_sec": 3964.683231253642,
+  "total_tokens": 15518,
+  "transformer_block_index": 12,
+  "wall_seconds": 13.854100465774536
+}

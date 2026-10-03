@@ -1,0 +1,63 @@
+{
+  "activation_locations_collected": {
+    "aggregation": "attention_mask_mean_non_padding",
+    "hook_module_path": "model.model.layers[12]",
+    "transformer_block_index": 12
+  },
+  "aggregation_method": "attention_mask_mean_non_padding",
+  "apollo_revision": "f8ec4010e74927394709dffa22b97bdf8cd5a62f",
+  "batch_size": 8,
+  "config_file": "/Users/ronny/Desktop/Research/AI ALIGNMENT/preoutput/configs/experiments/phase2_positive_control.yaml",
+  "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
+  "estimated_cost_usd": 0.03994482329487801,
+  "execution_duration_seconds": {
+    "extract": 64.98676681518555,
+    "model_load": 8.757522344589233,
+    "wall": 74.10749125480652
+  },
+  "generation_parameters": {
+    "add_special_tokens": false,
+    "mode": "teacher_forced_no_generation",
+    "text_construction": "input_formatted+model_outputs"
+  },
+  "git_commit": "a97a0df477a8dc0e4d7a8b101c8f4a21cbeca893",
+  "gpu_type": "L40S",
+  "hardware": "modal",
+  "hook_module_path": "model.model.layers[12]",
+  "input_artifact_hashes": {
+    "test_jsonl": "fd292408e97ab9590d3fe9810ae987314c75c5dd68fdd4efadf0b882372868f3",
+    "train_jsonl": "21e541e7284ac3a307aef5dcafa6c30a6ecfda6030584bb332d2ce10347ffc33"
+  },
+  "lasr_code_revision": "f4c6ad69b10a5436a2e819c69009431802a0f5f7",
+  "lasr_hf_repo": "lasrprobegen/deception-activations",
+  "modal_gpu": "L40S",
+  "model_dtype": "bfloat16",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "output_artifact_hashes": {
+    "activations.safetensors": "003aad4b418fb671423c4b7bf379f25389b232b1a008e49ace48f4ff47ee1cea",
+    "metadata.jsonl": "d647b8ad93d34c4df372898feb52203686d51778debad66bdde78f35501293c1",
+    "metrics.json": "f23b1ef747eaebbfdb30e4581f1b00538a33f431f6dedaea6e70c7544dab2e09"
+  },
+  "phase2_verdict": "PASS",
+  "precision": "bfloat16",
+  "quantization": null,
+  "random_seed": 42,
+  "run_id": "phase2_full_20260925T041041Z_7852b3a5",
+  "software_versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.5",
+    "python": "3.11.15",
+    "sklearn": "1.9.1",
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "yaml": "6.0.3"
+  },
+  "test_jsonl": "roleplaying/mistral_7b_incentivised_test.jsonl",
+  "timestamp": "2026-09-25T05:07:43+00:00",
+  "tokenizer_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "train_jsonl": "roleplaying/mistral_7b_incentivised_train.jsonl",
+  "transformer_block_index": 12
+}

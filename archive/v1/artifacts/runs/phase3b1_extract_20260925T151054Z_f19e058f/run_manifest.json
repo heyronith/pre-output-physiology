@@ -1,0 +1,174 @@
+{
+  "batch_size": 1,
+  "causal_interventions": false,
+  "dataset_revision": "bf93584916fbd23121eca6f2017017df0ef3184f",
+  "dtype": "bfloat16",
+  "estimated_cost_usd": 0.2519175602396329,
+  "extraction_mode": "truncated_prefix_single_example",
+  "forwards_per_sec": 30.986962273526302,
+  "full_sequence_teacher_forced_primary": false,
+  "future_response_tokens_present": false,
+  "gpu_type": "L40S",
+  "hidden_size": 4096,
+  "k0_artifact": {
+    "bytes": 22564608,
+    "group_map": "k0_group_map.json",
+    "path": "k0_prompt_groups.safetensors",
+    "sha256": "0afb173638c43c05e2dc9236c33a88c3abbe618bf5ab4a712dd666123dad5b3a",
+    "shape": [
+      306,
+      9,
+      4096
+    ]
+  },
+  "k0_extract_seconds": 11.37961483001709,
+  "k_values": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "l40s_usd_per_hour_assumed": 1.95,
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    31
+  ],
+  "locked_test_present": false,
+  "mode": "extract_truncated_dev",
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+  "model_load_seconds": 8.919320583343506,
+  "model_revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "n_examples": 3000,
+  "n_prompt_groups": 306,
+  "n_scientific_forwards": 14079,
+  "num_gpus": 1,
+  "original_preflight_gate_relaxed": false,
+  "quantization": null,
+  "regime_c_run": false,
+  "resolved_commit_hash": "63a8b081895390a26e140280378bc85ec8bce07a",
+  "run_id": "phase3b1_extract_20260925T151054Z_f19e058f",
+  "software_versions": {
+    "accelerate": "0.33.0",
+    "python": "3.11",
+    "safetensors": "0.4.4",
+    "torch": "2.4.1",
+    "transformers": "4.44.2"
+  },
+  "splits_present": [
+    "phase3_train",
+    "phase3_validation"
+  ],
+  "surface_baseline_freeze_sha256": "b25c5095c1cba440103343f90408c4caac0b59785bdc28b57a46abea405bcd00",
+  "tokens_per_sec": 4028.5824133541764,
+  "total_artifact_bytes": 1349955408,
+  "total_tokens": 1830396,
+  "trajectory_extract_seconds": 442.972763299942,
+  "trajectory_shards": [
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "17d831707c45ac04fcf993fe801ac59fa1fe6f7853ebe9ed79e9f5fdef525b7c",
+      "meta": "trajectory_shard_00000_00249_meta.json",
+      "n_rows": 250,
+      "sha256": "356542c93fa3a0be03f2c13b21080b85287979faf6a7ae545793c344346bbae7",
+      "shard": "trajectory_shard_00000_00249.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "85e460632ed3533930dc347eef9b5e5d9ccf2134f11a19f6ce97177de1072211",
+      "meta": "trajectory_shard_00250_00499_meta.json",
+      "n_rows": 250,
+      "sha256": "71b8865e50137f76d57e284049d2e28403df68e4e8b456f216986445f20d3a75",
+      "shard": "trajectory_shard_00250_00499.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "ff153bcc48d8d835712ac157b134e0ffad489d9defc994240ebf5c8038e26179",
+      "meta": "trajectory_shard_00500_00749_meta.json",
+      "n_rows": 250,
+      "sha256": "56e95cf028eacbe1e43285a1661b27e8109da50d05e1d7de920f106ec8280225",
+      "shard": "trajectory_shard_00500_00749.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "faddfba568fc2647134b3748586db64e9983e88315192e23e4428a63b4c2cfee",
+      "meta": "trajectory_shard_00750_00999_meta.json",
+      "n_rows": 250,
+      "sha256": "7970702413d4ce51543d9d332bdfca3780a6a508af6dc5a56a0e56a932e24542",
+      "shard": "trajectory_shard_00750_00999.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "7062829704227df4fc9221775c89237efc232ac8b45233a9bcf30d58943552a6",
+      "meta": "trajectory_shard_01000_01249_meta.json",
+      "n_rows": 250,
+      "sha256": "8a6188637cb6f6ccbed9beb4aa20496f1e9d3ca8358150303b653acf58176f0a",
+      "shard": "trajectory_shard_01000_01249.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "9fc0d13d65f64a076b7fe8a6e3319a35624a01d5c5805cb565988e854a47e5f8",
+      "meta": "trajectory_shard_01250_01499_meta.json",
+      "n_rows": 250,
+      "sha256": "2d629b55e27056abe52ba6435141ccad84b2798abb550a0631daf75fe21c13a2",
+      "shard": "trajectory_shard_01250_01499.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "14ca499975c13f5bb8e73552eeb591e2284f959d286f216d729ed78fba83af28",
+      "meta": "trajectory_shard_01500_01749_meta.json",
+      "n_rows": 250,
+      "sha256": "b8fb913bd8c049daf74743f1eb98b151037227ffd5d056c53fefc525ba73891f",
+      "shard": "trajectory_shard_01500_01749.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "3a7d2ea307da9e2fa96e33c330186b817be381c2d8839baa019277edbc19a065",
+      "meta": "trajectory_shard_01750_01999_meta.json",
+      "n_rows": 250,
+      "sha256": "4fe80a3b7a2109965d042a9a38544163e2c7daa0ed71017de2bd0d4fc5d652dc",
+      "shard": "trajectory_shard_01750_01999.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "54b43828d09b5762d24238ff4df3a8cce0e6574be4bc6973a177511d83323252",
+      "meta": "trajectory_shard_02000_02249_meta.json",
+      "n_rows": 250,
+      "sha256": "5a3fbbcce536c0d83959c2e9a7059018ae62dd7c0057b5f9166b1fb91178447f",
+      "shard": "trajectory_shard_02000_02249.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "a1739d2a64877c35c9f518e559fb3ce36b853d0245b6a5a071a11b53cfa76975",
+      "meta": "trajectory_shard_02250_02499_meta.json",
+      "n_rows": 250,
+      "sha256": "2536ad8bd49f2b9766bdb64f11711d7d5ead5e44356e6120b9cedf74cc345477",
+      "shard": "trajectory_shard_02250_02499.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "dfe912dcc5beaaefdd224f187835da56e3847d9e60c8338a251966904e882f02",
+      "meta": "trajectory_shard_02500_02749_meta.json",
+      "n_rows": 250,
+      "sha256": "3b3758480d2dab5336fe33317abb878069cc65b90e8991d7234319057d6def52",
+      "shard": "trajectory_shard_02500_02749.safetensors"
+    },
+    {
+      "bytes": 110615900,
+      "example_ids_sha256": "768f17b6a904c83f3f37fa71858041b0f77d42f6725bdff3883bc2f03724d956",
+      "meta": "trajectory_shard_02750_02999_meta.json",
+      "n_rows": 250,
+      "sha256": "101562c44adefff9891e2824a2e9ab29fa1d5a469762ecfb8a551dce83ef97f8",
+      "shard": "trajectory_shard_02750_02999.safetensors"
+    }
+  ],
+  "wall_seconds": 465.07857275009155
+}
